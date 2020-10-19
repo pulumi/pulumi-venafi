@@ -1,52 +1,14 @@
-# Terraform Bridge Provider Boilerplate
+[![Actions Status](https://github.com/pulumi/pulumi-venafi/workflows/master/badge.svg)](https://github.com/pulumi/pulumi-venafi/actions)
+[![Slack](http://www.pulumi.com/images/docs/badges/slack.svg)](https://slack.pulumi.com)
+[![NPM version](https://badge.fury.io/js/%40pulumi%2Fvenafi.svg)](https://www.npmjs.com/package/@pulumi/venafi)
+[![Python version](https://badge.fury.io/py/pulumi-venafi.svg)](https://pypi.org/project/pulumi-venafi)
+[![NuGet version](https://badge.fury.io/nu/pulumi.venafi.svg)](https://badge.fury.io/nu/pulumi.venafi)
+[![PkgGoDev](https://pkg.go.dev/badge/github.com/pulumi/pulumi-venafi/sdk/go)](https://pkg.go.dev/github.com/pulumi/pulumi-venafi/sdk/go)
+[![License](https://img.shields.io/npm/l/%40pulumi%2Fpulumi.svg)](https://github.com/pulumi/pulumi-venafi/blob/master/LICENSE)
 
-This repository contains boilerplate code for building a new Pulumi provider which wraps an existing
-Terraform provider, if the existing provider uses _Go Modules_.
+# Venafi Resource Provider
 
-Modify this README to describe:
-
-- The type of resources the provider manages
-- Add a build status image from Travis at the top of the README
-- Update package names in the information below
-- Add any important documentation of concepts (e.g. the "serverless" components in the AWS provider).
-
-## Creating a Pulumi Terraform Bridge Provider
-
-First, clone this repo with the name of the desired provider in place of `venafi`:
-
-```
-git clone https://github.com/pulumi/pulumi-tf-provider-boilerplate pulumi-venafi
-```
-
-Second, replace references to `venafi` with the name of your provider:
-
-```
-make prepare NAME=foo REPOSITORY=github.com/pulumi/pulumi-foo
-```
-
-Next, list the configuration points for the provider in the area of the README.
-
-
-> Note: If the name of the desired Pulumi provider differs from the name of the Terraform provider, you will need to carefully distinguish between the references - see https://github.com/pulumi/pulumi-azure for an example.
-
-### Add dependencies
-
-In order to properly build the sdks, the following tools are expected:
-- tf2pulumi (See the project's README for installation instructions: https://github.com/pulumi/tf2pulumi)
-- pandoc (`brew install pandoc`)
-
-In the root of the repository, run:
-
-- `GO111MODULE=on go get github.com/pulumi/pulumi-terraform@master`
-- `(cd provider && go get github.com/terraform-providers/terraform-provider-foo)`  (where `foo` is the name of the provider - note the parenthesis to run this in a subshell)
-- `(cd provider && go mod vendor)`
-- `make ensure`
-
-### Build the provider:
-
-- Edit `provider/resources.go` to map each resource, and specify provider information
-- Enumerate any examples in `examples/examples_test.go`
-- `make`
+The Venafi Resource Provider lets you manage Venafi resources.
 
 ## Installing
 
@@ -56,17 +18,17 @@ This package is available in many languages in the standard packaging formats.
 
 To use from JavaScript or TypeScript in Node.js, install using either `npm`:
 
-    $ npm install @pulumi/xyx
+    $ npm install @pulumi/venafi
 
 or `yarn`:
 
-    $ yarn add @pulumi/xyx
+    $ yarn add @pulumi/venafi
 
 ### Python
 
 To use from Python, install using `pip`:
 
-    $ pip install pulumi_xyx
+    $ pip install pulumi_venafi
 
 ### Go
 
@@ -74,16 +36,33 @@ To use from Go, use `go get` to grab the latest version of the library
 
     $ go get github.com/pulumi/pulumi-venafi/sdk/go/...
 
+### .NET
+
+To use from .NET, install using `dotnet add package`:
+
+    $ dotnet add package Pulumi.Venafi
+
 ## Configuration
 
-The following configuration points are available for the `venafi` provider:
+The following configuration points are available:
 
-- `venafi:apiKey` (environment: `XYZ_API_KEY`) - the API key for `venafi`
-- `venafi:region` (environment: `XYZ_REGION`) - the region in which to deploy resources
+- `venafi:zone` - (Optional) Zone ID for Venafi Cloud or policy folder for Venafi Platform.  
+  It can also be sourced from the `VENAFI_ZONE` environment variable.
+- `venafi:url` - (Optional) Venafi URL (e.g. `https://tpp.venafi.example`). It can also be sourced
+  from the `VENAFI_URL` environment variable.
+- `venafi:accessToken` - (Optional) authentication token for the API Application 
+  (applies only to Venafi Platform). It can also be sourced  from the `VENAFI_TOKEN` environment variable.
+- `venafi:apiKey` - (Optional) REST API key for authentication (applies only to Venafi Cloud).
+  It can also be sourced  from the `VENAFI_API` environment variable.
+- `venafi:tppUsername` - (Optional) WebSDK account username for authentication (applies only to Venafi Platform).
+  It can also be sourced  from the `VENAFI_USER` environment variable.
+- `venafi:tppPassword` - (Optional) WebSDK account password for authentication (applies only to Venafi Platform).
+  It can also be sourced  from the `VENAFI_PASS` environment variable.
+- `venafi:trustBundle` - (Optional) PEM trust bundle for Venafi Platform server certificate.
+- `venafi:devMode` - (Optional) When `true` will test the provider without connecting to Venafi Platform or Venafi Cloud.
+  It can also be sourced  from the `VENAFI_DEVMODE` environment variable.
 
 ## Reference
 
-For detailed reference documentation, please visit [the API docs][1].
-
-
-[1]: https://www.pulumi.com/docs/reference/pkg/x/
+For further information, please visit [the Venafi provider docs](https://www.pulumi.com/docs/intro/cloud-providers/venafi)
+or for detailed reference documentation, please visit [the API docs](https://www.pulumi.com/docs/reference/pkg/venafi).

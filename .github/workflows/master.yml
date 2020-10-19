@@ -388,7 +388,7 @@ jobs:
       run: make install_${{ matrix.language}}_sdk
     - name: Set correct host entry
       run: |
-        sudo "echo ${{ env.VENAFI_RESOLVING_IP }} ${{ env.VENAFI_URL }} >> /etc/hosts";
+        sudo echo ${{ env.VENAFI_RESOLVING_IP }} ${{ env.VENAFI_URL }} >> /etc/hosts;
     - name: Run tests
       run: cd examples && go test -v -count=1 -cover -timeout 2h -tags=${{ matrix.language
         }} -parallel 4 .
