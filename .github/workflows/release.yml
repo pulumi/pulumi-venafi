@@ -15,12 +15,13 @@ env:
   VENAFI_URL: ${{ secrets.VENAFI_URL }}
   VENAFI_USER: ${{ secrets.VENAFI_USER }}
   VENAFI_RESOLVING_IP: ${{ secrets.VENAFI_RESOLVING_IP }}
+  VENAFI_WEBADMIN_ENDPOINT: ${{ secrets.VENAFI_WEBADMIN_ENDPOINT }}
 jobs:
   warmup-server:
     name: warmup-test-server
     runs-on: ubuntu-latest
     steps:
-      - run: curl ${{ env.VENAFI_URL }}
+      - run: curl ${{ env.VENAFI_WEBADMIN_ENDPOINT }}
   build_sdk:
     name: build_sdk
     needs: prerequisites
