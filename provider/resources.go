@@ -12,26 +12,24 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package xyz
+package venafi
 
 import (
 	"unicode"
 
+	"github.com/Venafi/terraform-provider-venafi/venafi"
 	"github.com/hashicorp/terraform-plugin-sdk/helper/schema"
 	"github.com/pulumi/pulumi-terraform-bridge/v2/pkg/tfbridge"
 	shim "github.com/pulumi/pulumi-terraform-bridge/v2/pkg/tfshim"
 	shimv1 "github.com/pulumi/pulumi-terraform-bridge/v2/pkg/tfshim/sdk-v1"
 	"github.com/pulumi/pulumi/sdk/v2/go/common/resource"
 	"github.com/pulumi/pulumi/sdk/v2/go/common/tokens"
-	"github.com/terraform-providers/terraform-provider-xyz/xyz"
 )
 
 // all of the token components used below.
 const (
-	// packages:
-	mainPkg = "xyz"
-	// modules:
-	mainMod = "index" // the y module
+	mainPkg = "venafi"
+	mainMod = "index"
 )
 
 // makeMember manufactures a type token for the package and the given module and type.
@@ -44,34 +42,12 @@ func makeType(mod string, typ string) tokens.Type {
 	return tokens.Type(makeMember(mod, typ))
 }
 
-// makeDataSource manufactures a standard resource token given a module and resource name.  It
-// automatically uses the main package and names the file by simply lower casing the data source's
-// first character.
-func makeDataSource(mod string, res string) tokens.ModuleMember {
-	fn := string(unicode.ToLower(rune(res[0]))) + res[1:]
-	return makeMember(mod+"/"+fn, res)
-}
-
 // makeResource manufactures a standard resource token given a module and resource name.  It
 // automatically uses the main package and names the file by simply lower casing the resource's
 // first character.
 func makeResource(mod string, res string) tokens.Type {
 	fn := string(unicode.ToLower(rune(res[0]))) + res[1:]
 	return makeType(mod+"/"+fn, res)
-}
-
-// boolRef returns a reference to the bool argument.
-func boolRef(b bool) *bool {
-	return &b
-}
-
-// stringValue gets a string value from a property map if present, else ""
-func stringValue(vars resource.PropertyMap, prop resource.PropertyKey) string {
-	val, ok := vars[prop]
-	if ok && val.IsString() {
-		return val.StringValue()
-	}
-	return ""
 }
 
 // preConfigureCallback is called before the providerConfigure function of the underlying provider.
@@ -82,69 +58,42 @@ func preConfigureCallback(vars resource.PropertyMap, c shim.ResourceConfig) erro
 	return nil
 }
 
-// managedByPulumi is a default used for some managed resources, in the absence of something more meaningful.
-var managedByPulumi = &tfbridge.DefaultInfo{Value: "Managed by Pulumi"}
-
 // Provider returns additional overlaid schema and metadata associated with the provider..
 func Provider() tfbridge.ProviderInfo {
 	// Instantiate the Terraform provider
-	p := shimv1.NewProvider(xyz.Provider().(*schema.Provider))
+	p := shimv1.NewProvider(venafi.Provider().(*schema.Provider))
 
 	// Create a Pulumi provider mapping
 	prov := tfbridge.ProviderInfo{
-		P:           p,
-		Name:        "xyz",
-		Description: "A Pulumi package for creating and managing xyz cloud resources.",
-		Keywords:    []string{"pulumi", "xyz"},
-		License:     "Apache-2.0",
-		Homepage:    "https://pulumi.io",
-		Repository:  "https://github.com/pulumi/pulumi-xyz",
-		Config:      map[string]*tfbridge.SchemaInfo{
-			// Add any required configuration here, or remove the example below if
-			// no additional points are required.
-			// "region": {
-			// 	Type: makeType("region", "Region"),
-			// 	Default: &tfbridge.DefaultInfo{
-			// 		EnvVars: []string{"AWS_REGION", "AWS_DEFAULT_REGION"},
-			// 	},
-			// },
-		},
+		P:                    p,
+		Name:                 "venafi",
+		Description:          "A Pulumi package for creating and managing venafi cloud resources.",
+		Keywords:             []string{"pulumi", "venafi"},
+		License:              "Apache-2.0",
+		Homepage:             "https://pulumi.io",
+		Repository:           "https://github.com/pulumi/pulumi-venafi",
+		GitHubOrg:            "Venafi",
 		PreConfigureCallback: preConfigureCallback,
-		Resources:            map[string]*tfbridge.ResourceInfo{
-			// Map each resource in the Terraform provider to a Pulumi type. Two examples
-			// are below - the single line form is the common case. The multi-line form is
-			// needed only if you wish to override types or other default options.
-			//
-			// "aws_iam_role": {Tok: makeResource(mainMod, "IamRole")}
-			//
-			// "aws_acm_certificate": {
-			// 	Tok: makeResource(mainMod, "Certificate"),
-			// 	Fields: map[string]*tfbridge.SchemaInfo{
-			// 		"tags": {Type: makeType(mainPkg, "Tags")},
-			// 	},
-			// },
-		},
-		DataSources: map[string]*tfbridge.DataSourceInfo{
-			// Map each resource in the Terraform provider to a Pulumi function. An example
-			// is below.
-			// "aws_ami": {Tok: makeDataSource(mainMod, "getAmi")},
+		Resources: map[string]*tfbridge.ResourceInfo{
+			"venafi_certificate": {
+				Tok: makeResource(mainMod, "Certificate"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"certificate": {
+						CSharpName: "CertificateDetails",
+					},
+				},
+			},
 		},
 		JavaScript: &tfbridge.JavaScriptInfo{
-			// List any npm dependencies and their versions
 			Dependencies: map[string]string{
 				"@pulumi/pulumi": "^2.0.0",
 			},
 			DevDependencies: map[string]string{
-				"@types/node": "^8.0.25", // so we can access strongly typed node definitions.
+				"@types/node": "^8.0.25",
 				"@types/mime": "^2.0.0",
 			},
-			// See the documentation for tfbridge.OverlayInfo for how to lay out this
-			// section, or refer to the AWS provider. Delete this section if there are
-			// no overlay files.
-			//Overlay: &tfbridge.OverlayInfo{},
 		},
 		Python: &tfbridge.PythonInfo{
-			// List any Python dependencies and their version ranges
 			Requires: map[string]string{
 				"pulumi": ">=2.9.0,<3.0.0",
 			},
