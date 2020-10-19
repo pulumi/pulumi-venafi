@@ -14,8 +14,13 @@ env:
   VENAFI_PASS: ${{ secrets.VENAFI_PASS }}
   VENAFI_URL: ${{ secrets.VENAFI_URL }}
   VENAFI_USER: ${{ secrets.VENAFI_USER }}
-  VENAFI_ZONE: ${{ secrets.VENAFI_ZONE }}
+  VENAFI_RESOLVING_IP: ${{ secrets.VENAFI_RESOLVING_IP }}
 jobs:
+  warmup-server:
+    name: warmup-test-server
+    runs-on: ubuntu-latest
+    steps:
+      - run: curl ${{ env.VENAFI_URL }}
   build_sdk:
     name: build_sdk
     needs: prerequisites
@@ -209,7 +214,7 @@ jobs:
         status: ${{ job.status }}
   test:
     name: test
-    needs: build_sdk
+    needs: [build_sdk, warmup-server]
     runs-on: ubuntu-latest
     steps:
     - name: Checkout Repo
@@ -271,6 +276,9 @@ jobs:
         pip3 install pipenv
     - name: Install dependencies
       run: make install_${{ matrix.language}}_sdk
+    - name: Set correct host entry
+      run: |
+        sudo "echo ${{ env.VENAFI_RESOLVING_IP }} ${{ env.VENAFI_URL }} >> /etc/hosts";
     - name: Run tests
       run: cd examples && go test -v -count=1 -cover -timeout 2h -tags=${{ matrix.language
         }} -parallel 4 .
