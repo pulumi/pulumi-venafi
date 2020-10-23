@@ -21,7 +21,7 @@ jobs:
     name: warmup-test-server
     runs-on: ubuntu-latest
     steps:
-      - run: curl https://${{ env.VENAFI_ENDPOINT }}/vedadmin
+      - run: curl -k https://${{ env.VENAFI_ENDPOINT }}/vedadmin
   build_sdk:
     name: build_sdk
     needs: prerequisites
