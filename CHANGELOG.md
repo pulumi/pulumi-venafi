@@ -2,6 +2,9 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Initial release of the provider for v0.10.2 of the Venafi Terraform Provider
+_(none)_
 
 ---
+
+## 0.1.0 (2020-10-23)
+* Initial release of the provider for v0.10.2 of the Venafi Terraform Provider
