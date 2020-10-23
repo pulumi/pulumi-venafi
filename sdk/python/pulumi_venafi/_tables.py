@@ -12,6 +12,7 @@ SNAKE_TO_CAMEL_CASE_TABLE = {
     "dev_mode": "devMode",
     "ecdsa_curve": "ecdsaCurve",
     "expiration_window": "expirationWindow",
+    "issuer_hint": "issuerHint",
     "key_password": "keyPassword",
     "private_key_pem": "privateKeyPem",
     "rsa_bits": "rsaBits",
@@ -21,6 +22,7 @@ SNAKE_TO_CAMEL_CASE_TABLE = {
     "tpp_password": "tppPassword",
     "tpp_username": "tppUsername",
     "trust_bundle": "trustBundle",
+    "valid_days": "validDays",
 }
 
 CAMEL_TO_SNAKE_CASE_TABLE = {
@@ -33,6 +35,7 @@ CAMEL_TO_SNAKE_CASE_TABLE = {
     "devMode": "dev_mode",
     "ecdsaCurve": "ecdsa_curve",
     "expirationWindow": "expiration_window",
+    "issuerHint": "issuer_hint",
     "keyPassword": "key_password",
     "privateKeyPem": "private_key_pem",
     "rsaBits": "rsa_bits",
@@ -42,4 +45,5 @@ CAMEL_TO_SNAKE_CASE_TABLE = {
     "tppPassword": "tpp_password",
     "tppUsername": "tpp_username",
     "trustBundle": "trust_bundle",
+    "validDays": "valid_days",
 }

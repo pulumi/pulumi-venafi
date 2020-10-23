@@ -85,7 +85,8 @@ namespace Pulumi.Venafi
         public Output<string> CsrPem { get; private set; } = null!;
 
         /// <summary>
-        /// Collection of Custom Field name-value pairs to assign to the certificate.
+        /// Collection of Custom Field name-value pairs to
+        /// assign to the certificate.
         /// </summary>
         [Output("customFields")]
         public Output<ImmutableDictionary<string, string>?> CustomFields { get; private set; } = null!;
@@ -102,6 +103,14 @@ namespace Pulumi.Venafi
         /// </summary>
         [Output("expirationWindow")]
         public Output<int?> ExpirationWindow { get; private set; } = null!;
+
+        /// <summary>
+        /// Used with valid_days to indicate the target
+        /// issuer when using Trust Protection Platform.  Relevant values are: "DigiCert",
+        /// "Entrust", and "Microsoft".
+        /// </summary>
+        [Output("issuerHint")]
+        public Output<string?> IssuerHint { get; private set; } = null!;
 
         /// <summary>
         /// The password used to encrypt the private key.
@@ -148,6 +157,13 @@ namespace Pulumi.Venafi
         /// </summary>
         [Output("sanIps")]
         public Output<ImmutableArray<string>> SanIps { get; private set; } = null!;
+
+        /// <summary>
+        /// Desired number of days for which the new
+        /// certificate will be valid.
+        /// </summary>
+        [Output("validDays")]
+        public Output<int?> ValidDays { get; private set; } = null!;
 
 
         /// <summary>
@@ -218,7 +234,8 @@ namespace Pulumi.Venafi
         private InputMap<string>? _customFields;
 
         /// <summary>
-        /// Collection of Custom Field name-value pairs to assign to the certificate.
+        /// Collection of Custom Field name-value pairs to
+        /// assign to the certificate.
         /// </summary>
         public InputMap<string> CustomFields
         {
@@ -238,6 +255,14 @@ namespace Pulumi.Venafi
         /// </summary>
         [Input("expirationWindow")]
         public Input<int>? ExpirationWindow { get; set; }
+
+        /// <summary>
+        /// Used with valid_days to indicate the target
+        /// issuer when using Trust Protection Platform.  Relevant values are: "DigiCert",
+        /// "Entrust", and "Microsoft".
+        /// </summary>
+        [Input("issuerHint")]
+        public Input<string>? IssuerHint { get; set; }
 
         /// <summary>
         /// The password used to encrypt the private key.
@@ -302,6 +327,13 @@ namespace Pulumi.Venafi
             get => _sanIps ?? (_sanIps = new InputList<string>());
             set => _sanIps = value;
         }
+
+        /// <summary>
+        /// Desired number of days for which the new
+        /// certificate will be valid.
+        /// </summary>
+        [Input("validDays")]
+        public Input<int>? ValidDays { get; set; }
 
         public CertificateArgs()
         {
@@ -346,7 +378,8 @@ namespace Pulumi.Venafi
         private InputMap<string>? _customFields;
 
         /// <summary>
-        /// Collection of Custom Field name-value pairs to assign to the certificate.
+        /// Collection of Custom Field name-value pairs to
+        /// assign to the certificate.
         /// </summary>
         public InputMap<string> CustomFields
         {
@@ -366,6 +399,14 @@ namespace Pulumi.Venafi
         /// </summary>
         [Input("expirationWindow")]
         public Input<int>? ExpirationWindow { get; set; }
+
+        /// <summary>
+        /// Used with valid_days to indicate the target
+        /// issuer when using Trust Protection Platform.  Relevant values are: "DigiCert",
+        /// "Entrust", and "Microsoft".
+        /// </summary>
+        [Input("issuerHint")]
+        public Input<string>? IssuerHint { get; set; }
 
         /// <summary>
         /// The password used to encrypt the private key.
@@ -430,6 +471,13 @@ namespace Pulumi.Venafi
             get => _sanIps ?? (_sanIps = new InputList<string>());
             set => _sanIps = value;
         }
+
+        /// <summary>
+        /// Desired number of days for which the new
+        /// certificate will be valid.
+        /// </summary>
+        [Input("validDays")]
+        public Input<int>? ValidDays { get; set; }
 
         public CertificateState()
         {

@@ -66,13 +66,18 @@ type Certificate struct {
 	// The common name of the certificate.
 	CommonName pulumi.StringOutput `pulumi:"commonName"`
 	CsrPem     pulumi.StringOutput `pulumi:"csrPem"`
-	// Collection of Custom Field name-value pairs to assign to the certificate.
+	// Collection of Custom Field name-value pairs to
+	// assign to the certificate.
 	CustomFields pulumi.StringMapOutput `pulumi:"customFields"`
 	// ECDSA curve to use when generating a key
 	EcdsaCurve pulumi.StringPtrOutput `pulumi:"ecdsaCurve"`
 	// Number of hours before certificate expiry
 	// to request a new certificate.
 	ExpirationWindow pulumi.IntPtrOutput `pulumi:"expirationWindow"`
+	// Used with validDays to indicate the target
+	// issuer when using Trust Protection Platform.  Relevant values are: "DigiCert",
+	// "Entrust", and "Microsoft".
+	IssuerHint pulumi.StringPtrOutput `pulumi:"issuerHint"`
 	// The password used to encrypt the private key.
 	KeyPassword pulumi.StringPtrOutput `pulumi:"keyPassword"`
 	// A base64-encoded PKCS#12 keystore secured by the `keyPassword`.
@@ -91,6 +96,9 @@ type Certificate struct {
 	// List of IP addresses to use as alternative
 	// subjects of the certificate.
 	SanIps pulumi.StringArrayOutput `pulumi:"sanIps"`
+	// Desired number of days for which the new
+	// certificate will be valid.
+	ValidDays pulumi.IntPtrOutput `pulumi:"validDays"`
 }
 
 // NewCertificate registers a new resource with the given unique name, arguments, and options.
@@ -136,13 +144,18 @@ type certificateState struct {
 	// The common name of the certificate.
 	CommonName *string `pulumi:"commonName"`
 	CsrPem     *string `pulumi:"csrPem"`
-	// Collection of Custom Field name-value pairs to assign to the certificate.
+	// Collection of Custom Field name-value pairs to
+	// assign to the certificate.
 	CustomFields map[string]string `pulumi:"customFields"`
 	// ECDSA curve to use when generating a key
 	EcdsaCurve *string `pulumi:"ecdsaCurve"`
 	// Number of hours before certificate expiry
 	// to request a new certificate.
 	ExpirationWindow *int `pulumi:"expirationWindow"`
+	// Used with validDays to indicate the target
+	// issuer when using Trust Protection Platform.  Relevant values are: "DigiCert",
+	// "Entrust", and "Microsoft".
+	IssuerHint *string `pulumi:"issuerHint"`
 	// The password used to encrypt the private key.
 	KeyPassword *string `pulumi:"keyPassword"`
 	// A base64-encoded PKCS#12 keystore secured by the `keyPassword`.
@@ -161,6 +174,9 @@ type certificateState struct {
 	// List of IP addresses to use as alternative
 	// subjects of the certificate.
 	SanIps []string `pulumi:"sanIps"`
+	// Desired number of days for which the new
+	// certificate will be valid.
+	ValidDays *int `pulumi:"validDays"`
 }
 
 type CertificateState struct {
@@ -176,13 +192,18 @@ type CertificateState struct {
 	// The common name of the certificate.
 	CommonName pulumi.StringPtrInput
 	CsrPem     pulumi.StringPtrInput
-	// Collection of Custom Field name-value pairs to assign to the certificate.
+	// Collection of Custom Field name-value pairs to
+	// assign to the certificate.
 	CustomFields pulumi.StringMapInput
 	// ECDSA curve to use when generating a key
 	EcdsaCurve pulumi.StringPtrInput
 	// Number of hours before certificate expiry
 	// to request a new certificate.
 	ExpirationWindow pulumi.IntPtrInput
+	// Used with validDays to indicate the target
+	// issuer when using Trust Protection Platform.  Relevant values are: "DigiCert",
+	// "Entrust", and "Microsoft".
+	IssuerHint pulumi.StringPtrInput
 	// The password used to encrypt the private key.
 	KeyPassword pulumi.StringPtrInput
 	// A base64-encoded PKCS#12 keystore secured by the `keyPassword`.
@@ -201,6 +222,9 @@ type CertificateState struct {
 	// List of IP addresses to use as alternative
 	// subjects of the certificate.
 	SanIps pulumi.StringArrayInput
+	// Desired number of days for which the new
+	// certificate will be valid.
+	ValidDays pulumi.IntPtrInput
 }
 
 func (CertificateState) ElementType() reflect.Type {
@@ -215,13 +239,18 @@ type certificateArgs struct {
 	// The common name of the certificate.
 	CommonName string  `pulumi:"commonName"`
 	CsrPem     *string `pulumi:"csrPem"`
-	// Collection of Custom Field name-value pairs to assign to the certificate.
+	// Collection of Custom Field name-value pairs to
+	// assign to the certificate.
 	CustomFields map[string]string `pulumi:"customFields"`
 	// ECDSA curve to use when generating a key
 	EcdsaCurve *string `pulumi:"ecdsaCurve"`
 	// Number of hours before certificate expiry
 	// to request a new certificate.
 	ExpirationWindow *int `pulumi:"expirationWindow"`
+	// Used with validDays to indicate the target
+	// issuer when using Trust Protection Platform.  Relevant values are: "DigiCert",
+	// "Entrust", and "Microsoft".
+	IssuerHint *string `pulumi:"issuerHint"`
 	// The password used to encrypt the private key.
 	KeyPassword *string `pulumi:"keyPassword"`
 	// A base64-encoded PKCS#12 keystore secured by the `keyPassword`.
@@ -240,6 +269,9 @@ type certificateArgs struct {
 	// List of IP addresses to use as alternative
 	// subjects of the certificate.
 	SanIps []string `pulumi:"sanIps"`
+	// Desired number of days for which the new
+	// certificate will be valid.
+	ValidDays *int `pulumi:"validDays"`
 }
 
 // The set of arguments for constructing a Certificate resource.
@@ -251,13 +283,18 @@ type CertificateArgs struct {
 	// The common name of the certificate.
 	CommonName pulumi.StringInput
 	CsrPem     pulumi.StringPtrInput
-	// Collection of Custom Field name-value pairs to assign to the certificate.
+	// Collection of Custom Field name-value pairs to
+	// assign to the certificate.
 	CustomFields pulumi.StringMapInput
 	// ECDSA curve to use when generating a key
 	EcdsaCurve pulumi.StringPtrInput
 	// Number of hours before certificate expiry
 	// to request a new certificate.
 	ExpirationWindow pulumi.IntPtrInput
+	// Used with validDays to indicate the target
+	// issuer when using Trust Protection Platform.  Relevant values are: "DigiCert",
+	// "Entrust", and "Microsoft".
+	IssuerHint pulumi.StringPtrInput
 	// The password used to encrypt the private key.
 	KeyPassword pulumi.StringPtrInput
 	// A base64-encoded PKCS#12 keystore secured by the `keyPassword`.
@@ -276,6 +313,9 @@ type CertificateArgs struct {
 	// List of IP addresses to use as alternative
 	// subjects of the certificate.
 	SanIps pulumi.StringArrayInput
+	// Desired number of days for which the new
+	// certificate will be valid.
+	ValidDays pulumi.IntPtrInput
 }
 
 func (CertificateArgs) ElementType() reflect.Type {

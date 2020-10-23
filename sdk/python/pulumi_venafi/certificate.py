@@ -22,6 +22,7 @@ class Certificate(pulumi.CustomResource):
                  custom_fields: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  ecdsa_curve: Optional[pulumi.Input[str]] = None,
                  expiration_window: Optional[pulumi.Input[int]] = None,
+                 issuer_hint: Optional[pulumi.Input[str]] = None,
                  key_password: Optional[pulumi.Input[str]] = None,
                  pkcs12: Optional[pulumi.Input[str]] = None,
                  private_key_pem: Optional[pulumi.Input[str]] = None,
@@ -29,6 +30,7 @@ class Certificate(pulumi.CustomResource):
                  san_dns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  san_emails: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  san_ips: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 valid_days: Optional[pulumi.Input[int]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -67,10 +69,14 @@ class Certificate(pulumi.CustomResource):
         :param pulumi.Input[str] algorithm: Key encryption algorithm, either `RSA` or `ECDSA`.
                Defaults to `RSA`.
         :param pulumi.Input[str] common_name: The common name of the certificate.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] custom_fields: Collection of Custom Field name-value pairs to assign to the certificate.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] custom_fields: Collection of Custom Field name-value pairs to
+               assign to the certificate.
         :param pulumi.Input[str] ecdsa_curve: ECDSA curve to use when generating a key
         :param pulumi.Input[int] expiration_window: Number of hours before certificate expiry
                to request a new certificate.
+        :param pulumi.Input[str] issuer_hint: Used with valid_days to indicate the target
+               issuer when using Trust Protection Platform.  Relevant values are: "DigiCert",
+               "Entrust", and "Microsoft".
         :param pulumi.Input[str] key_password: The password used to encrypt the private key.
         :param pulumi.Input[str] pkcs12: A base64-encoded PKCS#12 keystore secured by the `key_password`.
         :param pulumi.Input[str] private_key_pem: The private key in PEM format.
@@ -82,6 +88,8 @@ class Certificate(pulumi.CustomResource):
                alternative subjects of the certificate.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] san_ips: List of IP addresses to use as alternative
                subjects of the certificate.
+        :param pulumi.Input[int] valid_days: Desired number of days for which the new
+               certificate will be valid.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -109,6 +117,7 @@ class Certificate(pulumi.CustomResource):
             __props__['custom_fields'] = custom_fields
             __props__['ecdsa_curve'] = ecdsa_curve
             __props__['expiration_window'] = expiration_window
+            __props__['issuer_hint'] = issuer_hint
             __props__['key_password'] = key_password
             __props__['pkcs12'] = pkcs12
             __props__['private_key_pem'] = private_key_pem
@@ -116,6 +125,7 @@ class Certificate(pulumi.CustomResource):
             __props__['san_dns'] = san_dns
             __props__['san_emails'] = san_emails
             __props__['san_ips'] = san_ips
+            __props__['valid_days'] = valid_days
             __props__['certificate'] = None
             __props__['chain'] = None
         super(Certificate, __self__).__init__(
@@ -137,13 +147,15 @@ class Certificate(pulumi.CustomResource):
             custom_fields: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             ecdsa_curve: Optional[pulumi.Input[str]] = None,
             expiration_window: Optional[pulumi.Input[int]] = None,
+            issuer_hint: Optional[pulumi.Input[str]] = None,
             key_password: Optional[pulumi.Input[str]] = None,
             pkcs12: Optional[pulumi.Input[str]] = None,
             private_key_pem: Optional[pulumi.Input[str]] = None,
             rsa_bits: Optional[pulumi.Input[int]] = None,
             san_dns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             san_emails: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-            san_ips: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None) -> 'Certificate':
+            san_ips: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+            valid_days: Optional[pulumi.Input[int]] = None) -> 'Certificate':
         """
         Get an existing Certificate resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -157,10 +169,14 @@ class Certificate(pulumi.CustomResource):
         :param pulumi.Input[str] chain: The trust chain of X509 certificate authority certificates in PEM format
                concatenated together.
         :param pulumi.Input[str] common_name: The common name of the certificate.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] custom_fields: Collection of Custom Field name-value pairs to assign to the certificate.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] custom_fields: Collection of Custom Field name-value pairs to
+               assign to the certificate.
         :param pulumi.Input[str] ecdsa_curve: ECDSA curve to use when generating a key
         :param pulumi.Input[int] expiration_window: Number of hours before certificate expiry
                to request a new certificate.
+        :param pulumi.Input[str] issuer_hint: Used with valid_days to indicate the target
+               issuer when using Trust Protection Platform.  Relevant values are: "DigiCert",
+               "Entrust", and "Microsoft".
         :param pulumi.Input[str] key_password: The password used to encrypt the private key.
         :param pulumi.Input[str] pkcs12: A base64-encoded PKCS#12 keystore secured by the `key_password`.
         :param pulumi.Input[str] private_key_pem: The private key in PEM format.
@@ -172,6 +188,8 @@ class Certificate(pulumi.CustomResource):
                alternative subjects of the certificate.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] san_ips: List of IP addresses to use as alternative
                subjects of the certificate.
+        :param pulumi.Input[int] valid_days: Desired number of days for which the new
+               certificate will be valid.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -186,6 +204,7 @@ class Certificate(pulumi.CustomResource):
         __props__["custom_fields"] = custom_fields
         __props__["ecdsa_curve"] = ecdsa_curve
         __props__["expiration_window"] = expiration_window
+        __props__["issuer_hint"] = issuer_hint
         __props__["key_password"] = key_password
         __props__["pkcs12"] = pkcs12
         __props__["private_key_pem"] = private_key_pem
@@ -193,6 +212,7 @@ class Certificate(pulumi.CustomResource):
         __props__["san_dns"] = san_dns
         __props__["san_emails"] = san_emails
         __props__["san_ips"] = san_ips
+        __props__["valid_days"] = valid_days
         return Certificate(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -243,7 +263,8 @@ class Certificate(pulumi.CustomResource):
     @pulumi.getter(name="customFields")
     def custom_fields(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
-        Collection of Custom Field name-value pairs to assign to the certificate.
+        Collection of Custom Field name-value pairs to
+        assign to the certificate.
         """
         return pulumi.get(self, "custom_fields")
 
@@ -263,6 +284,16 @@ class Certificate(pulumi.CustomResource):
         to request a new certificate.
         """
         return pulumi.get(self, "expiration_window")
+
+    @property
+    @pulumi.getter(name="issuerHint")
+    def issuer_hint(self) -> pulumi.Output[Optional[str]]:
+        """
+        Used with valid_days to indicate the target
+        issuer when using Trust Protection Platform.  Relevant values are: "DigiCert",
+        "Entrust", and "Microsoft".
+        """
+        return pulumi.get(self, "issuer_hint")
 
     @property
     @pulumi.getter(name="keyPassword")
@@ -323,6 +354,15 @@ class Certificate(pulumi.CustomResource):
         subjects of the certificate.
         """
         return pulumi.get(self, "san_ips")
+
+    @property
+    @pulumi.getter(name="validDays")
+    def valid_days(self) -> pulumi.Output[Optional[int]]:
+        """
+        Desired number of days for which the new
+        certificate will be valid.
+        """
+        return pulumi.get(self, "valid_days")
 
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

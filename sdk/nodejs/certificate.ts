@@ -84,7 +84,8 @@ export class Certificate extends pulumi.CustomResource {
     public readonly commonName!: pulumi.Output<string>;
     public readonly csrPem!: pulumi.Output<string>;
     /**
-     * Collection of Custom Field name-value pairs to assign to the certificate.
+     * Collection of Custom Field name-value pairs to
+     * assign to the certificate.
      */
     public readonly customFields!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -96,6 +97,12 @@ export class Certificate extends pulumi.CustomResource {
      * to request a new certificate.
      */
     public readonly expirationWindow!: pulumi.Output<number | undefined>;
+    /**
+     * Used with validDays to indicate the target
+     * issuer when using Trust Protection Platform.  Relevant values are: "DigiCert",
+     * "Entrust", and "Microsoft".
+     */
+    public readonly issuerHint!: pulumi.Output<string | undefined>;
     /**
      * The password used to encrypt the private key.
      */
@@ -128,6 +135,11 @@ export class Certificate extends pulumi.CustomResource {
      * subjects of the certificate.
      */
     public readonly sanIps!: pulumi.Output<string[] | undefined>;
+    /**
+     * Desired number of days for which the new
+     * certificate will be valid.
+     */
+    public readonly validDays!: pulumi.Output<number | undefined>;
 
     /**
      * Create a Certificate resource with the given unique name, arguments, and options.
@@ -150,6 +162,7 @@ export class Certificate extends pulumi.CustomResource {
             inputs["customFields"] = state ? state.customFields : undefined;
             inputs["ecdsaCurve"] = state ? state.ecdsaCurve : undefined;
             inputs["expirationWindow"] = state ? state.expirationWindow : undefined;
+            inputs["issuerHint"] = state ? state.issuerHint : undefined;
             inputs["keyPassword"] = state ? state.keyPassword : undefined;
             inputs["pkcs12"] = state ? state.pkcs12 : undefined;
             inputs["privateKeyPem"] = state ? state.privateKeyPem : undefined;
@@ -157,6 +170,7 @@ export class Certificate extends pulumi.CustomResource {
             inputs["sanDns"] = state ? state.sanDns : undefined;
             inputs["sanEmails"] = state ? state.sanEmails : undefined;
             inputs["sanIps"] = state ? state.sanIps : undefined;
+            inputs["validDays"] = state ? state.validDays : undefined;
         } else {
             const args = argsOrState as CertificateArgs | undefined;
             if (!args || args.commonName === undefined) {
@@ -169,6 +183,7 @@ export class Certificate extends pulumi.CustomResource {
             inputs["customFields"] = args ? args.customFields : undefined;
             inputs["ecdsaCurve"] = args ? args.ecdsaCurve : undefined;
             inputs["expirationWindow"] = args ? args.expirationWindow : undefined;
+            inputs["issuerHint"] = args ? args.issuerHint : undefined;
             inputs["keyPassword"] = args ? args.keyPassword : undefined;
             inputs["pkcs12"] = args ? args.pkcs12 : undefined;
             inputs["privateKeyPem"] = args ? args.privateKeyPem : undefined;
@@ -176,6 +191,7 @@ export class Certificate extends pulumi.CustomResource {
             inputs["sanDns"] = args ? args.sanDns : undefined;
             inputs["sanEmails"] = args ? args.sanEmails : undefined;
             inputs["sanIps"] = args ? args.sanIps : undefined;
+            inputs["validDays"] = args ? args.validDays : undefined;
             inputs["certificate"] = undefined /*out*/;
             inputs["chain"] = undefined /*out*/;
         }
@@ -215,7 +231,8 @@ export interface CertificateState {
     readonly commonName?: pulumi.Input<string>;
     readonly csrPem?: pulumi.Input<string>;
     /**
-     * Collection of Custom Field name-value pairs to assign to the certificate.
+     * Collection of Custom Field name-value pairs to
+     * assign to the certificate.
      */
     readonly customFields?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -227,6 +244,12 @@ export interface CertificateState {
      * to request a new certificate.
      */
     readonly expirationWindow?: pulumi.Input<number>;
+    /**
+     * Used with validDays to indicate the target
+     * issuer when using Trust Protection Platform.  Relevant values are: "DigiCert",
+     * "Entrust", and "Microsoft".
+     */
+    readonly issuerHint?: pulumi.Input<string>;
     /**
      * The password used to encrypt the private key.
      */
@@ -259,6 +282,11 @@ export interface CertificateState {
      * subjects of the certificate.
      */
     readonly sanIps?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Desired number of days for which the new
+     * certificate will be valid.
+     */
+    readonly validDays?: pulumi.Input<number>;
 }
 
 /**
@@ -277,7 +305,8 @@ export interface CertificateArgs {
     readonly commonName: pulumi.Input<string>;
     readonly csrPem?: pulumi.Input<string>;
     /**
-     * Collection of Custom Field name-value pairs to assign to the certificate.
+     * Collection of Custom Field name-value pairs to
+     * assign to the certificate.
      */
     readonly customFields?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -289,6 +318,12 @@ export interface CertificateArgs {
      * to request a new certificate.
      */
     readonly expirationWindow?: pulumi.Input<number>;
+    /**
+     * Used with validDays to indicate the target
+     * issuer when using Trust Protection Platform.  Relevant values are: "DigiCert",
+     * "Entrust", and "Microsoft".
+     */
+    readonly issuerHint?: pulumi.Input<string>;
     /**
      * The password used to encrypt the private key.
      */
@@ -321,4 +356,9 @@ export interface CertificateArgs {
      * subjects of the certificate.
      */
     readonly sanIps?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Desired number of days for which the new
+     * certificate will be valid.
+     */
+    readonly validDays?: pulumi.Input<number>;
 }

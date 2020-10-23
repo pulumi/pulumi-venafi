@@ -125,7 +125,7 @@
                     "additionalProperties": {
                         "type": "string"
                     },
-                    "description": "Collection of Custom Field name-value pairs to assign to the certificate.\n"
+                    "description": "Collection of Custom Field name-value pairs to\nassign to the certificate.\n"
                 },
                 "ecdsaCurve": {
                     "type": "string",
@@ -134,6 +134,10 @@
                 "expirationWindow": {
                     "type": "integer",
                     "description": "Number of hours before certificate expiry\nto request a new certificate.\n"
+                },
+                "issuerHint": {
+                    "type": "string",
+                    "description": "Used with valid_days to indicate the target\nissuer when using Trust Protection Platform.  Relevant values are: \"DigiCert\",\n\"Entrust\", and \"Microsoft\".\n"
                 },
                 "keyPassword": {
                     "type": "string",
@@ -171,6 +175,10 @@
                         "type": "string"
                     },
                     "description": "List of IP addresses to use as alternative\nsubjects of the certificate.\n"
+                },
+                "validDays": {
+                    "type": "integer",
+                    "description": "Desired number of days for which the new\ncertificate will be valid.\n"
                 }
             },
             "required": [
@@ -202,7 +210,7 @@
                     "additionalProperties": {
                         "type": "string"
                     },
-                    "description": "Collection of Custom Field name-value pairs to assign to the certificate.\n"
+                    "description": "Collection of Custom Field name-value pairs to\nassign to the certificate.\n"
                 },
                 "ecdsaCurve": {
                     "type": "string",
@@ -211,6 +219,10 @@
                 "expirationWindow": {
                     "type": "integer",
                     "description": "Number of hours before certificate expiry\nto request a new certificate.\n"
+                },
+                "issuerHint": {
+                    "type": "string",
+                    "description": "Used with valid_days to indicate the target\nissuer when using Trust Protection Platform.  Relevant values are: \"DigiCert\",\n\"Entrust\", and \"Microsoft\".\n"
                 },
                 "keyPassword": {
                     "type": "string",
@@ -248,6 +260,10 @@
                         "type": "string"
                     },
                     "description": "List of IP addresses to use as alternative\nsubjects of the certificate.\n"
+                },
+                "validDays": {
+                    "type": "integer",
+                    "description": "Desired number of days for which the new\ncertificate will be valid.\n"
                 }
             },
             "requiredInputs": [
@@ -288,7 +304,7 @@
                         "additionalProperties": {
                             "type": "string"
                         },
-                        "description": "Collection of Custom Field name-value pairs to assign to the certificate.\n"
+                        "description": "Collection of Custom Field name-value pairs to\nassign to the certificate.\n"
                     },
                     "ecdsaCurve": {
                         "type": "string",
@@ -297,6 +313,10 @@
                     "expirationWindow": {
                         "type": "integer",
                         "description": "Number of hours before certificate expiry\nto request a new certificate.\n"
+                    },
+                    "issuerHint": {
+                        "type": "string",
+                        "description": "Used with valid_days to indicate the target\nissuer when using Trust Protection Platform.  Relevant values are: \"DigiCert\",\n\"Entrust\", and \"Microsoft\".\n"
                     },
                     "keyPassword": {
                         "type": "string",
@@ -334,6 +354,10 @@
                             "type": "string"
                         },
                         "description": "List of IP addresses to use as alternative\nsubjects of the certificate.\n"
+                    },
+                    "validDays": {
+                        "type": "integer",
+                        "description": "Desired number of days for which the new\ncertificate will be valid.\n"
                     }
                 },
                 "type": "object"
