@@ -11,9 +11,6 @@ certificate = venafi.Certificate("demo-certificate-py",
                                  san_dns=["web01.venafi.example", "web02.venafi.example"],
                                  algorithm="RSA",
                                  rsa_bits=2048,
-                                 key_password=PASSWORD,
-                                 custom_fields={
-                                     "team": "development",
-                                 })
+                                 key_password=PASSWORD)
 
 pulumi.export("expiration_window", certificate.expiration_window)

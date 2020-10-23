@@ -13,9 +13,6 @@ const myCert = new venafi.Certificate("demo-certificate-ts", {
     algorithm: "RSA",
     rsaBits: 2048,
     keyPassword: certPassword,
-    customFields: {
-        "team": "development",
-    },
 });
 
 export const expirationWindow = myCert.expirationWindow;

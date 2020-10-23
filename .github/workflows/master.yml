@@ -12,17 +12,16 @@ env:
   SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
   TRAVIS_OS_NAME: linux
   VENAFI_PASS: ${{ secrets.VENAFI_PASS }}
-  VENAFI_URL: ${{ secrets.VENAFI_URL }}
-  VENAFI_HOST: ${{ secrets.VENAFI_HOST }}
+  VENAFI_URL: https://tpp.venafidemo.com/vedsdk
   VENAFI_USER: ${{ secrets.VENAFI_USER }}
-  VENAFI_RESOLVING_IP: ${{ secrets.VENAFI_RESOLVING_IP }}
-  VENAFI_WEBADMIN_ENDPOINT: ${{ secrets.VENAFI_WEBADMIN_ENDPOINT }}
+  VENAFI_ENDPOINT: ${{ secrets.VENAFI_ENDPOINT }}
+  VENAFI_ZONE: pulumi
 jobs:
   warmup-server:
     name: warmup-test-server
     runs-on: ubuntu-latest
     steps:
-      - run: curl ${{ env.VENAFI_WEBADMIN_ENDPOINT }}
+      - run: curl https://${{ env.VENAFI_ENDPOINT }}/vedadmin
   build_sdk:
     name: build_sdk
     needs: prerequisites
@@ -389,7 +388,8 @@ jobs:
       run: make install_${{ matrix.language}}_sdk
     - name: Set correct host entry
       run: |
-        echo "${{ env.VENAFI_RESOLVING_IP }} ${{ env.VENAFI_HOST }}" | sudo tee -a /etc/hosts
+        resolving_ip=$(dig +short ${{ env.VENAFI_ENDPOINT }})
+        echo "$resolving_ip tpp.venafidemo.com" | sudo tee -a /etc/hosts
     - name: Run tests
       run: cd examples && go test -v -count=1 -cover -timeout 2h -tags=${{ matrix.language
         }} -parallel 4 .
