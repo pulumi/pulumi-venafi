@@ -66,11 +66,11 @@ class Provider(pulumi.ProviderResource):
             __props__['access_token'] = access_token
             __props__['api_key'] = api_key
             __props__['dev_mode'] = pulumi.Output.from_input(dev_mode).apply(pulumi.runtime.to_json) if dev_mode is not None else None
-            if tpp_password is not None:
+            if tpp_password is not None and not opts.urn:
                 warnings.warn(""", please use access_token instead""", DeprecationWarning)
                 pulumi.log.warn("tpp_password is deprecated: , please use access_token instead")
             __props__['tpp_password'] = tpp_password
-            if tpp_username is not None:
+            if tpp_username is not None and not opts.urn:
                 warnings.warn(""", please use access_token instead""", DeprecationWarning)
                 pulumi.log.warn("tpp_username is deprecated: , please use access_token instead")
             __props__['tpp_username'] = tpp_username

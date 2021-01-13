@@ -173,7 +173,7 @@ export class Certificate extends pulumi.CustomResource {
             inputs["validDays"] = state ? state.validDays : undefined;
         } else {
             const args = argsOrState as CertificateArgs | undefined;
-            if (!args || args.commonName === undefined) {
+            if ((!args || args.commonName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'commonName'");
             }
             inputs["algorithm"] = args ? args.algorithm : undefined;
