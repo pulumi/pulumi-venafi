@@ -110,7 +110,7 @@ class Certificate(pulumi.CustomResource):
 
             __props__['algorithm'] = algorithm
             __props__['certificate_dn'] = certificate_dn
-            if common_name is None:
+            if common_name is None and not opts.urn:
                 raise TypeError("Missing required property 'common_name'")
             __props__['common_name'] = common_name
             __props__['csr_pem'] = csr_pem
