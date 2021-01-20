@@ -12,15 +12,10 @@ env:
   SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
   TRAVIS_OS_NAME: linux
   VENAFI_PASS: ${{ secrets.VENAFI_PASS }}
-  VENAFI_URL: ${{ secrets.VENAFI_ENDPOINT }}
+  VENAFI_URL: ${{ secrets.VENAFI_URL }}
   VENAFI_USER: ${{ secrets.VENAFI_USER }}
-  VENAFI_ZONE: pulumi
+  VENAFI_ZONE: ${{ secrets.VENAFI_ZONE }}
 jobs:
-  warmup-server:
-    name: warmup-test-server
-    runs-on: ubuntu-latest
-    steps:
-      - run: curl https://${{ secrets.VENAFI_ENDPOINT }}/vedsdk
   build_sdk:
     name: build_sdk
     needs: prerequisites
@@ -319,7 +314,7 @@ jobs:
       fail-fast: true
   test:
     name: test
-    needs: [build_sdk, warmup-server]
+    needs: build_sdk
     runs-on: ubuntu-latest
     steps:
     - name: Checkout Repo
