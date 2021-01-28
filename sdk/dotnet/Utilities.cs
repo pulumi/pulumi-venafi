@@ -77,4 +77,11 @@ namespace Pulumi.Venafi
             }
         }
     }
+
+    internal sealed class VenafiResourceTypeAttribute : Pulumi.ResourceTypeAttribute
+    {
+        public VenafiResourceTypeAttribute(string type) : base(type, Utilities.Version)
+        {
+        }
+    }
 }

@@ -25,7 +25,7 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-venafi/sdk/go/venafi"
+// 	"github.com/pulumi/pulumi-venafi/sdk/go/venafi/"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
@@ -331,15 +331,15 @@ type CertificateInput interface {
 	ToCertificateOutputWithContext(ctx context.Context) CertificateOutput
 }
 
-func (Certificate) ElementType() reflect.Type {
-	return reflect.TypeOf((*Certificate)(nil)).Elem()
+func (*Certificate) ElementType() reflect.Type {
+	return reflect.TypeOf((*Certificate)(nil))
 }
 
-func (i Certificate) ToCertificateOutput() CertificateOutput {
+func (i *Certificate) ToCertificateOutput() CertificateOutput {
 	return i.ToCertificateOutputWithContext(context.Background())
 }
 
-func (i Certificate) ToCertificateOutputWithContext(ctx context.Context) CertificateOutput {
+func (i *Certificate) ToCertificateOutputWithContext(ctx context.Context) CertificateOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateOutput)
 }
 
@@ -348,7 +348,7 @@ type CertificateOutput struct {
 }
 
 func (CertificateOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CertificateOutput)(nil)).Elem()
+	return reflect.TypeOf((*Certificate)(nil))
 }
 
 func (o CertificateOutput) ToCertificateOutput() CertificateOutput {

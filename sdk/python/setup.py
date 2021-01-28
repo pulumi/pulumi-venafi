@@ -48,7 +48,7 @@ setup(name='pulumi_venafi',
       packages=find_packages(),
       package_data={
           'pulumi_venafi': [
-              'py.typed'
+              'py.typed',
           ]
       },
       install_requires=[

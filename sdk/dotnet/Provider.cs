@@ -15,6 +15,7 @@ namespace Pulumi.Venafi
     /// construction to achieve fine-grained programmatic control over provider settings. See the
     /// [documentation](https://www.pulumi.com/docs/reference/programming-model/#providers) for more information.
     /// </summary>
+    [VenafiResourceType("pulumi:providers:venafi")]
     public partial class Provider : Pulumi.ProviderResource
     {
         /// <summary>
