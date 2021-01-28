@@ -50,6 +50,7 @@ namespace Pulumi.Venafi
     /// }
     /// ```
     /// </summary>
+    [VenafiResourceType("venafi:index/certificate:Certificate")]
     public partial class Certificate : Pulumi.CustomResource
     {
         /// <summary>
