@@ -381,6 +381,10 @@ jobs:
         pip3 install pipenv
     - name: Install dependencies
       run: make install_${{ matrix.language}}_sdk
+    - name: Set correct host entry
+      run: |
+        resolving_ip=$(dig +short ${{ env.VENAFI_ENDPOINT }})
+        echo "$resolving_ip tpp.venafidemo.com" | sudo tee -a /etc/hosts
     - name: Run tests
       run: cd examples && go test -v -count=1 -cover -timeout 2h -tags=${{ matrix.language
         }} -parallel 4 .
