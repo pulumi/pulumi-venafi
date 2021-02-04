@@ -11,16 +11,11 @@ env:
   PYPI_PASSWORD: ${{ secrets.PYPI_PASSWORD }}
   SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
   TRAVIS_OS_NAME: linux
-  VENAFI_PASS: ${{ secrets.VENAFI_PASS }}
-  VENAFI_URL: ${{ secrets.VENAFI_ENDPOINT }}
-  VENAFI_USER: ${{ secrets.VENAFI_USER }}
-  VENAFI_ZONE: pulumi
+  VENAFI_TOKEN: ${{ secrets.VENAFI_TOKEN }}
+  VENAFI_ZONE: ${{ secrets.VENAFI_ZONE }}
+  VENAFI_URL: ${{ secrets.VENAFI_URL }}
+
 jobs:
-  warmup-server:
-    name: warmup-test-server
-    runs-on: ubuntu-latest
-    steps:
-      - run: curl https://${{ secrets.VENAFI_ENDPOINT }}/vedsdk
   build_sdk:
     name: build_sdk
     needs: prerequisites
@@ -331,7 +326,7 @@ jobs:
       fail-fast: true
   test:
     name: test
-    needs: [build_sdk, warmup-server]
+    needs: build_sdk
     runs-on: ubuntu-latest
     steps:
     - name: Checkout Repo
@@ -393,10 +388,6 @@ jobs:
         pip3 install pipenv
     - name: Install dependencies
       run: make install_${{ matrix.language}}_sdk
-    - name: Set correct host entry
-      run: |
-        resolving_ip=$(dig +short ${{ env.VENAFI_ENDPOINT }})
-        echo "$resolving_ip tpp.venafidemo.com" | sudo tee -a /etc/hosts
     - name: Run tests
       run: cd examples && go test -v -count=1 -cover -timeout 2h -tags=${{ matrix.language
         }} -parallel 4 .
