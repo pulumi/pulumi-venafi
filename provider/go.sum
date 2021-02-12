@@ -84,10 +84,8 @@ github.com/OneOfOne/xxhash v1.2.2/go.mod h1:HSdplMjZKSmBqAxg5vPj2TmRDmfkzw+cTzAE
 github.com/OpenPeeDeeP/depguard v1.0.1/go.mod h1:xsIw86fROiiwelg+jB2uM9PiKihMMmUx/1V+TNhjQvM=
 github.com/Sirupsen/logrus v1.0.5/go.mod h1:rmk17hk6i8ZSAJkSDa7nOxamrG+SP4P0mm+DAvExv4U=
 github.com/StackExchange/wmi v0.0.0-20180116203802-5d049714c4a6/go.mod h1:3eOhrUMpNV+6aFIbp5/iudMxNCF27Vw2OZgy4xEx0Fg=
-github.com/Venafi/vcert v3.18.4+incompatible h1:mDXSjd+EpXa8YEkEo9Oad19E270aiPJJMhjoKs63b+8=
-github.com/Venafi/vcert v3.18.4+incompatible/go.mod h1:3dpfrCI+31cDZosD+1UX8GFziVFORaegByXtzT1dwNo=
-github.com/Venafi/vcert/v4 v4.11.1 h1:BmV17mEbNIxIrJZhKO47AIHQTHDIZBOntgwqkrRySPU=
-github.com/Venafi/vcert/v4 v4.11.1/go.mod h1:OE+UZ0cj8qqVUuk0u7R4GIk4ZB6JMSf/WySqnBPNwws=
+github.com/Venafi/vcert/v4 v4.13.0 h1:A6kiHCw+i1Fs6J7lWcTw5mBFUk/Nh8xTIwgCfdDbNH0=
+github.com/Venafi/vcert/v4 v4.13.0/go.mod h1:Z3sJFoAurFNXPpoSUSHq46aIeHLiGQEMDhprfxlpofQ=
 github.com/agext/levenshtein v1.2.1/go.mod h1:JEDfjyjHDjOF/1e4FlBE/PkbqA9OfWu2ki2W0IB5558=
 github.com/agext/levenshtein v1.2.2 h1:0S/Yg6LYmFJ5stwQeRp6EeOcCbj7xiqQSdNelsXvaqE=
 github.com/agext/levenshtein v1.2.2/go.mod h1:JEDfjyjHDjOF/1e4FlBE/PkbqA9OfWu2ki2W0IB5558=
@@ -575,6 +573,7 @@ github.com/opentracing/opentracing-go v1.1.0 h1:pWlfV3Bxv7k65HYwkikxat0+s3pV4bsq
 github.com/opentracing/opentracing-go v1.1.0/go.mod h1:UkNAQd3GIcIGf0SeVgPpRdFStlNbqXla1AfSYxPUl2o=
 github.com/pascaldekloe/goe v0.0.0-20180627143212-57f6aae5913c/go.mod h1:lzWF7FIEvWOWxwDKqyGYQf6ZUaNfKdP144TG7ZOy1lc=
 github.com/pascaldekloe/goe v0.1.0/go.mod h1:lzWF7FIEvWOWxwDKqyGYQf6ZUaNfKdP144TG7ZOy1lc=
+github.com/pavel-v-chernykh/keystore-go/v4 v4.1.0/go.mod h1:2ejgys4qY+iNVW1IittZhyRYA6MNv8TgM6VHqojbB9g=
 github.com/pelletier/go-buffruneio v0.2.0/go.mod h1:JkE26KsDizTr40EUHkXVtNPvgGtbSNq5BcowyYOWdKo=
 github.com/pelletier/go-toml v1.2.0/go.mod h1:5z9KED0ma1S8pY6P1sdut58dfprrGBbd/94hg7ilaic=
 github.com/pgavlin/goldmark v1.1.33-0.20200616210433-b5eb04559386 h1:LoCV5cscNVWyK5ChN/uCoIFJz8jZD63VQiGJIRgr6uo=
@@ -599,8 +598,6 @@ github.com/prometheus/common v0.4.0/go.mod h1:TNfzLD0ON7rHzMJeJkieUDPYmFC7Snx/y8
 github.com/prometheus/procfs v0.0.0-20181005140218-185b4288413d/go.mod h1:c3At6R/oaqEKCNdg8wHV1ftS6bRYblBhIjjI8uT2IGk=
 github.com/prometheus/procfs v0.0.0-20190507164030-5867b95ac084/go.mod h1:TjEm7ze935MbeOT/UhFTIMYKhuLP4wbCsTZCD3I8kEA=
 github.com/prometheus/tsdb v0.7.1/go.mod h1:qhTCs0VvXwvX/y3TZrWD7rabWM+ijKTux40TwIPHuXU=
-github.com/pulumi/pulumi-terraform-bridge/v2 v2.18.0 h1:on+pV+9qT4Mc3k1ktJeUr2VA7nWcTzbcit4JR1U20aQ=
-github.com/pulumi/pulumi-terraform-bridge/v2 v2.18.0/go.mod h1:UrgBEaSeCcTUfjd4bdYe3YdQpBMr4ewN00wuVH+jDh0=
 github.com/pulumi/pulumi-terraform-bridge/v2 v2.18.1 h1:1j7tmOWhR3gvK9T8smYmMxqpOj+CbLCYmMvdbwP4bOI=
 github.com/pulumi/pulumi-terraform-bridge/v2 v2.18.1/go.mod h1:UrgBEaSeCcTUfjd4bdYe3YdQpBMr4ewN00wuVH+jDh0=
 github.com/pulumi/pulumi/pkg/v2 v2.18.0 h1:vH+VyzpxWZVW7CSJ7ThD0w6uKXQa5j+TptzyQM6eT2o=
@@ -610,8 +607,8 @@ github.com/pulumi/pulumi/sdk/v2 v2.18.0 h1:fOno92mnb/4xoVV+TqtQG0W6KCJLe87JyfBVV
 github.com/pulumi/pulumi/sdk/v2 v2.18.0/go.mod h1:fCFhRV6NmidWetmgDPA76efL+s0JqLlS54JJIwfOt+o=
 github.com/pulumi/terraform-diff-reader v0.0.0-20201211191010-ad4715e9285e h1:Dik4Qe/+xguB8JagPyXNlbOnRiXGmq/PSPQTGunYnTk=
 github.com/pulumi/terraform-diff-reader v0.0.0-20201211191010-ad4715e9285e/go.mod h1:sZ9FUzGO+yM41hsQHs/yIcj/Y993qMdBxBU5mpDmAfQ=
-github.com/pulumi/terraform-provider-venafi v0.10.2-0.20201023162002-e3b8412a20f4 h1:pEj4HIf0yi4VHH+xf2I6oYJgSOt3PTQqS3ZXQ5DKQtg=
-github.com/pulumi/terraform-provider-venafi v0.10.2-0.20201023162002-e3b8412a20f4/go.mod h1:X5sDin9qGO4tBiplnm6Wnza5lT3r7PEpqRppF1Ic674=
+github.com/pulumi/terraform-provider-venafi v0.10.2-0.20210212192519-d381dadc5412 h1:wrgzON9WhOcBqbMvthMMq1P4f4Sxp57Y7bPskzjbnYM=
+github.com/pulumi/terraform-provider-venafi v0.10.2-0.20210212192519-d381dadc5412/go.mod h1:qV5AHcKP7JmdLXvJBWKgROWS4QvhBAR/iAZZMKBgurs=
 github.com/quasilyte/go-consistent v0.0.0-20190521200055-c6f3937de18c/go.mod h1:5STLWrekHfjyYwxBRVRXNOSewLJ3PWfDJd1VyTS21fI=
 github.com/rjeczalik/notify v0.9.2/go.mod h1:aErll2f0sUX9PXZnVNyeiObbmTlk5jnMoCa4QEjJeqM=
 github.com/rogpeppe/fastuuid v0.0.0-20150106093220-6724a57986af/go.mod h1:XWv6SoW27p1b0cqNHllgS5HIMJraePCO15w5zCzIWYg=
