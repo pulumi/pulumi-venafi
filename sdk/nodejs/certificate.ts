@@ -151,7 +151,8 @@ export class Certificate extends pulumi.CustomResource {
     constructor(name: string, args: CertificateArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: CertificateArgs | CertificateState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as CertificateState | undefined;
             inputs["algorithm"] = state ? state.algorithm : undefined;
             inputs["certificate"] = state ? state.certificate : undefined;
@@ -173,7 +174,7 @@ export class Certificate extends pulumi.CustomResource {
             inputs["validDays"] = state ? state.validDays : undefined;
         } else {
             const args = argsOrState as CertificateArgs | undefined;
-            if ((!args || args.commonName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.commonName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'commonName'");
             }
             inputs["algorithm"] = args ? args.algorithm : undefined;
@@ -195,12 +196,8 @@ export class Certificate extends pulumi.CustomResource {
             inputs["certificate"] = undefined /*out*/;
             inputs["chain"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Certificate.__pulumiType, name, inputs, opts);
     }
