@@ -35,6 +35,7 @@ export class Provider extends pulumi.ProviderResource {
      */
     constructor(name: string, args?: ProviderArgs, opts?: pulumi.ResourceOptions) {
         let inputs: pulumi.Inputs = {};
+        opts = opts || {};
         {
             inputs["accessToken"] = args ? args.accessToken : undefined;
             inputs["apiKey"] = args ? args.apiKey : undefined;
@@ -45,12 +46,8 @@ export class Provider extends pulumi.ProviderResource {
             inputs["url"] = args ? args.url : undefined;
             inputs["zone"] = args ? args.zone : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Provider.__pulumiType, name, inputs, opts);
     }
