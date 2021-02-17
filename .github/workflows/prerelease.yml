@@ -12,9 +12,8 @@ env:
   SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
   TRAVIS_OS_NAME: linux
   VENAFI_TOKEN: ${{ secrets.VENAFI_TOKEN }}
-  VENAFI_ZONE: ${{ secrets.VENAFI_ZONE }}
   VENAFI_URL: ${{ secrets.VENAFI_URL }}
-
+  VENAFI_ZONE: ${{ secrets.VENAFI_ZONE }}
 jobs:
   build_sdk:
     name: build_sdk
@@ -241,7 +240,8 @@ jobs:
     - name: Run GoReleaser
       uses: goreleaser/goreleaser-action@v2
       with:
-        args: -p 4 release --rm-dist --config=.goreleaser.prerelease.yaml
+        args: -p 4 release --rm-dist --config=.goreleaser.prerelease.yaml  --timeout
+          60m0s
         version: latest
   publish_sdk:
     name: publish_sdk
