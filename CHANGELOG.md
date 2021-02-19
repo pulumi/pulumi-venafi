@@ -2,9 +2,12 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Upgrade to v0.11.1 of the Venafi Terraform Provider
+_(none)_
 
 ---
+
+## 0.3.2 (2021-02-19)
+* Upgrade to v0.11.1 of the Venafi Terraform Provider
 
 ## 0.3.1 (2021-02-16)
 * Upgrade to pulumi-terraform-bridge v2.19.0  
