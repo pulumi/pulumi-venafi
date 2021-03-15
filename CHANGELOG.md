@@ -2,9 +2,13 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Upgrade to pulumi-terraform-bridge v2.21.0
+_(none)_
 
 ---
+
+## 0.4.0 (2021-03-15)
+* Upgrade to pulumi-terraform-bridge v2.21.0
+* Release macOS arm64 binary
 
 ## 0.3.3 (2021-03-10)
 * Upgrade to v0.11.2 of the Venafi Terraform Provider
