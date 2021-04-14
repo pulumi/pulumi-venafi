@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Provides access to TLS key and certificate data enrolled using Venafi. This can be used to define a
@@ -26,7 +26,7 @@ import (
 //
 // import (
 // 	"github.com/pulumi/pulumi-venafi/sdk/go/venafi"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
 // func main() {

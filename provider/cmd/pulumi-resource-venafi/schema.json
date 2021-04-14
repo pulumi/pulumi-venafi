@@ -91,7 +91,7 @@
     },
     "resources": {
         "venafi:index/certificate:Certificate": {
-            "description": "Provides access to TLS key and certificate data enrolled using Venafi. This can be used to define a\ncertificate.\n\nThe `venafi.Certificate` resource handles certificate renewals as long as a\n`pulumi up` is run within the `expiration_window` period. Keep in mind that the\n`expiration_window` in the provider configuration needs to align with the renewal\nwindow of the issuing CA to achieve the desired result.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as venafi from \"@pulumi/venafi\";\n\nconst webserver = new venafi.Certificate(\"webserver\", {\n    algorithm: \"RSA\",\n    commonName: \"web.venafi.example\",\n    customFields: {\n        \"Cost Center\": \"AB1234\",\n        Environment: \"UAT|Staging\",\n    },\n    keyPassword: var_pk_pass,\n    rsaBits: 2048,\n    sanDns: [\n        \"web01.venafi.example\",\n        \"web02.venafi.example\",\n    ],\n});\n```\n```python\nimport pulumi\nimport pulumi_venafi as venafi\n\nwebserver = venafi.Certificate(\"webserver\",\n    algorithm=\"RSA\",\n    common_name=\"web.venafi.example\",\n    custom_fields={\n        \"Cost Center\": \"AB1234\",\n        \"Environment\": \"UAT|Staging\",\n    },\n    key_password=var[\"pk_pass\"],\n    rsa_bits=2048,\n    san_dns=[\n        \"web01.venafi.example\",\n        \"web02.venafi.example\",\n    ])\n```\n```csharp\nusing Pulumi;\nusing Venafi = Pulumi.Venafi;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var webserver = new Venafi.Certificate(\"webserver\", new Venafi.CertificateArgs\n        {\n            Algorithm = \"RSA\",\n            CommonName = \"web.venafi.example\",\n            CustomFields = \n            {\n                { \"Cost Center\", \"AB1234\" },\n                { \"Environment\", \"UAT|Staging\" },\n            },\n            KeyPassword = @var.Pk_pass,\n            RsaBits = 2048,\n            SanDns = \n            {\n                \"web01.venafi.example\",\n                \"web02.venafi.example\",\n            },\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-venafi/sdk/go/venafi\"\n\t\"github.com/pulumi/pulumi/sdk/v2/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := venafi.NewCertificate(ctx, \"webserver\", \u0026venafi.CertificateArgs{\n\t\t\tAlgorithm:  pulumi.String(\"RSA\"),\n\t\t\tCommonName: pulumi.String(\"web.venafi.example\"),\n\t\t\tCustomFields: pulumi.StringMap{\n\t\t\t\t\"Cost Center\": pulumi.String(\"AB1234\"),\n\t\t\t\t\"Environment\": pulumi.String(\"UAT|Staging\"),\n\t\t\t},\n\t\t\tKeyPassword: pulumi.Any(_var.Pk_pass),\n\t\t\tRsaBits:     pulumi.Int(2048),\n\t\t\tSanDns: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"web01.venafi.example\"),\n\t\t\t\tpulumi.String(\"web02.venafi.example\"),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}",
+            "description": "Provides access to TLS key and certificate data enrolled using Venafi. This can be used to define a\ncertificate.\n\nThe `venafi.Certificate` resource handles certificate renewals as long as a\n`pulumi up` is run within the `expiration_window` period. Keep in mind that the\n`expiration_window` in the provider configuration needs to align with the renewal\nwindow of the issuing CA to achieve the desired result.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as venafi from \"@pulumi/venafi\";\n\nconst webserver = new venafi.Certificate(\"webserver\", {\n    algorithm: \"RSA\",\n    commonName: \"web.venafi.example\",\n    customFields: {\n        \"Cost Center\": \"AB1234\",\n        Environment: \"UAT|Staging\",\n    },\n    keyPassword: var_pk_pass,\n    rsaBits: 2048,\n    sanDns: [\n        \"web01.venafi.example\",\n        \"web02.venafi.example\",\n    ],\n});\n```\n```python\nimport pulumi\nimport pulumi_venafi as venafi\n\nwebserver = venafi.Certificate(\"webserver\",\n    algorithm=\"RSA\",\n    common_name=\"web.venafi.example\",\n    custom_fields={\n        \"Cost Center\": \"AB1234\",\n        \"Environment\": \"UAT|Staging\",\n    },\n    key_password=var[\"pk_pass\"],\n    rsa_bits=2048,\n    san_dns=[\n        \"web01.venafi.example\",\n        \"web02.venafi.example\",\n    ])\n```\n```csharp\nusing Pulumi;\nusing Venafi = Pulumi.Venafi;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var webserver = new Venafi.Certificate(\"webserver\", new Venafi.CertificateArgs\n        {\n            Algorithm = \"RSA\",\n            CommonName = \"web.venafi.example\",\n            CustomFields = \n            {\n                { \"Cost Center\", \"AB1234\" },\n                { \"Environment\", \"UAT|Staging\" },\n            },\n            KeyPassword = @var.Pk_pass,\n            RsaBits = 2048,\n            SanDns = \n            {\n                \"web01.venafi.example\",\n                \"web02.venafi.example\",\n            },\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-venafi/sdk/go/venafi\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := venafi.NewCertificate(ctx, \"webserver\", \u0026venafi.CertificateArgs{\n\t\t\tAlgorithm:  pulumi.String(\"RSA\"),\n\t\t\tCommonName: pulumi.String(\"web.venafi.example\"),\n\t\t\tCustomFields: pulumi.StringMap{\n\t\t\t\t\"Cost Center\": pulumi.String(\"AB1234\"),\n\t\t\t\t\"Environment\": pulumi.String(\"UAT|Staging\"),\n\t\t\t},\n\t\t\tKeyPassword: pulumi.Any(_var.Pk_pass),\n\t\t\tRsaBits:     pulumi.Int(2048),\n\t\t\tSanDns: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"web01.venafi.example\"),\n\t\t\t\tpulumi.String(\"web02.venafi.example\"),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}",
             "properties": {
                 "algorithm": {
                     "type": "string",
@@ -368,7 +368,7 @@
         "csharp": {
             "namespaces": null,
             "packageReferences": {
-                "Pulumi": "2.*",
+                "Pulumi": "3.*-*",
                 "System.Collections.Immutable": "1.6.0"
             }
         },
@@ -378,11 +378,11 @@
         },
         "nodejs": {
             "dependencies": {
-                "@pulumi/pulumi": "^2.15.0"
+                "@pulumi/pulumi": "^3.0.0-alpha.0"
             },
             "devDependencies": {
                 "@types/mime": "^2.0.0",
-                "@types/node": "^8.0.25"
+                "@types/node": "^10.0.0"
             },
             "disableUnionOutputTypes": true,
             "packageDescription": "A Pulumi package for creating and managing venafi cloud resources.",
@@ -393,7 +393,7 @@
         "python": {
             "readme": "\u003e This provider is a derived work of the [Terraform Provider](https://github.com/Venafi/terraform-provider-venafi)\n\u003e distributed under [MPL 2.0](https://www.mozilla.org/en-US/MPL/2.0/). If you encounter a bug or missing feature,\n\u003e first check the [`pulumi/pulumi-venafi` repo](https://github.com/pulumi/pulumi-venafi/issues); however, if that doesn't turn up anything,\n\u003e please consult the source [`Venafi/terraform-provider-venafi` repo](https://github.com/Venafi/terraform-provider-venafi/issues).",
             "requires": {
-                "pulumi": "\u003e=2.15.0,\u003c3.0.0"
+                "pulumi": "\u003e=3.0.0a1,\u003c4.0.0"
             }
         }
     }
