@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from . import _utilities, _tables
+from . import _utilities
 
 __all__ = ['CertificateArgs', 'Certificate']
 
@@ -121,6 +121,316 @@ class CertificateArgs:
     @certificate_dn.setter
     def certificate_dn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "certificate_dn", value)
+
+    @property
+    @pulumi.getter(name="csrPem")
+    def csr_pem(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "csr_pem")
+
+    @csr_pem.setter
+    def csr_pem(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "csr_pem", value)
+
+    @property
+    @pulumi.getter(name="customFields")
+    def custom_fields(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Collection of Custom Field name-value pairs to
+        assign to the certificate.
+        """
+        return pulumi.get(self, "custom_fields")
+
+    @custom_fields.setter
+    def custom_fields(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "custom_fields", value)
+
+    @property
+    @pulumi.getter(name="ecdsaCurve")
+    def ecdsa_curve(self) -> Optional[pulumi.Input[str]]:
+        """
+        ECDSA curve to use when generating a key
+        """
+        return pulumi.get(self, "ecdsa_curve")
+
+    @ecdsa_curve.setter
+    def ecdsa_curve(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ecdsa_curve", value)
+
+    @property
+    @pulumi.getter(name="expirationWindow")
+    def expiration_window(self) -> Optional[pulumi.Input[int]]:
+        """
+        Number of hours before certificate expiry
+        to request a new certificate.
+        """
+        return pulumi.get(self, "expiration_window")
+
+    @expiration_window.setter
+    def expiration_window(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "expiration_window", value)
+
+    @property
+    @pulumi.getter(name="issuerHint")
+    def issuer_hint(self) -> Optional[pulumi.Input[str]]:
+        """
+        Used with valid_days to indicate the target
+        issuer when using Trust Protection Platform.  Relevant values are: "DigiCert",
+        "Entrust", and "Microsoft".
+        """
+        return pulumi.get(self, "issuer_hint")
+
+    @issuer_hint.setter
+    def issuer_hint(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "issuer_hint", value)
+
+    @property
+    @pulumi.getter(name="keyPassword")
+    def key_password(self) -> Optional[pulumi.Input[str]]:
+        """
+        The password used to encrypt the private key.
+        """
+        return pulumi.get(self, "key_password")
+
+    @key_password.setter
+    def key_password(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key_password", value)
+
+    @property
+    @pulumi.getter
+    def pkcs12(self) -> Optional[pulumi.Input[str]]:
+        """
+        A base64-encoded PKCS#12 keystore secured by the `key_password`.
+        """
+        return pulumi.get(self, "pkcs12")
+
+    @pkcs12.setter
+    def pkcs12(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "pkcs12", value)
+
+    @property
+    @pulumi.getter(name="privateKeyPem")
+    def private_key_pem(self) -> Optional[pulumi.Input[str]]:
+        """
+        The private key in PEM format.
+        """
+        return pulumi.get(self, "private_key_pem")
+
+    @private_key_pem.setter
+    def private_key_pem(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "private_key_pem", value)
+
+    @property
+    @pulumi.getter(name="rsaBits")
+    def rsa_bits(self) -> Optional[pulumi.Input[int]]:
+        """
+        Number of bits to use when generating an RSA key.
+        Applies when `algorithm=RSA`.  Defaults to `2048`.
+        """
+        return pulumi.get(self, "rsa_bits")
+
+    @rsa_bits.setter
+    def rsa_bits(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "rsa_bits", value)
+
+    @property
+    @pulumi.getter(name="sanDns")
+    def san_dns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of DNS names to use as alternative
+        subjects of the certificate.
+        """
+        return pulumi.get(self, "san_dns")
+
+    @san_dns.setter
+    def san_dns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "san_dns", value)
+
+    @property
+    @pulumi.getter(name="sanEmails")
+    def san_emails(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of email addresses to use as
+        alternative subjects of the certificate.
+        """
+        return pulumi.get(self, "san_emails")
+
+    @san_emails.setter
+    def san_emails(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "san_emails", value)
+
+    @property
+    @pulumi.getter(name="sanIps")
+    def san_ips(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of IP addresses to use as alternative
+        subjects of the certificate.
+        """
+        return pulumi.get(self, "san_ips")
+
+    @san_ips.setter
+    def san_ips(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "san_ips", value)
+
+    @property
+    @pulumi.getter(name="validDays")
+    def valid_days(self) -> Optional[pulumi.Input[int]]:
+        """
+        Desired number of days for which the new
+        certificate will be valid.
+        """
+        return pulumi.get(self, "valid_days")
+
+    @valid_days.setter
+    def valid_days(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "valid_days", value)
+
+
+@pulumi.input_type
+class _CertificateState:
+    def __init__(__self__, *,
+                 algorithm: Optional[pulumi.Input[str]] = None,
+                 certificate: Optional[pulumi.Input[str]] = None,
+                 certificate_dn: Optional[pulumi.Input[str]] = None,
+                 chain: Optional[pulumi.Input[str]] = None,
+                 common_name: Optional[pulumi.Input[str]] = None,
+                 csr_pem: Optional[pulumi.Input[str]] = None,
+                 custom_fields: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 ecdsa_curve: Optional[pulumi.Input[str]] = None,
+                 expiration_window: Optional[pulumi.Input[int]] = None,
+                 issuer_hint: Optional[pulumi.Input[str]] = None,
+                 key_password: Optional[pulumi.Input[str]] = None,
+                 pkcs12: Optional[pulumi.Input[str]] = None,
+                 private_key_pem: Optional[pulumi.Input[str]] = None,
+                 rsa_bits: Optional[pulumi.Input[int]] = None,
+                 san_dns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 san_emails: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 san_ips: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 valid_days: Optional[pulumi.Input[int]] = None):
+        """
+        Input properties used for looking up and filtering Certificate resources.
+        :param pulumi.Input[str] algorithm: Key encryption algorithm, either `RSA` or `ECDSA`.
+               Defaults to `RSA`.
+        :param pulumi.Input[str] certificate: The X509 certificate in PEM format.
+        :param pulumi.Input[str] chain: The trust chain of X509 certificate authority certificates in PEM format
+               concatenated together.
+        :param pulumi.Input[str] common_name: The common name of the certificate.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] custom_fields: Collection of Custom Field name-value pairs to
+               assign to the certificate.
+        :param pulumi.Input[str] ecdsa_curve: ECDSA curve to use when generating a key
+        :param pulumi.Input[int] expiration_window: Number of hours before certificate expiry
+               to request a new certificate.
+        :param pulumi.Input[str] issuer_hint: Used with valid_days to indicate the target
+               issuer when using Trust Protection Platform.  Relevant values are: "DigiCert",
+               "Entrust", and "Microsoft".
+        :param pulumi.Input[str] key_password: The password used to encrypt the private key.
+        :param pulumi.Input[str] pkcs12: A base64-encoded PKCS#12 keystore secured by the `key_password`.
+        :param pulumi.Input[str] private_key_pem: The private key in PEM format.
+        :param pulumi.Input[int] rsa_bits: Number of bits to use when generating an RSA key.
+               Applies when `algorithm=RSA`.  Defaults to `2048`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] san_dns: List of DNS names to use as alternative
+               subjects of the certificate.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] san_emails: List of email addresses to use as
+               alternative subjects of the certificate.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] san_ips: List of IP addresses to use as alternative
+               subjects of the certificate.
+        :param pulumi.Input[int] valid_days: Desired number of days for which the new
+               certificate will be valid.
+        """
+        if algorithm is not None:
+            pulumi.set(__self__, "algorithm", algorithm)
+        if certificate is not None:
+            pulumi.set(__self__, "certificate", certificate)
+        if certificate_dn is not None:
+            pulumi.set(__self__, "certificate_dn", certificate_dn)
+        if chain is not None:
+            pulumi.set(__self__, "chain", chain)
+        if common_name is not None:
+            pulumi.set(__self__, "common_name", common_name)
+        if csr_pem is not None:
+            pulumi.set(__self__, "csr_pem", csr_pem)
+        if custom_fields is not None:
+            pulumi.set(__self__, "custom_fields", custom_fields)
+        if ecdsa_curve is not None:
+            pulumi.set(__self__, "ecdsa_curve", ecdsa_curve)
+        if expiration_window is not None:
+            pulumi.set(__self__, "expiration_window", expiration_window)
+        if issuer_hint is not None:
+            pulumi.set(__self__, "issuer_hint", issuer_hint)
+        if key_password is not None:
+            pulumi.set(__self__, "key_password", key_password)
+        if pkcs12 is not None:
+            pulumi.set(__self__, "pkcs12", pkcs12)
+        if private_key_pem is not None:
+            pulumi.set(__self__, "private_key_pem", private_key_pem)
+        if rsa_bits is not None:
+            pulumi.set(__self__, "rsa_bits", rsa_bits)
+        if san_dns is not None:
+            pulumi.set(__self__, "san_dns", san_dns)
+        if san_emails is not None:
+            pulumi.set(__self__, "san_emails", san_emails)
+        if san_ips is not None:
+            pulumi.set(__self__, "san_ips", san_ips)
+        if valid_days is not None:
+            pulumi.set(__self__, "valid_days", valid_days)
+
+    @property
+    @pulumi.getter
+    def algorithm(self) -> Optional[pulumi.Input[str]]:
+        """
+        Key encryption algorithm, either `RSA` or `ECDSA`.
+        Defaults to `RSA`.
+        """
+        return pulumi.get(self, "algorithm")
+
+    @algorithm.setter
+    def algorithm(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "algorithm", value)
+
+    @property
+    @pulumi.getter
+    def certificate(self) -> Optional[pulumi.Input[str]]:
+        """
+        The X509 certificate in PEM format.
+        """
+        return pulumi.get(self, "certificate")
+
+    @certificate.setter
+    def certificate(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "certificate", value)
+
+    @property
+    @pulumi.getter(name="certificateDn")
+    def certificate_dn(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "certificate_dn")
+
+    @certificate_dn.setter
+    def certificate_dn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "certificate_dn", value)
+
+    @property
+    @pulumi.getter
+    def chain(self) -> Optional[pulumi.Input[str]]:
+        """
+        The trust chain of X509 certificate authority certificates in PEM format
+        concatenated together.
+        """
+        return pulumi.get(self, "chain")
+
+    @chain.setter
+    def chain(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "chain", value)
+
+    @property
+    @pulumi.getter(name="commonName")
+    def common_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The common name of the certificate.
+        """
+        return pulumi.get(self, "common_name")
+
+    @common_name.setter
+    def common_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "common_name", value)
 
     @property
     @pulumi.getter(name="csrPem")
@@ -451,28 +761,28 @@ class Certificate(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = CertificateArgs.__new__(CertificateArgs)
 
-            __props__['algorithm'] = algorithm
-            __props__['certificate_dn'] = certificate_dn
+            __props__.__dict__["algorithm"] = algorithm
+            __props__.__dict__["certificate_dn"] = certificate_dn
             if common_name is None and not opts.urn:
                 raise TypeError("Missing required property 'common_name'")
-            __props__['common_name'] = common_name
-            __props__['csr_pem'] = csr_pem
-            __props__['custom_fields'] = custom_fields
-            __props__['ecdsa_curve'] = ecdsa_curve
-            __props__['expiration_window'] = expiration_window
-            __props__['issuer_hint'] = issuer_hint
-            __props__['key_password'] = key_password
-            __props__['pkcs12'] = pkcs12
-            __props__['private_key_pem'] = private_key_pem
-            __props__['rsa_bits'] = rsa_bits
-            __props__['san_dns'] = san_dns
-            __props__['san_emails'] = san_emails
-            __props__['san_ips'] = san_ips
-            __props__['valid_days'] = valid_days
-            __props__['certificate'] = None
-            __props__['chain'] = None
+            __props__.__dict__["common_name"] = common_name
+            __props__.__dict__["csr_pem"] = csr_pem
+            __props__.__dict__["custom_fields"] = custom_fields
+            __props__.__dict__["ecdsa_curve"] = ecdsa_curve
+            __props__.__dict__["expiration_window"] = expiration_window
+            __props__.__dict__["issuer_hint"] = issuer_hint
+            __props__.__dict__["key_password"] = key_password
+            __props__.__dict__["pkcs12"] = pkcs12
+            __props__.__dict__["private_key_pem"] = private_key_pem
+            __props__.__dict__["rsa_bits"] = rsa_bits
+            __props__.__dict__["san_dns"] = san_dns
+            __props__.__dict__["san_emails"] = san_emails
+            __props__.__dict__["san_ips"] = san_ips
+            __props__.__dict__["valid_days"] = valid_days
+            __props__.__dict__["certificate"] = None
+            __props__.__dict__["chain"] = None
         super(Certificate, __self__).__init__(
             'venafi:index/certificate:Certificate',
             resource_name,
@@ -538,26 +848,26 @@ class Certificate(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _CertificateState.__new__(_CertificateState)
 
-        __props__["algorithm"] = algorithm
-        __props__["certificate"] = certificate
-        __props__["certificate_dn"] = certificate_dn
-        __props__["chain"] = chain
-        __props__["common_name"] = common_name
-        __props__["csr_pem"] = csr_pem
-        __props__["custom_fields"] = custom_fields
-        __props__["ecdsa_curve"] = ecdsa_curve
-        __props__["expiration_window"] = expiration_window
-        __props__["issuer_hint"] = issuer_hint
-        __props__["key_password"] = key_password
-        __props__["pkcs12"] = pkcs12
-        __props__["private_key_pem"] = private_key_pem
-        __props__["rsa_bits"] = rsa_bits
-        __props__["san_dns"] = san_dns
-        __props__["san_emails"] = san_emails
-        __props__["san_ips"] = san_ips
-        __props__["valid_days"] = valid_days
+        __props__.__dict__["algorithm"] = algorithm
+        __props__.__dict__["certificate"] = certificate
+        __props__.__dict__["certificate_dn"] = certificate_dn
+        __props__.__dict__["chain"] = chain
+        __props__.__dict__["common_name"] = common_name
+        __props__.__dict__["csr_pem"] = csr_pem
+        __props__.__dict__["custom_fields"] = custom_fields
+        __props__.__dict__["ecdsa_curve"] = ecdsa_curve
+        __props__.__dict__["expiration_window"] = expiration_window
+        __props__.__dict__["issuer_hint"] = issuer_hint
+        __props__.__dict__["key_password"] = key_password
+        __props__.__dict__["pkcs12"] = pkcs12
+        __props__.__dict__["private_key_pem"] = private_key_pem
+        __props__.__dict__["rsa_bits"] = rsa_bits
+        __props__.__dict__["san_dns"] = san_dns
+        __props__.__dict__["san_emails"] = san_emails
+        __props__.__dict__["san_ips"] = san_ips
+        __props__.__dict__["valid_days"] = valid_days
         return Certificate(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -708,10 +1018,4 @@ class Certificate(pulumi.CustomResource):
         certificate will be valid.
         """
         return pulumi.get(self, "valid_days")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 
