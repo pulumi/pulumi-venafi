@@ -362,6 +362,43 @@
                 },
                 "type": "object"
             }
+        },
+        "venafi:index/policy:Policy": {
+            "description": "Provides access to read and write certificate policy in Venafi. This can be used\nto define a new policy (folder in *Trust Protection Platform*; application\nand/or issuing template in *Venafi as a Service*).\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as venafi from \"@pulumi/venafi\";\nimport * from \"fs\";\n\nconst internalPolicy = new venafi.Policy(\"internalPolicy\", {\n    zone: \"My Business App\\\\Enterprise Trusted Certs\",\n    policySpecification: fs.readFileSync(\"/path-to/internal-policy.json\"),\n});\n```\n```python\nimport pulumi\nimport pulumi_venafi as venafi\n\ninternal_policy = venafi.Policy(\"internalPolicy\",\n    zone=\"My Business App\\\\Enterprise Trusted Certs\",\n    policy_specification=(lambda path: open(path).read())(\"/path-to/internal-policy.json\"))\n```\n```csharp\nusing System.IO;\nusing Pulumi;\nusing Venafi = Pulumi.Venafi;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var internalPolicy = new Venafi.Policy(\"internalPolicy\", new Venafi.PolicyArgs\n        {\n            Zone = \"My Business App\\\\Enterprise Trusted Certs\",\n            PolicySpecification = File.ReadAllText(\"/path-to/internal-policy.json\"),\n        });\n    }\n\n}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nThe `venafi_policy` resource supports the Terraform [import](https://www.terraform.io/docs/cli/import/index.html) method.\n\nWhen used, the `zone` and `policy_specification` resource arguments are not required since the zone is a required parameter of the import method and the policy specification is populated from the existing infrastructure. Policy that is successfully imported is also output to a file named after the zone that was specified. hcl resource \"venafi_policy\" \"existing_policy\" {}\n\n```sh\n $ pulumi import venafi:index/policy:Policy existing_policy\" \"My Business App\\\\Enterprise Trusted Certs\"\n```\n\n ",
+            "properties": {
+                "policySpecification": {
+                    "type": "string",
+                    "description": "The JSON-formatted certificate policy\nspecification.  Typically read from a file using the `file` function.\n"
+                },
+                "zone": {
+                    "type": "string",
+                    "description": "The *Trust Protection Plaform* policy folder or\n*Venafi as a Service* application and issuing template.\n"
+                }
+            },
+            "inputProperties": {
+                "policySpecification": {
+                    "type": "string",
+                    "description": "The JSON-formatted certificate policy\nspecification.  Typically read from a file using the `file` function.\n"
+                },
+                "zone": {
+                    "type": "string",
+                    "description": "The *Trust Protection Plaform* policy folder or\n*Venafi as a Service* application and issuing template.\n"
+                }
+            },
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering Policy resources.\n",
+                "properties": {
+                    "policySpecification": {
+                        "type": "string",
+                        "description": "The JSON-formatted certificate policy\nspecification.  Typically read from a file using the `file` function.\n"
+                    },
+                    "zone": {
+                        "type": "string",
+                        "description": "The *Trust Protection Plaform* policy folder or\n*Venafi as a Service* application and issuing template.\n"
+                    }
+                },
+                "type": "object"
+            }
         }
     },
     "language": {
@@ -369,7 +406,7 @@
             "compatibility": "tfbridge20",
             "namespaces": null,
             "packageReferences": {
-                "Pulumi": "3.*-*",
+                "Pulumi": "3.*",
                 "System.Collections.Immutable": "1.6.0"
             }
         },
@@ -380,7 +417,7 @@
         "nodejs": {
             "compatibility": "tfbridge20",
             "dependencies": {
-                "@pulumi/pulumi": "^3.0.0-alpha.0"
+                "@pulumi/pulumi": "^3.0.0"
             },
             "devDependencies": {
                 "@types/mime": "^2.0.0",
@@ -396,7 +433,7 @@
             "compatibility": "tfbridge20",
             "readme": "\u003e This provider is a derived work of the [Terraform Provider](https://github.com/Venafi/terraform-provider-venafi)\n\u003e distributed under [MPL 2.0](https://www.mozilla.org/en-US/MPL/2.0/). If you encounter a bug or missing feature,\n\u003e first check the [`pulumi/pulumi-venafi` repo](https://github.com/pulumi/pulumi-venafi/issues); however, if that doesn't turn up anything,\n\u003e please consult the source [`Venafi/terraform-provider-venafi` repo](https://github.com/Venafi/terraform-provider-venafi/issues).",
             "requires": {
-                "pulumi": "\u003e=3.0.0a1,\u003c4.0.0"
+                "pulumi": "\u003e=3.0.0,\u003c4.0.0"
             }
         }
     }
