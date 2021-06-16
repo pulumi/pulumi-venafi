@@ -6,6 +6,7 @@ import * as utilities from "./utilities";
 
 // Export members:
 export * from "./certificate";
+export * from "./policy";
 export * from "./provider";
 
 // Export sub-modules:
@@ -17,6 +18,7 @@ export {
 
 // Import resources to register:
 import { Certificate } from "./certificate";
+import { Policy } from "./policy";
 
 const _module = {
     version: utilities.getVersion(),
@@ -24,12 +26,15 @@ const _module = {
         switch (type) {
             case "venafi:index/certificate:Certificate":
                 return new Certificate(name, <any>undefined, { urn })
+            case "venafi:index/policy:Policy":
+                return new Policy(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
 pulumi.runtime.registerResourceModule("venafi", "index/certificate", _module)
+pulumi.runtime.registerResourceModule("venafi", "index/policy", _module)
 
 import { Provider } from "./provider";
 
