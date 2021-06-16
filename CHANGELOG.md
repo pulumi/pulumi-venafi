@@ -2,9 +2,12 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Upgrade to v0.12.0 of the Venafi Terraform Provider
+_(none)_
 
 ---
+
+## 1.1.0 (2021-06-16)
+* Upgrade to v0.12.0 of the Venafi Terraform Provider
 
 ## 1.0.0 (2021-04-19)
 * Depend on Pulumi 3.0, which includes improvements to Python resource arguments and key translation, Go SDK performance,
