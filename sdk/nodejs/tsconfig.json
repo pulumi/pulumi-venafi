@@ -19,6 +19,7 @@
         "index.ts",
         "policy.ts",
         "provider.ts",
+        "sshCertificate.ts",
         "utilities.ts"
     ]
 }

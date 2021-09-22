@@ -2,7 +2,7 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-_(none)_
+* Upgrade to v0.13.0 of the Venafi Terraform Provider
 
 ---
 

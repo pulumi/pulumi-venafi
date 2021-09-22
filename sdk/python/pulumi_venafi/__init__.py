@@ -6,6 +6,7 @@
 from .certificate import *
 from .policy import *
 from .provider import *
+from .ssh_certificate import *
 
 # Make subpackages available:
 from . import (
@@ -28,6 +29,8 @@ def _register_module():
                 return Certificate(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "venafi:index/policy:Policy":
                 return Policy(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "venafi:index/sshCertificate:SshCertificate":
+                return SshCertificate(name, pulumi.ResourceOptions(urn=urn))
             else:
                 raise Exception(f"unknown resource type {typ}")
 
@@ -35,6 +38,7 @@ def _register_module():
     _module_instance = Module()
     pulumi.runtime.register_resource_module("venafi", "index/certificate", _module_instance)
     pulumi.runtime.register_resource_module("venafi", "index/policy", _module_instance)
+    pulumi.runtime.register_resource_module("venafi", "index/sshCertificate", _module_instance)
 
 
     class Package(pulumi.runtime.ResourcePackage):

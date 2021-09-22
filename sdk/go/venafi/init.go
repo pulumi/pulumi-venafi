@@ -24,6 +24,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Certificate{}
 	case "venafi:index/policy:Policy":
 		r = &Policy{}
+	case "venafi:index/sshCertificate:SshCertificate":
+		r = &SshCertificate{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -63,6 +65,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"venafi",
 		"index/policy",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"venafi",
+		"index/sshCertificate",
 		&module{version},
 	)
 	pulumi.RegisterResourcePackage(
