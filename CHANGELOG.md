@@ -2,9 +2,12 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Upgrade to v0.13.0 of the Venafi Terraform Provider
+_(none)_
 
 ---
+
+## 1.2.0 (2021-09-27)
+* Upgrade to v0.13.0 of the Venafi Terraform Provider
 
 ## 1.1.0 (2021-06-16)
 * Upgrade to v0.12.0 of the Venafi Terraform Provider
