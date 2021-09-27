@@ -399,6 +399,315 @@
                 },
                 "type": "object"
             }
+        },
+        "venafi:index/sshCertificate:SshCertificate": {
+            "description": "Provides access to request and retrieve SSH certificates from *Venafi Trust Protection Platform*.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as venafi from \"@pulumi/venafi\";\n\nconst sshCert = new venafi.SshCertificate(\"ssh_cert\", {\n    keyId: \"my-first-ssh-certificate\",\n    keyPassphrase: \"passw0rd\",\n    keySize: 3072,\n    principals: [\"seamus\"],\n    publicKeyMethod: \"local\",\n    template: \"Sample SSH CA\",\n    validHours: 24,\n});\n```\n```python\nimport pulumi\nimport pulumi_venafi as venafi\n\nssh_cert = venafi.SshCertificate(\"sshCert\",\n    key_id=\"my-first-ssh-certificate\",\n    key_passphrase=\"passw0rd\",\n    key_size=3072,\n    principals=[\"seamus\"],\n    public_key_method=\"local\",\n    template=\"Sample SSH CA\",\n    valid_hours=24)\n```\n```csharp\nusing Pulumi;\nusing Venafi = Pulumi.Venafi;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var sshCert = new Venafi.SshCertificate(\"sshCert\", new Venafi.SshCertificateArgs\n        {\n            KeyId = \"my-first-ssh-certificate\",\n            KeyPassphrase = \"passw0rd\",\n            KeySize = 3072,\n            Principals = \n            {\n                \"seamus\",\n            },\n            PublicKeyMethod = \"local\",\n            Template = \"Sample SSH CA\",\n            ValidHours = 24,\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-venafi/sdk/go/venafi\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := venafi.NewSshCertificate(ctx, \"sshCert\", \u0026venafi.SshCertificateArgs{\n\t\t\tKeyId:         pulumi.String(\"my-first-ssh-certificate\"),\n\t\t\tKeyPassphrase: pulumi.String(\"passw0rd\"),\n\t\t\tKeySize:       pulumi.Int(3072),\n\t\t\tPrincipals: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"seamus\"),\n\t\t\t},\n\t\t\tPublicKeyMethod: pulumi.String(\"local\"),\n\t\t\tTemplate:        pulumi.String(\"Sample SSH CA\"),\n\t\t\tValidHours:      pulumi.Int(24),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}",
+            "properties": {
+                "certificate": {
+                    "type": "string",
+                    "description": "The issued SSH certificate.\n"
+                },
+                "certificateType": {
+                    "type": "string",
+                    "description": "Indicates whether the SSH certificate is for client or server authentication.\n"
+                },
+                "destinationAddresses": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "A list of one or more valid IP or CIDR destination hosts where the certificate will authenticate.\n"
+                },
+                "extensions": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "A list of key-value pairs that contain certificate extensions from the CA template for client certificates. Allowed values (case-sensitive): *permit-X11-forwarding, permit-agent-forwarding, permit-port-forwarding, permit-pty, permit-user-rc*\n"
+                },
+                "folder": {
+                    "type": "string",
+                    "description": "The DN of the policy folder where the SSH certificate object will be created.\n"
+                },
+                "forceCommand": {
+                    "type": "string",
+                    "description": "A command to run after successful login.\n"
+                },
+                "keyId": {
+                    "type": "string",
+                    "description": "The identifier of the requested SSH certificate.\n"
+                },
+                "keyPassphrase": {
+                    "type": "string",
+                    "description": "Passphrase for encrypting the private key.\n"
+                },
+                "keySize": {
+                    "type": "integer",
+                    "description": "Number of bits to use when creating a key pair. (e.g. 3072)\n"
+                },
+                "objectName": {
+                    "type": "string",
+                    "description": "The friendly name of the SSH certificate object. When not specified the `key_id` is used for the friendly name. If the object already exists the old certificate is archived and the CA issues a new certificate.\n"
+                },
+                "principals": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "A list of user names for whom the requested certificate will be valid.\n"
+                },
+                "privateKey": {
+                    "type": "string",
+                    "description": "The private key for the SSH certificate if generated by Venafi.\n"
+                },
+                "publicKey": {
+                    "type": "string",
+                    "description": "The OpenSSH formatted public key that will be used to generate the SSH certificate.\n"
+                },
+                "publicKeyFingerprint": {
+                    "type": "string",
+                    "description": "The SHA256 fingerprint of the SSH certificate's public key.\n"
+                },
+                "publicKeyMethod": {
+                    "type": "string",
+                    "description": "Specifies whether the public key will be \"local\" (default), \"file\" or \"service\" generated.\n"
+                },
+                "serial": {
+                    "type": "string",
+                    "description": "The serial number of the SSH certificate.\n"
+                },
+                "signingCa": {
+                    "type": "string",
+                    "description": "The SHA256 fingerprint of the CA that signed the SSH certificate.\n"
+                },
+                "sourceAddresses": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "A list of one or more valid IP or CIDR addresses that can use the SSH certificate.\n"
+                },
+                "template": {
+                    "type": "string",
+                    "description": "The SSH certificate issuing template.\n"
+                },
+                "validFrom": {
+                    "type": "string",
+                    "description": "The date the SSH certificate was issued.\n"
+                },
+                "validHours": {
+                    "type": "integer",
+                    "description": "Desired number of hours for which the certificate will be valid.\n"
+                },
+                "validTo": {
+                    "type": "string",
+                    "description": "The date the SSH certificate will expire.\n"
+                },
+                "windows": {
+                    "type": "boolean",
+                    "description": "Specifies whether the private key will use Windows/DOS style line breaks.\n"
+                }
+            },
+            "required": [
+                "certificate",
+                "certificateType",
+                "keyId",
+                "privateKey",
+                "publicKeyFingerprint",
+                "serial",
+                "signingCa",
+                "template",
+                "validFrom",
+                "validTo"
+            ],
+            "inputProperties": {
+                "destinationAddresses": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "A list of one or more valid IP or CIDR destination hosts where the certificate will authenticate.\n"
+                },
+                "extensions": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "A list of key-value pairs that contain certificate extensions from the CA template for client certificates. Allowed values (case-sensitive): *permit-X11-forwarding, permit-agent-forwarding, permit-port-forwarding, permit-pty, permit-user-rc*\n"
+                },
+                "folder": {
+                    "type": "string",
+                    "description": "The DN of the policy folder where the SSH certificate object will be created.\n"
+                },
+                "forceCommand": {
+                    "type": "string",
+                    "description": "A command to run after successful login.\n"
+                },
+                "keyId": {
+                    "type": "string",
+                    "description": "The identifier of the requested SSH certificate.\n"
+                },
+                "keyPassphrase": {
+                    "type": "string",
+                    "description": "Passphrase for encrypting the private key.\n"
+                },
+                "keySize": {
+                    "type": "integer",
+                    "description": "Number of bits to use when creating a key pair. (e.g. 3072)\n"
+                },
+                "objectName": {
+                    "type": "string",
+                    "description": "The friendly name of the SSH certificate object. When not specified the `key_id` is used for the friendly name. If the object already exists the old certificate is archived and the CA issues a new certificate.\n"
+                },
+                "principals": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "A list of user names for whom the requested certificate will be valid.\n"
+                },
+                "publicKey": {
+                    "type": "string",
+                    "description": "The OpenSSH formatted public key that will be used to generate the SSH certificate.\n"
+                },
+                "publicKeyMethod": {
+                    "type": "string",
+                    "description": "Specifies whether the public key will be \"local\" (default), \"file\" or \"service\" generated.\n"
+                },
+                "sourceAddresses": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "A list of one or more valid IP or CIDR addresses that can use the SSH certificate.\n"
+                },
+                "template": {
+                    "type": "string",
+                    "description": "The SSH certificate issuing template.\n"
+                },
+                "validHours": {
+                    "type": "integer",
+                    "description": "Desired number of hours for which the certificate will be valid.\n"
+                },
+                "windows": {
+                    "type": "boolean",
+                    "description": "Specifies whether the private key will use Windows/DOS style line breaks.\n"
+                }
+            },
+            "requiredInputs": [
+                "keyId",
+                "template"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering SshCertificate resources.\n",
+                "properties": {
+                    "certificate": {
+                        "type": "string",
+                        "description": "The issued SSH certificate.\n"
+                    },
+                    "certificateType": {
+                        "type": "string",
+                        "description": "Indicates whether the SSH certificate is for client or server authentication.\n"
+                    },
+                    "destinationAddresses": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "A list of one or more valid IP or CIDR destination hosts where the certificate will authenticate.\n"
+                    },
+                    "extensions": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "A list of key-value pairs that contain certificate extensions from the CA template for client certificates. Allowed values (case-sensitive): *permit-X11-forwarding, permit-agent-forwarding, permit-port-forwarding, permit-pty, permit-user-rc*\n"
+                    },
+                    "folder": {
+                        "type": "string",
+                        "description": "The DN of the policy folder where the SSH certificate object will be created.\n"
+                    },
+                    "forceCommand": {
+                        "type": "string",
+                        "description": "A command to run after successful login.\n"
+                    },
+                    "keyId": {
+                        "type": "string",
+                        "description": "The identifier of the requested SSH certificate.\n"
+                    },
+                    "keyPassphrase": {
+                        "type": "string",
+                        "description": "Passphrase for encrypting the private key.\n"
+                    },
+                    "keySize": {
+                        "type": "integer",
+                        "description": "Number of bits to use when creating a key pair. (e.g. 3072)\n"
+                    },
+                    "objectName": {
+                        "type": "string",
+                        "description": "The friendly name of the SSH certificate object. When not specified the `key_id` is used for the friendly name. If the object already exists the old certificate is archived and the CA issues a new certificate.\n"
+                    },
+                    "principals": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "A list of user names for whom the requested certificate will be valid.\n"
+                    },
+                    "privateKey": {
+                        "type": "string",
+                        "description": "The private key for the SSH certificate if generated by Venafi.\n"
+                    },
+                    "publicKey": {
+                        "type": "string",
+                        "description": "The OpenSSH formatted public key that will be used to generate the SSH certificate.\n"
+                    },
+                    "publicKeyFingerprint": {
+                        "type": "string",
+                        "description": "The SHA256 fingerprint of the SSH certificate's public key.\n"
+                    },
+                    "publicKeyMethod": {
+                        "type": "string",
+                        "description": "Specifies whether the public key will be \"local\" (default), \"file\" or \"service\" generated.\n"
+                    },
+                    "serial": {
+                        "type": "string",
+                        "description": "The serial number of the SSH certificate.\n"
+                    },
+                    "signingCa": {
+                        "type": "string",
+                        "description": "The SHA256 fingerprint of the CA that signed the SSH certificate.\n"
+                    },
+                    "sourceAddresses": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "A list of one or more valid IP or CIDR addresses that can use the SSH certificate.\n"
+                    },
+                    "template": {
+                        "type": "string",
+                        "description": "The SSH certificate issuing template.\n"
+                    },
+                    "validFrom": {
+                        "type": "string",
+                        "description": "The date the SSH certificate was issued.\n"
+                    },
+                    "validHours": {
+                        "type": "integer",
+                        "description": "Desired number of hours for which the certificate will be valid.\n"
+                    },
+                    "validTo": {
+                        "type": "string",
+                        "description": "The date the SSH certificate will expire.\n"
+                    },
+                    "windows": {
+                        "type": "boolean",
+                        "description": "Specifies whether the private key will use Windows/DOS style line breaks.\n"
+                    }
+                },
+                "type": "object"
+            }
         }
     },
     "language": {
@@ -406,8 +715,7 @@
             "compatibility": "tfbridge20",
             "namespaces": null,
             "packageReferences": {
-                "Pulumi": "3.*",
-                "System.Collections.Immutable": "1.6.0"
+                "Pulumi": "3.*"
             }
         },
         "go": {

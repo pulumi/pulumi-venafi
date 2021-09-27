@@ -86,7 +86,8 @@ func Provider() tfbridge.ProviderInfo {
 					},
 				},
 			},
-			"venafi_policy": {Tok: makeResource(mainMod, "Policy")},
+			"venafi_policy":          {Tok: makeResource(mainMod, "Policy")},
+			"venafi_ssh_certificate": {Tok: makeResource(mainMod, "SshCertificate")},
 		},
 		JavaScript: &tfbridge.JavaScriptInfo{
 			Dependencies: map[string]string{
@@ -113,8 +114,7 @@ func Provider() tfbridge.ProviderInfo {
 		},
 		CSharp: &tfbridge.CSharpInfo{
 			PackageReferences: map[string]string{
-				"Pulumi":                       "3.*",
-				"System.Collections.Immutable": "1.6.0",
+				"Pulumi": "3.*",
 			},
 		},
 	}
