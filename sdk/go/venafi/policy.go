@@ -14,6 +14,40 @@ import (
 // to define a new policy (folder in *Trust Protection Platform*; application
 // and/or issuing template in *Venafi as a Service*).
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"io/ioutil"
+//
+// 	"github.com/pulumi/pulumi-venafi/sdk/go/venafi"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func readFileOrPanic(path string) pulumi.StringPtrInput {
+// 	data, err := ioutil.ReadFile(path)
+// 	if err != nil {
+// 		panic(err.Error())
+// 	}
+// 	return pulumi.String(string(data))
+// }
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := venafi.NewPolicy(ctx, "internalPolicy", &venafi.PolicyArgs{
+// 			Zone:                pulumi.String("My Business App\\Enterprise Trusted Certs"),
+// 			PolicySpecification: readFileOrPanic("/path-to/internal-policy.json"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
 // ## Import
 //
 // The `venafi_policy` resource supports the Terraform [import](https://www.terraform.io/docs/cli/import/index.html) method.
@@ -169,7 +203,7 @@ type PolicyArrayInput interface {
 type PolicyArray []PolicyInput
 
 func (PolicyArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*Policy)(nil))
+	return reflect.TypeOf((*[]*Policy)(nil)).Elem()
 }
 
 func (i PolicyArray) ToPolicyArrayOutput() PolicyArrayOutput {
@@ -194,7 +228,7 @@ type PolicyMapInput interface {
 type PolicyMap map[string]PolicyInput
 
 func (PolicyMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*Policy)(nil))
+	return reflect.TypeOf((*map[string]*Policy)(nil)).Elem()
 }
 
 func (i PolicyMap) ToPolicyMapOutput() PolicyMapOutput {
@@ -205,9 +239,7 @@ func (i PolicyMap) ToPolicyMapOutputWithContext(ctx context.Context) PolicyMapOu
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyMapOutput)
 }
 
-type PolicyOutput struct {
-	*pulumi.OutputState
-}
+type PolicyOutput struct{ *pulumi.OutputState }
 
 func (PolicyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Policy)(nil))
@@ -226,14 +258,12 @@ func (o PolicyOutput) ToPolicyPtrOutput() PolicyPtrOutput {
 }
 
 func (o PolicyOutput) ToPolicyPtrOutputWithContext(ctx context.Context) PolicyPtrOutput {
-	return o.ApplyT(func(v Policy) *Policy {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Policy) *Policy {
 		return &v
 	}).(PolicyPtrOutput)
 }
 
-type PolicyPtrOutput struct {
-	*pulumi.OutputState
-}
+type PolicyPtrOutput struct{ *pulumi.OutputState }
 
 func (PolicyPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**Policy)(nil))
@@ -245,6 +275,16 @@ func (o PolicyPtrOutput) ToPolicyPtrOutput() PolicyPtrOutput {
 
 func (o PolicyPtrOutput) ToPolicyPtrOutputWithContext(ctx context.Context) PolicyPtrOutput {
 	return o
+}
+
+func (o PolicyPtrOutput) Elem() PolicyOutput {
+	return o.ApplyT(func(v *Policy) Policy {
+		if v != nil {
+			return *v
+		}
+		var ret Policy
+		return ret
+	}).(PolicyOutput)
 }
 
 type PolicyArrayOutput struct{ *pulumi.OutputState }
@@ -288,6 +328,10 @@ func (o PolicyMapOutput) MapIndex(k pulumi.StringInput) PolicyOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyInput)(nil)).Elem(), &Policy{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyPtrInput)(nil)).Elem(), &Policy{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyArrayInput)(nil)).Elem(), PolicyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyMapInput)(nil)).Elem(), PolicyMap{})
 	pulumi.RegisterOutputType(PolicyOutput{})
 	pulumi.RegisterOutputType(PolicyPtrOutput{})
 	pulumi.RegisterOutputType(PolicyArrayOutput{})

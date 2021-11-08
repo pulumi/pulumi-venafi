@@ -363,7 +363,7 @@ type SshCertificateArrayInput interface {
 type SshCertificateArray []SshCertificateInput
 
 func (SshCertificateArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*SshCertificate)(nil))
+	return reflect.TypeOf((*[]*SshCertificate)(nil)).Elem()
 }
 
 func (i SshCertificateArray) ToSshCertificateArrayOutput() SshCertificateArrayOutput {
@@ -388,7 +388,7 @@ type SshCertificateMapInput interface {
 type SshCertificateMap map[string]SshCertificateInput
 
 func (SshCertificateMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*SshCertificate)(nil))
+	return reflect.TypeOf((*map[string]*SshCertificate)(nil)).Elem()
 }
 
 func (i SshCertificateMap) ToSshCertificateMapOutput() SshCertificateMapOutput {
@@ -399,9 +399,7 @@ func (i SshCertificateMap) ToSshCertificateMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(SshCertificateMapOutput)
 }
 
-type SshCertificateOutput struct {
-	*pulumi.OutputState
-}
+type SshCertificateOutput struct{ *pulumi.OutputState }
 
 func (SshCertificateOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SshCertificate)(nil))
@@ -420,14 +418,12 @@ func (o SshCertificateOutput) ToSshCertificatePtrOutput() SshCertificatePtrOutpu
 }
 
 func (o SshCertificateOutput) ToSshCertificatePtrOutputWithContext(ctx context.Context) SshCertificatePtrOutput {
-	return o.ApplyT(func(v SshCertificate) *SshCertificate {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SshCertificate) *SshCertificate {
 		return &v
 	}).(SshCertificatePtrOutput)
 }
 
-type SshCertificatePtrOutput struct {
-	*pulumi.OutputState
-}
+type SshCertificatePtrOutput struct{ *pulumi.OutputState }
 
 func (SshCertificatePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**SshCertificate)(nil))
@@ -439,6 +435,16 @@ func (o SshCertificatePtrOutput) ToSshCertificatePtrOutput() SshCertificatePtrOu
 
 func (o SshCertificatePtrOutput) ToSshCertificatePtrOutputWithContext(ctx context.Context) SshCertificatePtrOutput {
 	return o
+}
+
+func (o SshCertificatePtrOutput) Elem() SshCertificateOutput {
+	return o.ApplyT(func(v *SshCertificate) SshCertificate {
+		if v != nil {
+			return *v
+		}
+		var ret SshCertificate
+		return ret
+	}).(SshCertificateOutput)
 }
 
 type SshCertificateArrayOutput struct{ *pulumi.OutputState }
@@ -482,6 +488,10 @@ func (o SshCertificateMapOutput) MapIndex(k pulumi.StringInput) SshCertificateOu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*SshCertificateInput)(nil)).Elem(), &SshCertificate{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SshCertificatePtrInput)(nil)).Elem(), &SshCertificate{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SshCertificateArrayInput)(nil)).Elem(), SshCertificateArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SshCertificateMapInput)(nil)).Elem(), SshCertificateMap{})
 	pulumi.RegisterOutputType(SshCertificateOutput{})
 	pulumi.RegisterOutputType(SshCertificatePtrOutput{})
 	pulumi.RegisterOutputType(SshCertificateArrayOutput{})

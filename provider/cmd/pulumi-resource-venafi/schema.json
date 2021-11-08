@@ -52,6 +52,42 @@
     },
     "provider": {
         "description": "The provider type for the venafi package. By default, resources use package-wide configuration\nsettings, however an explicit `Provider` instance may be created and passed during resource\nconstruction to achieve fine-grained programmatic control over provider settings. See the\n[documentation](https://www.pulumi.com/docs/reference/programming-model/#providers) for more information.\n",
+        "properties": {
+            "accessToken": {
+                "type": "string",
+                "description": "Access token for TPP, user should use this for authentication\n"
+            },
+            "apiKey": {
+                "type": "string",
+                "description": "API key for Venafi Cloud. Example: 142231b7-cvb0-412e-886b-6aeght0bc93d\n"
+            },
+            "devMode": {
+                "type": "boolean",
+                "description": "When set to true, the resulting certificate will be issued by an ephemeral, no trust CA rather than enrolling using\nVenafi Cloud or Platform. Useful for development and testing.\n"
+            },
+            "tppPassword": {
+                "type": "string",
+                "description": "Password for WebSDK user. Example: password\n",
+                "deprecationMessage": ", please use access_token instead"
+            },
+            "tppUsername": {
+                "type": "string",
+                "description": "WebSDK user for Venafi Platform. Example: admin\n",
+                "deprecationMessage": ", please use access_token instead"
+            },
+            "trustBundle": {
+                "type": "string",
+                "description": "Use to specify a PEM-formatted file that contains certificates to be trust anchors for all communications with the\nVenafi Web Service. Example: trust_bundle = \"${file(\"chain.pem\")}\"\n"
+            },
+            "url": {
+                "type": "string",
+                "description": "The Venafi Web Service URL.. Example: https://tpp.venafi.example/vedsdk\n"
+            },
+            "zone": {
+                "type": "string",
+                "description": "DN of the Venafi Platform policy folder or name of the Venafi Cloud zone. Example for Platform: testpolicy\\\\vault\nExample for Venafi Cloud: Default\n"
+            }
+        },
         "inputProperties": {
             "accessToken": {
                 "type": "string",
@@ -364,7 +400,7 @@
             }
         },
         "venafi:index/policy:Policy": {
-            "description": "Provides access to read and write certificate policy in Venafi. This can be used\nto define a new policy (folder in *Trust Protection Platform*; application\nand/or issuing template in *Venafi as a Service*).\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as venafi from \"@pulumi/venafi\";\nimport * from \"fs\";\n\nconst internalPolicy = new venafi.Policy(\"internalPolicy\", {\n    zone: \"My Business App\\\\Enterprise Trusted Certs\",\n    policySpecification: fs.readFileSync(\"/path-to/internal-policy.json\"),\n});\n```\n```python\nimport pulumi\nimport pulumi_venafi as venafi\n\ninternal_policy = venafi.Policy(\"internalPolicy\",\n    zone=\"My Business App\\\\Enterprise Trusted Certs\",\n    policy_specification=(lambda path: open(path).read())(\"/path-to/internal-policy.json\"))\n```\n```csharp\nusing System.IO;\nusing Pulumi;\nusing Venafi = Pulumi.Venafi;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var internalPolicy = new Venafi.Policy(\"internalPolicy\", new Venafi.PolicyArgs\n        {\n            Zone = \"My Business App\\\\Enterprise Trusted Certs\",\n            PolicySpecification = File.ReadAllText(\"/path-to/internal-policy.json\"),\n        });\n    }\n\n}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nThe `venafi_policy` resource supports the Terraform [import](https://www.terraform.io/docs/cli/import/index.html) method.\n\nWhen used, the `zone` and `policy_specification` resource arguments are not required since the zone is a required parameter of the import method and the policy specification is populated from the existing infrastructure. Policy that is successfully imported is also output to a file named after the zone that was specified. hcl resource \"venafi_policy\" \"existing_policy\" {}\n\n```sh\n $ pulumi import venafi:index/policy:Policy existing_policy\" \"My Business App\\\\Enterprise Trusted Certs\"\n```\n\n ",
+            "description": "Provides access to read and write certificate policy in Venafi. This can be used\nto define a new policy (folder in *Trust Protection Platform*; application\nand/or issuing template in *Venafi as a Service*).\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as venafi from \"@pulumi/venafi\";\nimport * from \"fs\";\n\nconst internalPolicy = new venafi.Policy(\"internalPolicy\", {\n    zone: \"My Business App\\\\Enterprise Trusted Certs\",\n    policySpecification: fs.readFileSync(\"/path-to/internal-policy.json\"),\n});\n```\n```python\nimport pulumi\nimport pulumi_venafi as venafi\n\ninternal_policy = venafi.Policy(\"internalPolicy\",\n    zone=\"My Business App\\\\Enterprise Trusted Certs\",\n    policy_specification=(lambda path: open(path).read())(\"/path-to/internal-policy.json\"))\n```\n```csharp\nusing System.IO;\nusing Pulumi;\nusing Venafi = Pulumi.Venafi;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var internalPolicy = new Venafi.Policy(\"internalPolicy\", new Venafi.PolicyArgs\n        {\n            Zone = \"My Business App\\\\Enterprise Trusted Certs\",\n            PolicySpecification = File.ReadAllText(\"/path-to/internal-policy.json\"),\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"io/ioutil\"\n\n\t\"github.com/pulumi/pulumi-venafi/sdk/go/venafi\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc readFileOrPanic(path string) pulumi.StringPtrInput {\n\tdata, err := ioutil.ReadFile(path)\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\treturn pulumi.String(string(data))\n}\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := venafi.NewPolicy(ctx, \"internalPolicy\", \u0026venafi.PolicyArgs{\n\t\t\tZone:                pulumi.String(\"My Business App\\\\Enterprise Trusted Certs\"),\n\t\t\tPolicySpecification: readFileOrPanic(\"/path-to/internal-policy.json\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nThe `venafi_policy` resource supports the Terraform [import](https://www.terraform.io/docs/cli/import/index.html) method.\n\nWhen used, the `zone` and `policy_specification` resource arguments are not required since the zone is a required parameter of the import method and the policy specification is populated from the existing infrastructure. Policy that is successfully imported is also output to a file named after the zone that was specified. hcl resource \"venafi_policy\" \"existing_policy\" {}\n\n```sh\n $ pulumi import venafi:index/policy:Policy existing_policy\" \"My Business App\\\\Enterprise Trusted Certs\"\n```\n\n ",
             "properties": {
                 "policySpecification": {
                     "type": "string",
