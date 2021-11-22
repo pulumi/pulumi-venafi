@@ -259,3 +259,61 @@ class Provider(pulumi.ProviderResource):
             __props__,
             opts)
 
+    @property
+    @pulumi.getter(name="accessToken")
+    def access_token(self) -> pulumi.Output[Optional[str]]:
+        """
+        Access token for TPP, user should use this for authentication
+        """
+        return pulumi.get(self, "access_token")
+
+    @property
+    @pulumi.getter(name="apiKey")
+    def api_key(self) -> pulumi.Output[Optional[str]]:
+        """
+        API key for Venafi Cloud. Example: 142231b7-cvb0-412e-886b-6aeght0bc93d
+        """
+        return pulumi.get(self, "api_key")
+
+    @property
+    @pulumi.getter(name="tppPassword")
+    def tpp_password(self) -> pulumi.Output[Optional[str]]:
+        """
+        Password for WebSDK user. Example: password
+        """
+        return pulumi.get(self, "tpp_password")
+
+    @property
+    @pulumi.getter(name="tppUsername")
+    def tpp_username(self) -> pulumi.Output[Optional[str]]:
+        """
+        WebSDK user for Venafi Platform. Example: admin
+        """
+        return pulumi.get(self, "tpp_username")
+
+    @property
+    @pulumi.getter(name="trustBundle")
+    def trust_bundle(self) -> pulumi.Output[Optional[str]]:
+        """
+        Use to specify a PEM-formatted file that contains certificates to be trust anchors for all communications with the
+        Venafi Web Service. Example: trust_bundle = "${file("chain.pem")}"
+        """
+        return pulumi.get(self, "trust_bundle")
+
+    @property
+    @pulumi.getter
+    def url(self) -> pulumi.Output[Optional[str]]:
+        """
+        The Venafi Web Service URL.. Example: https://tpp.venafi.example/vedsdk
+        """
+        return pulumi.get(self, "url")
+
+    @property
+    @pulumi.getter
+    def zone(self) -> pulumi.Output[Optional[str]]:
+        """
+        DN of the Venafi Platform policy folder or name of the Venafi Cloud zone. Example for Platform: testpolicy\\vault
+        Example for Venafi Cloud: Default
+        """
+        return pulumi.get(self, "zone")
+

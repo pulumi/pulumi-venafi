@@ -211,79 +211,79 @@ export interface CertificateState {
      * Key encryption algorithm, either `RSA` or `ECDSA`.
      * Defaults to `RSA`.
      */
-    readonly algorithm?: pulumi.Input<string>;
+    algorithm?: pulumi.Input<string>;
     /**
      * The X509 certificate in PEM format.
      */
-    readonly certificate?: pulumi.Input<string>;
-    readonly certificateDn?: pulumi.Input<string>;
+    certificate?: pulumi.Input<string>;
+    certificateDn?: pulumi.Input<string>;
     /**
      * The trust chain of X509 certificate authority certificates in PEM format
      * concatenated together.
      */
-    readonly chain?: pulumi.Input<string>;
+    chain?: pulumi.Input<string>;
     /**
      * The common name of the certificate.
      */
-    readonly commonName?: pulumi.Input<string>;
-    readonly csrPem?: pulumi.Input<string>;
+    commonName?: pulumi.Input<string>;
+    csrPem?: pulumi.Input<string>;
     /**
      * Collection of Custom Field name-value pairs to
      * assign to the certificate.
      */
-    readonly customFields?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    customFields?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * ECDSA curve to use when generating a key
      */
-    readonly ecdsaCurve?: pulumi.Input<string>;
+    ecdsaCurve?: pulumi.Input<string>;
     /**
      * Number of hours before certificate expiry
      * to request a new certificate.
      */
-    readonly expirationWindow?: pulumi.Input<number>;
+    expirationWindow?: pulumi.Input<number>;
     /**
      * Used with validDays to indicate the target
      * issuer when using Trust Protection Platform.  Relevant values are: "DigiCert",
      * "Entrust", and "Microsoft".
      */
-    readonly issuerHint?: pulumi.Input<string>;
+    issuerHint?: pulumi.Input<string>;
     /**
      * The password used to encrypt the private key.
      */
-    readonly keyPassword?: pulumi.Input<string>;
+    keyPassword?: pulumi.Input<string>;
     /**
      * A base64-encoded PKCS#12 keystore secured by the `keyPassword`.
      */
-    readonly pkcs12?: pulumi.Input<string>;
+    pkcs12?: pulumi.Input<string>;
     /**
      * The private key in PEM format.
      */
-    readonly privateKeyPem?: pulumi.Input<string>;
+    privateKeyPem?: pulumi.Input<string>;
     /**
      * Number of bits to use when generating an RSA key.
      * Applies when `algorithm=RSA`.  Defaults to `2048`.
      */
-    readonly rsaBits?: pulumi.Input<number>;
+    rsaBits?: pulumi.Input<number>;
     /**
      * List of DNS names to use as alternative
      * subjects of the certificate.
      */
-    readonly sanDns?: pulumi.Input<pulumi.Input<string>[]>;
+    sanDns?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * List of email addresses to use as
      * alternative subjects of the certificate.
      */
-    readonly sanEmails?: pulumi.Input<pulumi.Input<string>[]>;
+    sanEmails?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * List of IP addresses to use as alternative
      * subjects of the certificate.
      */
-    readonly sanIps?: pulumi.Input<pulumi.Input<string>[]>;
+    sanIps?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Desired number of days for which the new
      * certificate will be valid.
      */
-    readonly validDays?: pulumi.Input<number>;
+    validDays?: pulumi.Input<number>;
 }
 
 /**
@@ -294,68 +294,68 @@ export interface CertificateArgs {
      * Key encryption algorithm, either `RSA` or `ECDSA`.
      * Defaults to `RSA`.
      */
-    readonly algorithm?: pulumi.Input<string>;
-    readonly certificateDn?: pulumi.Input<string>;
+    algorithm?: pulumi.Input<string>;
+    certificateDn?: pulumi.Input<string>;
     /**
      * The common name of the certificate.
      */
-    readonly commonName: pulumi.Input<string>;
-    readonly csrPem?: pulumi.Input<string>;
+    commonName: pulumi.Input<string>;
+    csrPem?: pulumi.Input<string>;
     /**
      * Collection of Custom Field name-value pairs to
      * assign to the certificate.
      */
-    readonly customFields?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    customFields?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * ECDSA curve to use when generating a key
      */
-    readonly ecdsaCurve?: pulumi.Input<string>;
+    ecdsaCurve?: pulumi.Input<string>;
     /**
      * Number of hours before certificate expiry
      * to request a new certificate.
      */
-    readonly expirationWindow?: pulumi.Input<number>;
+    expirationWindow?: pulumi.Input<number>;
     /**
      * Used with validDays to indicate the target
      * issuer when using Trust Protection Platform.  Relevant values are: "DigiCert",
      * "Entrust", and "Microsoft".
      */
-    readonly issuerHint?: pulumi.Input<string>;
+    issuerHint?: pulumi.Input<string>;
     /**
      * The password used to encrypt the private key.
      */
-    readonly keyPassword?: pulumi.Input<string>;
+    keyPassword?: pulumi.Input<string>;
     /**
      * A base64-encoded PKCS#12 keystore secured by the `keyPassword`.
      */
-    readonly pkcs12?: pulumi.Input<string>;
+    pkcs12?: pulumi.Input<string>;
     /**
      * The private key in PEM format.
      */
-    readonly privateKeyPem?: pulumi.Input<string>;
+    privateKeyPem?: pulumi.Input<string>;
     /**
      * Number of bits to use when generating an RSA key.
      * Applies when `algorithm=RSA`.  Defaults to `2048`.
      */
-    readonly rsaBits?: pulumi.Input<number>;
+    rsaBits?: pulumi.Input<number>;
     /**
      * List of DNS names to use as alternative
      * subjects of the certificate.
      */
-    readonly sanDns?: pulumi.Input<pulumi.Input<string>[]>;
+    sanDns?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * List of email addresses to use as
      * alternative subjects of the certificate.
      */
-    readonly sanEmails?: pulumi.Input<pulumi.Input<string>[]>;
+    sanEmails?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * List of IP addresses to use as alternative
      * subjects of the certificate.
      */
-    readonly sanIps?: pulumi.Input<pulumi.Input<string>[]>;
+    sanIps?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Desired number of days for which the new
      * certificate will be valid.
      */
-    readonly validDays?: pulumi.Input<number>;
+    validDays?: pulumi.Input<number>;
 }

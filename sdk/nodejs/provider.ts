@@ -25,6 +25,40 @@ export class Provider extends pulumi.ProviderResource {
         return obj['__pulumiType'] === Provider.__pulumiType;
     }
 
+    /**
+     * Access token for TPP, user should use this for authentication
+     */
+    public readonly accessToken!: pulumi.Output<string | undefined>;
+    /**
+     * API key for Venafi Cloud. Example: 142231b7-cvb0-412e-886b-6aeght0bc93d
+     */
+    public readonly apiKey!: pulumi.Output<string | undefined>;
+    /**
+     * Password for WebSDK user. Example: password
+     *
+     * @deprecated , please use access_token instead
+     */
+    public readonly tppPassword!: pulumi.Output<string | undefined>;
+    /**
+     * WebSDK user for Venafi Platform. Example: admin
+     *
+     * @deprecated , please use access_token instead
+     */
+    public readonly tppUsername!: pulumi.Output<string | undefined>;
+    /**
+     * Use to specify a PEM-formatted file that contains certificates to be trust anchors for all communications with the
+     * Venafi Web Service. Example: trust_bundle = "${file("chain.pem")}"
+     */
+    public readonly trustBundle!: pulumi.Output<string | undefined>;
+    /**
+     * The Venafi Web Service URL.. Example: https://tpp.venafi.example/vedsdk
+     */
+    public readonly url!: pulumi.Output<string | undefined>;
+    /**
+     * DN of the Venafi Platform policy folder or name of the Venafi Cloud zone. Example for Platform: testpolicy\\vault
+     * Example for Venafi Cloud: Default
+     */
+    public readonly zone!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Provider resource with the given unique name, arguments, and options.
@@ -60,40 +94,40 @@ export interface ProviderArgs {
     /**
      * Access token for TPP, user should use this for authentication
      */
-    readonly accessToken?: pulumi.Input<string>;
+    accessToken?: pulumi.Input<string>;
     /**
      * API key for Venafi Cloud. Example: 142231b7-cvb0-412e-886b-6aeght0bc93d
      */
-    readonly apiKey?: pulumi.Input<string>;
+    apiKey?: pulumi.Input<string>;
     /**
      * When set to true, the resulting certificate will be issued by an ephemeral, no trust CA rather than enrolling using
      * Venafi Cloud or Platform. Useful for development and testing.
      */
-    readonly devMode?: pulumi.Input<boolean>;
+    devMode?: pulumi.Input<boolean>;
     /**
      * Password for WebSDK user. Example: password
      *
      * @deprecated , please use access_token instead
      */
-    readonly tppPassword?: pulumi.Input<string>;
+    tppPassword?: pulumi.Input<string>;
     /**
      * WebSDK user for Venafi Platform. Example: admin
      *
      * @deprecated , please use access_token instead
      */
-    readonly tppUsername?: pulumi.Input<string>;
+    tppUsername?: pulumi.Input<string>;
     /**
      * Use to specify a PEM-formatted file that contains certificates to be trust anchors for all communications with the
      * Venafi Web Service. Example: trust_bundle = "${file("chain.pem")}"
      */
-    readonly trustBundle?: pulumi.Input<string>;
+    trustBundle?: pulumi.Input<string>;
     /**
      * The Venafi Web Service URL.. Example: https://tpp.venafi.example/vedsdk
      */
-    readonly url?: pulumi.Input<string>;
+    url?: pulumi.Input<string>;
     /**
      * DN of the Venafi Platform policy folder or name of the Venafi Cloud zone. Example for Platform: testpolicy\\vault
      * Example for Venafi Cloud: Default
      */
-    readonly zone?: pulumi.Input<string>;
+    zone?: pulumi.Input<string>;
 }

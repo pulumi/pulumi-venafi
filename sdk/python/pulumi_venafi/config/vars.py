@@ -8,59 +8,68 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = [
-    'access_token',
-    'api_key',
-    'dev_mode',
-    'tpp_password',
-    'tpp_username',
-    'trust_bundle',
-    'url',
-    'zone',
-]
+import types
 
 __config__ = pulumi.Config('venafi')
 
-access_token = __config__.get('accessToken')
-"""
-Access token for TPP, user should use this for authentication
-"""
 
-api_key = __config__.get('apiKey')
-"""
-API key for Venafi Cloud. Example: 142231b7-cvb0-412e-886b-6aeght0bc93d
-"""
+class _ExportableConfig(types.ModuleType):
+    @property
+    def access_token(self) -> Optional[str]:
+        """
+        Access token for TPP, user should use this for authentication
+        """
+        return __config__.get('accessToken')
 
-dev_mode = __config__.get('devMode')
-"""
-When set to true, the resulting certificate will be issued by an ephemeral, no trust CA rather than enrolling using
-Venafi Cloud or Platform. Useful for development and testing.
-"""
+    @property
+    def api_key(self) -> Optional[str]:
+        """
+        API key for Venafi Cloud. Example: 142231b7-cvb0-412e-886b-6aeght0bc93d
+        """
+        return __config__.get('apiKey')
 
-tpp_password = __config__.get('tppPassword')
-"""
-Password for WebSDK user. Example: password
-"""
+    @property
+    def dev_mode(self) -> Optional[bool]:
+        """
+        When set to true, the resulting certificate will be issued by an ephemeral, no trust CA rather than enrolling using
+        Venafi Cloud or Platform. Useful for development and testing.
+        """
+        return __config__.get_bool('devMode')
 
-tpp_username = __config__.get('tppUsername')
-"""
-WebSDK user for Venafi Platform. Example: admin
-"""
+    @property
+    def tpp_password(self) -> Optional[str]:
+        """
+        Password for WebSDK user. Example: password
+        """
+        return __config__.get('tppPassword')
 
-trust_bundle = __config__.get('trustBundle')
-"""
-Use to specify a PEM-formatted file that contains certificates to be trust anchors for all communications with the
-Venafi Web Service. Example: trust_bundle = "${file("chain.pem")}"
-"""
+    @property
+    def tpp_username(self) -> Optional[str]:
+        """
+        WebSDK user for Venafi Platform. Example: admin
+        """
+        return __config__.get('tppUsername')
 
-url = __config__.get('url')
-"""
-The Venafi Web Service URL.. Example: https://tpp.venafi.example/vedsdk
-"""
+    @property
+    def trust_bundle(self) -> Optional[str]:
+        """
+        Use to specify a PEM-formatted file that contains certificates to be trust anchors for all communications with the
+        Venafi Web Service. Example: trust_bundle = "${file("chain.pem")}"
+        """
+        return __config__.get('trustBundle')
 
-zone = __config__.get('zone')
-"""
-DN of the Venafi Platform policy folder or name of the Venafi Cloud zone. Example for Platform: testpolicy\\vault
-Example for Venafi Cloud: Default
-"""
+    @property
+    def url(self) -> Optional[str]:
+        """
+        The Venafi Web Service URL.. Example: https://tpp.venafi.example/vedsdk
+        """
+        return __config__.get('url')
+
+    @property
+    def zone(self) -> Optional[str]:
+        """
+        DN of the Venafi Platform policy folder or name of the Venafi Cloud zone. Example for Platform: testpolicy\\vault
+        Example for Venafi Cloud: Default
+        """
+        return __config__.get('zone')
 

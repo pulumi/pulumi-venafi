@@ -19,6 +19,51 @@ namespace Pulumi.Venafi
     public partial class Provider : Pulumi.ProviderResource
     {
         /// <summary>
+        /// Access token for TPP, user should use this for authentication
+        /// </summary>
+        [Output("accessToken")]
+        public Output<string?> AccessToken { get; private set; } = null!;
+
+        /// <summary>
+        /// API key for Venafi Cloud. Example: 142231b7-cvb0-412e-886b-6aeght0bc93d
+        /// </summary>
+        [Output("apiKey")]
+        public Output<string?> ApiKey { get; private set; } = null!;
+
+        /// <summary>
+        /// Password for WebSDK user. Example: password
+        /// </summary>
+        [Output("tppPassword")]
+        public Output<string?> TppPassword { get; private set; } = null!;
+
+        /// <summary>
+        /// WebSDK user for Venafi Platform. Example: admin
+        /// </summary>
+        [Output("tppUsername")]
+        public Output<string?> TppUsername { get; private set; } = null!;
+
+        /// <summary>
+        /// Use to specify a PEM-formatted file that contains certificates to be trust anchors for all communications with the
+        /// Venafi Web Service. Example: trust_bundle = "${file("chain.pem")}"
+        /// </summary>
+        [Output("trustBundle")]
+        public Output<string?> TrustBundle { get; private set; } = null!;
+
+        /// <summary>
+        /// The Venafi Web Service URL.. Example: https://tpp.venafi.example/vedsdk
+        /// </summary>
+        [Output("url")]
+        public Output<string?> Url { get; private set; } = null!;
+
+        /// <summary>
+        /// DN of the Venafi Platform policy folder or name of the Venafi Cloud zone. Example for Platform: testpolicy\\vault
+        /// Example for Venafi Cloud: Default
+        /// </summary>
+        [Output("zone")]
+        public Output<string?> Zone { get; private set; } = null!;
+
+
+        /// <summary>
         /// Create a Provider resource with the given unique name, arguments, and options.
         /// </summary>
         ///

@@ -106,12 +106,12 @@ export interface PolicyState {
      * The JSON-formatted certificate policy
      * specification.  Typically read from a file using the `file` function.
      */
-    readonly policySpecification?: pulumi.Input<string>;
+    policySpecification?: pulumi.Input<string>;
     /**
      * The *Trust Protection Plaform* policy folder or
      * *Venafi as a Service* application and issuing template.
      */
-    readonly zone?: pulumi.Input<string>;
+    zone?: pulumi.Input<string>;
 }
 
 /**
@@ -122,10 +122,10 @@ export interface PolicyArgs {
      * The JSON-formatted certificate policy
      * specification.  Typically read from a file using the `file` function.
      */
-    readonly policySpecification?: pulumi.Input<string>;
+    policySpecification?: pulumi.Input<string>;
     /**
      * The *Trust Protection Plaform* policy folder or
      * *Venafi as a Service* application and issuing template.
      */
-    readonly zone?: pulumi.Input<string>;
+    zone?: pulumi.Input<string>;
 }
