@@ -68,22 +68,20 @@ export class Provider extends pulumi.ProviderResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args?: ProviderArgs, opts?: pulumi.ResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         {
-            inputs["accessToken"] = args ? args.accessToken : undefined;
-            inputs["apiKey"] = args ? args.apiKey : undefined;
-            inputs["devMode"] = pulumi.output(args ? args.devMode : undefined).apply(JSON.stringify);
-            inputs["tppPassword"] = args ? args.tppPassword : undefined;
-            inputs["tppUsername"] = args ? args.tppUsername : undefined;
-            inputs["trustBundle"] = args ? args.trustBundle : undefined;
-            inputs["url"] = args ? args.url : undefined;
-            inputs["zone"] = args ? args.zone : undefined;
+            resourceInputs["accessToken"] = args ? args.accessToken : undefined;
+            resourceInputs["apiKey"] = args ? args.apiKey : undefined;
+            resourceInputs["devMode"] = pulumi.output(args ? args.devMode : undefined).apply(JSON.stringify);
+            resourceInputs["tppPassword"] = args ? args.tppPassword : undefined;
+            resourceInputs["tppUsername"] = args ? args.tppUsername : undefined;
+            resourceInputs["trustBundle"] = args ? args.trustBundle : undefined;
+            resourceInputs["url"] = args ? args.url : undefined;
+            resourceInputs["zone"] = args ? args.zone : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Provider.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Provider.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -154,33 +154,33 @@ export class SshCertificate extends pulumi.CustomResource {
      */
     constructor(name: string, args: SshCertificateArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: SshCertificateArgs | SshCertificateState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SshCertificateState | undefined;
-            inputs["certificate"] = state ? state.certificate : undefined;
-            inputs["certificateType"] = state ? state.certificateType : undefined;
-            inputs["destinationAddresses"] = state ? state.destinationAddresses : undefined;
-            inputs["extensions"] = state ? state.extensions : undefined;
-            inputs["folder"] = state ? state.folder : undefined;
-            inputs["forceCommand"] = state ? state.forceCommand : undefined;
-            inputs["keyId"] = state ? state.keyId : undefined;
-            inputs["keyPassphrase"] = state ? state.keyPassphrase : undefined;
-            inputs["keySize"] = state ? state.keySize : undefined;
-            inputs["objectName"] = state ? state.objectName : undefined;
-            inputs["principals"] = state ? state.principals : undefined;
-            inputs["privateKey"] = state ? state.privateKey : undefined;
-            inputs["publicKey"] = state ? state.publicKey : undefined;
-            inputs["publicKeyFingerprint"] = state ? state.publicKeyFingerprint : undefined;
-            inputs["publicKeyMethod"] = state ? state.publicKeyMethod : undefined;
-            inputs["serial"] = state ? state.serial : undefined;
-            inputs["signingCa"] = state ? state.signingCa : undefined;
-            inputs["sourceAddresses"] = state ? state.sourceAddresses : undefined;
-            inputs["template"] = state ? state.template : undefined;
-            inputs["validFrom"] = state ? state.validFrom : undefined;
-            inputs["validHours"] = state ? state.validHours : undefined;
-            inputs["validTo"] = state ? state.validTo : undefined;
-            inputs["windows"] = state ? state.windows : undefined;
+            resourceInputs["certificate"] = state ? state.certificate : undefined;
+            resourceInputs["certificateType"] = state ? state.certificateType : undefined;
+            resourceInputs["destinationAddresses"] = state ? state.destinationAddresses : undefined;
+            resourceInputs["extensions"] = state ? state.extensions : undefined;
+            resourceInputs["folder"] = state ? state.folder : undefined;
+            resourceInputs["forceCommand"] = state ? state.forceCommand : undefined;
+            resourceInputs["keyId"] = state ? state.keyId : undefined;
+            resourceInputs["keyPassphrase"] = state ? state.keyPassphrase : undefined;
+            resourceInputs["keySize"] = state ? state.keySize : undefined;
+            resourceInputs["objectName"] = state ? state.objectName : undefined;
+            resourceInputs["principals"] = state ? state.principals : undefined;
+            resourceInputs["privateKey"] = state ? state.privateKey : undefined;
+            resourceInputs["publicKey"] = state ? state.publicKey : undefined;
+            resourceInputs["publicKeyFingerprint"] = state ? state.publicKeyFingerprint : undefined;
+            resourceInputs["publicKeyMethod"] = state ? state.publicKeyMethod : undefined;
+            resourceInputs["serial"] = state ? state.serial : undefined;
+            resourceInputs["signingCa"] = state ? state.signingCa : undefined;
+            resourceInputs["sourceAddresses"] = state ? state.sourceAddresses : undefined;
+            resourceInputs["template"] = state ? state.template : undefined;
+            resourceInputs["validFrom"] = state ? state.validFrom : undefined;
+            resourceInputs["validHours"] = state ? state.validHours : undefined;
+            resourceInputs["validTo"] = state ? state.validTo : undefined;
+            resourceInputs["windows"] = state ? state.windows : undefined;
         } else {
             const args = argsOrState as SshCertificateArgs | undefined;
             if ((!args || args.keyId === undefined) && !opts.urn) {
@@ -189,34 +189,32 @@ export class SshCertificate extends pulumi.CustomResource {
             if ((!args || args.template === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'template'");
             }
-            inputs["destinationAddresses"] = args ? args.destinationAddresses : undefined;
-            inputs["extensions"] = args ? args.extensions : undefined;
-            inputs["folder"] = args ? args.folder : undefined;
-            inputs["forceCommand"] = args ? args.forceCommand : undefined;
-            inputs["keyId"] = args ? args.keyId : undefined;
-            inputs["keyPassphrase"] = args ? args.keyPassphrase : undefined;
-            inputs["keySize"] = args ? args.keySize : undefined;
-            inputs["objectName"] = args ? args.objectName : undefined;
-            inputs["principals"] = args ? args.principals : undefined;
-            inputs["publicKey"] = args ? args.publicKey : undefined;
-            inputs["publicKeyMethod"] = args ? args.publicKeyMethod : undefined;
-            inputs["sourceAddresses"] = args ? args.sourceAddresses : undefined;
-            inputs["template"] = args ? args.template : undefined;
-            inputs["validHours"] = args ? args.validHours : undefined;
-            inputs["windows"] = args ? args.windows : undefined;
-            inputs["certificate"] = undefined /*out*/;
-            inputs["certificateType"] = undefined /*out*/;
-            inputs["privateKey"] = undefined /*out*/;
-            inputs["publicKeyFingerprint"] = undefined /*out*/;
-            inputs["serial"] = undefined /*out*/;
-            inputs["signingCa"] = undefined /*out*/;
-            inputs["validFrom"] = undefined /*out*/;
-            inputs["validTo"] = undefined /*out*/;
+            resourceInputs["destinationAddresses"] = args ? args.destinationAddresses : undefined;
+            resourceInputs["extensions"] = args ? args.extensions : undefined;
+            resourceInputs["folder"] = args ? args.folder : undefined;
+            resourceInputs["forceCommand"] = args ? args.forceCommand : undefined;
+            resourceInputs["keyId"] = args ? args.keyId : undefined;
+            resourceInputs["keyPassphrase"] = args ? args.keyPassphrase : undefined;
+            resourceInputs["keySize"] = args ? args.keySize : undefined;
+            resourceInputs["objectName"] = args ? args.objectName : undefined;
+            resourceInputs["principals"] = args ? args.principals : undefined;
+            resourceInputs["publicKey"] = args ? args.publicKey : undefined;
+            resourceInputs["publicKeyMethod"] = args ? args.publicKeyMethod : undefined;
+            resourceInputs["sourceAddresses"] = args ? args.sourceAddresses : undefined;
+            resourceInputs["template"] = args ? args.template : undefined;
+            resourceInputs["validHours"] = args ? args.validHours : undefined;
+            resourceInputs["windows"] = args ? args.windows : undefined;
+            resourceInputs["certificate"] = undefined /*out*/;
+            resourceInputs["certificateType"] = undefined /*out*/;
+            resourceInputs["privateKey"] = undefined /*out*/;
+            resourceInputs["publicKeyFingerprint"] = undefined /*out*/;
+            resourceInputs["serial"] = undefined /*out*/;
+            resourceInputs["signingCa"] = undefined /*out*/;
+            resourceInputs["validFrom"] = undefined /*out*/;
+            resourceInputs["validTo"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(SshCertificate.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(SshCertificate.__pulumiType, name, resourceInputs, opts);
     }
 }
 
