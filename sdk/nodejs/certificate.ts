@@ -150,56 +150,54 @@ export class Certificate extends pulumi.CustomResource {
      */
     constructor(name: string, args: CertificateArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: CertificateArgs | CertificateState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as CertificateState | undefined;
-            inputs["algorithm"] = state ? state.algorithm : undefined;
-            inputs["certificate"] = state ? state.certificate : undefined;
-            inputs["certificateDn"] = state ? state.certificateDn : undefined;
-            inputs["chain"] = state ? state.chain : undefined;
-            inputs["commonName"] = state ? state.commonName : undefined;
-            inputs["csrPem"] = state ? state.csrPem : undefined;
-            inputs["customFields"] = state ? state.customFields : undefined;
-            inputs["ecdsaCurve"] = state ? state.ecdsaCurve : undefined;
-            inputs["expirationWindow"] = state ? state.expirationWindow : undefined;
-            inputs["issuerHint"] = state ? state.issuerHint : undefined;
-            inputs["keyPassword"] = state ? state.keyPassword : undefined;
-            inputs["pkcs12"] = state ? state.pkcs12 : undefined;
-            inputs["privateKeyPem"] = state ? state.privateKeyPem : undefined;
-            inputs["rsaBits"] = state ? state.rsaBits : undefined;
-            inputs["sanDns"] = state ? state.sanDns : undefined;
-            inputs["sanEmails"] = state ? state.sanEmails : undefined;
-            inputs["sanIps"] = state ? state.sanIps : undefined;
-            inputs["validDays"] = state ? state.validDays : undefined;
+            resourceInputs["algorithm"] = state ? state.algorithm : undefined;
+            resourceInputs["certificate"] = state ? state.certificate : undefined;
+            resourceInputs["certificateDn"] = state ? state.certificateDn : undefined;
+            resourceInputs["chain"] = state ? state.chain : undefined;
+            resourceInputs["commonName"] = state ? state.commonName : undefined;
+            resourceInputs["csrPem"] = state ? state.csrPem : undefined;
+            resourceInputs["customFields"] = state ? state.customFields : undefined;
+            resourceInputs["ecdsaCurve"] = state ? state.ecdsaCurve : undefined;
+            resourceInputs["expirationWindow"] = state ? state.expirationWindow : undefined;
+            resourceInputs["issuerHint"] = state ? state.issuerHint : undefined;
+            resourceInputs["keyPassword"] = state ? state.keyPassword : undefined;
+            resourceInputs["pkcs12"] = state ? state.pkcs12 : undefined;
+            resourceInputs["privateKeyPem"] = state ? state.privateKeyPem : undefined;
+            resourceInputs["rsaBits"] = state ? state.rsaBits : undefined;
+            resourceInputs["sanDns"] = state ? state.sanDns : undefined;
+            resourceInputs["sanEmails"] = state ? state.sanEmails : undefined;
+            resourceInputs["sanIps"] = state ? state.sanIps : undefined;
+            resourceInputs["validDays"] = state ? state.validDays : undefined;
         } else {
             const args = argsOrState as CertificateArgs | undefined;
             if ((!args || args.commonName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'commonName'");
             }
-            inputs["algorithm"] = args ? args.algorithm : undefined;
-            inputs["certificateDn"] = args ? args.certificateDn : undefined;
-            inputs["commonName"] = args ? args.commonName : undefined;
-            inputs["csrPem"] = args ? args.csrPem : undefined;
-            inputs["customFields"] = args ? args.customFields : undefined;
-            inputs["ecdsaCurve"] = args ? args.ecdsaCurve : undefined;
-            inputs["expirationWindow"] = args ? args.expirationWindow : undefined;
-            inputs["issuerHint"] = args ? args.issuerHint : undefined;
-            inputs["keyPassword"] = args ? args.keyPassword : undefined;
-            inputs["pkcs12"] = args ? args.pkcs12 : undefined;
-            inputs["privateKeyPem"] = args ? args.privateKeyPem : undefined;
-            inputs["rsaBits"] = args ? args.rsaBits : undefined;
-            inputs["sanDns"] = args ? args.sanDns : undefined;
-            inputs["sanEmails"] = args ? args.sanEmails : undefined;
-            inputs["sanIps"] = args ? args.sanIps : undefined;
-            inputs["validDays"] = args ? args.validDays : undefined;
-            inputs["certificate"] = undefined /*out*/;
-            inputs["chain"] = undefined /*out*/;
+            resourceInputs["algorithm"] = args ? args.algorithm : undefined;
+            resourceInputs["certificateDn"] = args ? args.certificateDn : undefined;
+            resourceInputs["commonName"] = args ? args.commonName : undefined;
+            resourceInputs["csrPem"] = args ? args.csrPem : undefined;
+            resourceInputs["customFields"] = args ? args.customFields : undefined;
+            resourceInputs["ecdsaCurve"] = args ? args.ecdsaCurve : undefined;
+            resourceInputs["expirationWindow"] = args ? args.expirationWindow : undefined;
+            resourceInputs["issuerHint"] = args ? args.issuerHint : undefined;
+            resourceInputs["keyPassword"] = args ? args.keyPassword : undefined;
+            resourceInputs["pkcs12"] = args ? args.pkcs12 : undefined;
+            resourceInputs["privateKeyPem"] = args ? args.privateKeyPem : undefined;
+            resourceInputs["rsaBits"] = args ? args.rsaBits : undefined;
+            resourceInputs["sanDns"] = args ? args.sanDns : undefined;
+            resourceInputs["sanEmails"] = args ? args.sanEmails : undefined;
+            resourceInputs["sanIps"] = args ? args.sanIps : undefined;
+            resourceInputs["validDays"] = args ? args.validDays : undefined;
+            resourceInputs["certificate"] = undefined /*out*/;
+            resourceInputs["chain"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Certificate.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Certificate.__pulumiType, name, resourceInputs, opts);
     }
 }
 

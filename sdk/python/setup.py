@@ -55,6 +55,7 @@ setup(name='pulumi_venafi',
       package_data={
           'pulumi_venafi': [
               'py.typed',
+              'pulumi-plugin.json',
           ]
       },
       install_requires=[

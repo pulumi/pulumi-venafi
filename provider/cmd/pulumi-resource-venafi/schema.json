@@ -755,6 +755,7 @@
             }
         },
         "go": {
+            "generateExtraInputTypes": true,
             "generateResourceContainerTypes": true,
             "importBasePath": "github.com/pulumi/pulumi-venafi/sdk/go/venafi"
         },

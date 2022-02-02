@@ -80,21 +80,19 @@ export class Policy extends pulumi.CustomResource {
      */
     constructor(name: string, args?: PolicyArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: PolicyArgs | PolicyState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as PolicyState | undefined;
-            inputs["policySpecification"] = state ? state.policySpecification : undefined;
-            inputs["zone"] = state ? state.zone : undefined;
+            resourceInputs["policySpecification"] = state ? state.policySpecification : undefined;
+            resourceInputs["zone"] = state ? state.zone : undefined;
         } else {
             const args = argsOrState as PolicyArgs | undefined;
-            inputs["policySpecification"] = args ? args.policySpecification : undefined;
-            inputs["zone"] = args ? args.zone : undefined;
+            resourceInputs["policySpecification"] = args ? args.policySpecification : undefined;
+            resourceInputs["zone"] = args ? args.zone : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Policy.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Policy.__pulumiType, name, resourceInputs, opts);
     }
 }
 
