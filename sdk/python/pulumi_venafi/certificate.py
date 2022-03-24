@@ -16,6 +16,7 @@ class CertificateArgs:
                  common_name: pulumi.Input[str],
                  algorithm: Optional[pulumi.Input[str]] = None,
                  certificate_dn: Optional[pulumi.Input[str]] = None,
+                 csr_origin: Optional[pulumi.Input[str]] = None,
                  csr_pem: Optional[pulumi.Input[str]] = None,
                  custom_fields: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  ecdsa_curve: Optional[pulumi.Input[str]] = None,
@@ -34,11 +35,12 @@ class CertificateArgs:
         :param pulumi.Input[str] common_name: The common name of the certificate.
         :param pulumi.Input[str] algorithm: Key encryption algorithm, either `RSA` or `ECDSA`.
                Defaults to `RSA`.
+        :param pulumi.Input[str] csr_origin: Whether key-pair generation will be `local` or `service` generated. Default is `local`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] custom_fields: Collection of Custom Field name-value pairs to
                assign to the certificate.
         :param pulumi.Input[str] ecdsa_curve: ECDSA curve to use when generating a key
         :param pulumi.Input[int] expiration_window: Number of hours before certificate expiry
-               to request a new certificate.
+               to request a new certificate.  Defaults to `168`.
         :param pulumi.Input[str] issuer_hint: Used with valid_days to indicate the target
                issuer when using Trust Protection Platform.  Relevant values are: "DigiCert",
                "Entrust", and "Microsoft".
@@ -61,6 +63,8 @@ class CertificateArgs:
             pulumi.set(__self__, "algorithm", algorithm)
         if certificate_dn is not None:
             pulumi.set(__self__, "certificate_dn", certificate_dn)
+        if csr_origin is not None:
+            pulumi.set(__self__, "csr_origin", csr_origin)
         if csr_pem is not None:
             pulumi.set(__self__, "csr_pem", csr_pem)
         if custom_fields is not None:
@@ -123,6 +127,18 @@ class CertificateArgs:
         pulumi.set(self, "certificate_dn", value)
 
     @property
+    @pulumi.getter(name="csrOrigin")
+    def csr_origin(self) -> Optional[pulumi.Input[str]]:
+        """
+        Whether key-pair generation will be `local` or `service` generated. Default is `local`.
+        """
+        return pulumi.get(self, "csr_origin")
+
+    @csr_origin.setter
+    def csr_origin(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "csr_origin", value)
+
+    @property
     @pulumi.getter(name="csrPem")
     def csr_pem(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "csr_pem")
@@ -161,7 +177,7 @@ class CertificateArgs:
     def expiration_window(self) -> Optional[pulumi.Input[int]]:
         """
         Number of hours before certificate expiry
-        to request a new certificate.
+        to request a new certificate.  Defaults to `168`.
         """
         return pulumi.get(self, "expiration_window")
 
@@ -293,6 +309,7 @@ class _CertificateState:
                  certificate_dn: Optional[pulumi.Input[str]] = None,
                  chain: Optional[pulumi.Input[str]] = None,
                  common_name: Optional[pulumi.Input[str]] = None,
+                 csr_origin: Optional[pulumi.Input[str]] = None,
                  csr_pem: Optional[pulumi.Input[str]] = None,
                  custom_fields: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  ecdsa_curve: Optional[pulumi.Input[str]] = None,
@@ -314,11 +331,12 @@ class _CertificateState:
         :param pulumi.Input[str] chain: The trust chain of X509 certificate authority certificates in PEM format
                concatenated together.
         :param pulumi.Input[str] common_name: The common name of the certificate.
+        :param pulumi.Input[str] csr_origin: Whether key-pair generation will be `local` or `service` generated. Default is `local`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] custom_fields: Collection of Custom Field name-value pairs to
                assign to the certificate.
         :param pulumi.Input[str] ecdsa_curve: ECDSA curve to use when generating a key
         :param pulumi.Input[int] expiration_window: Number of hours before certificate expiry
-               to request a new certificate.
+               to request a new certificate.  Defaults to `168`.
         :param pulumi.Input[str] issuer_hint: Used with valid_days to indicate the target
                issuer when using Trust Protection Platform.  Relevant values are: "DigiCert",
                "Entrust", and "Microsoft".
@@ -346,6 +364,8 @@ class _CertificateState:
             pulumi.set(__self__, "chain", chain)
         if common_name is not None:
             pulumi.set(__self__, "common_name", common_name)
+        if csr_origin is not None:
+            pulumi.set(__self__, "csr_origin", csr_origin)
         if csr_pem is not None:
             pulumi.set(__self__, "csr_pem", csr_pem)
         if custom_fields is not None:
@@ -433,6 +453,18 @@ class _CertificateState:
         pulumi.set(self, "common_name", value)
 
     @property
+    @pulumi.getter(name="csrOrigin")
+    def csr_origin(self) -> Optional[pulumi.Input[str]]:
+        """
+        Whether key-pair generation will be `local` or `service` generated. Default is `local`.
+        """
+        return pulumi.get(self, "csr_origin")
+
+    @csr_origin.setter
+    def csr_origin(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "csr_origin", value)
+
+    @property
     @pulumi.getter(name="csrPem")
     def csr_pem(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "csr_pem")
@@ -471,7 +503,7 @@ class _CertificateState:
     def expiration_window(self) -> Optional[pulumi.Input[int]]:
         """
         Number of hours before certificate expiry
-        to request a new certificate.
+        to request a new certificate.  Defaults to `168`.
         """
         return pulumi.get(self, "expiration_window")
 
@@ -603,6 +635,7 @@ class Certificate(pulumi.CustomResource):
                  algorithm: Optional[pulumi.Input[str]] = None,
                  certificate_dn: Optional[pulumi.Input[str]] = None,
                  common_name: Optional[pulumi.Input[str]] = None,
+                 csr_origin: Optional[pulumi.Input[str]] = None,
                  csr_pem: Optional[pulumi.Input[str]] = None,
                  custom_fields: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  ecdsa_curve: Optional[pulumi.Input[str]] = None,
@@ -652,11 +685,12 @@ class Certificate(pulumi.CustomResource):
         :param pulumi.Input[str] algorithm: Key encryption algorithm, either `RSA` or `ECDSA`.
                Defaults to `RSA`.
         :param pulumi.Input[str] common_name: The common name of the certificate.
+        :param pulumi.Input[str] csr_origin: Whether key-pair generation will be `local` or `service` generated. Default is `local`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] custom_fields: Collection of Custom Field name-value pairs to
                assign to the certificate.
         :param pulumi.Input[str] ecdsa_curve: ECDSA curve to use when generating a key
         :param pulumi.Input[int] expiration_window: Number of hours before certificate expiry
-               to request a new certificate.
+               to request a new certificate.  Defaults to `168`.
         :param pulumi.Input[str] issuer_hint: Used with valid_days to indicate the target
                issuer when using Trust Protection Platform.  Relevant values are: "DigiCert",
                "Entrust", and "Microsoft".
@@ -728,6 +762,7 @@ class Certificate(pulumi.CustomResource):
                  algorithm: Optional[pulumi.Input[str]] = None,
                  certificate_dn: Optional[pulumi.Input[str]] = None,
                  common_name: Optional[pulumi.Input[str]] = None,
+                 csr_origin: Optional[pulumi.Input[str]] = None,
                  csr_pem: Optional[pulumi.Input[str]] = None,
                  custom_fields: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  ecdsa_curve: Optional[pulumi.Input[str]] = None,
@@ -758,6 +793,7 @@ class Certificate(pulumi.CustomResource):
             if common_name is None and not opts.urn:
                 raise TypeError("Missing required property 'common_name'")
             __props__.__dict__["common_name"] = common_name
+            __props__.__dict__["csr_origin"] = csr_origin
             __props__.__dict__["csr_pem"] = csr_pem
             __props__.__dict__["custom_fields"] = custom_fields
             __props__.__dict__["ecdsa_curve"] = ecdsa_curve
@@ -788,6 +824,7 @@ class Certificate(pulumi.CustomResource):
             certificate_dn: Optional[pulumi.Input[str]] = None,
             chain: Optional[pulumi.Input[str]] = None,
             common_name: Optional[pulumi.Input[str]] = None,
+            csr_origin: Optional[pulumi.Input[str]] = None,
             csr_pem: Optional[pulumi.Input[str]] = None,
             custom_fields: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             ecdsa_curve: Optional[pulumi.Input[str]] = None,
@@ -814,11 +851,12 @@ class Certificate(pulumi.CustomResource):
         :param pulumi.Input[str] chain: The trust chain of X509 certificate authority certificates in PEM format
                concatenated together.
         :param pulumi.Input[str] common_name: The common name of the certificate.
+        :param pulumi.Input[str] csr_origin: Whether key-pair generation will be `local` or `service` generated. Default is `local`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] custom_fields: Collection of Custom Field name-value pairs to
                assign to the certificate.
         :param pulumi.Input[str] ecdsa_curve: ECDSA curve to use when generating a key
         :param pulumi.Input[int] expiration_window: Number of hours before certificate expiry
-               to request a new certificate.
+               to request a new certificate.  Defaults to `168`.
         :param pulumi.Input[str] issuer_hint: Used with valid_days to indicate the target
                issuer when using Trust Protection Platform.  Relevant values are: "DigiCert",
                "Entrust", and "Microsoft".
@@ -845,6 +883,7 @@ class Certificate(pulumi.CustomResource):
         __props__.__dict__["certificate_dn"] = certificate_dn
         __props__.__dict__["chain"] = chain
         __props__.__dict__["common_name"] = common_name
+        __props__.__dict__["csr_origin"] = csr_origin
         __props__.__dict__["csr_pem"] = csr_pem
         __props__.__dict__["custom_fields"] = custom_fields
         __props__.__dict__["ecdsa_curve"] = ecdsa_curve
@@ -900,6 +939,14 @@ class Certificate(pulumi.CustomResource):
         return pulumi.get(self, "common_name")
 
     @property
+    @pulumi.getter(name="csrOrigin")
+    def csr_origin(self) -> pulumi.Output[Optional[str]]:
+        """
+        Whether key-pair generation will be `local` or `service` generated. Default is `local`.
+        """
+        return pulumi.get(self, "csr_origin")
+
+    @property
     @pulumi.getter(name="csrPem")
     def csr_pem(self) -> pulumi.Output[str]:
         return pulumi.get(self, "csr_pem")
@@ -926,7 +973,7 @@ class Certificate(pulumi.CustomResource):
     def expiration_window(self) -> pulumi.Output[Optional[int]]:
         """
         Number of hours before certificate expiry
-        to request a new certificate.
+        to request a new certificate.  Defaults to `168`.
         """
         return pulumi.get(self, "expiration_window")
 

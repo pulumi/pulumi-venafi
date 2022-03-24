@@ -82,6 +82,12 @@ namespace Pulumi.Venafi
         [Output("commonName")]
         public Output<string> CommonName { get; private set; } = null!;
 
+        /// <summary>
+        /// Whether key-pair generation will be `local` or `service` generated. Default is `local`.
+        /// </summary>
+        [Output("csrOrigin")]
+        public Output<string?> CsrOrigin { get; private set; } = null!;
+
         [Output("csrPem")]
         public Output<string> CsrPem { get; private set; } = null!;
 
@@ -100,7 +106,7 @@ namespace Pulumi.Venafi
 
         /// <summary>
         /// Number of hours before certificate expiry
-        /// to request a new certificate.
+        /// to request a new certificate.  Defaults to `168`.
         /// </summary>
         [Output("expirationWindow")]
         public Output<int?> ExpirationWindow { get; private set; } = null!;
@@ -228,6 +234,12 @@ namespace Pulumi.Venafi
         [Input("commonName", required: true)]
         public Input<string> CommonName { get; set; } = null!;
 
+        /// <summary>
+        /// Whether key-pair generation will be `local` or `service` generated. Default is `local`.
+        /// </summary>
+        [Input("csrOrigin")]
+        public Input<string>? CsrOrigin { get; set; }
+
         [Input("csrPem")]
         public Input<string>? CsrPem { get; set; }
 
@@ -252,7 +264,7 @@ namespace Pulumi.Venafi
 
         /// <summary>
         /// Number of hours before certificate expiry
-        /// to request a new certificate.
+        /// to request a new certificate.  Defaults to `168`.
         /// </summary>
         [Input("expirationWindow")]
         public Input<int>? ExpirationWindow { get; set; }
@@ -372,6 +384,12 @@ namespace Pulumi.Venafi
         [Input("commonName")]
         public Input<string>? CommonName { get; set; }
 
+        /// <summary>
+        /// Whether key-pair generation will be `local` or `service` generated. Default is `local`.
+        /// </summary>
+        [Input("csrOrigin")]
+        public Input<string>? CsrOrigin { get; set; }
+
         [Input("csrPem")]
         public Input<string>? CsrPem { get; set; }
 
@@ -396,7 +414,7 @@ namespace Pulumi.Venafi
 
         /// <summary>
         /// Number of hours before certificate expiry
-        /// to request a new certificate.
+        /// to request a new certificate.  Defaults to `168`.
         /// </summary>
         [Input("expirationWindow")]
         public Input<int>? ExpirationWindow { get; set; }

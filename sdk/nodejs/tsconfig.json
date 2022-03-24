@@ -20,6 +20,7 @@
         "policy.ts",
         "provider.ts",
         "sshCertificate.ts",
+        "sshConfig.ts",
         "utilities.ts"
     ]
 }

@@ -61,7 +61,8 @@ type Policy struct {
 	pulumi.CustomResourceState
 
 	// The JSON-formatted certificate policy
-	// specification.  Typically read from a file using the `file` function.
+	// specification as documented [here](https://github.com/Venafi/vcert/blob/master/README-POLICY-SPEC.md).
+	// Typically read from a file using the `file` function.
 	PolicySpecification pulumi.StringPtrOutput `pulumi:"policySpecification"`
 	// The *Trust Protection Plaform* policy folder or
 	// *Venafi as a Service* application and issuing template.
@@ -98,7 +99,8 @@ func GetPolicy(ctx *pulumi.Context,
 // Input properties used for looking up and filtering Policy resources.
 type policyState struct {
 	// The JSON-formatted certificate policy
-	// specification.  Typically read from a file using the `file` function.
+	// specification as documented [here](https://github.com/Venafi/vcert/blob/master/README-POLICY-SPEC.md).
+	// Typically read from a file using the `file` function.
 	PolicySpecification *string `pulumi:"policySpecification"`
 	// The *Trust Protection Plaform* policy folder or
 	// *Venafi as a Service* application and issuing template.
@@ -107,7 +109,8 @@ type policyState struct {
 
 type PolicyState struct {
 	// The JSON-formatted certificate policy
-	// specification.  Typically read from a file using the `file` function.
+	// specification as documented [here](https://github.com/Venafi/vcert/blob/master/README-POLICY-SPEC.md).
+	// Typically read from a file using the `file` function.
 	PolicySpecification pulumi.StringPtrInput
 	// The *Trust Protection Plaform* policy folder or
 	// *Venafi as a Service* application and issuing template.
@@ -120,7 +123,8 @@ func (PolicyState) ElementType() reflect.Type {
 
 type policyArgs struct {
 	// The JSON-formatted certificate policy
-	// specification.  Typically read from a file using the `file` function.
+	// specification as documented [here](https://github.com/Venafi/vcert/blob/master/README-POLICY-SPEC.md).
+	// Typically read from a file using the `file` function.
 	PolicySpecification *string `pulumi:"policySpecification"`
 	// The *Trust Protection Plaform* policy folder or
 	// *Venafi as a Service* application and issuing template.
@@ -130,7 +134,8 @@ type policyArgs struct {
 // The set of arguments for constructing a Policy resource.
 type PolicyArgs struct {
 	// The JSON-formatted certificate policy
-	// specification.  Typically read from a file using the `file` function.
+	// specification as documented [here](https://github.com/Venafi/vcert/blob/master/README-POLICY-SPEC.md).
+	// Typically read from a file using the `file` function.
 	PolicySpecification pulumi.StringPtrInput
 	// The *Trust Protection Plaform* policy folder or
 	// *Venafi as a Service* application and issuing template.

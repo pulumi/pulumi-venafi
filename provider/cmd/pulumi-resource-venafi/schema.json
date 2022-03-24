@@ -153,6 +153,10 @@
                     "type": "string",
                     "description": "The common name of the certificate.\n"
                 },
+                "csrOrigin": {
+                    "type": "string",
+                    "description": "Whether key-pair generation will be `local` or `service` generated. Default is `local`.\n"
+                },
                 "csrPem": {
                     "type": "string"
                 },
@@ -169,7 +173,7 @@
                 },
                 "expirationWindow": {
                     "type": "integer",
-                    "description": "Number of hours before certificate expiry\nto request a new certificate.\n"
+                    "description": "Number of hours before certificate expiry\nto request a new certificate.  Defaults to `168`.\n"
                 },
                 "issuerHint": {
                     "type": "string",
@@ -238,6 +242,10 @@
                     "type": "string",
                     "description": "The common name of the certificate.\n"
                 },
+                "csrOrigin": {
+                    "type": "string",
+                    "description": "Whether key-pair generation will be `local` or `service` generated. Default is `local`.\n"
+                },
                 "csrPem": {
                     "type": "string"
                 },
@@ -254,7 +262,7 @@
                 },
                 "expirationWindow": {
                     "type": "integer",
-                    "description": "Number of hours before certificate expiry\nto request a new certificate.\n"
+                    "description": "Number of hours before certificate expiry\nto request a new certificate.  Defaults to `168`.\n"
                 },
                 "issuerHint": {
                     "type": "string",
@@ -332,6 +340,10 @@
                         "type": "string",
                         "description": "The common name of the certificate.\n"
                     },
+                    "csrOrigin": {
+                        "type": "string",
+                        "description": "Whether key-pair generation will be `local` or `service` generated. Default is `local`.\n"
+                    },
                     "csrPem": {
                         "type": "string"
                     },
@@ -348,7 +360,7 @@
                     },
                     "expirationWindow": {
                         "type": "integer",
-                        "description": "Number of hours before certificate expiry\nto request a new certificate.\n"
+                        "description": "Number of hours before certificate expiry\nto request a new certificate.  Defaults to `168`.\n"
                     },
                     "issuerHint": {
                         "type": "string",
@@ -404,7 +416,7 @@
             "properties": {
                 "policySpecification": {
                     "type": "string",
-                    "description": "The JSON-formatted certificate policy\nspecification.  Typically read from a file using the `file` function.\n"
+                    "description": "The JSON-formatted certificate policy\nspecification as documented [here](https://github.com/Venafi/vcert/blob/master/README-POLICY-SPEC.md).\nTypically read from a file using the `file` function.\n"
                 },
                 "zone": {
                     "type": "string",
@@ -414,7 +426,7 @@
             "inputProperties": {
                 "policySpecification": {
                     "type": "string",
-                    "description": "The JSON-formatted certificate policy\nspecification.  Typically read from a file using the `file` function.\n"
+                    "description": "The JSON-formatted certificate policy\nspecification as documented [here](https://github.com/Venafi/vcert/blob/master/README-POLICY-SPEC.md).\nTypically read from a file using the `file` function.\n"
                 },
                 "zone": {
                     "type": "string",
@@ -426,7 +438,7 @@
                 "properties": {
                     "policySpecification": {
                         "type": "string",
-                        "description": "The JSON-formatted certificate policy\nspecification.  Typically read from a file using the `file` function.\n"
+                        "description": "The JSON-formatted certificate policy\nspecification as documented [here](https://github.com/Venafi/vcert/blob/master/README-POLICY-SPEC.md).\nTypically read from a file using the `file` function.\n"
                     },
                     "zone": {
                         "type": "string",
@@ -740,6 +752,61 @@
                     "windows": {
                         "type": "boolean",
                         "description": "Specifies whether the private key will use Windows/DOS style line breaks.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "venafi:index/sshConfig:SshConfig": {
+            "description": "Provides access to retrieve configuration from SSH certificate issuance template from *Venafi Trust Protection Platform*.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as venafi from \"@pulumi/venafi\";\n\nconst cit = new venafi.SshConfig(\"cit\", {\n    template: \"devops-terraform-cit\",\n});\n```\n```python\nimport pulumi\nimport pulumi_venafi as venafi\n\ncit = venafi.SshConfig(\"cit\", template=\"devops-terraform-cit\")\n```\n```csharp\nusing Pulumi;\nusing Venafi = Pulumi.Venafi;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var cit = new Venafi.SshConfig(\"cit\", new Venafi.SshConfigArgs\n        {\n            Template = \"devops-terraform-cit\",\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-venafi/sdk/go/venafi\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := venafi.NewSshConfig(ctx, \"cit\", \u0026venafi.SshConfigArgs{\n\t\t\tTemplate: pulumi.String(\"devops-terraform-cit\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}",
+            "properties": {
+                "caPublicKey": {
+                    "type": "string",
+                    "description": "(Optional, string) The template's CA public key.\n"
+                },
+                "principals": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "(Optional, set of strings) A list of user names exported from the template.\n"
+                },
+                "template": {
+                    "type": "string",
+                    "description": "The SSH certificate issuing template.\n"
+                }
+            },
+            "required": [
+                "caPublicKey",
+                "principals",
+                "template"
+            ],
+            "inputProperties": {
+                "template": {
+                    "type": "string",
+                    "description": "The SSH certificate issuing template.\n"
+                }
+            },
+            "requiredInputs": [
+                "template"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering SshConfig resources.\n",
+                "properties": {
+                    "caPublicKey": {
+                        "type": "string",
+                        "description": "(Optional, string) The template's CA public key.\n"
+                    },
+                    "principals": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "(Optional, set of strings) A list of user names exported from the template.\n"
+                    },
+                    "template": {
+                        "type": "string",
+                        "description": "The SSH certificate issuing template.\n"
                     }
                 },
                 "type": "object"

@@ -9,6 +9,7 @@ from .certificate import *
 from .policy import *
 from .provider import *
 from .ssh_certificate import *
+from .ssh_config import *
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
@@ -42,6 +43,14 @@ _utilities.register(
   "fqn": "pulumi_venafi",
   "classes": {
    "venafi:index/sshCertificate:SshCertificate": "SshCertificate"
+  }
+ },
+ {
+  "pkg": "venafi",
+  "mod": "index/sshConfig",
+  "fqn": "pulumi_venafi",
+  "classes": {
+   "venafi:index/sshConfig:SshConfig": "SshConfig"
   }
  }
 ]
