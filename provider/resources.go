@@ -88,6 +88,7 @@ func Provider() tfbridge.ProviderInfo {
 			},
 			"venafi_policy":          {Tok: makeResource(mainMod, "Policy")},
 			"venafi_ssh_certificate": {Tok: makeResource(mainMod, "SshCertificate")},
+			"venafi_ssh_config":      {Tok: makeResource(mainMod, "SshConfig")},
 		},
 		JavaScript: &tfbridge.JavaScriptInfo{
 			Dependencies: map[string]string{

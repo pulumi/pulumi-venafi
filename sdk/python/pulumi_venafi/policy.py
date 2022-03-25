@@ -18,7 +18,8 @@ class PolicyArgs:
         """
         The set of arguments for constructing a Policy resource.
         :param pulumi.Input[str] policy_specification: The JSON-formatted certificate policy
-               specification.  Typically read from a file using the `file` function.
+               specification as documented [here](https://github.com/Venafi/vcert/blob/master/README-POLICY-SPEC.md).
+               Typically read from a file using the `file` function.
         :param pulumi.Input[str] zone: The *Trust Protection Plaform* policy folder or
                *Venafi as a Service* application and issuing template.
         """
@@ -32,7 +33,8 @@ class PolicyArgs:
     def policy_specification(self) -> Optional[pulumi.Input[str]]:
         """
         The JSON-formatted certificate policy
-        specification.  Typically read from a file using the `file` function.
+        specification as documented [here](https://github.com/Venafi/vcert/blob/master/README-POLICY-SPEC.md).
+        Typically read from a file using the `file` function.
         """
         return pulumi.get(self, "policy_specification")
 
@@ -62,7 +64,8 @@ class _PolicyState:
         """
         Input properties used for looking up and filtering Policy resources.
         :param pulumi.Input[str] policy_specification: The JSON-formatted certificate policy
-               specification.  Typically read from a file using the `file` function.
+               specification as documented [here](https://github.com/Venafi/vcert/blob/master/README-POLICY-SPEC.md).
+               Typically read from a file using the `file` function.
         :param pulumi.Input[str] zone: The *Trust Protection Plaform* policy folder or
                *Venafi as a Service* application and issuing template.
         """
@@ -76,7 +79,8 @@ class _PolicyState:
     def policy_specification(self) -> Optional[pulumi.Input[str]]:
         """
         The JSON-formatted certificate policy
-        specification.  Typically read from a file using the `file` function.
+        specification as documented [here](https://github.com/Venafi/vcert/blob/master/README-POLICY-SPEC.md).
+        Typically read from a file using the `file` function.
         """
         return pulumi.get(self, "policy_specification")
 
@@ -135,7 +139,8 @@ class Policy(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] policy_specification: The JSON-formatted certificate policy
-               specification.  Typically read from a file using the `file` function.
+               specification as documented [here](https://github.com/Venafi/vcert/blob/master/README-POLICY-SPEC.md).
+               Typically read from a file using the `file` function.
         :param pulumi.Input[str] zone: The *Trust Protection Plaform* policy folder or
                *Venafi as a Service* application and issuing template.
         """
@@ -222,7 +227,8 @@ class Policy(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] policy_specification: The JSON-formatted certificate policy
-               specification.  Typically read from a file using the `file` function.
+               specification as documented [here](https://github.com/Venafi/vcert/blob/master/README-POLICY-SPEC.md).
+               Typically read from a file using the `file` function.
         :param pulumi.Input[str] zone: The *Trust Protection Plaform* policy folder or
                *Venafi as a Service* application and issuing template.
         """
@@ -239,7 +245,8 @@ class Policy(pulumi.CustomResource):
     def policy_specification(self) -> pulumi.Output[Optional[str]]:
         """
         The JSON-formatted certificate policy
-        specification.  Typically read from a file using the `file` function.
+        specification as documented [here](https://github.com/Venafi/vcert/blob/master/README-POLICY-SPEC.md).
+        Typically read from a file using the `file` function.
         """
         return pulumi.get(self, "policy_specification")
 

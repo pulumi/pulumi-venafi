@@ -82,6 +82,10 @@ export class Certificate extends pulumi.CustomResource {
      * The common name of the certificate.
      */
     public readonly commonName!: pulumi.Output<string>;
+    /**
+     * Whether key-pair generation will be `local` or `service` generated. Default is `local`.
+     */
+    public readonly csrOrigin!: pulumi.Output<string | undefined>;
     public readonly csrPem!: pulumi.Output<string>;
     /**
      * Collection of Custom Field name-value pairs to
@@ -94,7 +98,7 @@ export class Certificate extends pulumi.CustomResource {
     public readonly ecdsaCurve!: pulumi.Output<string | undefined>;
     /**
      * Number of hours before certificate expiry
-     * to request a new certificate.
+     * to request a new certificate.  Defaults to `168`.
      */
     public readonly expirationWindow!: pulumi.Output<number | undefined>;
     /**
@@ -159,6 +163,7 @@ export class Certificate extends pulumi.CustomResource {
             resourceInputs["certificateDn"] = state ? state.certificateDn : undefined;
             resourceInputs["chain"] = state ? state.chain : undefined;
             resourceInputs["commonName"] = state ? state.commonName : undefined;
+            resourceInputs["csrOrigin"] = state ? state.csrOrigin : undefined;
             resourceInputs["csrPem"] = state ? state.csrPem : undefined;
             resourceInputs["customFields"] = state ? state.customFields : undefined;
             resourceInputs["ecdsaCurve"] = state ? state.ecdsaCurve : undefined;
@@ -180,6 +185,7 @@ export class Certificate extends pulumi.CustomResource {
             resourceInputs["algorithm"] = args ? args.algorithm : undefined;
             resourceInputs["certificateDn"] = args ? args.certificateDn : undefined;
             resourceInputs["commonName"] = args ? args.commonName : undefined;
+            resourceInputs["csrOrigin"] = args ? args.csrOrigin : undefined;
             resourceInputs["csrPem"] = args ? args.csrPem : undefined;
             resourceInputs["customFields"] = args ? args.customFields : undefined;
             resourceInputs["ecdsaCurve"] = args ? args.ecdsaCurve : undefined;
@@ -224,6 +230,10 @@ export interface CertificateState {
      * The common name of the certificate.
      */
     commonName?: pulumi.Input<string>;
+    /**
+     * Whether key-pair generation will be `local` or `service` generated. Default is `local`.
+     */
+    csrOrigin?: pulumi.Input<string>;
     csrPem?: pulumi.Input<string>;
     /**
      * Collection of Custom Field name-value pairs to
@@ -236,7 +246,7 @@ export interface CertificateState {
     ecdsaCurve?: pulumi.Input<string>;
     /**
      * Number of hours before certificate expiry
-     * to request a new certificate.
+     * to request a new certificate.  Defaults to `168`.
      */
     expirationWindow?: pulumi.Input<number>;
     /**
@@ -298,6 +308,10 @@ export interface CertificateArgs {
      * The common name of the certificate.
      */
     commonName: pulumi.Input<string>;
+    /**
+     * Whether key-pair generation will be `local` or `service` generated. Default is `local`.
+     */
+    csrOrigin?: pulumi.Input<string>;
     csrPem?: pulumi.Input<string>;
     /**
      * Collection of Custom Field name-value pairs to
@@ -310,7 +324,7 @@ export interface CertificateArgs {
     ecdsaCurve?: pulumi.Input<string>;
     /**
      * Number of hours before certificate expiry
-     * to request a new certificate.
+     * to request a new certificate.  Defaults to `168`.
      */
     expirationWindow?: pulumi.Input<number>;
     /**

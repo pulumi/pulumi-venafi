@@ -62,7 +62,8 @@ export class Policy extends pulumi.CustomResource {
 
     /**
      * The JSON-formatted certificate policy
-     * specification.  Typically read from a file using the `file` function.
+     * specification as documented [here](https://github.com/Venafi/vcert/blob/master/README-POLICY-SPEC.md).
+     * Typically read from a file using the `file` function.
      */
     public readonly policySpecification!: pulumi.Output<string | undefined>;
     /**
@@ -102,7 +103,8 @@ export class Policy extends pulumi.CustomResource {
 export interface PolicyState {
     /**
      * The JSON-formatted certificate policy
-     * specification.  Typically read from a file using the `file` function.
+     * specification as documented [here](https://github.com/Venafi/vcert/blob/master/README-POLICY-SPEC.md).
+     * Typically read from a file using the `file` function.
      */
     policySpecification?: pulumi.Input<string>;
     /**
@@ -118,7 +120,8 @@ export interface PolicyState {
 export interface PolicyArgs {
     /**
      * The JSON-formatted certificate policy
-     * specification.  Typically read from a file using the `file` function.
+     * specification as documented [here](https://github.com/Venafi/vcert/blob/master/README-POLICY-SPEC.md).
+     * Typically read from a file using the `file` function.
      */
     policySpecification?: pulumi.Input<string>;
     /**

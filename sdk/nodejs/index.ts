@@ -9,6 +9,7 @@ export * from "./certificate";
 export * from "./policy";
 export * from "./provider";
 export * from "./sshCertificate";
+export * from "./sshConfig";
 
 // Export sub-modules:
 import * as config from "./config";
@@ -21,6 +22,7 @@ export {
 import { Certificate } from "./certificate";
 import { Policy } from "./policy";
 import { SshCertificate } from "./sshCertificate";
+import { SshConfig } from "./sshConfig";
 
 const _module = {
     version: utilities.getVersion(),
@@ -32,6 +34,8 @@ const _module = {
                 return new Policy(name, <any>undefined, { urn })
             case "venafi:index/sshCertificate:SshCertificate":
                 return new SshCertificate(name, <any>undefined, { urn })
+            case "venafi:index/sshConfig:SshConfig":
+                return new SshConfig(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
@@ -40,6 +44,7 @@ const _module = {
 pulumi.runtime.registerResourceModule("venafi", "index/certificate", _module)
 pulumi.runtime.registerResourceModule("venafi", "index/policy", _module)
 pulumi.runtime.registerResourceModule("venafi", "index/sshCertificate", _module)
+pulumi.runtime.registerResourceModule("venafi", "index/sshConfig", _module)
 
 import { Provider } from "./provider";
 
