@@ -24,16 +24,16 @@ class ProviderArgs:
         """
         The set of arguments for constructing a Provider resource.
         :param pulumi.Input[str] access_token: Access token for TPP, user should use this for authentication
-        :param pulumi.Input[str] api_key: API key for Venafi Cloud. Example: 142231b7-cvb0-412e-886b-6aeght0bc93d
+        :param pulumi.Input[str] api_key: API key for Venafi as a Service. Example: 142231b7-cvb0-412e-886b-6aeght0bc93d
         :param pulumi.Input[bool] dev_mode: When set to true, the resulting certificate will be issued by an ephemeral, no trust CA rather than enrolling using
-               Venafi Cloud or Platform. Useful for development and testing.
+               Venafi as a Service or Trust Protection Platform. Useful for development and testing.
         :param pulumi.Input[str] tpp_password: Password for WebSDK user. Example: password
         :param pulumi.Input[str] tpp_username: WebSDK user for Venafi Platform. Example: admin
         :param pulumi.Input[str] trust_bundle: Use to specify a PEM-formatted file that contains certificates to be trust anchors for all communications with the
                Venafi Web Service. Example: trust_bundle = "${file("chain.pem")}"
         :param pulumi.Input[str] url: The Venafi Web Service URL.. Example: https://tpp.venafi.example/vedsdk
-        :param pulumi.Input[str] zone: DN of the Venafi Platform policy folder or name of the Venafi Cloud zone. Example for Platform: testpolicy\\vault
-               Example for Venafi Cloud: Default
+        :param pulumi.Input[str] zone: DN of the Venafi Platform policy folder or name of the Venafi as a Service application. Example for Platform:
+               testpolicy\\vault Example for Venafi as a Service: Default
         """
         if access_token is not None:
             pulumi.set(__self__, "access_token", access_token)
@@ -74,7 +74,7 @@ class ProviderArgs:
     @pulumi.getter(name="apiKey")
     def api_key(self) -> Optional[pulumi.Input[str]]:
         """
-        API key for Venafi Cloud. Example: 142231b7-cvb0-412e-886b-6aeght0bc93d
+        API key for Venafi as a Service. Example: 142231b7-cvb0-412e-886b-6aeght0bc93d
         """
         return pulumi.get(self, "api_key")
 
@@ -87,7 +87,7 @@ class ProviderArgs:
     def dev_mode(self) -> Optional[pulumi.Input[bool]]:
         """
         When set to true, the resulting certificate will be issued by an ephemeral, no trust CA rather than enrolling using
-        Venafi Cloud or Platform. Useful for development and testing.
+        Venafi as a Service or Trust Protection Platform. Useful for development and testing.
         """
         return pulumi.get(self, "dev_mode")
 
@@ -148,8 +148,8 @@ class ProviderArgs:
     @pulumi.getter
     def zone(self) -> Optional[pulumi.Input[str]]:
         """
-        DN of the Venafi Platform policy folder or name of the Venafi Cloud zone. Example for Platform: testpolicy\\vault
-        Example for Venafi Cloud: Default
+        DN of the Venafi Platform policy folder or name of the Venafi as a Service application. Example for Platform:
+        testpolicy\\vault Example for Venafi as a Service: Default
         """
         return pulumi.get(self, "zone")
 
@@ -181,16 +181,16 @@ class Provider(pulumi.ProviderResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] access_token: Access token for TPP, user should use this for authentication
-        :param pulumi.Input[str] api_key: API key for Venafi Cloud. Example: 142231b7-cvb0-412e-886b-6aeght0bc93d
+        :param pulumi.Input[str] api_key: API key for Venafi as a Service. Example: 142231b7-cvb0-412e-886b-6aeght0bc93d
         :param pulumi.Input[bool] dev_mode: When set to true, the resulting certificate will be issued by an ephemeral, no trust CA rather than enrolling using
-               Venafi Cloud or Platform. Useful for development and testing.
+               Venafi as a Service or Trust Protection Platform. Useful for development and testing.
         :param pulumi.Input[str] tpp_password: Password for WebSDK user. Example: password
         :param pulumi.Input[str] tpp_username: WebSDK user for Venafi Platform. Example: admin
         :param pulumi.Input[str] trust_bundle: Use to specify a PEM-formatted file that contains certificates to be trust anchors for all communications with the
                Venafi Web Service. Example: trust_bundle = "${file("chain.pem")}"
         :param pulumi.Input[str] url: The Venafi Web Service URL.. Example: https://tpp.venafi.example/vedsdk
-        :param pulumi.Input[str] zone: DN of the Venafi Platform policy folder or name of the Venafi Cloud zone. Example for Platform: testpolicy\\vault
-               Example for Venafi Cloud: Default
+        :param pulumi.Input[str] zone: DN of the Venafi Platform policy folder or name of the Venafi as a Service application. Example for Platform:
+               testpolicy\\vault Example for Venafi as a Service: Default
         """
         ...
     @overload
@@ -271,7 +271,7 @@ class Provider(pulumi.ProviderResource):
     @pulumi.getter(name="apiKey")
     def api_key(self) -> pulumi.Output[Optional[str]]:
         """
-        API key for Venafi Cloud. Example: 142231b7-cvb0-412e-886b-6aeght0bc93d
+        API key for Venafi as a Service. Example: 142231b7-cvb0-412e-886b-6aeght0bc93d
         """
         return pulumi.get(self, "api_key")
 
@@ -312,8 +312,8 @@ class Provider(pulumi.ProviderResource):
     @pulumi.getter
     def zone(self) -> pulumi.Output[Optional[str]]:
         """
-        DN of the Venafi Platform policy folder or name of the Venafi Cloud zone. Example for Platform: testpolicy\\vault
-        Example for Venafi Cloud: Default
+        DN of the Venafi Platform policy folder or name of the Venafi as a Service application. Example for Platform:
+        testpolicy\\vault Example for Venafi as a Service: Default
         """
         return pulumi.get(self, "zone")
 

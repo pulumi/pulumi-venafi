@@ -11,14 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides access to TLS key and certificate data enrolled using Venafi. This can be used to define a
-// certificate.
-//
-// The `Certificate` resource handles certificate renewals as long as a
-// `pulumi up` is run within the `expirationWindow` period. Keep in mind that the
-// `expirationWindow` in the provider configuration needs to align with the renewal
-// window of the issuing CA to achieve the desired result.
-//
 // ## Example Usage
 //
 // ```go
@@ -99,6 +91,9 @@ type Certificate struct {
 	// List of IP addresses to use as alternative
 	// subjects of the certificate.
 	SanIps pulumi.StringArrayOutput `pulumi:"sanIps"`
+	// List of Uniform Resource Identifiers (URIs) to use as alternative
+	// subjects of the certificate.
+	SanUris pulumi.StringArrayOutput `pulumi:"sanUris"`
 	// Desired number of days for which the new
 	// certificate will be valid.
 	ValidDays pulumi.IntPtrOutput `pulumi:"validDays"`
@@ -180,6 +175,9 @@ type certificateState struct {
 	// List of IP addresses to use as alternative
 	// subjects of the certificate.
 	SanIps []string `pulumi:"sanIps"`
+	// List of Uniform Resource Identifiers (URIs) to use as alternative
+	// subjects of the certificate.
+	SanUris []string `pulumi:"sanUris"`
 	// Desired number of days for which the new
 	// certificate will be valid.
 	ValidDays *int `pulumi:"validDays"`
@@ -230,6 +228,9 @@ type CertificateState struct {
 	// List of IP addresses to use as alternative
 	// subjects of the certificate.
 	SanIps pulumi.StringArrayInput
+	// List of Uniform Resource Identifiers (URIs) to use as alternative
+	// subjects of the certificate.
+	SanUris pulumi.StringArrayInput
 	// Desired number of days for which the new
 	// certificate will be valid.
 	ValidDays pulumi.IntPtrInput
@@ -279,6 +280,9 @@ type certificateArgs struct {
 	// List of IP addresses to use as alternative
 	// subjects of the certificate.
 	SanIps []string `pulumi:"sanIps"`
+	// List of Uniform Resource Identifiers (URIs) to use as alternative
+	// subjects of the certificate.
+	SanUris []string `pulumi:"sanUris"`
 	// Desired number of days for which the new
 	// certificate will be valid.
 	ValidDays *int `pulumi:"validDays"`
@@ -325,6 +329,9 @@ type CertificateArgs struct {
 	// List of IP addresses to use as alternative
 	// subjects of the certificate.
 	SanIps pulumi.StringArrayInput
+	// List of Uniform Resource Identifiers (URIs) to use as alternative
+	// subjects of the certificate.
+	SanUris pulumi.StringArrayInput
 	// Desired number of days for which the new
 	// certificate will be valid.
 	ValidDays pulumi.IntPtrInput

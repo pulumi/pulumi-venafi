@@ -19,7 +19,7 @@ type Provider struct {
 
 	// Access token for TPP, user should use this for authentication
 	AccessToken pulumi.StringPtrOutput `pulumi:"accessToken"`
-	// API key for Venafi Cloud. Example: 142231b7-cvb0-412e-886b-6aeght0bc93d
+	// API key for Venafi as a Service. Example: 142231b7-cvb0-412e-886b-6aeght0bc93d
 	ApiKey pulumi.StringPtrOutput `pulumi:"apiKey"`
 	// Password for WebSDK user. Example: password
 	//
@@ -34,8 +34,8 @@ type Provider struct {
 	TrustBundle pulumi.StringPtrOutput `pulumi:"trustBundle"`
 	// The Venafi Web Service URL.. Example: https://tpp.venafi.example/vedsdk
 	Url pulumi.StringPtrOutput `pulumi:"url"`
-	// DN of the Venafi Platform policy folder or name of the Venafi Cloud zone. Example for Platform: testpolicy\\vault
-	// Example for Venafi Cloud: Default
+	// DN of the Venafi Platform policy folder or name of the Venafi as a Service application. Example for Platform:
+	// testpolicy\\vault Example for Venafi as a Service: Default
 	Zone pulumi.StringPtrOutput `pulumi:"zone"`
 }
 
@@ -57,10 +57,10 @@ func NewProvider(ctx *pulumi.Context,
 type providerArgs struct {
 	// Access token for TPP, user should use this for authentication
 	AccessToken *string `pulumi:"accessToken"`
-	// API key for Venafi Cloud. Example: 142231b7-cvb0-412e-886b-6aeght0bc93d
+	// API key for Venafi as a Service. Example: 142231b7-cvb0-412e-886b-6aeght0bc93d
 	ApiKey *string `pulumi:"apiKey"`
 	// When set to true, the resulting certificate will be issued by an ephemeral, no trust CA rather than enrolling using
-	// Venafi Cloud or Platform. Useful for development and testing.
+	// Venafi as a Service or Trust Protection Platform. Useful for development and testing.
 	DevMode *bool `pulumi:"devMode"`
 	// Password for WebSDK user. Example: password
 	//
@@ -75,8 +75,8 @@ type providerArgs struct {
 	TrustBundle *string `pulumi:"trustBundle"`
 	// The Venafi Web Service URL.. Example: https://tpp.venafi.example/vedsdk
 	Url *string `pulumi:"url"`
-	// DN of the Venafi Platform policy folder or name of the Venafi Cloud zone. Example for Platform: testpolicy\\vault
-	// Example for Venafi Cloud: Default
+	// DN of the Venafi Platform policy folder or name of the Venafi as a Service application. Example for Platform:
+	// testpolicy\\vault Example for Venafi as a Service: Default
 	Zone *string `pulumi:"zone"`
 }
 
@@ -84,10 +84,10 @@ type providerArgs struct {
 type ProviderArgs struct {
 	// Access token for TPP, user should use this for authentication
 	AccessToken pulumi.StringPtrInput
-	// API key for Venafi Cloud. Example: 142231b7-cvb0-412e-886b-6aeght0bc93d
+	// API key for Venafi as a Service. Example: 142231b7-cvb0-412e-886b-6aeght0bc93d
 	ApiKey pulumi.StringPtrInput
 	// When set to true, the resulting certificate will be issued by an ephemeral, no trust CA rather than enrolling using
-	// Venafi Cloud or Platform. Useful for development and testing.
+	// Venafi as a Service or Trust Protection Platform. Useful for development and testing.
 	DevMode pulumi.BoolPtrInput
 	// Password for WebSDK user. Example: password
 	//
@@ -102,8 +102,8 @@ type ProviderArgs struct {
 	TrustBundle pulumi.StringPtrInput
 	// The Venafi Web Service URL.. Example: https://tpp.venafi.example/vedsdk
 	Url pulumi.StringPtrInput
-	// DN of the Venafi Platform policy folder or name of the Venafi Cloud zone. Example for Platform: testpolicy\\vault
-	// Example for Venafi Cloud: Default
+	// DN of the Venafi Platform policy folder or name of the Venafi as a Service application. Example for Platform:
+	// testpolicy\\vault Example for Venafi as a Service: Default
 	Zone pulumi.StringPtrInput
 }
 

@@ -25,7 +25,7 @@ namespace Pulumi.Venafi
         public Output<string?> AccessToken { get; private set; } = null!;
 
         /// <summary>
-        /// API key for Venafi Cloud. Example: 142231b7-cvb0-412e-886b-6aeght0bc93d
+        /// API key for Venafi as a Service. Example: 142231b7-cvb0-412e-886b-6aeght0bc93d
         /// </summary>
         [Output("apiKey")]
         public Output<string?> ApiKey { get; private set; } = null!;
@@ -56,8 +56,8 @@ namespace Pulumi.Venafi
         public Output<string?> Url { get; private set; } = null!;
 
         /// <summary>
-        /// DN of the Venafi Platform policy folder or name of the Venafi Cloud zone. Example for Platform: testpolicy\\vault
-        /// Example for Venafi Cloud: Default
+        /// DN of the Venafi Platform policy folder or name of the Venafi as a Service application. Example for Platform:
+        /// testpolicy\\vault Example for Venafi as a Service: Default
         /// </summary>
         [Output("zone")]
         public Output<string?> Zone { get; private set; } = null!;
@@ -97,14 +97,14 @@ namespace Pulumi.Venafi
         public Input<string>? AccessToken { get; set; }
 
         /// <summary>
-        /// API key for Venafi Cloud. Example: 142231b7-cvb0-412e-886b-6aeght0bc93d
+        /// API key for Venafi as a Service. Example: 142231b7-cvb0-412e-886b-6aeght0bc93d
         /// </summary>
         [Input("apiKey")]
         public Input<string>? ApiKey { get; set; }
 
         /// <summary>
         /// When set to true, the resulting certificate will be issued by an ephemeral, no trust CA rather than enrolling using
-        /// Venafi Cloud or Platform. Useful for development and testing.
+        /// Venafi as a Service or Trust Protection Platform. Useful for development and testing.
         /// </summary>
         [Input("devMode", json: true)]
         public Input<bool>? DevMode { get; set; }
@@ -135,8 +135,8 @@ namespace Pulumi.Venafi
         public Input<string>? Url { get; set; }
 
         /// <summary>
-        /// DN of the Venafi Platform policy folder or name of the Venafi Cloud zone. Example for Platform: testpolicy\\vault
-        /// Example for Venafi Cloud: Default
+        /// DN of the Venafi Platform policy folder or name of the Venafi as a Service application. Example for Platform:
+        /// testpolicy\\vault Example for Venafi as a Service: Default
         /// </summary>
         [Input("zone")]
         public Input<string>? Zone { get; set; }

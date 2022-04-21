@@ -5,14 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
- * Provides access to TLS key and certificate data enrolled using Venafi. This can be used to define a
- * certificate.
- *
- * The `venafi.Certificate` resource handles certificate renewals as long as a
- * `pulumi up` is run within the `expirationWindow` period. Keep in mind that the
- * `expirationWindow` in the provider configuration needs to align with the renewal
- * window of the issuing CA to achieve the desired result.
- *
  * ## Example Usage
  *
  * ```typescript
@@ -140,6 +132,11 @@ export class Certificate extends pulumi.CustomResource {
      */
     public readonly sanIps!: pulumi.Output<string[] | undefined>;
     /**
+     * List of Uniform Resource Identifiers (URIs) to use as alternative
+     * subjects of the certificate.
+     */
+    public readonly sanUris!: pulumi.Output<string[] | undefined>;
+    /**
      * Desired number of days for which the new
      * certificate will be valid.
      */
@@ -176,6 +173,7 @@ export class Certificate extends pulumi.CustomResource {
             resourceInputs["sanDns"] = state ? state.sanDns : undefined;
             resourceInputs["sanEmails"] = state ? state.sanEmails : undefined;
             resourceInputs["sanIps"] = state ? state.sanIps : undefined;
+            resourceInputs["sanUris"] = state ? state.sanUris : undefined;
             resourceInputs["validDays"] = state ? state.validDays : undefined;
         } else {
             const args = argsOrState as CertificateArgs | undefined;
@@ -198,6 +196,7 @@ export class Certificate extends pulumi.CustomResource {
             resourceInputs["sanDns"] = args ? args.sanDns : undefined;
             resourceInputs["sanEmails"] = args ? args.sanEmails : undefined;
             resourceInputs["sanIps"] = args ? args.sanIps : undefined;
+            resourceInputs["sanUris"] = args ? args.sanUris : undefined;
             resourceInputs["validDays"] = args ? args.validDays : undefined;
             resourceInputs["certificate"] = undefined /*out*/;
             resourceInputs["chain"] = undefined /*out*/;
@@ -288,6 +287,11 @@ export interface CertificateState {
      */
     sanIps?: pulumi.Input<pulumi.Input<string>[]>;
     /**
+     * List of Uniform Resource Identifiers (URIs) to use as alternative
+     * subjects of the certificate.
+     */
+    sanUris?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
      * Desired number of days for which the new
      * certificate will be valid.
      */
@@ -365,6 +369,11 @@ export interface CertificateArgs {
      * subjects of the certificate.
      */
     sanIps?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * List of Uniform Resource Identifiers (URIs) to use as alternative
+     * subjects of the certificate.
+     */
+    sanUris?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Desired number of days for which the new
      * certificate will be valid.

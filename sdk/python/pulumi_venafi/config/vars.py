@@ -24,7 +24,7 @@ class _ExportableConfig(types.ModuleType):
     @property
     def api_key(self) -> Optional[str]:
         """
-        API key for Venafi Cloud. Example: 142231b7-cvb0-412e-886b-6aeght0bc93d
+        API key for Venafi as a Service. Example: 142231b7-cvb0-412e-886b-6aeght0bc93d
         """
         return __config__.get('apiKey')
 
@@ -32,7 +32,7 @@ class _ExportableConfig(types.ModuleType):
     def dev_mode(self) -> Optional[bool]:
         """
         When set to true, the resulting certificate will be issued by an ephemeral, no trust CA rather than enrolling using
-        Venafi Cloud or Platform. Useful for development and testing.
+        Venafi as a Service or Trust Protection Platform. Useful for development and testing.
         """
         return __config__.get_bool('devMode')
 
@@ -68,8 +68,8 @@ class _ExportableConfig(types.ModuleType):
     @property
     def zone(self) -> Optional[str]:
         """
-        DN of the Venafi Platform policy folder or name of the Venafi Cloud zone. Example for Platform: testpolicy\\vault
-        Example for Venafi Cloud: Default
+        DN of the Venafi Platform policy folder or name of the Venafi as a Service application. Example for Platform:
+        testpolicy\\vault Example for Venafi as a Service: Default
         """
         return __config__.get('zone')
 
