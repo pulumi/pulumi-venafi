@@ -10,14 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.Venafi
 {
     /// <summary>
-    /// Provides access to TLS key and certificate data enrolled using Venafi. This can be used to define a
-    /// certificate.
-    /// 
-    /// The `venafi.Certificate` resource handles certificate renewals as long as a
-    /// `pulumi up` is run within the `expiration_window` period. Keep in mind that the
-    /// `expiration_window` in the provider configuration needs to align with the renewal
-    /// window of the issuing CA to achieve the desired result.
-    /// 
     /// ## Example Usage
     /// 
     /// ```csharp
@@ -164,6 +156,13 @@ namespace Pulumi.Venafi
         /// </summary>
         [Output("sanIps")]
         public Output<ImmutableArray<string>> SanIps { get; private set; } = null!;
+
+        /// <summary>
+        /// List of Uniform Resource Identifiers (URIs) to use as alternative
+        /// subjects of the certificate.
+        /// </summary>
+        [Output("sanUris")]
+        public Output<ImmutableArray<string>> SanUris { get; private set; } = null!;
 
         /// <summary>
         /// Desired number of days for which the new
@@ -341,6 +340,19 @@ namespace Pulumi.Venafi
             set => _sanIps = value;
         }
 
+        [Input("sanUris")]
+        private InputList<string>? _sanUris;
+
+        /// <summary>
+        /// List of Uniform Resource Identifiers (URIs) to use as alternative
+        /// subjects of the certificate.
+        /// </summary>
+        public InputList<string> SanUris
+        {
+            get => _sanUris ?? (_sanUris = new InputList<string>());
+            set => _sanUris = value;
+        }
+
         /// <summary>
         /// Desired number of days for which the new
         /// certificate will be valid.
@@ -489,6 +501,19 @@ namespace Pulumi.Venafi
         {
             get => _sanIps ?? (_sanIps = new InputList<string>());
             set => _sanIps = value;
+        }
+
+        [Input("sanUris")]
+        private InputList<string>? _sanUris;
+
+        /// <summary>
+        /// List of Uniform Resource Identifiers (URIs) to use as alternative
+        /// subjects of the certificate.
+        /// </summary>
+        public InputList<string> SanUris
+        {
+            get => _sanUris ?? (_sanUris = new InputList<string>());
+            set => _sanUris = value;
         }
 
         /// <summary>

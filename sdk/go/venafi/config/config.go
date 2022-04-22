@@ -13,13 +13,13 @@ func GetAccessToken(ctx *pulumi.Context) string {
 	return config.Get(ctx, "venafi:accessToken")
 }
 
-// API key for Venafi Cloud. Example: 142231b7-cvb0-412e-886b-6aeght0bc93d
+// API key for Venafi as a Service. Example: 142231b7-cvb0-412e-886b-6aeght0bc93d
 func GetApiKey(ctx *pulumi.Context) string {
 	return config.Get(ctx, "venafi:apiKey")
 }
 
 // When set to true, the resulting certificate will be issued by an ephemeral, no trust CA rather than enrolling using
-// Venafi Cloud or Platform. Useful for development and testing.
+// Venafi as a Service or Trust Protection Platform. Useful for development and testing.
 func GetDevMode(ctx *pulumi.Context) bool {
 	return config.GetBool(ctx, "venafi:devMode")
 }
@@ -49,8 +49,8 @@ func GetUrl(ctx *pulumi.Context) string {
 	return config.Get(ctx, "venafi:url")
 }
 
-// DN of the Venafi Platform policy folder or name of the Venafi Cloud zone. Example for Platform: testpolicy\\vault
-// Example for Venafi Cloud: Default
+// DN of the Venafi Platform policy folder or name of the Venafi as a Service application. Example for Platform:
+// testpolicy\\vault Example for Venafi as a Service: Default
 func GetZone(ctx *pulumi.Context) string {
 	return config.Get(ctx, "venafi:zone")
 }

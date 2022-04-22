@@ -29,6 +29,7 @@ class CertificateArgs:
                  san_dns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  san_emails: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  san_ips: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 san_uris: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  valid_days: Optional[pulumi.Input[int]] = None):
         """
         The set of arguments for constructing a Certificate resource.
@@ -54,6 +55,8 @@ class CertificateArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] san_emails: List of email addresses to use as
                alternative subjects of the certificate.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] san_ips: List of IP addresses to use as alternative
+               subjects of the certificate.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] san_uris: List of Uniform Resource Identifiers (URIs) to use as alternative
                subjects of the certificate.
         :param pulumi.Input[int] valid_days: Desired number of days for which the new
                certificate will be valid.
@@ -89,6 +92,8 @@ class CertificateArgs:
             pulumi.set(__self__, "san_emails", san_emails)
         if san_ips is not None:
             pulumi.set(__self__, "san_ips", san_ips)
+        if san_uris is not None:
+            pulumi.set(__self__, "san_uris", san_uris)
         if valid_days is not None:
             pulumi.set(__self__, "valid_days", valid_days)
 
@@ -288,6 +293,19 @@ class CertificateArgs:
         pulumi.set(self, "san_ips", value)
 
     @property
+    @pulumi.getter(name="sanUris")
+    def san_uris(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of Uniform Resource Identifiers (URIs) to use as alternative
+        subjects of the certificate.
+        """
+        return pulumi.get(self, "san_uris")
+
+    @san_uris.setter
+    def san_uris(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "san_uris", value)
+
+    @property
     @pulumi.getter(name="validDays")
     def valid_days(self) -> Optional[pulumi.Input[int]]:
         """
@@ -322,6 +340,7 @@ class _CertificateState:
                  san_dns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  san_emails: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  san_ips: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 san_uris: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  valid_days: Optional[pulumi.Input[int]] = None):
         """
         Input properties used for looking up and filtering Certificate resources.
@@ -350,6 +369,8 @@ class _CertificateState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] san_emails: List of email addresses to use as
                alternative subjects of the certificate.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] san_ips: List of IP addresses to use as alternative
+               subjects of the certificate.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] san_uris: List of Uniform Resource Identifiers (URIs) to use as alternative
                subjects of the certificate.
         :param pulumi.Input[int] valid_days: Desired number of days for which the new
                certificate will be valid.
@@ -390,6 +411,8 @@ class _CertificateState:
             pulumi.set(__self__, "san_emails", san_emails)
         if san_ips is not None:
             pulumi.set(__self__, "san_ips", san_ips)
+        if san_uris is not None:
+            pulumi.set(__self__, "san_uris", san_uris)
         if valid_days is not None:
             pulumi.set(__self__, "valid_days", valid_days)
 
@@ -614,6 +637,19 @@ class _CertificateState:
         pulumi.set(self, "san_ips", value)
 
     @property
+    @pulumi.getter(name="sanUris")
+    def san_uris(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of Uniform Resource Identifiers (URIs) to use as alternative
+        subjects of the certificate.
+        """
+        return pulumi.get(self, "san_uris")
+
+    @san_uris.setter
+    def san_uris(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "san_uris", value)
+
+    @property
     @pulumi.getter(name="validDays")
     def valid_days(self) -> Optional[pulumi.Input[int]]:
         """
@@ -648,17 +684,10 @@ class Certificate(pulumi.CustomResource):
                  san_dns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  san_emails: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  san_ips: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 san_uris: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  valid_days: Optional[pulumi.Input[int]] = None,
                  __props__=None):
         """
-        Provides access to TLS key and certificate data enrolled using Venafi. This can be used to define a
-        certificate.
-
-        The `Certificate` resource handles certificate renewals as long as a
-        `pulumi up` is run within the `expiration_window` period. Keep in mind that the
-        `expiration_window` in the provider configuration needs to align with the renewal
-        window of the issuing CA to achieve the desired result.
-
         ## Example Usage
 
         ```python
@@ -705,6 +734,8 @@ class Certificate(pulumi.CustomResource):
                alternative subjects of the certificate.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] san_ips: List of IP addresses to use as alternative
                subjects of the certificate.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] san_uris: List of Uniform Resource Identifiers (URIs) to use as alternative
+               subjects of the certificate.
         :param pulumi.Input[int] valid_days: Desired number of days for which the new
                certificate will be valid.
         """
@@ -715,14 +746,6 @@ class Certificate(pulumi.CustomResource):
                  args: CertificateArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides access to TLS key and certificate data enrolled using Venafi. This can be used to define a
-        certificate.
-
-        The `Certificate` resource handles certificate renewals as long as a
-        `pulumi up` is run within the `expiration_window` period. Keep in mind that the
-        `expiration_window` in the provider configuration needs to align with the renewal
-        window of the issuing CA to achieve the desired result.
-
         ## Example Usage
 
         ```python
@@ -775,6 +798,7 @@ class Certificate(pulumi.CustomResource):
                  san_dns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  san_emails: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  san_ips: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 san_uris: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  valid_days: Optional[pulumi.Input[int]] = None,
                  __props__=None):
         if opts is None:
@@ -806,6 +830,7 @@ class Certificate(pulumi.CustomResource):
             __props__.__dict__["san_dns"] = san_dns
             __props__.__dict__["san_emails"] = san_emails
             __props__.__dict__["san_ips"] = san_ips
+            __props__.__dict__["san_uris"] = san_uris
             __props__.__dict__["valid_days"] = valid_days
             __props__.__dict__["certificate"] = None
             __props__.__dict__["chain"] = None
@@ -837,6 +862,7 @@ class Certificate(pulumi.CustomResource):
             san_dns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             san_emails: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             san_ips: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+            san_uris: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             valid_days: Optional[pulumi.Input[int]] = None) -> 'Certificate':
         """
         Get an existing Certificate resource's state with the given name, id, and optional extra
@@ -871,6 +897,8 @@ class Certificate(pulumi.CustomResource):
                alternative subjects of the certificate.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] san_ips: List of IP addresses to use as alternative
                subjects of the certificate.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] san_uris: List of Uniform Resource Identifiers (URIs) to use as alternative
+               subjects of the certificate.
         :param pulumi.Input[int] valid_days: Desired number of days for which the new
                certificate will be valid.
         """
@@ -896,6 +924,7 @@ class Certificate(pulumi.CustomResource):
         __props__.__dict__["san_dns"] = san_dns
         __props__.__dict__["san_emails"] = san_emails
         __props__.__dict__["san_ips"] = san_ips
+        __props__.__dict__["san_uris"] = san_uris
         __props__.__dict__["valid_days"] = valid_days
         return Certificate(resource_name, opts=opts, __props__=__props__)
 
@@ -1046,6 +1075,15 @@ class Certificate(pulumi.CustomResource):
         subjects of the certificate.
         """
         return pulumi.get(self, "san_ips")
+
+    @property
+    @pulumi.getter(name="sanUris")
+    def san_uris(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        List of Uniform Resource Identifiers (URIs) to use as alternative
+        subjects of the certificate.
+        """
+        return pulumi.get(self, "san_uris")
 
     @property
     @pulumi.getter(name="validDays")
