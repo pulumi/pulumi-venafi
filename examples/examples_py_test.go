@@ -1,4 +1,5 @@
 // Copyright 2016-2020, Pulumi Corporation.  All rights reserved.
+//go:build python || all
 // +build python all
 
 package examples
@@ -25,6 +26,9 @@ func getPythonBaseOptions(t *testing.T) integration.ProgramTestOptions {
 		Dependencies: []string{
 			filepath.Join("..", "sdk", "python", "bin"),
 		},
+		// The Venafi tests run against a staging environment that is not always sufficiently warmed up to pass
+		// the tests within the timeout. We retry failed steps to guard against this condition:
+		RetryFailedSteps: true,
 	})
 
 	return basePy
