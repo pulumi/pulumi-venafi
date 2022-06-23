@@ -9,19 +9,6 @@ import * as utilities from "./utilities";
  * to define a new policy (folder in *Trust Protection Platform*; application
  * and/or issuing template in *Venafi as a Service*).
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as venafi from "@pulumi/venafi";
- * import * from "fs";
- *
- * const internalPolicy = new venafi.Policy("internalPolicy", {
- *     zone: "My Business App\\Enterprise Trusted Certs",
- *     policySpecification: fs.readFileSync("/path-to/internal-policy.json"),
- * });
- * ```
- *
  * ## Import
  *
  * The `venafi_policy` resource supports the Terraform [import](https://www.terraform.io/docs/cli/import/index.html) method.
