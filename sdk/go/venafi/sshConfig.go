@@ -19,21 +19,24 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-venafi/sdk/go/venafi"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-venafi/sdk/go/venafi"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := venafi.NewSshConfig(ctx, "cit", &venafi.SshConfigArgs{
-// 			Template: pulumi.String("devops-terraform-cit"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := venafi.NewSshConfig(ctx, "cit", &venafi.SshConfigArgs{
+//				Template: pulumi.String("devops-terraform-cit"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 type SshConfig struct {
 	pulumi.CustomResourceState
@@ -136,7 +139,7 @@ func (i *SshConfig) ToSshConfigOutputWithContext(ctx context.Context) SshConfigO
 // SshConfigArrayInput is an input type that accepts SshConfigArray and SshConfigArrayOutput values.
 // You can construct a concrete instance of `SshConfigArrayInput` via:
 //
-//          SshConfigArray{ SshConfigArgs{...} }
+//	SshConfigArray{ SshConfigArgs{...} }
 type SshConfigArrayInput interface {
 	pulumi.Input
 
@@ -161,7 +164,7 @@ func (i SshConfigArray) ToSshConfigArrayOutputWithContext(ctx context.Context) S
 // SshConfigMapInput is an input type that accepts SshConfigMap and SshConfigMapOutput values.
 // You can construct a concrete instance of `SshConfigMapInput` via:
 //
-//          SshConfigMap{ "key": SshConfigArgs{...} }
+//	SshConfigMap{ "key": SshConfigArgs{...} }
 type SshConfigMapInput interface {
 	pulumi.Input
 

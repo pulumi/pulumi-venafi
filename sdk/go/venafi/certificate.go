@@ -17,32 +17,35 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-venafi/sdk/go/venafi"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-venafi/sdk/go/venafi"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := venafi.NewCertificate(ctx, "webserver", &venafi.CertificateArgs{
-// 			Algorithm:  pulumi.String("RSA"),
-// 			CommonName: pulumi.String("web.venafi.example"),
-// 			CustomFields: pulumi.StringMap{
-// 				"Cost Center": pulumi.String("AB1234"),
-// 				"Environment": pulumi.String("UAT|Staging"),
-// 			},
-// 			KeyPassword: pulumi.Any(_var.Pk_pass),
-// 			RsaBits:     pulumi.Int(2048),
-// 			SanDns: pulumi.StringArray{
-// 				pulumi.String("web01.venafi.example"),
-// 				pulumi.String("web02.venafi.example"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := venafi.NewCertificate(ctx, "webserver", &venafi.CertificateArgs{
+//				Algorithm:  pulumi.String("RSA"),
+//				CommonName: pulumi.String("web.venafi.example"),
+//				CustomFields: pulumi.StringMap{
+//					"Cost Center": pulumi.String("AB1234"),
+//					"Environment": pulumi.String("UAT|Staging"),
+//				},
+//				KeyPassword: pulumi.Any(_var.Pk_pass),
+//				RsaBits:     pulumi.Int(2048),
+//				SanDns: pulumi.StringArray{
+//					pulumi.String("web01.venafi.example"),
+//					pulumi.String("web02.venafi.example"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 type Certificate struct {
 	pulumi.CustomResourceState
@@ -363,7 +366,7 @@ func (i *Certificate) ToCertificateOutputWithContext(ctx context.Context) Certif
 // CertificateArrayInput is an input type that accepts CertificateArray and CertificateArrayOutput values.
 // You can construct a concrete instance of `CertificateArrayInput` via:
 //
-//          CertificateArray{ CertificateArgs{...} }
+//	CertificateArray{ CertificateArgs{...} }
 type CertificateArrayInput interface {
 	pulumi.Input
 
@@ -388,7 +391,7 @@ func (i CertificateArray) ToCertificateArrayOutputWithContext(ctx context.Contex
 // CertificateMapInput is an input type that accepts CertificateMap and CertificateMapOutput values.
 // You can construct a concrete instance of `CertificateMapInput` via:
 //
-//          CertificateMap{ "key": CertificateArgs{...} }
+//	CertificateMap{ "key": CertificateArgs{...} }
 type CertificateMapInput interface {
 	pulumi.Input
 

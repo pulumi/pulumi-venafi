@@ -20,32 +20,35 @@ import (
 // package main
 //
 // import (
-// 	"io/ioutil"
 //
-// 	"github.com/pulumi/pulumi-venafi/sdk/go/venafi"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"io/ioutil"
+//
+//	"github.com/pulumi/pulumi-venafi/sdk/go/venafi"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func readFileOrPanic(path string) pulumi.StringPtrInput {
-// 	data, err := ioutil.ReadFile(path)
-// 	if err != nil {
-// 		panic(err.Error())
-// 	}
-// 	return pulumi.String(string(data))
-// }
+//	func readFileOrPanic(path string) pulumi.StringPtrInput {
+//		data, err := ioutil.ReadFile(path)
+//		if err != nil {
+//			panic(err.Error())
+//		}
+//		return pulumi.String(string(data))
+//	}
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := venafi.NewPolicy(ctx, "internalPolicy", &venafi.PolicyArgs{
-// 			Zone:                pulumi.String("My Business App\\Enterprise Trusted Certs"),
-// 			PolicySpecification: readFileOrPanic("/path-to/internal-policy.json"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := venafi.NewPolicy(ctx, "internalPolicy", &venafi.PolicyArgs{
+//				Zone:                pulumi.String("My Business App\\Enterprise Trusted Certs"),
+//				PolicySpecification: readFileOrPanic("/path-to/internal-policy.json"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -55,7 +58,9 @@ import (
 // When used, the `zone` and `policy_specification` resource arguments are not required since the zone is a required parameter of the import method and the policy specification is populated from the existing infrastructure. Policy that is successfully imported is also output to a file named after the zone that was specified. hcl resource "venafi_policy" "existing_policy" {}
 //
 // ```sh
-//  $ pulumi import venafi:index/policy:Policy existing_policy" "My Business App\\Enterprise Trusted Certs"
+//
+//	$ pulumi import venafi:index/policy:Policy existing_policy" "My Business App\\Enterprise Trusted Certs"
+//
 // ```
 type Policy struct {
 	pulumi.CustomResourceState
@@ -168,7 +173,7 @@ func (i *Policy) ToPolicyOutputWithContext(ctx context.Context) PolicyOutput {
 // PolicyArrayInput is an input type that accepts PolicyArray and PolicyArrayOutput values.
 // You can construct a concrete instance of `PolicyArrayInput` via:
 //
-//          PolicyArray{ PolicyArgs{...} }
+//	PolicyArray{ PolicyArgs{...} }
 type PolicyArrayInput interface {
 	pulumi.Input
 
@@ -193,7 +198,7 @@ func (i PolicyArray) ToPolicyArrayOutputWithContext(ctx context.Context) PolicyA
 // PolicyMapInput is an input type that accepts PolicyMap and PolicyMapOutput values.
 // You can construct a concrete instance of `PolicyMapInput` via:
 //
-//          PolicyMap{ "key": PolicyArgs{...} }
+//	PolicyMap{ "key": PolicyArgs{...} }
 type PolicyMapInput interface {
 	pulumi.Input
 

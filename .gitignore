@@ -18,3 +18,8 @@ sdk/dotnet/version.txt
 **/version.txt
 **/ci-scripts
 
+sdk/java/.gradle
+sdk/java/build
+sdk/java/gradle
+sdk/java/gradlew
+sdk/java/gradlew.bat
