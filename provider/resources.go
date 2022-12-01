@@ -19,20 +19,26 @@ import (
 	"path/filepath"
 	"unicode"
 
-	"github.com/Venafi/terraform-provider-venafi/venafi"
-	"github.com/hashicorp/terraform-plugin-sdk/helper/schema"
+	_ "embed"
+
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
 	shim "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfshim"
-	shimv1 "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfshim/sdk-v1"
+	shimv2 "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfshim/sdk-v2"
 	"github.com/pulumi/pulumi-venafi/provider/pkg/version"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/tokens"
+	"github.com/terraform-providers/terraform-provider-venafi/venafi"
 )
 
 // all of the token components used below.
 const (
 	mainPkg = "venafi"
 	mainMod = "index"
+)
+
+var (
+	//go:embed venafi_certificate.html.markdown
+	venafiCertificateMarkdown []byte
 )
 
 // makeMember manufactures a type token for the package and the given module and type.
@@ -64,7 +70,7 @@ func preConfigureCallback(vars resource.PropertyMap, c shim.ResourceConfig) erro
 // Provider returns additional overlaid schema and metadata associated with the provider..
 func Provider() tfbridge.ProviderInfo {
 	// Instantiate the Terraform provider
-	p := shimv1.NewProvider(venafi.Provider().(*schema.Provider))
+	p := shimv2.NewProvider(venafi.Provider())
 
 	// Create a Pulumi provider mapping
 	prov := tfbridge.ProviderInfo{
@@ -80,6 +86,9 @@ func Provider() tfbridge.ProviderInfo {
 		Resources: map[string]*tfbridge.ResourceInfo{
 			"venafi_certificate": {
 				Tok: makeResource(mainMod, "Certificate"),
+				Docs: &tfbridge.DocInfo{
+					Markdown: venafiCertificateMarkdown,
+				},
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"certificate": {
 						CSharpName: "CertificateDetails",

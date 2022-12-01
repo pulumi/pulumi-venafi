@@ -16,7 +16,7 @@ namespace Pulumi.Venafi
     /// [documentation](https://www.pulumi.com/docs/reference/programming-model/#providers) for more information.
     /// </summary>
     [VenafiResourceType("pulumi:providers:venafi")]
-    public partial class Provider : Pulumi.ProviderResource
+    public partial class Provider : global::Pulumi.ProviderResource
     {
         /// <summary>
         /// Access token for TPP, user should use this for authentication
@@ -88,7 +88,7 @@ namespace Pulumi.Venafi
         }
     }
 
-    public sealed class ProviderArgs : Pulumi.ResourceArgs
+    public sealed class ProviderArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Access token for TPP, user should use this for authentication
@@ -144,5 +144,6 @@ namespace Pulumi.Venafi
         public ProviderArgs()
         {
         }
+        public static new ProviderArgs Empty => new ProviderArgs();
     }
 }

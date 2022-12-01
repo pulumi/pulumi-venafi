@@ -9,45 +9,23 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Venafi
 {
-    /// <summary>
-    /// Provides access to retrieve configuration from SSH certificate issuance template from *Venafi Trust Protection Platform*.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using Pulumi;
-    /// using Venafi = Pulumi.Venafi;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var cit = new Venafi.SshConfig("cit", new Venafi.SshConfigArgs
-    ///         {
-    ///             Template = "devops-terraform-cit",
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// ```
-    /// </summary>
     [VenafiResourceType("venafi:index/sshConfig:SshConfig")]
-    public partial class SshConfig : Pulumi.CustomResource
+    public partial class SshConfig : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// (Optional, string) The template's CA public key.
+        /// The template's CA PublicKey
         /// </summary>
         [Output("caPublicKey")]
         public Output<string> CaPublicKey { get; private set; } = null!;
 
         /// <summary>
-        /// (Optional, set of strings) A list of user names exported from the template.
+        /// The requested principals.
         /// </summary>
         [Output("principals")]
         public Output<ImmutableArray<string>> Principals { get; private set; } = null!;
 
         /// <summary>
-        /// The SSH certificate issuing template.
+        /// The certificate issuing template
         /// </summary>
         [Output("template")]
         public Output<string> Template { get; private set; } = null!;
@@ -96,10 +74,10 @@ namespace Pulumi.Venafi
         }
     }
 
-    public sealed class SshConfigArgs : Pulumi.ResourceArgs
+    public sealed class SshConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The SSH certificate issuing template.
+        /// The certificate issuing template
         /// </summary>
         [Input("template", required: true)]
         public Input<string> Template { get; set; } = null!;
@@ -107,12 +85,13 @@ namespace Pulumi.Venafi
         public SshConfigArgs()
         {
         }
+        public static new SshConfigArgs Empty => new SshConfigArgs();
     }
 
-    public sealed class SshConfigState : Pulumi.ResourceArgs
+    public sealed class SshConfigState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// (Optional, string) The template's CA public key.
+        /// The template's CA PublicKey
         /// </summary>
         [Input("caPublicKey")]
         public Input<string>? CaPublicKey { get; set; }
@@ -121,7 +100,7 @@ namespace Pulumi.Venafi
         private InputList<string>? _principals;
 
         /// <summary>
-        /// (Optional, set of strings) A list of user names exported from the template.
+        /// The requested principals.
         /// </summary>
         public InputList<string> Principals
         {
@@ -130,7 +109,7 @@ namespace Pulumi.Venafi
         }
 
         /// <summary>
-        /// The SSH certificate issuing template.
+        /// The certificate issuing template
         /// </summary>
         [Input("template")]
         public Input<string>? Template { get; set; }
@@ -138,5 +117,6 @@ namespace Pulumi.Venafi
         public SshConfigState()
         {
         }
+        public static new SshConfigState Empty => new SshConfigState();
     }
 }

@@ -4,20 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
-/**
- * Provides access to retrieve configuration from SSH certificate issuance template from *Venafi Trust Protection Platform*.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as venafi from "@pulumi/venafi";
- *
- * const cit = new venafi.SshConfig("cit", {
- *     template: "devops-terraform-cit",
- * });
- * ```
- */
 export class SshConfig extends pulumi.CustomResource {
     /**
      * Get an existing SshConfig resource's state with the given name, ID, and optional extra
@@ -47,15 +33,15 @@ export class SshConfig extends pulumi.CustomResource {
     }
 
     /**
-     * (Optional, string) The template's CA public key.
+     * The template's CA PublicKey
      */
     public /*out*/ readonly caPublicKey!: pulumi.Output<string>;
     /**
-     * (Optional, set of strings) A list of user names exported from the template.
+     * The requested principals.
      */
     public /*out*/ readonly principals!: pulumi.Output<string[]>;
     /**
-     * The SSH certificate issuing template.
+     * The certificate issuing template
      */
     public readonly template!: pulumi.Output<string>;
 
@@ -94,15 +80,15 @@ export class SshConfig extends pulumi.CustomResource {
  */
 export interface SshConfigState {
     /**
-     * (Optional, string) The template's CA public key.
+     * The template's CA PublicKey
      */
     caPublicKey?: pulumi.Input<string>;
     /**
-     * (Optional, set of strings) A list of user names exported from the template.
+     * The requested principals.
      */
     principals?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The SSH certificate issuing template.
+     * The certificate issuing template
      */
     template?: pulumi.Input<string>;
 }
@@ -112,7 +98,7 @@ export interface SshConfigState {
  */
 export interface SshConfigArgs {
     /**
-     * The SSH certificate issuing template.
+     * The certificate issuing template
      */
     template: pulumi.Input<string>;
 }

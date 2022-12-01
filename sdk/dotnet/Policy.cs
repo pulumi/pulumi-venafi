@@ -9,56 +9,17 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Venafi
 {
-    /// <summary>
-    /// Provides access to read and write certificate policy in Venafi. This can be used
-    /// to define a new policy (folder in *Trust Protection Platform*; application
-    /// and/or issuing template in *Venafi as a Service*).
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.IO;
-    /// using Pulumi;
-    /// using Venafi = Pulumi.Venafi;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var internalPolicy = new Venafi.Policy("internalPolicy", new Venafi.PolicyArgs
-    ///         {
-    ///             Zone = "My Business App\\Enterprise Trusted Certs",
-    ///             PolicySpecification = File.ReadAllText("/path-to/internal-policy.json"),
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// The `venafi_policy` resource supports the Terraform [import](https://www.terraform.io/docs/cli/import/index.html) method.
-    /// 
-    /// When used, the `zone` and `policy_specification` resource arguments are not required since the zone is a required parameter of the import method and the policy specification is populated from the existing infrastructure. Policy that is successfully imported is also output to a file named after the zone that was specified. hcl resource "venafi_policy" "existing_policy" {}
-    /// 
-    /// ```sh
-    ///  $ pulumi import venafi:index/policy:Policy existing_policy" "My Business App\\Enterprise Trusted Certs"
-    /// ```
-    /// </summary>
     [VenafiResourceType("venafi:index/policy:Policy")]
-    public partial class Policy : Pulumi.CustomResource
+    public partial class Policy : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The JSON-formatted certificate policy
-        /// specification as documented [here](https://github.com/Venafi/vcert/blob/master/README-POLICY-SPEC.md).
-        /// Typically read from a file using the `file` function.
+        /// policy specification
         /// </summary>
         [Output("policySpecification")]
         public Output<string?> PolicySpecification { get; private set; } = null!;
 
         /// <summary>
-        /// The *Trust Protection Plaform* policy folder or
-        /// *Venafi as a Service* application and issuing template.
+        /// zone name
         /// </summary>
         [Output("zone")]
         public Output<string?> Zone { get; private set; } = null!;
@@ -107,19 +68,16 @@ namespace Pulumi.Venafi
         }
     }
 
-    public sealed class PolicyArgs : Pulumi.ResourceArgs
+    public sealed class PolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The JSON-formatted certificate policy
-        /// specification as documented [here](https://github.com/Venafi/vcert/blob/master/README-POLICY-SPEC.md).
-        /// Typically read from a file using the `file` function.
+        /// policy specification
         /// </summary>
         [Input("policySpecification")]
         public Input<string>? PolicySpecification { get; set; }
 
         /// <summary>
-        /// The *Trust Protection Plaform* policy folder or
-        /// *Venafi as a Service* application and issuing template.
+        /// zone name
         /// </summary>
         [Input("zone")]
         public Input<string>? Zone { get; set; }
@@ -127,21 +85,19 @@ namespace Pulumi.Venafi
         public PolicyArgs()
         {
         }
+        public static new PolicyArgs Empty => new PolicyArgs();
     }
 
-    public sealed class PolicyState : Pulumi.ResourceArgs
+    public sealed class PolicyState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The JSON-formatted certificate policy
-        /// specification as documented [here](https://github.com/Venafi/vcert/blob/master/README-POLICY-SPEC.md).
-        /// Typically read from a file using the `file` function.
+        /// policy specification
         /// </summary>
         [Input("policySpecification")]
         public Input<string>? PolicySpecification { get; set; }
 
         /// <summary>
-        /// The *Trust Protection Plaform* policy folder or
-        /// *Venafi as a Service* application and issuing template.
+        /// zone name
         /// </summary>
         [Input("zone")]
         public Input<string>? Zone { get; set; }
@@ -149,5 +105,6 @@ namespace Pulumi.Venafi
         public PolicyState()
         {
         }
+        public static new PolicyState Empty => new PolicyState();
     }
 }

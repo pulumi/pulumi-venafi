@@ -13,37 +13,35 @@ namespace Pulumi.Venafi
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Venafi = Pulumi.Venafi;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var webserver = new Venafi.Certificate("webserver", new()
     ///     {
-    ///         var webserver = new Venafi.Certificate("webserver", new Venafi.CertificateArgs
+    ///         Algorithm = "RSA",
+    ///         CommonName = "web.venafi.example",
+    ///         CustomFields = 
     ///         {
-    ///             Algorithm = "RSA",
-    ///             CommonName = "web.venafi.example",
-    ///             CustomFields = 
-    ///             {
-    ///                 { "Cost Center", "AB1234" },
-    ///                 { "Environment", "UAT|Staging" },
-    ///             },
-    ///             KeyPassword = @var.Pk_pass,
-    ///             RsaBits = 2048,
-    ///             SanDns = 
-    ///             {
-    ///                 "web01.venafi.example",
-    ///                 "web02.venafi.example",
-    ///             },
-    ///         });
-    ///     }
+    ///             { "Cost Center", "AB1234" },
+    ///             { "Environment", "UAT|Staging" },
+    ///         },
+    ///         KeyPassword = @var.Pk_pass,
+    ///         RsaBits = 2048,
+    ///         SanDns = new[]
+    ///         {
+    ///             "web01.venafi.example",
+    ///             "web02.venafi.example",
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// </summary>
     [VenafiResourceType("venafi:index/certificate:Certificate")]
-    public partial class Certificate : Pulumi.CustomResource
+    public partial class Certificate : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Key encryption algorithm, either `RSA` or `ECDSA`.
@@ -116,6 +114,12 @@ namespace Pulumi.Venafi
         /// </summary>
         [Output("keyPassword")]
         public Output<string?> KeyPassword { get; private set; } = null!;
+
+        /// <summary>
+        /// Use to specify a name for the new certificate object that will be created and placed in a policy. Only valid for TPP
+        /// </summary>
+        [Output("nickname")]
+        public Output<string?> Nickname { get; private set; } = null!;
 
         /// <summary>
         /// A base64-encoded PKCS#12 keystore secured by the `key_password`.
@@ -194,6 +198,11 @@ namespace Pulumi.Venafi
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "keyPassword",
+                    "privateKeyPem",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -215,7 +224,7 @@ namespace Pulumi.Venafi
         }
     }
 
-    public sealed class CertificateArgs : Pulumi.ResourceArgs
+    public sealed class CertificateArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Key encryption algorithm, either `RSA` or `ECDSA`.
@@ -276,11 +285,27 @@ namespace Pulumi.Venafi
         [Input("issuerHint")]
         public Input<string>? IssuerHint { get; set; }
 
+        [Input("keyPassword")]
+        private Input<string>? _keyPassword;
+
         /// <summary>
         /// The password used to encrypt the private key.
         /// </summary>
-        [Input("keyPassword")]
-        public Input<string>? KeyPassword { get; set; }
+        public Input<string>? KeyPassword
+        {
+            get => _keyPassword;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _keyPassword = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        /// <summary>
+        /// Use to specify a name for the new certificate object that will be created and placed in a policy. Only valid for TPP
+        /// </summary>
+        [Input("nickname")]
+        public Input<string>? Nickname { get; set; }
 
         /// <summary>
         /// A base64-encoded PKCS#12 keystore secured by the `key_password`.
@@ -288,11 +313,21 @@ namespace Pulumi.Venafi
         [Input("pkcs12")]
         public Input<string>? Pkcs12 { get; set; }
 
+        [Input("privateKeyPem")]
+        private Input<string>? _privateKeyPem;
+
         /// <summary>
         /// The private key in PEM format.
         /// </summary>
-        [Input("privateKeyPem")]
-        public Input<string>? PrivateKeyPem { get; set; }
+        public Input<string>? PrivateKeyPem
+        {
+            get => _privateKeyPem;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _privateKeyPem = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// Number of bits to use when generating an RSA key.
@@ -363,9 +398,10 @@ namespace Pulumi.Venafi
         public CertificateArgs()
         {
         }
+        public static new CertificateArgs Empty => new CertificateArgs();
     }
 
-    public sealed class CertificateState : Pulumi.ResourceArgs
+    public sealed class CertificateState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Key encryption algorithm, either `RSA` or `ECDSA`.
@@ -439,11 +475,27 @@ namespace Pulumi.Venafi
         [Input("issuerHint")]
         public Input<string>? IssuerHint { get; set; }
 
+        [Input("keyPassword")]
+        private Input<string>? _keyPassword;
+
         /// <summary>
         /// The password used to encrypt the private key.
         /// </summary>
-        [Input("keyPassword")]
-        public Input<string>? KeyPassword { get; set; }
+        public Input<string>? KeyPassword
+        {
+            get => _keyPassword;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _keyPassword = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        /// <summary>
+        /// Use to specify a name for the new certificate object that will be created and placed in a policy. Only valid for TPP
+        /// </summary>
+        [Input("nickname")]
+        public Input<string>? Nickname { get; set; }
 
         /// <summary>
         /// A base64-encoded PKCS#12 keystore secured by the `key_password`.
@@ -451,11 +503,21 @@ namespace Pulumi.Venafi
         [Input("pkcs12")]
         public Input<string>? Pkcs12 { get; set; }
 
+        [Input("privateKeyPem")]
+        private Input<string>? _privateKeyPem;
+
         /// <summary>
         /// The private key in PEM format.
         /// </summary>
-        [Input("privateKeyPem")]
-        public Input<string>? PrivateKeyPem { get; set; }
+        public Input<string>? PrivateKeyPem
+        {
+            get => _privateKeyPem;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _privateKeyPem = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// Number of bits to use when generating an RSA key.
@@ -526,5 +588,6 @@ namespace Pulumi.Venafi
         public CertificateState()
         {
         }
+        public static new CertificateState Empty => new CertificateState();
     }
 }
