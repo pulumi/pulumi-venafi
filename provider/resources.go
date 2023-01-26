@@ -1,4 +1,4 @@
-// Copyright 2016-2018, Pulumi Corporation.
+// Copyright 2016-2023, Pulumi Corporation.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -19,7 +19,7 @@ import (
 	"path/filepath"
 	"unicode"
 
-	_ "embed"
+	_ "embed" // to embed venafiCertificateMarkdown
 
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
 	shim "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfshim"
@@ -37,7 +37,9 @@ const (
 )
 
 // Custom modifications to the markdown originally from the forked provider:
-// https://github.com/Venafi/terraform-provider-venafi/compare/v0.16.1...pulumi:terraform-provider-venafi:upstream-v0.15.5#diff-5f120bd5adac5b9527459491dd544deb1adc3bc3ff4cb98d17afd1365c568a7e
+//
+// https://github.com/Venafi/terraform-provider-venafi/compare/v0.16.1...
+// pulumi:terraform-provider-venafi:upstream-v0.15.5#diff-5f120bd5adac5b9527459491dd544deb1adc3bc3ff4cb98d17afd1365c568a7e
 var (
 	//go:embed venafi_certificate.html.markdown
 	venafiCertificateMarkdown []byte
