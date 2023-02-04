@@ -15,33 +15,31 @@ namespace Pulumi.Venafi
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Venafi = Pulumi.Venafi;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var sshCert = new Venafi.SshCertificate("sshCert", new()
     ///     {
-    ///         var sshCert = new Venafi.SshCertificate("sshCert", new Venafi.SshCertificateArgs
+    ///         KeyId = "my-first-ssh-certificate",
+    ///         KeyPassphrase = "passw0rd",
+    ///         KeySize = 3072,
+    ///         Principals = new[]
     ///         {
-    ///             KeyId = "my-first-ssh-certificate",
-    ///             KeyPassphrase = "passw0rd",
-    ///             KeySize = 3072,
-    ///             Principals = 
-    ///             {
-    ///                 "seamus",
-    ///             },
-    ///             PublicKeyMethod = "local",
-    ///             Template = "Sample SSH CA",
-    ///             ValidHours = 24,
-    ///         });
-    ///     }
+    ///             "seamus",
+    ///         },
+    ///         PublicKeyMethod = "local",
+    ///         Template = "Sample SSH CA",
+    ///         ValidHours = 24,
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// </summary>
     [VenafiResourceType("venafi:index/sshCertificate:SshCertificate")]
-    public partial class SshCertificate : Pulumi.CustomResource
+    public partial class SshCertificate : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The issued SSH certificate.
@@ -204,6 +202,10 @@ namespace Pulumi.Venafi
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "keyPassphrase",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -225,7 +227,7 @@ namespace Pulumi.Venafi
         }
     }
 
-    public sealed class SshCertificateArgs : Pulumi.ResourceArgs
+    public sealed class SshCertificateArgs : global::Pulumi.ResourceArgs
     {
         [Input("destinationAddresses")]
         private InputList<string>? _destinationAddresses;
@@ -269,11 +271,21 @@ namespace Pulumi.Venafi
         [Input("keyId", required: true)]
         public Input<string> KeyId { get; set; } = null!;
 
+        [Input("keyPassphrase")]
+        private Input<string>? _keyPassphrase;
+
         /// <summary>
         /// Passphrase for encrypting the private key.
         /// </summary>
-        [Input("keyPassphrase")]
-        public Input<string>? KeyPassphrase { get; set; }
+        public Input<string>? KeyPassphrase
+        {
+            get => _keyPassphrase;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _keyPassphrase = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// Number of bits to use when creating a key pair. (e.g. 3072)
@@ -344,9 +356,10 @@ namespace Pulumi.Venafi
         public SshCertificateArgs()
         {
         }
+        public static new SshCertificateArgs Empty => new SshCertificateArgs();
     }
 
-    public sealed class SshCertificateState : Pulumi.ResourceArgs
+    public sealed class SshCertificateState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The issued SSH certificate.
@@ -402,11 +415,21 @@ namespace Pulumi.Venafi
         [Input("keyId")]
         public Input<string>? KeyId { get; set; }
 
+        [Input("keyPassphrase")]
+        private Input<string>? _keyPassphrase;
+
         /// <summary>
         /// Passphrase for encrypting the private key.
         /// </summary>
-        [Input("keyPassphrase")]
-        public Input<string>? KeyPassphrase { get; set; }
+        public Input<string>? KeyPassphrase
+        {
+            get => _keyPassphrase;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _keyPassphrase = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// Number of bits to use when creating a key pair. (e.g. 3072)
@@ -513,5 +536,6 @@ namespace Pulumi.Venafi
         public SshCertificateState()
         {
         }
+        public static new SshCertificateState Empty => new SshCertificateState();
     }
 }

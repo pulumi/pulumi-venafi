@@ -17,22 +17,20 @@ namespace Pulumi.Venafi
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using System.IO;
     /// using Pulumi;
     /// using Venafi = Pulumi.Venafi;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var internalPolicy = new Venafi.Policy("internalPolicy", new()
     ///     {
-    ///         var internalPolicy = new Venafi.Policy("internalPolicy", new Venafi.PolicyArgs
-    ///         {
-    ///             Zone = "My Business App\\Enterprise Trusted Certs",
-    ///             PolicySpecification = File.ReadAllText("/path-to/internal-policy.json"),
-    ///         });
-    ///     }
+    ///         Zone = "My Business App\\Enterprise Trusted Certs",
+    ///         PolicySpecification = File.ReadAllText("/path-to/internal-policy.json"),
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -46,7 +44,7 @@ namespace Pulumi.Venafi
     /// ```
     /// </summary>
     [VenafiResourceType("venafi:index/policy:Policy")]
-    public partial class Policy : Pulumi.CustomResource
+    public partial class Policy : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The JSON-formatted certificate policy
@@ -107,7 +105,7 @@ namespace Pulumi.Venafi
         }
     }
 
-    public sealed class PolicyArgs : Pulumi.ResourceArgs
+    public sealed class PolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The JSON-formatted certificate policy
@@ -127,9 +125,10 @@ namespace Pulumi.Venafi
         public PolicyArgs()
         {
         }
+        public static new PolicyArgs Empty => new PolicyArgs();
     }
 
-    public sealed class PolicyState : Pulumi.ResourceArgs
+    public sealed class PolicyState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The JSON-formatted certificate policy
@@ -149,5 +148,6 @@ namespace Pulumi.Venafi
         public PolicyState()
         {
         }
+        public static new PolicyState Empty => new PolicyState();
     }
 }
