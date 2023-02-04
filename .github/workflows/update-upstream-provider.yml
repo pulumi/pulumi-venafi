@@ -34,6 +34,8 @@ env:
   VENAFI_TOKEN: ${{ secrets.VENAFI_TOKEN }}
   VENAFI_URL: ${{ secrets.VENAFI_URL }}
   VENAFI_ZONE: ${{ secrets.VENAFI_ZONE }}
+  VENAFI_TPP_USER: ${{ secrets.VENAFI_TPP_USER }}
+  VENAFI_TPP_PASSWORD: ${{ secrets.VENAFI_TPP_PASSWORD }}
 jobs:
   update_upstream_provider:
     name: update-upstream_provider
