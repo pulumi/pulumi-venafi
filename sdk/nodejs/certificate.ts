@@ -4,29 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
-/**
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as venafi from "@pulumi/venafi";
- *
- * const webserver = new venafi.Certificate("webserver", {
- *     algorithm: "RSA",
- *     commonName: "web.venafi.example",
- *     customFields: {
- *         "Cost Center": "AB1234",
- *         Environment: "UAT|Staging",
- *     },
- *     keyPassword: var_pk_pass,
- *     rsaBits: 2048,
- *     sanDns: [
- *         "web01.venafi.example",
- *         "web02.venafi.example",
- *     ],
- * });
- * ```
- */
 export class Certificate extends pulumi.CustomResource {
     /**
      * Get an existing Certificate resource's state with the given name, ID, and optional extra
@@ -104,8 +81,9 @@ export class Certificate extends pulumi.CustomResource {
      */
     public readonly keyPassword!: pulumi.Output<string | undefined>;
     /**
-     * A base64-encoded PKCS#12 keystore secured by the `keyPassword`.
+     * Use to specify a name for the new certificate object that will be created and placed in a policy. Only valid for TPP.
      */
+    public readonly nickname!: pulumi.Output<string | undefined>;
     public readonly pkcs12!: pulumi.Output<string>;
     /**
      * The private key in PEM format.
@@ -167,6 +145,7 @@ export class Certificate extends pulumi.CustomResource {
             resourceInputs["expirationWindow"] = state ? state.expirationWindow : undefined;
             resourceInputs["issuerHint"] = state ? state.issuerHint : undefined;
             resourceInputs["keyPassword"] = state ? state.keyPassword : undefined;
+            resourceInputs["nickname"] = state ? state.nickname : undefined;
             resourceInputs["pkcs12"] = state ? state.pkcs12 : undefined;
             resourceInputs["privateKeyPem"] = state ? state.privateKeyPem : undefined;
             resourceInputs["rsaBits"] = state ? state.rsaBits : undefined;
@@ -189,9 +168,10 @@ export class Certificate extends pulumi.CustomResource {
             resourceInputs["ecdsaCurve"] = args ? args.ecdsaCurve : undefined;
             resourceInputs["expirationWindow"] = args ? args.expirationWindow : undefined;
             resourceInputs["issuerHint"] = args ? args.issuerHint : undefined;
-            resourceInputs["keyPassword"] = args ? args.keyPassword : undefined;
+            resourceInputs["keyPassword"] = args?.keyPassword ? pulumi.secret(args.keyPassword) : undefined;
+            resourceInputs["nickname"] = args ? args.nickname : undefined;
             resourceInputs["pkcs12"] = args ? args.pkcs12 : undefined;
-            resourceInputs["privateKeyPem"] = args ? args.privateKeyPem : undefined;
+            resourceInputs["privateKeyPem"] = args?.privateKeyPem ? pulumi.secret(args.privateKeyPem) : undefined;
             resourceInputs["rsaBits"] = args ? args.rsaBits : undefined;
             resourceInputs["sanDns"] = args ? args.sanDns : undefined;
             resourceInputs["sanEmails"] = args ? args.sanEmails : undefined;
@@ -202,6 +182,8 @@ export class Certificate extends pulumi.CustomResource {
             resourceInputs["chain"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["keyPassword", "privateKeyPem"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Certificate.__pulumiType, name, resourceInputs, opts);
     }
 }
@@ -259,8 +241,9 @@ export interface CertificateState {
      */
     keyPassword?: pulumi.Input<string>;
     /**
-     * A base64-encoded PKCS#12 keystore secured by the `keyPassword`.
+     * Use to specify a name for the new certificate object that will be created and placed in a policy. Only valid for TPP.
      */
+    nickname?: pulumi.Input<string>;
     pkcs12?: pulumi.Input<string>;
     /**
      * The private key in PEM format.
@@ -342,8 +325,9 @@ export interface CertificateArgs {
      */
     keyPassword?: pulumi.Input<string>;
     /**
-     * A base64-encoded PKCS#12 keystore secured by the `keyPassword`.
+     * Use to specify a name for the new certificate object that will be created and placed in a policy. Only valid for TPP.
      */
+    nickname?: pulumi.Input<string>;
     pkcs12?: pulumi.Input<string>;
     /**
      * The private key in PEM format.

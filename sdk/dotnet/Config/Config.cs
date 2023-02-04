@@ -30,7 +30,7 @@ namespace Pulumi.Venafi
             }
         }
 
-        private static readonly Pulumi.Config __config = new Pulumi.Config("venafi");
+        private static readonly global::Pulumi.Config __config = new global::Pulumi.Config("venafi");
 
         private static readonly __Value<string?> _accessToken = new __Value<string?>(() => __config.Get("accessToken"));
         /// <summary>

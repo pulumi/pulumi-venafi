@@ -5,11 +5,31 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 // Export members:
-export * from "./certificate";
-export * from "./policy";
-export * from "./provider";
-export * from "./sshCertificate";
-export * from "./sshConfig";
+export { CertificateArgs, CertificateState } from "./certificate";
+export type Certificate = import("./certificate").Certificate;
+export const Certificate: typeof import("./certificate").Certificate = null as any;
+utilities.lazyLoad(exports, ["Certificate"], () => require("./certificate"));
+
+export { PolicyArgs, PolicyState } from "./policy";
+export type Policy = import("./policy").Policy;
+export const Policy: typeof import("./policy").Policy = null as any;
+utilities.lazyLoad(exports, ["Policy"], () => require("./policy"));
+
+export { ProviderArgs } from "./provider";
+export type Provider = import("./provider").Provider;
+export const Provider: typeof import("./provider").Provider = null as any;
+utilities.lazyLoad(exports, ["Provider"], () => require("./provider"));
+
+export { SshCertificateArgs, SshCertificateState } from "./sshCertificate";
+export type SshCertificate = import("./sshCertificate").SshCertificate;
+export const SshCertificate: typeof import("./sshCertificate").SshCertificate = null as any;
+utilities.lazyLoad(exports, ["SshCertificate"], () => require("./sshCertificate"));
+
+export { SshConfigArgs, SshConfigState } from "./sshConfig";
+export type SshConfig = import("./sshConfig").SshConfig;
+export const SshConfig: typeof import("./sshConfig").SshConfig = null as any;
+utilities.lazyLoad(exports, ["SshConfig"], () => require("./sshConfig"));
+
 
 // Export sub-modules:
 import * as config from "./config";
@@ -17,12 +37,6 @@ import * as config from "./config";
 export {
     config,
 };
-
-// Import resources to register:
-import { Certificate } from "./certificate";
-import { Policy } from "./policy";
-import { SshCertificate } from "./sshCertificate";
-import { SshConfig } from "./sshConfig";
 
 const _module = {
     version: utilities.getVersion(),
@@ -45,9 +59,6 @@ pulumi.runtime.registerResourceModule("venafi", "index/certificate", _module)
 pulumi.runtime.registerResourceModule("venafi", "index/policy", _module)
 pulumi.runtime.registerResourceModule("venafi", "index/sshCertificate", _module)
 pulumi.runtime.registerResourceModule("venafi", "index/sshConfig", _module)
-
-import { Provider } from "./provider";
-
 pulumi.runtime.registerResourcePackage("venafi", {
     version: utilities.getVersion(),
     constructProvider: (name: string, type: string, urn: string): pulumi.ProviderResource => {

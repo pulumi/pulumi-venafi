@@ -13,9 +13,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as venafi from "@pulumi/venafi";
  *
- * const cit = new venafi.SshConfig("cit", {
- *     template: "devops-terraform-cit",
- * });
+ * const cit = new venafi.SshConfig("cit", {template: "devops-terraform-cit"});
  * ```
  */
 export class SshConfig extends pulumi.CustomResource {

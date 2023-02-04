@@ -13,8 +13,8 @@ import * as utilities from "./utilities";
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
+ * import * as fs from "fs";
  * import * as venafi from "@pulumi/venafi";
- * import * from "fs";
  *
  * const internalPolicy = new venafi.Policy("internalPolicy", {
  *     zone: "My Business App\\Enterprise Trusted Certs",

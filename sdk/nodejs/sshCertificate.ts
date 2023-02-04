@@ -13,7 +13,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as venafi from "@pulumi/venafi";
  *
- * const sshCert = new venafi.SshCertificate("ssh_cert", {
+ * const sshCert = new venafi.SshCertificate("sshCert", {
  *     keyId: "my-first-ssh-certificate",
  *     keyPassphrase: "passw0rd",
  *     keySize: 3072,
@@ -194,7 +194,7 @@ export class SshCertificate extends pulumi.CustomResource {
             resourceInputs["folder"] = args ? args.folder : undefined;
             resourceInputs["forceCommand"] = args ? args.forceCommand : undefined;
             resourceInputs["keyId"] = args ? args.keyId : undefined;
-            resourceInputs["keyPassphrase"] = args ? args.keyPassphrase : undefined;
+            resourceInputs["keyPassphrase"] = args?.keyPassphrase ? pulumi.secret(args.keyPassphrase) : undefined;
             resourceInputs["keySize"] = args ? args.keySize : undefined;
             resourceInputs["objectName"] = args ? args.objectName : undefined;
             resourceInputs["principals"] = args ? args.principals : undefined;
@@ -214,6 +214,8 @@ export class SshCertificate extends pulumi.CustomResource {
             resourceInputs["validTo"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["keyPassphrase"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(SshCertificate.__pulumiType, name, resourceInputs, opts);
     }
 }

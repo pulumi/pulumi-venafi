@@ -15,24 +15,22 @@ namespace Pulumi.Venafi
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Venafi = Pulumi.Venafi;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var cit = new Venafi.SshConfig("cit", new()
     ///     {
-    ///         var cit = new Venafi.SshConfig("cit", new Venafi.SshConfigArgs
-    ///         {
-    ///             Template = "devops-terraform-cit",
-    ///         });
-    ///     }
+    ///         Template = "devops-terraform-cit",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// </summary>
     [VenafiResourceType("venafi:index/sshConfig:SshConfig")]
-    public partial class SshConfig : Pulumi.CustomResource
+    public partial class SshConfig : global::Pulumi.CustomResource
     {
         /// <summary>
         /// (Optional, string) The template's CA public key.
@@ -96,7 +94,7 @@ namespace Pulumi.Venafi
         }
     }
 
-    public sealed class SshConfigArgs : Pulumi.ResourceArgs
+    public sealed class SshConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The SSH certificate issuing template.
@@ -107,9 +105,10 @@ namespace Pulumi.Venafi
         public SshConfigArgs()
         {
         }
+        public static new SshConfigArgs Empty => new SshConfigArgs();
     }
 
-    public sealed class SshConfigState : Pulumi.ResourceArgs
+    public sealed class SshConfigState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// (Optional, string) The template's CA public key.
@@ -138,5 +137,6 @@ namespace Pulumi.Venafi
         public SshConfigState()
         {
         }
+        public static new SshConfigState Empty => new SshConfigState();
     }
 }
