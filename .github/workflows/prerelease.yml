@@ -27,11 +27,10 @@ env:
   SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
   TF_APPEND_USER_AGENT: pulumi
   TRAVIS_OS_NAME: linux
-  VENAFI_TOKEN: ${{ secrets.VENAFI_TOKEN }}
+  VENAFI_TPP_PASSWORD: ${{ secrets.VENAFI_TPP_PASSWORD }}
+  VENAFI_TPP_USER: ${{ secrets.VENAFI_TPP_USER }}
   VENAFI_URL: ${{ secrets.VENAFI_URL }}
   VENAFI_ZONE: ${{ secrets.VENAFI_ZONE }}
-  VENAFI_TPP_USER: ${{ secrets.VENAFI_TPP_USER }}
-  VENAFI_TPP_PASSWORD: ${{ secrets.VENAFI_TPP_PASSWORD }}
 jobs:
   build_sdk:
     name: build_sdk
@@ -133,6 +132,9 @@ jobs:
       with:
         path: ci-scripts
         repository: pulumi/scripts
+    - name: Mark repo as safe directory
+      run: git config --global --add safe.directory /__w/pulumi-${{ env.PROVIDER
+        }}/pulumi-${{ env.PROVIDER }}
     - name: Unshallow clone for tags
       run: git fetch --prune --unshallow --tags
     - name: Install Go
@@ -166,6 +168,9 @@ jobs:
       with:
         path: ci-scripts
         repository: pulumi/scripts
+    - name: Mark repo as safe directory
+      run: git config --global --add safe.directory /__w/pulumi-${{ env.PROVIDER
+        }}/pulumi-${{ env.PROVIDER }}
     - name: Unshallow clone for tags
       run: git fetch --prune --unshallow --tags
     - name: Install Go
