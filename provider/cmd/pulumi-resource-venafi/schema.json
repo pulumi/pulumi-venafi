@@ -163,10 +163,11 @@
     },
     "resources": {
         "venafi:index/certificate:Certificate": {
+            "description": "\n\n\n## Import\n\nThe `venafi_certificate` resource supports the Terraform [import](https://www.terraform.io/docs/cli/import/index.html) method. The `import_id` is composed by an `id` which is different for each platform, a comma (,) and the `key-password`. The `id` for each platform is**TPP:** The `nickname` of the certificate, which represents the name of the certificate object in TPP. Internally we built the `pickup_id` using the `zone` defined at the provider block. **VaaS:** The `pickup-id`.\n\n```sh\n $ pulumi import venafi:index/certificate:Certificate \u003cresource_name\u003e\" \"\u003cid\u003e,\u003ckey-password\u003e\"\n```\n\n Example (assuming our resource name is `imported_certificate`)hcl resource \"venafi_certificate\" \"imported_certificate\" {} **TPP:**\n\n```sh\n $ pulumi import venafi:index/certificate:Certificate imported_certificate\" \"tpp.venafi.example,my_key_password\"\n```\n\n **VaaS:**\n\n```sh\n $ pulumi import venafi:index/certificate:Certificate imported_certificate\" \"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx,my_key_password\"\n```\n\n ",
             "properties": {
                 "algorithm": {
                     "type": "string",
-                    "description": "Key encryption algorithm, either `RSA` or `ECDSA`.\nDefaults to `RSA`.\n"
+                    "description": "Key encryption algorithm, either RSA or ECDSA.\nDefaults to \"RSA\".\n"
                 },
                 "certificate": {
                     "type": "string",
@@ -233,7 +234,7 @@
                 },
                 "rsaBits": {
                     "type": "integer",
-                    "description": "Number of bits to use when generating an RSA key.\nApplies when `algorithm=RSA`.  Defaults to `2048`.\n"
+                    "description": "Number of bits to use when generating an RSA key.\nApplies when algorithm=RSA.  Defaults to 2048.\n"
                 },
                 "sanDns": {
                     "type": "array",
@@ -280,7 +281,7 @@
             "inputProperties": {
                 "algorithm": {
                     "type": "string",
-                    "description": "Key encryption algorithm, either `RSA` or `ECDSA`.\nDefaults to `RSA`.\n",
+                    "description": "Key encryption algorithm, either RSA or ECDSA.\nDefaults to \"RSA\".\n",
                     "willReplaceOnChanges": true
                 },
                 "certificateDn": {
@@ -342,7 +343,7 @@
                 },
                 "rsaBits": {
                     "type": "integer",
-                    "description": "Number of bits to use when generating an RSA key.\nApplies when `algorithm=RSA`.  Defaults to `2048`.\n",
+                    "description": "Number of bits to use when generating an RSA key.\nApplies when algorithm=RSA.  Defaults to 2048.\n",
                     "willReplaceOnChanges": true
                 },
                 "sanDns": {
@@ -391,7 +392,7 @@
                 "properties": {
                     "algorithm": {
                         "type": "string",
-                        "description": "Key encryption algorithm, either `RSA` or `ECDSA`.\nDefaults to `RSA`.\n",
+                        "description": "Key encryption algorithm, either RSA or ECDSA.\nDefaults to \"RSA\".\n",
                         "willReplaceOnChanges": true
                     },
                     "certificate": {
@@ -466,7 +467,7 @@
                     },
                     "rsaBits": {
                         "type": "integer",
-                        "description": "Number of bits to use when generating an RSA key.\nApplies when `algorithm=RSA`.  Defaults to `2048`.\n",
+                        "description": "Number of bits to use when generating an RSA key.\nApplies when algorithm=RSA.  Defaults to 2048.\n",
                         "willReplaceOnChanges": true
                     },
                     "sanDns": {
@@ -601,6 +602,14 @@
                     "type": "string",
                     "description": "The friendly name of the SSH certificate object. When not specified the `key_id` is used for the friendly name. If the object already exists the old certificate is archived and the CA issues a new certificate.\n"
                 },
+                "principal": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "[DEPRECATED] - (Optional, set of strings) Use \"principals\" instead. A list of user names for whom the requested certificate will be valid.\n",
+                    "deprecationMessage": "This will be removed in the future. Use \"principals\" instead"
+                },
                 "principals": {
                     "type": "array",
                     "items": {
@@ -720,6 +729,15 @@
                     "description": "The friendly name of the SSH certificate object. When not specified the `key_id` is used for the friendly name. If the object already exists the old certificate is archived and the CA issues a new certificate.\n",
                     "willReplaceOnChanges": true
                 },
+                "principal": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "[DEPRECATED] - (Optional, set of strings) Use \"principals\" instead. A list of user names for whom the requested certificate will be valid.\n",
+                    "deprecationMessage": "This will be removed in the future. Use \"principals\" instead",
+                    "willReplaceOnChanges": true
+                },
                 "principals": {
                     "type": "array",
                     "items": {
@@ -822,6 +840,15 @@
                     "objectName": {
                         "type": "string",
                         "description": "The friendly name of the SSH certificate object. When not specified the `key_id` is used for the friendly name. If the object already exists the old certificate is archived and the CA issues a new certificate.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "principal": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "[DEPRECATED] - (Optional, set of strings) Use \"principals\" instead. A list of user names for whom the requested certificate will be valid.\n",
+                        "deprecationMessage": "This will be removed in the future. Use \"principals\" instead",
                         "willReplaceOnChanges": true
                     },
                     "principals": {
