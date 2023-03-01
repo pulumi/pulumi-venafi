@@ -76,6 +76,7 @@ func Provider() tfbridge.ProviderInfo {
 		Repository:           "https://github.com/pulumi/pulumi-venafi",
 		GitHubOrg:            "Venafi",
 		PreConfigureCallback: preConfigureCallback,
+		UpstreamRepoPath:     "./upstream",
 		Resources: map[string]*tfbridge.ResourceInfo{
 			"venafi_certificate": {
 				Tok: makeResource(mainMod, "Certificate"),
