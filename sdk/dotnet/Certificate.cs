@@ -9,12 +9,33 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Venafi
 {
+    /// <summary>
+    /// ## Import
+    /// 
+    /// The `venafi_certificate` resource supports the Terraform [import](https://www.terraform.io/docs/cli/import/index.html) method. The `import_id` is composed by an `id` which is different for each platform, a comma (,) and the `key-password`. The `id` for each platform is**TPP:** The `nickname` of the certificate, which represents the name of the certificate object in TPP. Internally we built the `pickup_id` using the `zone` defined at the provider block. **VaaS:** The `pickup-id`.
+    /// 
+    /// ```sh
+    ///  $ pulumi import venafi:index/certificate:Certificate &lt;resource_name&gt;" "&lt;id&gt;,&lt;key-password&gt;"
+    /// ```
+    /// 
+    ///  Example (assuming our resource name is `imported_certificate`)hcl resource "venafi_certificate" "imported_certificate" {} **TPP:**
+    /// 
+    /// ```sh
+    ///  $ pulumi import venafi:index/certificate:Certificate imported_certificate" "tpp.venafi.example,my_key_password"
+    /// ```
+    /// 
+    ///  **VaaS:**
+    /// 
+    /// ```sh
+    ///  $ pulumi import venafi:index/certificate:Certificate imported_certificate" "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx,my_key_password"
+    /// ```
+    /// </summary>
     [VenafiResourceType("venafi:index/certificate:Certificate")]
     public partial class Certificate : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Key encryption algorithm, either `RSA` or `ECDSA`.
-        /// Defaults to `RSA`.
+        /// Key encryption algorithm, either RSA or ECDSA.
+        /// Defaults to "RSA".
         /// </summary>
         [Output("algorithm")]
         public Output<string?> Algorithm { get; private set; } = null!;
@@ -101,7 +122,7 @@ namespace Pulumi.Venafi
 
         /// <summary>
         /// Number of bits to use when generating an RSA key.
-        /// Applies when `algorithm=RSA`.  Defaults to `2048`.
+        /// Applies when algorithm=RSA.  Defaults to 2048.
         /// </summary>
         [Output("rsaBits")]
         public Output<int?> RsaBits { get; private set; } = null!;
@@ -193,8 +214,8 @@ namespace Pulumi.Venafi
     public sealed class CertificateArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Key encryption algorithm, either `RSA` or `ECDSA`.
-        /// Defaults to `RSA`.
+        /// Key encryption algorithm, either RSA or ECDSA.
+        /// Defaults to "RSA".
         /// </summary>
         [Input("algorithm")]
         public Input<string>? Algorithm { get; set; }
@@ -294,7 +315,7 @@ namespace Pulumi.Venafi
 
         /// <summary>
         /// Number of bits to use when generating an RSA key.
-        /// Applies when `algorithm=RSA`.  Defaults to `2048`.
+        /// Applies when algorithm=RSA.  Defaults to 2048.
         /// </summary>
         [Input("rsaBits")]
         public Input<int>? RsaBits { get; set; }
@@ -367,8 +388,8 @@ namespace Pulumi.Venafi
     public sealed class CertificateState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Key encryption algorithm, either `RSA` or `ECDSA`.
-        /// Defaults to `RSA`.
+        /// Key encryption algorithm, either RSA or ECDSA.
+        /// Defaults to "RSA".
         /// </summary>
         [Input("algorithm")]
         public Input<string>? Algorithm { get; set; }
@@ -481,7 +502,7 @@ namespace Pulumi.Venafi
 
         /// <summary>
         /// Number of bits to use when generating an RSA key.
-        /// Applies when `algorithm=RSA`.  Defaults to `2048`.
+        /// Applies when algorithm=RSA.  Defaults to 2048.
         /// </summary>
         [Input("rsaBits")]
         public Input<int>? RsaBits { get; set; }

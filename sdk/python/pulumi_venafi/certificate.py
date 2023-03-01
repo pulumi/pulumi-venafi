@@ -36,8 +36,8 @@ class CertificateArgs:
         """
         The set of arguments for constructing a Certificate resource.
         :param pulumi.Input[str] common_name: The common name of the certificate.
-        :param pulumi.Input[str] algorithm: Key encryption algorithm, either `RSA` or `ECDSA`.
-               Defaults to `RSA`.
+        :param pulumi.Input[str] algorithm: Key encryption algorithm, either RSA or ECDSA.
+               Defaults to "RSA".
         :param pulumi.Input[str] csr_origin: Whether key-pair generation will be `local` or `service` generated. Default is `local`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] custom_fields: Collection of Custom Field name-value pairs to
                assign to the certificate.
@@ -51,7 +51,7 @@ class CertificateArgs:
         :param pulumi.Input[str] nickname: Use to specify a name for the new certificate object that will be created and placed in a policy. Only valid for TPP.
         :param pulumi.Input[str] private_key_pem: The private key in PEM format.
         :param pulumi.Input[int] rsa_bits: Number of bits to use when generating an RSA key.
-               Applies when `algorithm=RSA`.  Defaults to `2048`.
+               Applies when algorithm=RSA.  Defaults to 2048.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] san_dns: List of DNS names to use as alternative
                subjects of the certificate.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] san_emails: List of email addresses to use as
@@ -117,8 +117,8 @@ class CertificateArgs:
     @pulumi.getter
     def algorithm(self) -> Optional[pulumi.Input[str]]:
         """
-        Key encryption algorithm, either `RSA` or `ECDSA`.
-        Defaults to `RSA`.
+        Key encryption algorithm, either RSA or ECDSA.
+        Defaults to "RSA".
         """
         return pulumi.get(self, "algorithm")
 
@@ -258,7 +258,7 @@ class CertificateArgs:
     def rsa_bits(self) -> Optional[pulumi.Input[int]]:
         """
         Number of bits to use when generating an RSA key.
-        Applies when `algorithm=RSA`.  Defaults to `2048`.
+        Applies when algorithm=RSA.  Defaults to 2048.
         """
         return pulumi.get(self, "rsa_bits")
 
@@ -358,8 +358,8 @@ class _CertificateState:
                  valid_days: Optional[pulumi.Input[int]] = None):
         """
         Input properties used for looking up and filtering Certificate resources.
-        :param pulumi.Input[str] algorithm: Key encryption algorithm, either `RSA` or `ECDSA`.
-               Defaults to `RSA`.
+        :param pulumi.Input[str] algorithm: Key encryption algorithm, either RSA or ECDSA.
+               Defaults to "RSA".
         :param pulumi.Input[str] certificate: The X509 certificate in PEM format.
         :param pulumi.Input[str] chain: The trust chain of X509 certificate authority certificates in PEM format
                concatenated together.
@@ -377,7 +377,7 @@ class _CertificateState:
         :param pulumi.Input[str] nickname: Use to specify a name for the new certificate object that will be created and placed in a policy. Only valid for TPP.
         :param pulumi.Input[str] private_key_pem: The private key in PEM format.
         :param pulumi.Input[int] rsa_bits: Number of bits to use when generating an RSA key.
-               Applies when `algorithm=RSA`.  Defaults to `2048`.
+               Applies when algorithm=RSA.  Defaults to 2048.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] san_dns: List of DNS names to use as alternative
                subjects of the certificate.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] san_emails: List of email addresses to use as
@@ -436,8 +436,8 @@ class _CertificateState:
     @pulumi.getter
     def algorithm(self) -> Optional[pulumi.Input[str]]:
         """
-        Key encryption algorithm, either `RSA` or `ECDSA`.
-        Defaults to `RSA`.
+        Key encryption algorithm, either RSA or ECDSA.
+        Defaults to "RSA".
         """
         return pulumi.get(self, "algorithm")
 
@@ -614,7 +614,7 @@ class _CertificateState:
     def rsa_bits(self) -> Optional[pulumi.Input[int]]:
         """
         Number of bits to use when generating an RSA key.
-        Applies when `algorithm=RSA`.  Defaults to `2048`.
+        Applies when algorithm=RSA.  Defaults to 2048.
         """
         return pulumi.get(self, "rsa_bits")
 
@@ -714,11 +714,30 @@ class Certificate(pulumi.CustomResource):
                  valid_days: Optional[pulumi.Input[int]] = None,
                  __props__=None):
         """
-        Create a Certificate resource with the given unique name, props, and options.
+        ## Import
+
+        The `venafi_certificate` resource supports the Terraform [import](https://www.terraform.io/docs/cli/import/index.html) method. The `import_id` is composed by an `id` which is different for each platform, a comma (,) and the `key-password`. The `id` for each platform is**TPP:** The `nickname` of the certificate, which represents the name of the certificate object in TPP. Internally we built the `pickup_id` using the `zone` defined at the provider block. **VaaS:** The `pickup-id`.
+
+        ```sh
+         $ pulumi import venafi:index/certificate:Certificate <resource_name>" "<id>,<key-password>"
+        ```
+
+         Example (assuming our resource name is `imported_certificate`)hcl resource "venafi_certificate" "imported_certificate" {} **TPP:**
+
+        ```sh
+         $ pulumi import venafi:index/certificate:Certificate imported_certificate" "tpp.venafi.example,my_key_password"
+        ```
+
+         **VaaS:**
+
+        ```sh
+         $ pulumi import venafi:index/certificate:Certificate imported_certificate" "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx,my_key_password"
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] algorithm: Key encryption algorithm, either `RSA` or `ECDSA`.
-               Defaults to `RSA`.
+        :param pulumi.Input[str] algorithm: Key encryption algorithm, either RSA or ECDSA.
+               Defaults to "RSA".
         :param pulumi.Input[str] common_name: The common name of the certificate.
         :param pulumi.Input[str] csr_origin: Whether key-pair generation will be `local` or `service` generated. Default is `local`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] custom_fields: Collection of Custom Field name-value pairs to
@@ -733,7 +752,7 @@ class Certificate(pulumi.CustomResource):
         :param pulumi.Input[str] nickname: Use to specify a name for the new certificate object that will be created and placed in a policy. Only valid for TPP.
         :param pulumi.Input[str] private_key_pem: The private key in PEM format.
         :param pulumi.Input[int] rsa_bits: Number of bits to use when generating an RSA key.
-               Applies when `algorithm=RSA`.  Defaults to `2048`.
+               Applies when algorithm=RSA.  Defaults to 2048.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] san_dns: List of DNS names to use as alternative
                subjects of the certificate.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] san_emails: List of email addresses to use as
@@ -752,7 +771,26 @@ class Certificate(pulumi.CustomResource):
                  args: CertificateArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a Certificate resource with the given unique name, props, and options.
+        ## Import
+
+        The `venafi_certificate` resource supports the Terraform [import](https://www.terraform.io/docs/cli/import/index.html) method. The `import_id` is composed by an `id` which is different for each platform, a comma (,) and the `key-password`. The `id` for each platform is**TPP:** The `nickname` of the certificate, which represents the name of the certificate object in TPP. Internally we built the `pickup_id` using the `zone` defined at the provider block. **VaaS:** The `pickup-id`.
+
+        ```sh
+         $ pulumi import venafi:index/certificate:Certificate <resource_name>" "<id>,<key-password>"
+        ```
+
+         Example (assuming our resource name is `imported_certificate`)hcl resource "venafi_certificate" "imported_certificate" {} **TPP:**
+
+        ```sh
+         $ pulumi import venafi:index/certificate:Certificate imported_certificate" "tpp.venafi.example,my_key_password"
+        ```
+
+         **VaaS:**
+
+        ```sh
+         $ pulumi import venafi:index/certificate:Certificate imported_certificate" "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx,my_key_password"
+        ```
+
         :param str resource_name: The name of the resource.
         :param CertificateArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -859,8 +897,8 @@ class Certificate(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] algorithm: Key encryption algorithm, either `RSA` or `ECDSA`.
-               Defaults to `RSA`.
+        :param pulumi.Input[str] algorithm: Key encryption algorithm, either RSA or ECDSA.
+               Defaults to "RSA".
         :param pulumi.Input[str] certificate: The X509 certificate in PEM format.
         :param pulumi.Input[str] chain: The trust chain of X509 certificate authority certificates in PEM format
                concatenated together.
@@ -878,7 +916,7 @@ class Certificate(pulumi.CustomResource):
         :param pulumi.Input[str] nickname: Use to specify a name for the new certificate object that will be created and placed in a policy. Only valid for TPP.
         :param pulumi.Input[str] private_key_pem: The private key in PEM format.
         :param pulumi.Input[int] rsa_bits: Number of bits to use when generating an RSA key.
-               Applies when `algorithm=RSA`.  Defaults to `2048`.
+               Applies when algorithm=RSA.  Defaults to 2048.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] san_dns: List of DNS names to use as alternative
                subjects of the certificate.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] san_emails: List of email addresses to use as
@@ -921,8 +959,8 @@ class Certificate(pulumi.CustomResource):
     @pulumi.getter
     def algorithm(self) -> pulumi.Output[Optional[str]]:
         """
-        Key encryption algorithm, either `RSA` or `ECDSA`.
-        Defaults to `RSA`.
+        Key encryption algorithm, either RSA or ECDSA.
+        Defaults to "RSA".
         """
         return pulumi.get(self, "algorithm")
 
@@ -1039,7 +1077,7 @@ class Certificate(pulumi.CustomResource):
     def rsa_bits(self) -> pulumi.Output[Optional[int]]:
         """
         Number of bits to use when generating an RSA key.
-        Applies when `algorithm=RSA`.  Defaults to `2048`.
+        Applies when algorithm=RSA.  Defaults to 2048.
         """
         return pulumi.get(self, "rsa_bits")
 

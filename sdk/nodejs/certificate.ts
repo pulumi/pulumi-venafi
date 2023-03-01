@@ -4,6 +4,27 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
+/**
+ * ## Import
+ *
+ * The `venafi_certificate` resource supports the Terraform [import](https://www.terraform.io/docs/cli/import/index.html) method. The `import_id` is composed by an `id` which is different for each platform, a comma (,) and the `key-password`. The `id` for each platform is**TPP:** The `nickname` of the certificate, which represents the name of the certificate object in TPP. Internally we built the `pickup_id` using the `zone` defined at the provider block. **VaaS:** The `pickup-id`.
+ *
+ * ```sh
+ *  $ pulumi import venafi:index/certificate:Certificate <resource_name>" "<id>,<key-password>"
+ * ```
+ *
+ *  Example (assuming our resource name is `imported_certificate`)hcl resource "venafi_certificate" "imported_certificate" {} **TPP:**
+ *
+ * ```sh
+ *  $ pulumi import venafi:index/certificate:Certificate imported_certificate" "tpp.venafi.example,my_key_password"
+ * ```
+ *
+ *  **VaaS:**
+ *
+ * ```sh
+ *  $ pulumi import venafi:index/certificate:Certificate imported_certificate" "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx,my_key_password"
+ * ```
+ */
 export class Certificate extends pulumi.CustomResource {
     /**
      * Get an existing Certificate resource's state with the given name, ID, and optional extra
@@ -33,8 +54,8 @@ export class Certificate extends pulumi.CustomResource {
     }
 
     /**
-     * Key encryption algorithm, either `RSA` or `ECDSA`.
-     * Defaults to `RSA`.
+     * Key encryption algorithm, either RSA or ECDSA.
+     * Defaults to "RSA".
      */
     public readonly algorithm!: pulumi.Output<string | undefined>;
     /**
@@ -91,7 +112,7 @@ export class Certificate extends pulumi.CustomResource {
     public readonly privateKeyPem!: pulumi.Output<string>;
     /**
      * Number of bits to use when generating an RSA key.
-     * Applies when `algorithm=RSA`.  Defaults to `2048`.
+     * Applies when algorithm=RSA.  Defaults to 2048.
      */
     public readonly rsaBits!: pulumi.Output<number | undefined>;
     /**
@@ -193,8 +214,8 @@ export class Certificate extends pulumi.CustomResource {
  */
 export interface CertificateState {
     /**
-     * Key encryption algorithm, either `RSA` or `ECDSA`.
-     * Defaults to `RSA`.
+     * Key encryption algorithm, either RSA or ECDSA.
+     * Defaults to "RSA".
      */
     algorithm?: pulumi.Input<string>;
     /**
@@ -251,7 +272,7 @@ export interface CertificateState {
     privateKeyPem?: pulumi.Input<string>;
     /**
      * Number of bits to use when generating an RSA key.
-     * Applies when `algorithm=RSA`.  Defaults to `2048`.
+     * Applies when algorithm=RSA.  Defaults to 2048.
      */
     rsaBits?: pulumi.Input<number>;
     /**
@@ -286,8 +307,8 @@ export interface CertificateState {
  */
 export interface CertificateArgs {
     /**
-     * Key encryption algorithm, either `RSA` or `ECDSA`.
-     * Defaults to `RSA`.
+     * Key encryption algorithm, either RSA or ECDSA.
+     * Defaults to "RSA".
      */
     algorithm?: pulumi.Input<string>;
     certificateDn?: pulumi.Input<string>;
@@ -335,7 +356,7 @@ export interface CertificateArgs {
     privateKeyPem?: pulumi.Input<string>;
     /**
      * Number of bits to use when generating an RSA key.
-     * Applies when `algorithm=RSA`.  Defaults to `2048`.
+     * Applies when algorithm=RSA.  Defaults to 2048.
      */
     rsaBits?: pulumi.Input<number>;
     /**

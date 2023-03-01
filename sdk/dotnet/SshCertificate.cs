@@ -102,6 +102,12 @@ namespace Pulumi.Venafi
         public Output<string?> ObjectName { get; private set; } = null!;
 
         /// <summary>
+        /// [DEPRECATED] - (Optional, set of strings) Use "principals" instead. A list of user names for whom the requested certificate will be valid.
+        /// </summary>
+        [Output("principal")]
+        public Output<ImmutableArray<string>> Principal { get; private set; } = null!;
+
+        /// <summary>
         /// A list of user names for whom the requested certificate will be valid.
         /// </summary>
         [Output("principals")]
@@ -299,6 +305,19 @@ namespace Pulumi.Venafi
         [Input("objectName")]
         public Input<string>? ObjectName { get; set; }
 
+        [Input("principal")]
+        private InputList<string>? _principal;
+
+        /// <summary>
+        /// [DEPRECATED] - (Optional, set of strings) Use "principals" instead. A list of user names for whom the requested certificate will be valid.
+        /// </summary>
+        [Obsolete(@"This will be removed in the future. Use ""principals"" instead")]
+        public InputList<string> Principal
+        {
+            get => _principal ?? (_principal = new InputList<string>());
+            set => _principal = value;
+        }
+
         [Input("principals")]
         private InputList<string>? _principals;
 
@@ -442,6 +461,19 @@ namespace Pulumi.Venafi
         /// </summary>
         [Input("objectName")]
         public Input<string>? ObjectName { get; set; }
+
+        [Input("principal")]
+        private InputList<string>? _principal;
+
+        /// <summary>
+        /// [DEPRECATED] - (Optional, set of strings) Use "principals" instead. A list of user names for whom the requested certificate will be valid.
+        /// </summary>
+        [Obsolete(@"This will be removed in the future. Use ""principals"" instead")]
+        public InputList<string> Principal
+        {
+            get => _principal ?? (_principal = new InputList<string>());
+            set => _principal = value;
+        }
 
         [Input("principals")]
         private InputList<string>? _principals;

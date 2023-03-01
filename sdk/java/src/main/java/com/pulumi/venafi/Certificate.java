@@ -17,19 +17,41 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * ## Import
+ * 
+ * The `venafi_certificate` resource supports the Terraform [import](https://www.terraform.io/docs/cli/import/index.html) method. The `import_id` is composed by an `id` which is different for each platform, a comma (,) and the `key-password`. The `id` for each platform is**TPP:** The `nickname` of the certificate, which represents the name of the certificate object in TPP. Internally we built the `pickup_id` using the `zone` defined at the provider block. **VaaS:** The `pickup-id`.
+ * 
+ * ```sh
+ *  $ pulumi import venafi:index/certificate:Certificate &lt;resource_name&gt;&#34; &#34;&lt;id&gt;,&lt;key-password&gt;&#34;
+ * ```
+ * 
+ *  Example (assuming our resource name is `imported_certificate`)hcl resource &#34;venafi_certificate&#34; &#34;imported_certificate&#34; {} **TPP:**
+ * 
+ * ```sh
+ *  $ pulumi import venafi:index/certificate:Certificate imported_certificate&#34; &#34;tpp.venafi.example,my_key_password&#34;
+ * ```
+ * 
+ *  **VaaS:**
+ * 
+ * ```sh
+ *  $ pulumi import venafi:index/certificate:Certificate imported_certificate&#34; &#34;xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx,my_key_password&#34;
+ * ```
+ * 
+ */
 @ResourceType(type="venafi:index/certificate:Certificate")
 public class Certificate extends com.pulumi.resources.CustomResource {
     /**
-     * Key encryption algorithm, either `RSA` or `ECDSA`.
-     * Defaults to `RSA`.
+     * Key encryption algorithm, either RSA or ECDSA.
+     * Defaults to &#34;RSA&#34;.
      * 
      */
     @Export(name="algorithm", type=String.class, parameters={})
     private Output</* @Nullable */ String> algorithm;
 
     /**
-     * @return Key encryption algorithm, either `RSA` or `ECDSA`.
-     * Defaults to `RSA`.
+     * @return Key encryption algorithm, either RSA or ECDSA.
+     * Defaults to &#34;RSA&#34;.
      * 
      */
     public Output<Optional<String>> algorithm() {
@@ -219,7 +241,7 @@ public class Certificate extends com.pulumi.resources.CustomResource {
     }
     /**
      * Number of bits to use when generating an RSA key.
-     * Applies when `algorithm=RSA`.  Defaults to `2048`.
+     * Applies when algorithm=RSA.  Defaults to 2048.
      * 
      */
     @Export(name="rsaBits", type=Integer.class, parameters={})
@@ -227,7 +249,7 @@ public class Certificate extends com.pulumi.resources.CustomResource {
 
     /**
      * @return Number of bits to use when generating an RSA key.
-     * Applies when `algorithm=RSA`.  Defaults to `2048`.
+     * Applies when algorithm=RSA.  Defaults to 2048.
      * 
      */
     public Output<Optional<Integer>> rsaBits() {

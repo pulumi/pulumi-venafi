@@ -19,16 +19,16 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
     public static final CertificateState Empty = new CertificateState();
 
     /**
-     * Key encryption algorithm, either `RSA` or `ECDSA`.
-     * Defaults to `RSA`.
+     * Key encryption algorithm, either RSA or ECDSA.
+     * Defaults to &#34;RSA&#34;.
      * 
      */
     @Import(name="algorithm")
     private @Nullable Output<String> algorithm;
 
     /**
-     * @return Key encryption algorithm, either `RSA` or `ECDSA`.
-     * Defaults to `RSA`.
+     * @return Key encryption algorithm, either RSA or ECDSA.
+     * Defaults to &#34;RSA&#34;.
      * 
      */
     public Optional<Output<String>> algorithm() {
@@ -233,7 +233,7 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * Number of bits to use when generating an RSA key.
-     * Applies when `algorithm=RSA`.  Defaults to `2048`.
+     * Applies when algorithm=RSA.  Defaults to 2048.
      * 
      */
     @Import(name="rsaBits")
@@ -241,7 +241,7 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * @return Number of bits to use when generating an RSA key.
-     * Applies when `algorithm=RSA`.  Defaults to `2048`.
+     * Applies when algorithm=RSA.  Defaults to 2048.
      * 
      */
     public Optional<Output<Integer>> rsaBits() {
@@ -378,8 +378,8 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param algorithm Key encryption algorithm, either `RSA` or `ECDSA`.
-         * Defaults to `RSA`.
+         * @param algorithm Key encryption algorithm, either RSA or ECDSA.
+         * Defaults to &#34;RSA&#34;.
          * 
          * @return builder
          * 
@@ -390,8 +390,8 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param algorithm Key encryption algorithm, either `RSA` or `ECDSA`.
-         * Defaults to `RSA`.
+         * @param algorithm Key encryption algorithm, either RSA or ECDSA.
+         * Defaults to &#34;RSA&#34;.
          * 
          * @return builder
          * 
@@ -670,7 +670,7 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param rsaBits Number of bits to use when generating an RSA key.
-         * Applies when `algorithm=RSA`.  Defaults to `2048`.
+         * Applies when algorithm=RSA.  Defaults to 2048.
          * 
          * @return builder
          * 
@@ -682,7 +682,7 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param rsaBits Number of bits to use when generating an RSA key.
-         * Applies when `algorithm=RSA`.  Defaults to `2048`.
+         * Applies when algorithm=RSA.  Defaults to 2048.
          * 
          * @return builder
          * 
