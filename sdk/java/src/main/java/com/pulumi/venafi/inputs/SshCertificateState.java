@@ -169,6 +169,29 @@ public final class SshCertificateState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
+     * [DEPRECATED] - (Optional, set of strings) Use &#34;principals&#34; instead. A list of user names for whom the requested certificate will be valid.
+     * 
+     * @deprecated
+     * This will be removed in the future. Use &#34;principals&#34; instead
+     * 
+     */
+    @Deprecated /* This will be removed in the future. Use ""principals"" instead */
+    @Import(name="principal")
+    private @Nullable Output<List<String>> principal;
+
+    /**
+     * @return [DEPRECATED] - (Optional, set of strings) Use &#34;principals&#34; instead. A list of user names for whom the requested certificate will be valid.
+     * 
+     * @deprecated
+     * This will be removed in the future. Use &#34;principals&#34; instead
+     * 
+     */
+    @Deprecated /* This will be removed in the future. Use ""principals"" instead */
+    public Optional<Output<List<String>>> principal() {
+        return Optional.ofNullable(this.principal);
+    }
+
+    /**
      * A list of user names for whom the requested certificate will be valid.
      * 
      */
@@ -376,6 +399,7 @@ public final class SshCertificateState extends com.pulumi.resources.ResourceArgs
         this.keyPassphrase = $.keyPassphrase;
         this.keySize = $.keySize;
         this.objectName = $.objectName;
+        this.principal = $.principal;
         this.principals = $.principals;
         this.privateKey = $.privateKey;
         this.publicKey = $.publicKey;
@@ -637,6 +661,49 @@ public final class SshCertificateState extends com.pulumi.resources.ResourceArgs
          */
         public Builder objectName(String objectName) {
             return objectName(Output.of(objectName));
+        }
+
+        /**
+         * @param principal [DEPRECATED] - (Optional, set of strings) Use &#34;principals&#34; instead. A list of user names for whom the requested certificate will be valid.
+         * 
+         * @return builder
+         * 
+         * @deprecated
+         * This will be removed in the future. Use &#34;principals&#34; instead
+         * 
+         */
+        @Deprecated /* This will be removed in the future. Use ""principals"" instead */
+        public Builder principal(@Nullable Output<List<String>> principal) {
+            $.principal = principal;
+            return this;
+        }
+
+        /**
+         * @param principal [DEPRECATED] - (Optional, set of strings) Use &#34;principals&#34; instead. A list of user names for whom the requested certificate will be valid.
+         * 
+         * @return builder
+         * 
+         * @deprecated
+         * This will be removed in the future. Use &#34;principals&#34; instead
+         * 
+         */
+        @Deprecated /* This will be removed in the future. Use ""principals"" instead */
+        public Builder principal(List<String> principal) {
+            return principal(Output.of(principal));
+        }
+
+        /**
+         * @param principal [DEPRECATED] - (Optional, set of strings) Use &#34;principals&#34; instead. A list of user names for whom the requested certificate will be valid.
+         * 
+         * @return builder
+         * 
+         * @deprecated
+         * This will be removed in the future. Use &#34;principals&#34; instead
+         * 
+         */
+        @Deprecated /* This will be removed in the future. Use ""principals"" instead */
+        public Builder principal(String... principal) {
+            return principal(List.of(principal));
         }
 
         /**

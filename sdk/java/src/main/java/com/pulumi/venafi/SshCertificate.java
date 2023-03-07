@@ -200,6 +200,24 @@ public class SshCertificate extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.objectName);
     }
     /**
+     * [DEPRECATED] - (Optional, set of strings) Use &#34;principals&#34; instead. A list of user names for whom the requested certificate will be valid.
+     * 
+     * @deprecated
+     * This will be removed in the future. Use &#34;principals&#34; instead
+     * 
+     */
+    @Deprecated /* This will be removed in the future. Use ""principals"" instead */
+    @Export(name="principal", type=List.class, parameters={String.class})
+    private Output</* @Nullable */ List<String>> principal;
+
+    /**
+     * @return [DEPRECATED] - (Optional, set of strings) Use &#34;principals&#34; instead. A list of user names for whom the requested certificate will be valid.
+     * 
+     */
+    public Output<Optional<List<String>>> principal() {
+        return Codegen.optional(this.principal);
+    }
+    /**
      * A list of user names for whom the requested certificate will be valid.
      * 
      */
