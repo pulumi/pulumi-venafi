@@ -601,6 +601,14 @@
                     "type": "string",
                     "description": "The friendly name of the SSH certificate object. When not specified the `key_id` is used for the friendly name. If the object already exists the old certificate is archived and the CA issues a new certificate.\n"
                 },
+                "principal": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "[DEPRECATED] - (Optional, set of strings) Use \"principals\" instead. A list of user names for whom the requested certificate will be valid.\n",
+                    "deprecationMessage": "This will be removed in the future. Use \"principals\" instead"
+                },
                 "principals": {
                     "type": "array",
                     "items": {
@@ -720,6 +728,15 @@
                     "description": "The friendly name of the SSH certificate object. When not specified the `key_id` is used for the friendly name. If the object already exists the old certificate is archived and the CA issues a new certificate.\n",
                     "willReplaceOnChanges": true
                 },
+                "principal": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "[DEPRECATED] - (Optional, set of strings) Use \"principals\" instead. A list of user names for whom the requested certificate will be valid.\n",
+                    "deprecationMessage": "This will be removed in the future. Use \"principals\" instead",
+                    "willReplaceOnChanges": true
+                },
                 "principals": {
                     "type": "array",
                     "items": {
@@ -822,6 +839,15 @@
                     "objectName": {
                         "type": "string",
                         "description": "The friendly name of the SSH certificate object. When not specified the `key_id` is used for the friendly name. If the object already exists the old certificate is archived and the CA issues a new certificate.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "principal": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "[DEPRECATED] - (Optional, set of strings) Use \"principals\" instead. A list of user names for whom the requested certificate will be valid.\n",
+                        "deprecationMessage": "This will be removed in the future. Use \"principals\" instead",
                         "willReplaceOnChanges": true
                     },
                     "principals": {
