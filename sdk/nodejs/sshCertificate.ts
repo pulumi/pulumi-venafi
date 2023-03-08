@@ -93,6 +93,12 @@ export class SshCertificate extends pulumi.CustomResource {
      */
     public readonly objectName!: pulumi.Output<string | undefined>;
     /**
+     * [DEPRECATED] - (Optional, set of strings) Use "principals" instead. A list of user names for whom the requested certificate will be valid.
+     *
+     * @deprecated This will be removed in the future. Use "principals" instead
+     */
+    public readonly principal!: pulumi.Output<string[] | undefined>;
+    /**
      * A list of user names for whom the requested certificate will be valid.
      */
     public readonly principals!: pulumi.Output<string[] | undefined>;
@@ -168,6 +174,7 @@ export class SshCertificate extends pulumi.CustomResource {
             resourceInputs["keyPassphrase"] = state ? state.keyPassphrase : undefined;
             resourceInputs["keySize"] = state ? state.keySize : undefined;
             resourceInputs["objectName"] = state ? state.objectName : undefined;
+            resourceInputs["principal"] = state ? state.principal : undefined;
             resourceInputs["principals"] = state ? state.principals : undefined;
             resourceInputs["privateKey"] = state ? state.privateKey : undefined;
             resourceInputs["publicKey"] = state ? state.publicKey : undefined;
@@ -197,6 +204,7 @@ export class SshCertificate extends pulumi.CustomResource {
             resourceInputs["keyPassphrase"] = args?.keyPassphrase ? pulumi.secret(args.keyPassphrase) : undefined;
             resourceInputs["keySize"] = args ? args.keySize : undefined;
             resourceInputs["objectName"] = args ? args.objectName : undefined;
+            resourceInputs["principal"] = args ? args.principal : undefined;
             resourceInputs["principals"] = args ? args.principals : undefined;
             resourceInputs["publicKey"] = args ? args.publicKey : undefined;
             resourceInputs["publicKeyMethod"] = args ? args.publicKeyMethod : undefined;
@@ -264,6 +272,12 @@ export interface SshCertificateState {
      * The friendly name of the SSH certificate object. When not specified the `keyId` is used for the friendly name. If the object already exists the old certificate is archived and the CA issues a new certificate.
      */
     objectName?: pulumi.Input<string>;
+    /**
+     * [DEPRECATED] - (Optional, set of strings) Use "principals" instead. A list of user names for whom the requested certificate will be valid.
+     *
+     * @deprecated This will be removed in the future. Use "principals" instead
+     */
+    principal?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * A list of user names for whom the requested certificate will be valid.
      */
@@ -354,6 +368,12 @@ export interface SshCertificateArgs {
      * The friendly name of the SSH certificate object. When not specified the `keyId` is used for the friendly name. If the object already exists the old certificate is archived and the CA issues a new certificate.
      */
     objectName?: pulumi.Input<string>;
+    /**
+     * [DEPRECATED] - (Optional, set of strings) Use "principals" instead. A list of user names for whom the requested certificate will be valid.
+     *
+     * @deprecated This will be removed in the future. Use "principals" instead
+     */
+    principal?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * A list of user names for whom the requested certificate will be valid.
      */

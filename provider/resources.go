@@ -21,11 +21,13 @@ import (
 
 	"github.com/Venafi/terraform-provider-venafi/venafi"
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
+	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge/x"
 	shim "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfshim"
 	shimv2 "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfshim/sdk-v2"
 	"github.com/pulumi/pulumi-venafi/provider/pkg/version"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/tokens"
+	"github.com/pulumi/pulumi/sdk/v3/go/common/util/contract"
 )
 
 // all of the token components used below.
@@ -76,6 +78,7 @@ func Provider() tfbridge.ProviderInfo {
 		Repository:           "https://github.com/pulumi/pulumi-venafi",
 		GitHubOrg:            "Venafi",
 		PreConfigureCallback: preConfigureCallback,
+		UpstreamRepoPath:     "./upstream",
 		Resources: map[string]*tfbridge.ResourceInfo{
 			"venafi_certificate": {
 				Tok: makeResource(mainMod, "Certificate"),
@@ -119,6 +122,9 @@ func Provider() tfbridge.ProviderInfo {
 		},
 	}
 
+	err := x.ComputeDefaults(&prov, x.TokensSingleModule("venafi_", mainMod,
+		x.MakeStandardToken(mainPkg)))
+	contract.AssertNoError(err)
 	prov.SetAutonaming(255, "-")
 
 	return prov

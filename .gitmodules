@@ -1,0 +1,4 @@
+[submodule "upstream"]
+	path = upstream
+	url = https://github.com/Venafi/terraform-provider-venafi.git
+	ignore = dirty
