@@ -44,7 +44,10 @@ type Certificate struct {
 	KeyPassword pulumi.StringPtrOutput `pulumi:"keyPassword"`
 	// Use to specify a name for the new certificate object that will be created and placed in a policy. Only valid for TPP.
 	Nickname pulumi.StringPtrOutput `pulumi:"nickname"`
-	Pkcs12   pulumi.StringOutput    `pulumi:"pkcs12"`
+	// A base64-encoded PKCS#12 keystore secured by the `keyPassword`.
+	// Useful when working with resources like
+	// azurerm_key_vault_certificate.
+	Pkcs12 pulumi.StringOutput `pulumi:"pkcs12"`
 	// The private key in PEM format.
 	PrivateKeyPem pulumi.StringOutput `pulumi:"privateKeyPem"`
 	// Number of bits to use when generating an RSA key.
@@ -140,7 +143,10 @@ type certificateState struct {
 	KeyPassword *string `pulumi:"keyPassword"`
 	// Use to specify a name for the new certificate object that will be created and placed in a policy. Only valid for TPP.
 	Nickname *string `pulumi:"nickname"`
-	Pkcs12   *string `pulumi:"pkcs12"`
+	// A base64-encoded PKCS#12 keystore secured by the `keyPassword`.
+	// Useful when working with resources like
+	// azurerm_key_vault_certificate.
+	Pkcs12 *string `pulumi:"pkcs12"`
 	// The private key in PEM format.
 	PrivateKeyPem *string `pulumi:"privateKeyPem"`
 	// Number of bits to use when generating an RSA key.
@@ -194,7 +200,10 @@ type CertificateState struct {
 	KeyPassword pulumi.StringPtrInput
 	// Use to specify a name for the new certificate object that will be created and placed in a policy. Only valid for TPP.
 	Nickname pulumi.StringPtrInput
-	Pkcs12   pulumi.StringPtrInput
+	// A base64-encoded PKCS#12 keystore secured by the `keyPassword`.
+	// Useful when working with resources like
+	// azurerm_key_vault_certificate.
+	Pkcs12 pulumi.StringPtrInput
 	// The private key in PEM format.
 	PrivateKeyPem pulumi.StringPtrInput
 	// Number of bits to use when generating an RSA key.
@@ -247,7 +256,10 @@ type certificateArgs struct {
 	KeyPassword *string `pulumi:"keyPassword"`
 	// Use to specify a name for the new certificate object that will be created and placed in a policy. Only valid for TPP.
 	Nickname *string `pulumi:"nickname"`
-	Pkcs12   *string `pulumi:"pkcs12"`
+	// A base64-encoded PKCS#12 keystore secured by the `keyPassword`.
+	// Useful when working with resources like
+	// azurerm_key_vault_certificate.
+	Pkcs12 *string `pulumi:"pkcs12"`
 	// The private key in PEM format.
 	PrivateKeyPem *string `pulumi:"privateKeyPem"`
 	// Number of bits to use when generating an RSA key.
@@ -297,7 +309,10 @@ type CertificateArgs struct {
 	KeyPassword pulumi.StringPtrInput
 	// Use to specify a name for the new certificate object that will be created and placed in a policy. Only valid for TPP.
 	Nickname pulumi.StringPtrInput
-	Pkcs12   pulumi.StringPtrInput
+	// A base64-encoded PKCS#12 keystore secured by the `keyPassword`.
+	// Useful when working with resources like
+	// azurerm_key_vault_certificate.
+	Pkcs12 pulumi.StringPtrInput
 	// The private key in PEM format.
 	PrivateKeyPem pulumi.StringPtrInput
 	// Number of bits to use when generating an RSA key.
@@ -476,6 +491,9 @@ func (o CertificateOutput) Nickname() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Certificate) pulumi.StringPtrOutput { return v.Nickname }).(pulumi.StringPtrOutput)
 }
 
+// A base64-encoded PKCS#12 keystore secured by the `keyPassword`.
+// Useful when working with resources like
+// azurerm_key_vault_certificate.
 func (o CertificateOutput) Pkcs12() pulumi.StringOutput {
 	return o.ApplyT(func(v *Certificate) pulumi.StringOutput { return v.Pkcs12 }).(pulumi.StringOutput)
 }

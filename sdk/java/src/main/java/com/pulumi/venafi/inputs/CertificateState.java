@@ -209,9 +209,21 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.nickname);
     }
 
+    /**
+     * A base64-encoded PKCS#12 keystore secured by the `key_password`.
+     * Useful when working with resources like
+     * azurerm_key_vault_certificate.
+     * 
+     */
     @Import(name="pkcs12")
     private @Nullable Output<String> pkcs12;
 
+    /**
+     * @return A base64-encoded PKCS#12 keystore secured by the `key_password`.
+     * Useful when working with resources like
+     * azurerm_key_vault_certificate.
+     * 
+     */
     public Optional<Output<String>> pkcs12() {
         return Optional.ofNullable(this.pkcs12);
     }
@@ -638,11 +650,27 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
             return nickname(Output.of(nickname));
         }
 
+        /**
+         * @param pkcs12 A base64-encoded PKCS#12 keystore secured by the `key_password`.
+         * Useful when working with resources like
+         * azurerm_key_vault_certificate.
+         * 
+         * @return builder
+         * 
+         */
         public Builder pkcs12(@Nullable Output<String> pkcs12) {
             $.pkcs12 = pkcs12;
             return this;
         }
 
+        /**
+         * @param pkcs12 A base64-encoded PKCS#12 keystore secured by the `key_password`.
+         * Useful when working with resources like
+         * azurerm_key_vault_certificate.
+         * 
+         * @return builder
+         * 
+         */
         public Builder pkcs12(String pkcs12) {
             return pkcs12(Output.of(pkcs12));
         }

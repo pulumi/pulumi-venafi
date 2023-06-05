@@ -49,6 +49,9 @@ class CertificateArgs:
                "Entrust", and "Microsoft".
         :param pulumi.Input[str] key_password: The password used to encrypt the private key.
         :param pulumi.Input[str] nickname: Use to specify a name for the new certificate object that will be created and placed in a policy. Only valid for TPP.
+        :param pulumi.Input[str] pkcs12: A base64-encoded PKCS#12 keystore secured by the `key_password`.
+               Useful when working with resources like
+               azurerm_key_vault_certificate.
         :param pulumi.Input[str] private_key_pem: The private key in PEM format.
         :param pulumi.Input[int] rsa_bits: Number of bits to use when generating an RSA key.
                Applies when `algorithm=RSA`.  Defaults to `2048`.
@@ -235,6 +238,11 @@ class CertificateArgs:
     @property
     @pulumi.getter
     def pkcs12(self) -> Optional[pulumi.Input[str]]:
+        """
+        A base64-encoded PKCS#12 keystore secured by the `key_password`.
+        Useful when working with resources like
+        azurerm_key_vault_certificate.
+        """
         return pulumi.get(self, "pkcs12")
 
     @pkcs12.setter
@@ -375,6 +383,9 @@ class _CertificateState:
                "Entrust", and "Microsoft".
         :param pulumi.Input[str] key_password: The password used to encrypt the private key.
         :param pulumi.Input[str] nickname: Use to specify a name for the new certificate object that will be created and placed in a policy. Only valid for TPP.
+        :param pulumi.Input[str] pkcs12: A base64-encoded PKCS#12 keystore secured by the `key_password`.
+               Useful when working with resources like
+               azurerm_key_vault_certificate.
         :param pulumi.Input[str] private_key_pem: The private key in PEM format.
         :param pulumi.Input[int] rsa_bits: Number of bits to use when generating an RSA key.
                Applies when `algorithm=RSA`.  Defaults to `2048`.
@@ -591,6 +602,11 @@ class _CertificateState:
     @property
     @pulumi.getter
     def pkcs12(self) -> Optional[pulumi.Input[str]]:
+        """
+        A base64-encoded PKCS#12 keystore secured by the `key_password`.
+        Useful when working with resources like
+        azurerm_key_vault_certificate.
+        """
         return pulumi.get(self, "pkcs12")
 
     @pkcs12.setter
@@ -731,6 +747,9 @@ class Certificate(pulumi.CustomResource):
                "Entrust", and "Microsoft".
         :param pulumi.Input[str] key_password: The password used to encrypt the private key.
         :param pulumi.Input[str] nickname: Use to specify a name for the new certificate object that will be created and placed in a policy. Only valid for TPP.
+        :param pulumi.Input[str] pkcs12: A base64-encoded PKCS#12 keystore secured by the `key_password`.
+               Useful when working with resources like
+               azurerm_key_vault_certificate.
         :param pulumi.Input[str] private_key_pem: The private key in PEM format.
         :param pulumi.Input[int] rsa_bits: Number of bits to use when generating an RSA key.
                Applies when `algorithm=RSA`.  Defaults to `2048`.
@@ -876,6 +895,9 @@ class Certificate(pulumi.CustomResource):
                "Entrust", and "Microsoft".
         :param pulumi.Input[str] key_password: The password used to encrypt the private key.
         :param pulumi.Input[str] nickname: Use to specify a name for the new certificate object that will be created and placed in a policy. Only valid for TPP.
+        :param pulumi.Input[str] pkcs12: A base64-encoded PKCS#12 keystore secured by the `key_password`.
+               Useful when working with resources like
+               azurerm_key_vault_certificate.
         :param pulumi.Input[str] private_key_pem: The private key in PEM format.
         :param pulumi.Input[int] rsa_bits: Number of bits to use when generating an RSA key.
                Applies when `algorithm=RSA`.  Defaults to `2048`.
@@ -1024,6 +1046,11 @@ class Certificate(pulumi.CustomResource):
     @property
     @pulumi.getter
     def pkcs12(self) -> pulumi.Output[str]:
+        """
+        A base64-encoded PKCS#12 keystore secured by the `key_password`.
+        Useful when working with resources like
+        azurerm_key_vault_certificate.
+        """
         return pulumi.get(self, "pkcs12")
 
     @property

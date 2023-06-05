@@ -52,7 +52,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * The `venafi_policy` resource supports the Terraform [import](https://www.terraform.io/docs/cli/import/index.html) method.
+ * The `venafi_policy` resource supports the Terraform import method.
  * 
  * When used, the `zone` and `policy_specification` resource arguments are not required since the zone is a required parameter of the import method and the policy specification is populated from the existing infrastructure. Policy that is successfully imported is also output to a file named after the zone that was specified. hcl resource &#34;venafi_policy&#34; &#34;existing_policy&#34; {}
  * 

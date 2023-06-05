@@ -197,9 +197,21 @@ public class Certificate extends com.pulumi.resources.CustomResource {
     public Output<Optional<String>> nickname() {
         return Codegen.optional(this.nickname);
     }
+    /**
+     * A base64-encoded PKCS#12 keystore secured by the `key_password`.
+     * Useful when working with resources like
+     * azurerm_key_vault_certificate.
+     * 
+     */
     @Export(name="pkcs12", type=String.class, parameters={})
     private Output<String> pkcs12;
 
+    /**
+     * @return A base64-encoded PKCS#12 keystore secured by the `key_password`.
+     * Useful when working with resources like
+     * azurerm_key_vault_certificate.
+     * 
+     */
     public Output<String> pkcs12() {
         return this.pkcs12;
     }

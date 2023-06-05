@@ -84,6 +84,11 @@ export class Certificate extends pulumi.CustomResource {
      * Use to specify a name for the new certificate object that will be created and placed in a policy. Only valid for TPP.
      */
     public readonly nickname!: pulumi.Output<string | undefined>;
+    /**
+     * A base64-encoded PKCS#12 keystore secured by the `keyPassword`.
+     * Useful when working with resources like
+     * azurerm_key_vault_certificate.
+     */
     public readonly pkcs12!: pulumi.Output<string>;
     /**
      * The private key in PEM format.
@@ -244,6 +249,11 @@ export interface CertificateState {
      * Use to specify a name for the new certificate object that will be created and placed in a policy. Only valid for TPP.
      */
     nickname?: pulumi.Input<string>;
+    /**
+     * A base64-encoded PKCS#12 keystore secured by the `keyPassword`.
+     * Useful when working with resources like
+     * azurerm_key_vault_certificate.
+     */
     pkcs12?: pulumi.Input<string>;
     /**
      * The private key in PEM format.
@@ -328,6 +338,11 @@ export interface CertificateArgs {
      * Use to specify a name for the new certificate object that will be created and placed in a policy. Only valid for TPP.
      */
     nickname?: pulumi.Input<string>;
+    /**
+     * A base64-encoded PKCS#12 keystore secured by the `keyPassword`.
+     * Useful when working with resources like
+     * azurerm_key_vault_certificate.
+     */
     pkcs12?: pulumi.Input<string>;
     /**
      * The private key in PEM format.

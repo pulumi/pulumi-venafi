@@ -90,6 +90,11 @@ namespace Pulumi.Venafi
         [Output("nickname")]
         public Output<string?> Nickname { get; private set; } = null!;
 
+        /// <summary>
+        /// A base64-encoded PKCS#12 keystore secured by the `key_password`.
+        /// Useful when working with resources like
+        /// azurerm_key_vault_certificate.
+        /// </summary>
         [Output("pkcs12")]
         public Output<string> Pkcs12 { get; private set; } = null!;
 
@@ -273,6 +278,11 @@ namespace Pulumi.Venafi
         [Input("nickname")]
         public Input<string>? Nickname { get; set; }
 
+        /// <summary>
+        /// A base64-encoded PKCS#12 keystore secured by the `key_password`.
+        /// Useful when working with resources like
+        /// azurerm_key_vault_certificate.
+        /// </summary>
         [Input("pkcs12")]
         public Input<string>? Pkcs12 { get; set; }
 
@@ -460,6 +470,11 @@ namespace Pulumi.Venafi
         [Input("nickname")]
         public Input<string>? Nickname { get; set; }
 
+        /// <summary>
+        /// A base64-encoded PKCS#12 keystore secured by the `key_password`.
+        /// Useful when working with resources like
+        /// azurerm_key_vault_certificate.
+        /// </summary>
         [Input("pkcs12")]
         public Input<string>? Pkcs12 { get; set; }
 
