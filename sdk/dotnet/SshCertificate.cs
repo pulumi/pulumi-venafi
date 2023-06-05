@@ -16,6 +16,7 @@ namespace Pulumi.Venafi
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
+    /// using System.Linq;
     /// using Pulumi;
     /// using Venafi = Pulumi.Venafi;
     /// 
