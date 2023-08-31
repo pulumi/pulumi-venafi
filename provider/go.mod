@@ -1,6 +1,6 @@
 module github.com/pulumi/pulumi-venafi/provider
 
-go 1.20
+go 1.21
 
 require (
 	github.com/Venafi/terraform-provider-venafi v0.0.0
