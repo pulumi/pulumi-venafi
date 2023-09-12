@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-venafi/sdk/go/venafi/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The provider type for the venafi package. By default, resources use package-wide configuration
@@ -46,6 +48,7 @@ func NewProvider(ctx *pulumi.Context,
 		args = &ProviderArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Provider
 	err := ctx.RegisterResource("pulumi:providers:venafi", name, args, &resource, opts...)
 	if err != nil {
@@ -130,6 +133,12 @@ func (i *Provider) ToProviderOutputWithContext(ctx context.Context) ProviderOutp
 	return pulumi.ToOutputWithContext(ctx, i).(ProviderOutput)
 }
 
+func (i *Provider) ToOutput(ctx context.Context) pulumix.Output[*Provider] {
+	return pulumix.Output[*Provider]{
+		OutputState: i.ToProviderOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ProviderOutput struct{ *pulumi.OutputState }
 
 func (ProviderOutput) ElementType() reflect.Type {
@@ -142,6 +151,12 @@ func (o ProviderOutput) ToProviderOutput() ProviderOutput {
 
 func (o ProviderOutput) ToProviderOutputWithContext(ctx context.Context) ProviderOutput {
 	return o
+}
+
+func (o ProviderOutput) ToOutput(ctx context.Context) pulumix.Output[*Provider] {
+	return pulumix.Output[*Provider]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Access token for TPP, user should use this for authentication

@@ -4,9 +4,12 @@
 package config
 
 import (
+	"github.com/pulumi/pulumi-venafi/sdk/go/venafi/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
 )
+
+var _ = internal.GetEnvOrDefault
 
 // Access token for TPP, user should use this for authentication
 func GetAccessToken(ctx *pulumi.Context) string {

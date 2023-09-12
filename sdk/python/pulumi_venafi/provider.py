@@ -102,6 +102,9 @@ class ProviderArgs:
         """
         Password for WebSDK user. Example: password
         """
+        warnings.warn(""", please use access_token instead""", DeprecationWarning)
+        pulumi.log.warn("""tpp_password is deprecated: , please use access_token instead""")
+
         return pulumi.get(self, "tpp_password")
 
     @tpp_password.setter
@@ -114,6 +117,9 @@ class ProviderArgs:
         """
         WebSDK user for Venafi Platform. Example: admin
         """
+        warnings.warn(""", please use access_token instead""", DeprecationWarning)
+        pulumi.log.warn("""tpp_username is deprecated: , please use access_token instead""")
+
         return pulumi.get(self, "tpp_username")
 
     @tpp_username.setter
@@ -279,6 +285,9 @@ class Provider(pulumi.ProviderResource):
         """
         Password for WebSDK user. Example: password
         """
+        warnings.warn(""", please use access_token instead""", DeprecationWarning)
+        pulumi.log.warn("""tpp_password is deprecated: , please use access_token instead""")
+
         return pulumi.get(self, "tpp_password")
 
     @property
@@ -287,6 +296,9 @@ class Provider(pulumi.ProviderResource):
         """
         WebSDK user for Venafi Platform. Example: admin
         """
+        warnings.warn(""", please use access_token instead""", DeprecationWarning)
+        pulumi.log.warn("""tpp_username is deprecated: , please use access_token instead""")
+
         return pulumi.get(self, "tpp_username")
 
     @property

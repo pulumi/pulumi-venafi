@@ -197,6 +197,9 @@ class SshCertificateArgs:
         """
         [DEPRECATED] - (Optional, set of strings) Use "principals" instead. A list of user names for whom the requested certificate will be valid.
         """
+        warnings.warn("""This will be removed in the future. Use \"principals\" instead""", DeprecationWarning)
+        pulumi.log.warn("""principal is deprecated: This will be removed in the future. Use \"principals\" instead""")
+
         return pulumi.get(self, "principal")
 
     @principal.setter
@@ -508,6 +511,9 @@ class _SshCertificateState:
         """
         [DEPRECATED] - (Optional, set of strings) Use "principals" instead. A list of user names for whom the requested certificate will be valid.
         """
+        warnings.warn("""This will be removed in the future. Use \"principals\" instead""", DeprecationWarning)
+        pulumi.log.warn("""principal is deprecated: This will be removed in the future. Use \"principals\" instead""")
+
         return pulumi.get(self, "principal")
 
     @principal.setter
@@ -1011,6 +1017,9 @@ class SshCertificate(pulumi.CustomResource):
         """
         [DEPRECATED] - (Optional, set of strings) Use "principals" instead. A list of user names for whom the requested certificate will be valid.
         """
+        warnings.warn("""This will be removed in the future. Use \"principals\" instead""", DeprecationWarning)
+        pulumi.log.warn("""principal is deprecated: This will be removed in the future. Use \"principals\" instead""")
+
         return pulumi.get(self, "principal")
 
     @property
