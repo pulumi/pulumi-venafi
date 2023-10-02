@@ -27,7 +27,7 @@ public class Provider extends com.pulumi.resources.ProviderResource {
      * Access token for Venafi TLSPDC, user should use this for authentication
      * 
      */
-    @Export(name="accessToken", type=String.class, parameters={})
+    @Export(name="accessToken", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> accessToken;
 
     /**
@@ -41,7 +41,7 @@ public class Provider extends com.pulumi.resources.ProviderResource {
      * API key for Venafi as a Service. Example: 142231b7-cvb0-412e-886b-6aeght0bc93d
      * 
      */
-    @Export(name="apiKey", type=String.class, parameters={})
+    @Export(name="apiKey", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> apiKey;
 
     /**
@@ -55,7 +55,7 @@ public class Provider extends com.pulumi.resources.ProviderResource {
      * application that will be using the token
      * 
      */
-    @Export(name="clientId", type=String.class, parameters={})
+    @Export(name="clientId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> clientId;
 
     /**
@@ -70,7 +70,7 @@ public class Provider extends com.pulumi.resources.ProviderResource {
      * TLSPDC
      * 
      */
-    @Export(name="p12CertFilename", type=String.class, parameters={})
+    @Export(name="p12CertFilename", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> p12CertFilename;
 
     /**
@@ -85,7 +85,7 @@ public class Provider extends com.pulumi.resources.ProviderResource {
      * Password for the PKCS#12 keystore declared in p12_cert
      * 
      */
-    @Export(name="p12CertPassword", type=String.class, parameters={})
+    @Export(name="p12CertPassword", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> p12CertPassword;
 
     /**
@@ -103,7 +103,7 @@ public class Provider extends com.pulumi.resources.ProviderResource {
      * 
      */
     @Deprecated /* , please use access_token instead */
-    @Export(name="tppPassword", type=String.class, parameters={})
+    @Export(name="tppPassword", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> tppPassword;
 
     /**
@@ -121,7 +121,7 @@ public class Provider extends com.pulumi.resources.ProviderResource {
      * 
      */
     @Deprecated /* , please use access_token instead */
-    @Export(name="tppUsername", type=String.class, parameters={})
+    @Export(name="tppUsername", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> tppUsername;
 
     /**
@@ -136,7 +136,7 @@ public class Provider extends com.pulumi.resources.ProviderResource {
      * Venafi Web Service. Example: trust_bundle = &#34;${file(&#34;chain.pem&#34;)}&#34;
      * 
      */
-    @Export(name="trustBundle", type=String.class, parameters={})
+    @Export(name="trustBundle", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> trustBundle;
 
     /**
@@ -151,7 +151,7 @@ public class Provider extends com.pulumi.resources.ProviderResource {
      * The Venafi Platform URL. Example: https://tpp.venafi.example/vedsdk
      * 
      */
-    @Export(name="url", type=String.class, parameters={})
+    @Export(name="url", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> url;
 
     /**
@@ -166,7 +166,7 @@ public class Provider extends com.pulumi.resources.ProviderResource {
      * Example for Platform: testPolicy\\vault Example for Venafi as a Service: myApp\\Default
      * 
      */
-    @Export(name="zone", type=String.class, parameters={})
+    @Export(name="zone", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> zone;
 
     /**
