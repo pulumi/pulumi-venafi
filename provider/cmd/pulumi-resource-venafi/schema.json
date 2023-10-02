@@ -50,24 +50,40 @@
         "variables": {
             "accessToken": {
                 "type": "string",
-                "description": "Access token for TPP, user should use this for authentication\n"
+                "description": "Access token for Venafi TLSPDC, user should use this for authentication\n",
+                "secret": true
             },
             "apiKey": {
                 "type": "string",
-                "description": "API key for Venafi as a Service. Example: 142231b7-cvb0-412e-886b-6aeght0bc93d\n"
+                "description": "API key for Venafi as a Service. Example: 142231b7-cvb0-412e-886b-6aeght0bc93d\n",
+                "secret": true
+            },
+            "clientId": {
+                "type": "string",
+                "description": "application that will be using the token\n"
             },
             "devMode": {
                 "type": "boolean",
                 "description": "When set to true, the resulting certificate will be issued by an ephemeral, no trust CA rather than enrolling using\nVenafi as a Service or Trust Protection Platform. Useful for development and testing.\n"
             },
+            "p12CertFilename": {
+                "type": "string",
+                "description": "Filename of PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to\nTLSPDC\n"
+            },
+            "p12CertPassword": {
+                "type": "string",
+                "description": "Password for the PKCS#12 keystore declared in p12_cert\n",
+                "secret": true
+            },
             "tppPassword": {
                 "type": "string",
                 "description": "Password for WebSDK user. Example: password\n",
-                "deprecationMessage": ", please use access_token instead"
+                "deprecationMessage": ", please use access_token instead",
+                "secret": true
             },
             "tppUsername": {
                 "type": "string",
-                "description": "WebSDK user for Venafi Platform. Example: admin\n",
+                "description": "WebSDK user for Venafi TLSPDC. Example: admin\n",
                 "deprecationMessage": ", please use access_token instead"
             },
             "trustBundle": {
@@ -76,11 +92,11 @@
             },
             "url": {
                 "type": "string",
-                "description": "The Venafi Web Service URL.. Example: https://tpp.venafi.example/vedsdk\n"
+                "description": "The Venafi Platform URL. Example: https://tpp.venafi.example/vedsdk\n"
             },
             "zone": {
                 "type": "string",
-                "description": "DN of the Venafi Platform policy folder or name of the Venafi as a Service application. Example for Platform:\ntestpolicy\\\\vault Example for Venafi as a Service: Default\n"
+                "description": "DN of the Venafi TLSPDC policy folder or name of the Venafi as a Service application plus issuing template alias.\nExample for Platform: testPolicy\\\\vault Example for Venafi as a Service: myApp\\\\Default\n"
             }
         }
     },
@@ -89,24 +105,40 @@
         "properties": {
             "accessToken": {
                 "type": "string",
-                "description": "Access token for TPP, user should use this for authentication\n"
+                "description": "Access token for Venafi TLSPDC, user should use this for authentication\n",
+                "secret": true
             },
             "apiKey": {
                 "type": "string",
-                "description": "API key for Venafi as a Service. Example: 142231b7-cvb0-412e-886b-6aeght0bc93d\n"
+                "description": "API key for Venafi as a Service. Example: 142231b7-cvb0-412e-886b-6aeght0bc93d\n",
+                "secret": true
+            },
+            "clientId": {
+                "type": "string",
+                "description": "application that will be using the token\n"
             },
             "devMode": {
                 "type": "boolean",
                 "description": "When set to true, the resulting certificate will be issued by an ephemeral, no trust CA rather than enrolling using\nVenafi as a Service or Trust Protection Platform. Useful for development and testing.\n"
             },
+            "p12CertFilename": {
+                "type": "string",
+                "description": "Filename of PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to\nTLSPDC\n"
+            },
+            "p12CertPassword": {
+                "type": "string",
+                "description": "Password for the PKCS#12 keystore declared in p12_cert\n",
+                "secret": true
+            },
             "tppPassword": {
                 "type": "string",
                 "description": "Password for WebSDK user. Example: password\n",
-                "deprecationMessage": ", please use access_token instead"
+                "deprecationMessage": ", please use access_token instead",
+                "secret": true
             },
             "tppUsername": {
                 "type": "string",
-                "description": "WebSDK user for Venafi Platform. Example: admin\n",
+                "description": "WebSDK user for Venafi TLSPDC. Example: admin\n",
                 "deprecationMessage": ", please use access_token instead"
             },
             "trustBundle": {
@@ -115,34 +147,50 @@
             },
             "url": {
                 "type": "string",
-                "description": "The Venafi Web Service URL.. Example: https://tpp.venafi.example/vedsdk\n"
+                "description": "The Venafi Platform URL. Example: https://tpp.venafi.example/vedsdk\n"
             },
             "zone": {
                 "type": "string",
-                "description": "DN of the Venafi Platform policy folder or name of the Venafi as a Service application. Example for Platform:\ntestpolicy\\\\vault Example for Venafi as a Service: Default\n"
+                "description": "DN of the Venafi TLSPDC policy folder or name of the Venafi as a Service application plus issuing template alias.\nExample for Platform: testPolicy\\\\vault Example for Venafi as a Service: myApp\\\\Default\n"
             }
         },
         "inputProperties": {
             "accessToken": {
                 "type": "string",
-                "description": "Access token for TPP, user should use this for authentication\n"
+                "description": "Access token for Venafi TLSPDC, user should use this for authentication\n",
+                "secret": true
             },
             "apiKey": {
                 "type": "string",
-                "description": "API key for Venafi as a Service. Example: 142231b7-cvb0-412e-886b-6aeght0bc93d\n"
+                "description": "API key for Venafi as a Service. Example: 142231b7-cvb0-412e-886b-6aeght0bc93d\n",
+                "secret": true
+            },
+            "clientId": {
+                "type": "string",
+                "description": "application that will be using the token\n"
             },
             "devMode": {
                 "type": "boolean",
                 "description": "When set to true, the resulting certificate will be issued by an ephemeral, no trust CA rather than enrolling using\nVenafi as a Service or Trust Protection Platform. Useful for development and testing.\n"
             },
+            "p12CertFilename": {
+                "type": "string",
+                "description": "Filename of PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to\nTLSPDC\n"
+            },
+            "p12CertPassword": {
+                "type": "string",
+                "description": "Password for the PKCS#12 keystore declared in p12_cert\n",
+                "secret": true
+            },
             "tppPassword": {
                 "type": "string",
                 "description": "Password for WebSDK user. Example: password\n",
-                "deprecationMessage": ", please use access_token instead"
+                "deprecationMessage": ", please use access_token instead",
+                "secret": true
             },
             "tppUsername": {
                 "type": "string",
-                "description": "WebSDK user for Venafi Platform. Example: admin\n",
+                "description": "WebSDK user for Venafi TLSPDC. Example: admin\n",
                 "deprecationMessage": ", please use access_token instead"
             },
             "trustBundle": {
@@ -151,11 +199,11 @@
             },
             "url": {
                 "type": "string",
-                "description": "The Venafi Web Service URL.. Example: https://tpp.venafi.example/vedsdk\n"
+                "description": "The Venafi Platform URL. Example: https://tpp.venafi.example/vedsdk\n"
             },
             "zone": {
                 "type": "string",
-                "description": "DN of the Venafi Platform policy folder or name of the Venafi as a Service application. Example for Platform:\ntestpolicy\\\\vault Example for Venafi as a Service: Default\n"
+                "description": "DN of the Venafi TLSPDC policy folder or name of the Venafi as a Service application plus issuing template alias.\nExample for Platform: testPolicy\\\\vault Example for Venafi as a Service: myApp\\\\Default\n"
             }
         }
     },
