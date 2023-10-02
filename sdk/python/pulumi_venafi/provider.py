@@ -16,7 +16,10 @@ class ProviderArgs:
     def __init__(__self__, *,
                  access_token: Optional[pulumi.Input[str]] = None,
                  api_key: Optional[pulumi.Input[str]] = None,
+                 client_id: Optional[pulumi.Input[str]] = None,
                  dev_mode: Optional[pulumi.Input[bool]] = None,
+                 p12_cert_filename: Optional[pulumi.Input[str]] = None,
+                 p12_cert_password: Optional[pulumi.Input[str]] = None,
                  tpp_password: Optional[pulumi.Input[str]] = None,
                  tpp_username: Optional[pulumi.Input[str]] = None,
                  trust_bundle: Optional[pulumi.Input[str]] = None,
@@ -24,24 +27,34 @@ class ProviderArgs:
                  zone: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Provider resource.
-        :param pulumi.Input[str] access_token: Access token for TPP, user should use this for authentication
+        :param pulumi.Input[str] access_token: Access token for Venafi TLSPDC, user should use this for authentication
         :param pulumi.Input[str] api_key: API key for Venafi as a Service. Example: 142231b7-cvb0-412e-886b-6aeght0bc93d
+        :param pulumi.Input[str] client_id: application that will be using the token
         :param pulumi.Input[bool] dev_mode: When set to true, the resulting certificate will be issued by an ephemeral, no trust CA rather than enrolling using
                Venafi as a Service or Trust Protection Platform. Useful for development and testing.
+        :param pulumi.Input[str] p12_cert_filename: Filename of PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to
+               TLSPDC
+        :param pulumi.Input[str] p12_cert_password: Password for the PKCS#12 keystore declared in p12_cert
         :param pulumi.Input[str] tpp_password: Password for WebSDK user. Example: password
-        :param pulumi.Input[str] tpp_username: WebSDK user for Venafi Platform. Example: admin
+        :param pulumi.Input[str] tpp_username: WebSDK user for Venafi TLSPDC. Example: admin
         :param pulumi.Input[str] trust_bundle: Use to specify a PEM-formatted file that contains certificates to be trust anchors for all communications with the
                Venafi Web Service. Example: trust_bundle = "${file("chain.pem")}"
-        :param pulumi.Input[str] url: The Venafi Web Service URL.. Example: https://tpp.venafi.example/vedsdk
-        :param pulumi.Input[str] zone: DN of the Venafi Platform policy folder or name of the Venafi as a Service application. Example for Platform:
-               testpolicy\\\\vault Example for Venafi as a Service: Default
+        :param pulumi.Input[str] url: The Venafi Platform URL. Example: https://tpp.venafi.example/vedsdk
+        :param pulumi.Input[str] zone: DN of the Venafi TLSPDC policy folder or name of the Venafi as a Service application plus issuing template alias.
+               Example for Platform: testPolicy\\\\vault Example for Venafi as a Service: myApp\\\\Default
         """
         if access_token is not None:
             pulumi.set(__self__, "access_token", access_token)
         if api_key is not None:
             pulumi.set(__self__, "api_key", api_key)
+        if client_id is not None:
+            pulumi.set(__self__, "client_id", client_id)
         if dev_mode is not None:
             pulumi.set(__self__, "dev_mode", dev_mode)
+        if p12_cert_filename is not None:
+            pulumi.set(__self__, "p12_cert_filename", p12_cert_filename)
+        if p12_cert_password is not None:
+            pulumi.set(__self__, "p12_cert_password", p12_cert_password)
         if tpp_password is not None:
             warnings.warn(""", please use access_token instead""", DeprecationWarning)
             pulumi.log.warn("""tpp_password is deprecated: , please use access_token instead""")
@@ -63,7 +76,7 @@ class ProviderArgs:
     @pulumi.getter(name="accessToken")
     def access_token(self) -> Optional[pulumi.Input[str]]:
         """
-        Access token for TPP, user should use this for authentication
+        Access token for Venafi TLSPDC, user should use this for authentication
         """
         return pulumi.get(self, "access_token")
 
@@ -84,6 +97,18 @@ class ProviderArgs:
         pulumi.set(self, "api_key", value)
 
     @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        application that will be using the token
+        """
+        return pulumi.get(self, "client_id")
+
+    @client_id.setter
+    def client_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_id", value)
+
+    @property
     @pulumi.getter(name="devMode")
     def dev_mode(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -95,6 +120,31 @@ class ProviderArgs:
     @dev_mode.setter
     def dev_mode(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "dev_mode", value)
+
+    @property
+    @pulumi.getter(name="p12CertFilename")
+    def p12_cert_filename(self) -> Optional[pulumi.Input[str]]:
+        """
+        Filename of PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to
+        TLSPDC
+        """
+        return pulumi.get(self, "p12_cert_filename")
+
+    @p12_cert_filename.setter
+    def p12_cert_filename(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "p12_cert_filename", value)
+
+    @property
+    @pulumi.getter(name="p12CertPassword")
+    def p12_cert_password(self) -> Optional[pulumi.Input[str]]:
+        """
+        Password for the PKCS#12 keystore declared in p12_cert
+        """
+        return pulumi.get(self, "p12_cert_password")
+
+    @p12_cert_password.setter
+    def p12_cert_password(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "p12_cert_password", value)
 
     @property
     @pulumi.getter(name="tppPassword")
@@ -115,7 +165,7 @@ class ProviderArgs:
     @pulumi.getter(name="tppUsername")
     def tpp_username(self) -> Optional[pulumi.Input[str]]:
         """
-        WebSDK user for Venafi Platform. Example: admin
+        WebSDK user for Venafi TLSPDC. Example: admin
         """
         warnings.warn(""", please use access_token instead""", DeprecationWarning)
         pulumi.log.warn("""tpp_username is deprecated: , please use access_token instead""")
@@ -143,7 +193,7 @@ class ProviderArgs:
     @pulumi.getter
     def url(self) -> Optional[pulumi.Input[str]]:
         """
-        The Venafi Web Service URL.. Example: https://tpp.venafi.example/vedsdk
+        The Venafi Platform URL. Example: https://tpp.venafi.example/vedsdk
         """
         return pulumi.get(self, "url")
 
@@ -155,8 +205,8 @@ class ProviderArgs:
     @pulumi.getter
     def zone(self) -> Optional[pulumi.Input[str]]:
         """
-        DN of the Venafi Platform policy folder or name of the Venafi as a Service application. Example for Platform:
-        testpolicy\\\\vault Example for Venafi as a Service: Default
+        DN of the Venafi TLSPDC policy folder or name of the Venafi as a Service application plus issuing template alias.
+        Example for Platform: testPolicy\\\\vault Example for Venafi as a Service: myApp\\\\Default
         """
         return pulumi.get(self, "zone")
 
@@ -172,7 +222,10 @@ class Provider(pulumi.ProviderResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  access_token: Optional[pulumi.Input[str]] = None,
                  api_key: Optional[pulumi.Input[str]] = None,
+                 client_id: Optional[pulumi.Input[str]] = None,
                  dev_mode: Optional[pulumi.Input[bool]] = None,
+                 p12_cert_filename: Optional[pulumi.Input[str]] = None,
+                 p12_cert_password: Optional[pulumi.Input[str]] = None,
                  tpp_password: Optional[pulumi.Input[str]] = None,
                  tpp_username: Optional[pulumi.Input[str]] = None,
                  trust_bundle: Optional[pulumi.Input[str]] = None,
@@ -187,17 +240,21 @@ class Provider(pulumi.ProviderResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] access_token: Access token for TPP, user should use this for authentication
+        :param pulumi.Input[str] access_token: Access token for Venafi TLSPDC, user should use this for authentication
         :param pulumi.Input[str] api_key: API key for Venafi as a Service. Example: 142231b7-cvb0-412e-886b-6aeght0bc93d
+        :param pulumi.Input[str] client_id: application that will be using the token
         :param pulumi.Input[bool] dev_mode: When set to true, the resulting certificate will be issued by an ephemeral, no trust CA rather than enrolling using
                Venafi as a Service or Trust Protection Platform. Useful for development and testing.
+        :param pulumi.Input[str] p12_cert_filename: Filename of PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to
+               TLSPDC
+        :param pulumi.Input[str] p12_cert_password: Password for the PKCS#12 keystore declared in p12_cert
         :param pulumi.Input[str] tpp_password: Password for WebSDK user. Example: password
-        :param pulumi.Input[str] tpp_username: WebSDK user for Venafi Platform. Example: admin
+        :param pulumi.Input[str] tpp_username: WebSDK user for Venafi TLSPDC. Example: admin
         :param pulumi.Input[str] trust_bundle: Use to specify a PEM-formatted file that contains certificates to be trust anchors for all communications with the
                Venafi Web Service. Example: trust_bundle = "${file("chain.pem")}"
-        :param pulumi.Input[str] url: The Venafi Web Service URL.. Example: https://tpp.venafi.example/vedsdk
-        :param pulumi.Input[str] zone: DN of the Venafi Platform policy folder or name of the Venafi as a Service application. Example for Platform:
-               testpolicy\\\\vault Example for Venafi as a Service: Default
+        :param pulumi.Input[str] url: The Venafi Platform URL. Example: https://tpp.venafi.example/vedsdk
+        :param pulumi.Input[str] zone: DN of the Venafi TLSPDC policy folder or name of the Venafi as a Service application plus issuing template alias.
+               Example for Platform: testPolicy\\\\vault Example for Venafi as a Service: myApp\\\\Default
         """
         ...
     @overload
@@ -228,7 +285,10 @@ class Provider(pulumi.ProviderResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  access_token: Optional[pulumi.Input[str]] = None,
                  api_key: Optional[pulumi.Input[str]] = None,
+                 client_id: Optional[pulumi.Input[str]] = None,
                  dev_mode: Optional[pulumi.Input[bool]] = None,
+                 p12_cert_filename: Optional[pulumi.Input[str]] = None,
+                 p12_cert_password: Optional[pulumi.Input[str]] = None,
                  tpp_password: Optional[pulumi.Input[str]] = None,
                  tpp_username: Optional[pulumi.Input[str]] = None,
                  trust_bundle: Optional[pulumi.Input[str]] = None,
@@ -243,13 +303,16 @@ class Provider(pulumi.ProviderResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ProviderArgs.__new__(ProviderArgs)
 
-            __props__.__dict__["access_token"] = access_token
-            __props__.__dict__["api_key"] = api_key
+            __props__.__dict__["access_token"] = None if access_token is None else pulumi.Output.secret(access_token)
+            __props__.__dict__["api_key"] = None if api_key is None else pulumi.Output.secret(api_key)
+            __props__.__dict__["client_id"] = client_id
             __props__.__dict__["dev_mode"] = pulumi.Output.from_input(dev_mode).apply(pulumi.runtime.to_json) if dev_mode is not None else None
+            __props__.__dict__["p12_cert_filename"] = p12_cert_filename
+            __props__.__dict__["p12_cert_password"] = None if p12_cert_password is None else pulumi.Output.secret(p12_cert_password)
             if tpp_password is not None and not opts.urn:
                 warnings.warn(""", please use access_token instead""", DeprecationWarning)
                 pulumi.log.warn("""tpp_password is deprecated: , please use access_token instead""")
-            __props__.__dict__["tpp_password"] = tpp_password
+            __props__.__dict__["tpp_password"] = None if tpp_password is None else pulumi.Output.secret(tpp_password)
             if tpp_username is not None and not opts.urn:
                 warnings.warn(""", please use access_token instead""", DeprecationWarning)
                 pulumi.log.warn("""tpp_username is deprecated: , please use access_token instead""")
@@ -257,6 +320,8 @@ class Provider(pulumi.ProviderResource):
             __props__.__dict__["trust_bundle"] = trust_bundle
             __props__.__dict__["url"] = url
             __props__.__dict__["zone"] = zone
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["accessToken", "apiKey", "p12CertPassword", "tppPassword"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Provider, __self__).__init__(
             'venafi',
             resource_name,
@@ -267,7 +332,7 @@ class Provider(pulumi.ProviderResource):
     @pulumi.getter(name="accessToken")
     def access_token(self) -> pulumi.Output[Optional[str]]:
         """
-        Access token for TPP, user should use this for authentication
+        Access token for Venafi TLSPDC, user should use this for authentication
         """
         return pulumi.get(self, "access_token")
 
@@ -278,6 +343,31 @@ class Provider(pulumi.ProviderResource):
         API key for Venafi as a Service. Example: 142231b7-cvb0-412e-886b-6aeght0bc93d
         """
         return pulumi.get(self, "api_key")
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        application that will be using the token
+        """
+        return pulumi.get(self, "client_id")
+
+    @property
+    @pulumi.getter(name="p12CertFilename")
+    def p12_cert_filename(self) -> pulumi.Output[Optional[str]]:
+        """
+        Filename of PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to
+        TLSPDC
+        """
+        return pulumi.get(self, "p12_cert_filename")
+
+    @property
+    @pulumi.getter(name="p12CertPassword")
+    def p12_cert_password(self) -> pulumi.Output[Optional[str]]:
+        """
+        Password for the PKCS#12 keystore declared in p12_cert
+        """
+        return pulumi.get(self, "p12_cert_password")
 
     @property
     @pulumi.getter(name="tppPassword")
@@ -294,7 +384,7 @@ class Provider(pulumi.ProviderResource):
     @pulumi.getter(name="tppUsername")
     def tpp_username(self) -> pulumi.Output[Optional[str]]:
         """
-        WebSDK user for Venafi Platform. Example: admin
+        WebSDK user for Venafi TLSPDC. Example: admin
         """
         warnings.warn(""", please use access_token instead""", DeprecationWarning)
         pulumi.log.warn("""tpp_username is deprecated: , please use access_token instead""")
@@ -314,7 +404,7 @@ class Provider(pulumi.ProviderResource):
     @pulumi.getter
     def url(self) -> pulumi.Output[Optional[str]]:
         """
-        The Venafi Web Service URL.. Example: https://tpp.venafi.example/vedsdk
+        The Venafi Platform URL. Example: https://tpp.venafi.example/vedsdk
         """
         return pulumi.get(self, "url")
 
@@ -322,8 +412,8 @@ class Provider(pulumi.ProviderResource):
     @pulumi.getter
     def zone(self) -> pulumi.Output[Optional[str]]:
         """
-        DN of the Venafi Platform policy folder or name of the Venafi as a Service application. Example for Platform:
-        testpolicy\\\\vault Example for Venafi as a Service: Default
+        DN of the Venafi TLSPDC policy folder or name of the Venafi as a Service application plus issuing template alias.
+        Example for Platform: testPolicy\\\\vault Example for Venafi as a Service: myApp\\\\Default
         """
         return pulumi.get(self, "zone")
 

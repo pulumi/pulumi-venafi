@@ -8,7 +8,7 @@ declare var exports: any;
 const __config = new pulumi.Config("venafi");
 
 /**
- * Access token for TPP, user should use this for authentication
+ * Access token for Venafi TLSPDC, user should use this for authentication
  */
 export declare const accessToken: string | undefined;
 Object.defineProperty(exports, "accessToken", {
@@ -30,6 +30,17 @@ Object.defineProperty(exports, "apiKey", {
 });
 
 /**
+ * application that will be using the token
+ */
+export declare const clientId: string | undefined;
+Object.defineProperty(exports, "clientId", {
+    get() {
+        return __config.get("clientId");
+    },
+    enumerable: true,
+});
+
+/**
  * When set to true, the resulting certificate will be issued by an ephemeral, no trust CA rather than enrolling using
  * Venafi as a Service or Trust Protection Platform. Useful for development and testing.
  */
@@ -37,6 +48,29 @@ export declare const devMode: boolean | undefined;
 Object.defineProperty(exports, "devMode", {
     get() {
         return __config.getObject<boolean>("devMode");
+    },
+    enumerable: true,
+});
+
+/**
+ * Filename of PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to
+ * TLSPDC
+ */
+export declare const p12CertFilename: string | undefined;
+Object.defineProperty(exports, "p12CertFilename", {
+    get() {
+        return __config.get("p12CertFilename");
+    },
+    enumerable: true,
+});
+
+/**
+ * Password for the PKCS#12 keystore declared in p12_cert
+ */
+export declare const p12CertPassword: string | undefined;
+Object.defineProperty(exports, "p12CertPassword", {
+    get() {
+        return __config.get("p12CertPassword");
     },
     enumerable: true,
 });
@@ -53,7 +87,7 @@ Object.defineProperty(exports, "tppPassword", {
 });
 
 /**
- * WebSDK user for Venafi Platform. Example: admin
+ * WebSDK user for Venafi TLSPDC. Example: admin
  */
 export declare const tppUsername: string | undefined;
 Object.defineProperty(exports, "tppUsername", {
@@ -76,7 +110,7 @@ Object.defineProperty(exports, "trustBundle", {
 });
 
 /**
- * The Venafi Web Service URL.. Example: https://tpp.venafi.example/vedsdk
+ * The Venafi Platform URL. Example: https://tpp.venafi.example/vedsdk
  */
 export declare const url: string | undefined;
 Object.defineProperty(exports, "url", {
@@ -87,8 +121,8 @@ Object.defineProperty(exports, "url", {
 });
 
 /**
- * DN of the Venafi Platform policy folder or name of the Venafi as a Service application. Example for Platform:
- * testpolicy\\vault Example for Venafi as a Service: Default
+ * DN of the Venafi TLSPDC policy folder or name of the Venafi as a Service application plus issuing template alias.
+ * Example for Platform: testPolicy\\vault Example for Venafi as a Service: myApp\\Default
  */
 export declare const zone: string | undefined;
 Object.defineProperty(exports, "zone", {

@@ -18,7 +18,7 @@ class _ExportableConfig(types.ModuleType):
     @property
     def access_token(self) -> Optional[str]:
         """
-        Access token for TPP, user should use this for authentication
+        Access token for Venafi TLSPDC, user should use this for authentication
         """
         return __config__.get('accessToken')
 
@@ -30,12 +30,34 @@ class _ExportableConfig(types.ModuleType):
         return __config__.get('apiKey')
 
     @property
+    def client_id(self) -> Optional[str]:
+        """
+        application that will be using the token
+        """
+        return __config__.get('clientId')
+
+    @property
     def dev_mode(self) -> Optional[bool]:
         """
         When set to true, the resulting certificate will be issued by an ephemeral, no trust CA rather than enrolling using
         Venafi as a Service or Trust Protection Platform. Useful for development and testing.
         """
         return __config__.get_bool('devMode')
+
+    @property
+    def p12_cert_filename(self) -> Optional[str]:
+        """
+        Filename of PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to
+        TLSPDC
+        """
+        return __config__.get('p12CertFilename')
+
+    @property
+    def p12_cert_password(self) -> Optional[str]:
+        """
+        Password for the PKCS#12 keystore declared in p12_cert
+        """
+        return __config__.get('p12CertPassword')
 
     @property
     def tpp_password(self) -> Optional[str]:
@@ -47,7 +69,7 @@ class _ExportableConfig(types.ModuleType):
     @property
     def tpp_username(self) -> Optional[str]:
         """
-        WebSDK user for Venafi Platform. Example: admin
+        WebSDK user for Venafi TLSPDC. Example: admin
         """
         return __config__.get('tppUsername')
 
@@ -62,15 +84,15 @@ class _ExportableConfig(types.ModuleType):
     @property
     def url(self) -> Optional[str]:
         """
-        The Venafi Web Service URL.. Example: https://tpp.venafi.example/vedsdk
+        The Venafi Platform URL. Example: https://tpp.venafi.example/vedsdk
         """
         return __config__.get('url')
 
     @property
     def zone(self) -> Optional[str]:
         """
-        DN of the Venafi Platform policy folder or name of the Venafi as a Service application. Example for Platform:
-        testpolicy\\\\vault Example for Venafi as a Service: Default
+        DN of the Venafi TLSPDC policy folder or name of the Venafi as a Service application plus issuing template alias.
+        Example for Platform: testPolicy\\\\vault Example for Venafi as a Service: myApp\\\\Default
         """
         return __config__.get('zone')
 

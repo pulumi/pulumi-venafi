@@ -11,7 +11,7 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
-// Access token for TPP, user should use this for authentication
+// Access token for Venafi TLSPDC, user should use this for authentication
 func GetAccessToken(ctx *pulumi.Context) string {
 	return config.Get(ctx, "venafi:accessToken")
 }
@@ -21,10 +21,26 @@ func GetApiKey(ctx *pulumi.Context) string {
 	return config.Get(ctx, "venafi:apiKey")
 }
 
+// application that will be using the token
+func GetClientId(ctx *pulumi.Context) string {
+	return config.Get(ctx, "venafi:clientId")
+}
+
 // When set to true, the resulting certificate will be issued by an ephemeral, no trust CA rather than enrolling using
 // Venafi as a Service or Trust Protection Platform. Useful for development and testing.
 func GetDevMode(ctx *pulumi.Context) bool {
 	return config.GetBool(ctx, "venafi:devMode")
+}
+
+// Filename of PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to
+// TLSPDC
+func GetP12CertFilename(ctx *pulumi.Context) string {
+	return config.Get(ctx, "venafi:p12CertFilename")
+}
+
+// Password for the PKCS#12 keystore declared in p12_cert
+func GetP12CertPassword(ctx *pulumi.Context) string {
+	return config.Get(ctx, "venafi:p12CertPassword")
 }
 
 // Password for WebSDK user. Example: password
@@ -34,7 +50,7 @@ func GetTppPassword(ctx *pulumi.Context) string {
 	return config.Get(ctx, "venafi:tppPassword")
 }
 
-// WebSDK user for Venafi Platform. Example: admin
+// WebSDK user for Venafi TLSPDC. Example: admin
 //
 // Deprecated: , please use access_token instead
 func GetTppUsername(ctx *pulumi.Context) string {
@@ -47,13 +63,13 @@ func GetTrustBundle(ctx *pulumi.Context) string {
 	return config.Get(ctx, "venafi:trustBundle")
 }
 
-// The Venafi Web Service URL.. Example: https://tpp.venafi.example/vedsdk
+// The Venafi Platform URL. Example: https://tpp.venafi.example/vedsdk
 func GetUrl(ctx *pulumi.Context) string {
 	return config.Get(ctx, "venafi:url")
 }
 
-// DN of the Venafi Platform policy folder or name of the Venafi as a Service application. Example for Platform:
-// testpolicy\\vault Example for Venafi as a Service: Default
+// DN of the Venafi TLSPDC policy folder or name of the Venafi as a Service application plus issuing template alias.
+// Example for Platform: testPolicy\\vault Example for Venafi as a Service: myApp\\Default
 func GetZone(ctx *pulumi.Context) string {
 	return config.Get(ctx, "venafi:zone")
 }

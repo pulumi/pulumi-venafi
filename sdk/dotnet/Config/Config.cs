@@ -34,7 +34,7 @@ namespace Pulumi.Venafi
 
         private static readonly __Value<string?> _accessToken = new __Value<string?>(() => __config.Get("accessToken"));
         /// <summary>
-        /// Access token for TPP, user should use this for authentication
+        /// Access token for Venafi TLSPDC, user should use this for authentication
         /// </summary>
         public static string? AccessToken
         {
@@ -52,6 +52,16 @@ namespace Pulumi.Venafi
             set => _apiKey.Set(value);
         }
 
+        private static readonly __Value<string?> _clientId = new __Value<string?>(() => __config.Get("clientId"));
+        /// <summary>
+        /// application that will be using the token
+        /// </summary>
+        public static string? ClientId
+        {
+            get => _clientId.Get();
+            set => _clientId.Set(value);
+        }
+
         private static readonly __Value<bool?> _devMode = new __Value<bool?>(() => __config.GetBoolean("devMode"));
         /// <summary>
         /// When set to true, the resulting certificate will be issued by an ephemeral, no trust CA rather than enrolling using
@@ -61,6 +71,27 @@ namespace Pulumi.Venafi
         {
             get => _devMode.Get();
             set => _devMode.Set(value);
+        }
+
+        private static readonly __Value<string?> _p12CertFilename = new __Value<string?>(() => __config.Get("p12CertFilename"));
+        /// <summary>
+        /// Filename of PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to
+        /// TLSPDC
+        /// </summary>
+        public static string? P12CertFilename
+        {
+            get => _p12CertFilename.Get();
+            set => _p12CertFilename.Set(value);
+        }
+
+        private static readonly __Value<string?> _p12CertPassword = new __Value<string?>(() => __config.Get("p12CertPassword"));
+        /// <summary>
+        /// Password for the PKCS#12 keystore declared in p12_cert
+        /// </summary>
+        public static string? P12CertPassword
+        {
+            get => _p12CertPassword.Get();
+            set => _p12CertPassword.Set(value);
         }
 
         private static readonly __Value<string?> _tppPassword = new __Value<string?>(() => __config.Get("tppPassword"));
@@ -75,7 +106,7 @@ namespace Pulumi.Venafi
 
         private static readonly __Value<string?> _tppUsername = new __Value<string?>(() => __config.Get("tppUsername"));
         /// <summary>
-        /// WebSDK user for Venafi Platform. Example: admin
+        /// WebSDK user for Venafi TLSPDC. Example: admin
         /// </summary>
         public static string? TppUsername
         {
@@ -96,7 +127,7 @@ namespace Pulumi.Venafi
 
         private static readonly __Value<string?> _url = new __Value<string?>(() => __config.Get("url"));
         /// <summary>
-        /// The Venafi Web Service URL.. Example: https://tpp.venafi.example/vedsdk
+        /// The Venafi Platform URL. Example: https://tpp.venafi.example/vedsdk
         /// </summary>
         public static string? Url
         {
@@ -106,8 +137,8 @@ namespace Pulumi.Venafi
 
         private static readonly __Value<string?> _zone = new __Value<string?>(() => __config.Get("zone"));
         /// <summary>
-        /// DN of the Venafi Platform policy folder or name of the Venafi as a Service application. Example for Platform:
-        /// testpolicy\\vault Example for Venafi as a Service: Default
+        /// DN of the Venafi TLSPDC policy folder or name of the Venafi as a Service application plus issuing template alias.
+        /// Example for Platform: testPolicy\\vault Example for Venafi as a Service: myApp\\Default
         /// </summary>
         public static string? Zone
         {
