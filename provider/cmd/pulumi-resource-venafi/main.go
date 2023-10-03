@@ -17,11 +17,16 @@
 package main
 
 import (
+	_ "embed"
+
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
 
 	venafi "github.com/pulumi/pulumi-venafi/provider"
 	"github.com/pulumi/pulumi-venafi/provider/pkg/version"
 )
+
+//go:embed schema-embed.json
+var pulumiSchema []byte
 
 func main() {
 	// Modify the path to point to the new provider
