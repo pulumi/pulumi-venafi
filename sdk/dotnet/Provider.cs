@@ -19,7 +19,7 @@ namespace Pulumi.Venafi
     public partial class Provider : global::Pulumi.ProviderResource
     {
         /// <summary>
-        /// Access token for TPP, user should use this for authentication
+        /// Access token for Venafi TLSPDC, user should use this for authentication
         /// </summary>
         [Output("accessToken")]
         public Output<string?> AccessToken { get; private set; } = null!;
@@ -31,13 +31,32 @@ namespace Pulumi.Venafi
         public Output<string?> ApiKey { get; private set; } = null!;
 
         /// <summary>
+        /// application that will be using the token
+        /// </summary>
+        [Output("clientId")]
+        public Output<string?> ClientId { get; private set; } = null!;
+
+        /// <summary>
+        /// Filename of PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to
+        /// TLSPDC
+        /// </summary>
+        [Output("p12CertFilename")]
+        public Output<string?> P12CertFilename { get; private set; } = null!;
+
+        /// <summary>
+        /// Password for the PKCS#12 keystore declared in p12_cert
+        /// </summary>
+        [Output("p12CertPassword")]
+        public Output<string?> P12CertPassword { get; private set; } = null!;
+
+        /// <summary>
         /// Password for WebSDK user. Example: password
         /// </summary>
         [Output("tppPassword")]
         public Output<string?> TppPassword { get; private set; } = null!;
 
         /// <summary>
-        /// WebSDK user for Venafi Platform. Example: admin
+        /// WebSDK user for Venafi TLSPDC. Example: admin
         /// </summary>
         [Output("tppUsername")]
         public Output<string?> TppUsername { get; private set; } = null!;
@@ -50,14 +69,14 @@ namespace Pulumi.Venafi
         public Output<string?> TrustBundle { get; private set; } = null!;
 
         /// <summary>
-        /// The Venafi Web Service URL.. Example: https://tpp.venafi.example/vedsdk
+        /// The Venafi Platform URL. Example: https://tpp.venafi.example/vedsdk
         /// </summary>
         [Output("url")]
         public Output<string?> Url { get; private set; } = null!;
 
         /// <summary>
-        /// DN of the Venafi Platform policy folder or name of the Venafi as a Service application. Example for Platform:
-        /// testpolicy\\vault Example for Venafi as a Service: Default
+        /// DN of the Venafi TLSPDC policy folder or name of the Venafi as a Service application plus issuing template alias.
+        /// Example for Platform: testPolicy\\vault Example for Venafi as a Service: myApp\\Default
         /// </summary>
         [Output("zone")]
         public Output<string?> Zone { get; private set; } = null!;
@@ -80,6 +99,13 @@ namespace Pulumi.Venafi
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "accessToken",
+                    "apiKey",
+                    "p12CertPassword",
+                    "tppPassword",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -90,17 +116,43 @@ namespace Pulumi.Venafi
 
     public sealed class ProviderArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Access token for TPP, user should use this for authentication
-        /// </summary>
         [Input("accessToken")]
-        public Input<string>? AccessToken { get; set; }
+        private Input<string>? _accessToken;
+
+        /// <summary>
+        /// Access token for Venafi TLSPDC, user should use this for authentication
+        /// </summary>
+        public Input<string>? AccessToken
+        {
+            get => _accessToken;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _accessToken = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        [Input("apiKey")]
+        private Input<string>? _apiKey;
 
         /// <summary>
         /// API key for Venafi as a Service. Example: 142231b7-cvb0-412e-886b-6aeght0bc93d
         /// </summary>
-        [Input("apiKey")]
-        public Input<string>? ApiKey { get; set; }
+        public Input<string>? ApiKey
+        {
+            get => _apiKey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _apiKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        /// <summary>
+        /// application that will be using the token
+        /// </summary>
+        [Input("clientId")]
+        public Input<string>? ClientId { get; set; }
 
         /// <summary>
         /// When set to true, the resulting certificate will be issued by an ephemeral, no trust CA rather than enrolling using
@@ -110,13 +162,47 @@ namespace Pulumi.Venafi
         public Input<bool>? DevMode { get; set; }
 
         /// <summary>
-        /// Password for WebSDK user. Example: password
+        /// Filename of PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to
+        /// TLSPDC
         /// </summary>
-        [Input("tppPassword")]
-        public Input<string>? TppPassword { get; set; }
+        [Input("p12CertFilename")]
+        public Input<string>? P12CertFilename { get; set; }
+
+        [Input("p12CertPassword")]
+        private Input<string>? _p12CertPassword;
 
         /// <summary>
-        /// WebSDK user for Venafi Platform. Example: admin
+        /// Password for the PKCS#12 keystore declared in p12_cert
+        /// </summary>
+        public Input<string>? P12CertPassword
+        {
+            get => _p12CertPassword;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _p12CertPassword = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        [Input("tppPassword")]
+        private Input<string>? _tppPassword;
+
+        /// <summary>
+        /// Password for WebSDK user. Example: password
+        /// </summary>
+        [Obsolete(@", please use access_token instead")]
+        public Input<string>? TppPassword
+        {
+            get => _tppPassword;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _tppPassword = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        /// <summary>
+        /// WebSDK user for Venafi TLSPDC. Example: admin
         /// </summary>
         [Input("tppUsername")]
         public Input<string>? TppUsername { get; set; }
@@ -129,14 +215,14 @@ namespace Pulumi.Venafi
         public Input<string>? TrustBundle { get; set; }
 
         /// <summary>
-        /// The Venafi Web Service URL.. Example: https://tpp.venafi.example/vedsdk
+        /// The Venafi Platform URL. Example: https://tpp.venafi.example/vedsdk
         /// </summary>
         [Input("url")]
         public Input<string>? Url { get; set; }
 
         /// <summary>
-        /// DN of the Venafi Platform policy folder or name of the Venafi as a Service application. Example for Platform:
-        /// testpolicy\\vault Example for Venafi as a Service: Default
+        /// DN of the Venafi TLSPDC policy folder or name of the Venafi as a Service application plus issuing template alias.
+        /// Example for Platform: testPolicy\\vault Example for Venafi as a Service: myApp\\Default
         /// </summary>
         [Input("zone")]
         public Input<string>? Zone { get; set; }

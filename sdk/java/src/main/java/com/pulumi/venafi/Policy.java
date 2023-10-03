@@ -69,7 +69,7 @@ public class Policy extends com.pulumi.resources.CustomResource {
      * Typically read from a file using the `file` function.
      * 
      */
-    @Export(name="policySpecification", type=String.class, parameters={})
+    @Export(name="policySpecification", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> policySpecification;
 
     /**
@@ -86,7 +86,7 @@ public class Policy extends com.pulumi.resources.CustomResource {
      * *Venafi as a Service* application and issuing template.
      * 
      */
-    @Export(name="zone", type=String.class, parameters={})
+    @Export(name="zone", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> zone;
 
     /**

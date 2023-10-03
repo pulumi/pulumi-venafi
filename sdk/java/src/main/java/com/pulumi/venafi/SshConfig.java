@@ -54,7 +54,7 @@ public class SshConfig extends com.pulumi.resources.CustomResource {
      * (Optional, string) The template&#39;s CA public key.
      * 
      */
-    @Export(name="caPublicKey", type=String.class, parameters={})
+    @Export(name="caPublicKey", refs={String.class}, tree="[0]")
     private Output<String> caPublicKey;
 
     /**
@@ -68,7 +68,7 @@ public class SshConfig extends com.pulumi.resources.CustomResource {
      * (Optional, set of strings) A list of user names exported from the template.
      * 
      */
-    @Export(name="principals", type=List.class, parameters={String.class})
+    @Export(name="principals", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> principals;
 
     /**
@@ -82,7 +82,7 @@ public class SshConfig extends com.pulumi.resources.CustomResource {
      * The SSH certificate issuing template.
      * 
      */
-    @Export(name="template", type=String.class, parameters={})
+    @Export(name="template", refs={String.class}, tree="[0]")
     private Output<String> template;
 
     /**

@@ -26,7 +26,7 @@ export class Provider extends pulumi.ProviderResource {
     }
 
     /**
-     * Access token for TPP, user should use this for authentication
+     * Access token for Venafi TLSPDC, user should use this for authentication
      */
     public readonly accessToken!: pulumi.Output<string | undefined>;
     /**
@@ -34,13 +34,26 @@ export class Provider extends pulumi.ProviderResource {
      */
     public readonly apiKey!: pulumi.Output<string | undefined>;
     /**
+     * application that will be using the token
+     */
+    public readonly clientId!: pulumi.Output<string | undefined>;
+    /**
+     * Filename of PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to
+     * TLSPDC
+     */
+    public readonly p12CertFilename!: pulumi.Output<string | undefined>;
+    /**
+     * Password for the PKCS#12 keystore declared in p12_cert
+     */
+    public readonly p12CertPassword!: pulumi.Output<string | undefined>;
+    /**
      * Password for WebSDK user. Example: password
      *
      * @deprecated , please use access_token instead
      */
     public readonly tppPassword!: pulumi.Output<string | undefined>;
     /**
-     * WebSDK user for Venafi Platform. Example: admin
+     * WebSDK user for Venafi TLSPDC. Example: admin
      *
      * @deprecated , please use access_token instead
      */
@@ -51,12 +64,12 @@ export class Provider extends pulumi.ProviderResource {
      */
     public readonly trustBundle!: pulumi.Output<string | undefined>;
     /**
-     * The Venafi Web Service URL.. Example: https://tpp.venafi.example/vedsdk
+     * The Venafi Platform URL. Example: https://tpp.venafi.example/vedsdk
      */
     public readonly url!: pulumi.Output<string | undefined>;
     /**
-     * DN of the Venafi Platform policy folder or name of the Venafi as a Service application. Example for Platform:
-     * testpolicy\\vault Example for Venafi as a Service: Default
+     * DN of the Venafi TLSPDC policy folder or name of the Venafi as a Service application plus issuing template alias.
+     * Example for Platform: testPolicy\\vault Example for Venafi as a Service: myApp\\Default
      */
     public readonly zone!: pulumi.Output<string | undefined>;
 
@@ -71,16 +84,21 @@ export class Provider extends pulumi.ProviderResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         {
-            resourceInputs["accessToken"] = args ? args.accessToken : undefined;
-            resourceInputs["apiKey"] = args ? args.apiKey : undefined;
+            resourceInputs["accessToken"] = args?.accessToken ? pulumi.secret(args.accessToken) : undefined;
+            resourceInputs["apiKey"] = args?.apiKey ? pulumi.secret(args.apiKey) : undefined;
+            resourceInputs["clientId"] = args ? args.clientId : undefined;
             resourceInputs["devMode"] = pulumi.output(args ? args.devMode : undefined).apply(JSON.stringify);
-            resourceInputs["tppPassword"] = args ? args.tppPassword : undefined;
+            resourceInputs["p12CertFilename"] = args ? args.p12CertFilename : undefined;
+            resourceInputs["p12CertPassword"] = args?.p12CertPassword ? pulumi.secret(args.p12CertPassword) : undefined;
+            resourceInputs["tppPassword"] = args?.tppPassword ? pulumi.secret(args.tppPassword) : undefined;
             resourceInputs["tppUsername"] = args ? args.tppUsername : undefined;
             resourceInputs["trustBundle"] = args ? args.trustBundle : undefined;
             resourceInputs["url"] = args ? args.url : undefined;
             resourceInputs["zone"] = args ? args.zone : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["accessToken", "apiKey", "p12CertPassword", "tppPassword"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Provider.__pulumiType, name, resourceInputs, opts);
     }
 }
@@ -90,7 +108,7 @@ export class Provider extends pulumi.ProviderResource {
  */
 export interface ProviderArgs {
     /**
-     * Access token for TPP, user should use this for authentication
+     * Access token for Venafi TLSPDC, user should use this for authentication
      */
     accessToken?: pulumi.Input<string>;
     /**
@@ -98,10 +116,23 @@ export interface ProviderArgs {
      */
     apiKey?: pulumi.Input<string>;
     /**
+     * application that will be using the token
+     */
+    clientId?: pulumi.Input<string>;
+    /**
      * When set to true, the resulting certificate will be issued by an ephemeral, no trust CA rather than enrolling using
      * Venafi as a Service or Trust Protection Platform. Useful for development and testing.
      */
     devMode?: pulumi.Input<boolean>;
+    /**
+     * Filename of PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to
+     * TLSPDC
+     */
+    p12CertFilename?: pulumi.Input<string>;
+    /**
+     * Password for the PKCS#12 keystore declared in p12_cert
+     */
+    p12CertPassword?: pulumi.Input<string>;
     /**
      * Password for WebSDK user. Example: password
      *
@@ -109,7 +140,7 @@ export interface ProviderArgs {
      */
     tppPassword?: pulumi.Input<string>;
     /**
-     * WebSDK user for Venafi Platform. Example: admin
+     * WebSDK user for Venafi TLSPDC. Example: admin
      *
      * @deprecated , please use access_token instead
      */
@@ -120,12 +151,12 @@ export interface ProviderArgs {
      */
     trustBundle?: pulumi.Input<string>;
     /**
-     * The Venafi Web Service URL.. Example: https://tpp.venafi.example/vedsdk
+     * The Venafi Platform URL. Example: https://tpp.venafi.example/vedsdk
      */
     url?: pulumi.Input<string>;
     /**
-     * DN of the Venafi Platform policy folder or name of the Venafi as a Service application. Example for Platform:
-     * testpolicy\\vault Example for Venafi as a Service: Default
+     * DN of the Venafi TLSPDC policy folder or name of the Venafi as a Service application plus issuing template alias.
+     * Example for Platform: testPolicy\\vault Example for Venafi as a Service: myApp\\Default
      */
     zone?: pulumi.Input<string>;
 }

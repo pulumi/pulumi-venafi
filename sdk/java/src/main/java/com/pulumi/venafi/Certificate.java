@@ -24,7 +24,7 @@ public class Certificate extends com.pulumi.resources.CustomResource {
      * Defaults to `RSA`.
      * 
      */
-    @Export(name="algorithm", type=String.class, parameters={})
+    @Export(name="algorithm", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> algorithm;
 
     /**
@@ -39,7 +39,7 @@ public class Certificate extends com.pulumi.resources.CustomResource {
      * The X509 certificate in PEM format.
      * 
      */
-    @Export(name="certificate", type=String.class, parameters={})
+    @Export(name="certificate", refs={String.class}, tree="[0]")
     private Output<String> certificate;
 
     /**
@@ -49,7 +49,7 @@ public class Certificate extends com.pulumi.resources.CustomResource {
     public Output<String> certificate() {
         return this.certificate;
     }
-    @Export(name="certificateDn", type=String.class, parameters={})
+    @Export(name="certificateDn", refs={String.class}, tree="[0]")
     private Output<String> certificateDn;
 
     public Output<String> certificateDn() {
@@ -60,7 +60,7 @@ public class Certificate extends com.pulumi.resources.CustomResource {
      * concatenated together.
      * 
      */
-    @Export(name="chain", type=String.class, parameters={})
+    @Export(name="chain", refs={String.class}, tree="[0]")
     private Output<String> chain;
 
     /**
@@ -75,7 +75,7 @@ public class Certificate extends com.pulumi.resources.CustomResource {
      * The common name of the certificate.
      * 
      */
-    @Export(name="commonName", type=String.class, parameters={})
+    @Export(name="commonName", refs={String.class}, tree="[0]")
     private Output<String> commonName;
 
     /**
@@ -89,7 +89,7 @@ public class Certificate extends com.pulumi.resources.CustomResource {
      * Whether key-pair generation will be `local` or `service` generated. Default is `local`.
      * 
      */
-    @Export(name="csrOrigin", type=String.class, parameters={})
+    @Export(name="csrOrigin", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> csrOrigin;
 
     /**
@@ -99,7 +99,7 @@ public class Certificate extends com.pulumi.resources.CustomResource {
     public Output<Optional<String>> csrOrigin() {
         return Codegen.optional(this.csrOrigin);
     }
-    @Export(name="csrPem", type=String.class, parameters={})
+    @Export(name="csrPem", refs={String.class}, tree="[0]")
     private Output<String> csrPem;
 
     public Output<String> csrPem() {
@@ -110,7 +110,7 @@ public class Certificate extends com.pulumi.resources.CustomResource {
      * assign to the certificate.
      * 
      */
-    @Export(name="customFields", type=Map.class, parameters={String.class, String.class})
+    @Export(name="customFields", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> customFields;
 
     /**
@@ -125,7 +125,7 @@ public class Certificate extends com.pulumi.resources.CustomResource {
      * ECDSA curve to use when generating a key
      * 
      */
-    @Export(name="ecdsaCurve", type=String.class, parameters={})
+    @Export(name="ecdsaCurve", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> ecdsaCurve;
 
     /**
@@ -140,7 +140,7 @@ public class Certificate extends com.pulumi.resources.CustomResource {
      * to request a new certificate.  Defaults to `168`.
      * 
      */
-    @Export(name="expirationWindow", type=Integer.class, parameters={})
+    @Export(name="expirationWindow", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> expirationWindow;
 
     /**
@@ -157,7 +157,7 @@ public class Certificate extends com.pulumi.resources.CustomResource {
      * &#34;Entrust&#34;, and &#34;Microsoft&#34;.
      * 
      */
-    @Export(name="issuerHint", type=String.class, parameters={})
+    @Export(name="issuerHint", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> issuerHint;
 
     /**
@@ -173,7 +173,7 @@ public class Certificate extends com.pulumi.resources.CustomResource {
      * The password used to encrypt the private key.
      * 
      */
-    @Export(name="keyPassword", type=String.class, parameters={})
+    @Export(name="keyPassword", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> keyPassword;
 
     /**
@@ -187,7 +187,7 @@ public class Certificate extends com.pulumi.resources.CustomResource {
      * Use to specify a name for the new certificate object that will be created and placed in a policy. Only valid for TPP.
      * 
      */
-    @Export(name="nickname", type=String.class, parameters={})
+    @Export(name="nickname", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> nickname;
 
     /**
@@ -203,7 +203,7 @@ public class Certificate extends com.pulumi.resources.CustomResource {
      * azurerm_key_vault_certificate.
      * 
      */
-    @Export(name="pkcs12", type=String.class, parameters={})
+    @Export(name="pkcs12", refs={String.class}, tree="[0]")
     private Output<String> pkcs12;
 
     /**
@@ -219,7 +219,7 @@ public class Certificate extends com.pulumi.resources.CustomResource {
      * The private key in PEM format.
      * 
      */
-    @Export(name="privateKeyPem", type=String.class, parameters={})
+    @Export(name="privateKeyPem", refs={String.class}, tree="[0]")
     private Output<String> privateKeyPem;
 
     /**
@@ -234,7 +234,7 @@ public class Certificate extends com.pulumi.resources.CustomResource {
      * Applies when `algorithm=RSA`.  Defaults to `2048`.
      * 
      */
-    @Export(name="rsaBits", type=Integer.class, parameters={})
+    @Export(name="rsaBits", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> rsaBits;
 
     /**
@@ -250,7 +250,7 @@ public class Certificate extends com.pulumi.resources.CustomResource {
      * subjects of the certificate.
      * 
      */
-    @Export(name="sanDns", type=List.class, parameters={String.class})
+    @Export(name="sanDns", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> sanDns;
 
     /**
@@ -266,7 +266,7 @@ public class Certificate extends com.pulumi.resources.CustomResource {
      * alternative subjects of the certificate.
      * 
      */
-    @Export(name="sanEmails", type=List.class, parameters={String.class})
+    @Export(name="sanEmails", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> sanEmails;
 
     /**
@@ -282,7 +282,7 @@ public class Certificate extends com.pulumi.resources.CustomResource {
      * subjects of the certificate.
      * 
      */
-    @Export(name="sanIps", type=List.class, parameters={String.class})
+    @Export(name="sanIps", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> sanIps;
 
     /**
@@ -298,7 +298,7 @@ public class Certificate extends com.pulumi.resources.CustomResource {
      * subjects of the certificate.
      * 
      */
-    @Export(name="sanUris", type=List.class, parameters={String.class})
+    @Export(name="sanUris", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> sanUris;
 
     /**
@@ -314,7 +314,7 @@ public class Certificate extends com.pulumi.resources.CustomResource {
      * certificate will be valid.
      * 
      */
-    @Export(name="validDays", type=Integer.class, parameters={})
+    @Export(name="validDays", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> validDays;
 
     /**

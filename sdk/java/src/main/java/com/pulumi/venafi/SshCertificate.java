@@ -63,7 +63,7 @@ public class SshCertificate extends com.pulumi.resources.CustomResource {
      * The issued SSH certificate.
      * 
      */
-    @Export(name="certificate", type=String.class, parameters={})
+    @Export(name="certificate", refs={String.class}, tree="[0]")
     private Output<String> certificate;
 
     /**
@@ -77,7 +77,7 @@ public class SshCertificate extends com.pulumi.resources.CustomResource {
      * Indicates whether the SSH certificate is for client or server authentication.
      * 
      */
-    @Export(name="certificateType", type=String.class, parameters={})
+    @Export(name="certificateType", refs={String.class}, tree="[0]")
     private Output<String> certificateType;
 
     /**
@@ -91,7 +91,7 @@ public class SshCertificate extends com.pulumi.resources.CustomResource {
      * A list of one or more valid IP or CIDR destination hosts where the certificate will authenticate.
      * 
      */
-    @Export(name="destinationAddresses", type=List.class, parameters={String.class})
+    @Export(name="destinationAddresses", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> destinationAddresses;
 
     /**
@@ -105,7 +105,7 @@ public class SshCertificate extends com.pulumi.resources.CustomResource {
      * A list of key-value pairs that contain certificate extensions from the CA template for client certificates. Allowed values (case-sensitive): *permit-X11-forwarding, permit-agent-forwarding, permit-port-forwarding, permit-pty, permit-user-rc*
      * 
      */
-    @Export(name="extensions", type=List.class, parameters={String.class})
+    @Export(name="extensions", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> extensions;
 
     /**
@@ -119,7 +119,7 @@ public class SshCertificate extends com.pulumi.resources.CustomResource {
      * The DN of the policy folder where the SSH certificate object will be created.
      * 
      */
-    @Export(name="folder", type=String.class, parameters={})
+    @Export(name="folder", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> folder;
 
     /**
@@ -133,7 +133,7 @@ public class SshCertificate extends com.pulumi.resources.CustomResource {
      * A command to run after successful login.
      * 
      */
-    @Export(name="forceCommand", type=String.class, parameters={})
+    @Export(name="forceCommand", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> forceCommand;
 
     /**
@@ -147,7 +147,7 @@ public class SshCertificate extends com.pulumi.resources.CustomResource {
      * The identifier of the requested SSH certificate.
      * 
      */
-    @Export(name="keyId", type=String.class, parameters={})
+    @Export(name="keyId", refs={String.class}, tree="[0]")
     private Output<String> keyId;
 
     /**
@@ -161,7 +161,7 @@ public class SshCertificate extends com.pulumi.resources.CustomResource {
      * Passphrase for encrypting the private key.
      * 
      */
-    @Export(name="keyPassphrase", type=String.class, parameters={})
+    @Export(name="keyPassphrase", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> keyPassphrase;
 
     /**
@@ -175,7 +175,7 @@ public class SshCertificate extends com.pulumi.resources.CustomResource {
      * Number of bits to use when creating a key pair. (e.g. 3072)
      * 
      */
-    @Export(name="keySize", type=Integer.class, parameters={})
+    @Export(name="keySize", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> keySize;
 
     /**
@@ -189,7 +189,7 @@ public class SshCertificate extends com.pulumi.resources.CustomResource {
      * The friendly name of the SSH certificate object. When not specified the `key_id` is used for the friendly name. If the object already exists the old certificate is archived and the CA issues a new certificate.
      * 
      */
-    @Export(name="objectName", type=String.class, parameters={})
+    @Export(name="objectName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> objectName;
 
     /**
@@ -207,7 +207,7 @@ public class SshCertificate extends com.pulumi.resources.CustomResource {
      * 
      */
     @Deprecated /* This will be removed in the future. Use ""principals"" instead */
-    @Export(name="principal", type=List.class, parameters={String.class})
+    @Export(name="principal", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> principal;
 
     /**
@@ -221,7 +221,7 @@ public class SshCertificate extends com.pulumi.resources.CustomResource {
      * A list of user names for whom the requested certificate will be valid.
      * 
      */
-    @Export(name="principals", type=List.class, parameters={String.class})
+    @Export(name="principals", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> principals;
 
     /**
@@ -235,7 +235,7 @@ public class SshCertificate extends com.pulumi.resources.CustomResource {
      * The private key for the SSH certificate if generated by Venafi.
      * 
      */
-    @Export(name="privateKey", type=String.class, parameters={})
+    @Export(name="privateKey", refs={String.class}, tree="[0]")
     private Output<String> privateKey;
 
     /**
@@ -249,7 +249,7 @@ public class SshCertificate extends com.pulumi.resources.CustomResource {
      * The OpenSSH formatted public key that will be used to generate the SSH certificate.
      * 
      */
-    @Export(name="publicKey", type=String.class, parameters={})
+    @Export(name="publicKey", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> publicKey;
 
     /**
@@ -263,7 +263,7 @@ public class SshCertificate extends com.pulumi.resources.CustomResource {
      * The SHA256 fingerprint of the SSH certificate&#39;s public key.
      * 
      */
-    @Export(name="publicKeyFingerprint", type=String.class, parameters={})
+    @Export(name="publicKeyFingerprint", refs={String.class}, tree="[0]")
     private Output<String> publicKeyFingerprint;
 
     /**
@@ -277,7 +277,7 @@ public class SshCertificate extends com.pulumi.resources.CustomResource {
      * Specifies whether the public key will be &#34;local&#34; (default), &#34;file&#34; or &#34;service&#34; generated.
      * 
      */
-    @Export(name="publicKeyMethod", type=String.class, parameters={})
+    @Export(name="publicKeyMethod", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> publicKeyMethod;
 
     /**
@@ -291,7 +291,7 @@ public class SshCertificate extends com.pulumi.resources.CustomResource {
      * The serial number of the SSH certificate.
      * 
      */
-    @Export(name="serial", type=String.class, parameters={})
+    @Export(name="serial", refs={String.class}, tree="[0]")
     private Output<String> serial;
 
     /**
@@ -305,7 +305,7 @@ public class SshCertificate extends com.pulumi.resources.CustomResource {
      * The SHA256 fingerprint of the CA that signed the SSH certificate.
      * 
      */
-    @Export(name="signingCa", type=String.class, parameters={})
+    @Export(name="signingCa", refs={String.class}, tree="[0]")
     private Output<String> signingCa;
 
     /**
@@ -319,7 +319,7 @@ public class SshCertificate extends com.pulumi.resources.CustomResource {
      * A list of one or more valid IP or CIDR addresses that can use the SSH certificate.
      * 
      */
-    @Export(name="sourceAddresses", type=List.class, parameters={String.class})
+    @Export(name="sourceAddresses", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> sourceAddresses;
 
     /**
@@ -333,7 +333,7 @@ public class SshCertificate extends com.pulumi.resources.CustomResource {
      * The SSH certificate issuing template.
      * 
      */
-    @Export(name="template", type=String.class, parameters={})
+    @Export(name="template", refs={String.class}, tree="[0]")
     private Output<String> template;
 
     /**
@@ -347,7 +347,7 @@ public class SshCertificate extends com.pulumi.resources.CustomResource {
      * The date the SSH certificate was issued.
      * 
      */
-    @Export(name="validFrom", type=String.class, parameters={})
+    @Export(name="validFrom", refs={String.class}, tree="[0]")
     private Output<String> validFrom;
 
     /**
@@ -361,7 +361,7 @@ public class SshCertificate extends com.pulumi.resources.CustomResource {
      * Desired number of hours for which the certificate will be valid.
      * 
      */
-    @Export(name="validHours", type=Integer.class, parameters={})
+    @Export(name="validHours", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> validHours;
 
     /**
@@ -375,7 +375,7 @@ public class SshCertificate extends com.pulumi.resources.CustomResource {
      * The date the SSH certificate will expire.
      * 
      */
-    @Export(name="validTo", type=String.class, parameters={})
+    @Export(name="validTo", refs={String.class}, tree="[0]")
     private Output<String> validTo;
 
     /**
@@ -389,7 +389,7 @@ public class SshCertificate extends com.pulumi.resources.CustomResource {
      * Specifies whether the private key will use Windows/DOS style line breaks.
      * 
      */
-    @Export(name="windows", type=Boolean.class, parameters={})
+    @Export(name="windows", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> windows;
 
     /**

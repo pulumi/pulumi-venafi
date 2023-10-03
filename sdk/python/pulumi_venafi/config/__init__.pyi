@@ -11,7 +11,7 @@ from .. import _utilities
 
 accessToken: Optional[str]
 """
-Access token for TPP, user should use this for authentication
+Access token for Venafi TLSPDC, user should use this for authentication
 """
 
 apiKey: Optional[str]
@@ -19,10 +19,26 @@ apiKey: Optional[str]
 API key for Venafi as a Service. Example: 142231b7-cvb0-412e-886b-6aeght0bc93d
 """
 
+clientId: Optional[str]
+"""
+application that will be using the token
+"""
+
 devMode: Optional[bool]
 """
 When set to true, the resulting certificate will be issued by an ephemeral, no trust CA rather than enrolling using
 Venafi as a Service or Trust Protection Platform. Useful for development and testing.
+"""
+
+p12CertFilename: Optional[str]
+"""
+Filename of PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to
+TLSPDC
+"""
+
+p12CertPassword: Optional[str]
+"""
+Password for the PKCS#12 keystore declared in p12_cert
 """
 
 tppPassword: Optional[str]
@@ -32,7 +48,7 @@ Password for WebSDK user. Example: password
 
 tppUsername: Optional[str]
 """
-WebSDK user for Venafi Platform. Example: admin
+WebSDK user for Venafi TLSPDC. Example: admin
 """
 
 trustBundle: Optional[str]
@@ -43,12 +59,12 @@ Venafi Web Service. Example: trust_bundle = "${file("chain.pem")}"
 
 url: Optional[str]
 """
-The Venafi Web Service URL.. Example: https://tpp.venafi.example/vedsdk
+The Venafi Platform URL. Example: https://tpp.venafi.example/vedsdk
 """
 
 zone: Optional[str]
 """
-DN of the Venafi Platform policy folder or name of the Venafi as a Service application. Example for Platform:
-testpolicy\\\\vault Example for Venafi as a Service: Default
+DN of the Venafi TLSPDC policy folder or name of the Venafi as a Service application plus issuing template alias.
+Example for Platform: testPolicy\\\\vault Example for Venafi as a Service: myApp\\\\Default
 """
 
