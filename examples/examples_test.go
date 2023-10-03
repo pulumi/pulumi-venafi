@@ -33,6 +33,7 @@ func getCwd(t *testing.T) string {
 }
 
 func getBaseOptions(t *testing.T) integration.ProgramTestOptions {
+	t.Skip("Skipping due to expired Venafi token")
 	return integration.ProgramTestOptions{
 		ExpectRefreshChanges: true,
 		Secrets: map[string]string{
