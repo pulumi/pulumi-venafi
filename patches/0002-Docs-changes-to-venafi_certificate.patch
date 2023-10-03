@@ -1,44 +1,12 @@
-From fde17ddbef7d562d74211b1406c286041863f30a Mon Sep 17 00:00:00 2001
+From 0f3faf7d2d0bf222094d18905051fa8816fcab21 Mon Sep 17 00:00:00 2001
 From: Ian Wahbe <ian@wahbe.com>
-Date: Tue, 3 Oct 2023 12:15:12 -0700
-Subject: [PATCH] Fix import path
+Date: Tue, 3 Oct 2023 12:21:45 -0700
+Subject: [PATCH 2/2] Docs changes to venafi_certificate
 
 ---
- go.mod                                        |  4 +-
- main.go                                       |  5 +-
  .../docs/r/venafi_certificate.html.markdown   | 56 +++----------------
- 3 files changed, 14 insertions(+), 51 deletions(-)
+ 1 file changed, 9 insertions(+), 47 deletions(-)
 
-diff --git a/go.mod b/go.mod
-index 0324614..05168b8 100644
---- a/go.mod
-+++ b/go.mod
-@@ -1,6 +1,6 @@
--module github.com/terraform-providers/terraform-provider-venafi
-+module github.com/Venafi/terraform-provider-venafi
- 
--go 1.12
-+go 1.19
- 
- require (
- 	github.com/Venafi/vcert/v4 v4.22.0
-diff --git a/main.go b/main.go
-index 13942e8..7a7e9ad 100644
---- a/main.go
-+++ b/main.go
-@@ -2,9 +2,10 @@ package main
- 
- import (
- 	"flag"
--	"github.com/hashicorp/terraform-plugin-sdk/v2/plugin"
--	"github.com/terraform-providers/terraform-provider-venafi/venafi"
- 	"log"
-+
-+	"github.com/Venafi/terraform-provider-venafi/venafi"
-+	"github.com/hashicorp/terraform-plugin-sdk/v2/plugin"
- )
- 
- func main() {
 diff --git a/website/docs/r/venafi_certificate.html.markdown b/website/docs/r/venafi_certificate.html.markdown
 index 34314a6..617acc7 100644
 --- a/website/docs/r/venafi_certificate.html.markdown
