@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['ProviderArgs', 'Provider']
@@ -36,28 +36,51 @@ class ProviderArgs:
         :param pulumi.Input[str] zone: DN of the Venafi Platform policy folder or name of the Venafi as a Service application. Example for Platform:
                testpolicy\\\\vault Example for Venafi as a Service: Default
         """
+        ProviderArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            access_token=access_token,
+            api_key=api_key,
+            dev_mode=dev_mode,
+            tpp_password=tpp_password,
+            tpp_username=tpp_username,
+            trust_bundle=trust_bundle,
+            url=url,
+            zone=zone,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             access_token: Optional[pulumi.Input[str]] = None,
+             api_key: Optional[pulumi.Input[str]] = None,
+             dev_mode: Optional[pulumi.Input[bool]] = None,
+             tpp_password: Optional[pulumi.Input[str]] = None,
+             tpp_username: Optional[pulumi.Input[str]] = None,
+             trust_bundle: Optional[pulumi.Input[str]] = None,
+             url: Optional[pulumi.Input[str]] = None,
+             zone: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if access_token is not None:
-            pulumi.set(__self__, "access_token", access_token)
+            _setter("access_token", access_token)
         if api_key is not None:
-            pulumi.set(__self__, "api_key", api_key)
+            _setter("api_key", api_key)
         if dev_mode is not None:
-            pulumi.set(__self__, "dev_mode", dev_mode)
+            _setter("dev_mode", dev_mode)
         if tpp_password is not None:
             warnings.warn(""", please use access_token instead""", DeprecationWarning)
             pulumi.log.warn("""tpp_password is deprecated: , please use access_token instead""")
         if tpp_password is not None:
-            pulumi.set(__self__, "tpp_password", tpp_password)
+            _setter("tpp_password", tpp_password)
         if tpp_username is not None:
             warnings.warn(""", please use access_token instead""", DeprecationWarning)
             pulumi.log.warn("""tpp_username is deprecated: , please use access_token instead""")
         if tpp_username is not None:
-            pulumi.set(__self__, "tpp_username", tpp_username)
+            _setter("tpp_username", tpp_username)
         if trust_bundle is not None:
-            pulumi.set(__self__, "trust_bundle", trust_bundle)
+            _setter("trust_bundle", trust_bundle)
         if url is not None:
-            pulumi.set(__self__, "url", url)
+            _setter("url", url)
         if zone is not None:
-            pulumi.set(__self__, "zone", zone)
+            _setter("zone", zone)
 
     @property
     @pulumi.getter(name="accessToken")
@@ -221,6 +244,10 @@ class Provider(pulumi.ProviderResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ProviderArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -246,13 +273,7 @@ class Provider(pulumi.ProviderResource):
             __props__.__dict__["access_token"] = access_token
             __props__.__dict__["api_key"] = api_key
             __props__.__dict__["dev_mode"] = pulumi.Output.from_input(dev_mode).apply(pulumi.runtime.to_json) if dev_mode is not None else None
-            if tpp_password is not None and not opts.urn:
-                warnings.warn(""", please use access_token instead""", DeprecationWarning)
-                pulumi.log.warn("""tpp_password is deprecated: , please use access_token instead""")
             __props__.__dict__["tpp_password"] = tpp_password
-            if tpp_username is not None and not opts.urn:
-                warnings.warn(""", please use access_token instead""", DeprecationWarning)
-                pulumi.log.warn("""tpp_username is deprecated: , please use access_token instead""")
             __props__.__dict__["tpp_username"] = tpp_username
             __props__.__dict__["trust_bundle"] = trust_bundle
             __props__.__dict__["url"] = url
