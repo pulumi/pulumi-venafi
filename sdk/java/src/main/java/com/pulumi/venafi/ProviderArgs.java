@@ -17,14 +17,14 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     public static final ProviderArgs Empty = new ProviderArgs();
 
     /**
-     * Access token for TPP, user should use this for authentication
+     * Access token for Venafi TLSPDC, user should use this for authentication
      * 
      */
     @Import(name="accessToken")
     private @Nullable Output<String> accessToken;
 
     /**
-     * @return Access token for TPP, user should use this for authentication
+     * @return Access token for Venafi TLSPDC, user should use this for authentication
      * 
      */
     public Optional<Output<String>> accessToken() {
@@ -47,6 +47,21 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * application that will be using the token
+     * 
+     */
+    @Import(name="clientId")
+    private @Nullable Output<String> clientId;
+
+    /**
+     * @return application that will be using the token
+     * 
+     */
+    public Optional<Output<String>> clientId() {
+        return Optional.ofNullable(this.clientId);
+    }
+
+    /**
      * When set to true, the resulting certificate will be issued by an ephemeral, no trust CA rather than enrolling using
      * Venafi as a Service or Trust Protection Platform. Useful for development and testing.
      * 
@@ -61,6 +76,38 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<Boolean>> devMode() {
         return Optional.ofNullable(this.devMode);
+    }
+
+    /**
+     * Filename of PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to
+     * TLSPDC
+     * 
+     */
+    @Import(name="p12CertFilename")
+    private @Nullable Output<String> p12CertFilename;
+
+    /**
+     * @return Filename of PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to
+     * TLSPDC
+     * 
+     */
+    public Optional<Output<String>> p12CertFilename() {
+        return Optional.ofNullable(this.p12CertFilename);
+    }
+
+    /**
+     * Password for the PKCS#12 keystore declared in p12_cert
+     * 
+     */
+    @Import(name="p12CertPassword")
+    private @Nullable Output<String> p12CertPassword;
+
+    /**
+     * @return Password for the PKCS#12 keystore declared in p12_cert
+     * 
+     */
+    public Optional<Output<String>> p12CertPassword() {
+        return Optional.ofNullable(this.p12CertPassword);
     }
 
     /**
@@ -87,7 +134,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * WebSDK user for Venafi Platform. Example: admin
+     * WebSDK user for Venafi TLSPDC. Example: admin
      * 
      * @deprecated
      * , please use access_token instead
@@ -98,7 +145,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<String> tppUsername;
 
     /**
-     * @return WebSDK user for Venafi Platform. Example: admin
+     * @return WebSDK user for Venafi TLSPDC. Example: admin
      * 
      * @deprecated
      * , please use access_token instead
@@ -127,14 +174,14 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Venafi Web Service URL.. Example: https://tpp.venafi.example/vedsdk
+     * The Venafi Platform URL. Example: https://tpp.venafi.example/vedsdk
      * 
      */
     @Import(name="url")
     private @Nullable Output<String> url;
 
     /**
-     * @return The Venafi Web Service URL.. Example: https://tpp.venafi.example/vedsdk
+     * @return The Venafi Platform URL. Example: https://tpp.venafi.example/vedsdk
      * 
      */
     public Optional<Output<String>> url() {
@@ -142,16 +189,16 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * DN of the Venafi Platform policy folder or name of the Venafi as a Service application. Example for Platform:
-     * testpolicy\\vault Example for Venafi as a Service: Default
+     * DN of the Venafi TLSPDC policy folder or name of the Venafi as a Service application plus issuing template alias.
+     * Example for Platform: testPolicy\\vault Example for Venafi as a Service: myApp\\Default
      * 
      */
     @Import(name="zone")
     private @Nullable Output<String> zone;
 
     /**
-     * @return DN of the Venafi Platform policy folder or name of the Venafi as a Service application. Example for Platform:
-     * testpolicy\\vault Example for Venafi as a Service: Default
+     * @return DN of the Venafi TLSPDC policy folder or name of the Venafi as a Service application plus issuing template alias.
+     * Example for Platform: testPolicy\\vault Example for Venafi as a Service: myApp\\Default
      * 
      */
     public Optional<Output<String>> zone() {
@@ -163,7 +210,10 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     private ProviderArgs(ProviderArgs $) {
         this.accessToken = $.accessToken;
         this.apiKey = $.apiKey;
+        this.clientId = $.clientId;
         this.devMode = $.devMode;
+        this.p12CertFilename = $.p12CertFilename;
+        this.p12CertPassword = $.p12CertPassword;
         this.tppPassword = $.tppPassword;
         this.tppUsername = $.tppUsername;
         this.trustBundle = $.trustBundle;
@@ -190,7 +240,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param accessToken Access token for TPP, user should use this for authentication
+         * @param accessToken Access token for Venafi TLSPDC, user should use this for authentication
          * 
          * @return builder
          * 
@@ -201,7 +251,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param accessToken Access token for TPP, user should use this for authentication
+         * @param accessToken Access token for Venafi TLSPDC, user should use this for authentication
          * 
          * @return builder
          * 
@@ -232,6 +282,27 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param clientId application that will be using the token
+         * 
+         * @return builder
+         * 
+         */
+        public Builder clientId(@Nullable Output<String> clientId) {
+            $.clientId = clientId;
+            return this;
+        }
+
+        /**
+         * @param clientId application that will be using the token
+         * 
+         * @return builder
+         * 
+         */
+        public Builder clientId(String clientId) {
+            return clientId(Output.of(clientId));
+        }
+
+        /**
          * @param devMode When set to true, the resulting certificate will be issued by an ephemeral, no trust CA rather than enrolling using
          * Venafi as a Service or Trust Protection Platform. Useful for development and testing.
          * 
@@ -252,6 +323,50 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder devMode(Boolean devMode) {
             return devMode(Output.of(devMode));
+        }
+
+        /**
+         * @param p12CertFilename Filename of PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to
+         * TLSPDC
+         * 
+         * @return builder
+         * 
+         */
+        public Builder p12CertFilename(@Nullable Output<String> p12CertFilename) {
+            $.p12CertFilename = p12CertFilename;
+            return this;
+        }
+
+        /**
+         * @param p12CertFilename Filename of PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to
+         * TLSPDC
+         * 
+         * @return builder
+         * 
+         */
+        public Builder p12CertFilename(String p12CertFilename) {
+            return p12CertFilename(Output.of(p12CertFilename));
+        }
+
+        /**
+         * @param p12CertPassword Password for the PKCS#12 keystore declared in p12_cert
+         * 
+         * @return builder
+         * 
+         */
+        public Builder p12CertPassword(@Nullable Output<String> p12CertPassword) {
+            $.p12CertPassword = p12CertPassword;
+            return this;
+        }
+
+        /**
+         * @param p12CertPassword Password for the PKCS#12 keystore declared in p12_cert
+         * 
+         * @return builder
+         * 
+         */
+        public Builder p12CertPassword(String p12CertPassword) {
+            return p12CertPassword(Output.of(p12CertPassword));
         }
 
         /**
@@ -284,7 +399,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tppUsername WebSDK user for Venafi Platform. Example: admin
+         * @param tppUsername WebSDK user for Venafi TLSPDC. Example: admin
          * 
          * @return builder
          * 
@@ -299,7 +414,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tppUsername WebSDK user for Venafi Platform. Example: admin
+         * @param tppUsername WebSDK user for Venafi TLSPDC. Example: admin
          * 
          * @return builder
          * 
@@ -336,7 +451,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param url The Venafi Web Service URL.. Example: https://tpp.venafi.example/vedsdk
+         * @param url The Venafi Platform URL. Example: https://tpp.venafi.example/vedsdk
          * 
          * @return builder
          * 
@@ -347,7 +462,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param url The Venafi Web Service URL.. Example: https://tpp.venafi.example/vedsdk
+         * @param url The Venafi Platform URL. Example: https://tpp.venafi.example/vedsdk
          * 
          * @return builder
          * 
@@ -357,8 +472,8 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param zone DN of the Venafi Platform policy folder or name of the Venafi as a Service application. Example for Platform:
-         * testpolicy\\vault Example for Venafi as a Service: Default
+         * @param zone DN of the Venafi TLSPDC policy folder or name of the Venafi as a Service application plus issuing template alias.
+         * Example for Platform: testPolicy\\vault Example for Venafi as a Service: myApp\\Default
          * 
          * @return builder
          * 
@@ -369,8 +484,8 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param zone DN of the Venafi Platform policy folder or name of the Venafi as a Service application. Example for Platform:
-         * testpolicy\\vault Example for Venafi as a Service: Default
+         * @param zone DN of the Venafi TLSPDC policy folder or name of the Venafi as a Service application plus issuing template alias.
+         * Example for Platform: testPolicy\\vault Example for Venafi as a Service: myApp\\Default
          * 
          * @return builder
          * 

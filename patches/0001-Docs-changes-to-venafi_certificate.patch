@@ -1,7 +1,7 @@
-From 0f3faf7d2d0bf222094d18905051fa8816fcab21 Mon Sep 17 00:00:00 2001
+From eb43dcc2f9a3ce7bcfe9f93a8e136db277a5ed58 Mon Sep 17 00:00:00 2001
 From: Ian Wahbe <ian@wahbe.com>
 Date: Tue, 3 Oct 2023 12:21:45 -0700
-Subject: [PATCH 2/2] Docs changes to venafi_certificate
+Subject: [PATCH] Docs changes to venafi_certificate
 
 ---
  .../docs/r/venafi_certificate.html.markdown   | 56 +++----------------

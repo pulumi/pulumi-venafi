@@ -105,7 +105,10 @@
             "venafi:index:Provider": {
                 "accessToken": "access_token",
                 "apiKey": "api_key",
+                "clientId": "client_id",
                 "devMode": "dev_mode",
+                "p12CertFilename": "p12_cert_filename",
+                "p12CertPassword": "p12_cert_password",
                 "tppPassword": "tpp_password",
                 "tppUsername": "tpp_username",
                 "trustBundle": "trust_bundle"
@@ -114,7 +117,10 @@
         "renamedConfigProperties": {
             "accessToken": "access_token",
             "apiKey": "api_key",
+            "clientId": "client_id",
             "devMode": "dev_mode",
+            "p12CertFilename": "p12_cert_filename",
+            "p12CertPassword": "p12_cert_password",
             "tppPassword": "tpp_password",
             "tppUsername": "tpp_username",
             "trustBundle": "trust_bundle"

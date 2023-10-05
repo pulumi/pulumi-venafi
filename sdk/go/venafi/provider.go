@@ -19,25 +19,32 @@ import (
 type Provider struct {
 	pulumi.ProviderResourceState
 
-	// Access token for TPP, user should use this for authentication
+	// Access token for Venafi TLSPDC, user should use this for authentication
 	AccessToken pulumi.StringPtrOutput `pulumi:"accessToken"`
 	// API key for Venafi as a Service. Example: 142231b7-cvb0-412e-886b-6aeght0bc93d
 	ApiKey pulumi.StringPtrOutput `pulumi:"apiKey"`
+	// application that will be using the token
+	ClientId pulumi.StringPtrOutput `pulumi:"clientId"`
+	// Filename of PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to
+	// TLSPDC
+	P12CertFilename pulumi.StringPtrOutput `pulumi:"p12CertFilename"`
+	// Password for the PKCS#12 keystore declared in p12_cert
+	P12CertPassword pulumi.StringPtrOutput `pulumi:"p12CertPassword"`
 	// Password for WebSDK user. Example: password
 	//
 	// Deprecated: , please use access_token instead
 	TppPassword pulumi.StringPtrOutput `pulumi:"tppPassword"`
-	// WebSDK user for Venafi Platform. Example: admin
+	// WebSDK user for Venafi TLSPDC. Example: admin
 	//
 	// Deprecated: , please use access_token instead
 	TppUsername pulumi.StringPtrOutput `pulumi:"tppUsername"`
 	// Use to specify a PEM-formatted file that contains certificates to be trust anchors for all communications with the
 	// Venafi Web Service. Example: trust_bundle = "${file("chain.pem")}"
 	TrustBundle pulumi.StringPtrOutput `pulumi:"trustBundle"`
-	// The Venafi Web Service URL.. Example: https://tpp.venafi.example/vedsdk
+	// The Venafi Platform URL. Example: https://tpp.venafi.example/vedsdk
 	Url pulumi.StringPtrOutput `pulumi:"url"`
-	// DN of the Venafi Platform policy folder or name of the Venafi as a Service application. Example for Platform:
-	// testpolicy\\vault Example for Venafi as a Service: Default
+	// DN of the Venafi TLSPDC policy folder or name of the Venafi as a Service application plus issuing template alias.
+	// Example for Platform: testPolicy\\vault Example for Venafi as a Service: myApp\\Default
 	Zone pulumi.StringPtrOutput `pulumi:"zone"`
 }
 
@@ -48,6 +55,25 @@ func NewProvider(ctx *pulumi.Context,
 		args = &ProviderArgs{}
 	}
 
+	if args.AccessToken != nil {
+		args.AccessToken = pulumi.ToSecret(args.AccessToken).(pulumi.StringPtrInput)
+	}
+	if args.ApiKey != nil {
+		args.ApiKey = pulumi.ToSecret(args.ApiKey).(pulumi.StringPtrInput)
+	}
+	if args.P12CertPassword != nil {
+		args.P12CertPassword = pulumi.ToSecret(args.P12CertPassword).(pulumi.StringPtrInput)
+	}
+	if args.TppPassword != nil {
+		args.TppPassword = pulumi.ToSecret(args.TppPassword).(pulumi.StringPtrInput)
+	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"accessToken",
+		"apiKey",
+		"p12CertPassword",
+		"tppPassword",
+	})
+	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Provider
 	err := ctx.RegisterResource("pulumi:providers:venafi", name, args, &resource, opts...)
@@ -58,55 +84,69 @@ func NewProvider(ctx *pulumi.Context,
 }
 
 type providerArgs struct {
-	// Access token for TPP, user should use this for authentication
+	// Access token for Venafi TLSPDC, user should use this for authentication
 	AccessToken *string `pulumi:"accessToken"`
 	// API key for Venafi as a Service. Example: 142231b7-cvb0-412e-886b-6aeght0bc93d
 	ApiKey *string `pulumi:"apiKey"`
+	// application that will be using the token
+	ClientId *string `pulumi:"clientId"`
 	// When set to true, the resulting certificate will be issued by an ephemeral, no trust CA rather than enrolling using
 	// Venafi as a Service or Trust Protection Platform. Useful for development and testing.
 	DevMode *bool `pulumi:"devMode"`
+	// Filename of PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to
+	// TLSPDC
+	P12CertFilename *string `pulumi:"p12CertFilename"`
+	// Password for the PKCS#12 keystore declared in p12_cert
+	P12CertPassword *string `pulumi:"p12CertPassword"`
 	// Password for WebSDK user. Example: password
 	//
 	// Deprecated: , please use access_token instead
 	TppPassword *string `pulumi:"tppPassword"`
-	// WebSDK user for Venafi Platform. Example: admin
+	// WebSDK user for Venafi TLSPDC. Example: admin
 	//
 	// Deprecated: , please use access_token instead
 	TppUsername *string `pulumi:"tppUsername"`
 	// Use to specify a PEM-formatted file that contains certificates to be trust anchors for all communications with the
 	// Venafi Web Service. Example: trust_bundle = "${file("chain.pem")}"
 	TrustBundle *string `pulumi:"trustBundle"`
-	// The Venafi Web Service URL.. Example: https://tpp.venafi.example/vedsdk
+	// The Venafi Platform URL. Example: https://tpp.venafi.example/vedsdk
 	Url *string `pulumi:"url"`
-	// DN of the Venafi Platform policy folder or name of the Venafi as a Service application. Example for Platform:
-	// testpolicy\\vault Example for Venafi as a Service: Default
+	// DN of the Venafi TLSPDC policy folder or name of the Venafi as a Service application plus issuing template alias.
+	// Example for Platform: testPolicy\\vault Example for Venafi as a Service: myApp\\Default
 	Zone *string `pulumi:"zone"`
 }
 
 // The set of arguments for constructing a Provider resource.
 type ProviderArgs struct {
-	// Access token for TPP, user should use this for authentication
+	// Access token for Venafi TLSPDC, user should use this for authentication
 	AccessToken pulumi.StringPtrInput
 	// API key for Venafi as a Service. Example: 142231b7-cvb0-412e-886b-6aeght0bc93d
 	ApiKey pulumi.StringPtrInput
+	// application that will be using the token
+	ClientId pulumi.StringPtrInput
 	// When set to true, the resulting certificate will be issued by an ephemeral, no trust CA rather than enrolling using
 	// Venafi as a Service or Trust Protection Platform. Useful for development and testing.
 	DevMode pulumi.BoolPtrInput
+	// Filename of PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to
+	// TLSPDC
+	P12CertFilename pulumi.StringPtrInput
+	// Password for the PKCS#12 keystore declared in p12_cert
+	P12CertPassword pulumi.StringPtrInput
 	// Password for WebSDK user. Example: password
 	//
 	// Deprecated: , please use access_token instead
 	TppPassword pulumi.StringPtrInput
-	// WebSDK user for Venafi Platform. Example: admin
+	// WebSDK user for Venafi TLSPDC. Example: admin
 	//
 	// Deprecated: , please use access_token instead
 	TppUsername pulumi.StringPtrInput
 	// Use to specify a PEM-formatted file that contains certificates to be trust anchors for all communications with the
 	// Venafi Web Service. Example: trust_bundle = "${file("chain.pem")}"
 	TrustBundle pulumi.StringPtrInput
-	// The Venafi Web Service URL.. Example: https://tpp.venafi.example/vedsdk
+	// The Venafi Platform URL. Example: https://tpp.venafi.example/vedsdk
 	Url pulumi.StringPtrInput
-	// DN of the Venafi Platform policy folder or name of the Venafi as a Service application. Example for Platform:
-	// testpolicy\\vault Example for Venafi as a Service: Default
+	// DN of the Venafi TLSPDC policy folder or name of the Venafi as a Service application plus issuing template alias.
+	// Example for Platform: testPolicy\\vault Example for Venafi as a Service: myApp\\Default
 	Zone pulumi.StringPtrInput
 }
 
@@ -159,7 +199,7 @@ func (o ProviderOutput) ToOutput(ctx context.Context) pulumix.Output[*Provider] 
 	}
 }
 
-// Access token for TPP, user should use this for authentication
+// Access token for Venafi TLSPDC, user should use this for authentication
 func (o ProviderOutput) AccessToken() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.AccessToken }).(pulumi.StringPtrOutput)
 }
@@ -169,6 +209,22 @@ func (o ProviderOutput) ApiKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.ApiKey }).(pulumi.StringPtrOutput)
 }
 
+// application that will be using the token
+func (o ProviderOutput) ClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.ClientId }).(pulumi.StringPtrOutput)
+}
+
+// Filename of PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to
+// TLSPDC
+func (o ProviderOutput) P12CertFilename() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.P12CertFilename }).(pulumi.StringPtrOutput)
+}
+
+// Password for the PKCS#12 keystore declared in p12_cert
+func (o ProviderOutput) P12CertPassword() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.P12CertPassword }).(pulumi.StringPtrOutput)
+}
+
 // Password for WebSDK user. Example: password
 //
 // Deprecated: , please use access_token instead
@@ -176,7 +232,7 @@ func (o ProviderOutput) TppPassword() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.TppPassword }).(pulumi.StringPtrOutput)
 }
 
-// WebSDK user for Venafi Platform. Example: admin
+// WebSDK user for Venafi TLSPDC. Example: admin
 //
 // Deprecated: , please use access_token instead
 func (o ProviderOutput) TppUsername() pulumi.StringPtrOutput {
@@ -189,13 +245,13 @@ func (o ProviderOutput) TrustBundle() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.TrustBundle }).(pulumi.StringPtrOutput)
 }
 
-// The Venafi Web Service URL.. Example: https://tpp.venafi.example/vedsdk
+// The Venafi Platform URL. Example: https://tpp.venafi.example/vedsdk
 func (o ProviderOutput) Url() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.Url }).(pulumi.StringPtrOutput)
 }
 
-// DN of the Venafi Platform policy folder or name of the Venafi as a Service application. Example for Platform:
-// testpolicy\\vault Example for Venafi as a Service: Default
+// DN of the Venafi TLSPDC policy folder or name of the Venafi as a Service application plus issuing template alias.
+// Example for Platform: testPolicy\\vault Example for Venafi as a Service: myApp\\Default
 func (o ProviderOutput) Zone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.Zone }).(pulumi.StringPtrOutput)
 }
