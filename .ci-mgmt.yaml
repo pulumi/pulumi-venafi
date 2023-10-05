@@ -7,3 +7,4 @@ env:
   VENAFI_TPP_PASSWORD: ${{ secrets.VENAFI_TPP_PASSWORD }}
 makeTemplate: bridged
 team: ecosystem
+javaGenVersion: "v0.9.5"
