@@ -14,6 +14,32 @@ import (
 )
 
 // Provides access to retrieve configuration from SSH certificate issuance template from *Venafi Trust Protection Platform*.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-venafi/sdk/go/venafi"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := venafi.NewSshConfig(ctx, "cit", &venafi.SshConfigArgs{
+//				Template: pulumi.String("devops-terraform-cit"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 type SshConfig struct {
 	pulumi.CustomResourceState
 

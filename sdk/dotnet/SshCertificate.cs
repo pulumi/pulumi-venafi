@@ -11,6 +11,33 @@ namespace Pulumi.Venafi
 {
     /// <summary>
     /// Provides access to request and retrieve SSH certificates from *Venafi Trust Protection Platform*.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Venafi = Pulumi.Venafi;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var sshCert = new Venafi.SshCertificate("sshCert", new()
+    ///     {
+    ///         KeyId = "my-first-ssh-certificate",
+    ///         KeyPassphrase = "passw0rd",
+    ///         KeySize = 3072,
+    ///         Principals = new[]
+    ///         {
+    ///             "seamus",
+    ///         },
+    ///         PublicKeyMethod = "local",
+    ///         Template = "Sample SSH CA",
+    ///         ValidHours = 24,
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// </summary>
     [VenafiResourceType("venafi:index/sshCertificate:SshCertificate")]
     public partial class SshCertificate : global::Pulumi.CustomResource

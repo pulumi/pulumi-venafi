@@ -130,6 +130,15 @@ class SshConfig(pulumi.CustomResource):
         """
         Provides access to retrieve configuration from SSH certificate issuance template from *Venafi Trust Protection Platform*.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_venafi as venafi
+
+        cit = venafi.SshConfig("cit", template="devops-terraform-cit")
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] template: The SSH certificate issuing template.
@@ -142,6 +151,15 @@ class SshConfig(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides access to retrieve configuration from SSH certificate issuance template from *Venafi Trust Protection Platform*.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_venafi as venafi
+
+        cit = venafi.SshConfig("cit", template="devops-terraform-cit")
+        ```
 
         :param str resource_name: The name of the resource.
         :param SshConfigArgs args: The arguments to use to populate this resource's properties.
