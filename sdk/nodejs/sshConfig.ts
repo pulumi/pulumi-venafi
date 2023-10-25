@@ -6,15 +6,6 @@ import * as utilities from "./utilities";
 
 /**
  * Provides access to retrieve configuration from SSH certificate issuance template from *Venafi Trust Protection Platform*.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as venafi from "@pulumi/venafi";
- *
- * const cit = new venafi.SshConfig("cit", {template: "devops-terraform-cit"});
- * ```
  */
 export class SshConfig extends pulumi.CustomResource {
     /**

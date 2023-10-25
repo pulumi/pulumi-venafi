@@ -71,7 +71,27 @@ class ProviderArgs:
              trust_bundle: Optional[pulumi.Input[str]] = None,
              url: Optional[pulumi.Input[str]] = None,
              zone: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if access_token is None and 'accessToken' in kwargs:
+            access_token = kwargs['accessToken']
+        if api_key is None and 'apiKey' in kwargs:
+            api_key = kwargs['apiKey']
+        if client_id is None and 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if dev_mode is None and 'devMode' in kwargs:
+            dev_mode = kwargs['devMode']
+        if p12_cert_filename is None and 'p12CertFilename' in kwargs:
+            p12_cert_filename = kwargs['p12CertFilename']
+        if p12_cert_password is None and 'p12CertPassword' in kwargs:
+            p12_cert_password = kwargs['p12CertPassword']
+        if tpp_password is None and 'tppPassword' in kwargs:
+            tpp_password = kwargs['tppPassword']
+        if tpp_username is None and 'tppUsername' in kwargs:
+            tpp_username = kwargs['tppUsername']
+        if trust_bundle is None and 'trustBundle' in kwargs:
+            trust_bundle = kwargs['trustBundle']
+
         if access_token is not None:
             _setter("access_token", access_token)
         if api_key is not None:

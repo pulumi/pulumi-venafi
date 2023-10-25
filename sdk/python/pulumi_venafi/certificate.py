@@ -91,7 +91,7 @@ class CertificateArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             common_name: pulumi.Input[str],
+             common_name: Optional[pulumi.Input[str]] = None,
              algorithm: Optional[pulumi.Input[str]] = None,
              certificate_dn: Optional[pulumi.Input[str]] = None,
              csr_origin: Optional[pulumi.Input[str]] = None,
@@ -110,7 +110,43 @@ class CertificateArgs:
              san_ips: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              san_uris: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              valid_days: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if common_name is None and 'commonName' in kwargs:
+            common_name = kwargs['commonName']
+        if common_name is None:
+            raise TypeError("Missing 'common_name' argument")
+        if certificate_dn is None and 'certificateDn' in kwargs:
+            certificate_dn = kwargs['certificateDn']
+        if csr_origin is None and 'csrOrigin' in kwargs:
+            csr_origin = kwargs['csrOrigin']
+        if csr_pem is None and 'csrPem' in kwargs:
+            csr_pem = kwargs['csrPem']
+        if custom_fields is None and 'customFields' in kwargs:
+            custom_fields = kwargs['customFields']
+        if ecdsa_curve is None and 'ecdsaCurve' in kwargs:
+            ecdsa_curve = kwargs['ecdsaCurve']
+        if expiration_window is None and 'expirationWindow' in kwargs:
+            expiration_window = kwargs['expirationWindow']
+        if issuer_hint is None and 'issuerHint' in kwargs:
+            issuer_hint = kwargs['issuerHint']
+        if key_password is None and 'keyPassword' in kwargs:
+            key_password = kwargs['keyPassword']
+        if private_key_pem is None and 'privateKeyPem' in kwargs:
+            private_key_pem = kwargs['privateKeyPem']
+        if rsa_bits is None and 'rsaBits' in kwargs:
+            rsa_bits = kwargs['rsaBits']
+        if san_dns is None and 'sanDns' in kwargs:
+            san_dns = kwargs['sanDns']
+        if san_emails is None and 'sanEmails' in kwargs:
+            san_emails = kwargs['sanEmails']
+        if san_ips is None and 'sanIps' in kwargs:
+            san_ips = kwargs['sanIps']
+        if san_uris is None and 'sanUris' in kwargs:
+            san_uris = kwargs['sanUris']
+        if valid_days is None and 'validDays' in kwargs:
+            valid_days = kwargs['validDays']
+
         _setter("common_name", common_name)
         if algorithm is not None:
             _setter("algorithm", algorithm)
@@ -493,7 +529,41 @@ class _CertificateState:
              san_ips: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              san_uris: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              valid_days: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if certificate_dn is None and 'certificateDn' in kwargs:
+            certificate_dn = kwargs['certificateDn']
+        if common_name is None and 'commonName' in kwargs:
+            common_name = kwargs['commonName']
+        if csr_origin is None and 'csrOrigin' in kwargs:
+            csr_origin = kwargs['csrOrigin']
+        if csr_pem is None and 'csrPem' in kwargs:
+            csr_pem = kwargs['csrPem']
+        if custom_fields is None and 'customFields' in kwargs:
+            custom_fields = kwargs['customFields']
+        if ecdsa_curve is None and 'ecdsaCurve' in kwargs:
+            ecdsa_curve = kwargs['ecdsaCurve']
+        if expiration_window is None and 'expirationWindow' in kwargs:
+            expiration_window = kwargs['expirationWindow']
+        if issuer_hint is None and 'issuerHint' in kwargs:
+            issuer_hint = kwargs['issuerHint']
+        if key_password is None and 'keyPassword' in kwargs:
+            key_password = kwargs['keyPassword']
+        if private_key_pem is None and 'privateKeyPem' in kwargs:
+            private_key_pem = kwargs['privateKeyPem']
+        if rsa_bits is None and 'rsaBits' in kwargs:
+            rsa_bits = kwargs['rsaBits']
+        if san_dns is None and 'sanDns' in kwargs:
+            san_dns = kwargs['sanDns']
+        if san_emails is None and 'sanEmails' in kwargs:
+            san_emails = kwargs['sanEmails']
+        if san_ips is None and 'sanIps' in kwargs:
+            san_ips = kwargs['sanIps']
+        if san_uris is None and 'sanUris' in kwargs:
+            san_uris = kwargs['sanUris']
+        if valid_days is None and 'validDays' in kwargs:
+            valid_days = kwargs['validDays']
+
         if algorithm is not None:
             _setter("algorithm", algorithm)
         if certificate is not None:

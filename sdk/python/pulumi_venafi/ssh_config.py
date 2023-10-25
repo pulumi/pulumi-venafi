@@ -26,8 +26,12 @@ class SshConfigArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             template: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             template: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if template is None:
+            raise TypeError("Missing 'template' argument")
+
         _setter("template", template)
 
     @property
@@ -67,7 +71,11 @@ class _SshConfigState:
              ca_public_key: Optional[pulumi.Input[str]] = None,
              principals: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              template: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if ca_public_key is None and 'caPublicKey' in kwargs:
+            ca_public_key = kwargs['caPublicKey']
+
         if ca_public_key is not None:
             _setter("ca_public_key", ca_public_key)
         if principals is not None:
@@ -122,15 +130,6 @@ class SshConfig(pulumi.CustomResource):
         """
         Provides access to retrieve configuration from SSH certificate issuance template from *Venafi Trust Protection Platform*.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_venafi as venafi
-
-        cit = venafi.SshConfig("cit", template="devops-terraform-cit")
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] template: The SSH certificate issuing template.
@@ -143,15 +142,6 @@ class SshConfig(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides access to retrieve configuration from SSH certificate issuance template from *Venafi Trust Protection Platform*.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_venafi as venafi
-
-        cit = venafi.SshConfig("cit", template="devops-terraform-cit")
-        ```
 
         :param str resource_name: The name of the resource.
         :param SshConfigArgs args: The arguments to use to populate this resource's properties.
