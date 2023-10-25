@@ -71,8 +71,8 @@ class SshCertificateArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key_id: pulumi.Input[str],
-             template: pulumi.Input[str],
+             key_id: Optional[pulumi.Input[str]] = None,
+             template: Optional[pulumi.Input[str]] = None,
              destination_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              extensions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              folder: Optional[pulumi.Input[str]] = None,
@@ -87,7 +87,33 @@ class SshCertificateArgs:
              source_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              valid_hours: Optional[pulumi.Input[int]] = None,
              windows: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key_id is None and 'keyId' in kwargs:
+            key_id = kwargs['keyId']
+        if key_id is None:
+            raise TypeError("Missing 'key_id' argument")
+        if template is None:
+            raise TypeError("Missing 'template' argument")
+        if destination_addresses is None and 'destinationAddresses' in kwargs:
+            destination_addresses = kwargs['destinationAddresses']
+        if force_command is None and 'forceCommand' in kwargs:
+            force_command = kwargs['forceCommand']
+        if key_passphrase is None and 'keyPassphrase' in kwargs:
+            key_passphrase = kwargs['keyPassphrase']
+        if key_size is None and 'keySize' in kwargs:
+            key_size = kwargs['keySize']
+        if object_name is None and 'objectName' in kwargs:
+            object_name = kwargs['objectName']
+        if public_key is None and 'publicKey' in kwargs:
+            public_key = kwargs['publicKey']
+        if public_key_method is None and 'publicKeyMethod' in kwargs:
+            public_key_method = kwargs['publicKeyMethod']
+        if source_addresses is None and 'sourceAddresses' in kwargs:
+            source_addresses = kwargs['sourceAddresses']
+        if valid_hours is None and 'validHours' in kwargs:
+            valid_hours = kwargs['validHours']
+
         _setter("key_id", key_id)
         _setter("template", template)
         if destination_addresses is not None:
@@ -426,7 +452,41 @@ class _SshCertificateState:
              valid_hours: Optional[pulumi.Input[int]] = None,
              valid_to: Optional[pulumi.Input[str]] = None,
              windows: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if certificate_type is None and 'certificateType' in kwargs:
+            certificate_type = kwargs['certificateType']
+        if destination_addresses is None and 'destinationAddresses' in kwargs:
+            destination_addresses = kwargs['destinationAddresses']
+        if force_command is None and 'forceCommand' in kwargs:
+            force_command = kwargs['forceCommand']
+        if key_id is None and 'keyId' in kwargs:
+            key_id = kwargs['keyId']
+        if key_passphrase is None and 'keyPassphrase' in kwargs:
+            key_passphrase = kwargs['keyPassphrase']
+        if key_size is None and 'keySize' in kwargs:
+            key_size = kwargs['keySize']
+        if object_name is None and 'objectName' in kwargs:
+            object_name = kwargs['objectName']
+        if private_key is None and 'privateKey' in kwargs:
+            private_key = kwargs['privateKey']
+        if public_key is None and 'publicKey' in kwargs:
+            public_key = kwargs['publicKey']
+        if public_key_fingerprint is None and 'publicKeyFingerprint' in kwargs:
+            public_key_fingerprint = kwargs['publicKeyFingerprint']
+        if public_key_method is None and 'publicKeyMethod' in kwargs:
+            public_key_method = kwargs['publicKeyMethod']
+        if signing_ca is None and 'signingCa' in kwargs:
+            signing_ca = kwargs['signingCa']
+        if source_addresses is None and 'sourceAddresses' in kwargs:
+            source_addresses = kwargs['sourceAddresses']
+        if valid_from is None and 'validFrom' in kwargs:
+            valid_from = kwargs['validFrom']
+        if valid_hours is None and 'validHours' in kwargs:
+            valid_hours = kwargs['validHours']
+        if valid_to is None and 'validTo' in kwargs:
+            valid_to = kwargs['validTo']
+
         if certificate is not None:
             _setter("certificate", certificate)
         if certificate_type is not None:
@@ -796,22 +856,6 @@ class SshCertificate(pulumi.CustomResource):
         """
         Provides access to request and retrieve SSH certificates from *Venafi Trust Protection Platform*.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_venafi as venafi
-
-        ssh_cert = venafi.SshCertificate("sshCert",
-            key_id="my-first-ssh-certificate",
-            key_passphrase="passw0rd",
-            key_size=3072,
-            principals=["seamus"],
-            public_key_method="local",
-            template="Sample SSH CA",
-            valid_hours=24)
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] destination_addresses: A list of one or more valid IP or CIDR destination hosts where the certificate will authenticate.
@@ -839,22 +883,6 @@ class SshCertificate(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides access to request and retrieve SSH certificates from *Venafi Trust Protection Platform*.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_venafi as venafi
-
-        ssh_cert = venafi.SshCertificate("sshCert",
-            key_id="my-first-ssh-certificate",
-            key_passphrase="passw0rd",
-            key_size=3072,
-            principals=["seamus"],
-            public_key_method="local",
-            template="Sample SSH CA",
-            valid_hours=24)
-        ```
 
         :param str resource_name: The name of the resource.
         :param SshCertificateArgs args: The arguments to use to populate this resource's properties.

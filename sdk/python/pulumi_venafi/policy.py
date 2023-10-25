@@ -34,7 +34,11 @@ class PolicyArgs:
              _setter: Callable[[Any, Any], None],
              policy_specification: Optional[pulumi.Input[str]] = None,
              zone: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if policy_specification is None and 'policySpecification' in kwargs:
+            policy_specification = kwargs['policySpecification']
+
         if policy_specification is not None:
             _setter("policy_specification", policy_specification)
         if zone is not None:
@@ -91,7 +95,11 @@ class _PolicyState:
              _setter: Callable[[Any, Any], None],
              policy_specification: Optional[pulumi.Input[str]] = None,
              zone: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if policy_specification is None and 'policySpecification' in kwargs:
+            policy_specification = kwargs['policySpecification']
+
         if policy_specification is not None:
             _setter("policy_specification", policy_specification)
         if zone is not None:
@@ -138,17 +146,6 @@ class Policy(pulumi.CustomResource):
         to define a new policy (folder in *Trust Protection Platform*; application
         and/or issuing template in *Venafi as a Service*).
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_venafi as venafi
-
-        internal_policy = venafi.Policy("internalPolicy",
-            zone="My Business App\\\\Enterprise Trusted Certs",
-            policy_specification=(lambda path: open(path).read())("/path-to/internal-policy.json"))
-        ```
-
         ## Import
 
         The `venafi_policy` resource supports the Terraform import method.
@@ -177,17 +174,6 @@ class Policy(pulumi.CustomResource):
         Provides access to read and write certificate policy in Venafi. This can be used
         to define a new policy (folder in *Trust Protection Platform*; application
         and/or issuing template in *Venafi as a Service*).
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_venafi as venafi
-
-        internal_policy = venafi.Policy("internalPolicy",
-            zone="My Business App\\\\Enterprise Trusted Certs",
-            policy_specification=(lambda path: open(path).read())("/path-to/internal-policy.json"))
-        ```
 
         ## Import
 

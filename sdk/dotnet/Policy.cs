@@ -14,26 +14,6 @@ namespace Pulumi.Venafi
     /// to define a new policy (folder in *Trust Protection Platform*; application
     /// and/or issuing template in *Venafi as a Service*).
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.IO;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Venafi = Pulumi.Venafi;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var internalPolicy = new Venafi.Policy("internalPolicy", new()
-    ///     {
-    ///         Zone = "My Business App\\Enterprise Trusted Certs",
-    ///         PolicySpecification = File.ReadAllText("/path-to/internal-policy.json"),
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// The `venafi_policy` resource supports the Terraform import method.

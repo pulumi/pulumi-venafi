@@ -14,40 +14,6 @@ import (
 )
 
 // Provides access to request and retrieve SSH certificates from *Venafi Trust Protection Platform*.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-venafi/sdk/go/venafi"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := venafi.NewSshCertificate(ctx, "sshCert", &venafi.SshCertificateArgs{
-//				KeyId:         pulumi.String("my-first-ssh-certificate"),
-//				KeyPassphrase: pulumi.String("passw0rd"),
-//				KeySize:       pulumi.Int(3072),
-//				Principals: pulumi.StringArray{
-//					pulumi.String("seamus"),
-//				},
-//				PublicKeyMethod: pulumi.String("local"),
-//				Template:        pulumi.String("Sample SSH CA"),
-//				ValidHours:      pulumi.Int(24),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 type SshCertificate struct {
 	pulumi.CustomResourceState
 
