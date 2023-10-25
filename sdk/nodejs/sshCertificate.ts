@@ -6,6 +6,23 @@ import * as utilities from "./utilities";
 
 /**
  * Provides access to request and retrieve SSH certificates from *Venafi Trust Protection Platform*.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as venafi from "@pulumi/venafi";
+ *
+ * const sshCert = new venafi.SshCertificate("sshCert", {
+ *     keyId: "my-first-ssh-certificate",
+ *     keyPassphrase: "passw0rd",
+ *     keySize: 3072,
+ *     principals: ["seamus"],
+ *     publicKeyMethod: "local",
+ *     template: "Sample SSH CA",
+ *     validHours: 24,
+ * });
+ * ```
  */
 export class SshCertificate extends pulumi.CustomResource {
     /**

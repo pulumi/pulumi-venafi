@@ -11,6 +11,24 @@ namespace Pulumi.Venafi
 {
     /// <summary>
     /// Provides access to retrieve configuration from SSH certificate issuance template from *Venafi Trust Protection Platform*.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Venafi = Pulumi.Venafi;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var cit = new Venafi.SshConfig("cit", new()
+    ///     {
+    ///         Template = "devops-terraform-cit",
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// </summary>
     [VenafiResourceType("venafi:index/sshConfig:SshConfig")]
     public partial class SshConfig : global::Pulumi.CustomResource

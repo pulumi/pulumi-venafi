@@ -856,6 +856,22 @@ class SshCertificate(pulumi.CustomResource):
         """
         Provides access to request and retrieve SSH certificates from *Venafi Trust Protection Platform*.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_venafi as venafi
+
+        ssh_cert = venafi.SshCertificate("sshCert",
+            key_id="my-first-ssh-certificate",
+            key_passphrase="passw0rd",
+            key_size=3072,
+            principals=["seamus"],
+            public_key_method="local",
+            template="Sample SSH CA",
+            valid_hours=24)
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] destination_addresses: A list of one or more valid IP or CIDR destination hosts where the certificate will authenticate.
@@ -883,6 +899,22 @@ class SshCertificate(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides access to request and retrieve SSH certificates from *Venafi Trust Protection Platform*.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_venafi as venafi
+
+        ssh_cert = venafi.SshCertificate("sshCert",
+            key_id="my-first-ssh-certificate",
+            key_passphrase="passw0rd",
+            key_size=3072,
+            principals=["seamus"],
+            public_key_method="local",
+            template="Sample SSH CA",
+            valid_hours=24)
+        ```
 
         :param str resource_name: The name of the resource.
         :param SshCertificateArgs args: The arguments to use to populate this resource's properties.
