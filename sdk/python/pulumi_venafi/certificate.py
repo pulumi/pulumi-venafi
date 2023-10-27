@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['CertificateArgs', 'Certificate']
@@ -66,124 +66,43 @@ class CertificateArgs:
         :param pulumi.Input[int] valid_days: Desired number of days for which the new
                certificate will be valid.
         """
-        CertificateArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            common_name=common_name,
-            algorithm=algorithm,
-            certificate_dn=certificate_dn,
-            csr_origin=csr_origin,
-            csr_pem=csr_pem,
-            custom_fields=custom_fields,
-            ecdsa_curve=ecdsa_curve,
-            expiration_window=expiration_window,
-            issuer_hint=issuer_hint,
-            key_password=key_password,
-            nickname=nickname,
-            pkcs12=pkcs12,
-            private_key_pem=private_key_pem,
-            rsa_bits=rsa_bits,
-            san_dns=san_dns,
-            san_emails=san_emails,
-            san_ips=san_ips,
-            san_uris=san_uris,
-            valid_days=valid_days,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             common_name: Optional[pulumi.Input[str]] = None,
-             algorithm: Optional[pulumi.Input[str]] = None,
-             certificate_dn: Optional[pulumi.Input[str]] = None,
-             csr_origin: Optional[pulumi.Input[str]] = None,
-             csr_pem: Optional[pulumi.Input[str]] = None,
-             custom_fields: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             ecdsa_curve: Optional[pulumi.Input[str]] = None,
-             expiration_window: Optional[pulumi.Input[int]] = None,
-             issuer_hint: Optional[pulumi.Input[str]] = None,
-             key_password: Optional[pulumi.Input[str]] = None,
-             nickname: Optional[pulumi.Input[str]] = None,
-             pkcs12: Optional[pulumi.Input[str]] = None,
-             private_key_pem: Optional[pulumi.Input[str]] = None,
-             rsa_bits: Optional[pulumi.Input[int]] = None,
-             san_dns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             san_emails: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             san_ips: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             san_uris: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             valid_days: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if common_name is None and 'commonName' in kwargs:
-            common_name = kwargs['commonName']
-        if common_name is None:
-            raise TypeError("Missing 'common_name' argument")
-        if certificate_dn is None and 'certificateDn' in kwargs:
-            certificate_dn = kwargs['certificateDn']
-        if csr_origin is None and 'csrOrigin' in kwargs:
-            csr_origin = kwargs['csrOrigin']
-        if csr_pem is None and 'csrPem' in kwargs:
-            csr_pem = kwargs['csrPem']
-        if custom_fields is None and 'customFields' in kwargs:
-            custom_fields = kwargs['customFields']
-        if ecdsa_curve is None and 'ecdsaCurve' in kwargs:
-            ecdsa_curve = kwargs['ecdsaCurve']
-        if expiration_window is None and 'expirationWindow' in kwargs:
-            expiration_window = kwargs['expirationWindow']
-        if issuer_hint is None and 'issuerHint' in kwargs:
-            issuer_hint = kwargs['issuerHint']
-        if key_password is None and 'keyPassword' in kwargs:
-            key_password = kwargs['keyPassword']
-        if private_key_pem is None and 'privateKeyPem' in kwargs:
-            private_key_pem = kwargs['privateKeyPem']
-        if rsa_bits is None and 'rsaBits' in kwargs:
-            rsa_bits = kwargs['rsaBits']
-        if san_dns is None and 'sanDns' in kwargs:
-            san_dns = kwargs['sanDns']
-        if san_emails is None and 'sanEmails' in kwargs:
-            san_emails = kwargs['sanEmails']
-        if san_ips is None and 'sanIps' in kwargs:
-            san_ips = kwargs['sanIps']
-        if san_uris is None and 'sanUris' in kwargs:
-            san_uris = kwargs['sanUris']
-        if valid_days is None and 'validDays' in kwargs:
-            valid_days = kwargs['validDays']
-
-        _setter("common_name", common_name)
+        pulumi.set(__self__, "common_name", common_name)
         if algorithm is not None:
-            _setter("algorithm", algorithm)
+            pulumi.set(__self__, "algorithm", algorithm)
         if certificate_dn is not None:
-            _setter("certificate_dn", certificate_dn)
+            pulumi.set(__self__, "certificate_dn", certificate_dn)
         if csr_origin is not None:
-            _setter("csr_origin", csr_origin)
+            pulumi.set(__self__, "csr_origin", csr_origin)
         if csr_pem is not None:
-            _setter("csr_pem", csr_pem)
+            pulumi.set(__self__, "csr_pem", csr_pem)
         if custom_fields is not None:
-            _setter("custom_fields", custom_fields)
+            pulumi.set(__self__, "custom_fields", custom_fields)
         if ecdsa_curve is not None:
-            _setter("ecdsa_curve", ecdsa_curve)
+            pulumi.set(__self__, "ecdsa_curve", ecdsa_curve)
         if expiration_window is not None:
-            _setter("expiration_window", expiration_window)
+            pulumi.set(__self__, "expiration_window", expiration_window)
         if issuer_hint is not None:
-            _setter("issuer_hint", issuer_hint)
+            pulumi.set(__self__, "issuer_hint", issuer_hint)
         if key_password is not None:
-            _setter("key_password", key_password)
+            pulumi.set(__self__, "key_password", key_password)
         if nickname is not None:
-            _setter("nickname", nickname)
+            pulumi.set(__self__, "nickname", nickname)
         if pkcs12 is not None:
-            _setter("pkcs12", pkcs12)
+            pulumi.set(__self__, "pkcs12", pkcs12)
         if private_key_pem is not None:
-            _setter("private_key_pem", private_key_pem)
+            pulumi.set(__self__, "private_key_pem", private_key_pem)
         if rsa_bits is not None:
-            _setter("rsa_bits", rsa_bits)
+            pulumi.set(__self__, "rsa_bits", rsa_bits)
         if san_dns is not None:
-            _setter("san_dns", san_dns)
+            pulumi.set(__self__, "san_dns", san_dns)
         if san_emails is not None:
-            _setter("san_emails", san_emails)
+            pulumi.set(__self__, "san_emails", san_emails)
         if san_ips is not None:
-            _setter("san_ips", san_ips)
+            pulumi.set(__self__, "san_ips", san_ips)
         if san_uris is not None:
-            _setter("san_uris", san_uris)
+            pulumi.set(__self__, "san_uris", san_uris)
         if valid_days is not None:
-            _setter("valid_days", valid_days)
+            pulumi.set(__self__, "valid_days", valid_days)
 
     @property
     @pulumi.getter(name="commonName")
@@ -481,131 +400,48 @@ class _CertificateState:
         :param pulumi.Input[int] valid_days: Desired number of days for which the new
                certificate will be valid.
         """
-        _CertificateState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            algorithm=algorithm,
-            certificate=certificate,
-            certificate_dn=certificate_dn,
-            chain=chain,
-            common_name=common_name,
-            csr_origin=csr_origin,
-            csr_pem=csr_pem,
-            custom_fields=custom_fields,
-            ecdsa_curve=ecdsa_curve,
-            expiration_window=expiration_window,
-            issuer_hint=issuer_hint,
-            key_password=key_password,
-            nickname=nickname,
-            pkcs12=pkcs12,
-            private_key_pem=private_key_pem,
-            rsa_bits=rsa_bits,
-            san_dns=san_dns,
-            san_emails=san_emails,
-            san_ips=san_ips,
-            san_uris=san_uris,
-            valid_days=valid_days,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             algorithm: Optional[pulumi.Input[str]] = None,
-             certificate: Optional[pulumi.Input[str]] = None,
-             certificate_dn: Optional[pulumi.Input[str]] = None,
-             chain: Optional[pulumi.Input[str]] = None,
-             common_name: Optional[pulumi.Input[str]] = None,
-             csr_origin: Optional[pulumi.Input[str]] = None,
-             csr_pem: Optional[pulumi.Input[str]] = None,
-             custom_fields: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             ecdsa_curve: Optional[pulumi.Input[str]] = None,
-             expiration_window: Optional[pulumi.Input[int]] = None,
-             issuer_hint: Optional[pulumi.Input[str]] = None,
-             key_password: Optional[pulumi.Input[str]] = None,
-             nickname: Optional[pulumi.Input[str]] = None,
-             pkcs12: Optional[pulumi.Input[str]] = None,
-             private_key_pem: Optional[pulumi.Input[str]] = None,
-             rsa_bits: Optional[pulumi.Input[int]] = None,
-             san_dns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             san_emails: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             san_ips: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             san_uris: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             valid_days: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if certificate_dn is None and 'certificateDn' in kwargs:
-            certificate_dn = kwargs['certificateDn']
-        if common_name is None and 'commonName' in kwargs:
-            common_name = kwargs['commonName']
-        if csr_origin is None and 'csrOrigin' in kwargs:
-            csr_origin = kwargs['csrOrigin']
-        if csr_pem is None and 'csrPem' in kwargs:
-            csr_pem = kwargs['csrPem']
-        if custom_fields is None and 'customFields' in kwargs:
-            custom_fields = kwargs['customFields']
-        if ecdsa_curve is None and 'ecdsaCurve' in kwargs:
-            ecdsa_curve = kwargs['ecdsaCurve']
-        if expiration_window is None and 'expirationWindow' in kwargs:
-            expiration_window = kwargs['expirationWindow']
-        if issuer_hint is None and 'issuerHint' in kwargs:
-            issuer_hint = kwargs['issuerHint']
-        if key_password is None and 'keyPassword' in kwargs:
-            key_password = kwargs['keyPassword']
-        if private_key_pem is None and 'privateKeyPem' in kwargs:
-            private_key_pem = kwargs['privateKeyPem']
-        if rsa_bits is None and 'rsaBits' in kwargs:
-            rsa_bits = kwargs['rsaBits']
-        if san_dns is None and 'sanDns' in kwargs:
-            san_dns = kwargs['sanDns']
-        if san_emails is None and 'sanEmails' in kwargs:
-            san_emails = kwargs['sanEmails']
-        if san_ips is None and 'sanIps' in kwargs:
-            san_ips = kwargs['sanIps']
-        if san_uris is None and 'sanUris' in kwargs:
-            san_uris = kwargs['sanUris']
-        if valid_days is None and 'validDays' in kwargs:
-            valid_days = kwargs['validDays']
-
         if algorithm is not None:
-            _setter("algorithm", algorithm)
+            pulumi.set(__self__, "algorithm", algorithm)
         if certificate is not None:
-            _setter("certificate", certificate)
+            pulumi.set(__self__, "certificate", certificate)
         if certificate_dn is not None:
-            _setter("certificate_dn", certificate_dn)
+            pulumi.set(__self__, "certificate_dn", certificate_dn)
         if chain is not None:
-            _setter("chain", chain)
+            pulumi.set(__self__, "chain", chain)
         if common_name is not None:
-            _setter("common_name", common_name)
+            pulumi.set(__self__, "common_name", common_name)
         if csr_origin is not None:
-            _setter("csr_origin", csr_origin)
+            pulumi.set(__self__, "csr_origin", csr_origin)
         if csr_pem is not None:
-            _setter("csr_pem", csr_pem)
+            pulumi.set(__self__, "csr_pem", csr_pem)
         if custom_fields is not None:
-            _setter("custom_fields", custom_fields)
+            pulumi.set(__self__, "custom_fields", custom_fields)
         if ecdsa_curve is not None:
-            _setter("ecdsa_curve", ecdsa_curve)
+            pulumi.set(__self__, "ecdsa_curve", ecdsa_curve)
         if expiration_window is not None:
-            _setter("expiration_window", expiration_window)
+            pulumi.set(__self__, "expiration_window", expiration_window)
         if issuer_hint is not None:
-            _setter("issuer_hint", issuer_hint)
+            pulumi.set(__self__, "issuer_hint", issuer_hint)
         if key_password is not None:
-            _setter("key_password", key_password)
+            pulumi.set(__self__, "key_password", key_password)
         if nickname is not None:
-            _setter("nickname", nickname)
+            pulumi.set(__self__, "nickname", nickname)
         if pkcs12 is not None:
-            _setter("pkcs12", pkcs12)
+            pulumi.set(__self__, "pkcs12", pkcs12)
         if private_key_pem is not None:
-            _setter("private_key_pem", private_key_pem)
+            pulumi.set(__self__, "private_key_pem", private_key_pem)
         if rsa_bits is not None:
-            _setter("rsa_bits", rsa_bits)
+            pulumi.set(__self__, "rsa_bits", rsa_bits)
         if san_dns is not None:
-            _setter("san_dns", san_dns)
+            pulumi.set(__self__, "san_dns", san_dns)
         if san_emails is not None:
-            _setter("san_emails", san_emails)
+            pulumi.set(__self__, "san_emails", san_emails)
         if san_ips is not None:
-            _setter("san_ips", san_ips)
+            pulumi.set(__self__, "san_ips", san_ips)
         if san_uris is not None:
-            _setter("san_uris", san_uris)
+            pulumi.set(__self__, "san_uris", san_uris)
         if valid_days is not None:
-            _setter("valid_days", valid_days)
+            pulumi.set(__self__, "valid_days", valid_days)
 
     @property
     @pulumi.getter
@@ -946,10 +782,6 @@ class Certificate(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            CertificateArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

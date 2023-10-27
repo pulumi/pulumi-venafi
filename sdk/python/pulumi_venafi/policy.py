@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['PolicyArgs', 'Policy']
@@ -24,25 +24,10 @@ class PolicyArgs:
         :param pulumi.Input[str] zone: The *Trust Protection Plaform* policy folder or
                *Venafi as a Service* application and issuing template.
         """
-        PolicyArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            policy_specification=policy_specification,
-            zone=zone,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             policy_specification: Optional[pulumi.Input[str]] = None,
-             zone: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if policy_specification is None and 'policySpecification' in kwargs:
-            policy_specification = kwargs['policySpecification']
-
         if policy_specification is not None:
-            _setter("policy_specification", policy_specification)
+            pulumi.set(__self__, "policy_specification", policy_specification)
         if zone is not None:
-            _setter("zone", zone)
+            pulumi.set(__self__, "zone", zone)
 
     @property
     @pulumi.getter(name="policySpecification")
@@ -85,25 +70,10 @@ class _PolicyState:
         :param pulumi.Input[str] zone: The *Trust Protection Plaform* policy folder or
                *Venafi as a Service* application and issuing template.
         """
-        _PolicyState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            policy_specification=policy_specification,
-            zone=zone,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             policy_specification: Optional[pulumi.Input[str]] = None,
-             zone: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if policy_specification is None and 'policySpecification' in kwargs:
-            policy_specification = kwargs['policySpecification']
-
         if policy_specification is not None:
-            _setter("policy_specification", policy_specification)
+            pulumi.set(__self__, "policy_specification", policy_specification)
         if zone is not None:
-            _setter("zone", zone)
+            pulumi.set(__self__, "zone", zone)
 
     @property
     @pulumi.getter(name="policySpecification")
@@ -217,10 +187,6 @@ class Policy(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            PolicyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
