@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['ProviderArgs', 'Provider']
@@ -43,83 +43,34 @@ class ProviderArgs:
         :param pulumi.Input[str] zone: DN of the Venafi TLSPDC policy folder or name of the Venafi as a Service application plus issuing template alias.
                Example for Platform: testPolicy\\\\vault Example for Venafi as a Service: myApp\\\\Default
         """
-        ProviderArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            access_token=access_token,
-            api_key=api_key,
-            client_id=client_id,
-            dev_mode=dev_mode,
-            p12_cert_filename=p12_cert_filename,
-            p12_cert_password=p12_cert_password,
-            tpp_password=tpp_password,
-            tpp_username=tpp_username,
-            trust_bundle=trust_bundle,
-            url=url,
-            zone=zone,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             access_token: Optional[pulumi.Input[str]] = None,
-             api_key: Optional[pulumi.Input[str]] = None,
-             client_id: Optional[pulumi.Input[str]] = None,
-             dev_mode: Optional[pulumi.Input[bool]] = None,
-             p12_cert_filename: Optional[pulumi.Input[str]] = None,
-             p12_cert_password: Optional[pulumi.Input[str]] = None,
-             tpp_password: Optional[pulumi.Input[str]] = None,
-             tpp_username: Optional[pulumi.Input[str]] = None,
-             trust_bundle: Optional[pulumi.Input[str]] = None,
-             url: Optional[pulumi.Input[str]] = None,
-             zone: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if access_token is None and 'accessToken' in kwargs:
-            access_token = kwargs['accessToken']
-        if api_key is None and 'apiKey' in kwargs:
-            api_key = kwargs['apiKey']
-        if client_id is None and 'clientId' in kwargs:
-            client_id = kwargs['clientId']
-        if dev_mode is None and 'devMode' in kwargs:
-            dev_mode = kwargs['devMode']
-        if p12_cert_filename is None and 'p12CertFilename' in kwargs:
-            p12_cert_filename = kwargs['p12CertFilename']
-        if p12_cert_password is None and 'p12CertPassword' in kwargs:
-            p12_cert_password = kwargs['p12CertPassword']
-        if tpp_password is None and 'tppPassword' in kwargs:
-            tpp_password = kwargs['tppPassword']
-        if tpp_username is None and 'tppUsername' in kwargs:
-            tpp_username = kwargs['tppUsername']
-        if trust_bundle is None and 'trustBundle' in kwargs:
-            trust_bundle = kwargs['trustBundle']
-
         if access_token is not None:
-            _setter("access_token", access_token)
+            pulumi.set(__self__, "access_token", access_token)
         if api_key is not None:
-            _setter("api_key", api_key)
+            pulumi.set(__self__, "api_key", api_key)
         if client_id is not None:
-            _setter("client_id", client_id)
+            pulumi.set(__self__, "client_id", client_id)
         if dev_mode is not None:
-            _setter("dev_mode", dev_mode)
+            pulumi.set(__self__, "dev_mode", dev_mode)
         if p12_cert_filename is not None:
-            _setter("p12_cert_filename", p12_cert_filename)
+            pulumi.set(__self__, "p12_cert_filename", p12_cert_filename)
         if p12_cert_password is not None:
-            _setter("p12_cert_password", p12_cert_password)
+            pulumi.set(__self__, "p12_cert_password", p12_cert_password)
         if tpp_password is not None:
             warnings.warn(""", please use access_token instead""", DeprecationWarning)
             pulumi.log.warn("""tpp_password is deprecated: , please use access_token instead""")
         if tpp_password is not None:
-            _setter("tpp_password", tpp_password)
+            pulumi.set(__self__, "tpp_password", tpp_password)
         if tpp_username is not None:
             warnings.warn(""", please use access_token instead""", DeprecationWarning)
             pulumi.log.warn("""tpp_username is deprecated: , please use access_token instead""")
         if tpp_username is not None:
-            _setter("tpp_username", tpp_username)
+            pulumi.set(__self__, "tpp_username", tpp_username)
         if trust_bundle is not None:
-            _setter("trust_bundle", trust_bundle)
+            pulumi.set(__self__, "trust_bundle", trust_bundle)
         if url is not None:
-            _setter("url", url)
+            pulumi.set(__self__, "url", url)
         if zone is not None:
-            _setter("zone", zone)
+            pulumi.set(__self__, "zone", zone)
 
     @property
     @pulumi.getter(name="accessToken")
@@ -327,10 +278,6 @@ class Provider(pulumi.ProviderResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ProviderArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

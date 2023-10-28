@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['SshCertificateArgs', 'SshCertificate']
@@ -49,104 +49,39 @@ class SshCertificateArgs:
         :param pulumi.Input[int] valid_hours: Desired number of hours for which the certificate will be valid.
         :param pulumi.Input[bool] windows: Specifies whether the private key will use Windows/DOS style line breaks.
         """
-        SshCertificateArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key_id=key_id,
-            template=template,
-            destination_addresses=destination_addresses,
-            extensions=extensions,
-            folder=folder,
-            force_command=force_command,
-            key_passphrase=key_passphrase,
-            key_size=key_size,
-            object_name=object_name,
-            principal=principal,
-            principals=principals,
-            public_key=public_key,
-            public_key_method=public_key_method,
-            source_addresses=source_addresses,
-            valid_hours=valid_hours,
-            windows=windows,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key_id: Optional[pulumi.Input[str]] = None,
-             template: Optional[pulumi.Input[str]] = None,
-             destination_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             extensions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             folder: Optional[pulumi.Input[str]] = None,
-             force_command: Optional[pulumi.Input[str]] = None,
-             key_passphrase: Optional[pulumi.Input[str]] = None,
-             key_size: Optional[pulumi.Input[int]] = None,
-             object_name: Optional[pulumi.Input[str]] = None,
-             principal: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             principals: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             public_key: Optional[pulumi.Input[str]] = None,
-             public_key_method: Optional[pulumi.Input[str]] = None,
-             source_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             valid_hours: Optional[pulumi.Input[int]] = None,
-             windows: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if key_id is None and 'keyId' in kwargs:
-            key_id = kwargs['keyId']
-        if key_id is None:
-            raise TypeError("Missing 'key_id' argument")
-        if template is None:
-            raise TypeError("Missing 'template' argument")
-        if destination_addresses is None and 'destinationAddresses' in kwargs:
-            destination_addresses = kwargs['destinationAddresses']
-        if force_command is None and 'forceCommand' in kwargs:
-            force_command = kwargs['forceCommand']
-        if key_passphrase is None and 'keyPassphrase' in kwargs:
-            key_passphrase = kwargs['keyPassphrase']
-        if key_size is None and 'keySize' in kwargs:
-            key_size = kwargs['keySize']
-        if object_name is None and 'objectName' in kwargs:
-            object_name = kwargs['objectName']
-        if public_key is None and 'publicKey' in kwargs:
-            public_key = kwargs['publicKey']
-        if public_key_method is None and 'publicKeyMethod' in kwargs:
-            public_key_method = kwargs['publicKeyMethod']
-        if source_addresses is None and 'sourceAddresses' in kwargs:
-            source_addresses = kwargs['sourceAddresses']
-        if valid_hours is None and 'validHours' in kwargs:
-            valid_hours = kwargs['validHours']
-
-        _setter("key_id", key_id)
-        _setter("template", template)
+        pulumi.set(__self__, "key_id", key_id)
+        pulumi.set(__self__, "template", template)
         if destination_addresses is not None:
-            _setter("destination_addresses", destination_addresses)
+            pulumi.set(__self__, "destination_addresses", destination_addresses)
         if extensions is not None:
-            _setter("extensions", extensions)
+            pulumi.set(__self__, "extensions", extensions)
         if folder is not None:
-            _setter("folder", folder)
+            pulumi.set(__self__, "folder", folder)
         if force_command is not None:
-            _setter("force_command", force_command)
+            pulumi.set(__self__, "force_command", force_command)
         if key_passphrase is not None:
-            _setter("key_passphrase", key_passphrase)
+            pulumi.set(__self__, "key_passphrase", key_passphrase)
         if key_size is not None:
-            _setter("key_size", key_size)
+            pulumi.set(__self__, "key_size", key_size)
         if object_name is not None:
-            _setter("object_name", object_name)
+            pulumi.set(__self__, "object_name", object_name)
         if principal is not None:
             warnings.warn("""This will be removed in the future. Use \"principals\" instead""", DeprecationWarning)
             pulumi.log.warn("""principal is deprecated: This will be removed in the future. Use \"principals\" instead""")
         if principal is not None:
-            _setter("principal", principal)
+            pulumi.set(__self__, "principal", principal)
         if principals is not None:
-            _setter("principals", principals)
+            pulumi.set(__self__, "principals", principals)
         if public_key is not None:
-            _setter("public_key", public_key)
+            pulumi.set(__self__, "public_key", public_key)
         if public_key_method is not None:
-            _setter("public_key_method", public_key_method)
+            pulumi.set(__self__, "public_key_method", public_key_method)
         if source_addresses is not None:
-            _setter("source_addresses", source_addresses)
+            pulumi.set(__self__, "source_addresses", source_addresses)
         if valid_hours is not None:
-            _setter("valid_hours", valid_hours)
+            pulumi.set(__self__, "valid_hours", valid_hours)
         if windows is not None:
-            _setter("windows", windows)
+            pulumi.set(__self__, "windows", windows)
 
     @property
     @pulumi.getter(name="keyId")
@@ -398,146 +333,57 @@ class _SshCertificateState:
         :param pulumi.Input[str] valid_to: The date the SSH certificate will expire.
         :param pulumi.Input[bool] windows: Specifies whether the private key will use Windows/DOS style line breaks.
         """
-        _SshCertificateState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            certificate=certificate,
-            certificate_type=certificate_type,
-            destination_addresses=destination_addresses,
-            extensions=extensions,
-            folder=folder,
-            force_command=force_command,
-            key_id=key_id,
-            key_passphrase=key_passphrase,
-            key_size=key_size,
-            object_name=object_name,
-            principal=principal,
-            principals=principals,
-            private_key=private_key,
-            public_key=public_key,
-            public_key_fingerprint=public_key_fingerprint,
-            public_key_method=public_key_method,
-            serial=serial,
-            signing_ca=signing_ca,
-            source_addresses=source_addresses,
-            template=template,
-            valid_from=valid_from,
-            valid_hours=valid_hours,
-            valid_to=valid_to,
-            windows=windows,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             certificate: Optional[pulumi.Input[str]] = None,
-             certificate_type: Optional[pulumi.Input[str]] = None,
-             destination_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             extensions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             folder: Optional[pulumi.Input[str]] = None,
-             force_command: Optional[pulumi.Input[str]] = None,
-             key_id: Optional[pulumi.Input[str]] = None,
-             key_passphrase: Optional[pulumi.Input[str]] = None,
-             key_size: Optional[pulumi.Input[int]] = None,
-             object_name: Optional[pulumi.Input[str]] = None,
-             principal: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             principals: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             private_key: Optional[pulumi.Input[str]] = None,
-             public_key: Optional[pulumi.Input[str]] = None,
-             public_key_fingerprint: Optional[pulumi.Input[str]] = None,
-             public_key_method: Optional[pulumi.Input[str]] = None,
-             serial: Optional[pulumi.Input[str]] = None,
-             signing_ca: Optional[pulumi.Input[str]] = None,
-             source_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             template: Optional[pulumi.Input[str]] = None,
-             valid_from: Optional[pulumi.Input[str]] = None,
-             valid_hours: Optional[pulumi.Input[int]] = None,
-             valid_to: Optional[pulumi.Input[str]] = None,
-             windows: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if certificate_type is None and 'certificateType' in kwargs:
-            certificate_type = kwargs['certificateType']
-        if destination_addresses is None and 'destinationAddresses' in kwargs:
-            destination_addresses = kwargs['destinationAddresses']
-        if force_command is None and 'forceCommand' in kwargs:
-            force_command = kwargs['forceCommand']
-        if key_id is None and 'keyId' in kwargs:
-            key_id = kwargs['keyId']
-        if key_passphrase is None and 'keyPassphrase' in kwargs:
-            key_passphrase = kwargs['keyPassphrase']
-        if key_size is None and 'keySize' in kwargs:
-            key_size = kwargs['keySize']
-        if object_name is None and 'objectName' in kwargs:
-            object_name = kwargs['objectName']
-        if private_key is None and 'privateKey' in kwargs:
-            private_key = kwargs['privateKey']
-        if public_key is None and 'publicKey' in kwargs:
-            public_key = kwargs['publicKey']
-        if public_key_fingerprint is None and 'publicKeyFingerprint' in kwargs:
-            public_key_fingerprint = kwargs['publicKeyFingerprint']
-        if public_key_method is None and 'publicKeyMethod' in kwargs:
-            public_key_method = kwargs['publicKeyMethod']
-        if signing_ca is None and 'signingCa' in kwargs:
-            signing_ca = kwargs['signingCa']
-        if source_addresses is None and 'sourceAddresses' in kwargs:
-            source_addresses = kwargs['sourceAddresses']
-        if valid_from is None and 'validFrom' in kwargs:
-            valid_from = kwargs['validFrom']
-        if valid_hours is None and 'validHours' in kwargs:
-            valid_hours = kwargs['validHours']
-        if valid_to is None and 'validTo' in kwargs:
-            valid_to = kwargs['validTo']
-
         if certificate is not None:
-            _setter("certificate", certificate)
+            pulumi.set(__self__, "certificate", certificate)
         if certificate_type is not None:
-            _setter("certificate_type", certificate_type)
+            pulumi.set(__self__, "certificate_type", certificate_type)
         if destination_addresses is not None:
-            _setter("destination_addresses", destination_addresses)
+            pulumi.set(__self__, "destination_addresses", destination_addresses)
         if extensions is not None:
-            _setter("extensions", extensions)
+            pulumi.set(__self__, "extensions", extensions)
         if folder is not None:
-            _setter("folder", folder)
+            pulumi.set(__self__, "folder", folder)
         if force_command is not None:
-            _setter("force_command", force_command)
+            pulumi.set(__self__, "force_command", force_command)
         if key_id is not None:
-            _setter("key_id", key_id)
+            pulumi.set(__self__, "key_id", key_id)
         if key_passphrase is not None:
-            _setter("key_passphrase", key_passphrase)
+            pulumi.set(__self__, "key_passphrase", key_passphrase)
         if key_size is not None:
-            _setter("key_size", key_size)
+            pulumi.set(__self__, "key_size", key_size)
         if object_name is not None:
-            _setter("object_name", object_name)
+            pulumi.set(__self__, "object_name", object_name)
         if principal is not None:
             warnings.warn("""This will be removed in the future. Use \"principals\" instead""", DeprecationWarning)
             pulumi.log.warn("""principal is deprecated: This will be removed in the future. Use \"principals\" instead""")
         if principal is not None:
-            _setter("principal", principal)
+            pulumi.set(__self__, "principal", principal)
         if principals is not None:
-            _setter("principals", principals)
+            pulumi.set(__self__, "principals", principals)
         if private_key is not None:
-            _setter("private_key", private_key)
+            pulumi.set(__self__, "private_key", private_key)
         if public_key is not None:
-            _setter("public_key", public_key)
+            pulumi.set(__self__, "public_key", public_key)
         if public_key_fingerprint is not None:
-            _setter("public_key_fingerprint", public_key_fingerprint)
+            pulumi.set(__self__, "public_key_fingerprint", public_key_fingerprint)
         if public_key_method is not None:
-            _setter("public_key_method", public_key_method)
+            pulumi.set(__self__, "public_key_method", public_key_method)
         if serial is not None:
-            _setter("serial", serial)
+            pulumi.set(__self__, "serial", serial)
         if signing_ca is not None:
-            _setter("signing_ca", signing_ca)
+            pulumi.set(__self__, "signing_ca", signing_ca)
         if source_addresses is not None:
-            _setter("source_addresses", source_addresses)
+            pulumi.set(__self__, "source_addresses", source_addresses)
         if template is not None:
-            _setter("template", template)
+            pulumi.set(__self__, "template", template)
         if valid_from is not None:
-            _setter("valid_from", valid_from)
+            pulumi.set(__self__, "valid_from", valid_from)
         if valid_hours is not None:
-            _setter("valid_hours", valid_hours)
+            pulumi.set(__self__, "valid_hours", valid_hours)
         if valid_to is not None:
-            _setter("valid_to", valid_to)
+            pulumi.set(__self__, "valid_to", valid_to)
         if windows is not None:
-            _setter("windows", windows)
+            pulumi.set(__self__, "windows", windows)
 
     @property
     @pulumi.getter
@@ -926,10 +772,6 @@ class SshCertificate(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            SshCertificateArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
