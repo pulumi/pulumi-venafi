@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['SshConfigArgs', 'SshConfig']
@@ -19,7 +19,20 @@ class SshConfigArgs:
         The set of arguments for constructing a SshConfig resource.
         :param pulumi.Input[str] template: The SSH certificate issuing template.
         """
-        pulumi.set(__self__, "template", template)
+        SshConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            template=template,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             template: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if template is None:
+            raise TypeError("Missing 'template' argument")
+
+        _setter("template", template)
 
     @property
     @pulumi.getter
@@ -46,12 +59,29 @@ class _SshConfigState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] principals: (Optional, set of strings) A list of user names exported from the template.
         :param pulumi.Input[str] template: The SSH certificate issuing template.
         """
+        _SshConfigState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ca_public_key=ca_public_key,
+            principals=principals,
+            template=template,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ca_public_key: Optional[pulumi.Input[str]] = None,
+             principals: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             template: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if ca_public_key is None and 'caPublicKey' in kwargs:
+            ca_public_key = kwargs['caPublicKey']
+
         if ca_public_key is not None:
-            pulumi.set(__self__, "ca_public_key", ca_public_key)
+            _setter("ca_public_key", ca_public_key)
         if principals is not None:
-            pulumi.set(__self__, "principals", principals)
+            _setter("principals", principals)
         if template is not None:
-            pulumi.set(__self__, "template", template)
+            _setter("template", template)
 
     @property
     @pulumi.getter(name="caPublicKey")
@@ -141,6 +171,10 @@ class SshConfig(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SshConfigArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
