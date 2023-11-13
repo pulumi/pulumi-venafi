@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-venafi/sdk/go/venafi/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides access to retrieve configuration from SSH certificate issuance template from *Venafi Trust Protection Platform*.
@@ -139,12 +138,6 @@ func (i *SshConfig) ToSshConfigOutputWithContext(ctx context.Context) SshConfigO
 	return pulumi.ToOutputWithContext(ctx, i).(SshConfigOutput)
 }
 
-func (i *SshConfig) ToOutput(ctx context.Context) pulumix.Output[*SshConfig] {
-	return pulumix.Output[*SshConfig]{
-		OutputState: i.ToSshConfigOutputWithContext(ctx).OutputState,
-	}
-}
-
 // SshConfigArrayInput is an input type that accepts SshConfigArray and SshConfigArrayOutput values.
 // You can construct a concrete instance of `SshConfigArrayInput` via:
 //
@@ -168,12 +161,6 @@ func (i SshConfigArray) ToSshConfigArrayOutput() SshConfigArrayOutput {
 
 func (i SshConfigArray) ToSshConfigArrayOutputWithContext(ctx context.Context) SshConfigArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SshConfigArrayOutput)
-}
-
-func (i SshConfigArray) ToOutput(ctx context.Context) pulumix.Output[[]*SshConfig] {
-	return pulumix.Output[[]*SshConfig]{
-		OutputState: i.ToSshConfigArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // SshConfigMapInput is an input type that accepts SshConfigMap and SshConfigMapOutput values.
@@ -201,12 +188,6 @@ func (i SshConfigMap) ToSshConfigMapOutputWithContext(ctx context.Context) SshCo
 	return pulumi.ToOutputWithContext(ctx, i).(SshConfigMapOutput)
 }
 
-func (i SshConfigMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*SshConfig] {
-	return pulumix.Output[map[string]*SshConfig]{
-		OutputState: i.ToSshConfigMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SshConfigOutput struct{ *pulumi.OutputState }
 
 func (SshConfigOutput) ElementType() reflect.Type {
@@ -219,12 +200,6 @@ func (o SshConfigOutput) ToSshConfigOutput() SshConfigOutput {
 
 func (o SshConfigOutput) ToSshConfigOutputWithContext(ctx context.Context) SshConfigOutput {
 	return o
-}
-
-func (o SshConfigOutput) ToOutput(ctx context.Context) pulumix.Output[*SshConfig] {
-	return pulumix.Output[*SshConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 // (Optional, string) The template's CA public key.
@@ -256,12 +231,6 @@ func (o SshConfigArrayOutput) ToSshConfigArrayOutputWithContext(ctx context.Cont
 	return o
 }
 
-func (o SshConfigArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*SshConfig] {
-	return pulumix.Output[[]*SshConfig]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o SshConfigArrayOutput) Index(i pulumi.IntInput) SshConfigOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SshConfig {
 		return vs[0].([]*SshConfig)[vs[1].(int)]
@@ -280,12 +249,6 @@ func (o SshConfigMapOutput) ToSshConfigMapOutput() SshConfigMapOutput {
 
 func (o SshConfigMapOutput) ToSshConfigMapOutputWithContext(ctx context.Context) SshConfigMapOutput {
 	return o
-}
-
-func (o SshConfigMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*SshConfig] {
-	return pulumix.Output[map[string]*SshConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SshConfigMapOutput) MapIndex(k pulumi.StringInput) SshConfigOutput {
