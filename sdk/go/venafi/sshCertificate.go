@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-venafi/sdk/go/venafi/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides access to request and retrieve SSH certificates from *Venafi Trust Protection Platform*.
@@ -353,12 +352,6 @@ func (i *SshCertificate) ToSshCertificateOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(SshCertificateOutput)
 }
 
-func (i *SshCertificate) ToOutput(ctx context.Context) pulumix.Output[*SshCertificate] {
-	return pulumix.Output[*SshCertificate]{
-		OutputState: i.ToSshCertificateOutputWithContext(ctx).OutputState,
-	}
-}
-
 // SshCertificateArrayInput is an input type that accepts SshCertificateArray and SshCertificateArrayOutput values.
 // You can construct a concrete instance of `SshCertificateArrayInput` via:
 //
@@ -382,12 +375,6 @@ func (i SshCertificateArray) ToSshCertificateArrayOutput() SshCertificateArrayOu
 
 func (i SshCertificateArray) ToSshCertificateArrayOutputWithContext(ctx context.Context) SshCertificateArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SshCertificateArrayOutput)
-}
-
-func (i SshCertificateArray) ToOutput(ctx context.Context) pulumix.Output[[]*SshCertificate] {
-	return pulumix.Output[[]*SshCertificate]{
-		OutputState: i.ToSshCertificateArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // SshCertificateMapInput is an input type that accepts SshCertificateMap and SshCertificateMapOutput values.
@@ -415,12 +402,6 @@ func (i SshCertificateMap) ToSshCertificateMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(SshCertificateMapOutput)
 }
 
-func (i SshCertificateMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*SshCertificate] {
-	return pulumix.Output[map[string]*SshCertificate]{
-		OutputState: i.ToSshCertificateMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SshCertificateOutput struct{ *pulumi.OutputState }
 
 func (SshCertificateOutput) ElementType() reflect.Type {
@@ -433,12 +414,6 @@ func (o SshCertificateOutput) ToSshCertificateOutput() SshCertificateOutput {
 
 func (o SshCertificateOutput) ToSshCertificateOutputWithContext(ctx context.Context) SshCertificateOutput {
 	return o
-}
-
-func (o SshCertificateOutput) ToOutput(ctx context.Context) pulumix.Output[*SshCertificate] {
-	return pulumix.Output[*SshCertificate]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The issued SSH certificate.
@@ -577,12 +552,6 @@ func (o SshCertificateArrayOutput) ToSshCertificateArrayOutputWithContext(ctx co
 	return o
 }
 
-func (o SshCertificateArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*SshCertificate] {
-	return pulumix.Output[[]*SshCertificate]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o SshCertificateArrayOutput) Index(i pulumi.IntInput) SshCertificateOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SshCertificate {
 		return vs[0].([]*SshCertificate)[vs[1].(int)]
@@ -601,12 +570,6 @@ func (o SshCertificateMapOutput) ToSshCertificateMapOutput() SshCertificateMapOu
 
 func (o SshCertificateMapOutput) ToSshCertificateMapOutputWithContext(ctx context.Context) SshCertificateMapOutput {
 	return o
-}
-
-func (o SshCertificateMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*SshCertificate] {
-	return pulumix.Output[map[string]*SshCertificate]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SshCertificateMapOutput) MapIndex(k pulumi.StringInput) SshCertificateOutput {
