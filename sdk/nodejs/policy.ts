@@ -18,7 +18,7 @@ import * as utilities from "./utilities";
  *
  * const internalPolicy = new venafi.Policy("internalPolicy", {
  *     zone: "My Business App\\Enterprise Trusted Certs",
- *     policySpecification: fs.readFileSync("/path-to/internal-policy.json"),
+ *     policySpecification: fs.readFileSync("/path-to/internal-policy.json", "utf8"),
  * });
  * ```
  *
