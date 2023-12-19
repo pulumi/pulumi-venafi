@@ -51,6 +51,7 @@
             }
         }
     },
+    "auto-settings": {},
     "renames": {
         "resources": {
             "venafi:index/certificate:Certificate": "venafi_certificate",
