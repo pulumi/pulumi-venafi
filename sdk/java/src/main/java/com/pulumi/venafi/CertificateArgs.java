@@ -5,6 +5,7 @@ package com.pulumi.venafi;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -801,7 +802,9 @@ public final class CertificateArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public CertificateArgs build() {
-            $.commonName = Objects.requireNonNull($.commonName, "expected parameter 'commonName' to be non-null");
+            if ($.commonName == null) {
+                throw new MissingRequiredPropertyException("CertificateArgs", "commonName");
+            }
             return $;
         }
     }
