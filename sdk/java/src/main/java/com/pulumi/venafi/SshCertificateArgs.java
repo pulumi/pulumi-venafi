@@ -5,6 +5,7 @@ package com.pulumi.venafi;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -704,8 +705,12 @@ public final class SshCertificateArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         public SshCertificateArgs build() {
-            $.keyId = Objects.requireNonNull($.keyId, "expected parameter 'keyId' to be non-null");
-            $.template = Objects.requireNonNull($.template, "expected parameter 'template' to be non-null");
+            if ($.keyId == null) {
+                throw new MissingRequiredPropertyException("SshCertificateArgs", "keyId");
+            }
+            if ($.template == null) {
+                throw new MissingRequiredPropertyException("SshCertificateArgs", "template");
+            }
             return $;
         }
     }
