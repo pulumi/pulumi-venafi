@@ -18,17 +18,20 @@ import (
 	"fmt"
 	"path/filepath"
 	"unicode"
+
 	// embed is used to store bridge-metadata.json in the compiled binary
 	_ "embed"
 
 	"github.com/Venafi/terraform-provider-venafi/venafi"
+
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
 	tfbridgetokens "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge/tokens"
 	shim "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfshim"
 	shimv2 "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfshim/sdk-v2"
-	"github.com/pulumi/pulumi-venafi/provider/pkg/version"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/tokens"
+
+	"github.com/pulumi/pulumi-venafi/provider/pkg/version"
 )
 
 // all of the token components used below.
