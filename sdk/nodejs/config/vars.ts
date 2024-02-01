@@ -99,7 +99,7 @@ Object.defineProperty(exports, "tppUsername", {
 
 /**
  * Use to specify a PEM-formatted file that contains certificates to be trust anchors for all communications with the
- * Venafi Web Service. Example: trust_bundle = "${file("chain.pem")}"
+ * Venafi Web Service. Example: trustBundle = "${file("chain.pem")}"
  */
 export declare const trustBundle: string | undefined;
 Object.defineProperty(exports, "trustBundle", {
