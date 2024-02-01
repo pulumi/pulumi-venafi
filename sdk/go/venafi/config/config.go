@@ -58,7 +58,7 @@ func GetTppUsername(ctx *pulumi.Context) string {
 }
 
 // Use to specify a PEM-formatted file that contains certificates to be trust anchors for all communications with the
-// Venafi Web Service. Example: trust_bundle = "${file("chain.pem")}"
+// Venafi Web Service. Example: trustBundle = "${file("chain.pem")}"
 func GetTrustBundle(ctx *pulumi.Context) string {
 	return config.Get(ctx, "venafi:trustBundle")
 }
