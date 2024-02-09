@@ -129,12 +129,26 @@ class Policy(pulumi.CustomResource):
 
         ## Import
 
-        The `venafi_policy` resource supports the Terraform import method.
+        The `venafi_policy` resource supports the Terraform import
 
-        When used, the `zone` and `policy_specification` resource arguments are not required since the zone is a required parameter of the import method and the policy specification is populated from the existing infrastructure. Policy that is successfully imported is also output to a file named after the zone that was specified. hcl resource "venafi_policy" "existing_policy" {}
+         method.
+
+        When used, the `zone` and `policy_specification` resource arguments
+
+         are not required since the zone is a required parameter of the import method
+
+         and the policy specification is populated from the existing infrastructure.
+
+         Policy that is successfully imported is also output to a file named after the
+
+         zone that was specified.
+
+         hcl
+
+         resource "venafi_policy" "existing_policy" {}
 
         ```sh
-         $ pulumi import venafi:index/policy:Policy existing_policy" "My Business App\\\\Enterprise Trusted Certs"
+        $ pulumi import venafi:index/policy:Policy existing_policy" "My Business App\\\\Enterprise Trusted Certs"
         ```
 
         :param str resource_name: The name of the resource.
@@ -169,12 +183,26 @@ class Policy(pulumi.CustomResource):
 
         ## Import
 
-        The `venafi_policy` resource supports the Terraform import method.
+        The `venafi_policy` resource supports the Terraform import
 
-        When used, the `zone` and `policy_specification` resource arguments are not required since the zone is a required parameter of the import method and the policy specification is populated from the existing infrastructure. Policy that is successfully imported is also output to a file named after the zone that was specified. hcl resource "venafi_policy" "existing_policy" {}
+         method.
+
+        When used, the `zone` and `policy_specification` resource arguments
+
+         are not required since the zone is a required parameter of the import method
+
+         and the policy specification is populated from the existing infrastructure.
+
+         Policy that is successfully imported is also output to a file named after the
+
+         zone that was specified.
+
+         hcl
+
+         resource "venafi_policy" "existing_policy" {}
 
         ```sh
-         $ pulumi import venafi:index/policy:Policy existing_policy" "My Business App\\\\Enterprise Trusted Certs"
+        $ pulumi import venafi:index/policy:Policy existing_policy" "My Business App\\\\Enterprise Trusted Certs"
         ```
 
         :param str resource_name: The name of the resource.
