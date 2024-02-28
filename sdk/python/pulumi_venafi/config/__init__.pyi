@@ -41,6 +41,8 @@ p12CertPassword: Optional[str]
 Password for the PKCS#12 keystore declared in p12_cert
 """
 
+skipRetirement: Optional[bool]
+
 tppPassword: Optional[str]
 """
 Password for WebSDK user. Example: password

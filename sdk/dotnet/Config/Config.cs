@@ -94,6 +94,13 @@ namespace Pulumi.Venafi
             set => _p12CertPassword.Set(value);
         }
 
+        private static readonly __Value<bool?> _skipRetirement = new __Value<bool?>(() => __config.GetBoolean("skipRetirement"));
+        public static bool? SkipRetirement
+        {
+            get => _skipRetirement.Get();
+            set => _skipRetirement.Set(value);
+        }
+
         private static readonly __Value<string?> _tppPassword = new __Value<string?>(() => __config.Get("tppPassword"));
         /// <summary>
         /// Password for WebSDK user. Example: password

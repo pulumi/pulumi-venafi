@@ -111,6 +111,21 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * When true, certificates will not be retired on Venafi platforms when terraform destroy is run. Default is false.
+     * 
+     */
+    @Import(name="skipRetirement", json=true)
+    private @Nullable Output<Boolean> skipRetirement;
+
+    /**
+     * @return When true, certificates will not be retired on Venafi platforms when terraform destroy is run. Default is false.
+     * 
+     */
+    public Optional<Output<Boolean>> skipRetirement() {
+        return Optional.ofNullable(this.skipRetirement);
+    }
+
+    /**
      * Password for WebSDK user. Example: password
      * 
      * @deprecated
@@ -214,6 +229,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         this.devMode = $.devMode;
         this.p12CertFilename = $.p12CertFilename;
         this.p12CertPassword = $.p12CertPassword;
+        this.skipRetirement = $.skipRetirement;
         this.tppPassword = $.tppPassword;
         this.tppUsername = $.tppUsername;
         this.trustBundle = $.trustBundle;
@@ -367,6 +383,27 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder p12CertPassword(String p12CertPassword) {
             return p12CertPassword(Output.of(p12CertPassword));
+        }
+
+        /**
+         * @param skipRetirement When true, certificates will not be retired on Venafi platforms when terraform destroy is run. Default is false.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder skipRetirement(@Nullable Output<Boolean> skipRetirement) {
+            $.skipRetirement = skipRetirement;
+            return this;
+        }
+
+        /**
+         * @param skipRetirement When true, certificates will not be retired on Venafi platforms when terraform destroy is run. Default is false.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder skipRetirement(Boolean skipRetirement) {
+            return skipRetirement(Output.of(skipRetirement));
         }
 
         /**

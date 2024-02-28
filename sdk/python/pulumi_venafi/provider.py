@@ -20,6 +20,7 @@ class ProviderArgs:
                  dev_mode: Optional[pulumi.Input[bool]] = None,
                  p12_cert_filename: Optional[pulumi.Input[str]] = None,
                  p12_cert_password: Optional[pulumi.Input[str]] = None,
+                 skip_retirement: Optional[pulumi.Input[bool]] = None,
                  tpp_password: Optional[pulumi.Input[str]] = None,
                  tpp_username: Optional[pulumi.Input[str]] = None,
                  trust_bundle: Optional[pulumi.Input[str]] = None,
@@ -35,6 +36,7 @@ class ProviderArgs:
         :param pulumi.Input[str] p12_cert_filename: Filename of PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to
                TLSPDC
         :param pulumi.Input[str] p12_cert_password: Password for the PKCS#12 keystore declared in p12_cert
+        :param pulumi.Input[bool] skip_retirement: When true, certificates will not be retired on Venafi platforms when terraform destroy is run. Default is false.
         :param pulumi.Input[str] tpp_password: Password for WebSDK user. Example: password
         :param pulumi.Input[str] tpp_username: WebSDK user for Venafi TLSPDC. Example: admin
         :param pulumi.Input[str] trust_bundle: Use to specify a PEM-formatted file that contains certificates to be trust anchors for all communications with the
@@ -55,6 +57,8 @@ class ProviderArgs:
             pulumi.set(__self__, "p12_cert_filename", p12_cert_filename)
         if p12_cert_password is not None:
             pulumi.set(__self__, "p12_cert_password", p12_cert_password)
+        if skip_retirement is not None:
+            pulumi.set(__self__, "skip_retirement", skip_retirement)
         if tpp_password is not None:
             warnings.warn(""", please use access_token instead""", DeprecationWarning)
             pulumi.log.warn("""tpp_password is deprecated: , please use access_token instead""")
@@ -147,6 +151,18 @@ class ProviderArgs:
         pulumi.set(self, "p12_cert_password", value)
 
     @property
+    @pulumi.getter(name="skipRetirement")
+    def skip_retirement(self) -> Optional[pulumi.Input[bool]]:
+        """
+        When true, certificates will not be retired on Venafi platforms when terraform destroy is run. Default is false.
+        """
+        return pulumi.get(self, "skip_retirement")
+
+    @skip_retirement.setter
+    def skip_retirement(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "skip_retirement", value)
+
+    @property
     @pulumi.getter(name="tppPassword")
     def tpp_password(self) -> Optional[pulumi.Input[str]]:
         """
@@ -226,6 +242,7 @@ class Provider(pulumi.ProviderResource):
                  dev_mode: Optional[pulumi.Input[bool]] = None,
                  p12_cert_filename: Optional[pulumi.Input[str]] = None,
                  p12_cert_password: Optional[pulumi.Input[str]] = None,
+                 skip_retirement: Optional[pulumi.Input[bool]] = None,
                  tpp_password: Optional[pulumi.Input[str]] = None,
                  tpp_username: Optional[pulumi.Input[str]] = None,
                  trust_bundle: Optional[pulumi.Input[str]] = None,
@@ -248,6 +265,7 @@ class Provider(pulumi.ProviderResource):
         :param pulumi.Input[str] p12_cert_filename: Filename of PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to
                TLSPDC
         :param pulumi.Input[str] p12_cert_password: Password for the PKCS#12 keystore declared in p12_cert
+        :param pulumi.Input[bool] skip_retirement: When true, certificates will not be retired on Venafi platforms when terraform destroy is run. Default is false.
         :param pulumi.Input[str] tpp_password: Password for WebSDK user. Example: password
         :param pulumi.Input[str] tpp_username: WebSDK user for Venafi TLSPDC. Example: admin
         :param pulumi.Input[str] trust_bundle: Use to specify a PEM-formatted file that contains certificates to be trust anchors for all communications with the
@@ -289,6 +307,7 @@ class Provider(pulumi.ProviderResource):
                  dev_mode: Optional[pulumi.Input[bool]] = None,
                  p12_cert_filename: Optional[pulumi.Input[str]] = None,
                  p12_cert_password: Optional[pulumi.Input[str]] = None,
+                 skip_retirement: Optional[pulumi.Input[bool]] = None,
                  tpp_password: Optional[pulumi.Input[str]] = None,
                  tpp_username: Optional[pulumi.Input[str]] = None,
                  trust_bundle: Optional[pulumi.Input[str]] = None,
@@ -309,6 +328,7 @@ class Provider(pulumi.ProviderResource):
             __props__.__dict__["dev_mode"] = pulumi.Output.from_input(dev_mode).apply(pulumi.runtime.to_json) if dev_mode is not None else None
             __props__.__dict__["p12_cert_filename"] = p12_cert_filename
             __props__.__dict__["p12_cert_password"] = None if p12_cert_password is None else pulumi.Output.secret(p12_cert_password)
+            __props__.__dict__["skip_retirement"] = pulumi.Output.from_input(skip_retirement).apply(pulumi.runtime.to_json) if skip_retirement is not None else None
             __props__.__dict__["tpp_password"] = None if tpp_password is None else pulumi.Output.secret(tpp_password)
             __props__.__dict__["tpp_username"] = tpp_username
             __props__.__dict__["trust_bundle"] = trust_bundle
