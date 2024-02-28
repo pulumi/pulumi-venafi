@@ -77,6 +77,9 @@
                 "description": "Password for the PKCS#12 keystore declared in p12_cert\n",
                 "secret": true
             },
+            "skipRetirement": {
+                "type": "boolean"
+            },
             "tppPassword": {
                 "type": "string",
                 "description": "Password for WebSDK user. Example: password\n",
@@ -132,6 +135,10 @@
                 "description": "Password for the PKCS#12 keystore declared in p12_cert\n",
                 "secret": true
             },
+            "skipRetirement": {
+                "type": "boolean",
+                "description": "When true, certificates will not be retired on Venafi platforms when terraform destroy is run. Default is false.\n"
+            },
             "tppPassword": {
                 "type": "string",
                 "description": "Password for WebSDK user. Example: password\n",
@@ -183,6 +190,10 @@
                 "type": "string",
                 "description": "Password for the PKCS#12 keystore declared in p12_cert\n",
                 "secret": true
+            },
+            "skipRetirement": {
+                "type": "boolean",
+                "description": "When true, certificates will not be retired on Venafi platforms when terraform destroy is run. Default is false.\n"
             },
             "tppPassword": {
                 "type": "string",

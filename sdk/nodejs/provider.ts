@@ -90,6 +90,7 @@ export class Provider extends pulumi.ProviderResource {
             resourceInputs["devMode"] = pulumi.output(args ? args.devMode : undefined).apply(JSON.stringify);
             resourceInputs["p12CertFilename"] = args ? args.p12CertFilename : undefined;
             resourceInputs["p12CertPassword"] = args?.p12CertPassword ? pulumi.secret(args.p12CertPassword) : undefined;
+            resourceInputs["skipRetirement"] = pulumi.output(args ? args.skipRetirement : undefined).apply(JSON.stringify);
             resourceInputs["tppPassword"] = args?.tppPassword ? pulumi.secret(args.tppPassword) : undefined;
             resourceInputs["tppUsername"] = args ? args.tppUsername : undefined;
             resourceInputs["trustBundle"] = args ? args.trustBundle : undefined;
@@ -133,6 +134,10 @@ export interface ProviderArgs {
      * Password for the PKCS#12 keystore declared in p12_cert
      */
     p12CertPassword?: pulumi.Input<string>;
+    /**
+     * When true, certificates will not be retired on Venafi platforms when terraform destroy is run. Default is false.
+     */
+    skipRetirement?: pulumi.Input<boolean>;
     /**
      * Password for WebSDK user. Example: password
      *

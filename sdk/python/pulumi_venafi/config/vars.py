@@ -60,6 +60,10 @@ class _ExportableConfig(types.ModuleType):
         return __config__.get('p12CertPassword')
 
     @property
+    def skip_retirement(self) -> Optional[bool]:
+        return __config__.get_bool('skipRetirement')
+
+    @property
     def tpp_password(self) -> Optional[str]:
         """
         Password for WebSDK user. Example: password

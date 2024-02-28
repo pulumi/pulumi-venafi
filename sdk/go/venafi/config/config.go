@@ -42,6 +42,9 @@ func GetP12CertFilename(ctx *pulumi.Context) string {
 func GetP12CertPassword(ctx *pulumi.Context) string {
 	return config.Get(ctx, "venafi:p12CertPassword")
 }
+func GetSkipRetirement(ctx *pulumi.Context) bool {
+	return config.GetBool(ctx, "venafi:skipRetirement")
+}
 
 // Password for WebSDK user. Example: password
 //

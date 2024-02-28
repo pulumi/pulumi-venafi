@@ -55,6 +55,9 @@ public final class Config {
     public Optional<String> p12CertPassword() {
         return Codegen.stringProp("p12CertPassword").config(config).get();
     }
+    public Optional<Boolean> skipRetirement() {
+        return Codegen.booleanProp("skipRetirement").config(config).get();
+    }
 /**
  * Password for WebSDK user. Example: password
  * 

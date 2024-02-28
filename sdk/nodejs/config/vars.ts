@@ -75,6 +75,14 @@ Object.defineProperty(exports, "p12CertPassword", {
     enumerable: true,
 });
 
+export declare const skipRetirement: boolean | undefined;
+Object.defineProperty(exports, "skipRetirement", {
+    get() {
+        return __config.getObject<boolean>("skipRetirement");
+    },
+    enumerable: true,
+});
+
 /**
  * Password for WebSDK user. Example: password
  */

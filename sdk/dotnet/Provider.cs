@@ -184,6 +184,12 @@ namespace Pulumi.Venafi
             }
         }
 
+        /// <summary>
+        /// When true, certificates will not be retired on Venafi platforms when terraform destroy is run. Default is false.
+        /// </summary>
+        [Input("skipRetirement", json: true)]
+        public Input<bool>? SkipRetirement { get; set; }
+
         [Input("tppPassword")]
         private Input<string>? _tppPassword;
 
