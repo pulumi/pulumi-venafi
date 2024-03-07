@@ -20,6 +20,8 @@ import javax.annotation.Nullable;
  * and/or issuing template in *Venafi as a Service*).
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -49,26 +51,25 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * The `venafi_policy` resource supports the Terraform import
  * 
- *  method.
+ * method.  When used, the `zone` and `policy_specification` resource arguments
  * 
- * When used, the `zone` and `policy_specification` resource arguments
+ * are not required since the zone is a required parameter of the import method
  * 
- *  are not required since the zone is a required parameter of the import method
+ * and the policy specification is populated from the existing infrastructure.
  * 
- *  and the policy specification is populated from the existing infrastructure.
+ * Policy that is successfully imported is also output to a file named after the
  * 
- *  Policy that is successfully imported is also output to a file named after the
+ * zone that was specified.
  * 
- *  zone that was specified.
+ * hcl
  * 
- *  hcl
- * 
- *  resource &#34;venafi_policy&#34; &#34;existing_policy&#34; {}
+ * resource &#34;venafi_policy&#34; &#34;existing_policy&#34; {}
  * 
  * ```sh
  * $ pulumi import venafi:index/policy:Policy existing_policy&#34; &#34;My Business App\\Enterprise Trusted Certs&#34;
