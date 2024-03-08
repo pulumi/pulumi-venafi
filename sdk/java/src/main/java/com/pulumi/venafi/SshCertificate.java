@@ -21,6 +21,8 @@ import javax.annotation.Nullable;
  * Provides access to request and retrieve SSH certificates from *Venafi Trust Protection Platform*.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -55,6 +57,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */
 @ResourceType(type="venafi:index/sshCertificate:SshCertificate")

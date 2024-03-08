@@ -9,6 +9,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as venafi from "@pulumi/venafi";
@@ -23,6 +24,7 @@ import * as utilities from "./utilities";
  *     validHours: 24,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export class SshCertificate extends pulumi.CustomResource {
     /**
