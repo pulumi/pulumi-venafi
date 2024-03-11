@@ -14,6 +14,7 @@ namespace Pulumi.Venafi
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -38,6 +39,7 @@ namespace Pulumi.Venafi
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// </summary>
     [VenafiResourceType("venafi:index/sshCertificate:SshCertificate")]
     public partial class SshCertificate : global::Pulumi.CustomResource
