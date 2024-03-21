@@ -48,14 +48,14 @@ func GetSkipRetirement(ctx *pulumi.Context) bool {
 
 // Password for WebSDK user. Example: password
 //
-// Deprecated: , please use access_token instead
+// Deprecated: , please use accessToken instead
 func GetTppPassword(ctx *pulumi.Context) string {
 	return config.Get(ctx, "venafi:tppPassword")
 }
 
 // WebSDK user for Venafi TLSPDC. Example: admin
 //
-// Deprecated: , please use access_token instead
+// Deprecated: , please use accessToken instead
 func GetTppUsername(ctx *pulumi.Context) string {
 	return config.Get(ctx, "venafi:tppUsername")
 }
