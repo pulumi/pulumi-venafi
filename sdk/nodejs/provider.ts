@@ -49,13 +49,13 @@ export class Provider extends pulumi.ProviderResource {
     /**
      * Password for WebSDK user. Example: password
      *
-     * @deprecated , please use access_token instead
+     * @deprecated , please use accessToken instead
      */
     public readonly tppPassword!: pulumi.Output<string | undefined>;
     /**
      * WebSDK user for Venafi TLSPDC. Example: admin
      *
-     * @deprecated , please use access_token instead
+     * @deprecated , please use accessToken instead
      */
     public readonly tppUsername!: pulumi.Output<string | undefined>;
     /**
@@ -141,13 +141,13 @@ export interface ProviderArgs {
     /**
      * Password for WebSDK user. Example: password
      *
-     * @deprecated , please use access_token instead
+     * @deprecated , please use accessToken instead
      */
     tppPassword?: pulumi.Input<string>;
     /**
      * WebSDK user for Venafi TLSPDC. Example: admin
      *
-     * @deprecated , please use access_token instead
+     * @deprecated , please use accessToken instead
      */
     tppUsername?: pulumi.Input<string>;
     /**
