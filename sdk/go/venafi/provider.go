@@ -31,11 +31,11 @@ type Provider struct {
 	P12CertPassword pulumi.StringPtrOutput `pulumi:"p12CertPassword"`
 	// Password for WebSDK user. Example: password
 	//
-	// Deprecated: , please use accessToken instead
+	// Deprecated: , please use access_token instead
 	TppPassword pulumi.StringPtrOutput `pulumi:"tppPassword"`
 	// WebSDK user for Venafi TLSPDC. Example: admin
 	//
-	// Deprecated: , please use accessToken instead
+	// Deprecated: , please use access_token instead
 	TppUsername pulumi.StringPtrOutput `pulumi:"tppUsername"`
 	// Use to specify a PEM-formatted file that contains certificates to be trust anchors for all communications with the
 	// Venafi Web Service. Example: trust_bundle = "${file("chain.pem")}"
@@ -101,11 +101,11 @@ type providerArgs struct {
 	SkipRetirement *bool `pulumi:"skipRetirement"`
 	// Password for WebSDK user. Example: password
 	//
-	// Deprecated: , please use accessToken instead
+	// Deprecated: , please use access_token instead
 	TppPassword *string `pulumi:"tppPassword"`
 	// WebSDK user for Venafi TLSPDC. Example: admin
 	//
-	// Deprecated: , please use accessToken instead
+	// Deprecated: , please use access_token instead
 	TppUsername *string `pulumi:"tppUsername"`
 	// Use to specify a PEM-formatted file that contains certificates to be trust anchors for all communications with the
 	// Venafi Web Service. Example: trust_bundle = "${file("chain.pem")}"
@@ -137,11 +137,11 @@ type ProviderArgs struct {
 	SkipRetirement pulumi.BoolPtrInput
 	// Password for WebSDK user. Example: password
 	//
-	// Deprecated: , please use accessToken instead
+	// Deprecated: , please use access_token instead
 	TppPassword pulumi.StringPtrInput
 	// WebSDK user for Venafi TLSPDC. Example: admin
 	//
-	// Deprecated: , please use accessToken instead
+	// Deprecated: , please use access_token instead
 	TppUsername pulumi.StringPtrInput
 	// Use to specify a PEM-formatted file that contains certificates to be trust anchors for all communications with the
 	// Venafi Web Service. Example: trust_bundle = "${file("chain.pem")}"
@@ -218,14 +218,14 @@ func (o ProviderOutput) P12CertPassword() pulumi.StringPtrOutput {
 
 // Password for WebSDK user. Example: password
 //
-// Deprecated: , please use accessToken instead
+// Deprecated: , please use access_token instead
 func (o ProviderOutput) TppPassword() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.TppPassword }).(pulumi.StringPtrOutput)
 }
 
 // WebSDK user for Venafi TLSPDC. Example: admin
 //
-// Deprecated: , please use accessToken instead
+// Deprecated: , please use access_token instead
 func (o ProviderOutput) TppUsername() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.TppUsername }).(pulumi.StringPtrOutput)
 }
