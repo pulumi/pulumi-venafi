@@ -36,7 +36,7 @@ require (
 	github.com/Masterminds/sprig/v3 v3.2.3 // indirect
 	github.com/Microsoft/go-winio v0.6.1 // indirect
 	github.com/ProtonMail/go-crypto v1.1.0-alpha.0 // indirect
-	github.com/Venafi/vcert/v5 v5.1.1 // indirect
+	github.com/Venafi/vcert/v5 v5.6.2 // indirect
 	github.com/aead/chacha20 v0.0.0-20180709150244-8b13a72661da // indirect
 	github.com/agext/levenshtein v1.2.3 // indirect
 	github.com/apparentlymart/go-cidr v1.1.0 // indirect
@@ -83,6 +83,7 @@ require (
 	github.com/go-git/gcfg v1.5.1-0.20230307220236-3a3c6141e376 // indirect
 	github.com/go-git/go-billy/v5 v5.5.0 // indirect
 	github.com/go-git/go-git/v5 v5.11.0 // indirect
+	github.com/go-http-utils/headers v0.0.0-20181008091004-fed159eddc2a // indirect
 	github.com/go-logr/logr v1.3.0 // indirect
 	github.com/go-logr/stdr v1.2.2 // indirect
 	github.com/gofrs/uuid v4.2.0+incompatible // indirect
@@ -254,5 +255,5 @@ require (
 	gopkg.in/yaml.v2 v2.4.0 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 	lukechampine.com/frand v1.4.2 // indirect
-	software.sslmate.com/src/go-pkcs12 v0.2.1 // indirect
+	software.sslmate.com/src/go-pkcs12 v0.4.0 // indirect
 )
