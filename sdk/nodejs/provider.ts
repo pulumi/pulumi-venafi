@@ -30,13 +30,17 @@ export class Provider extends pulumi.ProviderResource {
      */
     public readonly accessToken!: pulumi.Output<string | undefined>;
     /**
-     * API key for Venafi as a Service. Example: 142231b7-cvb0-412e-886b-6aeght0bc93d
+     * API key for Venafi Control Plane. Example: 142231b7-cvb0-412e-886b-6aeght0bc93d
      */
     public readonly apiKey!: pulumi.Output<string | undefined>;
     /**
      * application that will be using the token
      */
     public readonly clientId!: pulumi.Output<string | undefined>;
+    /**
+     * JWT of the identity provider associated to the Venafi Control Plane service account that is granting the access token
+     */
+    public readonly idpJwt!: pulumi.Output<string | undefined>;
     /**
      * Filename of PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to
      * TLSPDC
@@ -46,6 +50,10 @@ export class Provider extends pulumi.ProviderResource {
      * Password for the PKCS#12 keystore declared in p12_cert
      */
     public readonly p12CertPassword!: pulumi.Output<string | undefined>;
+    /**
+     * Endpoint URL to request new Venafi Control Plane access tokens
+     */
+    public readonly tokenUrl!: pulumi.Output<string | undefined>;
     /**
      * Password for WebSDK user. Example: password
      *
@@ -88,9 +96,11 @@ export class Provider extends pulumi.ProviderResource {
             resourceInputs["apiKey"] = args?.apiKey ? pulumi.secret(args.apiKey) : undefined;
             resourceInputs["clientId"] = args ? args.clientId : undefined;
             resourceInputs["devMode"] = pulumi.output(args ? args.devMode : undefined).apply(JSON.stringify);
+            resourceInputs["idpJwt"] = args?.idpJwt ? pulumi.secret(args.idpJwt) : undefined;
             resourceInputs["p12CertFilename"] = args ? args.p12CertFilename : undefined;
             resourceInputs["p12CertPassword"] = args?.p12CertPassword ? pulumi.secret(args.p12CertPassword) : undefined;
             resourceInputs["skipRetirement"] = pulumi.output(args ? args.skipRetirement : undefined).apply(JSON.stringify);
+            resourceInputs["tokenUrl"] = args?.tokenUrl ? pulumi.secret(args.tokenUrl) : undefined;
             resourceInputs["tppPassword"] = args?.tppPassword ? pulumi.secret(args.tppPassword) : undefined;
             resourceInputs["tppUsername"] = args ? args.tppUsername : undefined;
             resourceInputs["trustBundle"] = args ? args.trustBundle : undefined;
@@ -98,7 +108,7 @@ export class Provider extends pulumi.ProviderResource {
             resourceInputs["zone"] = args ? args.zone : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["accessToken", "apiKey", "p12CertPassword", "tppPassword"] };
+        const secretOpts = { additionalSecretOutputs: ["accessToken", "apiKey", "idpJwt", "p12CertPassword", "tokenUrl", "tppPassword"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
         super(Provider.__pulumiType, name, resourceInputs, opts);
     }
@@ -113,7 +123,7 @@ export interface ProviderArgs {
      */
     accessToken?: pulumi.Input<string>;
     /**
-     * API key for Venafi as a Service. Example: 142231b7-cvb0-412e-886b-6aeght0bc93d
+     * API key for Venafi Control Plane. Example: 142231b7-cvb0-412e-886b-6aeght0bc93d
      */
     apiKey?: pulumi.Input<string>;
     /**
@@ -125,6 +135,10 @@ export interface ProviderArgs {
      * Venafi as a Service or Trust Protection Platform. Useful for development and testing.
      */
     devMode?: pulumi.Input<boolean>;
+    /**
+     * JWT of the identity provider associated to the Venafi Control Plane service account that is granting the access token
+     */
+    idpJwt?: pulumi.Input<string>;
     /**
      * Filename of PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to
      * TLSPDC
@@ -138,6 +152,10 @@ export interface ProviderArgs {
      * When true, certificates will not be retired on Venafi platforms when terraform destroy is run. Default is false.
      */
     skipRetirement?: pulumi.Input<boolean>;
+    /**
+     * Endpoint URL to request new Venafi Control Plane access tokens
+     */
+    tokenUrl?: pulumi.Input<string>;
     /**
      * Password for WebSDK user. Example: password
      *

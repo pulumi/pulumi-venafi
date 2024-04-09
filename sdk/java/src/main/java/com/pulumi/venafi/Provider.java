@@ -38,14 +38,14 @@ public class Provider extends com.pulumi.resources.ProviderResource {
         return Codegen.optional(this.accessToken);
     }
     /**
-     * API key for Venafi as a Service. Example: 142231b7-cvb0-412e-886b-6aeght0bc93d
+     * API key for Venafi Control Plane. Example: 142231b7-cvb0-412e-886b-6aeght0bc93d
      * 
      */
     @Export(name="apiKey", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> apiKey;
 
     /**
-     * @return API key for Venafi as a Service. Example: 142231b7-cvb0-412e-886b-6aeght0bc93d
+     * @return API key for Venafi Control Plane. Example: 142231b7-cvb0-412e-886b-6aeght0bc93d
      * 
      */
     public Output<Optional<String>> apiKey() {
@@ -64,6 +64,20 @@ public class Provider extends com.pulumi.resources.ProviderResource {
      */
     public Output<Optional<String>> clientId() {
         return Codegen.optional(this.clientId);
+    }
+    /**
+     * JWT of the identity provider associated to the Venafi Control Plane service account that is granting the access token
+     * 
+     */
+    @Export(name="idpJwt", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> idpJwt;
+
+    /**
+     * @return JWT of the identity provider associated to the Venafi Control Plane service account that is granting the access token
+     * 
+     */
+    public Output<Optional<String>> idpJwt() {
+        return Codegen.optional(this.idpJwt);
     }
     /**
      * Filename of PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to
@@ -94,6 +108,20 @@ public class Provider extends com.pulumi.resources.ProviderResource {
      */
     public Output<Optional<String>> p12CertPassword() {
         return Codegen.optional(this.p12CertPassword);
+    }
+    /**
+     * Endpoint URL to request new Venafi Control Plane access tokens
+     * 
+     */
+    @Export(name="tokenUrl", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> tokenUrl;
+
+    /**
+     * @return Endpoint URL to request new Venafi Control Plane access tokens
+     * 
+     */
+    public Output<Optional<String>> tokenUrl() {
+        return Codegen.optional(this.tokenUrl);
     }
     /**
      * Password for WebSDK user. Example: password
@@ -209,7 +237,9 @@ public class Provider extends com.pulumi.resources.ProviderResource {
             .additionalSecretOutputs(List.of(
                 "accessToken",
                 "apiKey",
+                "idpJwt",
                 "p12CertPassword",
+                "tokenUrl",
                 "tppPassword"
             ))
             .build();

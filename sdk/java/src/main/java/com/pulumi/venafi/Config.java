@@ -19,7 +19,7 @@ public final class Config {
         return Codegen.stringProp("accessToken").config(config).get();
     }
 /**
- * API key for Venafi as a Service. Example: 142231b7-cvb0-412e-886b-6aeght0bc93d
+ * API key for Venafi Control Plane. Example: 142231b7-cvb0-412e-886b-6aeght0bc93d
  * 
  */
     public Optional<String> apiKey() {
@@ -41,6 +41,13 @@ public final class Config {
         return Codegen.booleanProp("devMode").config(config).get();
     }
 /**
+ * JWT of the identity provider associated to the Venafi Control Plane service account that is granting the access token
+ * 
+ */
+    public Optional<String> idpJwt() {
+        return Codegen.stringProp("idpJwt").config(config).get();
+    }
+/**
  * Filename of PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to
  * TLSPDC
  * 
@@ -57,6 +64,13 @@ public final class Config {
     }
     public Optional<Boolean> skipRetirement() {
         return Codegen.booleanProp("skipRetirement").config(config).get();
+    }
+/**
+ * Endpoint URL to request new Venafi Control Plane access tokens
+ * 
+ */
+    public Optional<String> tokenUrl() {
+        return Codegen.stringProp("tokenUrl").config(config).get();
     }
 /**
  * Password for WebSDK user. Example: password

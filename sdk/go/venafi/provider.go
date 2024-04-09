@@ -20,15 +20,19 @@ type Provider struct {
 
 	// Access token for Venafi TLSPDC, user should use this for authentication
 	AccessToken pulumi.StringPtrOutput `pulumi:"accessToken"`
-	// API key for Venafi as a Service. Example: 142231b7-cvb0-412e-886b-6aeght0bc93d
+	// API key for Venafi Control Plane. Example: 142231b7-cvb0-412e-886b-6aeght0bc93d
 	ApiKey pulumi.StringPtrOutput `pulumi:"apiKey"`
 	// application that will be using the token
 	ClientId pulumi.StringPtrOutput `pulumi:"clientId"`
+	// JWT of the identity provider associated to the Venafi Control Plane service account that is granting the access token
+	IdpJwt pulumi.StringPtrOutput `pulumi:"idpJwt"`
 	// Filename of PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to
 	// TLSPDC
 	P12CertFilename pulumi.StringPtrOutput `pulumi:"p12CertFilename"`
 	// Password for the PKCS#12 keystore declared in p12_cert
 	P12CertPassword pulumi.StringPtrOutput `pulumi:"p12CertPassword"`
+	// Endpoint URL to request new Venafi Control Plane access tokens
+	TokenUrl pulumi.StringPtrOutput `pulumi:"tokenUrl"`
 	// Password for WebSDK user. Example: password
 	//
 	// Deprecated: , please use accessToken instead
@@ -60,8 +64,14 @@ func NewProvider(ctx *pulumi.Context,
 	if args.ApiKey != nil {
 		args.ApiKey = pulumi.ToSecret(args.ApiKey).(pulumi.StringPtrInput)
 	}
+	if args.IdpJwt != nil {
+		args.IdpJwt = pulumi.ToSecret(args.IdpJwt).(pulumi.StringPtrInput)
+	}
 	if args.P12CertPassword != nil {
 		args.P12CertPassword = pulumi.ToSecret(args.P12CertPassword).(pulumi.StringPtrInput)
+	}
+	if args.TokenUrl != nil {
+		args.TokenUrl = pulumi.ToSecret(args.TokenUrl).(pulumi.StringPtrInput)
 	}
 	if args.TppPassword != nil {
 		args.TppPassword = pulumi.ToSecret(args.TppPassword).(pulumi.StringPtrInput)
@@ -69,7 +79,9 @@ func NewProvider(ctx *pulumi.Context,
 	secrets := pulumi.AdditionalSecretOutputs([]string{
 		"accessToken",
 		"apiKey",
+		"idpJwt",
 		"p12CertPassword",
+		"tokenUrl",
 		"tppPassword",
 	})
 	opts = append(opts, secrets)
@@ -85,13 +97,15 @@ func NewProvider(ctx *pulumi.Context,
 type providerArgs struct {
 	// Access token for Venafi TLSPDC, user should use this for authentication
 	AccessToken *string `pulumi:"accessToken"`
-	// API key for Venafi as a Service. Example: 142231b7-cvb0-412e-886b-6aeght0bc93d
+	// API key for Venafi Control Plane. Example: 142231b7-cvb0-412e-886b-6aeght0bc93d
 	ApiKey *string `pulumi:"apiKey"`
 	// application that will be using the token
 	ClientId *string `pulumi:"clientId"`
 	// When set to true, the resulting certificate will be issued by an ephemeral, no trust CA rather than enrolling using
 	// Venafi as a Service or Trust Protection Platform. Useful for development and testing.
 	DevMode *bool `pulumi:"devMode"`
+	// JWT of the identity provider associated to the Venafi Control Plane service account that is granting the access token
+	IdpJwt *string `pulumi:"idpJwt"`
 	// Filename of PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to
 	// TLSPDC
 	P12CertFilename *string `pulumi:"p12CertFilename"`
@@ -99,6 +113,8 @@ type providerArgs struct {
 	P12CertPassword *string `pulumi:"p12CertPassword"`
 	// When true, certificates will not be retired on Venafi platforms when terraform destroy is run. Default is false.
 	SkipRetirement *bool `pulumi:"skipRetirement"`
+	// Endpoint URL to request new Venafi Control Plane access tokens
+	TokenUrl *string `pulumi:"tokenUrl"`
 	// Password for WebSDK user. Example: password
 	//
 	// Deprecated: , please use accessToken instead
@@ -121,13 +137,15 @@ type providerArgs struct {
 type ProviderArgs struct {
 	// Access token for Venafi TLSPDC, user should use this for authentication
 	AccessToken pulumi.StringPtrInput
-	// API key for Venafi as a Service. Example: 142231b7-cvb0-412e-886b-6aeght0bc93d
+	// API key for Venafi Control Plane. Example: 142231b7-cvb0-412e-886b-6aeght0bc93d
 	ApiKey pulumi.StringPtrInput
 	// application that will be using the token
 	ClientId pulumi.StringPtrInput
 	// When set to true, the resulting certificate will be issued by an ephemeral, no trust CA rather than enrolling using
 	// Venafi as a Service or Trust Protection Platform. Useful for development and testing.
 	DevMode pulumi.BoolPtrInput
+	// JWT of the identity provider associated to the Venafi Control Plane service account that is granting the access token
+	IdpJwt pulumi.StringPtrInput
 	// Filename of PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to
 	// TLSPDC
 	P12CertFilename pulumi.StringPtrInput
@@ -135,6 +153,8 @@ type ProviderArgs struct {
 	P12CertPassword pulumi.StringPtrInput
 	// When true, certificates will not be retired on Venafi platforms when terraform destroy is run. Default is false.
 	SkipRetirement pulumi.BoolPtrInput
+	// Endpoint URL to request new Venafi Control Plane access tokens
+	TokenUrl pulumi.StringPtrInput
 	// Password for WebSDK user. Example: password
 	//
 	// Deprecated: , please use accessToken instead
@@ -195,7 +215,7 @@ func (o ProviderOutput) AccessToken() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.AccessToken }).(pulumi.StringPtrOutput)
 }
 
-// API key for Venafi as a Service. Example: 142231b7-cvb0-412e-886b-6aeght0bc93d
+// API key for Venafi Control Plane. Example: 142231b7-cvb0-412e-886b-6aeght0bc93d
 func (o ProviderOutput) ApiKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.ApiKey }).(pulumi.StringPtrOutput)
 }
@@ -203,6 +223,11 @@ func (o ProviderOutput) ApiKey() pulumi.StringPtrOutput {
 // application that will be using the token
 func (o ProviderOutput) ClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.ClientId }).(pulumi.StringPtrOutput)
+}
+
+// JWT of the identity provider associated to the Venafi Control Plane service account that is granting the access token
+func (o ProviderOutput) IdpJwt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.IdpJwt }).(pulumi.StringPtrOutput)
 }
 
 // Filename of PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to
@@ -214,6 +239,11 @@ func (o ProviderOutput) P12CertFilename() pulumi.StringPtrOutput {
 // Password for the PKCS#12 keystore declared in p12_cert
 func (o ProviderOutput) P12CertPassword() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.P12CertPassword }).(pulumi.StringPtrOutput)
+}
+
+// Endpoint URL to request new Venafi Control Plane access tokens
+func (o ProviderOutput) TokenUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.TokenUrl }).(pulumi.StringPtrOutput)
 }
 
 // Password for WebSDK user. Example: password

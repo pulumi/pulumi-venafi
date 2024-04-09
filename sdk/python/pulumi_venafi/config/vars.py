@@ -25,7 +25,7 @@ class _ExportableConfig(types.ModuleType):
     @property
     def api_key(self) -> Optional[str]:
         """
-        API key for Venafi as a Service. Example: 142231b7-cvb0-412e-886b-6aeght0bc93d
+        API key for Venafi Control Plane. Example: 142231b7-cvb0-412e-886b-6aeght0bc93d
         """
         return __config__.get('apiKey')
 
@@ -45,6 +45,13 @@ class _ExportableConfig(types.ModuleType):
         return __config__.get_bool('devMode')
 
     @property
+    def idp_jwt(self) -> Optional[str]:
+        """
+        JWT of the identity provider associated to the Venafi Control Plane service account that is granting the access token
+        """
+        return __config__.get('idpJwt')
+
+    @property
     def p12_cert_filename(self) -> Optional[str]:
         """
         Filename of PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to
@@ -62,6 +69,13 @@ class _ExportableConfig(types.ModuleType):
     @property
     def skip_retirement(self) -> Optional[bool]:
         return __config__.get_bool('skipRetirement')
+
+    @property
+    def token_url(self) -> Optional[str]:
+        """
+        Endpoint URL to request new Venafi Control Plane access tokens
+        """
+        return __config__.get('tokenUrl')
 
     @property
     def tpp_password(self) -> Optional[str]:
