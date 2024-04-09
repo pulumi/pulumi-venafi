@@ -25,7 +25,7 @@ namespace Pulumi.Venafi
         public Output<string?> AccessToken { get; private set; } = null!;
 
         /// <summary>
-        /// API key for Venafi as a Service. Example: 142231b7-cvb0-412e-886b-6aeght0bc93d
+        /// API key for Venafi Control Plane. Example: 142231b7-cvb0-412e-886b-6aeght0bc93d
         /// </summary>
         [Output("apiKey")]
         public Output<string?> ApiKey { get; private set; } = null!;
@@ -35,6 +35,12 @@ namespace Pulumi.Venafi
         /// </summary>
         [Output("clientId")]
         public Output<string?> ClientId { get; private set; } = null!;
+
+        /// <summary>
+        /// JWT of the identity provider associated to the Venafi Control Plane service account that is granting the access token
+        /// </summary>
+        [Output("idpJwt")]
+        public Output<string?> IdpJwt { get; private set; } = null!;
 
         /// <summary>
         /// Filename of PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to
@@ -48,6 +54,12 @@ namespace Pulumi.Venafi
         /// </summary>
         [Output("p12CertPassword")]
         public Output<string?> P12CertPassword { get; private set; } = null!;
+
+        /// <summary>
+        /// Endpoint URL to request new Venafi Control Plane access tokens
+        /// </summary>
+        [Output("tokenUrl")]
+        public Output<string?> TokenUrl { get; private set; } = null!;
 
         /// <summary>
         /// Password for WebSDK user. Example: password
@@ -103,7 +115,9 @@ namespace Pulumi.Venafi
                 {
                     "accessToken",
                     "apiKey",
+                    "idpJwt",
                     "p12CertPassword",
+                    "tokenUrl",
                     "tppPassword",
                 },
             };
@@ -136,7 +150,7 @@ namespace Pulumi.Venafi
         private Input<string>? _apiKey;
 
         /// <summary>
-        /// API key for Venafi as a Service. Example: 142231b7-cvb0-412e-886b-6aeght0bc93d
+        /// API key for Venafi Control Plane. Example: 142231b7-cvb0-412e-886b-6aeght0bc93d
         /// </summary>
         public Input<string>? ApiKey
         {
@@ -160,6 +174,22 @@ namespace Pulumi.Venafi
         /// </summary>
         [Input("devMode", json: true)]
         public Input<bool>? DevMode { get; set; }
+
+        [Input("idpJwt")]
+        private Input<string>? _idpJwt;
+
+        /// <summary>
+        /// JWT of the identity provider associated to the Venafi Control Plane service account that is granting the access token
+        /// </summary>
+        public Input<string>? IdpJwt
+        {
+            get => _idpJwt;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _idpJwt = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// Filename of PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to
@@ -189,6 +219,22 @@ namespace Pulumi.Venafi
         /// </summary>
         [Input("skipRetirement", json: true)]
         public Input<bool>? SkipRetirement { get; set; }
+
+        [Input("tokenUrl")]
+        private Input<string>? _tokenUrl;
+
+        /// <summary>
+        /// Endpoint URL to request new Venafi Control Plane access tokens
+        /// </summary>
+        public Input<string>? TokenUrl
+        {
+            get => _tokenUrl;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _tokenUrl = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         [Input("tppPassword")]
         private Input<string>? _tppPassword;

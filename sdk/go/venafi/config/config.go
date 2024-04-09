@@ -16,7 +16,7 @@ func GetAccessToken(ctx *pulumi.Context) string {
 	return config.Get(ctx, "venafi:accessToken")
 }
 
-// API key for Venafi as a Service. Example: 142231b7-cvb0-412e-886b-6aeght0bc93d
+// API key for Venafi Control Plane. Example: 142231b7-cvb0-412e-886b-6aeght0bc93d
 func GetApiKey(ctx *pulumi.Context) string {
 	return config.Get(ctx, "venafi:apiKey")
 }
@@ -32,6 +32,11 @@ func GetDevMode(ctx *pulumi.Context) bool {
 	return config.GetBool(ctx, "venafi:devMode")
 }
 
+// JWT of the identity provider associated to the Venafi Control Plane service account that is granting the access token
+func GetIdpJwt(ctx *pulumi.Context) string {
+	return config.Get(ctx, "venafi:idpJwt")
+}
+
 // Filename of PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to
 // TLSPDC
 func GetP12CertFilename(ctx *pulumi.Context) string {
@@ -44,6 +49,11 @@ func GetP12CertPassword(ctx *pulumi.Context) string {
 }
 func GetSkipRetirement(ctx *pulumi.Context) bool {
 	return config.GetBool(ctx, "venafi:skipRetirement")
+}
+
+// Endpoint URL to request new Venafi Control Plane access tokens
+func GetTokenUrl(ctx *pulumi.Context) string {
+	return config.Get(ctx, "venafi:tokenUrl")
 }
 
 // Password for WebSDK user. Example: password

@@ -19,7 +19,7 @@ Object.defineProperty(exports, "accessToken", {
 });
 
 /**
- * API key for Venafi as a Service. Example: 142231b7-cvb0-412e-886b-6aeght0bc93d
+ * API key for Venafi Control Plane. Example: 142231b7-cvb0-412e-886b-6aeght0bc93d
  */
 export declare const apiKey: string | undefined;
 Object.defineProperty(exports, "apiKey", {
@@ -53,6 +53,17 @@ Object.defineProperty(exports, "devMode", {
 });
 
 /**
+ * JWT of the identity provider associated to the Venafi Control Plane service account that is granting the access token
+ */
+export declare const idpJwt: string | undefined;
+Object.defineProperty(exports, "idpJwt", {
+    get() {
+        return __config.get("idpJwt");
+    },
+    enumerable: true,
+});
+
+/**
  * Filename of PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to
  * TLSPDC
  */
@@ -79,6 +90,17 @@ export declare const skipRetirement: boolean | undefined;
 Object.defineProperty(exports, "skipRetirement", {
     get() {
         return __config.getObject<boolean>("skipRetirement");
+    },
+    enumerable: true,
+});
+
+/**
+ * Endpoint URL to request new Venafi Control Plane access tokens
+ */
+export declare const tokenUrl: string | undefined;
+Object.defineProperty(exports, "tokenUrl", {
+    get() {
+        return __config.get("tokenUrl");
     },
     enumerable: true,
 });

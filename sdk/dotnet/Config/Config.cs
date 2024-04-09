@@ -44,7 +44,7 @@ namespace Pulumi.Venafi
 
         private static readonly __Value<string?> _apiKey = new __Value<string?>(() => __config.Get("apiKey"));
         /// <summary>
-        /// API key for Venafi as a Service. Example: 142231b7-cvb0-412e-886b-6aeght0bc93d
+        /// API key for Venafi Control Plane. Example: 142231b7-cvb0-412e-886b-6aeght0bc93d
         /// </summary>
         public static string? ApiKey
         {
@@ -73,6 +73,16 @@ namespace Pulumi.Venafi
             set => _devMode.Set(value);
         }
 
+        private static readonly __Value<string?> _idpJwt = new __Value<string?>(() => __config.Get("idpJwt"));
+        /// <summary>
+        /// JWT of the identity provider associated to the Venafi Control Plane service account that is granting the access token
+        /// </summary>
+        public static string? IdpJwt
+        {
+            get => _idpJwt.Get();
+            set => _idpJwt.Set(value);
+        }
+
         private static readonly __Value<string?> _p12CertFilename = new __Value<string?>(() => __config.Get("p12CertFilename"));
         /// <summary>
         /// Filename of PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to
@@ -99,6 +109,16 @@ namespace Pulumi.Venafi
         {
             get => _skipRetirement.Get();
             set => _skipRetirement.Set(value);
+        }
+
+        private static readonly __Value<string?> _tokenUrl = new __Value<string?>(() => __config.Get("tokenUrl"));
+        /// <summary>
+        /// Endpoint URL to request new Venafi Control Plane access tokens
+        /// </summary>
+        public static string? TokenUrl
+        {
+            get => _tokenUrl.Get();
+            set => _tokenUrl.Set(value);
         }
 
         private static readonly __Value<string?> _tppPassword = new __Value<string?>(() => __config.Get("tppPassword"));

@@ -57,7 +57,7 @@
             },
             "apiKey": {
                 "type": "string",
-                "description": "API key for Venafi as a Service. Example: 142231b7-cvb0-412e-886b-6aeght0bc93d\n",
+                "description": "API key for Venafi Control Plane. Example: 142231b7-cvb0-412e-886b-6aeght0bc93d\n",
                 "secret": true
             },
             "clientId": {
@@ -67,6 +67,11 @@
             "devMode": {
                 "type": "boolean",
                 "description": "When set to true, the resulting certificate will be issued by an ephemeral, no trust CA rather than enrolling using\nVenafi as a Service or Trust Protection Platform. Useful for development and testing.\n"
+            },
+            "idpJwt": {
+                "type": "string",
+                "description": "JWT of the identity provider associated to the Venafi Control Plane service account that is granting the access token\n",
+                "secret": true
             },
             "p12CertFilename": {
                 "type": "string",
@@ -79,6 +84,11 @@
             },
             "skipRetirement": {
                 "type": "boolean"
+            },
+            "tokenUrl": {
+                "type": "string",
+                "description": "Endpoint URL to request new Venafi Control Plane access tokens\n",
+                "secret": true
             },
             "tppPassword": {
                 "type": "string",
@@ -115,7 +125,7 @@
             },
             "apiKey": {
                 "type": "string",
-                "description": "API key for Venafi as a Service. Example: 142231b7-cvb0-412e-886b-6aeght0bc93d\n",
+                "description": "API key for Venafi Control Plane. Example: 142231b7-cvb0-412e-886b-6aeght0bc93d\n",
                 "secret": true
             },
             "clientId": {
@@ -125,6 +135,11 @@
             "devMode": {
                 "type": "boolean",
                 "description": "When set to true, the resulting certificate will be issued by an ephemeral, no trust CA rather than enrolling using\nVenafi as a Service or Trust Protection Platform. Useful for development and testing.\n"
+            },
+            "idpJwt": {
+                "type": "string",
+                "description": "JWT of the identity provider associated to the Venafi Control Plane service account that is granting the access token\n",
+                "secret": true
             },
             "p12CertFilename": {
                 "type": "string",
@@ -138,6 +153,11 @@
             "skipRetirement": {
                 "type": "boolean",
                 "description": "When true, certificates will not be retired on Venafi platforms when terraform destroy is run. Default is false.\n"
+            },
+            "tokenUrl": {
+                "type": "string",
+                "description": "Endpoint URL to request new Venafi Control Plane access tokens\n",
+                "secret": true
             },
             "tppPassword": {
                 "type": "string",
@@ -171,7 +191,7 @@
             },
             "apiKey": {
                 "type": "string",
-                "description": "API key for Venafi as a Service. Example: 142231b7-cvb0-412e-886b-6aeght0bc93d\n",
+                "description": "API key for Venafi Control Plane. Example: 142231b7-cvb0-412e-886b-6aeght0bc93d\n",
                 "secret": true
             },
             "clientId": {
@@ -181,6 +201,11 @@
             "devMode": {
                 "type": "boolean",
                 "description": "When set to true, the resulting certificate will be issued by an ephemeral, no trust CA rather than enrolling using\nVenafi as a Service or Trust Protection Platform. Useful for development and testing.\n"
+            },
+            "idpJwt": {
+                "type": "string",
+                "description": "JWT of the identity provider associated to the Venafi Control Plane service account that is granting the access token\n",
+                "secret": true
             },
             "p12CertFilename": {
                 "type": "string",
@@ -194,6 +219,11 @@
             "skipRetirement": {
                 "type": "boolean",
                 "description": "When true, certificates will not be retired on Venafi platforms when terraform destroy is run. Default is false.\n"
+            },
+            "tokenUrl": {
+                "type": "string",
+                "description": "Endpoint URL to request new Venafi Control Plane access tokens\n",
+                "secret": true
             },
             "tppPassword": {
                 "type": "string",

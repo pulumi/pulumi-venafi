@@ -32,14 +32,14 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * API key for Venafi as a Service. Example: 142231b7-cvb0-412e-886b-6aeght0bc93d
+     * API key for Venafi Control Plane. Example: 142231b7-cvb0-412e-886b-6aeght0bc93d
      * 
      */
     @Import(name="apiKey")
     private @Nullable Output<String> apiKey;
 
     /**
-     * @return API key for Venafi as a Service. Example: 142231b7-cvb0-412e-886b-6aeght0bc93d
+     * @return API key for Venafi Control Plane. Example: 142231b7-cvb0-412e-886b-6aeght0bc93d
      * 
      */
     public Optional<Output<String>> apiKey() {
@@ -76,6 +76,21 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<Boolean>> devMode() {
         return Optional.ofNullable(this.devMode);
+    }
+
+    /**
+     * JWT of the identity provider associated to the Venafi Control Plane service account that is granting the access token
+     * 
+     */
+    @Import(name="idpJwt")
+    private @Nullable Output<String> idpJwt;
+
+    /**
+     * @return JWT of the identity provider associated to the Venafi Control Plane service account that is granting the access token
+     * 
+     */
+    public Optional<Output<String>> idpJwt() {
+        return Optional.ofNullable(this.idpJwt);
     }
 
     /**
@@ -123,6 +138,21 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<Boolean>> skipRetirement() {
         return Optional.ofNullable(this.skipRetirement);
+    }
+
+    /**
+     * Endpoint URL to request new Venafi Control Plane access tokens
+     * 
+     */
+    @Import(name="tokenUrl")
+    private @Nullable Output<String> tokenUrl;
+
+    /**
+     * @return Endpoint URL to request new Venafi Control Plane access tokens
+     * 
+     */
+    public Optional<Output<String>> tokenUrl() {
+        return Optional.ofNullable(this.tokenUrl);
     }
 
     /**
@@ -227,9 +257,11 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         this.apiKey = $.apiKey;
         this.clientId = $.clientId;
         this.devMode = $.devMode;
+        this.idpJwt = $.idpJwt;
         this.p12CertFilename = $.p12CertFilename;
         this.p12CertPassword = $.p12CertPassword;
         this.skipRetirement = $.skipRetirement;
+        this.tokenUrl = $.tokenUrl;
         this.tppPassword = $.tppPassword;
         this.tppUsername = $.tppUsername;
         this.trustBundle = $.trustBundle;
@@ -277,7 +309,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param apiKey API key for Venafi as a Service. Example: 142231b7-cvb0-412e-886b-6aeght0bc93d
+         * @param apiKey API key for Venafi Control Plane. Example: 142231b7-cvb0-412e-886b-6aeght0bc93d
          * 
          * @return builder
          * 
@@ -288,7 +320,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param apiKey API key for Venafi as a Service. Example: 142231b7-cvb0-412e-886b-6aeght0bc93d
+         * @param apiKey API key for Venafi Control Plane. Example: 142231b7-cvb0-412e-886b-6aeght0bc93d
          * 
          * @return builder
          * 
@@ -339,6 +371,27 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder devMode(Boolean devMode) {
             return devMode(Output.of(devMode));
+        }
+
+        /**
+         * @param idpJwt JWT of the identity provider associated to the Venafi Control Plane service account that is granting the access token
+         * 
+         * @return builder
+         * 
+         */
+        public Builder idpJwt(@Nullable Output<String> idpJwt) {
+            $.idpJwt = idpJwt;
+            return this;
+        }
+
+        /**
+         * @param idpJwt JWT of the identity provider associated to the Venafi Control Plane service account that is granting the access token
+         * 
+         * @return builder
+         * 
+         */
+        public Builder idpJwt(String idpJwt) {
+            return idpJwt(Output.of(idpJwt));
         }
 
         /**
@@ -404,6 +457,27 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder skipRetirement(Boolean skipRetirement) {
             return skipRetirement(Output.of(skipRetirement));
+        }
+
+        /**
+         * @param tokenUrl Endpoint URL to request new Venafi Control Plane access tokens
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tokenUrl(@Nullable Output<String> tokenUrl) {
+            $.tokenUrl = tokenUrl;
+            return this;
+        }
+
+        /**
+         * @param tokenUrl Endpoint URL to request new Venafi Control Plane access tokens
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tokenUrl(String tokenUrl) {
+            return tokenUrl(Output.of(tokenUrl));
         }
 
         /**

@@ -16,7 +16,7 @@ Access token for Venafi TLSPDC, user should use this for authentication
 
 apiKey: Optional[str]
 """
-API key for Venafi as a Service. Example: 142231b7-cvb0-412e-886b-6aeght0bc93d
+API key for Venafi Control Plane. Example: 142231b7-cvb0-412e-886b-6aeght0bc93d
 """
 
 clientId: Optional[str]
@@ -28,6 +28,11 @@ devMode: Optional[bool]
 """
 When set to true, the resulting certificate will be issued by an ephemeral, no trust CA rather than enrolling using
 Venafi as a Service or Trust Protection Platform. Useful for development and testing.
+"""
+
+idpJwt: Optional[str]
+"""
+JWT of the identity provider associated to the Venafi Control Plane service account that is granting the access token
 """
 
 p12CertFilename: Optional[str]
@@ -42,6 +47,11 @@ Password for the PKCS#12 keystore declared in p12_cert
 """
 
 skipRetirement: Optional[bool]
+
+tokenUrl: Optional[str]
+"""
+Endpoint URL to request new Venafi Control Plane access tokens
+"""
 
 tppPassword: Optional[str]
 """
