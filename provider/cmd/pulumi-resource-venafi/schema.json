@@ -68,7 +68,7 @@
                 "type": "boolean",
                 "description": "When set to true, the resulting certificate will be issued by an ephemeral, no trust CA rather than enrolling using\nVenafi as a Service or Trust Protection Platform. Useful for development and testing.\n"
             },
-            "idpJwt": {
+            "externalJwt": {
                 "type": "string",
                 "description": "JWT of the identity provider associated to the Venafi Control Plane service account that is granting the access token\n",
                 "secret": true
@@ -136,7 +136,7 @@
                 "type": "boolean",
                 "description": "When set to true, the resulting certificate will be issued by an ephemeral, no trust CA rather than enrolling using\nVenafi as a Service or Trust Protection Platform. Useful for development and testing.\n"
             },
-            "idpJwt": {
+            "externalJwt": {
                 "type": "string",
                 "description": "JWT of the identity provider associated to the Venafi Control Plane service account that is granting the access token\n",
                 "secret": true
@@ -202,7 +202,7 @@
                 "type": "boolean",
                 "description": "When set to true, the resulting certificate will be issued by an ephemeral, no trust CA rather than enrolling using\nVenafi as a Service or Trust Protection Platform. Useful for development and testing.\n"
             },
-            "idpJwt": {
+            "externalJwt": {
                 "type": "string",
                 "description": "JWT of the identity provider associated to the Venafi Control Plane service account that is granting the access token\n",
                 "secret": true
@@ -255,7 +255,7 @@
             "properties": {
                 "algorithm": {
                     "type": "string",
-                    "description": "Key encryption algorithm, either `RSA` or `ECDSA`.\nDefaults to `RSA`.\n"
+                    "description": "Key encryption algorithm, either RSA or ECDSA. Defaults to `RSA`.\n"
                 },
                 "certificate": {
                     "type": "string",
@@ -271,7 +271,7 @@
                 },
                 "chain": {
                     "type": "string",
-                    "description": "The trust chain of X509 certificate authority certificates in PEM format\nconcatenated together.\n"
+                    "description": "The trust chain of X509 certificate authority certificates in PEM format concatenated together.\n"
                 },
                 "commonName": {
                     "type": "string",
@@ -279,7 +279,7 @@
                 },
                 "csrOrigin": {
                     "type": "string",
-                    "description": "Whether key-pair generation will be `local` or `service` generated. Default is `local`.\n"
+                    "description": "Whether key-pair generation will be `local` or `service` generated. Default is \n`local`.\n"
                 },
                 "csrPem": {
                     "type": "string"
@@ -289,7 +289,7 @@
                     "additionalProperties": {
                         "type": "string"
                     },
-                    "description": "Collection of Custom Field name-value pairs to\nassign to the certificate.\n"
+                    "description": "Collection of Custom Field name-value pairs to assign to the certificate.\n"
                 },
                 "ecdsaCurve": {
                     "type": "string",
@@ -297,11 +297,11 @@
                 },
                 "expirationWindow": {
                     "type": "integer",
-                    "description": "Number of hours before certificate expiry\nto request a new certificate.  Defaults to `168`.\n"
+                    "description": "Number of hours before certificate expiry to request a new certificate. \nDefaults to `168`.\n"
                 },
                 "issuerHint": {
                     "type": "string",
-                    "description": "Used with valid_days to indicate the target\nissuer when using Trust Protection Platform.  Relevant values are: \"DigiCert\",\n\"Entrust\", and \"Microsoft\".\n"
+                    "description": "Used with `valid_days` to indicate the target issuer when using Trust Protection \nPlatform. Relevant values are: `DigiCert`, `Entrust`, and `Microsoft`.\n"
                 },
                 "keyPassword": {
                     "type": "string",
@@ -310,11 +310,11 @@
                 },
                 "nickname": {
                     "type": "string",
-                    "description": "Use to specify a name for the new certificate object that will be created and placed in a policy. Only valid for TPP.\n"
+                    "description": "Use to specify a name for the new certificate object that will be created and placed \nin a policy. Only valid for Trust Protection Platform.\n"
                 },
                 "pkcs12": {
                     "type": "string",
-                    "description": "A base64-encoded PKCS#12 keystore secured by the `key_password`.\nUseful when working with resources like\nazurerm_key_vault_certificate.\n"
+                    "description": "A base64-encoded PKCS#12 keystore secured by the `key_password`. Useful when working with resources like \nazure key_vault_certificate.\n"
                 },
                 "privateKeyPem": {
                     "type": "string",
@@ -323,39 +323,39 @@
                 },
                 "rsaBits": {
                     "type": "integer",
-                    "description": "Number of bits to use when generating an RSA key.\nApplies when `algorithm=RSA`.  Defaults to `2048`.\n"
+                    "description": "Number of bits to use when generating an RSA key. Applies when algorithm is `RSA`. \nDefaults to `2048`.\n"
                 },
                 "sanDns": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
-                    "description": "List of DNS names to use as alternative\nsubjects of the certificate.\n"
+                    "description": "List of DNS names to use as alternative subjects of the certificate.\n"
                 },
                 "sanEmails": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
-                    "description": "List of email addresses to use as\nalternative subjects of the certificate.\n"
+                    "description": "List of email addresses to use as alternative subjects of the certificate.\n"
                 },
                 "sanIps": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
-                    "description": "List of IP addresses to use as alternative\nsubjects of the certificate.\n"
+                    "description": "List of IP addresses to use as alternative subjects of the certificate.\n"
                 },
                 "sanUris": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
-                    "description": "List of Uniform Resource Identifiers (URIs) to use as alternative\nsubjects of the certificate.\n"
+                    "description": "List of Uniform Resource Identifiers (URIs) to use as alternative subjects of \nthe certificate.\n"
                 },
                 "validDays": {
                     "type": "integer",
-                    "description": "Desired number of days for which the new\ncertificate will be valid.\n"
+                    "description": "Desired number of days for which the new certificate will be valid.\n"
                 }
             },
             "required": [
@@ -370,7 +370,7 @@
             "inputProperties": {
                 "algorithm": {
                     "type": "string",
-                    "description": "Key encryption algorithm, either `RSA` or `ECDSA`.\nDefaults to `RSA`.\n",
+                    "description": "Key encryption algorithm, either RSA or ECDSA. Defaults to `RSA`.\n",
                     "willReplaceOnChanges": true
                 },
                 "certificateDn": {
@@ -383,7 +383,7 @@
                 },
                 "csrOrigin": {
                     "type": "string",
-                    "description": "Whether key-pair generation will be `local` or `service` generated. Default is `local`.\n",
+                    "description": "Whether key-pair generation will be `local` or `service` generated. Default is \n`local`.\n",
                     "willReplaceOnChanges": true
                 },
                 "csrPem": {
@@ -394,7 +394,7 @@
                     "additionalProperties": {
                         "type": "string"
                     },
-                    "description": "Collection of Custom Field name-value pairs to\nassign to the certificate.\n",
+                    "description": "Collection of Custom Field name-value pairs to assign to the certificate.\n",
                     "willReplaceOnChanges": true
                 },
                 "ecdsaCurve": {
@@ -404,11 +404,11 @@
                 },
                 "expirationWindow": {
                     "type": "integer",
-                    "description": "Number of hours before certificate expiry\nto request a new certificate.  Defaults to `168`.\n"
+                    "description": "Number of hours before certificate expiry to request a new certificate. \nDefaults to `168`.\n"
                 },
                 "issuerHint": {
                     "type": "string",
-                    "description": "Used with valid_days to indicate the target\nissuer when using Trust Protection Platform.  Relevant values are: \"DigiCert\",\n\"Entrust\", and \"Microsoft\".\n",
+                    "description": "Used with `valid_days` to indicate the target issuer when using Trust Protection \nPlatform. Relevant values are: `DigiCert`, `Entrust`, and `Microsoft`.\n",
                     "willReplaceOnChanges": true
                 },
                 "keyPassword": {
@@ -419,12 +419,12 @@
                 },
                 "nickname": {
                     "type": "string",
-                    "description": "Use to specify a name for the new certificate object that will be created and placed in a policy. Only valid for TPP.\n",
+                    "description": "Use to specify a name for the new certificate object that will be created and placed \nin a policy. Only valid for Trust Protection Platform.\n",
                     "willReplaceOnChanges": true
                 },
                 "pkcs12": {
                     "type": "string",
-                    "description": "A base64-encoded PKCS#12 keystore secured by the `key_password`.\nUseful when working with resources like\nazurerm_key_vault_certificate.\n"
+                    "description": "A base64-encoded PKCS#12 keystore secured by the `key_password`. Useful when working with resources like \nazure key_vault_certificate.\n"
                 },
                 "privateKeyPem": {
                     "type": "string",
@@ -433,7 +433,7 @@
                 },
                 "rsaBits": {
                     "type": "integer",
-                    "description": "Number of bits to use when generating an RSA key.\nApplies when `algorithm=RSA`.  Defaults to `2048`.\n",
+                    "description": "Number of bits to use when generating an RSA key. Applies when algorithm is `RSA`. \nDefaults to `2048`.\n",
                     "willReplaceOnChanges": true
                 },
                 "sanDns": {
@@ -441,7 +441,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "List of DNS names to use as alternative\nsubjects of the certificate.\n",
+                    "description": "List of DNS names to use as alternative subjects of the certificate.\n",
                     "willReplaceOnChanges": true
                 },
                 "sanEmails": {
@@ -449,7 +449,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "List of email addresses to use as\nalternative subjects of the certificate.\n",
+                    "description": "List of email addresses to use as alternative subjects of the certificate.\n",
                     "willReplaceOnChanges": true
                 },
                 "sanIps": {
@@ -457,7 +457,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "List of IP addresses to use as alternative\nsubjects of the certificate.\n",
+                    "description": "List of IP addresses to use as alternative subjects of the certificate.\n",
                     "willReplaceOnChanges": true
                 },
                 "sanUris": {
@@ -465,12 +465,12 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "List of Uniform Resource Identifiers (URIs) to use as alternative\nsubjects of the certificate.\n",
+                    "description": "List of Uniform Resource Identifiers (URIs) to use as alternative subjects of \nthe certificate.\n",
                     "willReplaceOnChanges": true
                 },
                 "validDays": {
                     "type": "integer",
-                    "description": "Desired number of days for which the new\ncertificate will be valid.\n",
+                    "description": "Desired number of days for which the new certificate will be valid.\n",
                     "willReplaceOnChanges": true
                 }
             },
@@ -482,7 +482,7 @@
                 "properties": {
                     "algorithm": {
                         "type": "string",
-                        "description": "Key encryption algorithm, either `RSA` or `ECDSA`.\nDefaults to `RSA`.\n",
+                        "description": "Key encryption algorithm, either RSA or ECDSA. Defaults to `RSA`.\n",
                         "willReplaceOnChanges": true
                     },
                     "certificate": {
@@ -499,7 +499,7 @@
                     },
                     "chain": {
                         "type": "string",
-                        "description": "The trust chain of X509 certificate authority certificates in PEM format\nconcatenated together.\n"
+                        "description": "The trust chain of X509 certificate authority certificates in PEM format concatenated together.\n"
                     },
                     "commonName": {
                         "type": "string",
@@ -508,7 +508,7 @@
                     },
                     "csrOrigin": {
                         "type": "string",
-                        "description": "Whether key-pair generation will be `local` or `service` generated. Default is `local`.\n",
+                        "description": "Whether key-pair generation will be `local` or `service` generated. Default is \n`local`.\n",
                         "willReplaceOnChanges": true
                     },
                     "csrPem": {
@@ -519,7 +519,7 @@
                         "additionalProperties": {
                             "type": "string"
                         },
-                        "description": "Collection of Custom Field name-value pairs to\nassign to the certificate.\n",
+                        "description": "Collection of Custom Field name-value pairs to assign to the certificate.\n",
                         "willReplaceOnChanges": true
                     },
                     "ecdsaCurve": {
@@ -529,11 +529,11 @@
                     },
                     "expirationWindow": {
                         "type": "integer",
-                        "description": "Number of hours before certificate expiry\nto request a new certificate.  Defaults to `168`.\n"
+                        "description": "Number of hours before certificate expiry to request a new certificate. \nDefaults to `168`.\n"
                     },
                     "issuerHint": {
                         "type": "string",
-                        "description": "Used with valid_days to indicate the target\nissuer when using Trust Protection Platform.  Relevant values are: \"DigiCert\",\n\"Entrust\", and \"Microsoft\".\n",
+                        "description": "Used with `valid_days` to indicate the target issuer when using Trust Protection \nPlatform. Relevant values are: `DigiCert`, `Entrust`, and `Microsoft`.\n",
                         "willReplaceOnChanges": true
                     },
                     "keyPassword": {
@@ -544,12 +544,12 @@
                     },
                     "nickname": {
                         "type": "string",
-                        "description": "Use to specify a name for the new certificate object that will be created and placed in a policy. Only valid for TPP.\n",
+                        "description": "Use to specify a name for the new certificate object that will be created and placed \nin a policy. Only valid for Trust Protection Platform.\n",
                         "willReplaceOnChanges": true
                     },
                     "pkcs12": {
                         "type": "string",
-                        "description": "A base64-encoded PKCS#12 keystore secured by the `key_password`.\nUseful when working with resources like\nazurerm_key_vault_certificate.\n"
+                        "description": "A base64-encoded PKCS#12 keystore secured by the `key_password`. Useful when working with resources like \nazure key_vault_certificate.\n"
                     },
                     "privateKeyPem": {
                         "type": "string",
@@ -558,7 +558,7 @@
                     },
                     "rsaBits": {
                         "type": "integer",
-                        "description": "Number of bits to use when generating an RSA key.\nApplies when `algorithm=RSA`.  Defaults to `2048`.\n",
+                        "description": "Number of bits to use when generating an RSA key. Applies when algorithm is `RSA`. \nDefaults to `2048`.\n",
                         "willReplaceOnChanges": true
                     },
                     "sanDns": {
@@ -566,7 +566,7 @@
                         "items": {
                             "type": "string"
                         },
-                        "description": "List of DNS names to use as alternative\nsubjects of the certificate.\n",
+                        "description": "List of DNS names to use as alternative subjects of the certificate.\n",
                         "willReplaceOnChanges": true
                     },
                     "sanEmails": {
@@ -574,7 +574,7 @@
                         "items": {
                             "type": "string"
                         },
-                        "description": "List of email addresses to use as\nalternative subjects of the certificate.\n",
+                        "description": "List of email addresses to use as alternative subjects of the certificate.\n",
                         "willReplaceOnChanges": true
                     },
                     "sanIps": {
@@ -582,7 +582,7 @@
                         "items": {
                             "type": "string"
                         },
-                        "description": "List of IP addresses to use as alternative\nsubjects of the certificate.\n",
+                        "description": "List of IP addresses to use as alternative subjects of the certificate.\n",
                         "willReplaceOnChanges": true
                     },
                     "sanUris": {
@@ -590,12 +590,12 @@
                         "items": {
                             "type": "string"
                         },
-                        "description": "List of Uniform Resource Identifiers (URIs) to use as alternative\nsubjects of the certificate.\n",
+                        "description": "List of Uniform Resource Identifiers (URIs) to use as alternative subjects of \nthe certificate.\n",
                         "willReplaceOnChanges": true
                     },
                     "validDays": {
                         "type": "integer",
-                        "description": "Desired number of days for which the new\ncertificate will be valid.\n",
+                        "description": "Desired number of days for which the new certificate will be valid.\n",
                         "willReplaceOnChanges": true
                     }
                 },
@@ -603,26 +603,26 @@
             }
         },
         "venafi:index/policy:Policy": {
-            "description": "Provides access to read and write certificate policy in Venafi. This can be used\nto define a new policy (folder in *Trust Protection Platform*; application\nand/or issuing template in *Venafi as a Service*).\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as fs from \"fs\";\nimport * as venafi from \"@pulumi/venafi\";\n\nconst internalPolicy = new venafi.Policy(\"internalPolicy\", {\n    zone: \"My Business App\\\\Enterprise Trusted Certs\",\n    policySpecification: fs.readFileSync(\"/path-to/internal-policy.json\", \"utf8\"),\n});\n```\n```python\nimport pulumi\nimport pulumi_venafi as venafi\n\ninternal_policy = venafi.Policy(\"internalPolicy\",\n    zone=\"My Business App\\\\Enterprise Trusted Certs\",\n    policy_specification=(lambda path: open(path).read())(\"/path-to/internal-policy.json\"))\n```\n```csharp\nusing System.Collections.Generic;\nusing System.IO;\nusing System.Linq;\nusing Pulumi;\nusing Venafi = Pulumi.Venafi;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var internalPolicy = new Venafi.Policy(\"internalPolicy\", new()\n    {\n        Zone = \"My Business App\\\\Enterprise Trusted Certs\",\n        PolicySpecification = File.ReadAllText(\"/path-to/internal-policy.json\"),\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"os\"\n\n\t\"github.com/pulumi/pulumi-venafi/sdk/go/venafi\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc readFileOrPanic(path string) pulumi.StringPtrInput {\n\tdata, err := os.ReadFile(path)\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\treturn pulumi.String(string(data))\n}\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := venafi.NewPolicy(ctx, \"internalPolicy\", \u0026venafi.PolicyArgs{\n\t\t\tZone:                pulumi.String(\"My Business App\\\\Enterprise Trusted Certs\"),\n\t\t\tPolicySpecification: readFileOrPanic(\"/path-to/internal-policy.json\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.venafi.Policy;\nimport com.pulumi.venafi.PolicyArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var internalPolicy = new Policy(\"internalPolicy\", PolicyArgs.builder()        \n            .zone(\"My Business App\\\\Enterprise Trusted Certs\")\n            .policySpecification(Files.readString(Paths.get(\"/path-to/internal-policy.json\")))\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  internalPolicy:\n    type: venafi:Policy\n    properties:\n      zone: My Business App\\Enterprise Trusted Certs\n      policySpecification:\n        fn::readFile: /path-to/internal-policy.json\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\nThe `venafi_policy` resource supports the Terraform import\n\nmethod.  When used, the `zone` and `policy_specification` resource arguments\n\nare not required since the zone is a required parameter of the import method\n\nand the policy specification is populated from the existing infrastructure.\n\nPolicy that is successfully imported is also output to a file named after the\n\nzone that was specified.\n\nhcl\n\nresource \"venafi_policy\" \"existing_policy\" {}\n\n```sh\n$ pulumi import venafi:index/policy:Policy existing_policy\" \"My Business App\\\\Enterprise Trusted Certs\"\n```\n\n",
+            "description": "Provides access to read and write certificate policy in Venafi. This can be used to define a new policy (folder in \n*Trust Protection Platform*; application and issuing template in *Venafi Control Plane*).\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as fs from \"fs\";\nimport * as venafi from \"@pulumi/venafi\";\n\nconst internalPolicy = new venafi.Policy(\"internalPolicy\", {\n    zone: \"My Business App\\\\Enterprise Trusted Certs\",\n    policySpecification: fs.readFileSync(\"/path-to/internal-policy.json\", \"utf8\"),\n});\n```\n```python\nimport pulumi\nimport pulumi_venafi as venafi\n\ninternal_policy = venafi.Policy(\"internalPolicy\",\n    zone=\"My Business App\\\\Enterprise Trusted Certs\",\n    policy_specification=(lambda path: open(path).read())(\"/path-to/internal-policy.json\"))\n```\n```csharp\nusing System.Collections.Generic;\nusing System.IO;\nusing System.Linq;\nusing Pulumi;\nusing Venafi = Pulumi.Venafi;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var internalPolicy = new Venafi.Policy(\"internalPolicy\", new()\n    {\n        Zone = \"My Business App\\\\Enterprise Trusted Certs\",\n        PolicySpecification = File.ReadAllText(\"/path-to/internal-policy.json\"),\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"os\"\n\n\t\"github.com/pulumi/pulumi-venafi/sdk/go/venafi\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc readFileOrPanic(path string) pulumi.StringPtrInput {\n\tdata, err := os.ReadFile(path)\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\treturn pulumi.String(string(data))\n}\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := venafi.NewPolicy(ctx, \"internalPolicy\", \u0026venafi.PolicyArgs{\n\t\t\tZone:                pulumi.String(\"My Business App\\\\Enterprise Trusted Certs\"),\n\t\t\tPolicySpecification: readFileOrPanic(\"/path-to/internal-policy.json\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.venafi.Policy;\nimport com.pulumi.venafi.PolicyArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var internalPolicy = new Policy(\"internalPolicy\", PolicyArgs.builder()        \n            .zone(\"My Business App\\\\Enterprise Trusted Certs\")\n            .policySpecification(Files.readString(Paths.get(\"/path-to/internal-policy.json\")))\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  internalPolicy:\n    type: venafi:Policy\n    properties:\n      zone: My Business App\\Enterprise Trusted Certs\n      policySpecification:\n        fn::readFile: /path-to/internal-policy.json\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\nThe `venafi_policy` resource supports the Terraform import method. \n\nWhen used, the `zone` and `policy_specification` resource arguments are not required since the zone is a required \n\nparameter of the import method and the policy specification is populated from the existing infrastructure. Policy that \n\nis successfully imported is also output to a file named after the zone that was specified.\n\nhcl\n\nresource \"venafi_policy\" \"existing_policy\" {}\n\n```sh\n$ pulumi import venafi:index/policy:Policy existing_policy\" \"My Business App\\\\Enterprise Trusted Certs\"\n```\n\n",
             "properties": {
                 "policySpecification": {
                     "type": "string",
-                    "description": "The JSON-formatted certificate policy\nspecification as documented [here](https://github.com/Venafi/vcert/blob/master/README-POLICY-SPEC.md).\nTypically read from a file using the `file` function.\n"
+                    "description": "The JSON-formatted certificate policy specification as documented \n[here](https://github.com/Venafi/vcert/blob/master/README-POLICY-SPEC.md). Typically read from a file using the `file`\nfunction.\n"
                 },
                 "zone": {
                     "type": "string",
-                    "description": "The *Trust Protection Plaform* policy folder or\n*Venafi as a Service* application and issuing template.\n"
+                    "description": "The *Trust Protection Plaform* policy folder or *Venafi Control Plane* application and \nissuing template.\n"
                 }
             },
             "inputProperties": {
                 "policySpecification": {
                     "type": "string",
-                    "description": "The JSON-formatted certificate policy\nspecification as documented [here](https://github.com/Venafi/vcert/blob/master/README-POLICY-SPEC.md).\nTypically read from a file using the `file` function.\n",
+                    "description": "The JSON-formatted certificate policy specification as documented \n[here](https://github.com/Venafi/vcert/blob/master/README-POLICY-SPEC.md). Typically read from a file using the `file`\nfunction.\n",
                     "willReplaceOnChanges": true
                 },
                 "zone": {
                     "type": "string",
-                    "description": "The *Trust Protection Plaform* policy folder or\n*Venafi as a Service* application and issuing template.\n",
+                    "description": "The *Trust Protection Plaform* policy folder or *Venafi Control Plane* application and \nissuing template.\n",
                     "willReplaceOnChanges": true
                 }
             },
@@ -631,12 +631,12 @@
                 "properties": {
                     "policySpecification": {
                         "type": "string",
-                        "description": "The JSON-formatted certificate policy\nspecification as documented [here](https://github.com/Venafi/vcert/blob/master/README-POLICY-SPEC.md).\nTypically read from a file using the `file` function.\n",
+                        "description": "The JSON-formatted certificate policy specification as documented \n[here](https://github.com/Venafi/vcert/blob/master/README-POLICY-SPEC.md). Typically read from a file using the `file`\nfunction.\n",
                         "willReplaceOnChanges": true
                     },
                     "zone": {
                         "type": "string",
-                        "description": "The *Trust Protection Plaform* policy folder or\n*Venafi as a Service* application and issuing template.\n",
+                        "description": "The *Trust Protection Plaform* policy folder or *Venafi Control Plane* application and \nissuing template.\n",
                         "willReplaceOnChanges": true
                     }
                 },
@@ -659,14 +659,14 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "A list of one or more valid IP or CIDR destination hosts where the certificate will authenticate.\n"
+                    "description": "A list of one or more valid IP or CIDR destination hosts where the \ncertificate will authenticate.\n"
                 },
                 "extensions": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
-                    "description": "A list of key-value pairs that contain certificate extensions from the CA template for client certificates. Allowed values (case-sensitive): *permit-X11-forwarding, permit-agent-forwarding, permit-port-forwarding, permit-pty, permit-user-rc*\n"
+                    "description": "A list of key-value pairs that contain certificate extensions from the CA \ntemplate for client certificates. Allowed values (case-sensitive): `permit-X11-forwarding`, `permit-agent-forwarding`,\n`permit-port-forwarding`, `permit-pty`, `permit-user-rc`.\n"
                 },
                 "folder": {
                     "type": "string",
@@ -687,18 +687,18 @@
                 },
                 "keySize": {
                     "type": "integer",
-                    "description": "Number of bits to use when creating a key pair. (e.g. 3072)\n"
+                    "description": "Number of bits to use when creating a key pair. (e.g. `3072`).\n"
                 },
                 "objectName": {
                     "type": "string",
-                    "description": "The friendly name of the SSH certificate object. When not specified the `key_id` is used for the friendly name. If the object already exists the old certificate is archived and the CA issues a new certificate.\n"
+                    "description": "The friendly name of the SSH certificate object. When not specified the `key_id` \nis used for the friendly name. If the object already exists the old certificate is archived and the CA issues a new\ncertificate.\n"
                 },
                 "principal": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
-                    "description": "[DEPRECATED] - (Optional, set of strings) Use \"principals\" instead. A list of user names for whom the requested certificate will be valid.\n",
+                    "description": "[DEPRECATED] - (Optional, set of strings) Use \"principals\" instead. A list of usernames for whom the \nrequested certificate will be valid.\n",
                     "deprecationMessage": "This will be removed in the future. Use \"principals\" instead"
                 },
                 "principals": {
@@ -706,7 +706,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "A list of user names for whom the requested certificate will be valid.\n"
+                    "description": "A list of usernames for whom the requested certificate will be valid.\n"
                 },
                 "privateKey": {
                     "type": "string",
@@ -722,7 +722,7 @@
                 },
                 "publicKeyMethod": {
                     "type": "string",
-                    "description": "Specifies whether the public key will be \"local\" (default), \"file\" or \"service\" generated.\n"
+                    "description": "Specifies whether the public key will be `local` (default), `file` or \n`service` generated.\n"
                 },
                 "serial": {
                     "type": "string",
@@ -737,7 +737,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "A list of one or more valid IP or CIDR addresses that can use the SSH certificate.\n"
+                    "description": "A list of one or more valid IP or CIDR addresses that can use the SSH \ncertificate.\n"
                 },
                 "template": {
                     "type": "string",
@@ -778,7 +778,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "A list of one or more valid IP or CIDR destination hosts where the certificate will authenticate.\n",
+                    "description": "A list of one or more valid IP or CIDR destination hosts where the \ncertificate will authenticate.\n",
                     "willReplaceOnChanges": true
                 },
                 "extensions": {
@@ -786,7 +786,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "A list of key-value pairs that contain certificate extensions from the CA template for client certificates. Allowed values (case-sensitive): *permit-X11-forwarding, permit-agent-forwarding, permit-port-forwarding, permit-pty, permit-user-rc*\n",
+                    "description": "A list of key-value pairs that contain certificate extensions from the CA \ntemplate for client certificates. Allowed values (case-sensitive): `permit-X11-forwarding`, `permit-agent-forwarding`,\n`permit-port-forwarding`, `permit-pty`, `permit-user-rc`.\n",
                     "willReplaceOnChanges": true
                 },
                 "folder": {
@@ -812,12 +812,12 @@
                 },
                 "keySize": {
                     "type": "integer",
-                    "description": "Number of bits to use when creating a key pair. (e.g. 3072)\n",
+                    "description": "Number of bits to use when creating a key pair. (e.g. `3072`).\n",
                     "willReplaceOnChanges": true
                 },
                 "objectName": {
                     "type": "string",
-                    "description": "The friendly name of the SSH certificate object. When not specified the `key_id` is used for the friendly name. If the object already exists the old certificate is archived and the CA issues a new certificate.\n",
+                    "description": "The friendly name of the SSH certificate object. When not specified the `key_id` \nis used for the friendly name. If the object already exists the old certificate is archived and the CA issues a new\ncertificate.\n",
                     "willReplaceOnChanges": true
                 },
                 "principal": {
@@ -825,7 +825,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "[DEPRECATED] - (Optional, set of strings) Use \"principals\" instead. A list of user names for whom the requested certificate will be valid.\n",
+                    "description": "[DEPRECATED] - (Optional, set of strings) Use \"principals\" instead. A list of usernames for whom the \nrequested certificate will be valid.\n",
                     "deprecationMessage": "This will be removed in the future. Use \"principals\" instead",
                     "willReplaceOnChanges": true
                 },
@@ -834,7 +834,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "A list of user names for whom the requested certificate will be valid.\n",
+                    "description": "A list of usernames for whom the requested certificate will be valid.\n",
                     "willReplaceOnChanges": true
                 },
                 "publicKey": {
@@ -844,7 +844,7 @@
                 },
                 "publicKeyMethod": {
                     "type": "string",
-                    "description": "Specifies whether the public key will be \"local\" (default), \"file\" or \"service\" generated.\n",
+                    "description": "Specifies whether the public key will be `local` (default), `file` or \n`service` generated.\n",
                     "willReplaceOnChanges": true
                 },
                 "sourceAddresses": {
@@ -852,7 +852,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "A list of one or more valid IP or CIDR addresses that can use the SSH certificate.\n",
+                    "description": "A list of one or more valid IP or CIDR addresses that can use the SSH \ncertificate.\n",
                     "willReplaceOnChanges": true
                 },
                 "template": {
@@ -891,7 +891,7 @@
                         "items": {
                             "type": "string"
                         },
-                        "description": "A list of one or more valid IP or CIDR destination hosts where the certificate will authenticate.\n",
+                        "description": "A list of one or more valid IP or CIDR destination hosts where the \ncertificate will authenticate.\n",
                         "willReplaceOnChanges": true
                     },
                     "extensions": {
@@ -899,7 +899,7 @@
                         "items": {
                             "type": "string"
                         },
-                        "description": "A list of key-value pairs that contain certificate extensions from the CA template for client certificates. Allowed values (case-sensitive): *permit-X11-forwarding, permit-agent-forwarding, permit-port-forwarding, permit-pty, permit-user-rc*\n",
+                        "description": "A list of key-value pairs that contain certificate extensions from the CA \ntemplate for client certificates. Allowed values (case-sensitive): `permit-X11-forwarding`, `permit-agent-forwarding`,\n`permit-port-forwarding`, `permit-pty`, `permit-user-rc`.\n",
                         "willReplaceOnChanges": true
                     },
                     "folder": {
@@ -925,12 +925,12 @@
                     },
                     "keySize": {
                         "type": "integer",
-                        "description": "Number of bits to use when creating a key pair. (e.g. 3072)\n",
+                        "description": "Number of bits to use when creating a key pair. (e.g. `3072`).\n",
                         "willReplaceOnChanges": true
                     },
                     "objectName": {
                         "type": "string",
-                        "description": "The friendly name of the SSH certificate object. When not specified the `key_id` is used for the friendly name. If the object already exists the old certificate is archived and the CA issues a new certificate.\n",
+                        "description": "The friendly name of the SSH certificate object. When not specified the `key_id` \nis used for the friendly name. If the object already exists the old certificate is archived and the CA issues a new\ncertificate.\n",
                         "willReplaceOnChanges": true
                     },
                     "principal": {
@@ -938,7 +938,7 @@
                         "items": {
                             "type": "string"
                         },
-                        "description": "[DEPRECATED] - (Optional, set of strings) Use \"principals\" instead. A list of user names for whom the requested certificate will be valid.\n",
+                        "description": "[DEPRECATED] - (Optional, set of strings) Use \"principals\" instead. A list of usernames for whom the \nrequested certificate will be valid.\n",
                         "deprecationMessage": "This will be removed in the future. Use \"principals\" instead",
                         "willReplaceOnChanges": true
                     },
@@ -947,7 +947,7 @@
                         "items": {
                             "type": "string"
                         },
-                        "description": "A list of user names for whom the requested certificate will be valid.\n",
+                        "description": "A list of usernames for whom the requested certificate will be valid.\n",
                         "willReplaceOnChanges": true
                     },
                     "privateKey": {
@@ -965,7 +965,7 @@
                     },
                     "publicKeyMethod": {
                         "type": "string",
-                        "description": "Specifies whether the public key will be \"local\" (default), \"file\" or \"service\" generated.\n",
+                        "description": "Specifies whether the public key will be `local` (default), `file` or \n`service` generated.\n",
                         "willReplaceOnChanges": true
                     },
                     "serial": {
@@ -981,7 +981,7 @@
                         "items": {
                             "type": "string"
                         },
-                        "description": "A list of one or more valid IP or CIDR addresses that can use the SSH certificate.\n",
+                        "description": "A list of one or more valid IP or CIDR addresses that can use the SSH \ncertificate.\n",
                         "willReplaceOnChanges": true
                     },
                     "template": {
