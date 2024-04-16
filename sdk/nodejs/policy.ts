@@ -5,9 +5,8 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
- * Provides access to read and write certificate policy in Venafi. This can be used
- * to define a new policy (folder in *Trust Protection Platform*; application
- * and/or issuing template in *Venafi as a Service*).
+ * Provides access to read and write certificate policy in Venafi. This can be used to define a new policy (folder in
+ * *Trust Protection Platform*; application and issuing template in *Venafi Control Plane*).
  *
  * ## Example Usage
  *
@@ -26,17 +25,13 @@ import * as utilities from "./utilities";
  *
  * ## Import
  *
- * The `venafi_policy` resource supports the Terraform import
+ * The `venafi_policy` resource supports the Terraform import method.
  *
- * method.  When used, the `zone` and `policy_specification` resource arguments
+ * When used, the `zone` and `policy_specification` resource arguments are not required since the zone is a required
  *
- * are not required since the zone is a required parameter of the import method
+ * parameter of the import method and the policy specification is populated from the existing infrastructure. Policy that
  *
- * and the policy specification is populated from the existing infrastructure.
- *
- * Policy that is successfully imported is also output to a file named after the
- *
- * zone that was specified.
+ * is successfully imported is also output to a file named after the zone that was specified.
  *
  * hcl
  *
@@ -75,14 +70,14 @@ export class Policy extends pulumi.CustomResource {
     }
 
     /**
-     * The JSON-formatted certificate policy
-     * specification as documented [here](https://github.com/Venafi/vcert/blob/master/README-POLICY-SPEC.md).
-     * Typically read from a file using the `file` function.
+     * The JSON-formatted certificate policy specification as documented 
+     * [here](https://github.com/Venafi/vcert/blob/master/README-POLICY-SPEC.md). Typically read from a file using the `file`
+     * function.
      */
     public readonly policySpecification!: pulumi.Output<string | undefined>;
     /**
-     * The *Trust Protection Plaform* policy folder or
-     * *Venafi as a Service* application and issuing template.
+     * The *Trust Protection Plaform* policy folder or *Venafi Control Plane* application and 
+     * issuing template.
      */
     public readonly zone!: pulumi.Output<string | undefined>;
 
@@ -116,14 +111,14 @@ export class Policy extends pulumi.CustomResource {
  */
 export interface PolicyState {
     /**
-     * The JSON-formatted certificate policy
-     * specification as documented [here](https://github.com/Venafi/vcert/blob/master/README-POLICY-SPEC.md).
-     * Typically read from a file using the `file` function.
+     * The JSON-formatted certificate policy specification as documented 
+     * [here](https://github.com/Venafi/vcert/blob/master/README-POLICY-SPEC.md). Typically read from a file using the `file`
+     * function.
      */
     policySpecification?: pulumi.Input<string>;
     /**
-     * The *Trust Protection Plaform* policy folder or
-     * *Venafi as a Service* application and issuing template.
+     * The *Trust Protection Plaform* policy folder or *Venafi Control Plane* application and 
+     * issuing template.
      */
     zone?: pulumi.Input<string>;
 }
@@ -133,14 +128,14 @@ export interface PolicyState {
  */
 export interface PolicyArgs {
     /**
-     * The JSON-formatted certificate policy
-     * specification as documented [here](https://github.com/Venafi/vcert/blob/master/README-POLICY-SPEC.md).
-     * Typically read from a file using the `file` function.
+     * The JSON-formatted certificate policy specification as documented 
+     * [here](https://github.com/Venafi/vcert/blob/master/README-POLICY-SPEC.md). Typically read from a file using the `file`
+     * function.
      */
     policySpecification?: pulumi.Input<string>;
     /**
-     * The *Trust Protection Plaform* policy folder or
-     * *Venafi as a Service* application and issuing template.
+     * The *Trust Protection Plaform* policy folder or *Venafi Control Plane* application and 
+     * issuing template.
      */
     zone?: pulumi.Input<string>;
 }

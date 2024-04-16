@@ -15,9 +15,8 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Provides access to read and write certificate policy in Venafi. This can be used
- * to define a new policy (folder in *Trust Protection Platform*; application
- * and/or issuing template in *Venafi as a Service*).
+ * Provides access to read and write certificate policy in Venafi. This can be used to define a new policy (folder in
+ * *Trust Protection Platform*; application and issuing template in *Venafi Control Plane*).
  * 
  * ## Example Usage
  * 
@@ -55,17 +54,13 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * The `venafi_policy` resource supports the Terraform import
+ * The `venafi_policy` resource supports the Terraform import method.
  * 
- * method.  When used, the `zone` and `policy_specification` resource arguments
+ * When used, the `zone` and `policy_specification` resource arguments are not required since the zone is a required
  * 
- * are not required since the zone is a required parameter of the import method
+ * parameter of the import method and the policy specification is populated from the existing infrastructure. Policy that
  * 
- * and the policy specification is populated from the existing infrastructure.
- * 
- * Policy that is successfully imported is also output to a file named after the
- * 
- * zone that was specified.
+ * is successfully imported is also output to a file named after the zone that was specified.
  * 
  * hcl
  * 
@@ -79,34 +74,34 @@ import javax.annotation.Nullable;
 @ResourceType(type="venafi:index/policy:Policy")
 public class Policy extends com.pulumi.resources.CustomResource {
     /**
-     * The JSON-formatted certificate policy
-     * specification as documented [here](https://github.com/Venafi/vcert/blob/master/README-POLICY-SPEC.md).
-     * Typically read from a file using the `file` function.
+     * The JSON-formatted certificate policy specification as documented
+     * [here](https://github.com/Venafi/vcert/blob/master/README-POLICY-SPEC.md). Typically read from a file using the `file`
+     * function.
      * 
      */
     @Export(name="policySpecification", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> policySpecification;
 
     /**
-     * @return The JSON-formatted certificate policy
-     * specification as documented [here](https://github.com/Venafi/vcert/blob/master/README-POLICY-SPEC.md).
-     * Typically read from a file using the `file` function.
+     * @return The JSON-formatted certificate policy specification as documented
+     * [here](https://github.com/Venafi/vcert/blob/master/README-POLICY-SPEC.md). Typically read from a file using the `file`
+     * function.
      * 
      */
     public Output<Optional<String>> policySpecification() {
         return Codegen.optional(this.policySpecification);
     }
     /**
-     * The *Trust Protection Plaform* policy folder or
-     * *Venafi as a Service* application and issuing template.
+     * The *Trust Protection Plaform* policy folder or *Venafi Control Plane* application and
+     * issuing template.
      * 
      */
     @Export(name="zone", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> zone;
 
     /**
-     * @return The *Trust Protection Plaform* policy folder or
-     * *Venafi as a Service* application and issuing template.
+     * @return The *Trust Protection Plaform* policy folder or *Venafi Control Plane* application and
+     * issuing template.
      * 
      */
     public Output<Optional<String>> zone() {

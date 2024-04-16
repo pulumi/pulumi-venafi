@@ -45,11 +45,11 @@ class _ExportableConfig(types.ModuleType):
         return __config__.get_bool('devMode')
 
     @property
-    def idp_jwt(self) -> Optional[str]:
+    def external_jwt(self) -> Optional[str]:
         """
         JWT of the identity provider associated to the Venafi Control Plane service account that is granting the access token
         """
-        return __config__.get('idpJwt')
+        return __config__.get('externalJwt')
 
     @property
     def p12_cert_filename(self) -> Optional[str]:

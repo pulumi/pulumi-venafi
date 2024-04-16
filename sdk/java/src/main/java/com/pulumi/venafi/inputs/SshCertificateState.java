@@ -49,14 +49,16 @@ public final class SshCertificateState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * A list of one or more valid IP or CIDR destination hosts where the certificate will authenticate.
+     * A list of one or more valid IP or CIDR destination hosts where the
+     * certificate will authenticate.
      * 
      */
     @Import(name="destinationAddresses")
     private @Nullable Output<List<String>> destinationAddresses;
 
     /**
-     * @return A list of one or more valid IP or CIDR destination hosts where the certificate will authenticate.
+     * @return A list of one or more valid IP or CIDR destination hosts where the
+     * certificate will authenticate.
      * 
      */
     public Optional<Output<List<String>>> destinationAddresses() {
@@ -64,14 +66,18 @@ public final class SshCertificateState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * A list of key-value pairs that contain certificate extensions from the CA template for client certificates. Allowed values (case-sensitive): *permit-X11-forwarding, permit-agent-forwarding, permit-port-forwarding, permit-pty, permit-user-rc*
+     * A list of key-value pairs that contain certificate extensions from the CA
+     * template for client certificates. Allowed values (case-sensitive): `permit-X11-forwarding`, `permit-agent-forwarding`,
+     * `permit-port-forwarding`, `permit-pty`, `permit-user-rc`.
      * 
      */
     @Import(name="extensions")
     private @Nullable Output<List<String>> extensions;
 
     /**
-     * @return A list of key-value pairs that contain certificate extensions from the CA template for client certificates. Allowed values (case-sensitive): *permit-X11-forwarding, permit-agent-forwarding, permit-port-forwarding, permit-pty, permit-user-rc*
+     * @return A list of key-value pairs that contain certificate extensions from the CA
+     * template for client certificates. Allowed values (case-sensitive): `permit-X11-forwarding`, `permit-agent-forwarding`,
+     * `permit-port-forwarding`, `permit-pty`, `permit-user-rc`.
      * 
      */
     public Optional<Output<List<String>>> extensions() {
@@ -139,14 +145,14 @@ public final class SshCertificateState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Number of bits to use when creating a key pair. (e.g. 3072)
+     * Number of bits to use when creating a key pair. (e.g. `3072`).
      * 
      */
     @Import(name="keySize")
     private @Nullable Output<Integer> keySize;
 
     /**
-     * @return Number of bits to use when creating a key pair. (e.g. 3072)
+     * @return Number of bits to use when creating a key pair. (e.g. `3072`).
      * 
      */
     public Optional<Output<Integer>> keySize() {
@@ -154,14 +160,18 @@ public final class SshCertificateState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The friendly name of the SSH certificate object. When not specified the `key_id` is used for the friendly name. If the object already exists the old certificate is archived and the CA issues a new certificate.
+     * The friendly name of the SSH certificate object. When not specified the `key_id`
+     * is used for the friendly name. If the object already exists the old certificate is archived and the CA issues a new
+     * certificate.
      * 
      */
     @Import(name="objectName")
     private @Nullable Output<String> objectName;
 
     /**
-     * @return The friendly name of the SSH certificate object. When not specified the `key_id` is used for the friendly name. If the object already exists the old certificate is archived and the CA issues a new certificate.
+     * @return The friendly name of the SSH certificate object. When not specified the `key_id`
+     * is used for the friendly name. If the object already exists the old certificate is archived and the CA issues a new
+     * certificate.
      * 
      */
     public Optional<Output<String>> objectName() {
@@ -169,7 +179,8 @@ public final class SshCertificateState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * [DEPRECATED] - (Optional, set of strings) Use &#34;principals&#34; instead. A list of user names for whom the requested certificate will be valid.
+     * [DEPRECATED] - (Optional, set of strings) Use &#34;principals&#34; instead. A list of usernames for whom the
+     * requested certificate will be valid.
      * 
      * @deprecated
      * This will be removed in the future. Use &#34;principals&#34; instead
@@ -180,7 +191,8 @@ public final class SshCertificateState extends com.pulumi.resources.ResourceArgs
     private @Nullable Output<List<String>> principal;
 
     /**
-     * @return [DEPRECATED] - (Optional, set of strings) Use &#34;principals&#34; instead. A list of user names for whom the requested certificate will be valid.
+     * @return [DEPRECATED] - (Optional, set of strings) Use &#34;principals&#34; instead. A list of usernames for whom the
+     * requested certificate will be valid.
      * 
      * @deprecated
      * This will be removed in the future. Use &#34;principals&#34; instead
@@ -192,14 +204,14 @@ public final class SshCertificateState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * A list of user names for whom the requested certificate will be valid.
+     * A list of usernames for whom the requested certificate will be valid.
      * 
      */
     @Import(name="principals")
     private @Nullable Output<List<String>> principals;
 
     /**
-     * @return A list of user names for whom the requested certificate will be valid.
+     * @return A list of usernames for whom the requested certificate will be valid.
      * 
      */
     public Optional<Output<List<String>>> principals() {
@@ -252,14 +264,16 @@ public final class SshCertificateState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Specifies whether the public key will be &#34;local&#34; (default), &#34;file&#34; or &#34;service&#34; generated.
+     * Specifies whether the public key will be `local` (default), `file` or
+     * `service` generated.
      * 
      */
     @Import(name="publicKeyMethod")
     private @Nullable Output<String> publicKeyMethod;
 
     /**
-     * @return Specifies whether the public key will be &#34;local&#34; (default), &#34;file&#34; or &#34;service&#34; generated.
+     * @return Specifies whether the public key will be `local` (default), `file` or
+     * `service` generated.
      * 
      */
     public Optional<Output<String>> publicKeyMethod() {
@@ -297,14 +311,16 @@ public final class SshCertificateState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * A list of one or more valid IP or CIDR addresses that can use the SSH certificate.
+     * A list of one or more valid IP or CIDR addresses that can use the SSH
+     * certificate.
      * 
      */
     @Import(name="sourceAddresses")
     private @Nullable Output<List<String>> sourceAddresses;
 
     /**
-     * @return A list of one or more valid IP or CIDR addresses that can use the SSH certificate.
+     * @return A list of one or more valid IP or CIDR addresses that can use the SSH
+     * certificate.
      * 
      */
     public Optional<Output<List<String>>> sourceAddresses() {
@@ -476,7 +492,8 @@ public final class SshCertificateState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param destinationAddresses A list of one or more valid IP or CIDR destination hosts where the certificate will authenticate.
+         * @param destinationAddresses A list of one or more valid IP or CIDR destination hosts where the
+         * certificate will authenticate.
          * 
          * @return builder
          * 
@@ -487,7 +504,8 @@ public final class SshCertificateState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param destinationAddresses A list of one or more valid IP or CIDR destination hosts where the certificate will authenticate.
+         * @param destinationAddresses A list of one or more valid IP or CIDR destination hosts where the
+         * certificate will authenticate.
          * 
          * @return builder
          * 
@@ -497,7 +515,8 @@ public final class SshCertificateState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param destinationAddresses A list of one or more valid IP or CIDR destination hosts where the certificate will authenticate.
+         * @param destinationAddresses A list of one or more valid IP or CIDR destination hosts where the
+         * certificate will authenticate.
          * 
          * @return builder
          * 
@@ -507,7 +526,9 @@ public final class SshCertificateState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param extensions A list of key-value pairs that contain certificate extensions from the CA template for client certificates. Allowed values (case-sensitive): *permit-X11-forwarding, permit-agent-forwarding, permit-port-forwarding, permit-pty, permit-user-rc*
+         * @param extensions A list of key-value pairs that contain certificate extensions from the CA
+         * template for client certificates. Allowed values (case-sensitive): `permit-X11-forwarding`, `permit-agent-forwarding`,
+         * `permit-port-forwarding`, `permit-pty`, `permit-user-rc`.
          * 
          * @return builder
          * 
@@ -518,7 +539,9 @@ public final class SshCertificateState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param extensions A list of key-value pairs that contain certificate extensions from the CA template for client certificates. Allowed values (case-sensitive): *permit-X11-forwarding, permit-agent-forwarding, permit-port-forwarding, permit-pty, permit-user-rc*
+         * @param extensions A list of key-value pairs that contain certificate extensions from the CA
+         * template for client certificates. Allowed values (case-sensitive): `permit-X11-forwarding`, `permit-agent-forwarding`,
+         * `permit-port-forwarding`, `permit-pty`, `permit-user-rc`.
          * 
          * @return builder
          * 
@@ -528,7 +551,9 @@ public final class SshCertificateState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param extensions A list of key-value pairs that contain certificate extensions from the CA template for client certificates. Allowed values (case-sensitive): *permit-X11-forwarding, permit-agent-forwarding, permit-port-forwarding, permit-pty, permit-user-rc*
+         * @param extensions A list of key-value pairs that contain certificate extensions from the CA
+         * template for client certificates. Allowed values (case-sensitive): `permit-X11-forwarding`, `permit-agent-forwarding`,
+         * `permit-port-forwarding`, `permit-pty`, `permit-user-rc`.
          * 
          * @return builder
          * 
@@ -622,7 +647,7 @@ public final class SshCertificateState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param keySize Number of bits to use when creating a key pair. (e.g. 3072)
+         * @param keySize Number of bits to use when creating a key pair. (e.g. `3072`).
          * 
          * @return builder
          * 
@@ -633,7 +658,7 @@ public final class SshCertificateState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param keySize Number of bits to use when creating a key pair. (e.g. 3072)
+         * @param keySize Number of bits to use when creating a key pair. (e.g. `3072`).
          * 
          * @return builder
          * 
@@ -643,7 +668,9 @@ public final class SshCertificateState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param objectName The friendly name of the SSH certificate object. When not specified the `key_id` is used for the friendly name. If the object already exists the old certificate is archived and the CA issues a new certificate.
+         * @param objectName The friendly name of the SSH certificate object. When not specified the `key_id`
+         * is used for the friendly name. If the object already exists the old certificate is archived and the CA issues a new
+         * certificate.
          * 
          * @return builder
          * 
@@ -654,7 +681,9 @@ public final class SshCertificateState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param objectName The friendly name of the SSH certificate object. When not specified the `key_id` is used for the friendly name. If the object already exists the old certificate is archived and the CA issues a new certificate.
+         * @param objectName The friendly name of the SSH certificate object. When not specified the `key_id`
+         * is used for the friendly name. If the object already exists the old certificate is archived and the CA issues a new
+         * certificate.
          * 
          * @return builder
          * 
@@ -664,7 +693,8 @@ public final class SshCertificateState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param principal [DEPRECATED] - (Optional, set of strings) Use &#34;principals&#34; instead. A list of user names for whom the requested certificate will be valid.
+         * @param principal [DEPRECATED] - (Optional, set of strings) Use &#34;principals&#34; instead. A list of usernames for whom the
+         * requested certificate will be valid.
          * 
          * @return builder
          * 
@@ -679,7 +709,8 @@ public final class SshCertificateState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param principal [DEPRECATED] - (Optional, set of strings) Use &#34;principals&#34; instead. A list of user names for whom the requested certificate will be valid.
+         * @param principal [DEPRECATED] - (Optional, set of strings) Use &#34;principals&#34; instead. A list of usernames for whom the
+         * requested certificate will be valid.
          * 
          * @return builder
          * 
@@ -693,7 +724,8 @@ public final class SshCertificateState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param principal [DEPRECATED] - (Optional, set of strings) Use &#34;principals&#34; instead. A list of user names for whom the requested certificate will be valid.
+         * @param principal [DEPRECATED] - (Optional, set of strings) Use &#34;principals&#34; instead. A list of usernames for whom the
+         * requested certificate will be valid.
          * 
          * @return builder
          * 
@@ -707,7 +739,7 @@ public final class SshCertificateState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param principals A list of user names for whom the requested certificate will be valid.
+         * @param principals A list of usernames for whom the requested certificate will be valid.
          * 
          * @return builder
          * 
@@ -718,7 +750,7 @@ public final class SshCertificateState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param principals A list of user names for whom the requested certificate will be valid.
+         * @param principals A list of usernames for whom the requested certificate will be valid.
          * 
          * @return builder
          * 
@@ -728,7 +760,7 @@ public final class SshCertificateState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param principals A list of user names for whom the requested certificate will be valid.
+         * @param principals A list of usernames for whom the requested certificate will be valid.
          * 
          * @return builder
          * 
@@ -801,7 +833,8 @@ public final class SshCertificateState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param publicKeyMethod Specifies whether the public key will be &#34;local&#34; (default), &#34;file&#34; or &#34;service&#34; generated.
+         * @param publicKeyMethod Specifies whether the public key will be `local` (default), `file` or
+         * `service` generated.
          * 
          * @return builder
          * 
@@ -812,7 +845,8 @@ public final class SshCertificateState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param publicKeyMethod Specifies whether the public key will be &#34;local&#34; (default), &#34;file&#34; or &#34;service&#34; generated.
+         * @param publicKeyMethod Specifies whether the public key will be `local` (default), `file` or
+         * `service` generated.
          * 
          * @return builder
          * 
@@ -864,7 +898,8 @@ public final class SshCertificateState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param sourceAddresses A list of one or more valid IP or CIDR addresses that can use the SSH certificate.
+         * @param sourceAddresses A list of one or more valid IP or CIDR addresses that can use the SSH
+         * certificate.
          * 
          * @return builder
          * 
@@ -875,7 +910,8 @@ public final class SshCertificateState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param sourceAddresses A list of one or more valid IP or CIDR addresses that can use the SSH certificate.
+         * @param sourceAddresses A list of one or more valid IP or CIDR addresses that can use the SSH
+         * certificate.
          * 
          * @return builder
          * 
@@ -885,7 +921,8 @@ public final class SshCertificateState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param sourceAddresses A list of one or more valid IP or CIDR addresses that can use the SSH certificate.
+         * @param sourceAddresses A list of one or more valid IP or CIDR addresses that can use the SSH
+         * certificate.
          * 
          * @return builder
          * 

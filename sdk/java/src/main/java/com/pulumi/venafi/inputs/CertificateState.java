@@ -19,16 +19,14 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
     public static final CertificateState Empty = new CertificateState();
 
     /**
-     * Key encryption algorithm, either `RSA` or `ECDSA`.
-     * Defaults to `RSA`.
+     * Key encryption algorithm, either RSA or ECDSA. Defaults to `RSA`.
      * 
      */
     @Import(name="algorithm")
     private @Nullable Output<String> algorithm;
 
     /**
-     * @return Key encryption algorithm, either `RSA` or `ECDSA`.
-     * Defaults to `RSA`.
+     * @return Key encryption algorithm, either RSA or ECDSA. Defaults to `RSA`.
      * 
      */
     public Optional<Output<String>> algorithm() {
@@ -58,16 +56,14 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The trust chain of X509 certificate authority certificates in PEM format
-     * concatenated together.
+     * The trust chain of X509 certificate authority certificates in PEM format concatenated together.
      * 
      */
     @Import(name="chain")
     private @Nullable Output<String> chain;
 
     /**
-     * @return The trust chain of X509 certificate authority certificates in PEM format
-     * concatenated together.
+     * @return The trust chain of X509 certificate authority certificates in PEM format concatenated together.
      * 
      */
     public Optional<Output<String>> chain() {
@@ -90,14 +86,16 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Whether key-pair generation will be `local` or `service` generated. Default is `local`.
+     * Whether key-pair generation will be `local` or `service` generated. Default is
+     * `local`.
      * 
      */
     @Import(name="csrOrigin")
     private @Nullable Output<String> csrOrigin;
 
     /**
-     * @return Whether key-pair generation will be `local` or `service` generated. Default is `local`.
+     * @return Whether key-pair generation will be `local` or `service` generated. Default is
+     * `local`.
      * 
      */
     public Optional<Output<String>> csrOrigin() {
@@ -112,16 +110,14 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Collection of Custom Field name-value pairs to
-     * assign to the certificate.
+     * Collection of Custom Field name-value pairs to assign to the certificate.
      * 
      */
     @Import(name="customFields")
     private @Nullable Output<Map<String,String>> customFields;
 
     /**
-     * @return Collection of Custom Field name-value pairs to
-     * assign to the certificate.
+     * @return Collection of Custom Field name-value pairs to assign to the certificate.
      * 
      */
     public Optional<Output<Map<String,String>>> customFields() {
@@ -144,16 +140,16 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Number of hours before certificate expiry
-     * to request a new certificate.  Defaults to `168`.
+     * Number of hours before certificate expiry to request a new certificate.
+     * Defaults to `168`.
      * 
      */
     @Import(name="expirationWindow")
     private @Nullable Output<Integer> expirationWindow;
 
     /**
-     * @return Number of hours before certificate expiry
-     * to request a new certificate.  Defaults to `168`.
+     * @return Number of hours before certificate expiry to request a new certificate.
+     * Defaults to `168`.
      * 
      */
     public Optional<Output<Integer>> expirationWindow() {
@@ -161,18 +157,16 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Used with valid_days to indicate the target
-     * issuer when using Trust Protection Platform.  Relevant values are: &#34;DigiCert&#34;,
-     * &#34;Entrust&#34;, and &#34;Microsoft&#34;.
+     * Used with `valid_days` to indicate the target issuer when using Trust Protection
+     * Platform. Relevant values are: `DigiCert`, `Entrust`, and `Microsoft`.
      * 
      */
     @Import(name="issuerHint")
     private @Nullable Output<String> issuerHint;
 
     /**
-     * @return Used with valid_days to indicate the target
-     * issuer when using Trust Protection Platform.  Relevant values are: &#34;DigiCert&#34;,
-     * &#34;Entrust&#34;, and &#34;Microsoft&#34;.
+     * @return Used with `valid_days` to indicate the target issuer when using Trust Protection
+     * Platform. Relevant values are: `DigiCert`, `Entrust`, and `Microsoft`.
      * 
      */
     public Optional<Output<String>> issuerHint() {
@@ -195,14 +189,16 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Use to specify a name for the new certificate object that will be created and placed in a policy. Only valid for TPP.
+     * Use to specify a name for the new certificate object that will be created and placed
+     * in a policy. Only valid for Trust Protection Platform.
      * 
      */
     @Import(name="nickname")
     private @Nullable Output<String> nickname;
 
     /**
-     * @return Use to specify a name for the new certificate object that will be created and placed in a policy. Only valid for TPP.
+     * @return Use to specify a name for the new certificate object that will be created and placed
+     * in a policy. Only valid for Trust Protection Platform.
      * 
      */
     public Optional<Output<String>> nickname() {
@@ -210,18 +206,16 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A base64-encoded PKCS#12 keystore secured by the `key_password`.
-     * Useful when working with resources like
-     * azurerm_key_vault_certificate.
+     * A base64-encoded PKCS#12 keystore secured by the `key_password`. Useful when working with resources like
+     * azure key_vault_certificate.
      * 
      */
     @Import(name="pkcs12")
     private @Nullable Output<String> pkcs12;
 
     /**
-     * @return A base64-encoded PKCS#12 keystore secured by the `key_password`.
-     * Useful when working with resources like
-     * azurerm_key_vault_certificate.
+     * @return A base64-encoded PKCS#12 keystore secured by the `key_password`. Useful when working with resources like
+     * azure key_vault_certificate.
      * 
      */
     public Optional<Output<String>> pkcs12() {
@@ -244,16 +238,16 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Number of bits to use when generating an RSA key.
-     * Applies when `algorithm=RSA`.  Defaults to `2048`.
+     * Number of bits to use when generating an RSA key. Applies when algorithm is `RSA`.
+     * Defaults to `2048`.
      * 
      */
     @Import(name="rsaBits")
     private @Nullable Output<Integer> rsaBits;
 
     /**
-     * @return Number of bits to use when generating an RSA key.
-     * Applies when `algorithm=RSA`.  Defaults to `2048`.
+     * @return Number of bits to use when generating an RSA key. Applies when algorithm is `RSA`.
+     * Defaults to `2048`.
      * 
      */
     public Optional<Output<Integer>> rsaBits() {
@@ -261,16 +255,14 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * List of DNS names to use as alternative
-     * subjects of the certificate.
+     * List of DNS names to use as alternative subjects of the certificate.
      * 
      */
     @Import(name="sanDns")
     private @Nullable Output<List<String>> sanDns;
 
     /**
-     * @return List of DNS names to use as alternative
-     * subjects of the certificate.
+     * @return List of DNS names to use as alternative subjects of the certificate.
      * 
      */
     public Optional<Output<List<String>>> sanDns() {
@@ -278,16 +270,14 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * List of email addresses to use as
-     * alternative subjects of the certificate.
+     * List of email addresses to use as alternative subjects of the certificate.
      * 
      */
     @Import(name="sanEmails")
     private @Nullable Output<List<String>> sanEmails;
 
     /**
-     * @return List of email addresses to use as
-     * alternative subjects of the certificate.
+     * @return List of email addresses to use as alternative subjects of the certificate.
      * 
      */
     public Optional<Output<List<String>>> sanEmails() {
@@ -295,16 +285,14 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * List of IP addresses to use as alternative
-     * subjects of the certificate.
+     * List of IP addresses to use as alternative subjects of the certificate.
      * 
      */
     @Import(name="sanIps")
     private @Nullable Output<List<String>> sanIps;
 
     /**
-     * @return List of IP addresses to use as alternative
-     * subjects of the certificate.
+     * @return List of IP addresses to use as alternative subjects of the certificate.
      * 
      */
     public Optional<Output<List<String>>> sanIps() {
@@ -312,16 +300,16 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * List of Uniform Resource Identifiers (URIs) to use as alternative
-     * subjects of the certificate.
+     * List of Uniform Resource Identifiers (URIs) to use as alternative subjects of
+     * the certificate.
      * 
      */
     @Import(name="sanUris")
     private @Nullable Output<List<String>> sanUris;
 
     /**
-     * @return List of Uniform Resource Identifiers (URIs) to use as alternative
-     * subjects of the certificate.
+     * @return List of Uniform Resource Identifiers (URIs) to use as alternative subjects of
+     * the certificate.
      * 
      */
     public Optional<Output<List<String>>> sanUris() {
@@ -329,16 +317,14 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Desired number of days for which the new
-     * certificate will be valid.
+     * Desired number of days for which the new certificate will be valid.
      * 
      */
     @Import(name="validDays")
     private @Nullable Output<Integer> validDays;
 
     /**
-     * @return Desired number of days for which the new
-     * certificate will be valid.
+     * @return Desired number of days for which the new certificate will be valid.
      * 
      */
     public Optional<Output<Integer>> validDays() {
@@ -390,8 +376,7 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param algorithm Key encryption algorithm, either `RSA` or `ECDSA`.
-         * Defaults to `RSA`.
+         * @param algorithm Key encryption algorithm, either RSA or ECDSA. Defaults to `RSA`.
          * 
          * @return builder
          * 
@@ -402,8 +387,7 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param algorithm Key encryption algorithm, either `RSA` or `ECDSA`.
-         * Defaults to `RSA`.
+         * @param algorithm Key encryption algorithm, either RSA or ECDSA. Defaults to `RSA`.
          * 
          * @return builder
          * 
@@ -443,8 +427,7 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param chain The trust chain of X509 certificate authority certificates in PEM format
-         * concatenated together.
+         * @param chain The trust chain of X509 certificate authority certificates in PEM format concatenated together.
          * 
          * @return builder
          * 
@@ -455,8 +438,7 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param chain The trust chain of X509 certificate authority certificates in PEM format
-         * concatenated together.
+         * @param chain The trust chain of X509 certificate authority certificates in PEM format concatenated together.
          * 
          * @return builder
          * 
@@ -487,7 +469,8 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param csrOrigin Whether key-pair generation will be `local` or `service` generated. Default is `local`.
+         * @param csrOrigin Whether key-pair generation will be `local` or `service` generated. Default is
+         * `local`.
          * 
          * @return builder
          * 
@@ -498,7 +481,8 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param csrOrigin Whether key-pair generation will be `local` or `service` generated. Default is `local`.
+         * @param csrOrigin Whether key-pair generation will be `local` or `service` generated. Default is
+         * `local`.
          * 
          * @return builder
          * 
@@ -517,8 +501,7 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param customFields Collection of Custom Field name-value pairs to
-         * assign to the certificate.
+         * @param customFields Collection of Custom Field name-value pairs to assign to the certificate.
          * 
          * @return builder
          * 
@@ -529,8 +512,7 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param customFields Collection of Custom Field name-value pairs to
-         * assign to the certificate.
+         * @param customFields Collection of Custom Field name-value pairs to assign to the certificate.
          * 
          * @return builder
          * 
@@ -561,8 +543,8 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param expirationWindow Number of hours before certificate expiry
-         * to request a new certificate.  Defaults to `168`.
+         * @param expirationWindow Number of hours before certificate expiry to request a new certificate.
+         * Defaults to `168`.
          * 
          * @return builder
          * 
@@ -573,8 +555,8 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param expirationWindow Number of hours before certificate expiry
-         * to request a new certificate.  Defaults to `168`.
+         * @param expirationWindow Number of hours before certificate expiry to request a new certificate.
+         * Defaults to `168`.
          * 
          * @return builder
          * 
@@ -584,9 +566,8 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param issuerHint Used with valid_days to indicate the target
-         * issuer when using Trust Protection Platform.  Relevant values are: &#34;DigiCert&#34;,
-         * &#34;Entrust&#34;, and &#34;Microsoft&#34;.
+         * @param issuerHint Used with `valid_days` to indicate the target issuer when using Trust Protection
+         * Platform. Relevant values are: `DigiCert`, `Entrust`, and `Microsoft`.
          * 
          * @return builder
          * 
@@ -597,9 +578,8 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param issuerHint Used with valid_days to indicate the target
-         * issuer when using Trust Protection Platform.  Relevant values are: &#34;DigiCert&#34;,
-         * &#34;Entrust&#34;, and &#34;Microsoft&#34;.
+         * @param issuerHint Used with `valid_days` to indicate the target issuer when using Trust Protection
+         * Platform. Relevant values are: `DigiCert`, `Entrust`, and `Microsoft`.
          * 
          * @return builder
          * 
@@ -630,7 +610,8 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param nickname Use to specify a name for the new certificate object that will be created and placed in a policy. Only valid for TPP.
+         * @param nickname Use to specify a name for the new certificate object that will be created and placed
+         * in a policy. Only valid for Trust Protection Platform.
          * 
          * @return builder
          * 
@@ -641,7 +622,8 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param nickname Use to specify a name for the new certificate object that will be created and placed in a policy. Only valid for TPP.
+         * @param nickname Use to specify a name for the new certificate object that will be created and placed
+         * in a policy. Only valid for Trust Protection Platform.
          * 
          * @return builder
          * 
@@ -651,9 +633,8 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param pkcs12 A base64-encoded PKCS#12 keystore secured by the `key_password`.
-         * Useful when working with resources like
-         * azurerm_key_vault_certificate.
+         * @param pkcs12 A base64-encoded PKCS#12 keystore secured by the `key_password`. Useful when working with resources like
+         * azure key_vault_certificate.
          * 
          * @return builder
          * 
@@ -664,9 +645,8 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param pkcs12 A base64-encoded PKCS#12 keystore secured by the `key_password`.
-         * Useful when working with resources like
-         * azurerm_key_vault_certificate.
+         * @param pkcs12 A base64-encoded PKCS#12 keystore secured by the `key_password`. Useful when working with resources like
+         * azure key_vault_certificate.
          * 
          * @return builder
          * 
@@ -697,8 +677,8 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param rsaBits Number of bits to use when generating an RSA key.
-         * Applies when `algorithm=RSA`.  Defaults to `2048`.
+         * @param rsaBits Number of bits to use when generating an RSA key. Applies when algorithm is `RSA`.
+         * Defaults to `2048`.
          * 
          * @return builder
          * 
@@ -709,8 +689,8 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param rsaBits Number of bits to use when generating an RSA key.
-         * Applies when `algorithm=RSA`.  Defaults to `2048`.
+         * @param rsaBits Number of bits to use when generating an RSA key. Applies when algorithm is `RSA`.
+         * Defaults to `2048`.
          * 
          * @return builder
          * 
@@ -720,8 +700,7 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sanDns List of DNS names to use as alternative
-         * subjects of the certificate.
+         * @param sanDns List of DNS names to use as alternative subjects of the certificate.
          * 
          * @return builder
          * 
@@ -732,8 +711,7 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sanDns List of DNS names to use as alternative
-         * subjects of the certificate.
+         * @param sanDns List of DNS names to use as alternative subjects of the certificate.
          * 
          * @return builder
          * 
@@ -743,8 +721,7 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sanDns List of DNS names to use as alternative
-         * subjects of the certificate.
+         * @param sanDns List of DNS names to use as alternative subjects of the certificate.
          * 
          * @return builder
          * 
@@ -754,8 +731,7 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sanEmails List of email addresses to use as
-         * alternative subjects of the certificate.
+         * @param sanEmails List of email addresses to use as alternative subjects of the certificate.
          * 
          * @return builder
          * 
@@ -766,8 +742,7 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sanEmails List of email addresses to use as
-         * alternative subjects of the certificate.
+         * @param sanEmails List of email addresses to use as alternative subjects of the certificate.
          * 
          * @return builder
          * 
@@ -777,8 +752,7 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sanEmails List of email addresses to use as
-         * alternative subjects of the certificate.
+         * @param sanEmails List of email addresses to use as alternative subjects of the certificate.
          * 
          * @return builder
          * 
@@ -788,8 +762,7 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sanIps List of IP addresses to use as alternative
-         * subjects of the certificate.
+         * @param sanIps List of IP addresses to use as alternative subjects of the certificate.
          * 
          * @return builder
          * 
@@ -800,8 +773,7 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sanIps List of IP addresses to use as alternative
-         * subjects of the certificate.
+         * @param sanIps List of IP addresses to use as alternative subjects of the certificate.
          * 
          * @return builder
          * 
@@ -811,8 +783,7 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sanIps List of IP addresses to use as alternative
-         * subjects of the certificate.
+         * @param sanIps List of IP addresses to use as alternative subjects of the certificate.
          * 
          * @return builder
          * 
@@ -822,8 +793,8 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sanUris List of Uniform Resource Identifiers (URIs) to use as alternative
-         * subjects of the certificate.
+         * @param sanUris List of Uniform Resource Identifiers (URIs) to use as alternative subjects of
+         * the certificate.
          * 
          * @return builder
          * 
@@ -834,8 +805,8 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sanUris List of Uniform Resource Identifiers (URIs) to use as alternative
-         * subjects of the certificate.
+         * @param sanUris List of Uniform Resource Identifiers (URIs) to use as alternative subjects of
+         * the certificate.
          * 
          * @return builder
          * 
@@ -845,8 +816,8 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sanUris List of Uniform Resource Identifiers (URIs) to use as alternative
-         * subjects of the certificate.
+         * @param sanUris List of Uniform Resource Identifiers (URIs) to use as alternative subjects of
+         * the certificate.
          * 
          * @return builder
          * 
@@ -856,8 +827,7 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param validDays Desired number of days for which the new
-         * certificate will be valid.
+         * @param validDays Desired number of days for which the new certificate will be valid.
          * 
          * @return builder
          * 
@@ -868,8 +838,7 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param validDays Desired number of days for which the new
-         * certificate will be valid.
+         * @param validDays Desired number of days for which the new certificate will be valid.
          * 
          * @return builder
          * 

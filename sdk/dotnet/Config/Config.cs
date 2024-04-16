@@ -73,14 +73,14 @@ namespace Pulumi.Venafi
             set => _devMode.Set(value);
         }
 
-        private static readonly __Value<string?> _idpJwt = new __Value<string?>(() => __config.Get("idpJwt"));
+        private static readonly __Value<string?> _externalJwt = new __Value<string?>(() => __config.Get("externalJwt"));
         /// <summary>
         /// JWT of the identity provider associated to the Venafi Control Plane service account that is granting the access token
         /// </summary>
-        public static string? IdpJwt
+        public static string? ExternalJwt
         {
-            get => _idpJwt.Get();
-            set => _idpJwt.Set(value);
+            get => _externalJwt.Get();
+            set => _externalJwt.Set(value);
         }
 
         private static readonly __Value<string?> _p12CertFilename = new __Value<string?>(() => __config.Get("p12CertFilename"));

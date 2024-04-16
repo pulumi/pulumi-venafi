@@ -11,9 +11,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides access to read and write certificate policy in Venafi. This can be used
-// to define a new policy (folder in *Trust Protection Platform*; application
-// and/or issuing template in *Venafi as a Service*).
+// Provides access to read and write certificate policy in Venafi. This can be used to define a new policy (folder in
+// *Trust Protection Platform*; application and issuing template in *Venafi Control Plane*).
 //
 // ## Example Usage
 //
@@ -56,17 +55,13 @@ import (
 //
 // ## Import
 //
-// The `venafi_policy` resource supports the Terraform import
+// The `venafi_policy` resource supports the Terraform import method.
 //
-// method.  When used, the `zone` and `policy_specification` resource arguments
+// When used, the `zone` and `policy_specification` resource arguments are not required since the zone is a required
 //
-// are not required since the zone is a required parameter of the import method
+// parameter of the import method and the policy specification is populated from the existing infrastructure. Policy that
 //
-// and the policy specification is populated from the existing infrastructure.
-//
-// # Policy that is successfully imported is also output to a file named after the
-//
-// zone that was specified.
+// is successfully imported is also output to a file named after the zone that was specified.
 //
 // hcl
 //
@@ -78,12 +73,12 @@ import (
 type Policy struct {
 	pulumi.CustomResourceState
 
-	// The JSON-formatted certificate policy
-	// specification as documented [here](https://github.com/Venafi/vcert/blob/master/README-POLICY-SPEC.md).
-	// Typically read from a file using the `file` function.
+	// The JSON-formatted certificate policy specification as documented
+	// [here](https://github.com/Venafi/vcert/blob/master/README-POLICY-SPEC.md). Typically read from a file using the `file`
+	// function.
 	PolicySpecification pulumi.StringPtrOutput `pulumi:"policySpecification"`
-	// The *Trust Protection Plaform* policy folder or
-	// *Venafi as a Service* application and issuing template.
+	// The *Trust Protection Plaform* policy folder or *Venafi Control Plane* application and
+	// issuing template.
 	Zone pulumi.StringPtrOutput `pulumi:"zone"`
 }
 
@@ -117,22 +112,22 @@ func GetPolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Policy resources.
 type policyState struct {
-	// The JSON-formatted certificate policy
-	// specification as documented [here](https://github.com/Venafi/vcert/blob/master/README-POLICY-SPEC.md).
-	// Typically read from a file using the `file` function.
+	// The JSON-formatted certificate policy specification as documented
+	// [here](https://github.com/Venafi/vcert/blob/master/README-POLICY-SPEC.md). Typically read from a file using the `file`
+	// function.
 	PolicySpecification *string `pulumi:"policySpecification"`
-	// The *Trust Protection Plaform* policy folder or
-	// *Venafi as a Service* application and issuing template.
+	// The *Trust Protection Plaform* policy folder or *Venafi Control Plane* application and
+	// issuing template.
 	Zone *string `pulumi:"zone"`
 }
 
 type PolicyState struct {
-	// The JSON-formatted certificate policy
-	// specification as documented [here](https://github.com/Venafi/vcert/blob/master/README-POLICY-SPEC.md).
-	// Typically read from a file using the `file` function.
+	// The JSON-formatted certificate policy specification as documented
+	// [here](https://github.com/Venafi/vcert/blob/master/README-POLICY-SPEC.md). Typically read from a file using the `file`
+	// function.
 	PolicySpecification pulumi.StringPtrInput
-	// The *Trust Protection Plaform* policy folder or
-	// *Venafi as a Service* application and issuing template.
+	// The *Trust Protection Plaform* policy folder or *Venafi Control Plane* application and
+	// issuing template.
 	Zone pulumi.StringPtrInput
 }
 
@@ -141,23 +136,23 @@ func (PolicyState) ElementType() reflect.Type {
 }
 
 type policyArgs struct {
-	// The JSON-formatted certificate policy
-	// specification as documented [here](https://github.com/Venafi/vcert/blob/master/README-POLICY-SPEC.md).
-	// Typically read from a file using the `file` function.
+	// The JSON-formatted certificate policy specification as documented
+	// [here](https://github.com/Venafi/vcert/blob/master/README-POLICY-SPEC.md). Typically read from a file using the `file`
+	// function.
 	PolicySpecification *string `pulumi:"policySpecification"`
-	// The *Trust Protection Plaform* policy folder or
-	// *Venafi as a Service* application and issuing template.
+	// The *Trust Protection Plaform* policy folder or *Venafi Control Plane* application and
+	// issuing template.
 	Zone *string `pulumi:"zone"`
 }
 
 // The set of arguments for constructing a Policy resource.
 type PolicyArgs struct {
-	// The JSON-formatted certificate policy
-	// specification as documented [here](https://github.com/Venafi/vcert/blob/master/README-POLICY-SPEC.md).
-	// Typically read from a file using the `file` function.
+	// The JSON-formatted certificate policy specification as documented
+	// [here](https://github.com/Venafi/vcert/blob/master/README-POLICY-SPEC.md). Typically read from a file using the `file`
+	// function.
 	PolicySpecification pulumi.StringPtrInput
-	// The *Trust Protection Plaform* policy folder or
-	// *Venafi as a Service* application and issuing template.
+	// The *Trust Protection Plaform* policy folder or *Venafi Control Plane* application and
+	// issuing template.
 	Zone pulumi.StringPtrInput
 }
 
@@ -248,15 +243,15 @@ func (o PolicyOutput) ToPolicyOutputWithContext(ctx context.Context) PolicyOutpu
 	return o
 }
 
-// The JSON-formatted certificate policy
-// specification as documented [here](https://github.com/Venafi/vcert/blob/master/README-POLICY-SPEC.md).
-// Typically read from a file using the `file` function.
+// The JSON-formatted certificate policy specification as documented
+// [here](https://github.com/Venafi/vcert/blob/master/README-POLICY-SPEC.md). Typically read from a file using the `file`
+// function.
 func (o PolicyOutput) PolicySpecification() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Policy) pulumi.StringPtrOutput { return v.PolicySpecification }).(pulumi.StringPtrOutput)
 }
 
-// The *Trust Protection Plaform* policy folder or
-// *Venafi as a Service* application and issuing template.
+// The *Trust Protection Plaform* policy folder or *Venafi Control Plane* application and
+// issuing template.
 func (o PolicyOutput) Zone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Policy) pulumi.StringPtrOutput { return v.Zone }).(pulumi.StringPtrOutput)
 }

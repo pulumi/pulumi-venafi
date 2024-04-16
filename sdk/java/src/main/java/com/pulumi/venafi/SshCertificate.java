@@ -91,28 +91,34 @@ public class SshCertificate extends com.pulumi.resources.CustomResource {
         return this.certificateType;
     }
     /**
-     * A list of one or more valid IP or CIDR destination hosts where the certificate will authenticate.
+     * A list of one or more valid IP or CIDR destination hosts where the
+     * certificate will authenticate.
      * 
      */
     @Export(name="destinationAddresses", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> destinationAddresses;
 
     /**
-     * @return A list of one or more valid IP or CIDR destination hosts where the certificate will authenticate.
+     * @return A list of one or more valid IP or CIDR destination hosts where the
+     * certificate will authenticate.
      * 
      */
     public Output<Optional<List<String>>> destinationAddresses() {
         return Codegen.optional(this.destinationAddresses);
     }
     /**
-     * A list of key-value pairs that contain certificate extensions from the CA template for client certificates. Allowed values (case-sensitive): *permit-X11-forwarding, permit-agent-forwarding, permit-port-forwarding, permit-pty, permit-user-rc*
+     * A list of key-value pairs that contain certificate extensions from the CA
+     * template for client certificates. Allowed values (case-sensitive): `permit-X11-forwarding`, `permit-agent-forwarding`,
+     * `permit-port-forwarding`, `permit-pty`, `permit-user-rc`.
      * 
      */
     @Export(name="extensions", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> extensions;
 
     /**
-     * @return A list of key-value pairs that contain certificate extensions from the CA template for client certificates. Allowed values (case-sensitive): *permit-X11-forwarding, permit-agent-forwarding, permit-port-forwarding, permit-pty, permit-user-rc*
+     * @return A list of key-value pairs that contain certificate extensions from the CA
+     * template for client certificates. Allowed values (case-sensitive): `permit-X11-forwarding`, `permit-agent-forwarding`,
+     * `permit-port-forwarding`, `permit-pty`, `permit-user-rc`.
      * 
      */
     public Output<Optional<List<String>>> extensions() {
@@ -175,35 +181,40 @@ public class SshCertificate extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.keyPassphrase);
     }
     /**
-     * Number of bits to use when creating a key pair. (e.g. 3072)
+     * Number of bits to use when creating a key pair. (e.g. `3072`).
      * 
      */
     @Export(name="keySize", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> keySize;
 
     /**
-     * @return Number of bits to use when creating a key pair. (e.g. 3072)
+     * @return Number of bits to use when creating a key pair. (e.g. `3072`).
      * 
      */
     public Output<Optional<Integer>> keySize() {
         return Codegen.optional(this.keySize);
     }
     /**
-     * The friendly name of the SSH certificate object. When not specified the `key_id` is used for the friendly name. If the object already exists the old certificate is archived and the CA issues a new certificate.
+     * The friendly name of the SSH certificate object. When not specified the `key_id`
+     * is used for the friendly name. If the object already exists the old certificate is archived and the CA issues a new
+     * certificate.
      * 
      */
     @Export(name="objectName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> objectName;
 
     /**
-     * @return The friendly name of the SSH certificate object. When not specified the `key_id` is used for the friendly name. If the object already exists the old certificate is archived and the CA issues a new certificate.
+     * @return The friendly name of the SSH certificate object. When not specified the `key_id`
+     * is used for the friendly name. If the object already exists the old certificate is archived and the CA issues a new
+     * certificate.
      * 
      */
     public Output<Optional<String>> objectName() {
         return Codegen.optional(this.objectName);
     }
     /**
-     * [DEPRECATED] - (Optional, set of strings) Use &#34;principals&#34; instead. A list of user names for whom the requested certificate will be valid.
+     * [DEPRECATED] - (Optional, set of strings) Use &#34;principals&#34; instead. A list of usernames for whom the
+     * requested certificate will be valid.
      * 
      * @deprecated
      * This will be removed in the future. Use &#34;principals&#34; instead
@@ -214,21 +225,22 @@ public class SshCertificate extends com.pulumi.resources.CustomResource {
     private Output</* @Nullable */ List<String>> principal;
 
     /**
-     * @return [DEPRECATED] - (Optional, set of strings) Use &#34;principals&#34; instead. A list of user names for whom the requested certificate will be valid.
+     * @return [DEPRECATED] - (Optional, set of strings) Use &#34;principals&#34; instead. A list of usernames for whom the
+     * requested certificate will be valid.
      * 
      */
     public Output<Optional<List<String>>> principal() {
         return Codegen.optional(this.principal);
     }
     /**
-     * A list of user names for whom the requested certificate will be valid.
+     * A list of usernames for whom the requested certificate will be valid.
      * 
      */
     @Export(name="principals", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> principals;
 
     /**
-     * @return A list of user names for whom the requested certificate will be valid.
+     * @return A list of usernames for whom the requested certificate will be valid.
      * 
      */
     public Output<Optional<List<String>>> principals() {
@@ -277,14 +289,16 @@ public class SshCertificate extends com.pulumi.resources.CustomResource {
         return this.publicKeyFingerprint;
     }
     /**
-     * Specifies whether the public key will be &#34;local&#34; (default), &#34;file&#34; or &#34;service&#34; generated.
+     * Specifies whether the public key will be `local` (default), `file` or
+     * `service` generated.
      * 
      */
     @Export(name="publicKeyMethod", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> publicKeyMethod;
 
     /**
-     * @return Specifies whether the public key will be &#34;local&#34; (default), &#34;file&#34; or &#34;service&#34; generated.
+     * @return Specifies whether the public key will be `local` (default), `file` or
+     * `service` generated.
      * 
      */
     public Output<Optional<String>> publicKeyMethod() {
@@ -319,14 +333,16 @@ public class SshCertificate extends com.pulumi.resources.CustomResource {
         return this.signingCa;
     }
     /**
-     * A list of one or more valid IP or CIDR addresses that can use the SSH certificate.
+     * A list of one or more valid IP or CIDR addresses that can use the SSH
+     * certificate.
      * 
      */
     @Export(name="sourceAddresses", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> sourceAddresses;
 
     /**
-     * @return A list of one or more valid IP or CIDR addresses that can use the SSH certificate.
+     * @return A list of one or more valid IP or CIDR addresses that can use the SSH
+     * certificate.
      * 
      */
     public Output<Optional<List<String>>> sourceAddresses() {

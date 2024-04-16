@@ -15,59 +15,52 @@ import (
 type Certificate struct {
 	pulumi.CustomResourceState
 
-	// Key encryption algorithm, either `RSA` or `ECDSA`.
-	// Defaults to `RSA`.
+	// Key encryption algorithm, either RSA or ECDSA. Defaults to `RSA`.
 	Algorithm pulumi.StringPtrOutput `pulumi:"algorithm"`
 	// The X509 certificate in PEM format.
 	Certificate   pulumi.StringOutput `pulumi:"certificate"`
 	CertificateDn pulumi.StringOutput `pulumi:"certificateDn"`
-	// The trust chain of X509 certificate authority certificates in PEM format
-	// concatenated together.
+	// The trust chain of X509 certificate authority certificates in PEM format concatenated together.
 	Chain pulumi.StringOutput `pulumi:"chain"`
 	// The common name of the certificate.
 	CommonName pulumi.StringOutput `pulumi:"commonName"`
-	// Whether key-pair generation will be `local` or `service` generated. Default is `local`.
+	// Whether key-pair generation will be `local` or `service` generated. Default is
+	// `local`.
 	CsrOrigin pulumi.StringPtrOutput `pulumi:"csrOrigin"`
 	CsrPem    pulumi.StringOutput    `pulumi:"csrPem"`
-	// Collection of Custom Field name-value pairs to
-	// assign to the certificate.
+	// Collection of Custom Field name-value pairs to assign to the certificate.
 	CustomFields pulumi.StringMapOutput `pulumi:"customFields"`
 	// ECDSA curve to use when generating a key
 	EcdsaCurve pulumi.StringPtrOutput `pulumi:"ecdsaCurve"`
-	// Number of hours before certificate expiry
-	// to request a new certificate.  Defaults to `168`.
+	// Number of hours before certificate expiry to request a new certificate.
+	// Defaults to `168`.
 	ExpirationWindow pulumi.IntPtrOutput `pulumi:"expirationWindow"`
-	// Used with validDays to indicate the target
-	// issuer when using Trust Protection Platform.  Relevant values are: "DigiCert",
-	// "Entrust", and "Microsoft".
+	// Used with `validDays` to indicate the target issuer when using Trust Protection
+	// Platform. Relevant values are: `DigiCert`, `Entrust`, and `Microsoft`.
 	IssuerHint pulumi.StringPtrOutput `pulumi:"issuerHint"`
 	// The password used to encrypt the private key.
 	KeyPassword pulumi.StringPtrOutput `pulumi:"keyPassword"`
-	// Use to specify a name for the new certificate object that will be created and placed in a policy. Only valid for TPP.
+	// Use to specify a name for the new certificate object that will be created and placed
+	// in a policy. Only valid for Trust Protection Platform.
 	Nickname pulumi.StringPtrOutput `pulumi:"nickname"`
-	// A base64-encoded PKCS#12 keystore secured by the `keyPassword`.
-	// Useful when working with resources like
-	// azurerm_key_vault_certificate.
+	// A base64-encoded PKCS#12 keystore secured by the `keyPassword`. Useful when working with resources like
+	// azure key_vault_certificate.
 	Pkcs12 pulumi.StringOutput `pulumi:"pkcs12"`
 	// The private key in PEM format.
 	PrivateKeyPem pulumi.StringOutput `pulumi:"privateKeyPem"`
-	// Number of bits to use when generating an RSA key.
-	// Applies when `algorithm=RSA`.  Defaults to `2048`.
+	// Number of bits to use when generating an RSA key. Applies when algorithm is `RSA`.
+	// Defaults to `2048`.
 	RsaBits pulumi.IntPtrOutput `pulumi:"rsaBits"`
-	// List of DNS names to use as alternative
-	// subjects of the certificate.
+	// List of DNS names to use as alternative subjects of the certificate.
 	SanDns pulumi.StringArrayOutput `pulumi:"sanDns"`
-	// List of email addresses to use as
-	// alternative subjects of the certificate.
+	// List of email addresses to use as alternative subjects of the certificate.
 	SanEmails pulumi.StringArrayOutput `pulumi:"sanEmails"`
-	// List of IP addresses to use as alternative
-	// subjects of the certificate.
+	// List of IP addresses to use as alternative subjects of the certificate.
 	SanIps pulumi.StringArrayOutput `pulumi:"sanIps"`
-	// List of Uniform Resource Identifiers (URIs) to use as alternative
-	// subjects of the certificate.
+	// List of Uniform Resource Identifiers (URIs) to use as alternative subjects of
+	// the certificate.
 	SanUris pulumi.StringArrayOutput `pulumi:"sanUris"`
-	// Desired number of days for which the new
-	// certificate will be valid.
+	// Desired number of days for which the new certificate will be valid.
 	ValidDays pulumi.IntPtrOutput `pulumi:"validDays"`
 }
 
@@ -115,116 +108,102 @@ func GetCertificate(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Certificate resources.
 type certificateState struct {
-	// Key encryption algorithm, either `RSA` or `ECDSA`.
-	// Defaults to `RSA`.
+	// Key encryption algorithm, either RSA or ECDSA. Defaults to `RSA`.
 	Algorithm *string `pulumi:"algorithm"`
 	// The X509 certificate in PEM format.
 	Certificate   *string `pulumi:"certificate"`
 	CertificateDn *string `pulumi:"certificateDn"`
-	// The trust chain of X509 certificate authority certificates in PEM format
-	// concatenated together.
+	// The trust chain of X509 certificate authority certificates in PEM format concatenated together.
 	Chain *string `pulumi:"chain"`
 	// The common name of the certificate.
 	CommonName *string `pulumi:"commonName"`
-	// Whether key-pair generation will be `local` or `service` generated. Default is `local`.
+	// Whether key-pair generation will be `local` or `service` generated. Default is
+	// `local`.
 	CsrOrigin *string `pulumi:"csrOrigin"`
 	CsrPem    *string `pulumi:"csrPem"`
-	// Collection of Custom Field name-value pairs to
-	// assign to the certificate.
+	// Collection of Custom Field name-value pairs to assign to the certificate.
 	CustomFields map[string]string `pulumi:"customFields"`
 	// ECDSA curve to use when generating a key
 	EcdsaCurve *string `pulumi:"ecdsaCurve"`
-	// Number of hours before certificate expiry
-	// to request a new certificate.  Defaults to `168`.
+	// Number of hours before certificate expiry to request a new certificate.
+	// Defaults to `168`.
 	ExpirationWindow *int `pulumi:"expirationWindow"`
-	// Used with validDays to indicate the target
-	// issuer when using Trust Protection Platform.  Relevant values are: "DigiCert",
-	// "Entrust", and "Microsoft".
+	// Used with `validDays` to indicate the target issuer when using Trust Protection
+	// Platform. Relevant values are: `DigiCert`, `Entrust`, and `Microsoft`.
 	IssuerHint *string `pulumi:"issuerHint"`
 	// The password used to encrypt the private key.
 	KeyPassword *string `pulumi:"keyPassword"`
-	// Use to specify a name for the new certificate object that will be created and placed in a policy. Only valid for TPP.
+	// Use to specify a name for the new certificate object that will be created and placed
+	// in a policy. Only valid for Trust Protection Platform.
 	Nickname *string `pulumi:"nickname"`
-	// A base64-encoded PKCS#12 keystore secured by the `keyPassword`.
-	// Useful when working with resources like
-	// azurerm_key_vault_certificate.
+	// A base64-encoded PKCS#12 keystore secured by the `keyPassword`. Useful when working with resources like
+	// azure key_vault_certificate.
 	Pkcs12 *string `pulumi:"pkcs12"`
 	// The private key in PEM format.
 	PrivateKeyPem *string `pulumi:"privateKeyPem"`
-	// Number of bits to use when generating an RSA key.
-	// Applies when `algorithm=RSA`.  Defaults to `2048`.
+	// Number of bits to use when generating an RSA key. Applies when algorithm is `RSA`.
+	// Defaults to `2048`.
 	RsaBits *int `pulumi:"rsaBits"`
-	// List of DNS names to use as alternative
-	// subjects of the certificate.
+	// List of DNS names to use as alternative subjects of the certificate.
 	SanDns []string `pulumi:"sanDns"`
-	// List of email addresses to use as
-	// alternative subjects of the certificate.
+	// List of email addresses to use as alternative subjects of the certificate.
 	SanEmails []string `pulumi:"sanEmails"`
-	// List of IP addresses to use as alternative
-	// subjects of the certificate.
+	// List of IP addresses to use as alternative subjects of the certificate.
 	SanIps []string `pulumi:"sanIps"`
-	// List of Uniform Resource Identifiers (URIs) to use as alternative
-	// subjects of the certificate.
+	// List of Uniform Resource Identifiers (URIs) to use as alternative subjects of
+	// the certificate.
 	SanUris []string `pulumi:"sanUris"`
-	// Desired number of days for which the new
-	// certificate will be valid.
+	// Desired number of days for which the new certificate will be valid.
 	ValidDays *int `pulumi:"validDays"`
 }
 
 type CertificateState struct {
-	// Key encryption algorithm, either `RSA` or `ECDSA`.
-	// Defaults to `RSA`.
+	// Key encryption algorithm, either RSA or ECDSA. Defaults to `RSA`.
 	Algorithm pulumi.StringPtrInput
 	// The X509 certificate in PEM format.
 	Certificate   pulumi.StringPtrInput
 	CertificateDn pulumi.StringPtrInput
-	// The trust chain of X509 certificate authority certificates in PEM format
-	// concatenated together.
+	// The trust chain of X509 certificate authority certificates in PEM format concatenated together.
 	Chain pulumi.StringPtrInput
 	// The common name of the certificate.
 	CommonName pulumi.StringPtrInput
-	// Whether key-pair generation will be `local` or `service` generated. Default is `local`.
+	// Whether key-pair generation will be `local` or `service` generated. Default is
+	// `local`.
 	CsrOrigin pulumi.StringPtrInput
 	CsrPem    pulumi.StringPtrInput
-	// Collection of Custom Field name-value pairs to
-	// assign to the certificate.
+	// Collection of Custom Field name-value pairs to assign to the certificate.
 	CustomFields pulumi.StringMapInput
 	// ECDSA curve to use when generating a key
 	EcdsaCurve pulumi.StringPtrInput
-	// Number of hours before certificate expiry
-	// to request a new certificate.  Defaults to `168`.
+	// Number of hours before certificate expiry to request a new certificate.
+	// Defaults to `168`.
 	ExpirationWindow pulumi.IntPtrInput
-	// Used with validDays to indicate the target
-	// issuer when using Trust Protection Platform.  Relevant values are: "DigiCert",
-	// "Entrust", and "Microsoft".
+	// Used with `validDays` to indicate the target issuer when using Trust Protection
+	// Platform. Relevant values are: `DigiCert`, `Entrust`, and `Microsoft`.
 	IssuerHint pulumi.StringPtrInput
 	// The password used to encrypt the private key.
 	KeyPassword pulumi.StringPtrInput
-	// Use to specify a name for the new certificate object that will be created and placed in a policy. Only valid for TPP.
+	// Use to specify a name for the new certificate object that will be created and placed
+	// in a policy. Only valid for Trust Protection Platform.
 	Nickname pulumi.StringPtrInput
-	// A base64-encoded PKCS#12 keystore secured by the `keyPassword`.
-	// Useful when working with resources like
-	// azurerm_key_vault_certificate.
+	// A base64-encoded PKCS#12 keystore secured by the `keyPassword`. Useful when working with resources like
+	// azure key_vault_certificate.
 	Pkcs12 pulumi.StringPtrInput
 	// The private key in PEM format.
 	PrivateKeyPem pulumi.StringPtrInput
-	// Number of bits to use when generating an RSA key.
-	// Applies when `algorithm=RSA`.  Defaults to `2048`.
+	// Number of bits to use when generating an RSA key. Applies when algorithm is `RSA`.
+	// Defaults to `2048`.
 	RsaBits pulumi.IntPtrInput
-	// List of DNS names to use as alternative
-	// subjects of the certificate.
+	// List of DNS names to use as alternative subjects of the certificate.
 	SanDns pulumi.StringArrayInput
-	// List of email addresses to use as
-	// alternative subjects of the certificate.
+	// List of email addresses to use as alternative subjects of the certificate.
 	SanEmails pulumi.StringArrayInput
-	// List of IP addresses to use as alternative
-	// subjects of the certificate.
+	// List of IP addresses to use as alternative subjects of the certificate.
 	SanIps pulumi.StringArrayInput
-	// List of Uniform Resource Identifiers (URIs) to use as alternative
-	// subjects of the certificate.
+	// List of Uniform Resource Identifiers (URIs) to use as alternative subjects of
+	// the certificate.
 	SanUris pulumi.StringArrayInput
-	// Desired number of days for which the new
-	// certificate will be valid.
+	// Desired number of days for which the new certificate will be valid.
 	ValidDays pulumi.IntPtrInput
 }
 
@@ -233,107 +212,95 @@ func (CertificateState) ElementType() reflect.Type {
 }
 
 type certificateArgs struct {
-	// Key encryption algorithm, either `RSA` or `ECDSA`.
-	// Defaults to `RSA`.
+	// Key encryption algorithm, either RSA or ECDSA. Defaults to `RSA`.
 	Algorithm     *string `pulumi:"algorithm"`
 	CertificateDn *string `pulumi:"certificateDn"`
 	// The common name of the certificate.
 	CommonName string `pulumi:"commonName"`
-	// Whether key-pair generation will be `local` or `service` generated. Default is `local`.
+	// Whether key-pair generation will be `local` or `service` generated. Default is
+	// `local`.
 	CsrOrigin *string `pulumi:"csrOrigin"`
 	CsrPem    *string `pulumi:"csrPem"`
-	// Collection of Custom Field name-value pairs to
-	// assign to the certificate.
+	// Collection of Custom Field name-value pairs to assign to the certificate.
 	CustomFields map[string]string `pulumi:"customFields"`
 	// ECDSA curve to use when generating a key
 	EcdsaCurve *string `pulumi:"ecdsaCurve"`
-	// Number of hours before certificate expiry
-	// to request a new certificate.  Defaults to `168`.
+	// Number of hours before certificate expiry to request a new certificate.
+	// Defaults to `168`.
 	ExpirationWindow *int `pulumi:"expirationWindow"`
-	// Used with validDays to indicate the target
-	// issuer when using Trust Protection Platform.  Relevant values are: "DigiCert",
-	// "Entrust", and "Microsoft".
+	// Used with `validDays` to indicate the target issuer when using Trust Protection
+	// Platform. Relevant values are: `DigiCert`, `Entrust`, and `Microsoft`.
 	IssuerHint *string `pulumi:"issuerHint"`
 	// The password used to encrypt the private key.
 	KeyPassword *string `pulumi:"keyPassword"`
-	// Use to specify a name for the new certificate object that will be created and placed in a policy. Only valid for TPP.
+	// Use to specify a name for the new certificate object that will be created and placed
+	// in a policy. Only valid for Trust Protection Platform.
 	Nickname *string `pulumi:"nickname"`
-	// A base64-encoded PKCS#12 keystore secured by the `keyPassword`.
-	// Useful when working with resources like
-	// azurerm_key_vault_certificate.
+	// A base64-encoded PKCS#12 keystore secured by the `keyPassword`. Useful when working with resources like
+	// azure key_vault_certificate.
 	Pkcs12 *string `pulumi:"pkcs12"`
 	// The private key in PEM format.
 	PrivateKeyPem *string `pulumi:"privateKeyPem"`
-	// Number of bits to use when generating an RSA key.
-	// Applies when `algorithm=RSA`.  Defaults to `2048`.
+	// Number of bits to use when generating an RSA key. Applies when algorithm is `RSA`.
+	// Defaults to `2048`.
 	RsaBits *int `pulumi:"rsaBits"`
-	// List of DNS names to use as alternative
-	// subjects of the certificate.
+	// List of DNS names to use as alternative subjects of the certificate.
 	SanDns []string `pulumi:"sanDns"`
-	// List of email addresses to use as
-	// alternative subjects of the certificate.
+	// List of email addresses to use as alternative subjects of the certificate.
 	SanEmails []string `pulumi:"sanEmails"`
-	// List of IP addresses to use as alternative
-	// subjects of the certificate.
+	// List of IP addresses to use as alternative subjects of the certificate.
 	SanIps []string `pulumi:"sanIps"`
-	// List of Uniform Resource Identifiers (URIs) to use as alternative
-	// subjects of the certificate.
+	// List of Uniform Resource Identifiers (URIs) to use as alternative subjects of
+	// the certificate.
 	SanUris []string `pulumi:"sanUris"`
-	// Desired number of days for which the new
-	// certificate will be valid.
+	// Desired number of days for which the new certificate will be valid.
 	ValidDays *int `pulumi:"validDays"`
 }
 
 // The set of arguments for constructing a Certificate resource.
 type CertificateArgs struct {
-	// Key encryption algorithm, either `RSA` or `ECDSA`.
-	// Defaults to `RSA`.
+	// Key encryption algorithm, either RSA or ECDSA. Defaults to `RSA`.
 	Algorithm     pulumi.StringPtrInput
 	CertificateDn pulumi.StringPtrInput
 	// The common name of the certificate.
 	CommonName pulumi.StringInput
-	// Whether key-pair generation will be `local` or `service` generated. Default is `local`.
+	// Whether key-pair generation will be `local` or `service` generated. Default is
+	// `local`.
 	CsrOrigin pulumi.StringPtrInput
 	CsrPem    pulumi.StringPtrInput
-	// Collection of Custom Field name-value pairs to
-	// assign to the certificate.
+	// Collection of Custom Field name-value pairs to assign to the certificate.
 	CustomFields pulumi.StringMapInput
 	// ECDSA curve to use when generating a key
 	EcdsaCurve pulumi.StringPtrInput
-	// Number of hours before certificate expiry
-	// to request a new certificate.  Defaults to `168`.
+	// Number of hours before certificate expiry to request a new certificate.
+	// Defaults to `168`.
 	ExpirationWindow pulumi.IntPtrInput
-	// Used with validDays to indicate the target
-	// issuer when using Trust Protection Platform.  Relevant values are: "DigiCert",
-	// "Entrust", and "Microsoft".
+	// Used with `validDays` to indicate the target issuer when using Trust Protection
+	// Platform. Relevant values are: `DigiCert`, `Entrust`, and `Microsoft`.
 	IssuerHint pulumi.StringPtrInput
 	// The password used to encrypt the private key.
 	KeyPassword pulumi.StringPtrInput
-	// Use to specify a name for the new certificate object that will be created and placed in a policy. Only valid for TPP.
+	// Use to specify a name for the new certificate object that will be created and placed
+	// in a policy. Only valid for Trust Protection Platform.
 	Nickname pulumi.StringPtrInput
-	// A base64-encoded PKCS#12 keystore secured by the `keyPassword`.
-	// Useful when working with resources like
-	// azurerm_key_vault_certificate.
+	// A base64-encoded PKCS#12 keystore secured by the `keyPassword`. Useful when working with resources like
+	// azure key_vault_certificate.
 	Pkcs12 pulumi.StringPtrInput
 	// The private key in PEM format.
 	PrivateKeyPem pulumi.StringPtrInput
-	// Number of bits to use when generating an RSA key.
-	// Applies when `algorithm=RSA`.  Defaults to `2048`.
+	// Number of bits to use when generating an RSA key. Applies when algorithm is `RSA`.
+	// Defaults to `2048`.
 	RsaBits pulumi.IntPtrInput
-	// List of DNS names to use as alternative
-	// subjects of the certificate.
+	// List of DNS names to use as alternative subjects of the certificate.
 	SanDns pulumi.StringArrayInput
-	// List of email addresses to use as
-	// alternative subjects of the certificate.
+	// List of email addresses to use as alternative subjects of the certificate.
 	SanEmails pulumi.StringArrayInput
-	// List of IP addresses to use as alternative
-	// subjects of the certificate.
+	// List of IP addresses to use as alternative subjects of the certificate.
 	SanIps pulumi.StringArrayInput
-	// List of Uniform Resource Identifiers (URIs) to use as alternative
-	// subjects of the certificate.
+	// List of Uniform Resource Identifiers (URIs) to use as alternative subjects of
+	// the certificate.
 	SanUris pulumi.StringArrayInput
-	// Desired number of days for which the new
-	// certificate will be valid.
+	// Desired number of days for which the new certificate will be valid.
 	ValidDays pulumi.IntPtrInput
 }
 
@@ -424,8 +391,7 @@ func (o CertificateOutput) ToCertificateOutputWithContext(ctx context.Context) C
 	return o
 }
 
-// Key encryption algorithm, either `RSA` or `ECDSA`.
-// Defaults to `RSA`.
+// Key encryption algorithm, either RSA or ECDSA. Defaults to `RSA`.
 func (o CertificateOutput) Algorithm() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Certificate) pulumi.StringPtrOutput { return v.Algorithm }).(pulumi.StringPtrOutput)
 }
@@ -439,8 +405,7 @@ func (o CertificateOutput) CertificateDn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Certificate) pulumi.StringOutput { return v.CertificateDn }).(pulumi.StringOutput)
 }
 
-// The trust chain of X509 certificate authority certificates in PEM format
-// concatenated together.
+// The trust chain of X509 certificate authority certificates in PEM format concatenated together.
 func (o CertificateOutput) Chain() pulumi.StringOutput {
 	return o.ApplyT(func(v *Certificate) pulumi.StringOutput { return v.Chain }).(pulumi.StringOutput)
 }
@@ -450,7 +415,8 @@ func (o CertificateOutput) CommonName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Certificate) pulumi.StringOutput { return v.CommonName }).(pulumi.StringOutput)
 }
 
-// Whether key-pair generation will be `local` or `service` generated. Default is `local`.
+// Whether key-pair generation will be `local` or `service` generated. Default is
+// `local`.
 func (o CertificateOutput) CsrOrigin() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Certificate) pulumi.StringPtrOutput { return v.CsrOrigin }).(pulumi.StringPtrOutput)
 }
@@ -459,8 +425,7 @@ func (o CertificateOutput) CsrPem() pulumi.StringOutput {
 	return o.ApplyT(func(v *Certificate) pulumi.StringOutput { return v.CsrPem }).(pulumi.StringOutput)
 }
 
-// Collection of Custom Field name-value pairs to
-// assign to the certificate.
+// Collection of Custom Field name-value pairs to assign to the certificate.
 func (o CertificateOutput) CustomFields() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Certificate) pulumi.StringMapOutput { return v.CustomFields }).(pulumi.StringMapOutput)
 }
@@ -470,15 +435,14 @@ func (o CertificateOutput) EcdsaCurve() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Certificate) pulumi.StringPtrOutput { return v.EcdsaCurve }).(pulumi.StringPtrOutput)
 }
 
-// Number of hours before certificate expiry
-// to request a new certificate.  Defaults to `168`.
+// Number of hours before certificate expiry to request a new certificate.
+// Defaults to `168`.
 func (o CertificateOutput) ExpirationWindow() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Certificate) pulumi.IntPtrOutput { return v.ExpirationWindow }).(pulumi.IntPtrOutput)
 }
 
-// Used with validDays to indicate the target
-// issuer when using Trust Protection Platform.  Relevant values are: "DigiCert",
-// "Entrust", and "Microsoft".
+// Used with `validDays` to indicate the target issuer when using Trust Protection
+// Platform. Relevant values are: `DigiCert`, `Entrust`, and `Microsoft`.
 func (o CertificateOutput) IssuerHint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Certificate) pulumi.StringPtrOutput { return v.IssuerHint }).(pulumi.StringPtrOutput)
 }
@@ -488,14 +452,14 @@ func (o CertificateOutput) KeyPassword() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Certificate) pulumi.StringPtrOutput { return v.KeyPassword }).(pulumi.StringPtrOutput)
 }
 
-// Use to specify a name for the new certificate object that will be created and placed in a policy. Only valid for TPP.
+// Use to specify a name for the new certificate object that will be created and placed
+// in a policy. Only valid for Trust Protection Platform.
 func (o CertificateOutput) Nickname() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Certificate) pulumi.StringPtrOutput { return v.Nickname }).(pulumi.StringPtrOutput)
 }
 
-// A base64-encoded PKCS#12 keystore secured by the `keyPassword`.
-// Useful when working with resources like
-// azurerm_key_vault_certificate.
+// A base64-encoded PKCS#12 keystore secured by the `keyPassword`. Useful when working with resources like
+// azure key_vault_certificate.
 func (o CertificateOutput) Pkcs12() pulumi.StringOutput {
 	return o.ApplyT(func(v *Certificate) pulumi.StringOutput { return v.Pkcs12 }).(pulumi.StringOutput)
 }
@@ -505,38 +469,34 @@ func (o CertificateOutput) PrivateKeyPem() pulumi.StringOutput {
 	return o.ApplyT(func(v *Certificate) pulumi.StringOutput { return v.PrivateKeyPem }).(pulumi.StringOutput)
 }
 
-// Number of bits to use when generating an RSA key.
-// Applies when `algorithm=RSA`.  Defaults to `2048`.
+// Number of bits to use when generating an RSA key. Applies when algorithm is `RSA`.
+// Defaults to `2048`.
 func (o CertificateOutput) RsaBits() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Certificate) pulumi.IntPtrOutput { return v.RsaBits }).(pulumi.IntPtrOutput)
 }
 
-// List of DNS names to use as alternative
-// subjects of the certificate.
+// List of DNS names to use as alternative subjects of the certificate.
 func (o CertificateOutput) SanDns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Certificate) pulumi.StringArrayOutput { return v.SanDns }).(pulumi.StringArrayOutput)
 }
 
-// List of email addresses to use as
-// alternative subjects of the certificate.
+// List of email addresses to use as alternative subjects of the certificate.
 func (o CertificateOutput) SanEmails() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Certificate) pulumi.StringArrayOutput { return v.SanEmails }).(pulumi.StringArrayOutput)
 }
 
-// List of IP addresses to use as alternative
-// subjects of the certificate.
+// List of IP addresses to use as alternative subjects of the certificate.
 func (o CertificateOutput) SanIps() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Certificate) pulumi.StringArrayOutput { return v.SanIps }).(pulumi.StringArrayOutput)
 }
 
-// List of Uniform Resource Identifiers (URIs) to use as alternative
-// subjects of the certificate.
+// List of Uniform Resource Identifiers (URIs) to use as alternative subjects of
+// the certificate.
 func (o CertificateOutput) SanUris() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Certificate) pulumi.StringArrayOutput { return v.SanUris }).(pulumi.StringArrayOutput)
 }
 
-// Desired number of days for which the new
-// certificate will be valid.
+// Desired number of days for which the new certificate will be valid.
 func (o CertificateOutput) ValidDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Certificate) pulumi.IntPtrOutput { return v.ValidDays }).(pulumi.IntPtrOutput)
 }

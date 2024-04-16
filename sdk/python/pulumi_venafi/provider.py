@@ -18,7 +18,7 @@ class ProviderArgs:
                  api_key: Optional[pulumi.Input[str]] = None,
                  client_id: Optional[pulumi.Input[str]] = None,
                  dev_mode: Optional[pulumi.Input[bool]] = None,
-                 idp_jwt: Optional[pulumi.Input[str]] = None,
+                 external_jwt: Optional[pulumi.Input[str]] = None,
                  p12_cert_filename: Optional[pulumi.Input[str]] = None,
                  p12_cert_password: Optional[pulumi.Input[str]] = None,
                  skip_retirement: Optional[pulumi.Input[bool]] = None,
@@ -35,7 +35,7 @@ class ProviderArgs:
         :param pulumi.Input[str] client_id: application that will be using the token
         :param pulumi.Input[bool] dev_mode: When set to true, the resulting certificate will be issued by an ephemeral, no trust CA rather than enrolling using
                Venafi as a Service or Trust Protection Platform. Useful for development and testing.
-        :param pulumi.Input[str] idp_jwt: JWT of the identity provider associated to the Venafi Control Plane service account that is granting the access token
+        :param pulumi.Input[str] external_jwt: JWT of the identity provider associated to the Venafi Control Plane service account that is granting the access token
         :param pulumi.Input[str] p12_cert_filename: Filename of PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to
                TLSPDC
         :param pulumi.Input[str] p12_cert_password: Password for the PKCS#12 keystore declared in p12_cert
@@ -57,8 +57,8 @@ class ProviderArgs:
             pulumi.set(__self__, "client_id", client_id)
         if dev_mode is not None:
             pulumi.set(__self__, "dev_mode", dev_mode)
-        if idp_jwt is not None:
-            pulumi.set(__self__, "idp_jwt", idp_jwt)
+        if external_jwt is not None:
+            pulumi.set(__self__, "external_jwt", external_jwt)
         if p12_cert_filename is not None:
             pulumi.set(__self__, "p12_cert_filename", p12_cert_filename)
         if p12_cert_password is not None:
@@ -134,16 +134,16 @@ class ProviderArgs:
         pulumi.set(self, "dev_mode", value)
 
     @property
-    @pulumi.getter(name="idpJwt")
-    def idp_jwt(self) -> Optional[pulumi.Input[str]]:
+    @pulumi.getter(name="externalJwt")
+    def external_jwt(self) -> Optional[pulumi.Input[str]]:
         """
         JWT of the identity provider associated to the Venafi Control Plane service account that is granting the access token
         """
-        return pulumi.get(self, "idp_jwt")
+        return pulumi.get(self, "external_jwt")
 
-    @idp_jwt.setter
-    def idp_jwt(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "idp_jwt", value)
+    @external_jwt.setter
+    def external_jwt(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "external_jwt", value)
 
     @property
     @pulumi.getter(name="p12CertFilename")
@@ -272,7 +272,7 @@ class Provider(pulumi.ProviderResource):
                  api_key: Optional[pulumi.Input[str]] = None,
                  client_id: Optional[pulumi.Input[str]] = None,
                  dev_mode: Optional[pulumi.Input[bool]] = None,
-                 idp_jwt: Optional[pulumi.Input[str]] = None,
+                 external_jwt: Optional[pulumi.Input[str]] = None,
                  p12_cert_filename: Optional[pulumi.Input[str]] = None,
                  p12_cert_password: Optional[pulumi.Input[str]] = None,
                  skip_retirement: Optional[pulumi.Input[bool]] = None,
@@ -296,7 +296,7 @@ class Provider(pulumi.ProviderResource):
         :param pulumi.Input[str] client_id: application that will be using the token
         :param pulumi.Input[bool] dev_mode: When set to true, the resulting certificate will be issued by an ephemeral, no trust CA rather than enrolling using
                Venafi as a Service or Trust Protection Platform. Useful for development and testing.
-        :param pulumi.Input[str] idp_jwt: JWT of the identity provider associated to the Venafi Control Plane service account that is granting the access token
+        :param pulumi.Input[str] external_jwt: JWT of the identity provider associated to the Venafi Control Plane service account that is granting the access token
         :param pulumi.Input[str] p12_cert_filename: Filename of PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to
                TLSPDC
         :param pulumi.Input[str] p12_cert_password: Password for the PKCS#12 keystore declared in p12_cert
@@ -341,7 +341,7 @@ class Provider(pulumi.ProviderResource):
                  api_key: Optional[pulumi.Input[str]] = None,
                  client_id: Optional[pulumi.Input[str]] = None,
                  dev_mode: Optional[pulumi.Input[bool]] = None,
-                 idp_jwt: Optional[pulumi.Input[str]] = None,
+                 external_jwt: Optional[pulumi.Input[str]] = None,
                  p12_cert_filename: Optional[pulumi.Input[str]] = None,
                  p12_cert_password: Optional[pulumi.Input[str]] = None,
                  skip_retirement: Optional[pulumi.Input[bool]] = None,
@@ -364,7 +364,7 @@ class Provider(pulumi.ProviderResource):
             __props__.__dict__["api_key"] = None if api_key is None else pulumi.Output.secret(api_key)
             __props__.__dict__["client_id"] = client_id
             __props__.__dict__["dev_mode"] = pulumi.Output.from_input(dev_mode).apply(pulumi.runtime.to_json) if dev_mode is not None else None
-            __props__.__dict__["idp_jwt"] = None if idp_jwt is None else pulumi.Output.secret(idp_jwt)
+            __props__.__dict__["external_jwt"] = None if external_jwt is None else pulumi.Output.secret(external_jwt)
             __props__.__dict__["p12_cert_filename"] = p12_cert_filename
             __props__.__dict__["p12_cert_password"] = None if p12_cert_password is None else pulumi.Output.secret(p12_cert_password)
             __props__.__dict__["skip_retirement"] = pulumi.Output.from_input(skip_retirement).apply(pulumi.runtime.to_json) if skip_retirement is not None else None
@@ -374,7 +374,7 @@ class Provider(pulumi.ProviderResource):
             __props__.__dict__["trust_bundle"] = trust_bundle
             __props__.__dict__["url"] = url
             __props__.__dict__["zone"] = zone
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["accessToken", "apiKey", "idpJwt", "p12CertPassword", "tokenUrl", "tppPassword"])
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["accessToken", "apiKey", "externalJwt", "p12CertPassword", "tokenUrl", "tppPassword"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Provider, __self__).__init__(
             'venafi',
@@ -407,12 +407,12 @@ class Provider(pulumi.ProviderResource):
         return pulumi.get(self, "client_id")
 
     @property
-    @pulumi.getter(name="idpJwt")
-    def idp_jwt(self) -> pulumi.Output[Optional[str]]:
+    @pulumi.getter(name="externalJwt")
+    def external_jwt(self) -> pulumi.Output[Optional[str]]:
         """
         JWT of the identity provider associated to the Venafi Control Plane service account that is granting the access token
         """
-        return pulumi.get(self, "idp_jwt")
+        return pulumi.get(self, "external_jwt")
 
     @property
     @pulumi.getter(name="p12CertFilename")

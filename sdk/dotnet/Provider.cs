@@ -39,8 +39,8 @@ namespace Pulumi.Venafi
         /// <summary>
         /// JWT of the identity provider associated to the Venafi Control Plane service account that is granting the access token
         /// </summary>
-        [Output("idpJwt")]
-        public Output<string?> IdpJwt { get; private set; } = null!;
+        [Output("externalJwt")]
+        public Output<string?> ExternalJwt { get; private set; } = null!;
 
         /// <summary>
         /// Filename of PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to
@@ -115,7 +115,7 @@ namespace Pulumi.Venafi
                 {
                     "accessToken",
                     "apiKey",
-                    "idpJwt",
+                    "externalJwt",
                     "p12CertPassword",
                     "tokenUrl",
                     "tppPassword",
@@ -175,19 +175,19 @@ namespace Pulumi.Venafi
         [Input("devMode", json: true)]
         public Input<bool>? DevMode { get; set; }
 
-        [Input("idpJwt")]
-        private Input<string>? _idpJwt;
+        [Input("externalJwt")]
+        private Input<string>? _externalJwt;
 
         /// <summary>
         /// JWT of the identity provider associated to the Venafi Control Plane service account that is granting the access token
         /// </summary>
-        public Input<string>? IdpJwt
+        public Input<string>? ExternalJwt
         {
-            get => _idpJwt;
+            get => _externalJwt;
             set
             {
                 var emptySecret = Output.CreateSecret(0);
-                _idpJwt = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+                _externalJwt = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
             }
         }
 

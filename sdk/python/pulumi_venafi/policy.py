@@ -18,11 +18,11 @@ class PolicyArgs:
                  zone: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Policy resource.
-        :param pulumi.Input[str] policy_specification: The JSON-formatted certificate policy
-               specification as documented [here](https://github.com/Venafi/vcert/blob/master/README-POLICY-SPEC.md).
-               Typically read from a file using the `file` function.
-        :param pulumi.Input[str] zone: The *Trust Protection Plaform* policy folder or
-               *Venafi as a Service* application and issuing template.
+        :param pulumi.Input[str] policy_specification: The JSON-formatted certificate policy specification as documented 
+               [here](https://github.com/Venafi/vcert/blob/master/README-POLICY-SPEC.md). Typically read from a file using the `file`
+               function.
+        :param pulumi.Input[str] zone: The *Trust Protection Plaform* policy folder or *Venafi Control Plane* application and 
+               issuing template.
         """
         if policy_specification is not None:
             pulumi.set(__self__, "policy_specification", policy_specification)
@@ -33,9 +33,9 @@ class PolicyArgs:
     @pulumi.getter(name="policySpecification")
     def policy_specification(self) -> Optional[pulumi.Input[str]]:
         """
-        The JSON-formatted certificate policy
-        specification as documented [here](https://github.com/Venafi/vcert/blob/master/README-POLICY-SPEC.md).
-        Typically read from a file using the `file` function.
+        The JSON-formatted certificate policy specification as documented 
+        [here](https://github.com/Venafi/vcert/blob/master/README-POLICY-SPEC.md). Typically read from a file using the `file`
+        function.
         """
         return pulumi.get(self, "policy_specification")
 
@@ -47,8 +47,8 @@ class PolicyArgs:
     @pulumi.getter
     def zone(self) -> Optional[pulumi.Input[str]]:
         """
-        The *Trust Protection Plaform* policy folder or
-        *Venafi as a Service* application and issuing template.
+        The *Trust Protection Plaform* policy folder or *Venafi Control Plane* application and 
+        issuing template.
         """
         return pulumi.get(self, "zone")
 
@@ -64,11 +64,11 @@ class _PolicyState:
                  zone: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Policy resources.
-        :param pulumi.Input[str] policy_specification: The JSON-formatted certificate policy
-               specification as documented [here](https://github.com/Venafi/vcert/blob/master/README-POLICY-SPEC.md).
-               Typically read from a file using the `file` function.
-        :param pulumi.Input[str] zone: The *Trust Protection Plaform* policy folder or
-               *Venafi as a Service* application and issuing template.
+        :param pulumi.Input[str] policy_specification: The JSON-formatted certificate policy specification as documented 
+               [here](https://github.com/Venafi/vcert/blob/master/README-POLICY-SPEC.md). Typically read from a file using the `file`
+               function.
+        :param pulumi.Input[str] zone: The *Trust Protection Plaform* policy folder or *Venafi Control Plane* application and 
+               issuing template.
         """
         if policy_specification is not None:
             pulumi.set(__self__, "policy_specification", policy_specification)
@@ -79,9 +79,9 @@ class _PolicyState:
     @pulumi.getter(name="policySpecification")
     def policy_specification(self) -> Optional[pulumi.Input[str]]:
         """
-        The JSON-formatted certificate policy
-        specification as documented [here](https://github.com/Venafi/vcert/blob/master/README-POLICY-SPEC.md).
-        Typically read from a file using the `file` function.
+        The JSON-formatted certificate policy specification as documented 
+        [here](https://github.com/Venafi/vcert/blob/master/README-POLICY-SPEC.md). Typically read from a file using the `file`
+        function.
         """
         return pulumi.get(self, "policy_specification")
 
@@ -93,8 +93,8 @@ class _PolicyState:
     @pulumi.getter
     def zone(self) -> Optional[pulumi.Input[str]]:
         """
-        The *Trust Protection Plaform* policy folder or
-        *Venafi as a Service* application and issuing template.
+        The *Trust Protection Plaform* policy folder or *Venafi Control Plane* application and 
+        issuing template.
         """
         return pulumi.get(self, "zone")
 
@@ -112,9 +112,8 @@ class Policy(pulumi.CustomResource):
                  zone: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Provides access to read and write certificate policy in Venafi. This can be used
-        to define a new policy (folder in *Trust Protection Platform*; application
-        and/or issuing template in *Venafi as a Service*).
+        Provides access to read and write certificate policy in Venafi. This can be used to define a new policy (folder in
+        *Trust Protection Platform*; application and issuing template in *Venafi Control Plane*).
 
         ## Example Usage
 
@@ -131,17 +130,13 @@ class Policy(pulumi.CustomResource):
 
         ## Import
 
-        The `venafi_policy` resource supports the Terraform import
+        The `venafi_policy` resource supports the Terraform import method.
 
-        method.  When used, the `zone` and `policy_specification` resource arguments
+        When used, the `zone` and `policy_specification` resource arguments are not required since the zone is a required
 
-        are not required since the zone is a required parameter of the import method
+        parameter of the import method and the policy specification is populated from the existing infrastructure. Policy that
 
-        and the policy specification is populated from the existing infrastructure.
-
-        Policy that is successfully imported is also output to a file named after the
-
-        zone that was specified.
+        is successfully imported is also output to a file named after the zone that was specified.
 
         hcl
 
@@ -153,11 +148,11 @@ class Policy(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] policy_specification: The JSON-formatted certificate policy
-               specification as documented [here](https://github.com/Venafi/vcert/blob/master/README-POLICY-SPEC.md).
-               Typically read from a file using the `file` function.
-        :param pulumi.Input[str] zone: The *Trust Protection Plaform* policy folder or
-               *Venafi as a Service* application and issuing template.
+        :param pulumi.Input[str] policy_specification: The JSON-formatted certificate policy specification as documented 
+               [here](https://github.com/Venafi/vcert/blob/master/README-POLICY-SPEC.md). Typically read from a file using the `file`
+               function.
+        :param pulumi.Input[str] zone: The *Trust Protection Plaform* policy folder or *Venafi Control Plane* application and 
+               issuing template.
         """
         ...
     @overload
@@ -166,9 +161,8 @@ class Policy(pulumi.CustomResource):
                  args: Optional[PolicyArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides access to read and write certificate policy in Venafi. This can be used
-        to define a new policy (folder in *Trust Protection Platform*; application
-        and/or issuing template in *Venafi as a Service*).
+        Provides access to read and write certificate policy in Venafi. This can be used to define a new policy (folder in
+        *Trust Protection Platform*; application and issuing template in *Venafi Control Plane*).
 
         ## Example Usage
 
@@ -185,17 +179,13 @@ class Policy(pulumi.CustomResource):
 
         ## Import
 
-        The `venafi_policy` resource supports the Terraform import
+        The `venafi_policy` resource supports the Terraform import method.
 
-        method.  When used, the `zone` and `policy_specification` resource arguments
+        When used, the `zone` and `policy_specification` resource arguments are not required since the zone is a required
 
-        are not required since the zone is a required parameter of the import method
+        parameter of the import method and the policy specification is populated from the existing infrastructure. Policy that
 
-        and the policy specification is populated from the existing infrastructure.
-
-        Policy that is successfully imported is also output to a file named after the
-
-        zone that was specified.
+        is successfully imported is also output to a file named after the zone that was specified.
 
         hcl
 
@@ -252,11 +242,11 @@ class Policy(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] policy_specification: The JSON-formatted certificate policy
-               specification as documented [here](https://github.com/Venafi/vcert/blob/master/README-POLICY-SPEC.md).
-               Typically read from a file using the `file` function.
-        :param pulumi.Input[str] zone: The *Trust Protection Plaform* policy folder or
-               *Venafi as a Service* application and issuing template.
+        :param pulumi.Input[str] policy_specification: The JSON-formatted certificate policy specification as documented 
+               [here](https://github.com/Venafi/vcert/blob/master/README-POLICY-SPEC.md). Typically read from a file using the `file`
+               function.
+        :param pulumi.Input[str] zone: The *Trust Protection Plaform* policy folder or *Venafi Control Plane* application and 
+               issuing template.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -270,9 +260,9 @@ class Policy(pulumi.CustomResource):
     @pulumi.getter(name="policySpecification")
     def policy_specification(self) -> pulumi.Output[Optional[str]]:
         """
-        The JSON-formatted certificate policy
-        specification as documented [here](https://github.com/Venafi/vcert/blob/master/README-POLICY-SPEC.md).
-        Typically read from a file using the `file` function.
+        The JSON-formatted certificate policy specification as documented 
+        [here](https://github.com/Venafi/vcert/blob/master/README-POLICY-SPEC.md). Typically read from a file using the `file`
+        function.
         """
         return pulumi.get(self, "policy_specification")
 
@@ -280,8 +270,8 @@ class Policy(pulumi.CustomResource):
     @pulumi.getter
     def zone(self) -> pulumi.Output[Optional[str]]:
         """
-        The *Trust Protection Plaform* policy folder or
-        *Venafi as a Service* application and issuing template.
+        The *Trust Protection Plaform* policy folder or *Venafi Control Plane* application and 
+        issuing template.
         """
         return pulumi.get(self, "zone")
 

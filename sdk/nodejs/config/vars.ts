@@ -55,10 +55,10 @@ Object.defineProperty(exports, "devMode", {
 /**
  * JWT of the identity provider associated to the Venafi Control Plane service account that is granting the access token
  */
-export declare const idpJwt: string | undefined;
-Object.defineProperty(exports, "idpJwt", {
+export declare const externalJwt: string | undefined;
+Object.defineProperty(exports, "externalJwt", {
     get() {
-        return __config.get("idpJwt");
+        return __config.get("externalJwt");
     },
     enumerable: true,
 });

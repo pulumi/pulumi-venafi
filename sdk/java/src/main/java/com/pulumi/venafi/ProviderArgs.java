@@ -82,15 +82,15 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
      * JWT of the identity provider associated to the Venafi Control Plane service account that is granting the access token
      * 
      */
-    @Import(name="idpJwt")
-    private @Nullable Output<String> idpJwt;
+    @Import(name="externalJwt")
+    private @Nullable Output<String> externalJwt;
 
     /**
      * @return JWT of the identity provider associated to the Venafi Control Plane service account that is granting the access token
      * 
      */
-    public Optional<Output<String>> idpJwt() {
-        return Optional.ofNullable(this.idpJwt);
+    public Optional<Output<String>> externalJwt() {
+        return Optional.ofNullable(this.externalJwt);
     }
 
     /**
@@ -257,7 +257,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         this.apiKey = $.apiKey;
         this.clientId = $.clientId;
         this.devMode = $.devMode;
-        this.idpJwt = $.idpJwt;
+        this.externalJwt = $.externalJwt;
         this.p12CertFilename = $.p12CertFilename;
         this.p12CertPassword = $.p12CertPassword;
         this.skipRetirement = $.skipRetirement;
@@ -374,24 +374,24 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param idpJwt JWT of the identity provider associated to the Venafi Control Plane service account that is granting the access token
+         * @param externalJwt JWT of the identity provider associated to the Venafi Control Plane service account that is granting the access token
          * 
          * @return builder
          * 
          */
-        public Builder idpJwt(@Nullable Output<String> idpJwt) {
-            $.idpJwt = idpJwt;
+        public Builder externalJwt(@Nullable Output<String> externalJwt) {
+            $.externalJwt = externalJwt;
             return this;
         }
 
         /**
-         * @param idpJwt JWT of the identity provider associated to the Venafi Control Plane service account that is granting the access token
+         * @param externalJwt JWT of the identity provider associated to the Venafi Control Plane service account that is granting the access token
          * 
          * @return builder
          * 
          */
-        public Builder idpJwt(String idpJwt) {
-            return idpJwt(Output.of(idpJwt));
+        public Builder externalJwt(String externalJwt) {
+            return externalJwt(Output.of(externalJwt));
         }
 
         /**
