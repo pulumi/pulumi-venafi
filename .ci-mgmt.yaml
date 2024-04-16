@@ -7,3 +7,8 @@ env:
   VENAFI_TPP_PASSWORD: ${{ secrets.VENAFI_TPP_PASSWORD }}
 makeTemplate: bridged
 team: ecosystem
+pulumiConvert: 1
+plugins:
+  - name: terraform
+    version: "1.0.16"
+    kind: converter
