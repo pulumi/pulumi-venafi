@@ -16,18 +16,18 @@ public final class PolicyArgs extends com.pulumi.resources.ResourceArgs {
     public static final PolicyArgs Empty = new PolicyArgs();
 
     /**
-     * The JSON-formatted certificate policy
-     * specification as documented [here](https://github.com/Venafi/vcert/blob/master/README-POLICY-SPEC.md).
-     * Typically read from a file using the `file` function.
+     * The JSON-formatted certificate policy specification as documented
+     * [here](https://github.com/Venafi/vcert/blob/master/README-POLICY-SPEC.md). Typically read from a file using the `file`
+     * function.
      * 
      */
     @Import(name="policySpecification")
     private @Nullable Output<String> policySpecification;
 
     /**
-     * @return The JSON-formatted certificate policy
-     * specification as documented [here](https://github.com/Venafi/vcert/blob/master/README-POLICY-SPEC.md).
-     * Typically read from a file using the `file` function.
+     * @return The JSON-formatted certificate policy specification as documented
+     * [here](https://github.com/Venafi/vcert/blob/master/README-POLICY-SPEC.md). Typically read from a file using the `file`
+     * function.
      * 
      */
     public Optional<Output<String>> policySpecification() {
@@ -35,16 +35,16 @@ public final class PolicyArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The *Trust Protection Plaform* policy folder or
-     * *Venafi as a Service* application and issuing template.
+     * The *Trust Protection Plaform* policy folder or *Venafi Control Plane* application and
+     * issuing template.
      * 
      */
     @Import(name="zone")
     private @Nullable Output<String> zone;
 
     /**
-     * @return The *Trust Protection Plaform* policy folder or
-     * *Venafi as a Service* application and issuing template.
+     * @return The *Trust Protection Plaform* policy folder or *Venafi Control Plane* application and
+     * issuing template.
      * 
      */
     public Optional<Output<String>> zone() {
@@ -77,9 +77,9 @@ public final class PolicyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param policySpecification The JSON-formatted certificate policy
-         * specification as documented [here](https://github.com/Venafi/vcert/blob/master/README-POLICY-SPEC.md).
-         * Typically read from a file using the `file` function.
+         * @param policySpecification The JSON-formatted certificate policy specification as documented
+         * [here](https://github.com/Venafi/vcert/blob/master/README-POLICY-SPEC.md). Typically read from a file using the `file`
+         * function.
          * 
          * @return builder
          * 
@@ -90,9 +90,9 @@ public final class PolicyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param policySpecification The JSON-formatted certificate policy
-         * specification as documented [here](https://github.com/Venafi/vcert/blob/master/README-POLICY-SPEC.md).
-         * Typically read from a file using the `file` function.
+         * @param policySpecification The JSON-formatted certificate policy specification as documented
+         * [here](https://github.com/Venafi/vcert/blob/master/README-POLICY-SPEC.md). Typically read from a file using the `file`
+         * function.
          * 
          * @return builder
          * 
@@ -102,8 +102,8 @@ public final class PolicyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param zone The *Trust Protection Plaform* policy folder or
-         * *Venafi as a Service* application and issuing template.
+         * @param zone The *Trust Protection Plaform* policy folder or *Venafi Control Plane* application and
+         * issuing template.
          * 
          * @return builder
          * 
@@ -114,8 +114,8 @@ public final class PolicyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param zone The *Trust Protection Plaform* policy folder or
-         * *Venafi as a Service* application and issuing template.
+         * @param zone The *Trust Protection Plaform* policy folder or *Venafi Control Plane* application and
+         * issuing template.
          * 
          * @return builder
          * 

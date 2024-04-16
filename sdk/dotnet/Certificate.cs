@@ -13,8 +13,7 @@ namespace Pulumi.Venafi
     public partial class Certificate : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Key encryption algorithm, either `RSA` or `ECDSA`.
-        /// Defaults to `RSA`.
+        /// Key encryption algorithm, either RSA or ECDSA. Defaults to `RSA`.
         /// </summary>
         [Output("algorithm")]
         public Output<string?> Algorithm { get; private set; } = null!;
@@ -29,8 +28,7 @@ namespace Pulumi.Venafi
         public Output<string> CertificateDn { get; private set; } = null!;
 
         /// <summary>
-        /// The trust chain of X509 certificate authority certificates in PEM format
-        /// concatenated together.
+        /// The trust chain of X509 certificate authority certificates in PEM format concatenated together.
         /// </summary>
         [Output("chain")]
         public Output<string> Chain { get; private set; } = null!;
@@ -42,7 +40,8 @@ namespace Pulumi.Venafi
         public Output<string> CommonName { get; private set; } = null!;
 
         /// <summary>
-        /// Whether key-pair generation will be `local` or `service` generated. Default is `local`.
+        /// Whether key-pair generation will be `local` or `service` generated. Default is 
+        /// `local`.
         /// </summary>
         [Output("csrOrigin")]
         public Output<string?> CsrOrigin { get; private set; } = null!;
@@ -51,8 +50,7 @@ namespace Pulumi.Venafi
         public Output<string> CsrPem { get; private set; } = null!;
 
         /// <summary>
-        /// Collection of Custom Field name-value pairs to
-        /// assign to the certificate.
+        /// Collection of Custom Field name-value pairs to assign to the certificate.
         /// </summary>
         [Output("customFields")]
         public Output<ImmutableDictionary<string, string>?> CustomFields { get; private set; } = null!;
@@ -64,16 +62,15 @@ namespace Pulumi.Venafi
         public Output<string?> EcdsaCurve { get; private set; } = null!;
 
         /// <summary>
-        /// Number of hours before certificate expiry
-        /// to request a new certificate.  Defaults to `168`.
+        /// Number of hours before certificate expiry to request a new certificate. 
+        /// Defaults to `168`.
         /// </summary>
         [Output("expirationWindow")]
         public Output<int?> ExpirationWindow { get; private set; } = null!;
 
         /// <summary>
-        /// Used with valid_days to indicate the target
-        /// issuer when using Trust Protection Platform.  Relevant values are: "DigiCert",
-        /// "Entrust", and "Microsoft".
+        /// Used with `valid_days` to indicate the target issuer when using Trust Protection 
+        /// Platform. Relevant values are: `DigiCert`, `Entrust`, and `Microsoft`.
         /// </summary>
         [Output("issuerHint")]
         public Output<string?> IssuerHint { get; private set; } = null!;
@@ -85,15 +82,15 @@ namespace Pulumi.Venafi
         public Output<string?> KeyPassword { get; private set; } = null!;
 
         /// <summary>
-        /// Use to specify a name for the new certificate object that will be created and placed in a policy. Only valid for TPP.
+        /// Use to specify a name for the new certificate object that will be created and placed 
+        /// in a policy. Only valid for Trust Protection Platform.
         /// </summary>
         [Output("nickname")]
         public Output<string?> Nickname { get; private set; } = null!;
 
         /// <summary>
-        /// A base64-encoded PKCS#12 keystore secured by the `key_password`.
-        /// Useful when working with resources like
-        /// azurerm_key_vault_certificate.
+        /// A base64-encoded PKCS#12 keystore secured by the `key_password`. Useful when working with resources like 
+        /// azure key_vault_certificate.
         /// </summary>
         [Output("pkcs12")]
         public Output<string> Pkcs12 { get; private set; } = null!;
@@ -105,43 +102,39 @@ namespace Pulumi.Venafi
         public Output<string> PrivateKeyPem { get; private set; } = null!;
 
         /// <summary>
-        /// Number of bits to use when generating an RSA key.
-        /// Applies when `algorithm=RSA`.  Defaults to `2048`.
+        /// Number of bits to use when generating an RSA key. Applies when algorithm is `RSA`. 
+        /// Defaults to `2048`.
         /// </summary>
         [Output("rsaBits")]
         public Output<int?> RsaBits { get; private set; } = null!;
 
         /// <summary>
-        /// List of DNS names to use as alternative
-        /// subjects of the certificate.
+        /// List of DNS names to use as alternative subjects of the certificate.
         /// </summary>
         [Output("sanDns")]
         public Output<ImmutableArray<string>> SanDns { get; private set; } = null!;
 
         /// <summary>
-        /// List of email addresses to use as
-        /// alternative subjects of the certificate.
+        /// List of email addresses to use as alternative subjects of the certificate.
         /// </summary>
         [Output("sanEmails")]
         public Output<ImmutableArray<string>> SanEmails { get; private set; } = null!;
 
         /// <summary>
-        /// List of IP addresses to use as alternative
-        /// subjects of the certificate.
+        /// List of IP addresses to use as alternative subjects of the certificate.
         /// </summary>
         [Output("sanIps")]
         public Output<ImmutableArray<string>> SanIps { get; private set; } = null!;
 
         /// <summary>
-        /// List of Uniform Resource Identifiers (URIs) to use as alternative
-        /// subjects of the certificate.
+        /// List of Uniform Resource Identifiers (URIs) to use as alternative subjects of 
+        /// the certificate.
         /// </summary>
         [Output("sanUris")]
         public Output<ImmutableArray<string>> SanUris { get; private set; } = null!;
 
         /// <summary>
-        /// Desired number of days for which the new
-        /// certificate will be valid.
+        /// Desired number of days for which the new certificate will be valid.
         /// </summary>
         [Output("validDays")]
         public Output<int?> ValidDays { get; private set; } = null!;
@@ -198,8 +191,7 @@ namespace Pulumi.Venafi
     public sealed class CertificateArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Key encryption algorithm, either `RSA` or `ECDSA`.
-        /// Defaults to `RSA`.
+        /// Key encryption algorithm, either RSA or ECDSA. Defaults to `RSA`.
         /// </summary>
         [Input("algorithm")]
         public Input<string>? Algorithm { get; set; }
@@ -214,7 +206,8 @@ namespace Pulumi.Venafi
         public Input<string> CommonName { get; set; } = null!;
 
         /// <summary>
-        /// Whether key-pair generation will be `local` or `service` generated. Default is `local`.
+        /// Whether key-pair generation will be `local` or `service` generated. Default is 
+        /// `local`.
         /// </summary>
         [Input("csrOrigin")]
         public Input<string>? CsrOrigin { get; set; }
@@ -226,8 +219,7 @@ namespace Pulumi.Venafi
         private InputMap<string>? _customFields;
 
         /// <summary>
-        /// Collection of Custom Field name-value pairs to
-        /// assign to the certificate.
+        /// Collection of Custom Field name-value pairs to assign to the certificate.
         /// </summary>
         public InputMap<string> CustomFields
         {
@@ -242,16 +234,15 @@ namespace Pulumi.Venafi
         public Input<string>? EcdsaCurve { get; set; }
 
         /// <summary>
-        /// Number of hours before certificate expiry
-        /// to request a new certificate.  Defaults to `168`.
+        /// Number of hours before certificate expiry to request a new certificate. 
+        /// Defaults to `168`.
         /// </summary>
         [Input("expirationWindow")]
         public Input<int>? ExpirationWindow { get; set; }
 
         /// <summary>
-        /// Used with valid_days to indicate the target
-        /// issuer when using Trust Protection Platform.  Relevant values are: "DigiCert",
-        /// "Entrust", and "Microsoft".
+        /// Used with `valid_days` to indicate the target issuer when using Trust Protection 
+        /// Platform. Relevant values are: `DigiCert`, `Entrust`, and `Microsoft`.
         /// </summary>
         [Input("issuerHint")]
         public Input<string>? IssuerHint { get; set; }
@@ -273,15 +264,15 @@ namespace Pulumi.Venafi
         }
 
         /// <summary>
-        /// Use to specify a name for the new certificate object that will be created and placed in a policy. Only valid for TPP.
+        /// Use to specify a name for the new certificate object that will be created and placed 
+        /// in a policy. Only valid for Trust Protection Platform.
         /// </summary>
         [Input("nickname")]
         public Input<string>? Nickname { get; set; }
 
         /// <summary>
-        /// A base64-encoded PKCS#12 keystore secured by the `key_password`.
-        /// Useful when working with resources like
-        /// azurerm_key_vault_certificate.
+        /// A base64-encoded PKCS#12 keystore secured by the `key_password`. Useful when working with resources like 
+        /// azure key_vault_certificate.
         /// </summary>
         [Input("pkcs12")]
         public Input<string>? Pkcs12 { get; set; }
@@ -303,8 +294,8 @@ namespace Pulumi.Venafi
         }
 
         /// <summary>
-        /// Number of bits to use when generating an RSA key.
-        /// Applies when `algorithm=RSA`.  Defaults to `2048`.
+        /// Number of bits to use when generating an RSA key. Applies when algorithm is `RSA`. 
+        /// Defaults to `2048`.
         /// </summary>
         [Input("rsaBits")]
         public Input<int>? RsaBits { get; set; }
@@ -313,8 +304,7 @@ namespace Pulumi.Venafi
         private InputList<string>? _sanDns;
 
         /// <summary>
-        /// List of DNS names to use as alternative
-        /// subjects of the certificate.
+        /// List of DNS names to use as alternative subjects of the certificate.
         /// </summary>
         public InputList<string> SanDns
         {
@@ -326,8 +316,7 @@ namespace Pulumi.Venafi
         private InputList<string>? _sanEmails;
 
         /// <summary>
-        /// List of email addresses to use as
-        /// alternative subjects of the certificate.
+        /// List of email addresses to use as alternative subjects of the certificate.
         /// </summary>
         public InputList<string> SanEmails
         {
@@ -339,8 +328,7 @@ namespace Pulumi.Venafi
         private InputList<string>? _sanIps;
 
         /// <summary>
-        /// List of IP addresses to use as alternative
-        /// subjects of the certificate.
+        /// List of IP addresses to use as alternative subjects of the certificate.
         /// </summary>
         public InputList<string> SanIps
         {
@@ -352,8 +340,8 @@ namespace Pulumi.Venafi
         private InputList<string>? _sanUris;
 
         /// <summary>
-        /// List of Uniform Resource Identifiers (URIs) to use as alternative
-        /// subjects of the certificate.
+        /// List of Uniform Resource Identifiers (URIs) to use as alternative subjects of 
+        /// the certificate.
         /// </summary>
         public InputList<string> SanUris
         {
@@ -362,8 +350,7 @@ namespace Pulumi.Venafi
         }
 
         /// <summary>
-        /// Desired number of days for which the new
-        /// certificate will be valid.
+        /// Desired number of days for which the new certificate will be valid.
         /// </summary>
         [Input("validDays")]
         public Input<int>? ValidDays { get; set; }
@@ -377,8 +364,7 @@ namespace Pulumi.Venafi
     public sealed class CertificateState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Key encryption algorithm, either `RSA` or `ECDSA`.
-        /// Defaults to `RSA`.
+        /// Key encryption algorithm, either RSA or ECDSA. Defaults to `RSA`.
         /// </summary>
         [Input("algorithm")]
         public Input<string>? Algorithm { get; set; }
@@ -393,8 +379,7 @@ namespace Pulumi.Venafi
         public Input<string>? CertificateDn { get; set; }
 
         /// <summary>
-        /// The trust chain of X509 certificate authority certificates in PEM format
-        /// concatenated together.
+        /// The trust chain of X509 certificate authority certificates in PEM format concatenated together.
         /// </summary>
         [Input("chain")]
         public Input<string>? Chain { get; set; }
@@ -406,7 +391,8 @@ namespace Pulumi.Venafi
         public Input<string>? CommonName { get; set; }
 
         /// <summary>
-        /// Whether key-pair generation will be `local` or `service` generated. Default is `local`.
+        /// Whether key-pair generation will be `local` or `service` generated. Default is 
+        /// `local`.
         /// </summary>
         [Input("csrOrigin")]
         public Input<string>? CsrOrigin { get; set; }
@@ -418,8 +404,7 @@ namespace Pulumi.Venafi
         private InputMap<string>? _customFields;
 
         /// <summary>
-        /// Collection of Custom Field name-value pairs to
-        /// assign to the certificate.
+        /// Collection of Custom Field name-value pairs to assign to the certificate.
         /// </summary>
         public InputMap<string> CustomFields
         {
@@ -434,16 +419,15 @@ namespace Pulumi.Venafi
         public Input<string>? EcdsaCurve { get; set; }
 
         /// <summary>
-        /// Number of hours before certificate expiry
-        /// to request a new certificate.  Defaults to `168`.
+        /// Number of hours before certificate expiry to request a new certificate. 
+        /// Defaults to `168`.
         /// </summary>
         [Input("expirationWindow")]
         public Input<int>? ExpirationWindow { get; set; }
 
         /// <summary>
-        /// Used with valid_days to indicate the target
-        /// issuer when using Trust Protection Platform.  Relevant values are: "DigiCert",
-        /// "Entrust", and "Microsoft".
+        /// Used with `valid_days` to indicate the target issuer when using Trust Protection 
+        /// Platform. Relevant values are: `DigiCert`, `Entrust`, and `Microsoft`.
         /// </summary>
         [Input("issuerHint")]
         public Input<string>? IssuerHint { get; set; }
@@ -465,15 +449,15 @@ namespace Pulumi.Venafi
         }
 
         /// <summary>
-        /// Use to specify a name for the new certificate object that will be created and placed in a policy. Only valid for TPP.
+        /// Use to specify a name for the new certificate object that will be created and placed 
+        /// in a policy. Only valid for Trust Protection Platform.
         /// </summary>
         [Input("nickname")]
         public Input<string>? Nickname { get; set; }
 
         /// <summary>
-        /// A base64-encoded PKCS#12 keystore secured by the `key_password`.
-        /// Useful when working with resources like
-        /// azurerm_key_vault_certificate.
+        /// A base64-encoded PKCS#12 keystore secured by the `key_password`. Useful when working with resources like 
+        /// azure key_vault_certificate.
         /// </summary>
         [Input("pkcs12")]
         public Input<string>? Pkcs12 { get; set; }
@@ -495,8 +479,8 @@ namespace Pulumi.Venafi
         }
 
         /// <summary>
-        /// Number of bits to use when generating an RSA key.
-        /// Applies when `algorithm=RSA`.  Defaults to `2048`.
+        /// Number of bits to use when generating an RSA key. Applies when algorithm is `RSA`. 
+        /// Defaults to `2048`.
         /// </summary>
         [Input("rsaBits")]
         public Input<int>? RsaBits { get; set; }
@@ -505,8 +489,7 @@ namespace Pulumi.Venafi
         private InputList<string>? _sanDns;
 
         /// <summary>
-        /// List of DNS names to use as alternative
-        /// subjects of the certificate.
+        /// List of DNS names to use as alternative subjects of the certificate.
         /// </summary>
         public InputList<string> SanDns
         {
@@ -518,8 +501,7 @@ namespace Pulumi.Venafi
         private InputList<string>? _sanEmails;
 
         /// <summary>
-        /// List of email addresses to use as
-        /// alternative subjects of the certificate.
+        /// List of email addresses to use as alternative subjects of the certificate.
         /// </summary>
         public InputList<string> SanEmails
         {
@@ -531,8 +513,7 @@ namespace Pulumi.Venafi
         private InputList<string>? _sanIps;
 
         /// <summary>
-        /// List of IP addresses to use as alternative
-        /// subjects of the certificate.
+        /// List of IP addresses to use as alternative subjects of the certificate.
         /// </summary>
         public InputList<string> SanIps
         {
@@ -544,8 +525,8 @@ namespace Pulumi.Venafi
         private InputList<string>? _sanUris;
 
         /// <summary>
-        /// List of Uniform Resource Identifiers (URIs) to use as alternative
-        /// subjects of the certificate.
+        /// List of Uniform Resource Identifiers (URIs) to use as alternative subjects of 
+        /// the certificate.
         /// </summary>
         public InputList<string> SanUris
         {
@@ -554,8 +535,7 @@ namespace Pulumi.Venafi
         }
 
         /// <summary>
-        /// Desired number of days for which the new
-        /// certificate will be valid.
+        /// Desired number of days for which the new certificate will be valid.
         /// </summary>
         [Input("validDays")]
         public Input<int>? ValidDays { get; set; }

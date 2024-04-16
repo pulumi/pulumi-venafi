@@ -69,15 +69,15 @@ public class Provider extends com.pulumi.resources.ProviderResource {
      * JWT of the identity provider associated to the Venafi Control Plane service account that is granting the access token
      * 
      */
-    @Export(name="idpJwt", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> idpJwt;
+    @Export(name="externalJwt", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> externalJwt;
 
     /**
      * @return JWT of the identity provider associated to the Venafi Control Plane service account that is granting the access token
      * 
      */
-    public Output<Optional<String>> idpJwt() {
-        return Codegen.optional(this.idpJwt);
+    public Output<Optional<String>> externalJwt() {
+        return Codegen.optional(this.externalJwt);
     }
     /**
      * Filename of PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to
@@ -237,7 +237,7 @@ public class Provider extends com.pulumi.resources.ProviderResource {
             .additionalSecretOutputs(List.of(
                 "accessToken",
                 "apiKey",
-                "idpJwt",
+                "externalJwt",
                 "p12CertPassword",
                 "tokenUrl",
                 "tppPassword"

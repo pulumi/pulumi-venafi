@@ -25,7 +25,7 @@ type Provider struct {
 	// application that will be using the token
 	ClientId pulumi.StringPtrOutput `pulumi:"clientId"`
 	// JWT of the identity provider associated to the Venafi Control Plane service account that is granting the access token
-	IdpJwt pulumi.StringPtrOutput `pulumi:"idpJwt"`
+	ExternalJwt pulumi.StringPtrOutput `pulumi:"externalJwt"`
 	// Filename of PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to
 	// TLSPDC
 	P12CertFilename pulumi.StringPtrOutput `pulumi:"p12CertFilename"`
@@ -64,8 +64,8 @@ func NewProvider(ctx *pulumi.Context,
 	if args.ApiKey != nil {
 		args.ApiKey = pulumi.ToSecret(args.ApiKey).(pulumi.StringPtrInput)
 	}
-	if args.IdpJwt != nil {
-		args.IdpJwt = pulumi.ToSecret(args.IdpJwt).(pulumi.StringPtrInput)
+	if args.ExternalJwt != nil {
+		args.ExternalJwt = pulumi.ToSecret(args.ExternalJwt).(pulumi.StringPtrInput)
 	}
 	if args.P12CertPassword != nil {
 		args.P12CertPassword = pulumi.ToSecret(args.P12CertPassword).(pulumi.StringPtrInput)
@@ -79,7 +79,7 @@ func NewProvider(ctx *pulumi.Context,
 	secrets := pulumi.AdditionalSecretOutputs([]string{
 		"accessToken",
 		"apiKey",
-		"idpJwt",
+		"externalJwt",
 		"p12CertPassword",
 		"tokenUrl",
 		"tppPassword",
@@ -105,7 +105,7 @@ type providerArgs struct {
 	// Venafi as a Service or Trust Protection Platform. Useful for development and testing.
 	DevMode *bool `pulumi:"devMode"`
 	// JWT of the identity provider associated to the Venafi Control Plane service account that is granting the access token
-	IdpJwt *string `pulumi:"idpJwt"`
+	ExternalJwt *string `pulumi:"externalJwt"`
 	// Filename of PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to
 	// TLSPDC
 	P12CertFilename *string `pulumi:"p12CertFilename"`
@@ -145,7 +145,7 @@ type ProviderArgs struct {
 	// Venafi as a Service or Trust Protection Platform. Useful for development and testing.
 	DevMode pulumi.BoolPtrInput
 	// JWT of the identity provider associated to the Venafi Control Plane service account that is granting the access token
-	IdpJwt pulumi.StringPtrInput
+	ExternalJwt pulumi.StringPtrInput
 	// Filename of PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to
 	// TLSPDC
 	P12CertFilename pulumi.StringPtrInput
@@ -226,8 +226,8 @@ func (o ProviderOutput) ClientId() pulumi.StringPtrOutput {
 }
 
 // JWT of the identity provider associated to the Venafi Control Plane service account that is granting the access token
-func (o ProviderOutput) IdpJwt() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.IdpJwt }).(pulumi.StringPtrOutput)
+func (o ProviderOutput) ExternalJwt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.ExternalJwt }).(pulumi.StringPtrOutput)
 }
 
 // Filename of PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to

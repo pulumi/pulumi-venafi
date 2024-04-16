@@ -33,8 +33,8 @@ func GetDevMode(ctx *pulumi.Context) bool {
 }
 
 // JWT of the identity provider associated to the Venafi Control Plane service account that is granting the access token
-func GetIdpJwt(ctx *pulumi.Context) string {
-	return config.Get(ctx, "venafi:idpJwt")
+func GetExternalJwt(ctx *pulumi.Context) string {
+	return config.Get(ctx, "venafi:externalJwt")
 }
 
 // Filename of PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to

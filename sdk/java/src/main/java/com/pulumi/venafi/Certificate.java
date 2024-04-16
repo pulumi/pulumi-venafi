@@ -20,16 +20,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="venafi:index/certificate:Certificate")
 public class Certificate extends com.pulumi.resources.CustomResource {
     /**
-     * Key encryption algorithm, either `RSA` or `ECDSA`.
-     * Defaults to `RSA`.
+     * Key encryption algorithm, either RSA or ECDSA. Defaults to `RSA`.
      * 
      */
     @Export(name="algorithm", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> algorithm;
 
     /**
-     * @return Key encryption algorithm, either `RSA` or `ECDSA`.
-     * Defaults to `RSA`.
+     * @return Key encryption algorithm, either RSA or ECDSA. Defaults to `RSA`.
      * 
      */
     public Output<Optional<String>> algorithm() {
@@ -56,16 +54,14 @@ public class Certificate extends com.pulumi.resources.CustomResource {
         return this.certificateDn;
     }
     /**
-     * The trust chain of X509 certificate authority certificates in PEM format
-     * concatenated together.
+     * The trust chain of X509 certificate authority certificates in PEM format concatenated together.
      * 
      */
     @Export(name="chain", refs={String.class}, tree="[0]")
     private Output<String> chain;
 
     /**
-     * @return The trust chain of X509 certificate authority certificates in PEM format
-     * concatenated together.
+     * @return The trust chain of X509 certificate authority certificates in PEM format concatenated together.
      * 
      */
     public Output<String> chain() {
@@ -86,14 +82,16 @@ public class Certificate extends com.pulumi.resources.CustomResource {
         return this.commonName;
     }
     /**
-     * Whether key-pair generation will be `local` or `service` generated. Default is `local`.
+     * Whether key-pair generation will be `local` or `service` generated. Default is
+     * `local`.
      * 
      */
     @Export(name="csrOrigin", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> csrOrigin;
 
     /**
-     * @return Whether key-pair generation will be `local` or `service` generated. Default is `local`.
+     * @return Whether key-pair generation will be `local` or `service` generated. Default is
+     * `local`.
      * 
      */
     public Output<Optional<String>> csrOrigin() {
@@ -106,16 +104,14 @@ public class Certificate extends com.pulumi.resources.CustomResource {
         return this.csrPem;
     }
     /**
-     * Collection of Custom Field name-value pairs to
-     * assign to the certificate.
+     * Collection of Custom Field name-value pairs to assign to the certificate.
      * 
      */
     @Export(name="customFields", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> customFields;
 
     /**
-     * @return Collection of Custom Field name-value pairs to
-     * assign to the certificate.
+     * @return Collection of Custom Field name-value pairs to assign to the certificate.
      * 
      */
     public Output<Optional<Map<String,String>>> customFields() {
@@ -136,34 +132,32 @@ public class Certificate extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.ecdsaCurve);
     }
     /**
-     * Number of hours before certificate expiry
-     * to request a new certificate.  Defaults to `168`.
+     * Number of hours before certificate expiry to request a new certificate.
+     * Defaults to `168`.
      * 
      */
     @Export(name="expirationWindow", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> expirationWindow;
 
     /**
-     * @return Number of hours before certificate expiry
-     * to request a new certificate.  Defaults to `168`.
+     * @return Number of hours before certificate expiry to request a new certificate.
+     * Defaults to `168`.
      * 
      */
     public Output<Optional<Integer>> expirationWindow() {
         return Codegen.optional(this.expirationWindow);
     }
     /**
-     * Used with valid_days to indicate the target
-     * issuer when using Trust Protection Platform.  Relevant values are: &#34;DigiCert&#34;,
-     * &#34;Entrust&#34;, and &#34;Microsoft&#34;.
+     * Used with `valid_days` to indicate the target issuer when using Trust Protection
+     * Platform. Relevant values are: `DigiCert`, `Entrust`, and `Microsoft`.
      * 
      */
     @Export(name="issuerHint", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> issuerHint;
 
     /**
-     * @return Used with valid_days to indicate the target
-     * issuer when using Trust Protection Platform.  Relevant values are: &#34;DigiCert&#34;,
-     * &#34;Entrust&#34;, and &#34;Microsoft&#34;.
+     * @return Used with `valid_days` to indicate the target issuer when using Trust Protection
+     * Platform. Relevant values are: `DigiCert`, `Entrust`, and `Microsoft`.
      * 
      */
     public Output<Optional<String>> issuerHint() {
@@ -184,32 +178,32 @@ public class Certificate extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.keyPassword);
     }
     /**
-     * Use to specify a name for the new certificate object that will be created and placed in a policy. Only valid for TPP.
+     * Use to specify a name for the new certificate object that will be created and placed
+     * in a policy. Only valid for Trust Protection Platform.
      * 
      */
     @Export(name="nickname", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> nickname;
 
     /**
-     * @return Use to specify a name for the new certificate object that will be created and placed in a policy. Only valid for TPP.
+     * @return Use to specify a name for the new certificate object that will be created and placed
+     * in a policy. Only valid for Trust Protection Platform.
      * 
      */
     public Output<Optional<String>> nickname() {
         return Codegen.optional(this.nickname);
     }
     /**
-     * A base64-encoded PKCS#12 keystore secured by the `key_password`.
-     * Useful when working with resources like
-     * azurerm_key_vault_certificate.
+     * A base64-encoded PKCS#12 keystore secured by the `key_password`. Useful when working with resources like
+     * azure key_vault_certificate.
      * 
      */
     @Export(name="pkcs12", refs={String.class}, tree="[0]")
     private Output<String> pkcs12;
 
     /**
-     * @return A base64-encoded PKCS#12 keystore secured by the `key_password`.
-     * Useful when working with resources like
-     * azurerm_key_vault_certificate.
+     * @return A base64-encoded PKCS#12 keystore secured by the `key_password`. Useful when working with resources like
+     * azure key_vault_certificate.
      * 
      */
     public Output<String> pkcs12() {
@@ -230,96 +224,88 @@ public class Certificate extends com.pulumi.resources.CustomResource {
         return this.privateKeyPem;
     }
     /**
-     * Number of bits to use when generating an RSA key.
-     * Applies when `algorithm=RSA`.  Defaults to `2048`.
+     * Number of bits to use when generating an RSA key. Applies when algorithm is `RSA`.
+     * Defaults to `2048`.
      * 
      */
     @Export(name="rsaBits", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> rsaBits;
 
     /**
-     * @return Number of bits to use when generating an RSA key.
-     * Applies when `algorithm=RSA`.  Defaults to `2048`.
+     * @return Number of bits to use when generating an RSA key. Applies when algorithm is `RSA`.
+     * Defaults to `2048`.
      * 
      */
     public Output<Optional<Integer>> rsaBits() {
         return Codegen.optional(this.rsaBits);
     }
     /**
-     * List of DNS names to use as alternative
-     * subjects of the certificate.
+     * List of DNS names to use as alternative subjects of the certificate.
      * 
      */
     @Export(name="sanDns", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> sanDns;
 
     /**
-     * @return List of DNS names to use as alternative
-     * subjects of the certificate.
+     * @return List of DNS names to use as alternative subjects of the certificate.
      * 
      */
     public Output<Optional<List<String>>> sanDns() {
         return Codegen.optional(this.sanDns);
     }
     /**
-     * List of email addresses to use as
-     * alternative subjects of the certificate.
+     * List of email addresses to use as alternative subjects of the certificate.
      * 
      */
     @Export(name="sanEmails", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> sanEmails;
 
     /**
-     * @return List of email addresses to use as
-     * alternative subjects of the certificate.
+     * @return List of email addresses to use as alternative subjects of the certificate.
      * 
      */
     public Output<Optional<List<String>>> sanEmails() {
         return Codegen.optional(this.sanEmails);
     }
     /**
-     * List of IP addresses to use as alternative
-     * subjects of the certificate.
+     * List of IP addresses to use as alternative subjects of the certificate.
      * 
      */
     @Export(name="sanIps", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> sanIps;
 
     /**
-     * @return List of IP addresses to use as alternative
-     * subjects of the certificate.
+     * @return List of IP addresses to use as alternative subjects of the certificate.
      * 
      */
     public Output<Optional<List<String>>> sanIps() {
         return Codegen.optional(this.sanIps);
     }
     /**
-     * List of Uniform Resource Identifiers (URIs) to use as alternative
-     * subjects of the certificate.
+     * List of Uniform Resource Identifiers (URIs) to use as alternative subjects of
+     * the certificate.
      * 
      */
     @Export(name="sanUris", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> sanUris;
 
     /**
-     * @return List of Uniform Resource Identifiers (URIs) to use as alternative
-     * subjects of the certificate.
+     * @return List of Uniform Resource Identifiers (URIs) to use as alternative subjects of
+     * the certificate.
      * 
      */
     public Output<Optional<List<String>>> sanUris() {
         return Codegen.optional(this.sanUris);
     }
     /**
-     * Desired number of days for which the new
-     * certificate will be valid.
+     * Desired number of days for which the new certificate will be valid.
      * 
      */
     @Export(name="validDays", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> validDays;
 
     /**
-     * @return Desired number of days for which the new
-     * certificate will be valid.
+     * @return Desired number of days for which the new certificate will be valid.
      * 
      */
     public Output<Optional<Integer>> validDays() {

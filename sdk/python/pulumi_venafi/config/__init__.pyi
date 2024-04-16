@@ -30,7 +30,7 @@ When set to true, the resulting certificate will be issued by an ephemeral, no t
 Venafi as a Service or Trust Protection Platform. Useful for development and testing.
 """
 
-idpJwt: Optional[str]
+externalJwt: Optional[str]
 """
 JWT of the identity provider associated to the Venafi Control Plane service account that is granting the access token
 """

@@ -10,9 +10,8 @@ using Pulumi.Serialization;
 namespace Pulumi.Venafi
 {
     /// <summary>
-    /// Provides access to read and write certificate policy in Venafi. This can be used
-    /// to define a new policy (folder in *Trust Protection Platform*; application
-    /// and/or issuing template in *Venafi as a Service*).
+    /// Provides access to read and write certificate policy in Venafi. This can be used to define a new policy (folder in
+    /// *Trust Protection Platform*; application and issuing template in *Venafi Control Plane*).
     /// 
     /// ## Example Usage
     /// 
@@ -38,17 +37,13 @@ namespace Pulumi.Venafi
     /// 
     /// ## Import
     /// 
-    /// The `venafi_policy` resource supports the Terraform import
+    /// The `venafi_policy` resource supports the Terraform import method.
     /// 
-    /// method.  When used, the `zone` and `policy_specification` resource arguments
+    /// When used, the `zone` and `policy_specification` resource arguments are not required since the zone is a required
     /// 
-    /// are not required since the zone is a required parameter of the import method
+    /// parameter of the import method and the policy specification is populated from the existing infrastructure. Policy that
     /// 
-    /// and the policy specification is populated from the existing infrastructure.
-    /// 
-    /// Policy that is successfully imported is also output to a file named after the
-    /// 
-    /// zone that was specified.
+    /// is successfully imported is also output to a file named after the zone that was specified.
     /// 
     /// hcl
     /// 
@@ -62,16 +57,16 @@ namespace Pulumi.Venafi
     public partial class Policy : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The JSON-formatted certificate policy
-        /// specification as documented [here](https://github.com/Venafi/vcert/blob/master/README-POLICY-SPEC.md).
-        /// Typically read from a file using the `file` function.
+        /// The JSON-formatted certificate policy specification as documented 
+        /// [here](https://github.com/Venafi/vcert/blob/master/README-POLICY-SPEC.md). Typically read from a file using the `file`
+        /// function.
         /// </summary>
         [Output("policySpecification")]
         public Output<string?> PolicySpecification { get; private set; } = null!;
 
         /// <summary>
-        /// The *Trust Protection Plaform* policy folder or
-        /// *Venafi as a Service* application and issuing template.
+        /// The *Trust Protection Plaform* policy folder or *Venafi Control Plane* application and 
+        /// issuing template.
         /// </summary>
         [Output("zone")]
         public Output<string?> Zone { get; private set; } = null!;
@@ -123,16 +118,16 @@ namespace Pulumi.Venafi
     public sealed class PolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The JSON-formatted certificate policy
-        /// specification as documented [here](https://github.com/Venafi/vcert/blob/master/README-POLICY-SPEC.md).
-        /// Typically read from a file using the `file` function.
+        /// The JSON-formatted certificate policy specification as documented 
+        /// [here](https://github.com/Venafi/vcert/blob/master/README-POLICY-SPEC.md). Typically read from a file using the `file`
+        /// function.
         /// </summary>
         [Input("policySpecification")]
         public Input<string>? PolicySpecification { get; set; }
 
         /// <summary>
-        /// The *Trust Protection Plaform* policy folder or
-        /// *Venafi as a Service* application and issuing template.
+        /// The *Trust Protection Plaform* policy folder or *Venafi Control Plane* application and 
+        /// issuing template.
         /// </summary>
         [Input("zone")]
         public Input<string>? Zone { get; set; }
@@ -146,16 +141,16 @@ namespace Pulumi.Venafi
     public sealed class PolicyState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The JSON-formatted certificate policy
-        /// specification as documented [here](https://github.com/Venafi/vcert/blob/master/README-POLICY-SPEC.md).
-        /// Typically read from a file using the `file` function.
+        /// The JSON-formatted certificate policy specification as documented 
+        /// [here](https://github.com/Venafi/vcert/blob/master/README-POLICY-SPEC.md). Typically read from a file using the `file`
+        /// function.
         /// </summary>
         [Input("policySpecification")]
         public Input<string>? PolicySpecification { get; set; }
 
         /// <summary>
-        /// The *Trust Protection Plaform* policy folder or
-        /// *Venafi as a Service* application and issuing template.
+        /// The *Trust Protection Plaform* policy folder or *Venafi Control Plane* application and 
+        /// issuing template.
         /// </summary>
         [Input("zone")]
         public Input<string>? Zone { get; set; }

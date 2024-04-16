@@ -44,8 +44,8 @@ public final class Config {
  * JWT of the identity provider associated to the Venafi Control Plane service account that is granting the access token
  * 
  */
-    public Optional<String> idpJwt() {
-        return Codegen.stringProp("idpJwt").config(config).get();
+    public Optional<String> externalJwt() {
+        return Codegen.stringProp("externalJwt").config(config).get();
     }
 /**
  * Filename of PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to

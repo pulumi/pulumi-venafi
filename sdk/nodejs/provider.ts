@@ -40,7 +40,7 @@ export class Provider extends pulumi.ProviderResource {
     /**
      * JWT of the identity provider associated to the Venafi Control Plane service account that is granting the access token
      */
-    public readonly idpJwt!: pulumi.Output<string | undefined>;
+    public readonly externalJwt!: pulumi.Output<string | undefined>;
     /**
      * Filename of PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to
      * TLSPDC
@@ -96,7 +96,7 @@ export class Provider extends pulumi.ProviderResource {
             resourceInputs["apiKey"] = args?.apiKey ? pulumi.secret(args.apiKey) : undefined;
             resourceInputs["clientId"] = args ? args.clientId : undefined;
             resourceInputs["devMode"] = pulumi.output(args ? args.devMode : undefined).apply(JSON.stringify);
-            resourceInputs["idpJwt"] = args?.idpJwt ? pulumi.secret(args.idpJwt) : undefined;
+            resourceInputs["externalJwt"] = args?.externalJwt ? pulumi.secret(args.externalJwt) : undefined;
             resourceInputs["p12CertFilename"] = args ? args.p12CertFilename : undefined;
             resourceInputs["p12CertPassword"] = args?.p12CertPassword ? pulumi.secret(args.p12CertPassword) : undefined;
             resourceInputs["skipRetirement"] = pulumi.output(args ? args.skipRetirement : undefined).apply(JSON.stringify);
@@ -108,7 +108,7 @@ export class Provider extends pulumi.ProviderResource {
             resourceInputs["zone"] = args ? args.zone : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["accessToken", "apiKey", "idpJwt", "p12CertPassword", "tokenUrl", "tppPassword"] };
+        const secretOpts = { additionalSecretOutputs: ["accessToken", "apiKey", "externalJwt", "p12CertPassword", "tokenUrl", "tppPassword"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
         super(Provider.__pulumiType, name, resourceInputs, opts);
     }
@@ -138,7 +138,7 @@ export interface ProviderArgs {
     /**
      * JWT of the identity provider associated to the Venafi Control Plane service account that is granting the access token
      */
-    idpJwt?: pulumi.Input<string>;
+    externalJwt?: pulumi.Input<string>;
     /**
      * Filename of PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to
      * TLSPDC
