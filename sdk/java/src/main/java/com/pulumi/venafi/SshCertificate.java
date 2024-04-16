@@ -46,11 +46,11 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var sshCert = new SshCertificate(&#34;sshCert&#34;, SshCertificateArgs.builder()        
  *             .keyId(&#34;my-first-ssh-certificate&#34;)
+ *             .template(&#34;Sample SSH CA&#34;)
+ *             .publicKeyMethod(&#34;local&#34;)
  *             .keyPassphrase(&#34;passw0rd&#34;)
  *             .keySize(3072)
  *             .principals(&#34;seamus&#34;)
- *             .publicKeyMethod(&#34;local&#34;)
- *             .template(&#34;Sample SSH CA&#34;)
  *             .validHours(24)
  *             .build());
  * 

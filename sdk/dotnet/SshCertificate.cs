@@ -23,17 +23,17 @@ namespace Pulumi.Venafi
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var sshCert = new Venafi.SshCertificate("sshCert", new()
+    ///     var sshCert = new Venafi.SshCertificate("ssh_cert", new()
     ///     {
     ///         KeyId = "my-first-ssh-certificate",
+    ///         Template = "Sample SSH CA",
+    ///         PublicKeyMethod = "local",
     ///         KeyPassphrase = "passw0rd",
     ///         KeySize = 3072,
     ///         Principals = new[]
     ///         {
     ///             "seamus",
     ///         },
-    ///         PublicKeyMethod = "local",
-    ///         Template = "Sample SSH CA",
     ///         ValidHours = 24,
     ///     });
     /// 

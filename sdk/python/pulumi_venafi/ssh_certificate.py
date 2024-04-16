@@ -741,13 +741,13 @@ class SshCertificate(pulumi.CustomResource):
         import pulumi
         import pulumi_venafi as venafi
 
-        ssh_cert = venafi.SshCertificate("sshCert",
+        ssh_cert = venafi.SshCertificate("ssh_cert",
             key_id="my-first-ssh-certificate",
+            template="Sample SSH CA",
+            public_key_method="local",
             key_passphrase="passw0rd",
             key_size=3072,
             principals=["seamus"],
-            public_key_method="local",
-            template="Sample SSH CA",
             valid_hours=24)
         ```
         <!--End PulumiCodeChooser -->
@@ -795,13 +795,13 @@ class SshCertificate(pulumi.CustomResource):
         import pulumi
         import pulumi_venafi as venafi
 
-        ssh_cert = venafi.SshCertificate("sshCert",
+        ssh_cert = venafi.SshCertificate("ssh_cert",
             key_id="my-first-ssh-certificate",
+            template="Sample SSH CA",
+            public_key_method="local",
             key_passphrase="passw0rd",
             key_size=3072,
             principals=["seamus"],
-            public_key_method="local",
-            template="Sample SSH CA",
             valid_hours=24)
         ```
         <!--End PulumiCodeChooser -->

@@ -18,40 +18,6 @@ import javax.annotation.Nullable;
  * Provides access to read and write certificate policy in Venafi. This can be used to define a new policy (folder in
  * *Trust Protection Platform*; application and issuing template in *Venafi Control Plane*).
  * 
- * ## Example Usage
- * 
- * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.venafi.Policy;
- * import com.pulumi.venafi.PolicyArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var internalPolicy = new Policy(&#34;internalPolicy&#34;, PolicyArgs.builder()        
- *             .zone(&#34;My Business App\\Enterprise Trusted Certs&#34;)
- *             .policySpecification(Files.readString(Paths.get(&#34;/path-to/internal-policy.json&#34;)))
- *             .build());
- * 
- *     }
- * }
- * ```
- * &lt;!--End PulumiCodeChooser --&gt;
- * 
  * ## Import
  * 
  * The `venafi_policy` resource supports the Terraform import method.

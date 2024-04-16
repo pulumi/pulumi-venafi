@@ -14,13 +14,13 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as venafi from "@pulumi/venafi";
  *
- * const sshCert = new venafi.SshCertificate("sshCert", {
+ * const sshCert = new venafi.SshCertificate("ssh_cert", {
  *     keyId: "my-first-ssh-certificate",
+ *     template: "Sample SSH CA",
+ *     publicKeyMethod: "local",
  *     keyPassphrase: "passw0rd",
  *     keySize: 3072,
  *     principals: ["seamus"],
- *     publicKeyMethod: "local",
- *     template: "Sample SSH CA",
  *     validHours: 24,
  * });
  * ```
