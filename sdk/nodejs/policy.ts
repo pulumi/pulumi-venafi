@@ -8,6 +8,23 @@ import * as utilities from "./utilities";
  * Provides access to read and write certificate policy in Venafi. This can be used to define a new policy (folder in
  * *Trust Protection Platform*; application and issuing template in *Venafi Control Plane*).
  *
+ * ## Example Usage
+ *
+ * <!--Start PulumiCodeChooser -->
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as std from "@pulumi/std";
+ * import * as venafi from "@pulumi/venafi";
+ *
+ * const internalPolicy = new venafi.Policy("internal_policy", {
+ *     zone: "My Business App\\Enterprise Trusted Certs",
+ *     policySpecification: std.file({
+ *         input: "/path-to/internal-policy.json",
+ *     }).then(invoke => invoke.result),
+ * });
+ * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ## Import
  *
  * The `venafi_policy` resource supports the Terraform import method.

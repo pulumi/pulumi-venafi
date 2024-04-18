@@ -14,6 +14,42 @@ import (
 // Provides access to read and write certificate policy in Venafi. This can be used to define a new policy (folder in
 // *Trust Protection Platform*; application and issuing template in *Venafi Control Plane*).
 //
+// ## Example Usage
+//
+// <!--Start PulumiCodeChooser -->
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-std/sdk/go/std"
+//	"github.com/pulumi/pulumi-venafi/sdk/go/venafi"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			invokeFile, err := std.File(ctx, &std.FileArgs{
+//				Input: "/path-to/internal-policy.json",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = venafi.NewPolicy(ctx, "internal_policy", &venafi.PolicyArgs{
+//				Zone:                pulumi.String("My Business App\\Enterprise Trusted Certs"),
+//				PolicySpecification: invokeFile.Result,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// <!--End PulumiCodeChooser -->
+//
 // ## Import
 //
 // The `venafi_policy` resource supports the Terraform import method.

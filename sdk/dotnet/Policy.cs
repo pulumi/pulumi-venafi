@@ -13,6 +13,31 @@ namespace Pulumi.Venafi
     /// Provides access to read and write certificate policy in Venafi. This can be used to define a new policy (folder in
     /// *Trust Protection Platform*; application and issuing template in *Venafi Control Plane*).
     /// 
+    /// ## Example Usage
+    /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Std = Pulumi.Std;
+    /// using Venafi = Pulumi.Venafi;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var internalPolicy = new Venafi.Policy("internal_policy", new()
+    ///     {
+    ///         Zone = "My Business App\\Enterprise Trusted Certs",
+    ///         PolicySpecification = Std.File.Invoke(new()
+    ///         {
+    ///             Input = "/path-to/internal-policy.json",
+    ///         }).Apply(invoke =&gt; invoke.Result),
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ## Import
     /// 
     /// The `venafi_policy` resource supports the Terraform import method.
