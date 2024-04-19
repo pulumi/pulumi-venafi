@@ -29,16 +29,16 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := venafi.NewSshCertificate(ctx, "sshCert", &venafi.SshCertificateArgs{
-//				KeyId:         pulumi.String("my-first-ssh-certificate"),
-//				KeyPassphrase: pulumi.String("passw0rd"),
-//				KeySize:       pulumi.Int(3072),
+//			_, err := venafi.NewSshCertificate(ctx, "ssh_cert", &venafi.SshCertificateArgs{
+//				KeyId:           pulumi.String("my-first-ssh-certificate"),
+//				Template:        pulumi.String("Sample SSH CA"),
+//				PublicKeyMethod: pulumi.String("local"),
+//				KeyPassphrase:   pulumi.String("passw0rd"),
+//				KeySize:         pulumi.Int(3072),
 //				Principals: pulumi.StringArray{
 //					pulumi.String("seamus"),
 //				},
-//				PublicKeyMethod: pulumi.String("local"),
-//				Template:        pulumi.String("Sample SSH CA"),
-//				ValidHours:      pulumi.Int(24),
+//				ValidHours: pulumi.Int(24),
 //			})
 //			if err != nil {
 //				return err

@@ -120,11 +120,12 @@ class Policy(pulumi.CustomResource):
         <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
+        import pulumi_std as std
         import pulumi_venafi as venafi
 
-        internal_policy = venafi.Policy("internalPolicy",
+        internal_policy = venafi.Policy("internal_policy",
             zone="My Business App\\\\Enterprise Trusted Certs",
-            policy_specification=(lambda path: open(path).read())("/path-to/internal-policy.json"))
+            policy_specification=std.file(input="/path-to/internal-policy.json").result)
         ```
         <!--End PulumiCodeChooser -->
 
@@ -169,11 +170,12 @@ class Policy(pulumi.CustomResource):
         <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
+        import pulumi_std as std
         import pulumi_venafi as venafi
 
-        internal_policy = venafi.Policy("internalPolicy",
+        internal_policy = venafi.Policy("internal_policy",
             zone="My Business App\\\\Enterprise Trusted Certs",
-            policy_specification=(lambda path: open(path).read())("/path-to/internal-policy.json"))
+            policy_specification=std.file(input="/path-to/internal-policy.json").result)
         ```
         <!--End PulumiCodeChooser -->
 

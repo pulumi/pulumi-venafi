@@ -44,7 +44,9 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var internalPolicy = new Policy(&#34;internalPolicy&#34;, PolicyArgs.builder()        
  *             .zone(&#34;My Business App\\Enterprise Trusted Certs&#34;)
- *             .policySpecification(Files.readString(Paths.get(&#34;/path-to/internal-policy.json&#34;)))
+ *             .policySpecification(StdFunctions.file(FileArgs.builder()
+ *                 .input(&#34;/path-to/internal-policy.json&#34;)
+ *                 .build()).result())
  *             .build());
  * 
  *     }

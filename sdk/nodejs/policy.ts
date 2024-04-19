@@ -13,12 +13,14 @@ import * as utilities from "./utilities";
  * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
- * import * as fs from "fs";
+ * import * as std from "@pulumi/std";
  * import * as venafi from "@pulumi/venafi";
  *
- * const internalPolicy = new venafi.Policy("internalPolicy", {
+ * const internalPolicy = new venafi.Policy("internal_policy", {
  *     zone: "My Business App\\Enterprise Trusted Certs",
- *     policySpecification: fs.readFileSync("/path-to/internal-policy.json", "utf8"),
+ *     policySpecification: std.file({
+ *         input: "/path-to/internal-policy.json",
+ *     }).then(invoke => invoke.result),
  * });
  * ```
  * <!--End PulumiCodeChooser -->

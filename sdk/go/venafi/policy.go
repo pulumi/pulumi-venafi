@@ -22,26 +22,23 @@ import (
 //
 // import (
 //
-//	"os"
-//
+//	"github.com/pulumi/pulumi-std/sdk/go/std"
 //	"github.com/pulumi/pulumi-venafi/sdk/go/venafi"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
-//	func readFileOrPanic(path string) pulumi.StringPtrInput {
-//		data, err := os.ReadFile(path)
-//		if err != nil {
-//			panic(err.Error())
-//		}
-//		return pulumi.String(string(data))
-//	}
-//
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := venafi.NewPolicy(ctx, "internalPolicy", &venafi.PolicyArgs{
+//			invokeFile, err := std.File(ctx, &std.FileArgs{
+//				Input: "/path-to/internal-policy.json",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = venafi.NewPolicy(ctx, "internal_policy", &venafi.PolicyArgs{
 //				Zone:                pulumi.String("My Business App\\Enterprise Trusted Certs"),
-//				PolicySpecification: readFileOrPanic("/path-to/internal-policy.json"),
+//				PolicySpecification: invokeFile.Result,
 //			})
 //			if err != nil {
 //				return err

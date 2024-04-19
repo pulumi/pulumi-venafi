@@ -18,17 +18,20 @@ namespace Pulumi.Venafi
     /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
-    /// using System.IO;
     /// using System.Linq;
     /// using Pulumi;
+    /// using Std = Pulumi.Std;
     /// using Venafi = Pulumi.Venafi;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var internalPolicy = new Venafi.Policy("internalPolicy", new()
+    ///     var internalPolicy = new Venafi.Policy("internal_policy", new()
     ///     {
     ///         Zone = "My Business App\\Enterprise Trusted Certs",
-    ///         PolicySpecification = File.ReadAllText("/path-to/internal-policy.json"),
+    ///         PolicySpecification = Std.File.Invoke(new()
+    ///         {
+    ///             Input = "/path-to/internal-policy.json",
+    ///         }).Apply(invoke =&gt; invoke.Result),
     ///     });
     /// 
     /// });
