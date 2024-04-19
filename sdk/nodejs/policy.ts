@@ -10,7 +10,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as fs from "fs";
@@ -21,7 +20,6 @@ import * as utilities from "./utilities";
  *     policySpecification: fs.readFileSync("/path-to/internal-policy.json", "utf8"),
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

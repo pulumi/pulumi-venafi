@@ -117,7 +117,6 @@ class Policy(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_venafi as venafi
@@ -126,7 +125,6 @@ class Policy(pulumi.CustomResource):
             zone="My Business App\\\\Enterprise Trusted Certs",
             policy_specification=(lambda path: open(path).read())("/path-to/internal-policy.json"))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -166,7 +164,6 @@ class Policy(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_venafi as venafi
@@ -175,7 +172,6 @@ class Policy(pulumi.CustomResource):
             zone="My Business App\\\\Enterprise Trusted Certs",
             policy_specification=(lambda path: open(path).read())("/path-to/internal-policy.json"))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
