@@ -117,7 +117,6 @@ class Policy(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_std as std
@@ -127,7 +126,6 @@ class Policy(pulumi.CustomResource):
             zone="My Business App\\\\Enterprise Trusted Certs",
             policy_specification=std.file(input="/path-to/internal-policy.json").result)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -167,7 +165,6 @@ class Policy(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_std as std
@@ -177,7 +174,6 @@ class Policy(pulumi.CustomResource):
             zone="My Business App\\\\Enterprise Trusted Certs",
             policy_specification=std.file(input="/path-to/internal-policy.json").result)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
