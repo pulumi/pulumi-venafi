@@ -736,7 +736,6 @@ class SshCertificate(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_venafi as venafi
@@ -750,7 +749,6 @@ class SshCertificate(pulumi.CustomResource):
             principals=["seamus"],
             valid_hours=24)
         ```
-        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -790,7 +788,6 @@ class SshCertificate(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_venafi as venafi
@@ -804,7 +801,6 @@ class SshCertificate(pulumi.CustomResource):
             principals=["seamus"],
             valid_hours=24)
         ```
-        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param SshCertificateArgs args: The arguments to use to populate this resource's properties.

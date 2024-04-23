@@ -9,14 +9,12 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as venafi from "@pulumi/venafi";
  *
  * const cit = new venafi.SshConfig("cit", {template: "devops-terraform-cit"});
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export class SshConfig extends pulumi.CustomResource {
     /**
