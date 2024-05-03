@@ -125,17 +125,9 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.p12CertPassword);
     }
 
-    /**
-     * When true, certificates will not be retired on Venafi platforms when terraform destroy is run. Default is false.
-     * 
-     */
     @Import(name="skipRetirement", json=true)
     private @Nullable Output<Boolean> skipRetirement;
 
-    /**
-     * @return When true, certificates will not be retired on Venafi platforms when terraform destroy is run. Default is false.
-     * 
-     */
     public Optional<Output<Boolean>> skipRetirement() {
         return Optional.ofNullable(this.skipRetirement);
     }
@@ -438,23 +430,11 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
             return p12CertPassword(Output.of(p12CertPassword));
         }
 
-        /**
-         * @param skipRetirement When true, certificates will not be retired on Venafi platforms when terraform destroy is run. Default is false.
-         * 
-         * @return builder
-         * 
-         */
         public Builder skipRetirement(@Nullable Output<Boolean> skipRetirement) {
             $.skipRetirement = skipRetirement;
             return this;
         }
 
-        /**
-         * @param skipRetirement When true, certificates will not be retired on Venafi platforms when terraform destroy is run. Default is false.
-         * 
-         * @return builder
-         * 
-         */
         public Builder skipRetirement(Boolean skipRetirement) {
             return skipRetirement(Output.of(skipRetirement));
         }
