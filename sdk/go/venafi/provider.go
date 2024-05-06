@@ -42,7 +42,7 @@ type Provider struct {
 	// Deprecated: , please use accessToken instead
 	TppUsername pulumi.StringPtrOutput `pulumi:"tppUsername"`
 	// Use to specify a PEM-formatted file that contains certificates to be trust anchors for all communications with the
-	// Venafi Web Service. Example: trust_bundle = "${file("chain.pem")}"
+	// Venafi Web Service. Example: trustBundle = "${file("chain.pem")}"
 	TrustBundle pulumi.StringPtrOutput `pulumi:"trustBundle"`
 	// The Venafi Platform URL. Example: https://tpp.venafi.example/vedsdk
 	Url pulumi.StringPtrOutput `pulumi:"url"`
@@ -111,8 +111,7 @@ type providerArgs struct {
 	P12CertFilename *string `pulumi:"p12CertFilename"`
 	// Password for the PKCS#12 keystore declared in p12_cert
 	P12CertPassword *string `pulumi:"p12CertPassword"`
-	// When true, certificates will not be retired on Venafi platforms when terraform destroy is run. Default is false.
-	SkipRetirement *bool `pulumi:"skipRetirement"`
+	SkipRetirement  *bool   `pulumi:"skipRetirement"`
 	// Endpoint URL to request new Venafi Control Plane access tokens
 	TokenUrl *string `pulumi:"tokenUrl"`
 	// Password for WebSDK user. Example: password
@@ -124,7 +123,7 @@ type providerArgs struct {
 	// Deprecated: , please use accessToken instead
 	TppUsername *string `pulumi:"tppUsername"`
 	// Use to specify a PEM-formatted file that contains certificates to be trust anchors for all communications with the
-	// Venafi Web Service. Example: trust_bundle = "${file("chain.pem")}"
+	// Venafi Web Service. Example: trustBundle = "${file("chain.pem")}"
 	TrustBundle *string `pulumi:"trustBundle"`
 	// The Venafi Platform URL. Example: https://tpp.venafi.example/vedsdk
 	Url *string `pulumi:"url"`
@@ -151,8 +150,7 @@ type ProviderArgs struct {
 	P12CertFilename pulumi.StringPtrInput
 	// Password for the PKCS#12 keystore declared in p12_cert
 	P12CertPassword pulumi.StringPtrInput
-	// When true, certificates will not be retired on Venafi platforms when terraform destroy is run. Default is false.
-	SkipRetirement pulumi.BoolPtrInput
+	SkipRetirement  pulumi.BoolPtrInput
 	// Endpoint URL to request new Venafi Control Plane access tokens
 	TokenUrl pulumi.StringPtrInput
 	// Password for WebSDK user. Example: password
@@ -164,7 +162,7 @@ type ProviderArgs struct {
 	// Deprecated: , please use accessToken instead
 	TppUsername pulumi.StringPtrInput
 	// Use to specify a PEM-formatted file that contains certificates to be trust anchors for all communications with the
-	// Venafi Web Service. Example: trust_bundle = "${file("chain.pem")}"
+	// Venafi Web Service. Example: trustBundle = "${file("chain.pem")}"
 	TrustBundle pulumi.StringPtrInput
 	// The Venafi Platform URL. Example: https://tpp.venafi.example/vedsdk
 	Url pulumi.StringPtrInput
@@ -261,7 +259,7 @@ func (o ProviderOutput) TppUsername() pulumi.StringPtrOutput {
 }
 
 // Use to specify a PEM-formatted file that contains certificates to be trust anchors for all communications with the
-// Venafi Web Service. Example: trust_bundle = "${file("chain.pem")}"
+// Venafi Web Service. Example: trustBundle = "${file("chain.pem")}"
 func (o ProviderOutput) TrustBundle() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.TrustBundle }).(pulumi.StringPtrOutput)
 }
