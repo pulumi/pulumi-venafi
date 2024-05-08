@@ -151,8 +151,7 @@
                 "secret": true
             },
             "skipRetirement": {
-                "type": "boolean",
-                "description": "When true, certificates will not be retired on Venafi platforms when terraform destroy is run. Default is false.\n"
+                "type": "boolean"
             },
             "tokenUrl": {
                 "type": "string",
@@ -217,8 +216,7 @@
                 "secret": true
             },
             "skipRetirement": {
-                "type": "boolean",
-                "description": "When true, certificates will not be retired on Venafi platforms when terraform destroy is run. Default is false.\n"
+                "type": "boolean"
             },
             "tokenUrl": {
                 "type": "string",
