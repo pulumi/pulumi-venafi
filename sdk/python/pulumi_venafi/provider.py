@@ -39,7 +39,6 @@ class ProviderArgs:
         :param pulumi.Input[str] p12_cert_filename: Filename of PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to
                TLSPDC
         :param pulumi.Input[str] p12_cert_password: Password for the PKCS#12 keystore declared in p12_cert
-        :param pulumi.Input[bool] skip_retirement: When true, certificates will not be retired on Venafi platforms when terraform destroy is run. Default is false.
         :param pulumi.Input[str] token_url: Endpoint URL to request new Venafi Control Plane access tokens
         :param pulumi.Input[str] tpp_password: Password for WebSDK user. Example: password
         :param pulumi.Input[str] tpp_username: WebSDK user for Venafi TLSPDC. Example: admin
@@ -173,9 +172,6 @@ class ProviderArgs:
     @property
     @pulumi.getter(name="skipRetirement")
     def skip_retirement(self) -> Optional[pulumi.Input[bool]]:
-        """
-        When true, certificates will not be retired on Venafi platforms when terraform destroy is run. Default is false.
-        """
         return pulumi.get(self, "skip_retirement")
 
     @skip_retirement.setter
@@ -300,7 +296,6 @@ class Provider(pulumi.ProviderResource):
         :param pulumi.Input[str] p12_cert_filename: Filename of PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to
                TLSPDC
         :param pulumi.Input[str] p12_cert_password: Password for the PKCS#12 keystore declared in p12_cert
-        :param pulumi.Input[bool] skip_retirement: When true, certificates will not be retired on Venafi platforms when terraform destroy is run. Default is false.
         :param pulumi.Input[str] token_url: Endpoint URL to request new Venafi Control Plane access tokens
         :param pulumi.Input[str] tpp_password: Password for WebSDK user. Example: password
         :param pulumi.Input[str] tpp_username: WebSDK user for Venafi TLSPDC. Example: admin
