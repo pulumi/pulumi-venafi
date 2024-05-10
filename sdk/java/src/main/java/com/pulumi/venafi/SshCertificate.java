@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -44,19 +45,20 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var sshCert = new SshCertificate(&#34;sshCert&#34;, SshCertificateArgs.builder()        
- *             .keyId(&#34;my-first-ssh-certificate&#34;)
- *             .template(&#34;Sample SSH CA&#34;)
- *             .publicKeyMethod(&#34;local&#34;)
- *             .keyPassphrase(&#34;passw0rd&#34;)
+ *         var sshCert = new SshCertificate("sshCert", SshCertificateArgs.builder()        
+ *             .keyId("my-first-ssh-certificate")
+ *             .template("Sample SSH CA")
+ *             .publicKeyMethod("local")
+ *             .keyPassphrase("passw0rd")
  *             .keySize(3072)
- *             .principals(&#34;seamus&#34;)
+ *             .principals("seamus")
  *             .validHours(24)
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */

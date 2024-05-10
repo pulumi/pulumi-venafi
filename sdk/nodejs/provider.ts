@@ -68,7 +68,7 @@ export class Provider extends pulumi.ProviderResource {
     public readonly tppUsername!: pulumi.Output<string | undefined>;
     /**
      * Use to specify a PEM-formatted file that contains certificates to be trust anchors for all communications with the
-     * Venafi Web Service. Example: trust_bundle = "${file("chain.pem")}"
+     * Venafi Web Service. Example: trustBundle = "${file("chain.pem")}"
      */
     public readonly trustBundle!: pulumi.Output<string | undefined>;
     /**
@@ -148,9 +148,6 @@ export interface ProviderArgs {
      * Password for the PKCS#12 keystore declared in p12_cert
      */
     p12CertPassword?: pulumi.Input<string>;
-    /**
-     * When true, certificates will not be retired on Venafi platforms when terraform destroy is run. Default is false.
-     */
     skipRetirement?: pulumi.Input<boolean>;
     /**
      * Endpoint URL to request new Venafi Control Plane access tokens
@@ -170,7 +167,7 @@ export interface ProviderArgs {
     tppUsername?: pulumi.Input<string>;
     /**
      * Use to specify a PEM-formatted file that contains certificates to be trust anchors for all communications with the
-     * Venafi Web Service. Example: trust_bundle = "${file("chain.pem")}"
+     * Venafi Web Service. Example: trustBundle = "${file("chain.pem")}"
      */
     trustBundle?: pulumi.Input<string>;
     /**
