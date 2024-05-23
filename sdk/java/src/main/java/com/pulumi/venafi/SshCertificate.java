@@ -45,7 +45,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var sshCert = new SshCertificate("sshCert", SshCertificateArgs.builder()        
+ *         var sshCert = new SshCertificate("sshCert", SshCertificateArgs.builder()
  *             .keyId("my-first-ssh-certificate")
  *             .template("Sample SSH CA")
  *             .publicKeyMethod("local")
