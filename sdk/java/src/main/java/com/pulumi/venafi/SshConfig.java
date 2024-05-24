@@ -42,7 +42,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var cit = new SshConfig("cit", SshConfigArgs.builder()        
+ *         var cit = new SshConfig("cit", SshConfigArgs.builder()
  *             .template("devops-terraform-cit")
  *             .build());
  * 
