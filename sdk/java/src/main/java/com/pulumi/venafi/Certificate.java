@@ -10,6 +10,7 @@ import com.pulumi.core.internal.Codegen;
 import com.pulumi.venafi.CertificateArgs;
 import com.pulumi.venafi.Utilities;
 import com.pulumi.venafi.inputs.CertificateState;
+import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -52,6 +53,20 @@ public class Certificate extends com.pulumi.resources.CustomResource {
 
     public Output<String> certificateDn() {
         return this.certificateDn;
+    }
+    /**
+     * ID of the issued certificate
+     * 
+     */
+    @Export(name="certificateId", refs={String.class}, tree="[0]")
+    private Output<String> certificateId;
+
+    /**
+     * @return ID of the issued certificate
+     * 
+     */
+    public Output<String> certificateId() {
+        return this.certificateId;
     }
     /**
      * The trust chain of X509 certificate authority certificates in PEM format concatenated together.
@@ -222,6 +237,20 @@ public class Certificate extends com.pulumi.resources.CustomResource {
      */
     public Output<String> privateKeyPem() {
         return this.privateKeyPem;
+    }
+    /**
+     * Indicates the certificate should be reissued. This means the resource will destroyed and recreated
+     * 
+     */
+    @Export(name="renewRequired", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> renewRequired;
+
+    /**
+     * @return Indicates the certificate should be reissued. This means the resource will destroyed and recreated
+     * 
+     */
+    public Output<Optional<Boolean>> renewRequired() {
+        return Codegen.optional(this.renewRequired);
     }
     /**
      * Number of bits to use when generating an RSA key. Applies when algorithm is `RSA`.

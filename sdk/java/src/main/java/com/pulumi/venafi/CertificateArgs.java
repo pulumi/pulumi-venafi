@@ -6,6 +6,7 @@ package com.pulumi.venafi;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -209,6 +210,21 @@ public final class CertificateArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Indicates the certificate should be reissued. This means the resource will destroyed and recreated
+     * 
+     */
+    @Import(name="renewRequired")
+    private @Nullable Output<Boolean> renewRequired;
+
+    /**
+     * @return Indicates the certificate should be reissued. This means the resource will destroyed and recreated
+     * 
+     */
+    public Optional<Output<Boolean>> renewRequired() {
+        return Optional.ofNullable(this.renewRequired);
+    }
+
+    /**
      * Number of bits to use when generating an RSA key. Applies when algorithm is `RSA`.
      * Defaults to `2048`.
      * 
@@ -318,6 +334,7 @@ public final class CertificateArgs extends com.pulumi.resources.ResourceArgs {
         this.nickname = $.nickname;
         this.pkcs12 = $.pkcs12;
         this.privateKeyPem = $.privateKeyPem;
+        this.renewRequired = $.renewRequired;
         this.rsaBits = $.rsaBits;
         this.sanDns = $.sanDns;
         this.sanEmails = $.sanEmails;
@@ -601,6 +618,27 @@ public final class CertificateArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder privateKeyPem(String privateKeyPem) {
             return privateKeyPem(Output.of(privateKeyPem));
+        }
+
+        /**
+         * @param renewRequired Indicates the certificate should be reissued. This means the resource will destroyed and recreated
+         * 
+         * @return builder
+         * 
+         */
+        public Builder renewRequired(@Nullable Output<Boolean> renewRequired) {
+            $.renewRequired = renewRequired;
+            return this;
+        }
+
+        /**
+         * @param renewRequired Indicates the certificate should be reissued. This means the resource will destroyed and recreated
+         * 
+         * @return builder
+         * 
+         */
+        public Builder renewRequired(Boolean renewRequired) {
+            return renewRequired(Output.of(renewRequired));
         }
 
         /**

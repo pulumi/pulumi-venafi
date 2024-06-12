@@ -20,6 +20,8 @@ type Certificate struct {
 	// The X509 certificate in PEM format.
 	Certificate   pulumi.StringOutput `pulumi:"certificate"`
 	CertificateDn pulumi.StringOutput `pulumi:"certificateDn"`
+	// ID of the issued certificate
+	CertificateId pulumi.StringOutput `pulumi:"certificateId"`
 	// The trust chain of X509 certificate authority certificates in PEM format concatenated together.
 	Chain pulumi.StringOutput `pulumi:"chain"`
 	// The common name of the certificate.
@@ -48,6 +50,8 @@ type Certificate struct {
 	Pkcs12 pulumi.StringOutput `pulumi:"pkcs12"`
 	// The private key in PEM format.
 	PrivateKeyPem pulumi.StringOutput `pulumi:"privateKeyPem"`
+	// Indicates the certificate should be reissued. This means the resource will destroyed and recreated
+	RenewRequired pulumi.BoolPtrOutput `pulumi:"renewRequired"`
 	// Number of bits to use when generating an RSA key. Applies when algorithm is `RSA`.
 	// Defaults to `2048`.
 	RsaBits pulumi.IntPtrOutput `pulumi:"rsaBits"`
@@ -113,6 +117,8 @@ type certificateState struct {
 	// The X509 certificate in PEM format.
 	Certificate   *string `pulumi:"certificate"`
 	CertificateDn *string `pulumi:"certificateDn"`
+	// ID of the issued certificate
+	CertificateId *string `pulumi:"certificateId"`
 	// The trust chain of X509 certificate authority certificates in PEM format concatenated together.
 	Chain *string `pulumi:"chain"`
 	// The common name of the certificate.
@@ -141,6 +147,8 @@ type certificateState struct {
 	Pkcs12 *string `pulumi:"pkcs12"`
 	// The private key in PEM format.
 	PrivateKeyPem *string `pulumi:"privateKeyPem"`
+	// Indicates the certificate should be reissued. This means the resource will destroyed and recreated
+	RenewRequired *bool `pulumi:"renewRequired"`
 	// Number of bits to use when generating an RSA key. Applies when algorithm is `RSA`.
 	// Defaults to `2048`.
 	RsaBits *int `pulumi:"rsaBits"`
@@ -163,6 +171,8 @@ type CertificateState struct {
 	// The X509 certificate in PEM format.
 	Certificate   pulumi.StringPtrInput
 	CertificateDn pulumi.StringPtrInput
+	// ID of the issued certificate
+	CertificateId pulumi.StringPtrInput
 	// The trust chain of X509 certificate authority certificates in PEM format concatenated together.
 	Chain pulumi.StringPtrInput
 	// The common name of the certificate.
@@ -191,6 +201,8 @@ type CertificateState struct {
 	Pkcs12 pulumi.StringPtrInput
 	// The private key in PEM format.
 	PrivateKeyPem pulumi.StringPtrInput
+	// Indicates the certificate should be reissued. This means the resource will destroyed and recreated
+	RenewRequired pulumi.BoolPtrInput
 	// Number of bits to use when generating an RSA key. Applies when algorithm is `RSA`.
 	// Defaults to `2048`.
 	RsaBits pulumi.IntPtrInput
@@ -241,6 +253,8 @@ type certificateArgs struct {
 	Pkcs12 *string `pulumi:"pkcs12"`
 	// The private key in PEM format.
 	PrivateKeyPem *string `pulumi:"privateKeyPem"`
+	// Indicates the certificate should be reissued. This means the resource will destroyed and recreated
+	RenewRequired *bool `pulumi:"renewRequired"`
 	// Number of bits to use when generating an RSA key. Applies when algorithm is `RSA`.
 	// Defaults to `2048`.
 	RsaBits *int `pulumi:"rsaBits"`
@@ -288,6 +302,8 @@ type CertificateArgs struct {
 	Pkcs12 pulumi.StringPtrInput
 	// The private key in PEM format.
 	PrivateKeyPem pulumi.StringPtrInput
+	// Indicates the certificate should be reissued. This means the resource will destroyed and recreated
+	RenewRequired pulumi.BoolPtrInput
 	// Number of bits to use when generating an RSA key. Applies when algorithm is `RSA`.
 	// Defaults to `2048`.
 	RsaBits pulumi.IntPtrInput
@@ -405,6 +421,11 @@ func (o CertificateOutput) CertificateDn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Certificate) pulumi.StringOutput { return v.CertificateDn }).(pulumi.StringOutput)
 }
 
+// ID of the issued certificate
+func (o CertificateOutput) CertificateId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Certificate) pulumi.StringOutput { return v.CertificateId }).(pulumi.StringOutput)
+}
+
 // The trust chain of X509 certificate authority certificates in PEM format concatenated together.
 func (o CertificateOutput) Chain() pulumi.StringOutput {
 	return o.ApplyT(func(v *Certificate) pulumi.StringOutput { return v.Chain }).(pulumi.StringOutput)
@@ -467,6 +488,11 @@ func (o CertificateOutput) Pkcs12() pulumi.StringOutput {
 // The private key in PEM format.
 func (o CertificateOutput) PrivateKeyPem() pulumi.StringOutput {
 	return o.ApplyT(func(v *Certificate) pulumi.StringOutput { return v.PrivateKeyPem }).(pulumi.StringOutput)
+}
+
+// Indicates the certificate should be reissued. This means the resource will destroyed and recreated
+func (o CertificateOutput) RenewRequired() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Certificate) pulumi.BoolPtrOutput { return v.RenewRequired }).(pulumi.BoolPtrOutput)
 }
 
 // Number of bits to use when generating an RSA key. Applies when algorithm is `RSA`.

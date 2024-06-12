@@ -170,7 +170,7 @@ namespace Pulumi.Venafi
 
         /// <summary>
         /// When set to true, the resulting certificate will be issued by an ephemeral, no trust CA rather than enrolling using
-        /// Venafi as a Service or Trust Protection Platform. Useful for development and testing.
+        /// Venafi as a Service or Trust Protection Platform. Useful for development and testing
         /// </summary>
         [Input("devMode", json: true)]
         public Input<bool>? DevMode { get; set; }

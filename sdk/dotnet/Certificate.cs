@@ -28,6 +28,12 @@ namespace Pulumi.Venafi
         public Output<string> CertificateDn { get; private set; } = null!;
 
         /// <summary>
+        /// ID of the issued certificate
+        /// </summary>
+        [Output("certificateId")]
+        public Output<string> CertificateId { get; private set; } = null!;
+
+        /// <summary>
         /// The trust chain of X509 certificate authority certificates in PEM format concatenated together.
         /// </summary>
         [Output("chain")]
@@ -100,6 +106,12 @@ namespace Pulumi.Venafi
         /// </summary>
         [Output("privateKeyPem")]
         public Output<string> PrivateKeyPem { get; private set; } = null!;
+
+        /// <summary>
+        /// Indicates the certificate should be reissued. This means the resource will destroyed and recreated
+        /// </summary>
+        [Output("renewRequired")]
+        public Output<bool?> RenewRequired { get; private set; } = null!;
 
         /// <summary>
         /// Number of bits to use when generating an RSA key. Applies when algorithm is `RSA`. 
@@ -294,6 +306,12 @@ namespace Pulumi.Venafi
         }
 
         /// <summary>
+        /// Indicates the certificate should be reissued. This means the resource will destroyed and recreated
+        /// </summary>
+        [Input("renewRequired")]
+        public Input<bool>? RenewRequired { get; set; }
+
+        /// <summary>
         /// Number of bits to use when generating an RSA key. Applies when algorithm is `RSA`. 
         /// Defaults to `2048`.
         /// </summary>
@@ -377,6 +395,12 @@ namespace Pulumi.Venafi
 
         [Input("certificateDn")]
         public Input<string>? CertificateDn { get; set; }
+
+        /// <summary>
+        /// ID of the issued certificate
+        /// </summary>
+        [Input("certificateId")]
+        public Input<string>? CertificateId { get; set; }
 
         /// <summary>
         /// The trust chain of X509 certificate authority certificates in PEM format concatenated together.
@@ -477,6 +501,12 @@ namespace Pulumi.Venafi
                 _privateKeyPem = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
             }
         }
+
+        /// <summary>
+        /// Indicates the certificate should be reissued. This means the resource will destroyed and recreated
+        /// </summary>
+        [Input("renewRequired")]
+        public Input<bool>? RenewRequired { get; set; }
 
         /// <summary>
         /// Number of bits to use when generating an RSA key. Applies when algorithm is `RSA`. 

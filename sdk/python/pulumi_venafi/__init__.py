@@ -6,6 +6,9 @@ from . import _utilities
 import typing
 # Export this package's modules as members:
 from .certificate import *
+from .cloud_keystore_installation import *
+from .get_cloud_keystore import *
+from .get_cloud_provider import *
 from .policy import *
 from .provider import *
 from .ssh_certificate import *
@@ -27,6 +30,14 @@ _utilities.register(
   "fqn": "pulumi_venafi",
   "classes": {
    "venafi:index/certificate:Certificate": "Certificate"
+  }
+ },
+ {
+  "pkg": "venafi",
+  "mod": "index/cloudKeystoreInstallation",
+  "fqn": "pulumi_venafi",
+  "classes": {
+   "venafi:index/cloudKeystoreInstallation:CloudKeystoreInstallation": "CloudKeystoreInstallation"
   }
  },
  {

@@ -18,6 +18,9 @@
                     }
                 }
             },
+            "venafi_cloud_keystore_installation": {
+                "current": "venafi:index/cloudKeystoreInstallation:CloudKeystoreInstallation"
+            },
             "venafi_policy": {
                 "current": "venafi:index/policy:Policy"
             },
@@ -48,6 +51,14 @@
                         "maxItemsOne": false
                     }
                 }
+            }
+        },
+        "datasources": {
+            "venafi_cloud_keystore": {
+                "current": "venafi:index/getCloudKeystore:getCloudKeystore"
+            },
+            "venafi_cloud_provider": {
+                "current": "venafi:index/getCloudProvider:getCloudProvider"
             }
         }
     },

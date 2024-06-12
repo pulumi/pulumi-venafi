@@ -42,6 +42,10 @@ export class Certificate extends pulumi.CustomResource {
     public /*out*/ readonly certificate!: pulumi.Output<string>;
     public readonly certificateDn!: pulumi.Output<string>;
     /**
+     * ID of the issued certificate
+     */
+    public /*out*/ readonly certificateId!: pulumi.Output<string>;
+    /**
      * The trust chain of X509 certificate authority certificates in PEM format concatenated together.
      */
     public /*out*/ readonly chain!: pulumi.Output<string>;
@@ -92,6 +96,10 @@ export class Certificate extends pulumi.CustomResource {
      */
     public readonly privateKeyPem!: pulumi.Output<string>;
     /**
+     * Indicates the certificate should be reissued. This means the resource will destroyed and recreated
+     */
+    public readonly renewRequired!: pulumi.Output<boolean | undefined>;
+    /**
      * Number of bits to use when generating an RSA key. Applies when algorithm is `RSA`. 
      * Defaults to `2048`.
      */
@@ -134,6 +142,7 @@ export class Certificate extends pulumi.CustomResource {
             resourceInputs["algorithm"] = state ? state.algorithm : undefined;
             resourceInputs["certificate"] = state ? state.certificate : undefined;
             resourceInputs["certificateDn"] = state ? state.certificateDn : undefined;
+            resourceInputs["certificateId"] = state ? state.certificateId : undefined;
             resourceInputs["chain"] = state ? state.chain : undefined;
             resourceInputs["commonName"] = state ? state.commonName : undefined;
             resourceInputs["csrOrigin"] = state ? state.csrOrigin : undefined;
@@ -146,6 +155,7 @@ export class Certificate extends pulumi.CustomResource {
             resourceInputs["nickname"] = state ? state.nickname : undefined;
             resourceInputs["pkcs12"] = state ? state.pkcs12 : undefined;
             resourceInputs["privateKeyPem"] = state ? state.privateKeyPem : undefined;
+            resourceInputs["renewRequired"] = state ? state.renewRequired : undefined;
             resourceInputs["rsaBits"] = state ? state.rsaBits : undefined;
             resourceInputs["sanDns"] = state ? state.sanDns : undefined;
             resourceInputs["sanEmails"] = state ? state.sanEmails : undefined;
@@ -170,6 +180,7 @@ export class Certificate extends pulumi.CustomResource {
             resourceInputs["nickname"] = args ? args.nickname : undefined;
             resourceInputs["pkcs12"] = args ? args.pkcs12 : undefined;
             resourceInputs["privateKeyPem"] = args?.privateKeyPem ? pulumi.secret(args.privateKeyPem) : undefined;
+            resourceInputs["renewRequired"] = args ? args.renewRequired : undefined;
             resourceInputs["rsaBits"] = args ? args.rsaBits : undefined;
             resourceInputs["sanDns"] = args ? args.sanDns : undefined;
             resourceInputs["sanEmails"] = args ? args.sanEmails : undefined;
@@ -177,6 +188,7 @@ export class Certificate extends pulumi.CustomResource {
             resourceInputs["sanUris"] = args ? args.sanUris : undefined;
             resourceInputs["validDays"] = args ? args.validDays : undefined;
             resourceInputs["certificate"] = undefined /*out*/;
+            resourceInputs["certificateId"] = undefined /*out*/;
             resourceInputs["chain"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -199,6 +211,10 @@ export interface CertificateState {
      */
     certificate?: pulumi.Input<string>;
     certificateDn?: pulumi.Input<string>;
+    /**
+     * ID of the issued certificate
+     */
+    certificateId?: pulumi.Input<string>;
     /**
      * The trust chain of X509 certificate authority certificates in PEM format concatenated together.
      */
@@ -249,6 +265,10 @@ export interface CertificateState {
      * The private key in PEM format.
      */
     privateKeyPem?: pulumi.Input<string>;
+    /**
+     * Indicates the certificate should be reissued. This means the resource will destroyed and recreated
+     */
+    renewRequired?: pulumi.Input<boolean>;
     /**
      * Number of bits to use when generating an RSA key. Applies when algorithm is `RSA`. 
      * Defaults to `2048`.
@@ -332,6 +352,10 @@ export interface CertificateArgs {
      * The private key in PEM format.
      */
     privateKeyPem?: pulumi.Input<string>;
+    /**
+     * Indicates the certificate should be reissued. This means the resource will destroyed and recreated
+     */
+    renewRequired?: pulumi.Input<boolean>;
     /**
      * Number of bits to use when generating an RSA key. Applies when algorithm is `RSA`. 
      * Defaults to `2048`.

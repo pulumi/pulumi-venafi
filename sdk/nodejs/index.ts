@@ -10,6 +10,21 @@ export type Certificate = import("./certificate").Certificate;
 export const Certificate: typeof import("./certificate").Certificate = null as any;
 utilities.lazyLoad(exports, ["Certificate"], () => require("./certificate"));
 
+export { CloudKeystoreInstallationArgs, CloudKeystoreInstallationState } from "./cloudKeystoreInstallation";
+export type CloudKeystoreInstallation = import("./cloudKeystoreInstallation").CloudKeystoreInstallation;
+export const CloudKeystoreInstallation: typeof import("./cloudKeystoreInstallation").CloudKeystoreInstallation = null as any;
+utilities.lazyLoad(exports, ["CloudKeystoreInstallation"], () => require("./cloudKeystoreInstallation"));
+
+export { GetCloudKeystoreArgs, GetCloudKeystoreResult, GetCloudKeystoreOutputArgs } from "./getCloudKeystore";
+export const getCloudKeystore: typeof import("./getCloudKeystore").getCloudKeystore = null as any;
+export const getCloudKeystoreOutput: typeof import("./getCloudKeystore").getCloudKeystoreOutput = null as any;
+utilities.lazyLoad(exports, ["getCloudKeystore","getCloudKeystoreOutput"], () => require("./getCloudKeystore"));
+
+export { GetCloudProviderArgs, GetCloudProviderResult, GetCloudProviderOutputArgs } from "./getCloudProvider";
+export const getCloudProvider: typeof import("./getCloudProvider").getCloudProvider = null as any;
+export const getCloudProviderOutput: typeof import("./getCloudProvider").getCloudProviderOutput = null as any;
+utilities.lazyLoad(exports, ["getCloudProvider","getCloudProviderOutput"], () => require("./getCloudProvider"));
+
 export { PolicyArgs, PolicyState } from "./policy";
 export type Policy = import("./policy").Policy;
 export const Policy: typeof import("./policy").Policy = null as any;
@@ -44,6 +59,8 @@ const _module = {
         switch (type) {
             case "venafi:index/certificate:Certificate":
                 return new Certificate(name, <any>undefined, { urn })
+            case "venafi:index/cloudKeystoreInstallation:CloudKeystoreInstallation":
+                return new CloudKeystoreInstallation(name, <any>undefined, { urn })
             case "venafi:index/policy:Policy":
                 return new Policy(name, <any>undefined, { urn })
             case "venafi:index/sshCertificate:SshCertificate":
@@ -56,6 +73,7 @@ const _module = {
     },
 };
 pulumi.runtime.registerResourceModule("venafi", "index/certificate", _module)
+pulumi.runtime.registerResourceModule("venafi", "index/cloudKeystoreInstallation", _module)
 pulumi.runtime.registerResourceModule("venafi", "index/policy", _module)
 pulumi.runtime.registerResourceModule("venafi", "index/sshCertificate", _module)
 pulumi.runtime.registerResourceModule("venafi", "index/sshConfig", _module)

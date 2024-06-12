@@ -42,7 +42,7 @@ Object.defineProperty(exports, "clientId", {
 
 /**
  * When set to true, the resulting certificate will be issued by an ephemeral, no trust CA rather than enrolling using
- * Venafi as a Service or Trust Protection Platform. Useful for development and testing.
+ * Venafi as a Service or Trust Protection Platform. Useful for development and testing
  */
 export declare const devMode: boolean | undefined;
 Object.defineProperty(exports, "devMode", {
