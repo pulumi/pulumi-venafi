@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "venafi:index/certificate:Certificate":
 		r = &Certificate{}
+	case "venafi:index/cloudKeystoreInstallation:CloudKeystoreInstallation":
+		r = &CloudKeystoreInstallation{}
 	case "venafi:index/policy:Policy":
 		r = &Policy{}
 	case "venafi:index/sshCertificate:SshCertificate":
@@ -63,6 +65,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"venafi",
 		"index/certificate",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"venafi",
+		"index/cloudKeystoreInstallation",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

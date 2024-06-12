@@ -102,7 +102,7 @@ type providerArgs struct {
 	// application that will be using the token
 	ClientId *string `pulumi:"clientId"`
 	// When set to true, the resulting certificate will be issued by an ephemeral, no trust CA rather than enrolling using
-	// Venafi as a Service or Trust Protection Platform. Useful for development and testing.
+	// Venafi as a Service or Trust Protection Platform. Useful for development and testing
 	DevMode *bool `pulumi:"devMode"`
 	// JWT of the identity provider associated to the Venafi Control Plane service account that is granting the access token
 	ExternalJwt *string `pulumi:"externalJwt"`
@@ -141,7 +141,7 @@ type ProviderArgs struct {
 	// application that will be using the token
 	ClientId pulumi.StringPtrInput
 	// When set to true, the resulting certificate will be issued by an ephemeral, no trust CA rather than enrolling using
-	// Venafi as a Service or Trust Protection Platform. Useful for development and testing.
+	// Venafi as a Service or Trust Protection Platform. Useful for development and testing
 	DevMode pulumi.BoolPtrInput
 	// JWT of the identity provider associated to the Venafi Control Plane service account that is granting the access token
 	ExternalJwt pulumi.StringPtrInput

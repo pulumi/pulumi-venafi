@@ -63,7 +63,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * When set to true, the resulting certificate will be issued by an ephemeral, no trust CA rather than enrolling using
-     * Venafi as a Service or Trust Protection Platform. Useful for development and testing.
+     * Venafi as a Service or Trust Protection Platform. Useful for development and testing
      * 
      */
     @Import(name="devMode", json=true)
@@ -71,7 +71,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * @return When set to true, the resulting certificate will be issued by an ephemeral, no trust CA rather than enrolling using
-     * Venafi as a Service or Trust Protection Platform. Useful for development and testing.
+     * Venafi as a Service or Trust Protection Platform. Useful for development and testing
      * 
      */
     public Optional<Output<Boolean>> devMode() {
@@ -344,7 +344,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param devMode When set to true, the resulting certificate will be issued by an ephemeral, no trust CA rather than enrolling using
-         * Venafi as a Service or Trust Protection Platform. Useful for development and testing.
+         * Venafi as a Service or Trust Protection Platform. Useful for development and testing
          * 
          * @return builder
          * 
@@ -356,7 +356,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param devMode When set to true, the resulting certificate will be issued by an ephemeral, no trust CA rather than enrolling using
-         * Venafi as a Service or Trust Protection Platform. Useful for development and testing.
+         * Venafi as a Service or Trust Protection Platform. Useful for development and testing
          * 
          * @return builder
          * 

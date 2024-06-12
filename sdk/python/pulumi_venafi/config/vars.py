@@ -40,7 +40,7 @@ class _ExportableConfig(types.ModuleType):
     def dev_mode(self) -> Optional[bool]:
         """
         When set to true, the resulting certificate will be issued by an ephemeral, no trust CA rather than enrolling using
-        Venafi as a Service or Trust Protection Platform. Useful for development and testing.
+        Venafi as a Service or Trust Protection Platform. Useful for development and testing
         """
         return __config__.get_bool('devMode')
 

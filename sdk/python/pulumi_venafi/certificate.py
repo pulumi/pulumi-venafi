@@ -27,6 +27,7 @@ class CertificateArgs:
                  nickname: Optional[pulumi.Input[str]] = None,
                  pkcs12: Optional[pulumi.Input[str]] = None,
                  private_key_pem: Optional[pulumi.Input[str]] = None,
+                 renew_required: Optional[pulumi.Input[bool]] = None,
                  rsa_bits: Optional[pulumi.Input[int]] = None,
                  san_dns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  san_emails: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -51,6 +52,7 @@ class CertificateArgs:
         :param pulumi.Input[str] pkcs12: A base64-encoded PKCS#12 keystore secured by the `key_password`. Useful when working with resources like 
                azure key_vault_certificate.
         :param pulumi.Input[str] private_key_pem: The private key in PEM format.
+        :param pulumi.Input[bool] renew_required: Indicates the certificate should be reissued. This means the resource will destroyed and recreated
         :param pulumi.Input[int] rsa_bits: Number of bits to use when generating an RSA key. Applies when algorithm is `RSA`. 
                Defaults to `2048`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] san_dns: List of DNS names to use as alternative subjects of the certificate.
@@ -85,6 +87,8 @@ class CertificateArgs:
             pulumi.set(__self__, "pkcs12", pkcs12)
         if private_key_pem is not None:
             pulumi.set(__self__, "private_key_pem", private_key_pem)
+        if renew_required is not None:
+            pulumi.set(__self__, "renew_required", renew_required)
         if rsa_bits is not None:
             pulumi.set(__self__, "rsa_bits", rsa_bits)
         if san_dns is not None:
@@ -254,6 +258,18 @@ class CertificateArgs:
         pulumi.set(self, "private_key_pem", value)
 
     @property
+    @pulumi.getter(name="renewRequired")
+    def renew_required(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates the certificate should be reissued. This means the resource will destroyed and recreated
+        """
+        return pulumi.get(self, "renew_required")
+
+    @renew_required.setter
+    def renew_required(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "renew_required", value)
+
+    @property
     @pulumi.getter(name="rsaBits")
     def rsa_bits(self) -> Optional[pulumi.Input[int]]:
         """
@@ -334,6 +350,7 @@ class _CertificateState:
                  algorithm: Optional[pulumi.Input[str]] = None,
                  certificate: Optional[pulumi.Input[str]] = None,
                  certificate_dn: Optional[pulumi.Input[str]] = None,
+                 certificate_id: Optional[pulumi.Input[str]] = None,
                  chain: Optional[pulumi.Input[str]] = None,
                  common_name: Optional[pulumi.Input[str]] = None,
                  csr_origin: Optional[pulumi.Input[str]] = None,
@@ -346,6 +363,7 @@ class _CertificateState:
                  nickname: Optional[pulumi.Input[str]] = None,
                  pkcs12: Optional[pulumi.Input[str]] = None,
                  private_key_pem: Optional[pulumi.Input[str]] = None,
+                 renew_required: Optional[pulumi.Input[bool]] = None,
                  rsa_bits: Optional[pulumi.Input[int]] = None,
                  san_dns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  san_emails: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -356,6 +374,7 @@ class _CertificateState:
         Input properties used for looking up and filtering Certificate resources.
         :param pulumi.Input[str] algorithm: Key encryption algorithm, either RSA or ECDSA. Defaults to `RSA`.
         :param pulumi.Input[str] certificate: The X509 certificate in PEM format.
+        :param pulumi.Input[str] certificate_id: ID of the issued certificate
         :param pulumi.Input[str] chain: The trust chain of X509 certificate authority certificates in PEM format concatenated together.
         :param pulumi.Input[str] common_name: The common name of the certificate.
         :param pulumi.Input[str] csr_origin: Whether key-pair generation will be `local` or `service` generated. Default is 
@@ -372,6 +391,7 @@ class _CertificateState:
         :param pulumi.Input[str] pkcs12: A base64-encoded PKCS#12 keystore secured by the `key_password`. Useful when working with resources like 
                azure key_vault_certificate.
         :param pulumi.Input[str] private_key_pem: The private key in PEM format.
+        :param pulumi.Input[bool] renew_required: Indicates the certificate should be reissued. This means the resource will destroyed and recreated
         :param pulumi.Input[int] rsa_bits: Number of bits to use when generating an RSA key. Applies when algorithm is `RSA`. 
                Defaults to `2048`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] san_dns: List of DNS names to use as alternative subjects of the certificate.
@@ -387,6 +407,8 @@ class _CertificateState:
             pulumi.set(__self__, "certificate", certificate)
         if certificate_dn is not None:
             pulumi.set(__self__, "certificate_dn", certificate_dn)
+        if certificate_id is not None:
+            pulumi.set(__self__, "certificate_id", certificate_id)
         if chain is not None:
             pulumi.set(__self__, "chain", chain)
         if common_name is not None:
@@ -411,6 +433,8 @@ class _CertificateState:
             pulumi.set(__self__, "pkcs12", pkcs12)
         if private_key_pem is not None:
             pulumi.set(__self__, "private_key_pem", private_key_pem)
+        if renew_required is not None:
+            pulumi.set(__self__, "renew_required", renew_required)
         if rsa_bits is not None:
             pulumi.set(__self__, "rsa_bits", rsa_bits)
         if san_dns is not None:
@@ -456,6 +480,18 @@ class _CertificateState:
     @certificate_dn.setter
     def certificate_dn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "certificate_dn", value)
+
+    @property
+    @pulumi.getter(name="certificateId")
+    def certificate_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ID of the issued certificate
+        """
+        return pulumi.get(self, "certificate_id")
+
+    @certificate_id.setter
+    def certificate_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "certificate_id", value)
 
     @property
     @pulumi.getter
@@ -604,6 +640,18 @@ class _CertificateState:
         pulumi.set(self, "private_key_pem", value)
 
     @property
+    @pulumi.getter(name="renewRequired")
+    def renew_required(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates the certificate should be reissued. This means the resource will destroyed and recreated
+        """
+        return pulumi.get(self, "renew_required")
+
+    @renew_required.setter
+    def renew_required(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "renew_required", value)
+
+    @property
     @pulumi.getter(name="rsaBits")
     def rsa_bits(self) -> Optional[pulumi.Input[int]]:
         """
@@ -696,6 +744,7 @@ class Certificate(pulumi.CustomResource):
                  nickname: Optional[pulumi.Input[str]] = None,
                  pkcs12: Optional[pulumi.Input[str]] = None,
                  private_key_pem: Optional[pulumi.Input[str]] = None,
+                 renew_required: Optional[pulumi.Input[bool]] = None,
                  rsa_bits: Optional[pulumi.Input[int]] = None,
                  san_dns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  san_emails: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -723,6 +772,7 @@ class Certificate(pulumi.CustomResource):
         :param pulumi.Input[str] pkcs12: A base64-encoded PKCS#12 keystore secured by the `key_password`. Useful when working with resources like 
                azure key_vault_certificate.
         :param pulumi.Input[str] private_key_pem: The private key in PEM format.
+        :param pulumi.Input[bool] renew_required: Indicates the certificate should be reissued. This means the resource will destroyed and recreated
         :param pulumi.Input[int] rsa_bits: Number of bits to use when generating an RSA key. Applies when algorithm is `RSA`. 
                Defaults to `2048`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] san_dns: List of DNS names to use as alternative subjects of the certificate.
@@ -768,6 +818,7 @@ class Certificate(pulumi.CustomResource):
                  nickname: Optional[pulumi.Input[str]] = None,
                  pkcs12: Optional[pulumi.Input[str]] = None,
                  private_key_pem: Optional[pulumi.Input[str]] = None,
+                 renew_required: Optional[pulumi.Input[bool]] = None,
                  rsa_bits: Optional[pulumi.Input[int]] = None,
                  san_dns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  san_emails: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -798,6 +849,7 @@ class Certificate(pulumi.CustomResource):
             __props__.__dict__["nickname"] = nickname
             __props__.__dict__["pkcs12"] = pkcs12
             __props__.__dict__["private_key_pem"] = None if private_key_pem is None else pulumi.Output.secret(private_key_pem)
+            __props__.__dict__["renew_required"] = renew_required
             __props__.__dict__["rsa_bits"] = rsa_bits
             __props__.__dict__["san_dns"] = san_dns
             __props__.__dict__["san_emails"] = san_emails
@@ -805,6 +857,7 @@ class Certificate(pulumi.CustomResource):
             __props__.__dict__["san_uris"] = san_uris
             __props__.__dict__["valid_days"] = valid_days
             __props__.__dict__["certificate"] = None
+            __props__.__dict__["certificate_id"] = None
             __props__.__dict__["chain"] = None
         secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["keyPassword", "privateKeyPem"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)
@@ -821,6 +874,7 @@ class Certificate(pulumi.CustomResource):
             algorithm: Optional[pulumi.Input[str]] = None,
             certificate: Optional[pulumi.Input[str]] = None,
             certificate_dn: Optional[pulumi.Input[str]] = None,
+            certificate_id: Optional[pulumi.Input[str]] = None,
             chain: Optional[pulumi.Input[str]] = None,
             common_name: Optional[pulumi.Input[str]] = None,
             csr_origin: Optional[pulumi.Input[str]] = None,
@@ -833,6 +887,7 @@ class Certificate(pulumi.CustomResource):
             nickname: Optional[pulumi.Input[str]] = None,
             pkcs12: Optional[pulumi.Input[str]] = None,
             private_key_pem: Optional[pulumi.Input[str]] = None,
+            renew_required: Optional[pulumi.Input[bool]] = None,
             rsa_bits: Optional[pulumi.Input[int]] = None,
             san_dns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             san_emails: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -848,6 +903,7 @@ class Certificate(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] algorithm: Key encryption algorithm, either RSA or ECDSA. Defaults to `RSA`.
         :param pulumi.Input[str] certificate: The X509 certificate in PEM format.
+        :param pulumi.Input[str] certificate_id: ID of the issued certificate
         :param pulumi.Input[str] chain: The trust chain of X509 certificate authority certificates in PEM format concatenated together.
         :param pulumi.Input[str] common_name: The common name of the certificate.
         :param pulumi.Input[str] csr_origin: Whether key-pair generation will be `local` or `service` generated. Default is 
@@ -864,6 +920,7 @@ class Certificate(pulumi.CustomResource):
         :param pulumi.Input[str] pkcs12: A base64-encoded PKCS#12 keystore secured by the `key_password`. Useful when working with resources like 
                azure key_vault_certificate.
         :param pulumi.Input[str] private_key_pem: The private key in PEM format.
+        :param pulumi.Input[bool] renew_required: Indicates the certificate should be reissued. This means the resource will destroyed and recreated
         :param pulumi.Input[int] rsa_bits: Number of bits to use when generating an RSA key. Applies when algorithm is `RSA`. 
                Defaults to `2048`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] san_dns: List of DNS names to use as alternative subjects of the certificate.
@@ -880,6 +937,7 @@ class Certificate(pulumi.CustomResource):
         __props__.__dict__["algorithm"] = algorithm
         __props__.__dict__["certificate"] = certificate
         __props__.__dict__["certificate_dn"] = certificate_dn
+        __props__.__dict__["certificate_id"] = certificate_id
         __props__.__dict__["chain"] = chain
         __props__.__dict__["common_name"] = common_name
         __props__.__dict__["csr_origin"] = csr_origin
@@ -892,6 +950,7 @@ class Certificate(pulumi.CustomResource):
         __props__.__dict__["nickname"] = nickname
         __props__.__dict__["pkcs12"] = pkcs12
         __props__.__dict__["private_key_pem"] = private_key_pem
+        __props__.__dict__["renew_required"] = renew_required
         __props__.__dict__["rsa_bits"] = rsa_bits
         __props__.__dict__["san_dns"] = san_dns
         __props__.__dict__["san_emails"] = san_emails
@@ -920,6 +979,14 @@ class Certificate(pulumi.CustomResource):
     @pulumi.getter(name="certificateDn")
     def certificate_dn(self) -> pulumi.Output[str]:
         return pulumi.get(self, "certificate_dn")
+
+    @property
+    @pulumi.getter(name="certificateId")
+    def certificate_id(self) -> pulumi.Output[str]:
+        """
+        ID of the issued certificate
+        """
+        return pulumi.get(self, "certificate_id")
 
     @property
     @pulumi.getter
@@ -1018,6 +1085,14 @@ class Certificate(pulumi.CustomResource):
         The private key in PEM format.
         """
         return pulumi.get(self, "private_key_pem")
+
+    @property
+    @pulumi.getter(name="renewRequired")
+    def renew_required(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Indicates the certificate should be reissued. This means the resource will destroyed and recreated
+        """
+        return pulumi.get(self, "renew_required")
 
     @property
     @pulumi.getter(name="rsaBits")

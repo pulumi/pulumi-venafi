@@ -34,7 +34,7 @@ class ProviderArgs:
         :param pulumi.Input[str] api_key: API key for Venafi Control Plane. Example: 142231b7-cvb0-412e-886b-6aeght0bc93d
         :param pulumi.Input[str] client_id: application that will be using the token
         :param pulumi.Input[bool] dev_mode: When set to true, the resulting certificate will be issued by an ephemeral, no trust CA rather than enrolling using
-               Venafi as a Service or Trust Protection Platform. Useful for development and testing.
+               Venafi as a Service or Trust Protection Platform. Useful for development and testing
         :param pulumi.Input[str] external_jwt: JWT of the identity provider associated to the Venafi Control Plane service account that is granting the access token
         :param pulumi.Input[str] p12_cert_filename: Filename of PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to
                TLSPDC
@@ -124,7 +124,7 @@ class ProviderArgs:
     def dev_mode(self) -> Optional[pulumi.Input[bool]]:
         """
         When set to true, the resulting certificate will be issued by an ephemeral, no trust CA rather than enrolling using
-        Venafi as a Service or Trust Protection Platform. Useful for development and testing.
+        Venafi as a Service or Trust Protection Platform. Useful for development and testing
         """
         return pulumi.get(self, "dev_mode")
 
@@ -291,7 +291,7 @@ class Provider(pulumi.ProviderResource):
         :param pulumi.Input[str] api_key: API key for Venafi Control Plane. Example: 142231b7-cvb0-412e-886b-6aeght0bc93d
         :param pulumi.Input[str] client_id: application that will be using the token
         :param pulumi.Input[bool] dev_mode: When set to true, the resulting certificate will be issued by an ephemeral, no trust CA rather than enrolling using
-               Venafi as a Service or Trust Protection Platform. Useful for development and testing.
+               Venafi as a Service or Trust Protection Platform. Useful for development and testing
         :param pulumi.Input[str] external_jwt: JWT of the identity provider associated to the Venafi Control Plane service account that is granting the access token
         :param pulumi.Input[str] p12_cert_filename: Filename of PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to
                TLSPDC

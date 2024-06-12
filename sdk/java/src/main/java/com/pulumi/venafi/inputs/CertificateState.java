@@ -5,6 +5,7 @@ package com.pulumi.venafi.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -53,6 +54,21 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
 
     public Optional<Output<String>> certificateDn() {
         return Optional.ofNullable(this.certificateDn);
+    }
+
+    /**
+     * ID of the issued certificate
+     * 
+     */
+    @Import(name="certificateId")
+    private @Nullable Output<String> certificateId;
+
+    /**
+     * @return ID of the issued certificate
+     * 
+     */
+    public Optional<Output<String>> certificateId() {
+        return Optional.ofNullable(this.certificateId);
     }
 
     /**
@@ -238,6 +254,21 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Indicates the certificate should be reissued. This means the resource will destroyed and recreated
+     * 
+     */
+    @Import(name="renewRequired")
+    private @Nullable Output<Boolean> renewRequired;
+
+    /**
+     * @return Indicates the certificate should be reissued. This means the resource will destroyed and recreated
+     * 
+     */
+    public Optional<Output<Boolean>> renewRequired() {
+        return Optional.ofNullable(this.renewRequired);
+    }
+
+    /**
      * Number of bits to use when generating an RSA key. Applies when algorithm is `RSA`.
      * Defaults to `2048`.
      * 
@@ -337,6 +368,7 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
         this.algorithm = $.algorithm;
         this.certificate = $.certificate;
         this.certificateDn = $.certificateDn;
+        this.certificateId = $.certificateId;
         this.chain = $.chain;
         this.commonName = $.commonName;
         this.csrOrigin = $.csrOrigin;
@@ -349,6 +381,7 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
         this.nickname = $.nickname;
         this.pkcs12 = $.pkcs12;
         this.privateKeyPem = $.privateKeyPem;
+        this.renewRequired = $.renewRequired;
         this.rsaBits = $.rsaBits;
         this.sanDns = $.sanDns;
         this.sanEmails = $.sanEmails;
@@ -424,6 +457,27 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
 
         public Builder certificateDn(String certificateDn) {
             return certificateDn(Output.of(certificateDn));
+        }
+
+        /**
+         * @param certificateId ID of the issued certificate
+         * 
+         * @return builder
+         * 
+         */
+        public Builder certificateId(@Nullable Output<String> certificateId) {
+            $.certificateId = certificateId;
+            return this;
+        }
+
+        /**
+         * @param certificateId ID of the issued certificate
+         * 
+         * @return builder
+         * 
+         */
+        public Builder certificateId(String certificateId) {
+            return certificateId(Output.of(certificateId));
         }
 
         /**
@@ -674,6 +728,27 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder privateKeyPem(String privateKeyPem) {
             return privateKeyPem(Output.of(privateKeyPem));
+        }
+
+        /**
+         * @param renewRequired Indicates the certificate should be reissued. This means the resource will destroyed and recreated
+         * 
+         * @return builder
+         * 
+         */
+        public Builder renewRequired(@Nullable Output<Boolean> renewRequired) {
+            $.renewRequired = renewRequired;
+            return this;
+        }
+
+        /**
+         * @param renewRequired Indicates the certificate should be reissued. This means the resource will destroyed and recreated
+         * 
+         * @return builder
+         * 
+         */
+        public Builder renewRequired(Boolean renewRequired) {
+            return renewRequired(Output.of(renewRequired));
         }
 
         /**
