@@ -206,14 +206,12 @@ class SshCertificateArgs:
 
     @property
     @pulumi.getter
+    @_utilities.deprecated("""This will be removed in the future. Use \"principals\" instead""")
     def principal(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         [DEPRECATED] - (Optional, set of strings) Use "principals" instead. A list of usernames for whom the 
         requested certificate will be valid.
         """
-        warnings.warn("""This will be removed in the future. Use \"principals\" instead""", DeprecationWarning)
-        pulumi.log.warn("""principal is deprecated: This will be removed in the future. Use \"principals\" instead""")
-
         return pulumi.get(self, "principal")
 
     @principal.setter
@@ -536,14 +534,12 @@ class _SshCertificateState:
 
     @property
     @pulumi.getter
+    @_utilities.deprecated("""This will be removed in the future. Use \"principals\" instead""")
     def principal(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         [DEPRECATED] - (Optional, set of strings) Use "principals" instead. A list of usernames for whom the 
         requested certificate will be valid.
         """
-        warnings.warn("""This will be removed in the future. Use \"principals\" instead""", DeprecationWarning)
-        pulumi.log.warn("""principal is deprecated: This will be removed in the future. Use \"principals\" instead""")
-
         return pulumi.get(self, "principal")
 
     @principal.setter
@@ -1063,14 +1059,12 @@ class SshCertificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter
+    @_utilities.deprecated("""This will be removed in the future. Use \"principals\" instead""")
     def principal(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         [DEPRECATED] - (Optional, set of strings) Use "principals" instead. A list of usernames for whom the 
         requested certificate will be valid.
         """
-        warnings.warn("""This will be removed in the future. Use \"principals\" instead""", DeprecationWarning)
-        pulumi.log.warn("""principal is deprecated: This will be removed in the future. Use \"principals\" instead""")
-
         return pulumi.get(self, "principal")
 
     @property
