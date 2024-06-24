@@ -192,13 +192,11 @@ class ProviderArgs:
 
     @property
     @pulumi.getter(name="tppPassword")
+    @_utilities.deprecated(""", please use access_token instead""")
     def tpp_password(self) -> Optional[pulumi.Input[str]]:
         """
         Password for WebSDK user. Example: password
         """
-        warnings.warn(""", please use access_token instead""", DeprecationWarning)
-        pulumi.log.warn("""tpp_password is deprecated: , please use access_token instead""")
-
         return pulumi.get(self, "tpp_password")
 
     @tpp_password.setter
@@ -207,13 +205,11 @@ class ProviderArgs:
 
     @property
     @pulumi.getter(name="tppUsername")
+    @_utilities.deprecated(""", please use access_token instead""")
     def tpp_username(self) -> Optional[pulumi.Input[str]]:
         """
         WebSDK user for Venafi TLSPDC. Example: admin
         """
-        warnings.warn(""", please use access_token instead""", DeprecationWarning)
-        pulumi.log.warn("""tpp_username is deprecated: , please use access_token instead""")
-
         return pulumi.get(self, "tpp_username")
 
     @tpp_username.setter
@@ -436,24 +432,20 @@ class Provider(pulumi.ProviderResource):
 
     @property
     @pulumi.getter(name="tppPassword")
+    @_utilities.deprecated(""", please use access_token instead""")
     def tpp_password(self) -> pulumi.Output[Optional[str]]:
         """
         Password for WebSDK user. Example: password
         """
-        warnings.warn(""", please use access_token instead""", DeprecationWarning)
-        pulumi.log.warn("""tpp_password is deprecated: , please use access_token instead""")
-
         return pulumi.get(self, "tpp_password")
 
     @property
     @pulumi.getter(name="tppUsername")
+    @_utilities.deprecated(""", please use access_token instead""")
     def tpp_username(self) -> pulumi.Output[Optional[str]]:
         """
         WebSDK user for Venafi TLSPDC. Example: admin
         """
-        warnings.warn(""", please use access_token instead""", DeprecationWarning)
-        pulumi.log.warn("""tpp_username is deprecated: , please use access_token instead""")
-
         return pulumi.get(self, "tpp_username")
 
     @property
