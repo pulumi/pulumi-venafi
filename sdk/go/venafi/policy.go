@@ -37,7 +37,7 @@ import (
 //			}
 //			_, err = venafi.NewPolicy(ctx, "internal_policy", &venafi.PolicyArgs{
 //				Zone:                pulumi.String("My Business App\\Enterprise Trusted Certs"),
-//				PolicySpecification: invokeFile.Result,
+//				PolicySpecification: pulumi.String(invokeFile.Result),
 //			})
 //			if err != nil {
 //				return err
