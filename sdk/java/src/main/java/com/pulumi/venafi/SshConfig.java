@@ -102,7 +102,7 @@ public class SshConfig extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public SshConfig(String name) {
+    public SshConfig(java.lang.String name) {
         this(name, SshConfigArgs.Empty);
     }
     /**
@@ -110,7 +110,7 @@ public class SshConfig extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public SshConfig(String name, SshConfigArgs args) {
+    public SshConfig(java.lang.String name, SshConfigArgs args) {
         this(name, args, null);
     }
     /**
@@ -119,15 +119,22 @@ public class SshConfig extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public SshConfig(String name, SshConfigArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("venafi:index/sshConfig:SshConfig", name, args == null ? SshConfigArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public SshConfig(java.lang.String name, SshConfigArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("venafi:index/sshConfig:SshConfig", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private SshConfig(String name, Output<String> id, @Nullable SshConfigState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("venafi:index/sshConfig:SshConfig", name, state, makeResourceOptions(options, id));
+    private SshConfig(java.lang.String name, Output<java.lang.String> id, @Nullable SshConfigState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("venafi:index/sshConfig:SshConfig", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static SshConfigArgs makeArgs(SshConfigArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? SshConfigArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -143,7 +150,7 @@ public class SshConfig extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static SshConfig get(String name, Output<String> id, @Nullable SshConfigState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static SshConfig get(java.lang.String name, Output<java.lang.String> id, @Nullable SshConfigState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new SshConfig(name, id, state, options);
     }
 }
