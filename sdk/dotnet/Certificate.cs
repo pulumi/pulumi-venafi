@@ -46,7 +46,7 @@ namespace Pulumi.Venafi
         public Output<string> CommonName { get; private set; } = null!;
 
         /// <summary>
-        /// Whether key-pair generation will be `local` or `service` generated. Default is 
+        /// Whether key-pair generation will be `local` or `service` generated. Default is
         /// `local`.
         /// </summary>
         [Output("csrOrigin")]
@@ -68,14 +68,14 @@ namespace Pulumi.Venafi
         public Output<string?> EcdsaCurve { get; private set; } = null!;
 
         /// <summary>
-        /// Number of hours before certificate expiry to request a new certificate. 
+        /// Number of hours before certificate expiry to request a new certificate.
         /// Defaults to `168`.
         /// </summary>
         [Output("expirationWindow")]
         public Output<int?> ExpirationWindow { get; private set; } = null!;
 
         /// <summary>
-        /// Used with `valid_days` to indicate the target issuer when using Trust Protection 
+        /// Used with `valid_days` to indicate the target issuer when using Trust Protection
         /// Platform. Relevant values are: `DigiCert`, `Entrust`, and `Microsoft`.
         /// </summary>
         [Output("issuerHint")]
@@ -88,14 +88,14 @@ namespace Pulumi.Venafi
         public Output<string?> KeyPassword { get; private set; } = null!;
 
         /// <summary>
-        /// Use to specify a name for the new certificate object that will be created and placed 
+        /// Use to specify a name for the new certificate object that will be created and placed
         /// in a policy. Only valid for Trust Protection Platform.
         /// </summary>
         [Output("nickname")]
         public Output<string?> Nickname { get; private set; } = null!;
 
         /// <summary>
-        /// A base64-encoded PKCS#12 keystore secured by the `key_password`. Useful when working with resources like 
+        /// A base64-encoded PKCS#12 keystore secured by the `key_password`. Useful when working with resources like
         /// azure key_vault_certificate.
         /// </summary>
         [Output("pkcs12")]
@@ -114,7 +114,7 @@ namespace Pulumi.Venafi
         public Output<bool?> RenewRequired { get; private set; } = null!;
 
         /// <summary>
-        /// Number of bits to use when generating an RSA key. Applies when algorithm is `RSA`. 
+        /// Number of bits to use when generating an RSA key. Applies when algorithm is `RSA`.
         /// Defaults to `2048`.
         /// </summary>
         [Output("rsaBits")]
@@ -139,7 +139,7 @@ namespace Pulumi.Venafi
         public Output<ImmutableArray<string>> SanIps { get; private set; } = null!;
 
         /// <summary>
-        /// List of Uniform Resource Identifiers (URIs) to use as alternative subjects of 
+        /// List of Uniform Resource Identifiers (URIs) to use as alternative subjects of
         /// the certificate.
         /// </summary>
         [Output("sanUris")]
@@ -218,7 +218,7 @@ namespace Pulumi.Venafi
         public Input<string> CommonName { get; set; } = null!;
 
         /// <summary>
-        /// Whether key-pair generation will be `local` or `service` generated. Default is 
+        /// Whether key-pair generation will be `local` or `service` generated. Default is
         /// `local`.
         /// </summary>
         [Input("csrOrigin")]
@@ -246,14 +246,14 @@ namespace Pulumi.Venafi
         public Input<string>? EcdsaCurve { get; set; }
 
         /// <summary>
-        /// Number of hours before certificate expiry to request a new certificate. 
+        /// Number of hours before certificate expiry to request a new certificate.
         /// Defaults to `168`.
         /// </summary>
         [Input("expirationWindow")]
         public Input<int>? ExpirationWindow { get; set; }
 
         /// <summary>
-        /// Used with `valid_days` to indicate the target issuer when using Trust Protection 
+        /// Used with `valid_days` to indicate the target issuer when using Trust Protection
         /// Platform. Relevant values are: `DigiCert`, `Entrust`, and `Microsoft`.
         /// </summary>
         [Input("issuerHint")]
@@ -276,14 +276,14 @@ namespace Pulumi.Venafi
         }
 
         /// <summary>
-        /// Use to specify a name for the new certificate object that will be created and placed 
+        /// Use to specify a name for the new certificate object that will be created and placed
         /// in a policy. Only valid for Trust Protection Platform.
         /// </summary>
         [Input("nickname")]
         public Input<string>? Nickname { get; set; }
 
         /// <summary>
-        /// A base64-encoded PKCS#12 keystore secured by the `key_password`. Useful when working with resources like 
+        /// A base64-encoded PKCS#12 keystore secured by the `key_password`. Useful when working with resources like
         /// azure key_vault_certificate.
         /// </summary>
         [Input("pkcs12")]
@@ -312,7 +312,7 @@ namespace Pulumi.Venafi
         public Input<bool>? RenewRequired { get; set; }
 
         /// <summary>
-        /// Number of bits to use when generating an RSA key. Applies when algorithm is `RSA`. 
+        /// Number of bits to use when generating an RSA key. Applies when algorithm is `RSA`.
         /// Defaults to `2048`.
         /// </summary>
         [Input("rsaBits")]
@@ -358,7 +358,7 @@ namespace Pulumi.Venafi
         private InputList<string>? _sanUris;
 
         /// <summary>
-        /// List of Uniform Resource Identifiers (URIs) to use as alternative subjects of 
+        /// List of Uniform Resource Identifiers (URIs) to use as alternative subjects of
         /// the certificate.
         /// </summary>
         public InputList<string> SanUris
@@ -415,7 +415,7 @@ namespace Pulumi.Venafi
         public Input<string>? CommonName { get; set; }
 
         /// <summary>
-        /// Whether key-pair generation will be `local` or `service` generated. Default is 
+        /// Whether key-pair generation will be `local` or `service` generated. Default is
         /// `local`.
         /// </summary>
         [Input("csrOrigin")]
@@ -443,14 +443,14 @@ namespace Pulumi.Venafi
         public Input<string>? EcdsaCurve { get; set; }
 
         /// <summary>
-        /// Number of hours before certificate expiry to request a new certificate. 
+        /// Number of hours before certificate expiry to request a new certificate.
         /// Defaults to `168`.
         /// </summary>
         [Input("expirationWindow")]
         public Input<int>? ExpirationWindow { get; set; }
 
         /// <summary>
-        /// Used with `valid_days` to indicate the target issuer when using Trust Protection 
+        /// Used with `valid_days` to indicate the target issuer when using Trust Protection
         /// Platform. Relevant values are: `DigiCert`, `Entrust`, and `Microsoft`.
         /// </summary>
         [Input("issuerHint")]
@@ -473,14 +473,14 @@ namespace Pulumi.Venafi
         }
 
         /// <summary>
-        /// Use to specify a name for the new certificate object that will be created and placed 
+        /// Use to specify a name for the new certificate object that will be created and placed
         /// in a policy. Only valid for Trust Protection Platform.
         /// </summary>
         [Input("nickname")]
         public Input<string>? Nickname { get; set; }
 
         /// <summary>
-        /// A base64-encoded PKCS#12 keystore secured by the `key_password`. Useful when working with resources like 
+        /// A base64-encoded PKCS#12 keystore secured by the `key_password`. Useful when working with resources like
         /// azure key_vault_certificate.
         /// </summary>
         [Input("pkcs12")]
@@ -509,7 +509,7 @@ namespace Pulumi.Venafi
         public Input<bool>? RenewRequired { get; set; }
 
         /// <summary>
-        /// Number of bits to use when generating an RSA key. Applies when algorithm is `RSA`. 
+        /// Number of bits to use when generating an RSA key. Applies when algorithm is `RSA`.
         /// Defaults to `2048`.
         /// </summary>
         [Input("rsaBits")]
@@ -555,7 +555,7 @@ namespace Pulumi.Venafi
         private InputList<string>? _sanUris;
 
         /// <summary>
-        /// List of Uniform Resource Identifiers (URIs) to use as alternative subjects of 
+        /// List of Uniform Resource Identifiers (URIs) to use as alternative subjects of
         /// the certificate.
         /// </summary>
         public InputList<string> SanUris

@@ -61,12 +61,12 @@ export class SshCertificate extends pulumi.CustomResource {
      */
     public /*out*/ readonly certificateType!: pulumi.Output<string>;
     /**
-     * A list of one or more valid IP or CIDR destination hosts where the 
+     * A list of one or more valid IP or CIDR destination hosts where the
      * certificate will authenticate.
      */
     public readonly destinationAddresses!: pulumi.Output<string[] | undefined>;
     /**
-     * A list of key-value pairs that contain certificate extensions from the CA 
+     * A list of key-value pairs that contain certificate extensions from the CA
      * template for client certificates. Allowed values (case-sensitive): `permit-X11-forwarding`, `permit-agent-forwarding`,
      * `permit-port-forwarding`, `permit-pty`, `permit-user-rc`.
      */
@@ -92,13 +92,13 @@ export class SshCertificate extends pulumi.CustomResource {
      */
     public readonly keySize!: pulumi.Output<number | undefined>;
     /**
-     * The friendly name of the SSH certificate object. When not specified the `keyId` 
+     * The friendly name of the SSH certificate object. When not specified the `keyId`
      * is used for the friendly name. If the object already exists the old certificate is archived and the CA issues a new
      * certificate.
      */
     public readonly objectName!: pulumi.Output<string | undefined>;
     /**
-     * [DEPRECATED] - (Optional, set of strings) Use "principals" instead. A list of usernames for whom the 
+     * [DEPRECATED] - (Optional, set of strings) Use "principals" instead. A list of usernames for whom the
      * requested certificate will be valid.
      *
      * @deprecated This will be removed in the future. Use "principals" instead
@@ -121,7 +121,7 @@ export class SshCertificate extends pulumi.CustomResource {
      */
     public /*out*/ readonly publicKeyFingerprint!: pulumi.Output<string>;
     /**
-     * Specifies whether the public key will be `local` (default), `file` or 
+     * Specifies whether the public key will be `local` (default), `file` or
      * `service` generated.
      */
     public readonly publicKeyMethod!: pulumi.Output<string | undefined>;
@@ -134,7 +134,7 @@ export class SshCertificate extends pulumi.CustomResource {
      */
     public /*out*/ readonly signingCa!: pulumi.Output<string>;
     /**
-     * A list of one or more valid IP or CIDR addresses that can use the SSH 
+     * A list of one or more valid IP or CIDR addresses that can use the SSH
      * certificate.
      */
     public readonly sourceAddresses!: pulumi.Output<string[] | undefined>;
@@ -249,12 +249,12 @@ export interface SshCertificateState {
      */
     certificateType?: pulumi.Input<string>;
     /**
-     * A list of one or more valid IP or CIDR destination hosts where the 
+     * A list of one or more valid IP or CIDR destination hosts where the
      * certificate will authenticate.
      */
     destinationAddresses?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * A list of key-value pairs that contain certificate extensions from the CA 
+     * A list of key-value pairs that contain certificate extensions from the CA
      * template for client certificates. Allowed values (case-sensitive): `permit-X11-forwarding`, `permit-agent-forwarding`,
      * `permit-port-forwarding`, `permit-pty`, `permit-user-rc`.
      */
@@ -280,13 +280,13 @@ export interface SshCertificateState {
      */
     keySize?: pulumi.Input<number>;
     /**
-     * The friendly name of the SSH certificate object. When not specified the `keyId` 
+     * The friendly name of the SSH certificate object. When not specified the `keyId`
      * is used for the friendly name. If the object already exists the old certificate is archived and the CA issues a new
      * certificate.
      */
     objectName?: pulumi.Input<string>;
     /**
-     * [DEPRECATED] - (Optional, set of strings) Use "principals" instead. A list of usernames for whom the 
+     * [DEPRECATED] - (Optional, set of strings) Use "principals" instead. A list of usernames for whom the
      * requested certificate will be valid.
      *
      * @deprecated This will be removed in the future. Use "principals" instead
@@ -309,7 +309,7 @@ export interface SshCertificateState {
      */
     publicKeyFingerprint?: pulumi.Input<string>;
     /**
-     * Specifies whether the public key will be `local` (default), `file` or 
+     * Specifies whether the public key will be `local` (default), `file` or
      * `service` generated.
      */
     publicKeyMethod?: pulumi.Input<string>;
@@ -322,7 +322,7 @@ export interface SshCertificateState {
      */
     signingCa?: pulumi.Input<string>;
     /**
-     * A list of one or more valid IP or CIDR addresses that can use the SSH 
+     * A list of one or more valid IP or CIDR addresses that can use the SSH
      * certificate.
      */
     sourceAddresses?: pulumi.Input<pulumi.Input<string>[]>;
@@ -353,12 +353,12 @@ export interface SshCertificateState {
  */
 export interface SshCertificateArgs {
     /**
-     * A list of one or more valid IP or CIDR destination hosts where the 
+     * A list of one or more valid IP or CIDR destination hosts where the
      * certificate will authenticate.
      */
     destinationAddresses?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * A list of key-value pairs that contain certificate extensions from the CA 
+     * A list of key-value pairs that contain certificate extensions from the CA
      * template for client certificates. Allowed values (case-sensitive): `permit-X11-forwarding`, `permit-agent-forwarding`,
      * `permit-port-forwarding`, `permit-pty`, `permit-user-rc`.
      */
@@ -384,13 +384,13 @@ export interface SshCertificateArgs {
      */
     keySize?: pulumi.Input<number>;
     /**
-     * The friendly name of the SSH certificate object. When not specified the `keyId` 
+     * The friendly name of the SSH certificate object. When not specified the `keyId`
      * is used for the friendly name. If the object already exists the old certificate is archived and the CA issues a new
      * certificate.
      */
     objectName?: pulumi.Input<string>;
     /**
-     * [DEPRECATED] - (Optional, set of strings) Use "principals" instead. A list of usernames for whom the 
+     * [DEPRECATED] - (Optional, set of strings) Use "principals" instead. A list of usernames for whom the
      * requested certificate will be valid.
      *
      * @deprecated This will be removed in the future. Use "principals" instead
@@ -405,12 +405,12 @@ export interface SshCertificateArgs {
      */
     publicKey?: pulumi.Input<string>;
     /**
-     * Specifies whether the public key will be `local` (default), `file` or 
+     * Specifies whether the public key will be `local` (default), `file` or
      * `service` generated.
      */
     publicKeyMethod?: pulumi.Input<string>;
     /**
-     * A list of one or more valid IP or CIDR addresses that can use the SSH 
+     * A list of one or more valid IP or CIDR addresses that can use the SSH
      * certificate.
      */
     sourceAddresses?: pulumi.Input<pulumi.Input<string>[]>;

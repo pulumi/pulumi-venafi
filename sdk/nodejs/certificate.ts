@@ -54,7 +54,7 @@ export class Certificate extends pulumi.CustomResource {
      */
     public readonly commonName!: pulumi.Output<string>;
     /**
-     * Whether key-pair generation will be `local` or `service` generated. Default is 
+     * Whether key-pair generation will be `local` or `service` generated. Default is
      * `local`.
      */
     public readonly csrOrigin!: pulumi.Output<string | undefined>;
@@ -68,12 +68,12 @@ export class Certificate extends pulumi.CustomResource {
      */
     public readonly ecdsaCurve!: pulumi.Output<string | undefined>;
     /**
-     * Number of hours before certificate expiry to request a new certificate. 
+     * Number of hours before certificate expiry to request a new certificate.
      * Defaults to `168`.
      */
     public readonly expirationWindow!: pulumi.Output<number | undefined>;
     /**
-     * Used with `validDays` to indicate the target issuer when using Trust Protection 
+     * Used with `validDays` to indicate the target issuer when using Trust Protection
      * Platform. Relevant values are: `DigiCert`, `Entrust`, and `Microsoft`.
      */
     public readonly issuerHint!: pulumi.Output<string | undefined>;
@@ -82,12 +82,12 @@ export class Certificate extends pulumi.CustomResource {
      */
     public readonly keyPassword!: pulumi.Output<string | undefined>;
     /**
-     * Use to specify a name for the new certificate object that will be created and placed 
+     * Use to specify a name for the new certificate object that will be created and placed
      * in a policy. Only valid for Trust Protection Platform.
      */
     public readonly nickname!: pulumi.Output<string | undefined>;
     /**
-     * A base64-encoded PKCS#12 keystore secured by the `keyPassword`. Useful when working with resources like 
+     * A base64-encoded PKCS#12 keystore secured by the `keyPassword`. Useful when working with resources like
      * azure key_vault_certificate.
      */
     public readonly pkcs12!: pulumi.Output<string>;
@@ -100,7 +100,7 @@ export class Certificate extends pulumi.CustomResource {
      */
     public readonly renewRequired!: pulumi.Output<boolean | undefined>;
     /**
-     * Number of bits to use when generating an RSA key. Applies when algorithm is `RSA`. 
+     * Number of bits to use when generating an RSA key. Applies when algorithm is `RSA`.
      * Defaults to `2048`.
      */
     public readonly rsaBits!: pulumi.Output<number | undefined>;
@@ -117,7 +117,7 @@ export class Certificate extends pulumi.CustomResource {
      */
     public readonly sanIps!: pulumi.Output<string[] | undefined>;
     /**
-     * List of Uniform Resource Identifiers (URIs) to use as alternative subjects of 
+     * List of Uniform Resource Identifiers (URIs) to use as alternative subjects of
      * the certificate.
      */
     public readonly sanUris!: pulumi.Output<string[] | undefined>;
@@ -224,7 +224,7 @@ export interface CertificateState {
      */
     commonName?: pulumi.Input<string>;
     /**
-     * Whether key-pair generation will be `local` or `service` generated. Default is 
+     * Whether key-pair generation will be `local` or `service` generated. Default is
      * `local`.
      */
     csrOrigin?: pulumi.Input<string>;
@@ -238,12 +238,12 @@ export interface CertificateState {
      */
     ecdsaCurve?: pulumi.Input<string>;
     /**
-     * Number of hours before certificate expiry to request a new certificate. 
+     * Number of hours before certificate expiry to request a new certificate.
      * Defaults to `168`.
      */
     expirationWindow?: pulumi.Input<number>;
     /**
-     * Used with `validDays` to indicate the target issuer when using Trust Protection 
+     * Used with `validDays` to indicate the target issuer when using Trust Protection
      * Platform. Relevant values are: `DigiCert`, `Entrust`, and `Microsoft`.
      */
     issuerHint?: pulumi.Input<string>;
@@ -252,12 +252,12 @@ export interface CertificateState {
      */
     keyPassword?: pulumi.Input<string>;
     /**
-     * Use to specify a name for the new certificate object that will be created and placed 
+     * Use to specify a name for the new certificate object that will be created and placed
      * in a policy. Only valid for Trust Protection Platform.
      */
     nickname?: pulumi.Input<string>;
     /**
-     * A base64-encoded PKCS#12 keystore secured by the `keyPassword`. Useful when working with resources like 
+     * A base64-encoded PKCS#12 keystore secured by the `keyPassword`. Useful when working with resources like
      * azure key_vault_certificate.
      */
     pkcs12?: pulumi.Input<string>;
@@ -270,7 +270,7 @@ export interface CertificateState {
      */
     renewRequired?: pulumi.Input<boolean>;
     /**
-     * Number of bits to use when generating an RSA key. Applies when algorithm is `RSA`. 
+     * Number of bits to use when generating an RSA key. Applies when algorithm is `RSA`.
      * Defaults to `2048`.
      */
     rsaBits?: pulumi.Input<number>;
@@ -287,7 +287,7 @@ export interface CertificateState {
      */
     sanIps?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * List of Uniform Resource Identifiers (URIs) to use as alternative subjects of 
+     * List of Uniform Resource Identifiers (URIs) to use as alternative subjects of
      * the certificate.
      */
     sanUris?: pulumi.Input<pulumi.Input<string>[]>;
@@ -311,7 +311,7 @@ export interface CertificateArgs {
      */
     commonName: pulumi.Input<string>;
     /**
-     * Whether key-pair generation will be `local` or `service` generated. Default is 
+     * Whether key-pair generation will be `local` or `service` generated. Default is
      * `local`.
      */
     csrOrigin?: pulumi.Input<string>;
@@ -325,12 +325,12 @@ export interface CertificateArgs {
      */
     ecdsaCurve?: pulumi.Input<string>;
     /**
-     * Number of hours before certificate expiry to request a new certificate. 
+     * Number of hours before certificate expiry to request a new certificate.
      * Defaults to `168`.
      */
     expirationWindow?: pulumi.Input<number>;
     /**
-     * Used with `validDays` to indicate the target issuer when using Trust Protection 
+     * Used with `validDays` to indicate the target issuer when using Trust Protection
      * Platform. Relevant values are: `DigiCert`, `Entrust`, and `Microsoft`.
      */
     issuerHint?: pulumi.Input<string>;
@@ -339,12 +339,12 @@ export interface CertificateArgs {
      */
     keyPassword?: pulumi.Input<string>;
     /**
-     * Use to specify a name for the new certificate object that will be created and placed 
+     * Use to specify a name for the new certificate object that will be created and placed
      * in a policy. Only valid for Trust Protection Platform.
      */
     nickname?: pulumi.Input<string>;
     /**
-     * A base64-encoded PKCS#12 keystore secured by the `keyPassword`. Useful when working with resources like 
+     * A base64-encoded PKCS#12 keystore secured by the `keyPassword`. Useful when working with resources like
      * azure key_vault_certificate.
      */
     pkcs12?: pulumi.Input<string>;
@@ -357,7 +357,7 @@ export interface CertificateArgs {
      */
     renewRequired?: pulumi.Input<boolean>;
     /**
-     * Number of bits to use when generating an RSA key. Applies when algorithm is `RSA`. 
+     * Number of bits to use when generating an RSA key. Applies when algorithm is `RSA`.
      * Defaults to `2048`.
      */
     rsaBits?: pulumi.Input<number>;
@@ -374,7 +374,7 @@ export interface CertificateArgs {
      */
     sanIps?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * List of Uniform Resource Identifiers (URIs) to use as alternative subjects of 
+     * List of Uniform Resource Identifiers (URIs) to use as alternative subjects of
      * the certificate.
      */
     sanUris?: pulumi.Input<pulumi.Input<string>[]>;
