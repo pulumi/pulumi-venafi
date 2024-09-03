@@ -12,7 +12,7 @@ namespace Pulumi.Venafi
     public static class GetCloudKeystore
     {
         /// <summary>
-        /// Use this data source to get the `ID` of a cloud keystore in Venafi Control Plane, referenced by its name and parent 
+        /// Use this data source to get the `ID` of a cloud keystore in Venafi Control Plane, referenced by its name and parent
         /// cloud provider ID. You can use `venafi.getCloudProvider` data source to obtain the ID of the parent cloud provider.
         /// 
         /// ## Example Usage
@@ -46,7 +46,7 @@ namespace Pulumi.Venafi
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCloudKeystoreResult>("venafi:index/getCloudKeystore:getCloudKeystore", args ?? new GetCloudKeystoreArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Use this data source to get the `ID` of a cloud keystore in Venafi Control Plane, referenced by its name and parent 
+        /// Use this data source to get the `ID` of a cloud keystore in Venafi Control Plane, referenced by its name and parent
         /// cloud provider ID. You can use `venafi.getCloudProvider` data source to obtain the ID of the parent cloud provider.
         /// 
         /// ## Example Usage

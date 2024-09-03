@@ -38,27 +38,27 @@ class CertificateArgs:
         The set of arguments for constructing a Certificate resource.
         :param pulumi.Input[str] common_name: The common name of the certificate.
         :param pulumi.Input[str] algorithm: Key encryption algorithm, either RSA or ECDSA. Defaults to `RSA`.
-        :param pulumi.Input[str] csr_origin: Whether key-pair generation will be `local` or `service` generated. Default is 
+        :param pulumi.Input[str] csr_origin: Whether key-pair generation will be `local` or `service` generated. Default is
                `local`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] custom_fields: Collection of Custom Field name-value pairs to assign to the certificate.
         :param pulumi.Input[str] ecdsa_curve: ECDSA curve to use when generating a key
-        :param pulumi.Input[int] expiration_window: Number of hours before certificate expiry to request a new certificate. 
+        :param pulumi.Input[int] expiration_window: Number of hours before certificate expiry to request a new certificate.
                Defaults to `168`.
-        :param pulumi.Input[str] issuer_hint: Used with `valid_days` to indicate the target issuer when using Trust Protection 
+        :param pulumi.Input[str] issuer_hint: Used with `valid_days` to indicate the target issuer when using Trust Protection
                Platform. Relevant values are: `DigiCert`, `Entrust`, and `Microsoft`.
         :param pulumi.Input[str] key_password: The password used to encrypt the private key.
-        :param pulumi.Input[str] nickname: Use to specify a name for the new certificate object that will be created and placed 
+        :param pulumi.Input[str] nickname: Use to specify a name for the new certificate object that will be created and placed
                in a policy. Only valid for Trust Protection Platform.
-        :param pulumi.Input[str] pkcs12: A base64-encoded PKCS#12 keystore secured by the `key_password`. Useful when working with resources like 
+        :param pulumi.Input[str] pkcs12: A base64-encoded PKCS#12 keystore secured by the `key_password`. Useful when working with resources like
                azure key_vault_certificate.
         :param pulumi.Input[str] private_key_pem: The private key in PEM format.
         :param pulumi.Input[bool] renew_required: Indicates the certificate should be reissued. This means the resource will destroyed and recreated
-        :param pulumi.Input[int] rsa_bits: Number of bits to use when generating an RSA key. Applies when algorithm is `RSA`. 
+        :param pulumi.Input[int] rsa_bits: Number of bits to use when generating an RSA key. Applies when algorithm is `RSA`.
                Defaults to `2048`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] san_dns: List of DNS names to use as alternative subjects of the certificate.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] san_emails: List of email addresses to use as alternative subjects of the certificate.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] san_ips: List of IP addresses to use as alternative subjects of the certificate.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] san_uris: List of Uniform Resource Identifiers (URIs) to use as alternative subjects of 
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] san_uris: List of Uniform Resource Identifiers (URIs) to use as alternative subjects of
                the certificate.
         :param pulumi.Input[int] valid_days: Desired number of days for which the new certificate will be valid.
         """
@@ -139,7 +139,7 @@ class CertificateArgs:
     @pulumi.getter(name="csrOrigin")
     def csr_origin(self) -> Optional[pulumi.Input[str]]:
         """
-        Whether key-pair generation will be `local` or `service` generated. Default is 
+        Whether key-pair generation will be `local` or `service` generated. Default is
         `local`.
         """
         return pulumi.get(self, "csr_origin")
@@ -185,7 +185,7 @@ class CertificateArgs:
     @pulumi.getter(name="expirationWindow")
     def expiration_window(self) -> Optional[pulumi.Input[int]]:
         """
-        Number of hours before certificate expiry to request a new certificate. 
+        Number of hours before certificate expiry to request a new certificate.
         Defaults to `168`.
         """
         return pulumi.get(self, "expiration_window")
@@ -198,7 +198,7 @@ class CertificateArgs:
     @pulumi.getter(name="issuerHint")
     def issuer_hint(self) -> Optional[pulumi.Input[str]]:
         """
-        Used with `valid_days` to indicate the target issuer when using Trust Protection 
+        Used with `valid_days` to indicate the target issuer when using Trust Protection
         Platform. Relevant values are: `DigiCert`, `Entrust`, and `Microsoft`.
         """
         return pulumi.get(self, "issuer_hint")
@@ -223,7 +223,7 @@ class CertificateArgs:
     @pulumi.getter
     def nickname(self) -> Optional[pulumi.Input[str]]:
         """
-        Use to specify a name for the new certificate object that will be created and placed 
+        Use to specify a name for the new certificate object that will be created and placed
         in a policy. Only valid for Trust Protection Platform.
         """
         return pulumi.get(self, "nickname")
@@ -236,7 +236,7 @@ class CertificateArgs:
     @pulumi.getter
     def pkcs12(self) -> Optional[pulumi.Input[str]]:
         """
-        A base64-encoded PKCS#12 keystore secured by the `key_password`. Useful when working with resources like 
+        A base64-encoded PKCS#12 keystore secured by the `key_password`. Useful when working with resources like
         azure key_vault_certificate.
         """
         return pulumi.get(self, "pkcs12")
@@ -273,7 +273,7 @@ class CertificateArgs:
     @pulumi.getter(name="rsaBits")
     def rsa_bits(self) -> Optional[pulumi.Input[int]]:
         """
-        Number of bits to use when generating an RSA key. Applies when algorithm is `RSA`. 
+        Number of bits to use when generating an RSA key. Applies when algorithm is `RSA`.
         Defaults to `2048`.
         """
         return pulumi.get(self, "rsa_bits")
@@ -322,7 +322,7 @@ class CertificateArgs:
     @pulumi.getter(name="sanUris")
     def san_uris(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        List of Uniform Resource Identifiers (URIs) to use as alternative subjects of 
+        List of Uniform Resource Identifiers (URIs) to use as alternative subjects of
         the certificate.
         """
         return pulumi.get(self, "san_uris")
@@ -377,27 +377,27 @@ class _CertificateState:
         :param pulumi.Input[str] certificate_id: ID of the issued certificate
         :param pulumi.Input[str] chain: The trust chain of X509 certificate authority certificates in PEM format concatenated together.
         :param pulumi.Input[str] common_name: The common name of the certificate.
-        :param pulumi.Input[str] csr_origin: Whether key-pair generation will be `local` or `service` generated. Default is 
+        :param pulumi.Input[str] csr_origin: Whether key-pair generation will be `local` or `service` generated. Default is
                `local`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] custom_fields: Collection of Custom Field name-value pairs to assign to the certificate.
         :param pulumi.Input[str] ecdsa_curve: ECDSA curve to use when generating a key
-        :param pulumi.Input[int] expiration_window: Number of hours before certificate expiry to request a new certificate. 
+        :param pulumi.Input[int] expiration_window: Number of hours before certificate expiry to request a new certificate.
                Defaults to `168`.
-        :param pulumi.Input[str] issuer_hint: Used with `valid_days` to indicate the target issuer when using Trust Protection 
+        :param pulumi.Input[str] issuer_hint: Used with `valid_days` to indicate the target issuer when using Trust Protection
                Platform. Relevant values are: `DigiCert`, `Entrust`, and `Microsoft`.
         :param pulumi.Input[str] key_password: The password used to encrypt the private key.
-        :param pulumi.Input[str] nickname: Use to specify a name for the new certificate object that will be created and placed 
+        :param pulumi.Input[str] nickname: Use to specify a name for the new certificate object that will be created and placed
                in a policy. Only valid for Trust Protection Platform.
-        :param pulumi.Input[str] pkcs12: A base64-encoded PKCS#12 keystore secured by the `key_password`. Useful when working with resources like 
+        :param pulumi.Input[str] pkcs12: A base64-encoded PKCS#12 keystore secured by the `key_password`. Useful when working with resources like
                azure key_vault_certificate.
         :param pulumi.Input[str] private_key_pem: The private key in PEM format.
         :param pulumi.Input[bool] renew_required: Indicates the certificate should be reissued. This means the resource will destroyed and recreated
-        :param pulumi.Input[int] rsa_bits: Number of bits to use when generating an RSA key. Applies when algorithm is `RSA`. 
+        :param pulumi.Input[int] rsa_bits: Number of bits to use when generating an RSA key. Applies when algorithm is `RSA`.
                Defaults to `2048`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] san_dns: List of DNS names to use as alternative subjects of the certificate.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] san_emails: List of email addresses to use as alternative subjects of the certificate.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] san_ips: List of IP addresses to use as alternative subjects of the certificate.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] san_uris: List of Uniform Resource Identifiers (URIs) to use as alternative subjects of 
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] san_uris: List of Uniform Resource Identifiers (URIs) to use as alternative subjects of
                the certificate.
         :param pulumi.Input[int] valid_days: Desired number of days for which the new certificate will be valid.
         """
@@ -521,7 +521,7 @@ class _CertificateState:
     @pulumi.getter(name="csrOrigin")
     def csr_origin(self) -> Optional[pulumi.Input[str]]:
         """
-        Whether key-pair generation will be `local` or `service` generated. Default is 
+        Whether key-pair generation will be `local` or `service` generated. Default is
         `local`.
         """
         return pulumi.get(self, "csr_origin")
@@ -567,7 +567,7 @@ class _CertificateState:
     @pulumi.getter(name="expirationWindow")
     def expiration_window(self) -> Optional[pulumi.Input[int]]:
         """
-        Number of hours before certificate expiry to request a new certificate. 
+        Number of hours before certificate expiry to request a new certificate.
         Defaults to `168`.
         """
         return pulumi.get(self, "expiration_window")
@@ -580,7 +580,7 @@ class _CertificateState:
     @pulumi.getter(name="issuerHint")
     def issuer_hint(self) -> Optional[pulumi.Input[str]]:
         """
-        Used with `valid_days` to indicate the target issuer when using Trust Protection 
+        Used with `valid_days` to indicate the target issuer when using Trust Protection
         Platform. Relevant values are: `DigiCert`, `Entrust`, and `Microsoft`.
         """
         return pulumi.get(self, "issuer_hint")
@@ -605,7 +605,7 @@ class _CertificateState:
     @pulumi.getter
     def nickname(self) -> Optional[pulumi.Input[str]]:
         """
-        Use to specify a name for the new certificate object that will be created and placed 
+        Use to specify a name for the new certificate object that will be created and placed
         in a policy. Only valid for Trust Protection Platform.
         """
         return pulumi.get(self, "nickname")
@@ -618,7 +618,7 @@ class _CertificateState:
     @pulumi.getter
     def pkcs12(self) -> Optional[pulumi.Input[str]]:
         """
-        A base64-encoded PKCS#12 keystore secured by the `key_password`. Useful when working with resources like 
+        A base64-encoded PKCS#12 keystore secured by the `key_password`. Useful when working with resources like
         azure key_vault_certificate.
         """
         return pulumi.get(self, "pkcs12")
@@ -655,7 +655,7 @@ class _CertificateState:
     @pulumi.getter(name="rsaBits")
     def rsa_bits(self) -> Optional[pulumi.Input[int]]:
         """
-        Number of bits to use when generating an RSA key. Applies when algorithm is `RSA`. 
+        Number of bits to use when generating an RSA key. Applies when algorithm is `RSA`.
         Defaults to `2048`.
         """
         return pulumi.get(self, "rsa_bits")
@@ -704,7 +704,7 @@ class _CertificateState:
     @pulumi.getter(name="sanUris")
     def san_uris(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        List of Uniform Resource Identifiers (URIs) to use as alternative subjects of 
+        List of Uniform Resource Identifiers (URIs) to use as alternative subjects of
         the certificate.
         """
         return pulumi.get(self, "san_uris")
@@ -758,27 +758,27 @@ class Certificate(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] algorithm: Key encryption algorithm, either RSA or ECDSA. Defaults to `RSA`.
         :param pulumi.Input[str] common_name: The common name of the certificate.
-        :param pulumi.Input[str] csr_origin: Whether key-pair generation will be `local` or `service` generated. Default is 
+        :param pulumi.Input[str] csr_origin: Whether key-pair generation will be `local` or `service` generated. Default is
                `local`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] custom_fields: Collection of Custom Field name-value pairs to assign to the certificate.
         :param pulumi.Input[str] ecdsa_curve: ECDSA curve to use when generating a key
-        :param pulumi.Input[int] expiration_window: Number of hours before certificate expiry to request a new certificate. 
+        :param pulumi.Input[int] expiration_window: Number of hours before certificate expiry to request a new certificate.
                Defaults to `168`.
-        :param pulumi.Input[str] issuer_hint: Used with `valid_days` to indicate the target issuer when using Trust Protection 
+        :param pulumi.Input[str] issuer_hint: Used with `valid_days` to indicate the target issuer when using Trust Protection
                Platform. Relevant values are: `DigiCert`, `Entrust`, and `Microsoft`.
         :param pulumi.Input[str] key_password: The password used to encrypt the private key.
-        :param pulumi.Input[str] nickname: Use to specify a name for the new certificate object that will be created and placed 
+        :param pulumi.Input[str] nickname: Use to specify a name for the new certificate object that will be created and placed
                in a policy. Only valid for Trust Protection Platform.
-        :param pulumi.Input[str] pkcs12: A base64-encoded PKCS#12 keystore secured by the `key_password`. Useful when working with resources like 
+        :param pulumi.Input[str] pkcs12: A base64-encoded PKCS#12 keystore secured by the `key_password`. Useful when working with resources like
                azure key_vault_certificate.
         :param pulumi.Input[str] private_key_pem: The private key in PEM format.
         :param pulumi.Input[bool] renew_required: Indicates the certificate should be reissued. This means the resource will destroyed and recreated
-        :param pulumi.Input[int] rsa_bits: Number of bits to use when generating an RSA key. Applies when algorithm is `RSA`. 
+        :param pulumi.Input[int] rsa_bits: Number of bits to use when generating an RSA key. Applies when algorithm is `RSA`.
                Defaults to `2048`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] san_dns: List of DNS names to use as alternative subjects of the certificate.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] san_emails: List of email addresses to use as alternative subjects of the certificate.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] san_ips: List of IP addresses to use as alternative subjects of the certificate.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] san_uris: List of Uniform Resource Identifiers (URIs) to use as alternative subjects of 
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] san_uris: List of Uniform Resource Identifiers (URIs) to use as alternative subjects of
                the certificate.
         :param pulumi.Input[int] valid_days: Desired number of days for which the new certificate will be valid.
         """
@@ -906,27 +906,27 @@ class Certificate(pulumi.CustomResource):
         :param pulumi.Input[str] certificate_id: ID of the issued certificate
         :param pulumi.Input[str] chain: The trust chain of X509 certificate authority certificates in PEM format concatenated together.
         :param pulumi.Input[str] common_name: The common name of the certificate.
-        :param pulumi.Input[str] csr_origin: Whether key-pair generation will be `local` or `service` generated. Default is 
+        :param pulumi.Input[str] csr_origin: Whether key-pair generation will be `local` or `service` generated. Default is
                `local`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] custom_fields: Collection of Custom Field name-value pairs to assign to the certificate.
         :param pulumi.Input[str] ecdsa_curve: ECDSA curve to use when generating a key
-        :param pulumi.Input[int] expiration_window: Number of hours before certificate expiry to request a new certificate. 
+        :param pulumi.Input[int] expiration_window: Number of hours before certificate expiry to request a new certificate.
                Defaults to `168`.
-        :param pulumi.Input[str] issuer_hint: Used with `valid_days` to indicate the target issuer when using Trust Protection 
+        :param pulumi.Input[str] issuer_hint: Used with `valid_days` to indicate the target issuer when using Trust Protection
                Platform. Relevant values are: `DigiCert`, `Entrust`, and `Microsoft`.
         :param pulumi.Input[str] key_password: The password used to encrypt the private key.
-        :param pulumi.Input[str] nickname: Use to specify a name for the new certificate object that will be created and placed 
+        :param pulumi.Input[str] nickname: Use to specify a name for the new certificate object that will be created and placed
                in a policy. Only valid for Trust Protection Platform.
-        :param pulumi.Input[str] pkcs12: A base64-encoded PKCS#12 keystore secured by the `key_password`. Useful when working with resources like 
+        :param pulumi.Input[str] pkcs12: A base64-encoded PKCS#12 keystore secured by the `key_password`. Useful when working with resources like
                azure key_vault_certificate.
         :param pulumi.Input[str] private_key_pem: The private key in PEM format.
         :param pulumi.Input[bool] renew_required: Indicates the certificate should be reissued. This means the resource will destroyed and recreated
-        :param pulumi.Input[int] rsa_bits: Number of bits to use when generating an RSA key. Applies when algorithm is `RSA`. 
+        :param pulumi.Input[int] rsa_bits: Number of bits to use when generating an RSA key. Applies when algorithm is `RSA`.
                Defaults to `2048`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] san_dns: List of DNS names to use as alternative subjects of the certificate.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] san_emails: List of email addresses to use as alternative subjects of the certificate.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] san_ips: List of IP addresses to use as alternative subjects of the certificate.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] san_uris: List of Uniform Resource Identifiers (URIs) to use as alternative subjects of 
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] san_uris: List of Uniform Resource Identifiers (URIs) to use as alternative subjects of
                the certificate.
         :param pulumi.Input[int] valid_days: Desired number of days for which the new certificate will be valid.
         """
@@ -1008,7 +1008,7 @@ class Certificate(pulumi.CustomResource):
     @pulumi.getter(name="csrOrigin")
     def csr_origin(self) -> pulumi.Output[Optional[str]]:
         """
-        Whether key-pair generation will be `local` or `service` generated. Default is 
+        Whether key-pair generation will be `local` or `service` generated. Default is
         `local`.
         """
         return pulumi.get(self, "csr_origin")
@@ -1038,7 +1038,7 @@ class Certificate(pulumi.CustomResource):
     @pulumi.getter(name="expirationWindow")
     def expiration_window(self) -> pulumi.Output[Optional[int]]:
         """
-        Number of hours before certificate expiry to request a new certificate. 
+        Number of hours before certificate expiry to request a new certificate.
         Defaults to `168`.
         """
         return pulumi.get(self, "expiration_window")
@@ -1047,7 +1047,7 @@ class Certificate(pulumi.CustomResource):
     @pulumi.getter(name="issuerHint")
     def issuer_hint(self) -> pulumi.Output[Optional[str]]:
         """
-        Used with `valid_days` to indicate the target issuer when using Trust Protection 
+        Used with `valid_days` to indicate the target issuer when using Trust Protection
         Platform. Relevant values are: `DigiCert`, `Entrust`, and `Microsoft`.
         """
         return pulumi.get(self, "issuer_hint")
@@ -1064,7 +1064,7 @@ class Certificate(pulumi.CustomResource):
     @pulumi.getter
     def nickname(self) -> pulumi.Output[Optional[str]]:
         """
-        Use to specify a name for the new certificate object that will be created and placed 
+        Use to specify a name for the new certificate object that will be created and placed
         in a policy. Only valid for Trust Protection Platform.
         """
         return pulumi.get(self, "nickname")
@@ -1073,7 +1073,7 @@ class Certificate(pulumi.CustomResource):
     @pulumi.getter
     def pkcs12(self) -> pulumi.Output[str]:
         """
-        A base64-encoded PKCS#12 keystore secured by the `key_password`. Useful when working with resources like 
+        A base64-encoded PKCS#12 keystore secured by the `key_password`. Useful when working with resources like
         azure key_vault_certificate.
         """
         return pulumi.get(self, "pkcs12")
@@ -1098,7 +1098,7 @@ class Certificate(pulumi.CustomResource):
     @pulumi.getter(name="rsaBits")
     def rsa_bits(self) -> pulumi.Output[Optional[int]]:
         """
-        Number of bits to use when generating an RSA key. Applies when algorithm is `RSA`. 
+        Number of bits to use when generating an RSA key. Applies when algorithm is `RSA`.
         Defaults to `2048`.
         """
         return pulumi.get(self, "rsa_bits")
@@ -1131,7 +1131,7 @@ class Certificate(pulumi.CustomResource):
     @pulumi.getter(name="sanUris")
     def san_uris(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        List of Uniform Resource Identifiers (URIs) to use as alternative subjects of 
+        List of Uniform Resource Identifiers (URIs) to use as alternative subjects of
         the certificate.
         """
         return pulumi.get(self, "san_uris")
