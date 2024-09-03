@@ -285,7 +285,7 @@
                 },
                 "csrOrigin": {
                     "type": "string",
-                    "description": "Whether key-pair generation will be `local` or `service` generated. Default is \n`local`.\n"
+                    "description": "Whether key-pair generation will be `local` or `service` generated. Default is\n`local`.\n"
                 },
                 "csrPem": {
                     "type": "string"
@@ -303,11 +303,11 @@
                 },
                 "expirationWindow": {
                     "type": "integer",
-                    "description": "Number of hours before certificate expiry to request a new certificate. \nDefaults to `168`.\n"
+                    "description": "Number of hours before certificate expiry to request a new certificate.\nDefaults to `168`.\n"
                 },
                 "issuerHint": {
                     "type": "string",
-                    "description": "Used with `valid_days` to indicate the target issuer when using Trust Protection \nPlatform. Relevant values are: `DigiCert`, `Entrust`, and `Microsoft`.\n"
+                    "description": "Used with `valid_days` to indicate the target issuer when using Trust Protection\nPlatform. Relevant values are: `DigiCert`, `Entrust`, and `Microsoft`.\n"
                 },
                 "keyPassword": {
                     "type": "string",
@@ -316,11 +316,11 @@
                 },
                 "nickname": {
                     "type": "string",
-                    "description": "Use to specify a name for the new certificate object that will be created and placed \nin a policy. Only valid for Trust Protection Platform.\n"
+                    "description": "Use to specify a name for the new certificate object that will be created and placed\nin a policy. Only valid for Trust Protection Platform.\n"
                 },
                 "pkcs12": {
                     "type": "string",
-                    "description": "A base64-encoded PKCS#12 keystore secured by the `key_password`. Useful when working with resources like \nazure key_vault_certificate.\n"
+                    "description": "A base64-encoded PKCS#12 keystore secured by the `key_password`. Useful when working with resources like\nazure key_vault_certificate.\n"
                 },
                 "privateKeyPem": {
                     "type": "string",
@@ -333,7 +333,7 @@
                 },
                 "rsaBits": {
                     "type": "integer",
-                    "description": "Number of bits to use when generating an RSA key. Applies when algorithm is `RSA`. \nDefaults to `2048`.\n"
+                    "description": "Number of bits to use when generating an RSA key. Applies when algorithm is `RSA`.\nDefaults to `2048`.\n"
                 },
                 "sanDns": {
                     "type": "array",
@@ -361,7 +361,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "List of Uniform Resource Identifiers (URIs) to use as alternative subjects of \nthe certificate.\n"
+                    "description": "List of Uniform Resource Identifiers (URIs) to use as alternative subjects of\nthe certificate.\n"
                 },
                 "validDays": {
                     "type": "integer",
@@ -394,7 +394,7 @@
                 },
                 "csrOrigin": {
                     "type": "string",
-                    "description": "Whether key-pair generation will be `local` or `service` generated. Default is \n`local`.\n",
+                    "description": "Whether key-pair generation will be `local` or `service` generated. Default is\n`local`.\n",
                     "willReplaceOnChanges": true
                 },
                 "csrPem": {
@@ -415,11 +415,11 @@
                 },
                 "expirationWindow": {
                     "type": "integer",
-                    "description": "Number of hours before certificate expiry to request a new certificate. \nDefaults to `168`.\n"
+                    "description": "Number of hours before certificate expiry to request a new certificate.\nDefaults to `168`.\n"
                 },
                 "issuerHint": {
                     "type": "string",
-                    "description": "Used with `valid_days` to indicate the target issuer when using Trust Protection \nPlatform. Relevant values are: `DigiCert`, `Entrust`, and `Microsoft`.\n",
+                    "description": "Used with `valid_days` to indicate the target issuer when using Trust Protection\nPlatform. Relevant values are: `DigiCert`, `Entrust`, and `Microsoft`.\n",
                     "willReplaceOnChanges": true
                 },
                 "keyPassword": {
@@ -430,12 +430,12 @@
                 },
                 "nickname": {
                     "type": "string",
-                    "description": "Use to specify a name for the new certificate object that will be created and placed \nin a policy. Only valid for Trust Protection Platform.\n",
+                    "description": "Use to specify a name for the new certificate object that will be created and placed\nin a policy. Only valid for Trust Protection Platform.\n",
                     "willReplaceOnChanges": true
                 },
                 "pkcs12": {
                     "type": "string",
-                    "description": "A base64-encoded PKCS#12 keystore secured by the `key_password`. Useful when working with resources like \nazure key_vault_certificate.\n"
+                    "description": "A base64-encoded PKCS#12 keystore secured by the `key_password`. Useful when working with resources like\nazure key_vault_certificate.\n"
                 },
                 "privateKeyPem": {
                     "type": "string",
@@ -449,7 +449,7 @@
                 },
                 "rsaBits": {
                     "type": "integer",
-                    "description": "Number of bits to use when generating an RSA key. Applies when algorithm is `RSA`. \nDefaults to `2048`.\n",
+                    "description": "Number of bits to use when generating an RSA key. Applies when algorithm is `RSA`.\nDefaults to `2048`.\n",
                     "willReplaceOnChanges": true
                 },
                 "sanDns": {
@@ -481,7 +481,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "List of Uniform Resource Identifiers (URIs) to use as alternative subjects of \nthe certificate.\n",
+                    "description": "List of Uniform Resource Identifiers (URIs) to use as alternative subjects of\nthe certificate.\n",
                     "willReplaceOnChanges": true
                 },
                 "validDays": {
@@ -528,7 +528,7 @@
                     },
                     "csrOrigin": {
                         "type": "string",
-                        "description": "Whether key-pair generation will be `local` or `service` generated. Default is \n`local`.\n",
+                        "description": "Whether key-pair generation will be `local` or `service` generated. Default is\n`local`.\n",
                         "willReplaceOnChanges": true
                     },
                     "csrPem": {
@@ -549,11 +549,11 @@
                     },
                     "expirationWindow": {
                         "type": "integer",
-                        "description": "Number of hours before certificate expiry to request a new certificate. \nDefaults to `168`.\n"
+                        "description": "Number of hours before certificate expiry to request a new certificate.\nDefaults to `168`.\n"
                     },
                     "issuerHint": {
                         "type": "string",
-                        "description": "Used with `valid_days` to indicate the target issuer when using Trust Protection \nPlatform. Relevant values are: `DigiCert`, `Entrust`, and `Microsoft`.\n",
+                        "description": "Used with `valid_days` to indicate the target issuer when using Trust Protection\nPlatform. Relevant values are: `DigiCert`, `Entrust`, and `Microsoft`.\n",
                         "willReplaceOnChanges": true
                     },
                     "keyPassword": {
@@ -564,12 +564,12 @@
                     },
                     "nickname": {
                         "type": "string",
-                        "description": "Use to specify a name for the new certificate object that will be created and placed \nin a policy. Only valid for Trust Protection Platform.\n",
+                        "description": "Use to specify a name for the new certificate object that will be created and placed\nin a policy. Only valid for Trust Protection Platform.\n",
                         "willReplaceOnChanges": true
                     },
                     "pkcs12": {
                         "type": "string",
-                        "description": "A base64-encoded PKCS#12 keystore secured by the `key_password`. Useful when working with resources like \nazure key_vault_certificate.\n"
+                        "description": "A base64-encoded PKCS#12 keystore secured by the `key_password`. Useful when working with resources like\nazure key_vault_certificate.\n"
                     },
                     "privateKeyPem": {
                         "type": "string",
@@ -583,7 +583,7 @@
                     },
                     "rsaBits": {
                         "type": "integer",
-                        "description": "Number of bits to use when generating an RSA key. Applies when algorithm is `RSA`. \nDefaults to `2048`.\n",
+                        "description": "Number of bits to use when generating an RSA key. Applies when algorithm is `RSA`.\nDefaults to `2048`.\n",
                         "willReplaceOnChanges": true
                     },
                     "sanDns": {
@@ -615,7 +615,7 @@
                         "items": {
                             "type": "string"
                         },
-                        "description": "List of Uniform Resource Identifiers (URIs) to use as alternative subjects of \nthe certificate.\n",
+                        "description": "List of Uniform Resource Identifiers (URIs) to use as alternative subjects of\nthe certificate.\n",
                         "willReplaceOnChanges": true
                     },
                     "validDays": {
@@ -628,7 +628,7 @@
             }
         },
         "venafi:index/cloudKeystoreInstallation:CloudKeystoreInstallation": {
-            "description": "Provisions a certificate from Venafi Control Plane's inventory to any of the supported Cloud Providers: Amazon \nCertificate Manager, Azure KeyVault or Google Certificate Manager. Exports the ID of the provisioned certificate: \ncertificate name for AKV and GCM or ARN for ACM.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as venafi from \"@pulumi/venafi\";\n\n// Provision a certificate to cloud keystore with static values\nconst ckInstallationExampleById = new venafi.CloudKeystoreInstallation(\"ck_installation_example_by_id\", {\n    cloudKeystoreId: \"e48897d0-2762-11ef-198k-79ac590dd358\",\n    certificateId: \"1877af16-2762-11ef-8fab-cc123456ff7\",\n    cloudCertificateName: \"com-terraform-example-com\",\n});\n// Provision a certificate to cloud keystore\nconst ckInstallationExample = new venafi.CloudKeystoreInstallation(\"ck_installation_example\", {\n    cloudKeystoreId: ckExample.id,\n    certificateId: certificateExample.certificateId,\n    cloudCertificateName: certificateExample.commonName,\n});\n```\n```python\nimport pulumi\nimport pulumi_venafi as venafi\n\n# Provision a certificate to cloud keystore with static values\nck_installation_example_by_id = venafi.CloudKeystoreInstallation(\"ck_installation_example_by_id\",\n    cloud_keystore_id=\"e48897d0-2762-11ef-198k-79ac590dd358\",\n    certificate_id=\"1877af16-2762-11ef-8fab-cc123456ff7\",\n    cloud_certificate_name=\"com-terraform-example-com\")\n# Provision a certificate to cloud keystore\nck_installation_example = venafi.CloudKeystoreInstallation(\"ck_installation_example\",\n    cloud_keystore_id=ck_example[\"id\"],\n    certificate_id=certificate_example[\"certificateId\"],\n    cloud_certificate_name=certificate_example[\"commonName\"])\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Venafi = Pulumi.Venafi;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    // Provision a certificate to cloud keystore with static values\n    var ckInstallationExampleById = new Venafi.CloudKeystoreInstallation(\"ck_installation_example_by_id\", new()\n    {\n        CloudKeystoreId = \"e48897d0-2762-11ef-198k-79ac590dd358\",\n        CertificateId = \"1877af16-2762-11ef-8fab-cc123456ff7\",\n        CloudCertificateName = \"com-terraform-example-com\",\n    });\n\n    // Provision a certificate to cloud keystore\n    var ckInstallationExample = new Venafi.CloudKeystoreInstallation(\"ck_installation_example\", new()\n    {\n        CloudKeystoreId = ckExample.Id,\n        CertificateId = certificateExample.CertificateId,\n        CloudCertificateName = certificateExample.CommonName,\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-venafi/sdk/go/venafi\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t// Provision a certificate to cloud keystore with static values\n\t\t_, err := venafi.NewCloudKeystoreInstallation(ctx, \"ck_installation_example_by_id\", \u0026venafi.CloudKeystoreInstallationArgs{\n\t\t\tCloudKeystoreId:      pulumi.String(\"e48897d0-2762-11ef-198k-79ac590dd358\"),\n\t\t\tCertificateId:        pulumi.String(\"1877af16-2762-11ef-8fab-cc123456ff7\"),\n\t\t\tCloudCertificateName: pulumi.String(\"com-terraform-example-com\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t// Provision a certificate to cloud keystore\n\t\t_, err = venafi.NewCloudKeystoreInstallation(ctx, \"ck_installation_example\", \u0026venafi.CloudKeystoreInstallationArgs{\n\t\t\tCloudKeystoreId:      pulumi.Any(ckExample.Id),\n\t\t\tCertificateId:        pulumi.Any(certificateExample.CertificateId),\n\t\t\tCloudCertificateName: pulumi.Any(certificateExample.CommonName),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.venafi.CloudKeystoreInstallation;\nimport com.pulumi.venafi.CloudKeystoreInstallationArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        // Provision a certificate to cloud keystore with static values\n        var ckInstallationExampleById = new CloudKeystoreInstallation(\"ckInstallationExampleById\", CloudKeystoreInstallationArgs.builder()\n            .cloudKeystoreId(\"e48897d0-2762-11ef-198k-79ac590dd358\")\n            .certificateId(\"1877af16-2762-11ef-8fab-cc123456ff7\")\n            .cloudCertificateName(\"com-terraform-example-com\")\n            .build());\n\n        // Provision a certificate to cloud keystore\n        var ckInstallationExample = new CloudKeystoreInstallation(\"ckInstallationExample\", CloudKeystoreInstallationArgs.builder()\n            .cloudKeystoreId(ckExample.id())\n            .certificateId(certificateExample.certificateId())\n            .cloudCertificateName(certificateExample.commonName())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  # Provision a certificate to cloud keystore with static values\n  ckInstallationExampleById:\n    type: venafi:CloudKeystoreInstallation\n    name: ck_installation_example_by_id\n    properties:\n      cloudKeystoreId: e48897d0-2762-11ef-198k-79ac590dd358\n      certificateId: 1877af16-2762-11ef-8fab-cc123456ff7\n      cloudCertificateName: com-terraform-example-com\n  # Provision a certificate to cloud keystore\n  ckInstallationExample:\n    type: venafi:CloudKeystoreInstallation\n    name: ck_installation_example\n    properties:\n      cloudKeystoreId: ${ckExample.id}\n      certificateId: ${certificateExample.certificateId}\n      cloudCertificateName: ${certificateExample.commonName}\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\nUsing `pulumi import`, import a Machine Identity from Venafi Control Plane using their ID. For example:\n\nconsole\n\n```sh\n$ pulumi import venafi:index/cloudKeystoreInstallation:CloudKeystoreInstallation example 2155bd32-2234-22ac-7cfd-ff1198845aa2\n```\n\n",
+            "description": "Provisions a certificate from Venafi Control Plane's inventory to any of the supported Cloud Providers: Amazon\nCertificate Manager, Azure KeyVault or Google Certificate Manager. Exports the ID of the provisioned certificate:\ncertificate name for AKV and GCM or ARN for ACM.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as venafi from \"@pulumi/venafi\";\n\n// Provision a certificate to cloud keystore with static values\nconst ckInstallationExampleById = new venafi.CloudKeystoreInstallation(\"ck_installation_example_by_id\", {\n    cloudKeystoreId: \"e48897d0-2762-11ef-198k-79ac590dd358\",\n    certificateId: \"1877af16-2762-11ef-8fab-cc123456ff7\",\n    cloudCertificateName: \"com-terraform-example-com\",\n});\n// Provision a certificate to cloud keystore\nconst ckInstallationExample = new venafi.CloudKeystoreInstallation(\"ck_installation_example\", {\n    cloudKeystoreId: ckExample.id,\n    certificateId: certificateExample.certificateId,\n    cloudCertificateName: certificateExample.commonName,\n});\n```\n```python\nimport pulumi\nimport pulumi_venafi as venafi\n\n# Provision a certificate to cloud keystore with static values\nck_installation_example_by_id = venafi.CloudKeystoreInstallation(\"ck_installation_example_by_id\",\n    cloud_keystore_id=\"e48897d0-2762-11ef-198k-79ac590dd358\",\n    certificate_id=\"1877af16-2762-11ef-8fab-cc123456ff7\",\n    cloud_certificate_name=\"com-terraform-example-com\")\n# Provision a certificate to cloud keystore\nck_installation_example = venafi.CloudKeystoreInstallation(\"ck_installation_example\",\n    cloud_keystore_id=ck_example[\"id\"],\n    certificate_id=certificate_example[\"certificateId\"],\n    cloud_certificate_name=certificate_example[\"commonName\"])\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Venafi = Pulumi.Venafi;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    // Provision a certificate to cloud keystore with static values\n    var ckInstallationExampleById = new Venafi.CloudKeystoreInstallation(\"ck_installation_example_by_id\", new()\n    {\n        CloudKeystoreId = \"e48897d0-2762-11ef-198k-79ac590dd358\",\n        CertificateId = \"1877af16-2762-11ef-8fab-cc123456ff7\",\n        CloudCertificateName = \"com-terraform-example-com\",\n    });\n\n    // Provision a certificate to cloud keystore\n    var ckInstallationExample = new Venafi.CloudKeystoreInstallation(\"ck_installation_example\", new()\n    {\n        CloudKeystoreId = ckExample.Id,\n        CertificateId = certificateExample.CertificateId,\n        CloudCertificateName = certificateExample.CommonName,\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-venafi/sdk/go/venafi\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t// Provision a certificate to cloud keystore with static values\n\t\t_, err := venafi.NewCloudKeystoreInstallation(ctx, \"ck_installation_example_by_id\", \u0026venafi.CloudKeystoreInstallationArgs{\n\t\t\tCloudKeystoreId:      pulumi.String(\"e48897d0-2762-11ef-198k-79ac590dd358\"),\n\t\t\tCertificateId:        pulumi.String(\"1877af16-2762-11ef-8fab-cc123456ff7\"),\n\t\t\tCloudCertificateName: pulumi.String(\"com-terraform-example-com\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t// Provision a certificate to cloud keystore\n\t\t_, err = venafi.NewCloudKeystoreInstallation(ctx, \"ck_installation_example\", \u0026venafi.CloudKeystoreInstallationArgs{\n\t\t\tCloudKeystoreId:      pulumi.Any(ckExample.Id),\n\t\t\tCertificateId:        pulumi.Any(certificateExample.CertificateId),\n\t\t\tCloudCertificateName: pulumi.Any(certificateExample.CommonName),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.venafi.CloudKeystoreInstallation;\nimport com.pulumi.venafi.CloudKeystoreInstallationArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        // Provision a certificate to cloud keystore with static values\n        var ckInstallationExampleById = new CloudKeystoreInstallation(\"ckInstallationExampleById\", CloudKeystoreInstallationArgs.builder()\n            .cloudKeystoreId(\"e48897d0-2762-11ef-198k-79ac590dd358\")\n            .certificateId(\"1877af16-2762-11ef-8fab-cc123456ff7\")\n            .cloudCertificateName(\"com-terraform-example-com\")\n            .build());\n\n        // Provision a certificate to cloud keystore\n        var ckInstallationExample = new CloudKeystoreInstallation(\"ckInstallationExample\", CloudKeystoreInstallationArgs.builder()\n            .cloudKeystoreId(ckExample.id())\n            .certificateId(certificateExample.certificateId())\n            .cloudCertificateName(certificateExample.commonName())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  # Provision a certificate to cloud keystore with static values\n  ckInstallationExampleById:\n    type: venafi:CloudKeystoreInstallation\n    name: ck_installation_example_by_id\n    properties:\n      cloudKeystoreId: e48897d0-2762-11ef-198k-79ac590dd358\n      certificateId: 1877af16-2762-11ef-8fab-cc123456ff7\n      cloudCertificateName: com-terraform-example-com\n  # Provision a certificate to cloud keystore\n  ckInstallationExample:\n    type: venafi:CloudKeystoreInstallation\n    name: ck_installation_example\n    properties:\n      cloudKeystoreId: ${ckExample.id}\n      certificateId: ${certificateExample.certificateId}\n      cloudCertificateName: ${certificateExample.commonName}\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\nUsing `pulumi import`, import a Machine Identity from Venafi Control Plane using their ID. For example:\n\nconsole\n\n```sh\n$ pulumi import venafi:index/cloudKeystoreInstallation:CloudKeystoreInstallation example 2155bd32-2234-22ac-7cfd-ff1198845aa2\n```\n\n",
             "properties": {
                 "arn": {
                     "type": "string",
@@ -727,26 +727,26 @@
             }
         },
         "venafi:index/policy:Policy": {
-            "description": "Provides access to read and write certificate policy in Venafi. This can be used to define a new policy (folder in \n*Trust Protection Platform*; application and issuing template in *Venafi Control Plane*).\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as std from \"@pulumi/std\";\nimport * as venafi from \"@pulumi/venafi\";\n\nconst internalPolicy = new venafi.Policy(\"internal_policy\", {\n    zone: \"My Business App\\\\Enterprise Trusted Certs\",\n    policySpecification: std.file({\n        input: \"/path-to/internal-policy.json\",\n    }).then(invoke =\u003e invoke.result),\n});\n```\n```python\nimport pulumi\nimport pulumi_std as std\nimport pulumi_venafi as venafi\n\ninternal_policy = venafi.Policy(\"internal_policy\",\n    zone=\"My Business App\\\\Enterprise Trusted Certs\",\n    policy_specification=std.file(input=\"/path-to/internal-policy.json\").result)\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Std = Pulumi.Std;\nusing Venafi = Pulumi.Venafi;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var internalPolicy = new Venafi.Policy(\"internal_policy\", new()\n    {\n        Zone = \"My Business App\\\\Enterprise Trusted Certs\",\n        PolicySpecification = Std.File.Invoke(new()\n        {\n            Input = \"/path-to/internal-policy.json\",\n        }).Apply(invoke =\u003e invoke.Result),\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-std/sdk/go/std\"\n\t\"github.com/pulumi/pulumi-venafi/sdk/go/venafi\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tinvokeFile, err := std.File(ctx, \u0026std.FileArgs{\n\t\t\tInput: \"/path-to/internal-policy.json\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = venafi.NewPolicy(ctx, \"internal_policy\", \u0026venafi.PolicyArgs{\n\t\t\tZone:                pulumi.String(\"My Business App\\\\Enterprise Trusted Certs\"),\n\t\t\tPolicySpecification: pulumi.String(invokeFile.Result),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.venafi.Policy;\nimport com.pulumi.venafi.PolicyArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var internalPolicy = new Policy(\"internalPolicy\", PolicyArgs.builder()\n            .zone(\"My Business App\\\\Enterprise Trusted Certs\")\n            .policySpecification(StdFunctions.file(FileArgs.builder()\n                .input(\"/path-to/internal-policy.json\")\n                .build()).result())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  internalPolicy:\n    type: venafi:Policy\n    name: internal_policy\n    properties:\n      zone: My Business App\\Enterprise Trusted Certs\n      policySpecification:\n        fn::invoke:\n          Function: std:file\n          Arguments:\n            input: /path-to/internal-policy.json\n          Return: result\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\nThe `venafi_policy` resource supports the Terraform import method. \n\nWhen used, the `zone` and `policy_specification` resource arguments are not required since the zone is a required \n\nparameter of the import method and the policy specification is populated from the existing infrastructure. Policy that \n\nis successfully imported is also output to a file named after the zone that was specified.\n\nhcl\n\nresource \"venafi_policy\" \"existing_policy\" {}\n\n```sh\n$ pulumi import venafi:index/policy:Policy existing_policy\" \"My Business App\\\\Enterprise Trusted Certs\"\n```\n\n",
+            "description": "Provides access to read and write certificate policy in Venafi. This can be used to define a new policy (folder in\n*Trust Protection Platform*; application and issuing template in *Venafi Control Plane*).\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as std from \"@pulumi/std\";\nimport * as venafi from \"@pulumi/venafi\";\n\nconst internalPolicy = new venafi.Policy(\"internal_policy\", {\n    zone: \"My Business App\\\\Enterprise Trusted Certs\",\n    policySpecification: std.file({\n        input: \"/path-to/internal-policy.json\",\n    }).then(invoke =\u003e invoke.result),\n});\n```\n```python\nimport pulumi\nimport pulumi_std as std\nimport pulumi_venafi as venafi\n\ninternal_policy = venafi.Policy(\"internal_policy\",\n    zone=\"My Business App\\\\Enterprise Trusted Certs\",\n    policy_specification=std.file(input=\"/path-to/internal-policy.json\").result)\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Std = Pulumi.Std;\nusing Venafi = Pulumi.Venafi;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var internalPolicy = new Venafi.Policy(\"internal_policy\", new()\n    {\n        Zone = \"My Business App\\\\Enterprise Trusted Certs\",\n        PolicySpecification = Std.File.Invoke(new()\n        {\n            Input = \"/path-to/internal-policy.json\",\n        }).Apply(invoke =\u003e invoke.Result),\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-std/sdk/go/std\"\n\t\"github.com/pulumi/pulumi-venafi/sdk/go/venafi\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tinvokeFile, err := std.File(ctx, \u0026std.FileArgs{\n\t\t\tInput: \"/path-to/internal-policy.json\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = venafi.NewPolicy(ctx, \"internal_policy\", \u0026venafi.PolicyArgs{\n\t\t\tZone:                pulumi.String(\"My Business App\\\\Enterprise Trusted Certs\"),\n\t\t\tPolicySpecification: pulumi.String(invokeFile.Result),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.venafi.Policy;\nimport com.pulumi.venafi.PolicyArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var internalPolicy = new Policy(\"internalPolicy\", PolicyArgs.builder()\n            .zone(\"My Business App\\\\Enterprise Trusted Certs\")\n            .policySpecification(StdFunctions.file(FileArgs.builder()\n                .input(\"/path-to/internal-policy.json\")\n                .build()).result())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  internalPolicy:\n    type: venafi:Policy\n    name: internal_policy\n    properties:\n      zone: My Business App\\Enterprise Trusted Certs\n      policySpecification:\n        fn::invoke:\n          Function: std:file\n          Arguments:\n            input: /path-to/internal-policy.json\n          Return: result\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\nThe `venafi_policy` resource supports the Terraform import method.\n\nWhen used, the `zone` and `policy_specification` resource arguments are not required since the zone is a required\n\nparameter of the import method and the policy specification is populated from the existing infrastructure. Policy that\n\nis successfully imported is also output to a file named after the zone that was specified.\n\nhcl\n\nresource \"venafi_policy\" \"existing_policy\" {}\n\n```sh\n$ pulumi import venafi:index/policy:Policy existing_policy\" \"My Business App\\\\Enterprise Trusted Certs\"\n```\n\n",
             "properties": {
                 "policySpecification": {
                     "type": "string",
-                    "description": "The JSON-formatted certificate policy specification as documented \n[here](https://github.com/Venafi/vcert/blob/master/README-POLICY-SPEC.md). Typically read from a file using the `file`\nfunction.\n"
+                    "description": "The JSON-formatted certificate policy specification as documented\n[here](https://github.com/Venafi/vcert/blob/master/README-POLICY-SPEC.md). Typically read from a file using the `file`\nfunction.\n"
                 },
                 "zone": {
                     "type": "string",
-                    "description": "The *Trust Protection Plaform* policy folder or *Venafi Control Plane* application and \nissuing template.\n"
+                    "description": "The *Trust Protection Plaform* policy folder or *Venafi Control Plane* application and\nissuing template.\n"
                 }
             },
             "inputProperties": {
                 "policySpecification": {
                     "type": "string",
-                    "description": "The JSON-formatted certificate policy specification as documented \n[here](https://github.com/Venafi/vcert/blob/master/README-POLICY-SPEC.md). Typically read from a file using the `file`\nfunction.\n",
+                    "description": "The JSON-formatted certificate policy specification as documented\n[here](https://github.com/Venafi/vcert/blob/master/README-POLICY-SPEC.md). Typically read from a file using the `file`\nfunction.\n",
                     "willReplaceOnChanges": true
                 },
                 "zone": {
                     "type": "string",
-                    "description": "The *Trust Protection Plaform* policy folder or *Venafi Control Plane* application and \nissuing template.\n",
+                    "description": "The *Trust Protection Plaform* policy folder or *Venafi Control Plane* application and\nissuing template.\n",
                     "willReplaceOnChanges": true
                 }
             },
@@ -755,12 +755,12 @@
                 "properties": {
                     "policySpecification": {
                         "type": "string",
-                        "description": "The JSON-formatted certificate policy specification as documented \n[here](https://github.com/Venafi/vcert/blob/master/README-POLICY-SPEC.md). Typically read from a file using the `file`\nfunction.\n",
+                        "description": "The JSON-formatted certificate policy specification as documented\n[here](https://github.com/Venafi/vcert/blob/master/README-POLICY-SPEC.md). Typically read from a file using the `file`\nfunction.\n",
                         "willReplaceOnChanges": true
                     },
                     "zone": {
                         "type": "string",
-                        "description": "The *Trust Protection Plaform* policy folder or *Venafi Control Plane* application and \nissuing template.\n",
+                        "description": "The *Trust Protection Plaform* policy folder or *Venafi Control Plane* application and\nissuing template.\n",
                         "willReplaceOnChanges": true
                     }
                 },
@@ -783,14 +783,14 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "A list of one or more valid IP or CIDR destination hosts where the \ncertificate will authenticate.\n"
+                    "description": "A list of one or more valid IP or CIDR destination hosts where the\ncertificate will authenticate.\n"
                 },
                 "extensions": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
-                    "description": "A list of key-value pairs that contain certificate extensions from the CA \ntemplate for client certificates. Allowed values (case-sensitive): `permit-X11-forwarding`, `permit-agent-forwarding`,\n`permit-port-forwarding`, `permit-pty`, `permit-user-rc`.\n"
+                    "description": "A list of key-value pairs that contain certificate extensions from the CA\ntemplate for client certificates. Allowed values (case-sensitive): `permit-X11-forwarding`, `permit-agent-forwarding`,\n`permit-port-forwarding`, `permit-pty`, `permit-user-rc`.\n"
                 },
                 "folder": {
                     "type": "string",
@@ -815,14 +815,14 @@
                 },
                 "objectName": {
                     "type": "string",
-                    "description": "The friendly name of the SSH certificate object. When not specified the `key_id` \nis used for the friendly name. If the object already exists the old certificate is archived and the CA issues a new\ncertificate.\n"
+                    "description": "The friendly name of the SSH certificate object. When not specified the `key_id`\nis used for the friendly name. If the object already exists the old certificate is archived and the CA issues a new\ncertificate.\n"
                 },
                 "principal": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
-                    "description": "[DEPRECATED] - (Optional, set of strings) Use \"principals\" instead. A list of usernames for whom the \nrequested certificate will be valid.\n",
+                    "description": "[DEPRECATED] - (Optional, set of strings) Use \"principals\" instead. A list of usernames for whom the\nrequested certificate will be valid.\n",
                     "deprecationMessage": "This will be removed in the future. Use \"principals\" instead"
                 },
                 "principals": {
@@ -846,7 +846,7 @@
                 },
                 "publicKeyMethod": {
                     "type": "string",
-                    "description": "Specifies whether the public key will be `local` (default), `file` or \n`service` generated.\n"
+                    "description": "Specifies whether the public key will be `local` (default), `file` or\n`service` generated.\n"
                 },
                 "serial": {
                     "type": "string",
@@ -861,7 +861,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "A list of one or more valid IP or CIDR addresses that can use the SSH \ncertificate.\n"
+                    "description": "A list of one or more valid IP or CIDR addresses that can use the SSH\ncertificate.\n"
                 },
                 "template": {
                     "type": "string",
@@ -902,7 +902,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "A list of one or more valid IP or CIDR destination hosts where the \ncertificate will authenticate.\n",
+                    "description": "A list of one or more valid IP or CIDR destination hosts where the\ncertificate will authenticate.\n",
                     "willReplaceOnChanges": true
                 },
                 "extensions": {
@@ -910,7 +910,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "A list of key-value pairs that contain certificate extensions from the CA \ntemplate for client certificates. Allowed values (case-sensitive): `permit-X11-forwarding`, `permit-agent-forwarding`,\n`permit-port-forwarding`, `permit-pty`, `permit-user-rc`.\n",
+                    "description": "A list of key-value pairs that contain certificate extensions from the CA\ntemplate for client certificates. Allowed values (case-sensitive): `permit-X11-forwarding`, `permit-agent-forwarding`,\n`permit-port-forwarding`, `permit-pty`, `permit-user-rc`.\n",
                     "willReplaceOnChanges": true
                 },
                 "folder": {
@@ -941,7 +941,7 @@
                 },
                 "objectName": {
                     "type": "string",
-                    "description": "The friendly name of the SSH certificate object. When not specified the `key_id` \nis used for the friendly name. If the object already exists the old certificate is archived and the CA issues a new\ncertificate.\n",
+                    "description": "The friendly name of the SSH certificate object. When not specified the `key_id`\nis used for the friendly name. If the object already exists the old certificate is archived and the CA issues a new\ncertificate.\n",
                     "willReplaceOnChanges": true
                 },
                 "principal": {
@@ -949,7 +949,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "[DEPRECATED] - (Optional, set of strings) Use \"principals\" instead. A list of usernames for whom the \nrequested certificate will be valid.\n",
+                    "description": "[DEPRECATED] - (Optional, set of strings) Use \"principals\" instead. A list of usernames for whom the\nrequested certificate will be valid.\n",
                     "deprecationMessage": "This will be removed in the future. Use \"principals\" instead",
                     "willReplaceOnChanges": true
                 },
@@ -968,7 +968,7 @@
                 },
                 "publicKeyMethod": {
                     "type": "string",
-                    "description": "Specifies whether the public key will be `local` (default), `file` or \n`service` generated.\n",
+                    "description": "Specifies whether the public key will be `local` (default), `file` or\n`service` generated.\n",
                     "willReplaceOnChanges": true
                 },
                 "sourceAddresses": {
@@ -976,7 +976,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "A list of one or more valid IP or CIDR addresses that can use the SSH \ncertificate.\n",
+                    "description": "A list of one or more valid IP or CIDR addresses that can use the SSH\ncertificate.\n",
                     "willReplaceOnChanges": true
                 },
                 "template": {
@@ -1015,7 +1015,7 @@
                         "items": {
                             "type": "string"
                         },
-                        "description": "A list of one or more valid IP or CIDR destination hosts where the \ncertificate will authenticate.\n",
+                        "description": "A list of one or more valid IP or CIDR destination hosts where the\ncertificate will authenticate.\n",
                         "willReplaceOnChanges": true
                     },
                     "extensions": {
@@ -1023,7 +1023,7 @@
                         "items": {
                             "type": "string"
                         },
-                        "description": "A list of key-value pairs that contain certificate extensions from the CA \ntemplate for client certificates. Allowed values (case-sensitive): `permit-X11-forwarding`, `permit-agent-forwarding`,\n`permit-port-forwarding`, `permit-pty`, `permit-user-rc`.\n",
+                        "description": "A list of key-value pairs that contain certificate extensions from the CA\ntemplate for client certificates. Allowed values (case-sensitive): `permit-X11-forwarding`, `permit-agent-forwarding`,\n`permit-port-forwarding`, `permit-pty`, `permit-user-rc`.\n",
                         "willReplaceOnChanges": true
                     },
                     "folder": {
@@ -1054,7 +1054,7 @@
                     },
                     "objectName": {
                         "type": "string",
-                        "description": "The friendly name of the SSH certificate object. When not specified the `key_id` \nis used for the friendly name. If the object already exists the old certificate is archived and the CA issues a new\ncertificate.\n",
+                        "description": "The friendly name of the SSH certificate object. When not specified the `key_id`\nis used for the friendly name. If the object already exists the old certificate is archived and the CA issues a new\ncertificate.\n",
                         "willReplaceOnChanges": true
                     },
                     "principal": {
@@ -1062,7 +1062,7 @@
                         "items": {
                             "type": "string"
                         },
-                        "description": "[DEPRECATED] - (Optional, set of strings) Use \"principals\" instead. A list of usernames for whom the \nrequested certificate will be valid.\n",
+                        "description": "[DEPRECATED] - (Optional, set of strings) Use \"principals\" instead. A list of usernames for whom the\nrequested certificate will be valid.\n",
                         "deprecationMessage": "This will be removed in the future. Use \"principals\" instead",
                         "willReplaceOnChanges": true
                     },
@@ -1089,7 +1089,7 @@
                     },
                     "publicKeyMethod": {
                         "type": "string",
-                        "description": "Specifies whether the public key will be `local` (default), `file` or \n`service` generated.\n",
+                        "description": "Specifies whether the public key will be `local` (default), `file` or\n`service` generated.\n",
                         "willReplaceOnChanges": true
                     },
                     "serial": {
@@ -1105,7 +1105,7 @@
                         "items": {
                             "type": "string"
                         },
-                        "description": "A list of one or more valid IP or CIDR addresses that can use the SSH \ncertificate.\n",
+                        "description": "A list of one or more valid IP or CIDR addresses that can use the SSH\ncertificate.\n",
                         "willReplaceOnChanges": true
                     },
                     "template": {
@@ -1195,7 +1195,7 @@
     },
     "functions": {
         "venafi:index/getCloudKeystore:getCloudKeystore": {
-            "description": "Use this data source to get the `ID` of a cloud keystore in Venafi Control Plane, referenced by its name and parent \ncloud provider ID. You can use `venafi.getCloudProvider` data source to obtain the ID of the parent cloud provider.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as venafi from \"@pulumi/venafi\";\n\n// Find a cloud keystore with a static cloud provider id\nconst ckExampleById = venafi.getCloudKeystore({\n    cloudProviderId: \"e48897d0-2762-11ef-8fab-79ac590dd358\",\n    name: \"Cloud Keystore Example\",\n});\n// Find a cloud keystore by using venafi_cloud_provider data source as input\nconst ckExample = venafi.getCloudKeystore({\n    cloudProviderId: cpExample.id,\n    name: \"Cloud Keystore example\",\n});\n```\n```python\nimport pulumi\nimport pulumi_venafi as venafi\n\n# Find a cloud keystore with a static cloud provider id\nck_example_by_id = venafi.get_cloud_keystore(cloud_provider_id=\"e48897d0-2762-11ef-8fab-79ac590dd358\",\n    name=\"Cloud Keystore Example\")\n# Find a cloud keystore by using venafi_cloud_provider data source as input\nck_example = venafi.get_cloud_keystore(cloud_provider_id=cp_example[\"id\"],\n    name=\"Cloud Keystore example\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Venafi = Pulumi.Venafi;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    // Find a cloud keystore with a static cloud provider id\n    var ckExampleById = Venafi.GetCloudKeystore.Invoke(new()\n    {\n        CloudProviderId = \"e48897d0-2762-11ef-8fab-79ac590dd358\",\n        Name = \"Cloud Keystore Example\",\n    });\n\n    // Find a cloud keystore by using venafi_cloud_provider data source as input\n    var ckExample = Venafi.GetCloudKeystore.Invoke(new()\n    {\n        CloudProviderId = cpExample.Id,\n        Name = \"Cloud Keystore example\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-venafi/sdk/go/venafi\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t// Find a cloud keystore with a static cloud provider id\n\t\t_, err := venafi.GetCloudKeystore(ctx, \u0026venafi.GetCloudKeystoreArgs{\n\t\t\tCloudProviderId: \"e48897d0-2762-11ef-8fab-79ac590dd358\",\n\t\t\tName:            \"Cloud Keystore Example\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t// Find a cloud keystore by using venafi_cloud_provider data source as input\n\t\t_, err = venafi.GetCloudKeystore(ctx, \u0026venafi.GetCloudKeystoreArgs{\n\t\t\tCloudProviderId: cpExample.Id,\n\t\t\tName:            \"Cloud Keystore example\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.venafi.VenafiFunctions;\nimport com.pulumi.venafi.inputs.GetCloudKeystoreArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        // Find a cloud keystore with a static cloud provider id\n        final var ckExampleById = VenafiFunctions.getCloudKeystore(GetCloudKeystoreArgs.builder()\n            .cloudProviderId(\"e48897d0-2762-11ef-8fab-79ac590dd358\")\n            .name(\"Cloud Keystore Example\")\n            .build());\n\n        // Find a cloud keystore by using venafi_cloud_provider data source as input\n        final var ckExample = VenafiFunctions.getCloudKeystore(GetCloudKeystoreArgs.builder()\n            .cloudProviderId(cpExample.id())\n            .name(\"Cloud Keystore example\")\n            .build());\n\n    }\n}\n```\n```yaml\nvariables:\n  # Find a cloud keystore with a static cloud provider id\n  ckExampleById:\n    fn::invoke:\n      Function: venafi:getCloudKeystore\n      Arguments:\n        cloudProviderId: e48897d0-2762-11ef-8fab-79ac590dd358\n        name: Cloud Keystore Example\n  # Find a cloud keystore by using venafi_cloud_provider data source as input\n  ckExample:\n    fn::invoke:\n      Function: venafi:getCloudKeystore\n      Arguments:\n        cloudProviderId: ${cpExample.id}\n        name: Cloud Keystore example\n```\n\u003c!--End PulumiCodeChooser --\u003e\n",
+            "description": "Use this data source to get the `ID` of a cloud keystore in Venafi Control Plane, referenced by its name and parent\ncloud provider ID. You can use `venafi.getCloudProvider` data source to obtain the ID of the parent cloud provider.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as venafi from \"@pulumi/venafi\";\n\n// Find a cloud keystore with a static cloud provider id\nconst ckExampleById = venafi.getCloudKeystore({\n    cloudProviderId: \"e48897d0-2762-11ef-8fab-79ac590dd358\",\n    name: \"Cloud Keystore Example\",\n});\n// Find a cloud keystore by using venafi_cloud_provider data source as input\nconst ckExample = venafi.getCloudKeystore({\n    cloudProviderId: cpExample.id,\n    name: \"Cloud Keystore example\",\n});\n```\n```python\nimport pulumi\nimport pulumi_venafi as venafi\n\n# Find a cloud keystore with a static cloud provider id\nck_example_by_id = venafi.get_cloud_keystore(cloud_provider_id=\"e48897d0-2762-11ef-8fab-79ac590dd358\",\n    name=\"Cloud Keystore Example\")\n# Find a cloud keystore by using venafi_cloud_provider data source as input\nck_example = venafi.get_cloud_keystore(cloud_provider_id=cp_example[\"id\"],\n    name=\"Cloud Keystore example\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Venafi = Pulumi.Venafi;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    // Find a cloud keystore with a static cloud provider id\n    var ckExampleById = Venafi.GetCloudKeystore.Invoke(new()\n    {\n        CloudProviderId = \"e48897d0-2762-11ef-8fab-79ac590dd358\",\n        Name = \"Cloud Keystore Example\",\n    });\n\n    // Find a cloud keystore by using venafi_cloud_provider data source as input\n    var ckExample = Venafi.GetCloudKeystore.Invoke(new()\n    {\n        CloudProviderId = cpExample.Id,\n        Name = \"Cloud Keystore example\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-venafi/sdk/go/venafi\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t// Find a cloud keystore with a static cloud provider id\n\t\t_, err := venafi.GetCloudKeystore(ctx, \u0026venafi.GetCloudKeystoreArgs{\n\t\t\tCloudProviderId: \"e48897d0-2762-11ef-8fab-79ac590dd358\",\n\t\t\tName:            \"Cloud Keystore Example\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t// Find a cloud keystore by using venafi_cloud_provider data source as input\n\t\t_, err = venafi.GetCloudKeystore(ctx, \u0026venafi.GetCloudKeystoreArgs{\n\t\t\tCloudProviderId: cpExample.Id,\n\t\t\tName:            \"Cloud Keystore example\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.venafi.VenafiFunctions;\nimport com.pulumi.venafi.inputs.GetCloudKeystoreArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        // Find a cloud keystore with a static cloud provider id\n        final var ckExampleById = VenafiFunctions.getCloudKeystore(GetCloudKeystoreArgs.builder()\n            .cloudProviderId(\"e48897d0-2762-11ef-8fab-79ac590dd358\")\n            .name(\"Cloud Keystore Example\")\n            .build());\n\n        // Find a cloud keystore by using venafi_cloud_provider data source as input\n        final var ckExample = VenafiFunctions.getCloudKeystore(GetCloudKeystoreArgs.builder()\n            .cloudProviderId(cpExample.id())\n            .name(\"Cloud Keystore example\")\n            .build());\n\n    }\n}\n```\n```yaml\nvariables:\n  # Find a cloud keystore with a static cloud provider id\n  ckExampleById:\n    fn::invoke:\n      Function: venafi:getCloudKeystore\n      Arguments:\n        cloudProviderId: e48897d0-2762-11ef-8fab-79ac590dd358\n        name: Cloud Keystore Example\n  # Find a cloud keystore by using venafi_cloud_provider data source as input\n  ckExample:\n    fn::invoke:\n      Function: venafi:getCloudKeystore\n      Arguments:\n        cloudProviderId: ${cpExample.id}\n        name: Cloud Keystore example\n```\n\u003c!--End PulumiCodeChooser --\u003e\n",
             "inputs": {
                 "description": "A collection of arguments for invoking getCloudKeystore.\n",
                 "properties": {
