@@ -76,11 +76,11 @@ export class CloudKeystoreInstallation extends pulumi.CustomResource {
      */
     public readonly certificateId!: pulumi.Output<string>;
     /**
-     * ID of the certificate after it has been provisioned to the cloud keystore
+     * The ID of the provisioned certificate within the Cloud Keystore
      */
     public /*out*/ readonly cloudCertificateId!: pulumi.Output<string>;
     /**
-     * Metadata of the certificate after it has been provisioned to the cloud keystore
+     * Metadata of the provisioned certificate from the Cloud Keystore
      */
     public /*out*/ readonly cloudCertificateMetadata!: pulumi.Output<{[key: string]: string}>;
     /**
@@ -144,11 +144,11 @@ export interface CloudKeystoreInstallationState {
      */
     certificateId?: pulumi.Input<string>;
     /**
-     * ID of the certificate after it has been provisioned to the cloud keystore
+     * The ID of the provisioned certificate within the Cloud Keystore
      */
     cloudCertificateId?: pulumi.Input<string>;
     /**
-     * Metadata of the certificate after it has been provisioned to the cloud keystore
+     * Metadata of the provisioned certificate from the Cloud Keystore
      */
     cloudCertificateMetadata?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**

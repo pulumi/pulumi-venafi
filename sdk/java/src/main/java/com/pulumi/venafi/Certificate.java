@@ -97,6 +97,20 @@ public class Certificate extends com.pulumi.resources.CustomResource {
         return this.commonName;
     }
     /**
+     * Country of the certificate (C)
+     * 
+     */
+    @Export(name="country", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> country;
+
+    /**
+     * @return Country of the certificate (C)
+     * 
+     */
+    public Output<Optional<String>> country() {
+        return Codegen.optional(this.country);
+    }
+    /**
      * Whether key-pair generation will be `local` or `service` generated. Default is
      * `local`.
      * 
@@ -193,6 +207,20 @@ public class Certificate extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.keyPassword);
     }
     /**
+     * Locality/City of the certificate (L)
+     * 
+     */
+    @Export(name="locality", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> locality;
+
+    /**
+     * @return Locality/City of the certificate (L)
+     * 
+     */
+    public Output<Optional<String>> locality() {
+        return Codegen.optional(this.locality);
+    }
+    /**
      * Use to specify a name for the new certificate object that will be created and placed
      * in a policy. Only valid for Trust Protection Platform.
      * 
@@ -207,6 +235,34 @@ public class Certificate extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<String>> nickname() {
         return Codegen.optional(this.nickname);
+    }
+    /**
+     * Organization of the certificate (O)
+     * 
+     */
+    @Export(name="organization", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> organization;
+
+    /**
+     * @return Organization of the certificate (O)
+     * 
+     */
+    public Output<Optional<String>> organization() {
+        return Codegen.optional(this.organization);
+    }
+    /**
+     * List of Organizational Units of the certificate (OU)
+     * 
+     */
+    @Export(name="organizationalUnits", refs={List.class,String.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<String>> organizationalUnits;
+
+    /**
+     * @return List of Organizational Units of the certificate (OU)
+     * 
+     */
+    public Output<Optional<List<String>>> organizationalUnits() {
+        return Codegen.optional(this.organizationalUnits);
     }
     /**
      * A base64-encoded PKCS#12 keystore secured by the `key_password`. Useful when working with resources like
@@ -325,6 +381,20 @@ public class Certificate extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<List<String>>> sanUris() {
         return Codegen.optional(this.sanUris);
+    }
+    /**
+     * State of the certificate (S)
+     * 
+     */
+    @Export(name="state", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> state;
+
+    /**
+     * @return State of the certificate (S)
+     * 
+     */
+    public Output<Optional<String>> state() {
+        return Codegen.optional(this.state);
     }
     /**
      * Desired number of days for which the new certificate will be valid.

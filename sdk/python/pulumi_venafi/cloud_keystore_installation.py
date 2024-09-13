@@ -94,8 +94,8 @@ class _CloudKeystoreInstallationState:
         Input properties used for looking up and filtering CloudKeystoreInstallation resources.
         :param pulumi.Input[str] arn: ARN of the AWS certificate. Use it to provision the VCP certificate to an existing ACM certificate, instead of a new one. Only valid for ACM keystores.
         :param pulumi.Input[str] certificate_id: ID of the certificate to be provisioned to the given `keystore_id`.
-        :param pulumi.Input[str] cloud_certificate_id: ID of the certificate after it has been provisioned to the cloud keystore
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] cloud_certificate_metadata: Metadata of the certificate after it has been provisioned to the cloud keystore
+        :param pulumi.Input[str] cloud_certificate_id: The ID of the provisioned certificate within the Cloud Keystore
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] cloud_certificate_metadata: Metadata of the provisioned certificate from the Cloud Keystore
         :param pulumi.Input[str] cloud_certificate_name: Name for the provisioned certificate in the keystore. If the name already exists, the provisioning will replace the previous certificate with the one from `certificate_id`. Only valid for AKV and GCM keystores.
         :param pulumi.Input[str] cloud_keystore_id: ID of the cloud keystore where the certificate will be provisioned.
         """
@@ -140,7 +140,7 @@ class _CloudKeystoreInstallationState:
     @pulumi.getter(name="cloudCertificateId")
     def cloud_certificate_id(self) -> Optional[pulumi.Input[str]]:
         """
-        ID of the certificate after it has been provisioned to the cloud keystore
+        The ID of the provisioned certificate within the Cloud Keystore
         """
         return pulumi.get(self, "cloud_certificate_id")
 
@@ -152,7 +152,7 @@ class _CloudKeystoreInstallationState:
     @pulumi.getter(name="cloudCertificateMetadata")
     def cloud_certificate_metadata(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        Metadata of the certificate after it has been provisioned to the cloud keystore
+        Metadata of the provisioned certificate from the Cloud Keystore
         """
         return pulumi.get(self, "cloud_certificate_metadata")
 
@@ -337,8 +337,8 @@ class CloudKeystoreInstallation(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: ARN of the AWS certificate. Use it to provision the VCP certificate to an existing ACM certificate, instead of a new one. Only valid for ACM keystores.
         :param pulumi.Input[str] certificate_id: ID of the certificate to be provisioned to the given `keystore_id`.
-        :param pulumi.Input[str] cloud_certificate_id: ID of the certificate after it has been provisioned to the cloud keystore
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] cloud_certificate_metadata: Metadata of the certificate after it has been provisioned to the cloud keystore
+        :param pulumi.Input[str] cloud_certificate_id: The ID of the provisioned certificate within the Cloud Keystore
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] cloud_certificate_metadata: Metadata of the provisioned certificate from the Cloud Keystore
         :param pulumi.Input[str] cloud_certificate_name: Name for the provisioned certificate in the keystore. If the name already exists, the provisioning will replace the previous certificate with the one from `certificate_id`. Only valid for AKV and GCM keystores.
         :param pulumi.Input[str] cloud_keystore_id: ID of the cloud keystore where the certificate will be provisioned.
         """
@@ -374,7 +374,7 @@ class CloudKeystoreInstallation(pulumi.CustomResource):
     @pulumi.getter(name="cloudCertificateId")
     def cloud_certificate_id(self) -> pulumi.Output[str]:
         """
-        ID of the certificate after it has been provisioned to the cloud keystore
+        The ID of the provisioned certificate within the Cloud Keystore
         """
         return pulumi.get(self, "cloud_certificate_id")
 
@@ -382,7 +382,7 @@ class CloudKeystoreInstallation(pulumi.CustomResource):
     @pulumi.getter(name="cloudCertificateMetadata")
     def cloud_certificate_metadata(self) -> pulumi.Output[Mapping[str, str]]:
         """
-        Metadata of the certificate after it has been provisioned to the cloud keystore
+        Metadata of the provisioned certificate from the Cloud Keystore
         """
         return pulumi.get(self, "cloud_certificate_metadata")
 

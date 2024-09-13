@@ -26,6 +26,8 @@ type Certificate struct {
 	Chain pulumi.StringOutput `pulumi:"chain"`
 	// The common name of the certificate.
 	CommonName pulumi.StringOutput `pulumi:"commonName"`
+	// Country of the certificate (C)
+	Country pulumi.StringPtrOutput `pulumi:"country"`
 	// Whether key-pair generation will be `local` or `service` generated. Default is
 	// `local`.
 	CsrOrigin pulumi.StringPtrOutput `pulumi:"csrOrigin"`
@@ -42,9 +44,15 @@ type Certificate struct {
 	IssuerHint pulumi.StringPtrOutput `pulumi:"issuerHint"`
 	// The password used to encrypt the private key.
 	KeyPassword pulumi.StringPtrOutput `pulumi:"keyPassword"`
+	// Locality/City of the certificate (L)
+	Locality pulumi.StringPtrOutput `pulumi:"locality"`
 	// Use to specify a name for the new certificate object that will be created and placed
 	// in a policy. Only valid for Trust Protection Platform.
 	Nickname pulumi.StringPtrOutput `pulumi:"nickname"`
+	// Organization of the certificate (O)
+	Organization pulumi.StringPtrOutput `pulumi:"organization"`
+	// List of Organizational Units of the certificate (OU)
+	OrganizationalUnits pulumi.StringArrayOutput `pulumi:"organizationalUnits"`
 	// A base64-encoded PKCS#12 keystore secured by the `keyPassword`. Useful when working with resources like
 	// azure key_vault_certificate.
 	Pkcs12 pulumi.StringOutput `pulumi:"pkcs12"`
@@ -64,6 +72,8 @@ type Certificate struct {
 	// List of Uniform Resource Identifiers (URIs) to use as alternative subjects of
 	// the certificate.
 	SanUris pulumi.StringArrayOutput `pulumi:"sanUris"`
+	// State of the certificate (S)
+	State pulumi.StringPtrOutput `pulumi:"state"`
 	// Desired number of days for which the new certificate will be valid.
 	ValidDays pulumi.IntPtrOutput `pulumi:"validDays"`
 }
@@ -123,6 +133,8 @@ type certificateState struct {
 	Chain *string `pulumi:"chain"`
 	// The common name of the certificate.
 	CommonName *string `pulumi:"commonName"`
+	// Country of the certificate (C)
+	Country *string `pulumi:"country"`
 	// Whether key-pair generation will be `local` or `service` generated. Default is
 	// `local`.
 	CsrOrigin *string `pulumi:"csrOrigin"`
@@ -139,9 +151,15 @@ type certificateState struct {
 	IssuerHint *string `pulumi:"issuerHint"`
 	// The password used to encrypt the private key.
 	KeyPassword *string `pulumi:"keyPassword"`
+	// Locality/City of the certificate (L)
+	Locality *string `pulumi:"locality"`
 	// Use to specify a name for the new certificate object that will be created and placed
 	// in a policy. Only valid for Trust Protection Platform.
 	Nickname *string `pulumi:"nickname"`
+	// Organization of the certificate (O)
+	Organization *string `pulumi:"organization"`
+	// List of Organizational Units of the certificate (OU)
+	OrganizationalUnits []string `pulumi:"organizationalUnits"`
 	// A base64-encoded PKCS#12 keystore secured by the `keyPassword`. Useful when working with resources like
 	// azure key_vault_certificate.
 	Pkcs12 *string `pulumi:"pkcs12"`
@@ -161,6 +179,8 @@ type certificateState struct {
 	// List of Uniform Resource Identifiers (URIs) to use as alternative subjects of
 	// the certificate.
 	SanUris []string `pulumi:"sanUris"`
+	// State of the certificate (S)
+	State *string `pulumi:"state"`
 	// Desired number of days for which the new certificate will be valid.
 	ValidDays *int `pulumi:"validDays"`
 }
@@ -177,6 +197,8 @@ type CertificateState struct {
 	Chain pulumi.StringPtrInput
 	// The common name of the certificate.
 	CommonName pulumi.StringPtrInput
+	// Country of the certificate (C)
+	Country pulumi.StringPtrInput
 	// Whether key-pair generation will be `local` or `service` generated. Default is
 	// `local`.
 	CsrOrigin pulumi.StringPtrInput
@@ -193,9 +215,15 @@ type CertificateState struct {
 	IssuerHint pulumi.StringPtrInput
 	// The password used to encrypt the private key.
 	KeyPassword pulumi.StringPtrInput
+	// Locality/City of the certificate (L)
+	Locality pulumi.StringPtrInput
 	// Use to specify a name for the new certificate object that will be created and placed
 	// in a policy. Only valid for Trust Protection Platform.
 	Nickname pulumi.StringPtrInput
+	// Organization of the certificate (O)
+	Organization pulumi.StringPtrInput
+	// List of Organizational Units of the certificate (OU)
+	OrganizationalUnits pulumi.StringArrayInput
 	// A base64-encoded PKCS#12 keystore secured by the `keyPassword`. Useful when working with resources like
 	// azure key_vault_certificate.
 	Pkcs12 pulumi.StringPtrInput
@@ -215,6 +243,8 @@ type CertificateState struct {
 	// List of Uniform Resource Identifiers (URIs) to use as alternative subjects of
 	// the certificate.
 	SanUris pulumi.StringArrayInput
+	// State of the certificate (S)
+	State pulumi.StringPtrInput
 	// Desired number of days for which the new certificate will be valid.
 	ValidDays pulumi.IntPtrInput
 }
@@ -229,6 +259,8 @@ type certificateArgs struct {
 	CertificateDn *string `pulumi:"certificateDn"`
 	// The common name of the certificate.
 	CommonName string `pulumi:"commonName"`
+	// Country of the certificate (C)
+	Country *string `pulumi:"country"`
 	// Whether key-pair generation will be `local` or `service` generated. Default is
 	// `local`.
 	CsrOrigin *string `pulumi:"csrOrigin"`
@@ -245,9 +277,15 @@ type certificateArgs struct {
 	IssuerHint *string `pulumi:"issuerHint"`
 	// The password used to encrypt the private key.
 	KeyPassword *string `pulumi:"keyPassword"`
+	// Locality/City of the certificate (L)
+	Locality *string `pulumi:"locality"`
 	// Use to specify a name for the new certificate object that will be created and placed
 	// in a policy. Only valid for Trust Protection Platform.
 	Nickname *string `pulumi:"nickname"`
+	// Organization of the certificate (O)
+	Organization *string `pulumi:"organization"`
+	// List of Organizational Units of the certificate (OU)
+	OrganizationalUnits []string `pulumi:"organizationalUnits"`
 	// A base64-encoded PKCS#12 keystore secured by the `keyPassword`. Useful when working with resources like
 	// azure key_vault_certificate.
 	Pkcs12 *string `pulumi:"pkcs12"`
@@ -267,6 +305,8 @@ type certificateArgs struct {
 	// List of Uniform Resource Identifiers (URIs) to use as alternative subjects of
 	// the certificate.
 	SanUris []string `pulumi:"sanUris"`
+	// State of the certificate (S)
+	State *string `pulumi:"state"`
 	// Desired number of days for which the new certificate will be valid.
 	ValidDays *int `pulumi:"validDays"`
 }
@@ -278,6 +318,8 @@ type CertificateArgs struct {
 	CertificateDn pulumi.StringPtrInput
 	// The common name of the certificate.
 	CommonName pulumi.StringInput
+	// Country of the certificate (C)
+	Country pulumi.StringPtrInput
 	// Whether key-pair generation will be `local` or `service` generated. Default is
 	// `local`.
 	CsrOrigin pulumi.StringPtrInput
@@ -294,9 +336,15 @@ type CertificateArgs struct {
 	IssuerHint pulumi.StringPtrInput
 	// The password used to encrypt the private key.
 	KeyPassword pulumi.StringPtrInput
+	// Locality/City of the certificate (L)
+	Locality pulumi.StringPtrInput
 	// Use to specify a name for the new certificate object that will be created and placed
 	// in a policy. Only valid for Trust Protection Platform.
 	Nickname pulumi.StringPtrInput
+	// Organization of the certificate (O)
+	Organization pulumi.StringPtrInput
+	// List of Organizational Units of the certificate (OU)
+	OrganizationalUnits pulumi.StringArrayInput
 	// A base64-encoded PKCS#12 keystore secured by the `keyPassword`. Useful when working with resources like
 	// azure key_vault_certificate.
 	Pkcs12 pulumi.StringPtrInput
@@ -316,6 +364,8 @@ type CertificateArgs struct {
 	// List of Uniform Resource Identifiers (URIs) to use as alternative subjects of
 	// the certificate.
 	SanUris pulumi.StringArrayInput
+	// State of the certificate (S)
+	State pulumi.StringPtrInput
 	// Desired number of days for which the new certificate will be valid.
 	ValidDays pulumi.IntPtrInput
 }
@@ -436,6 +486,11 @@ func (o CertificateOutput) CommonName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Certificate) pulumi.StringOutput { return v.CommonName }).(pulumi.StringOutput)
 }
 
+// Country of the certificate (C)
+func (o CertificateOutput) Country() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Certificate) pulumi.StringPtrOutput { return v.Country }).(pulumi.StringPtrOutput)
+}
+
 // Whether key-pair generation will be `local` or `service` generated. Default is
 // `local`.
 func (o CertificateOutput) CsrOrigin() pulumi.StringPtrOutput {
@@ -473,10 +528,25 @@ func (o CertificateOutput) KeyPassword() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Certificate) pulumi.StringPtrOutput { return v.KeyPassword }).(pulumi.StringPtrOutput)
 }
 
+// Locality/City of the certificate (L)
+func (o CertificateOutput) Locality() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Certificate) pulumi.StringPtrOutput { return v.Locality }).(pulumi.StringPtrOutput)
+}
+
 // Use to specify a name for the new certificate object that will be created and placed
 // in a policy. Only valid for Trust Protection Platform.
 func (o CertificateOutput) Nickname() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Certificate) pulumi.StringPtrOutput { return v.Nickname }).(pulumi.StringPtrOutput)
+}
+
+// Organization of the certificate (O)
+func (o CertificateOutput) Organization() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Certificate) pulumi.StringPtrOutput { return v.Organization }).(pulumi.StringPtrOutput)
+}
+
+// List of Organizational Units of the certificate (OU)
+func (o CertificateOutput) OrganizationalUnits() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Certificate) pulumi.StringArrayOutput { return v.OrganizationalUnits }).(pulumi.StringArrayOutput)
 }
 
 // A base64-encoded PKCS#12 keystore secured by the `keyPassword`. Useful when working with resources like
@@ -520,6 +590,11 @@ func (o CertificateOutput) SanIps() pulumi.StringArrayOutput {
 // the certificate.
 func (o CertificateOutput) SanUris() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Certificate) pulumi.StringArrayOutput { return v.SanUris }).(pulumi.StringArrayOutput)
+}
+
+// State of the certificate (S)
+func (o CertificateOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Certificate) pulumi.StringPtrOutput { return v.State }).(pulumi.StringPtrOutput)
 }
 
 // Desired number of days for which the new certificate will be valid.

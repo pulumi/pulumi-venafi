@@ -47,14 +47,14 @@ public final class CloudKeystoreInstallationState extends com.pulumi.resources.R
     }
 
     /**
-     * ID of the certificate after it has been provisioned to the cloud keystore
+     * The ID of the provisioned certificate within the Cloud Keystore
      * 
      */
     @Import(name="cloudCertificateId")
     private @Nullable Output<String> cloudCertificateId;
 
     /**
-     * @return ID of the certificate after it has been provisioned to the cloud keystore
+     * @return The ID of the provisioned certificate within the Cloud Keystore
      * 
      */
     public Optional<Output<String>> cloudCertificateId() {
@@ -62,14 +62,14 @@ public final class CloudKeystoreInstallationState extends com.pulumi.resources.R
     }
 
     /**
-     * Metadata of the certificate after it has been provisioned to the cloud keystore
+     * Metadata of the provisioned certificate from the Cloud Keystore
      * 
      */
     @Import(name="cloudCertificateMetadata")
     private @Nullable Output<Map<String,String>> cloudCertificateMetadata;
 
     /**
-     * @return Metadata of the certificate after it has been provisioned to the cloud keystore
+     * @return Metadata of the provisioned certificate from the Cloud Keystore
      * 
      */
     public Optional<Output<Map<String,String>>> cloudCertificateMetadata() {
@@ -178,7 +178,7 @@ public final class CloudKeystoreInstallationState extends com.pulumi.resources.R
         }
 
         /**
-         * @param cloudCertificateId ID of the certificate after it has been provisioned to the cloud keystore
+         * @param cloudCertificateId The ID of the provisioned certificate within the Cloud Keystore
          * 
          * @return builder
          * 
@@ -189,7 +189,7 @@ public final class CloudKeystoreInstallationState extends com.pulumi.resources.R
         }
 
         /**
-         * @param cloudCertificateId ID of the certificate after it has been provisioned to the cloud keystore
+         * @param cloudCertificateId The ID of the provisioned certificate within the Cloud Keystore
          * 
          * @return builder
          * 
@@ -199,7 +199,7 @@ public final class CloudKeystoreInstallationState extends com.pulumi.resources.R
         }
 
         /**
-         * @param cloudCertificateMetadata Metadata of the certificate after it has been provisioned to the cloud keystore
+         * @param cloudCertificateMetadata Metadata of the provisioned certificate from the Cloud Keystore
          * 
          * @return builder
          * 
@@ -210,7 +210,7 @@ public final class CloudKeystoreInstallationState extends com.pulumi.resources.R
         }
 
         /**
-         * @param cloudCertificateMetadata Metadata of the certificate after it has been provisioned to the cloud keystore
+         * @param cloudCertificateMetadata Metadata of the provisioned certificate from the Cloud Keystore
          * 
          * @return builder
          * 

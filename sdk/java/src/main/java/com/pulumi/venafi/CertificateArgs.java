@@ -58,6 +58,21 @@ public final class CertificateArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Country of the certificate (C)
+     * 
+     */
+    @Import(name="country")
+    private @Nullable Output<String> country;
+
+    /**
+     * @return Country of the certificate (C)
+     * 
+     */
+    public Optional<Output<String>> country() {
+        return Optional.ofNullable(this.country);
+    }
+
+    /**
      * Whether key-pair generation will be `local` or `service` generated. Default is
      * `local`.
      * 
@@ -161,6 +176,21 @@ public final class CertificateArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Locality/City of the certificate (L)
+     * 
+     */
+    @Import(name="locality")
+    private @Nullable Output<String> locality;
+
+    /**
+     * @return Locality/City of the certificate (L)
+     * 
+     */
+    public Optional<Output<String>> locality() {
+        return Optional.ofNullable(this.locality);
+    }
+
+    /**
      * Use to specify a name for the new certificate object that will be created and placed
      * in a policy. Only valid for Trust Protection Platform.
      * 
@@ -175,6 +205,36 @@ public final class CertificateArgs extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> nickname() {
         return Optional.ofNullable(this.nickname);
+    }
+
+    /**
+     * Organization of the certificate (O)
+     * 
+     */
+    @Import(name="organization")
+    private @Nullable Output<String> organization;
+
+    /**
+     * @return Organization of the certificate (O)
+     * 
+     */
+    public Optional<Output<String>> organization() {
+        return Optional.ofNullable(this.organization);
+    }
+
+    /**
+     * List of Organizational Units of the certificate (OU)
+     * 
+     */
+    @Import(name="organizationalUnits")
+    private @Nullable Output<List<String>> organizationalUnits;
+
+    /**
+     * @return List of Organizational Units of the certificate (OU)
+     * 
+     */
+    public Optional<Output<List<String>>> organizationalUnits() {
+        return Optional.ofNullable(this.organizationalUnits);
     }
 
     /**
@@ -304,6 +364,21 @@ public final class CertificateArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * State of the certificate (S)
+     * 
+     */
+    @Import(name="state")
+    private @Nullable Output<String> state;
+
+    /**
+     * @return State of the certificate (S)
+     * 
+     */
+    public Optional<Output<String>> state() {
+        return Optional.ofNullable(this.state);
+    }
+
+    /**
      * Desired number of days for which the new certificate will be valid.
      * 
      */
@@ -324,6 +399,7 @@ public final class CertificateArgs extends com.pulumi.resources.ResourceArgs {
         this.algorithm = $.algorithm;
         this.certificateDn = $.certificateDn;
         this.commonName = $.commonName;
+        this.country = $.country;
         this.csrOrigin = $.csrOrigin;
         this.csrPem = $.csrPem;
         this.customFields = $.customFields;
@@ -331,7 +407,10 @@ public final class CertificateArgs extends com.pulumi.resources.ResourceArgs {
         this.expirationWindow = $.expirationWindow;
         this.issuerHint = $.issuerHint;
         this.keyPassword = $.keyPassword;
+        this.locality = $.locality;
         this.nickname = $.nickname;
+        this.organization = $.organization;
+        this.organizationalUnits = $.organizationalUnits;
         this.pkcs12 = $.pkcs12;
         this.privateKeyPem = $.privateKeyPem;
         this.renewRequired = $.renewRequired;
@@ -340,6 +419,7 @@ public final class CertificateArgs extends com.pulumi.resources.ResourceArgs {
         this.sanEmails = $.sanEmails;
         this.sanIps = $.sanIps;
         this.sanUris = $.sanUris;
+        this.state = $.state;
         this.validDays = $.validDays;
     }
 
@@ -410,6 +490,27 @@ public final class CertificateArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder commonName(String commonName) {
             return commonName(Output.of(commonName));
+        }
+
+        /**
+         * @param country Country of the certificate (C)
+         * 
+         * @return builder
+         * 
+         */
+        public Builder country(@Nullable Output<String> country) {
+            $.country = country;
+            return this;
+        }
+
+        /**
+         * @param country Country of the certificate (C)
+         * 
+         * @return builder
+         * 
+         */
+        public Builder country(String country) {
+            return country(Output.of(country));
         }
 
         /**
@@ -554,6 +655,27 @@ public final class CertificateArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param locality Locality/City of the certificate (L)
+         * 
+         * @return builder
+         * 
+         */
+        public Builder locality(@Nullable Output<String> locality) {
+            $.locality = locality;
+            return this;
+        }
+
+        /**
+         * @param locality Locality/City of the certificate (L)
+         * 
+         * @return builder
+         * 
+         */
+        public Builder locality(String locality) {
+            return locality(Output.of(locality));
+        }
+
+        /**
          * @param nickname Use to specify a name for the new certificate object that will be created and placed
          * in a policy. Only valid for Trust Protection Platform.
          * 
@@ -574,6 +696,58 @@ public final class CertificateArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder nickname(String nickname) {
             return nickname(Output.of(nickname));
+        }
+
+        /**
+         * @param organization Organization of the certificate (O)
+         * 
+         * @return builder
+         * 
+         */
+        public Builder organization(@Nullable Output<String> organization) {
+            $.organization = organization;
+            return this;
+        }
+
+        /**
+         * @param organization Organization of the certificate (O)
+         * 
+         * @return builder
+         * 
+         */
+        public Builder organization(String organization) {
+            return organization(Output.of(organization));
+        }
+
+        /**
+         * @param organizationalUnits List of Organizational Units of the certificate (OU)
+         * 
+         * @return builder
+         * 
+         */
+        public Builder organizationalUnits(@Nullable Output<List<String>> organizationalUnits) {
+            $.organizationalUnits = organizationalUnits;
+            return this;
+        }
+
+        /**
+         * @param organizationalUnits List of Organizational Units of the certificate (OU)
+         * 
+         * @return builder
+         * 
+         */
+        public Builder organizationalUnits(List<String> organizationalUnits) {
+            return organizationalUnits(Output.of(organizationalUnits));
+        }
+
+        /**
+         * @param organizationalUnits List of Organizational Units of the certificate (OU)
+         * 
+         * @return builder
+         * 
+         */
+        public Builder organizationalUnits(String... organizationalUnits) {
+            return organizationalUnits(List.of(organizationalUnits));
         }
 
         /**
@@ -789,6 +963,27 @@ public final class CertificateArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder sanUris(String... sanUris) {
             return sanUris(List.of(sanUris));
+        }
+
+        /**
+         * @param state State of the certificate (S)
+         * 
+         * @return builder
+         * 
+         */
+        public Builder state(@Nullable Output<String> state) {
+            $.state = state;
+            return this;
+        }
+
+        /**
+         * @param state State of the certificate (S)
+         * 
+         * @return builder
+         * 
+         */
+        public Builder state(String state) {
+            return state(Output.of(state));
         }
 
         /**

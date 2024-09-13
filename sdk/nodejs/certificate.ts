@@ -54,6 +54,10 @@ export class Certificate extends pulumi.CustomResource {
      */
     public readonly commonName!: pulumi.Output<string>;
     /**
+     * Country of the certificate (C)
+     */
+    public readonly country!: pulumi.Output<string | undefined>;
+    /**
      * Whether key-pair generation will be `local` or `service` generated. Default is 
      * `local`.
      */
@@ -82,10 +86,22 @@ export class Certificate extends pulumi.CustomResource {
      */
     public readonly keyPassword!: pulumi.Output<string | undefined>;
     /**
+     * Locality/City of the certificate (L)
+     */
+    public readonly locality!: pulumi.Output<string | undefined>;
+    /**
      * Use to specify a name for the new certificate object that will be created and placed 
      * in a policy. Only valid for Trust Protection Platform.
      */
     public readonly nickname!: pulumi.Output<string | undefined>;
+    /**
+     * Organization of the certificate (O)
+     */
+    public readonly organization!: pulumi.Output<string | undefined>;
+    /**
+     * List of Organizational Units of the certificate (OU)
+     */
+    public readonly organizationalUnits!: pulumi.Output<string[] | undefined>;
     /**
      * A base64-encoded PKCS#12 keystore secured by the `keyPassword`. Useful when working with resources like 
      * azure key_vault_certificate.
@@ -122,6 +138,10 @@ export class Certificate extends pulumi.CustomResource {
      */
     public readonly sanUris!: pulumi.Output<string[] | undefined>;
     /**
+     * State of the certificate (S)
+     */
+    public readonly state!: pulumi.Output<string | undefined>;
+    /**
      * Desired number of days for which the new certificate will be valid.
      */
     public readonly validDays!: pulumi.Output<number | undefined>;
@@ -145,6 +165,7 @@ export class Certificate extends pulumi.CustomResource {
             resourceInputs["certificateId"] = state ? state.certificateId : undefined;
             resourceInputs["chain"] = state ? state.chain : undefined;
             resourceInputs["commonName"] = state ? state.commonName : undefined;
+            resourceInputs["country"] = state ? state.country : undefined;
             resourceInputs["csrOrigin"] = state ? state.csrOrigin : undefined;
             resourceInputs["csrPem"] = state ? state.csrPem : undefined;
             resourceInputs["customFields"] = state ? state.customFields : undefined;
@@ -152,7 +173,10 @@ export class Certificate extends pulumi.CustomResource {
             resourceInputs["expirationWindow"] = state ? state.expirationWindow : undefined;
             resourceInputs["issuerHint"] = state ? state.issuerHint : undefined;
             resourceInputs["keyPassword"] = state ? state.keyPassword : undefined;
+            resourceInputs["locality"] = state ? state.locality : undefined;
             resourceInputs["nickname"] = state ? state.nickname : undefined;
+            resourceInputs["organization"] = state ? state.organization : undefined;
+            resourceInputs["organizationalUnits"] = state ? state.organizationalUnits : undefined;
             resourceInputs["pkcs12"] = state ? state.pkcs12 : undefined;
             resourceInputs["privateKeyPem"] = state ? state.privateKeyPem : undefined;
             resourceInputs["renewRequired"] = state ? state.renewRequired : undefined;
@@ -161,6 +185,7 @@ export class Certificate extends pulumi.CustomResource {
             resourceInputs["sanEmails"] = state ? state.sanEmails : undefined;
             resourceInputs["sanIps"] = state ? state.sanIps : undefined;
             resourceInputs["sanUris"] = state ? state.sanUris : undefined;
+            resourceInputs["state"] = state ? state.state : undefined;
             resourceInputs["validDays"] = state ? state.validDays : undefined;
         } else {
             const args = argsOrState as CertificateArgs | undefined;
@@ -170,6 +195,7 @@ export class Certificate extends pulumi.CustomResource {
             resourceInputs["algorithm"] = args ? args.algorithm : undefined;
             resourceInputs["certificateDn"] = args ? args.certificateDn : undefined;
             resourceInputs["commonName"] = args ? args.commonName : undefined;
+            resourceInputs["country"] = args ? args.country : undefined;
             resourceInputs["csrOrigin"] = args ? args.csrOrigin : undefined;
             resourceInputs["csrPem"] = args ? args.csrPem : undefined;
             resourceInputs["customFields"] = args ? args.customFields : undefined;
@@ -177,7 +203,10 @@ export class Certificate extends pulumi.CustomResource {
             resourceInputs["expirationWindow"] = args ? args.expirationWindow : undefined;
             resourceInputs["issuerHint"] = args ? args.issuerHint : undefined;
             resourceInputs["keyPassword"] = args?.keyPassword ? pulumi.secret(args.keyPassword) : undefined;
+            resourceInputs["locality"] = args ? args.locality : undefined;
             resourceInputs["nickname"] = args ? args.nickname : undefined;
+            resourceInputs["organization"] = args ? args.organization : undefined;
+            resourceInputs["organizationalUnits"] = args ? args.organizationalUnits : undefined;
             resourceInputs["pkcs12"] = args ? args.pkcs12 : undefined;
             resourceInputs["privateKeyPem"] = args?.privateKeyPem ? pulumi.secret(args.privateKeyPem) : undefined;
             resourceInputs["renewRequired"] = args ? args.renewRequired : undefined;
@@ -186,6 +215,7 @@ export class Certificate extends pulumi.CustomResource {
             resourceInputs["sanEmails"] = args ? args.sanEmails : undefined;
             resourceInputs["sanIps"] = args ? args.sanIps : undefined;
             resourceInputs["sanUris"] = args ? args.sanUris : undefined;
+            resourceInputs["state"] = args ? args.state : undefined;
             resourceInputs["validDays"] = args ? args.validDays : undefined;
             resourceInputs["certificate"] = undefined /*out*/;
             resourceInputs["certificateId"] = undefined /*out*/;
@@ -224,6 +254,10 @@ export interface CertificateState {
      */
     commonName?: pulumi.Input<string>;
     /**
+     * Country of the certificate (C)
+     */
+    country?: pulumi.Input<string>;
+    /**
      * Whether key-pair generation will be `local` or `service` generated. Default is 
      * `local`.
      */
@@ -252,10 +286,22 @@ export interface CertificateState {
      */
     keyPassword?: pulumi.Input<string>;
     /**
+     * Locality/City of the certificate (L)
+     */
+    locality?: pulumi.Input<string>;
+    /**
      * Use to specify a name for the new certificate object that will be created and placed 
      * in a policy. Only valid for Trust Protection Platform.
      */
     nickname?: pulumi.Input<string>;
+    /**
+     * Organization of the certificate (O)
+     */
+    organization?: pulumi.Input<string>;
+    /**
+     * List of Organizational Units of the certificate (OU)
+     */
+    organizationalUnits?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * A base64-encoded PKCS#12 keystore secured by the `keyPassword`. Useful when working with resources like 
      * azure key_vault_certificate.
@@ -291,6 +337,10 @@ export interface CertificateState {
      * the certificate.
      */
     sanUris?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * State of the certificate (S)
+     */
+    state?: pulumi.Input<string>;
     /**
      * Desired number of days for which the new certificate will be valid.
      */
@@ -311,6 +361,10 @@ export interface CertificateArgs {
      */
     commonName: pulumi.Input<string>;
     /**
+     * Country of the certificate (C)
+     */
+    country?: pulumi.Input<string>;
+    /**
      * Whether key-pair generation will be `local` or `service` generated. Default is 
      * `local`.
      */
@@ -339,10 +393,22 @@ export interface CertificateArgs {
      */
     keyPassword?: pulumi.Input<string>;
     /**
+     * Locality/City of the certificate (L)
+     */
+    locality?: pulumi.Input<string>;
+    /**
      * Use to specify a name for the new certificate object that will be created and placed 
      * in a policy. Only valid for Trust Protection Platform.
      */
     nickname?: pulumi.Input<string>;
+    /**
+     * Organization of the certificate (O)
+     */
+    organization?: pulumi.Input<string>;
+    /**
+     * List of Organizational Units of the certificate (OU)
+     */
+    organizationalUnits?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * A base64-encoded PKCS#12 keystore secured by the `keyPassword`. Useful when working with resources like 
      * azure key_vault_certificate.
@@ -378,6 +444,10 @@ export interface CertificateArgs {
      * the certificate.
      */
     sanUris?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * State of the certificate (S)
+     */
+    state?: pulumi.Input<string>;
     /**
      * Desired number of days for which the new certificate will be valid.
      */
