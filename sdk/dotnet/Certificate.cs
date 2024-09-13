@@ -46,6 +46,12 @@ namespace Pulumi.Venafi
         public Output<string> CommonName { get; private set; } = null!;
 
         /// <summary>
+        /// Country of the certificate (C)
+        /// </summary>
+        [Output("country")]
+        public Output<string?> Country { get; private set; } = null!;
+
+        /// <summary>
         /// Whether key-pair generation will be `local` or `service` generated. Default is 
         /// `local`.
         /// </summary>
@@ -88,11 +94,29 @@ namespace Pulumi.Venafi
         public Output<string?> KeyPassword { get; private set; } = null!;
 
         /// <summary>
+        /// Locality/City of the certificate (L)
+        /// </summary>
+        [Output("locality")]
+        public Output<string?> Locality { get; private set; } = null!;
+
+        /// <summary>
         /// Use to specify a name for the new certificate object that will be created and placed 
         /// in a policy. Only valid for Trust Protection Platform.
         /// </summary>
         [Output("nickname")]
         public Output<string?> Nickname { get; private set; } = null!;
+
+        /// <summary>
+        /// Organization of the certificate (O)
+        /// </summary>
+        [Output("organization")]
+        public Output<string?> Organization { get; private set; } = null!;
+
+        /// <summary>
+        /// List of Organizational Units of the certificate (OU)
+        /// </summary>
+        [Output("organizationalUnits")]
+        public Output<ImmutableArray<string>> OrganizationalUnits { get; private set; } = null!;
 
         /// <summary>
         /// A base64-encoded PKCS#12 keystore secured by the `key_password`. Useful when working with resources like 
@@ -144,6 +168,12 @@ namespace Pulumi.Venafi
         /// </summary>
         [Output("sanUris")]
         public Output<ImmutableArray<string>> SanUris { get; private set; } = null!;
+
+        /// <summary>
+        /// State of the certificate (S)
+        /// </summary>
+        [Output("state")]
+        public Output<string?> State { get; private set; } = null!;
 
         /// <summary>
         /// Desired number of days for which the new certificate will be valid.
@@ -218,6 +248,12 @@ namespace Pulumi.Venafi
         public Input<string> CommonName { get; set; } = null!;
 
         /// <summary>
+        /// Country of the certificate (C)
+        /// </summary>
+        [Input("country")]
+        public Input<string>? Country { get; set; }
+
+        /// <summary>
         /// Whether key-pair generation will be `local` or `service` generated. Default is 
         /// `local`.
         /// </summary>
@@ -276,11 +312,35 @@ namespace Pulumi.Venafi
         }
 
         /// <summary>
+        /// Locality/City of the certificate (L)
+        /// </summary>
+        [Input("locality")]
+        public Input<string>? Locality { get; set; }
+
+        /// <summary>
         /// Use to specify a name for the new certificate object that will be created and placed 
         /// in a policy. Only valid for Trust Protection Platform.
         /// </summary>
         [Input("nickname")]
         public Input<string>? Nickname { get; set; }
+
+        /// <summary>
+        /// Organization of the certificate (O)
+        /// </summary>
+        [Input("organization")]
+        public Input<string>? Organization { get; set; }
+
+        [Input("organizationalUnits")]
+        private InputList<string>? _organizationalUnits;
+
+        /// <summary>
+        /// List of Organizational Units of the certificate (OU)
+        /// </summary>
+        public InputList<string> OrganizationalUnits
+        {
+            get => _organizationalUnits ?? (_organizationalUnits = new InputList<string>());
+            set => _organizationalUnits = value;
+        }
 
         /// <summary>
         /// A base64-encoded PKCS#12 keystore secured by the `key_password`. Useful when working with resources like 
@@ -366,6 +426,12 @@ namespace Pulumi.Venafi
             get => _sanUris ?? (_sanUris = new InputList<string>());
             set => _sanUris = value;
         }
+
+        /// <summary>
+        /// State of the certificate (S)
+        /// </summary>
+        [Input("state")]
+        public Input<string>? State { get; set; }
 
         /// <summary>
         /// Desired number of days for which the new certificate will be valid.
@@ -415,6 +481,12 @@ namespace Pulumi.Venafi
         public Input<string>? CommonName { get; set; }
 
         /// <summary>
+        /// Country of the certificate (C)
+        /// </summary>
+        [Input("country")]
+        public Input<string>? Country { get; set; }
+
+        /// <summary>
         /// Whether key-pair generation will be `local` or `service` generated. Default is 
         /// `local`.
         /// </summary>
@@ -473,11 +545,35 @@ namespace Pulumi.Venafi
         }
 
         /// <summary>
+        /// Locality/City of the certificate (L)
+        /// </summary>
+        [Input("locality")]
+        public Input<string>? Locality { get; set; }
+
+        /// <summary>
         /// Use to specify a name for the new certificate object that will be created and placed 
         /// in a policy. Only valid for Trust Protection Platform.
         /// </summary>
         [Input("nickname")]
         public Input<string>? Nickname { get; set; }
+
+        /// <summary>
+        /// Organization of the certificate (O)
+        /// </summary>
+        [Input("organization")]
+        public Input<string>? Organization { get; set; }
+
+        [Input("organizationalUnits")]
+        private InputList<string>? _organizationalUnits;
+
+        /// <summary>
+        /// List of Organizational Units of the certificate (OU)
+        /// </summary>
+        public InputList<string> OrganizationalUnits
+        {
+            get => _organizationalUnits ?? (_organizationalUnits = new InputList<string>());
+            set => _organizationalUnits = value;
+        }
 
         /// <summary>
         /// A base64-encoded PKCS#12 keystore secured by the `key_password`. Useful when working with resources like 
@@ -563,6 +659,12 @@ namespace Pulumi.Venafi
             get => _sanUris ?? (_sanUris = new InputList<string>());
             set => _sanUris = value;
         }
+
+        /// <summary>
+        /// State of the certificate (S)
+        /// </summary>
+        [Input("state")]
+        public Input<string>? State { get; set; }
 
         /// <summary>
         /// Desired number of days for which the new certificate will be valid.

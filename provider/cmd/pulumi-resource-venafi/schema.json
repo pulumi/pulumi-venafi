@@ -283,6 +283,10 @@
                     "type": "string",
                     "description": "The common name of the certificate.\n"
                 },
+                "country": {
+                    "type": "string",
+                    "description": "Country of the certificate (C)\n"
+                },
                 "csrOrigin": {
                     "type": "string",
                     "description": "Whether key-pair generation will be `local` or `service` generated. Default is \n`local`.\n"
@@ -314,9 +318,24 @@
                     "description": "The password used to encrypt the private key.\n",
                     "secret": true
                 },
+                "locality": {
+                    "type": "string",
+                    "description": "Locality/City of the certificate (L)\n"
+                },
                 "nickname": {
                     "type": "string",
                     "description": "Use to specify a name for the new certificate object that will be created and placed \nin a policy. Only valid for Trust Protection Platform.\n"
+                },
+                "organization": {
+                    "type": "string",
+                    "description": "Organization of the certificate (O)\n"
+                },
+                "organizationalUnits": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "List of Organizational Units of the certificate (OU)\n"
                 },
                 "pkcs12": {
                     "type": "string",
@@ -363,6 +382,10 @@
                     },
                     "description": "List of Uniform Resource Identifiers (URIs) to use as alternative subjects of \nthe certificate.\n"
                 },
+                "state": {
+                    "type": "string",
+                    "description": "State of the certificate (S)\n"
+                },
                 "validDays": {
                     "type": "integer",
                     "description": "Desired number of days for which the new certificate will be valid.\n"
@@ -390,6 +413,11 @@
                 "commonName": {
                     "type": "string",
                     "description": "The common name of the certificate.\n",
+                    "willReplaceOnChanges": true
+                },
+                "country": {
+                    "type": "string",
+                    "description": "Country of the certificate (C)\n",
                     "willReplaceOnChanges": true
                 },
                 "csrOrigin": {
@@ -428,9 +456,27 @@
                     "secret": true,
                     "willReplaceOnChanges": true
                 },
+                "locality": {
+                    "type": "string",
+                    "description": "Locality/City of the certificate (L)\n",
+                    "willReplaceOnChanges": true
+                },
                 "nickname": {
                     "type": "string",
                     "description": "Use to specify a name for the new certificate object that will be created and placed \nin a policy. Only valid for Trust Protection Platform.\n",
+                    "willReplaceOnChanges": true
+                },
+                "organization": {
+                    "type": "string",
+                    "description": "Organization of the certificate (O)\n",
+                    "willReplaceOnChanges": true
+                },
+                "organizationalUnits": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "List of Organizational Units of the certificate (OU)\n",
                     "willReplaceOnChanges": true
                 },
                 "pkcs12": {
@@ -484,6 +530,11 @@
                     "description": "List of Uniform Resource Identifiers (URIs) to use as alternative subjects of \nthe certificate.\n",
                     "willReplaceOnChanges": true
                 },
+                "state": {
+                    "type": "string",
+                    "description": "State of the certificate (S)\n",
+                    "willReplaceOnChanges": true
+                },
                 "validDays": {
                     "type": "integer",
                     "description": "Desired number of days for which the new certificate will be valid.\n",
@@ -526,6 +577,11 @@
                         "description": "The common name of the certificate.\n",
                         "willReplaceOnChanges": true
                     },
+                    "country": {
+                        "type": "string",
+                        "description": "Country of the certificate (C)\n",
+                        "willReplaceOnChanges": true
+                    },
                     "csrOrigin": {
                         "type": "string",
                         "description": "Whether key-pair generation will be `local` or `service` generated. Default is \n`local`.\n",
@@ -562,9 +618,27 @@
                         "secret": true,
                         "willReplaceOnChanges": true
                     },
+                    "locality": {
+                        "type": "string",
+                        "description": "Locality/City of the certificate (L)\n",
+                        "willReplaceOnChanges": true
+                    },
                     "nickname": {
                         "type": "string",
                         "description": "Use to specify a name for the new certificate object that will be created and placed \nin a policy. Only valid for Trust Protection Platform.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "organization": {
+                        "type": "string",
+                        "description": "Organization of the certificate (O)\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "organizationalUnits": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "List of Organizational Units of the certificate (OU)\n",
                         "willReplaceOnChanges": true
                     },
                     "pkcs12": {
@@ -618,6 +692,11 @@
                         "description": "List of Uniform Resource Identifiers (URIs) to use as alternative subjects of \nthe certificate.\n",
                         "willReplaceOnChanges": true
                     },
+                    "state": {
+                        "type": "string",
+                        "description": "State of the certificate (S)\n",
+                        "willReplaceOnChanges": true
+                    },
                     "validDays": {
                         "type": "integer",
                         "description": "Desired number of days for which the new certificate will be valid.\n",
@@ -640,14 +719,14 @@
                 },
                 "cloudCertificateId": {
                     "type": "string",
-                    "description": "ID of the certificate after it has been provisioned to the cloud keystore\n"
+                    "description": "The ID of the provisioned certificate within the Cloud Keystore\n"
                 },
                 "cloudCertificateMetadata": {
                     "type": "object",
                     "additionalProperties": {
                         "type": "string"
                     },
-                    "description": "Metadata of the certificate after it has been provisioned to the cloud keystore\n"
+                    "description": "Metadata of the provisioned certificate from the Cloud Keystore\n"
                 },
                 "cloudCertificateName": {
                     "type": "string",
@@ -703,14 +782,14 @@
                     },
                     "cloudCertificateId": {
                         "type": "string",
-                        "description": "ID of the certificate after it has been provisioned to the cloud keystore\n"
+                        "description": "The ID of the provisioned certificate within the Cloud Keystore\n"
                     },
                     "cloudCertificateMetadata": {
                         "type": "object",
                         "additionalProperties": {
                             "type": "string"
                         },
-                        "description": "Metadata of the certificate after it has been provisioned to the cloud keystore\n"
+                        "description": "Metadata of the provisioned certificate from the Cloud Keystore\n"
                     },
                     "cloudCertificateName": {
                         "type": "string",

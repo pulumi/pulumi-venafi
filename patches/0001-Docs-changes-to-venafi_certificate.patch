@@ -5,7 +5,7 @@ Subject: [PATCH] Docs changes to venafi_certificate
 
 
 diff --git a/website/docs/r/venafi_certificate.html.markdown b/website/docs/r/venafi_certificate.html.markdown
-index 7d6e461..0d79364 100644
+index 20b50fb..11deb9d 100644
 --- a/website/docs/r/venafi_certificate.html.markdown
 +++ b/website/docs/r/venafi_certificate.html.markdown
 @@ -14,6 +14,11 @@ For backward compatibility during Terraform state refresh please update to versi

@@ -69,13 +69,13 @@ namespace Pulumi.Venafi
         public Output<string> CertificateId { get; private set; } = null!;
 
         /// <summary>
-        /// ID of the certificate after it has been provisioned to the cloud keystore
+        /// The ID of the provisioned certificate within the Cloud Keystore
         /// </summary>
         [Output("cloudCertificateId")]
         public Output<string> CloudCertificateId { get; private set; } = null!;
 
         /// <summary>
-        /// Metadata of the certificate after it has been provisioned to the cloud keystore
+        /// Metadata of the provisioned certificate from the Cloud Keystore
         /// </summary>
         [Output("cloudCertificateMetadata")]
         public Output<ImmutableDictionary<string, string>> CloudCertificateMetadata { get; private set; } = null!;
@@ -183,7 +183,7 @@ namespace Pulumi.Venafi
         public Input<string>? CertificateId { get; set; }
 
         /// <summary>
-        /// ID of the certificate after it has been provisioned to the cloud keystore
+        /// The ID of the provisioned certificate within the Cloud Keystore
         /// </summary>
         [Input("cloudCertificateId")]
         public Input<string>? CloudCertificateId { get; set; }
@@ -192,7 +192,7 @@ namespace Pulumi.Venafi
         private InputMap<string>? _cloudCertificateMetadata;
 
         /// <summary>
-        /// Metadata of the certificate after it has been provisioned to the cloud keystore
+        /// Metadata of the provisioned certificate from the Cloud Keystore
         /// </summary>
         public InputMap<string> CloudCertificateMetadata
         {

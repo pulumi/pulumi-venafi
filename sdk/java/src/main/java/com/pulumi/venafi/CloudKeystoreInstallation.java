@@ -107,28 +107,28 @@ public class CloudKeystoreInstallation extends com.pulumi.resources.CustomResour
         return this.certificateId;
     }
     /**
-     * ID of the certificate after it has been provisioned to the cloud keystore
+     * The ID of the provisioned certificate within the Cloud Keystore
      * 
      */
     @Export(name="cloudCertificateId", refs={String.class}, tree="[0]")
     private Output<String> cloudCertificateId;
 
     /**
-     * @return ID of the certificate after it has been provisioned to the cloud keystore
+     * @return The ID of the provisioned certificate within the Cloud Keystore
      * 
      */
     public Output<String> cloudCertificateId() {
         return this.cloudCertificateId;
     }
     /**
-     * Metadata of the certificate after it has been provisioned to the cloud keystore
+     * Metadata of the provisioned certificate from the Cloud Keystore
      * 
      */
     @Export(name="cloudCertificateMetadata", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> cloudCertificateMetadata;
 
     /**
-     * @return Metadata of the certificate after it has been provisioned to the cloud keystore
+     * @return Metadata of the provisioned certificate from the Cloud Keystore
      * 
      */
     public Output<Map<String,String>> cloudCertificateMetadata() {

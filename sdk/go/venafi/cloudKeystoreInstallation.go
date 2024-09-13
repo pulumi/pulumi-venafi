@@ -70,9 +70,9 @@ type CloudKeystoreInstallation struct {
 	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// ID of the certificate to be provisioned to the given `keystoreId`.
 	CertificateId pulumi.StringOutput `pulumi:"certificateId"`
-	// ID of the certificate after it has been provisioned to the cloud keystore
+	// The ID of the provisioned certificate within the Cloud Keystore
 	CloudCertificateId pulumi.StringOutput `pulumi:"cloudCertificateId"`
-	// Metadata of the certificate after it has been provisioned to the cloud keystore
+	// Metadata of the provisioned certificate from the Cloud Keystore
 	CloudCertificateMetadata pulumi.StringMapOutput `pulumi:"cloudCertificateMetadata"`
 	// Name for the provisioned certificate in the keystore. If the name already exists, the provisioning will replace the previous certificate with the one from `certificateId`. Only valid for AKV and GCM keystores.
 	CloudCertificateName pulumi.StringPtrOutput `pulumi:"cloudCertificateName"`
@@ -120,9 +120,9 @@ type cloudKeystoreInstallationState struct {
 	Arn *string `pulumi:"arn"`
 	// ID of the certificate to be provisioned to the given `keystoreId`.
 	CertificateId *string `pulumi:"certificateId"`
-	// ID of the certificate after it has been provisioned to the cloud keystore
+	// The ID of the provisioned certificate within the Cloud Keystore
 	CloudCertificateId *string `pulumi:"cloudCertificateId"`
-	// Metadata of the certificate after it has been provisioned to the cloud keystore
+	// Metadata of the provisioned certificate from the Cloud Keystore
 	CloudCertificateMetadata map[string]string `pulumi:"cloudCertificateMetadata"`
 	// Name for the provisioned certificate in the keystore. If the name already exists, the provisioning will replace the previous certificate with the one from `certificateId`. Only valid for AKV and GCM keystores.
 	CloudCertificateName *string `pulumi:"cloudCertificateName"`
@@ -135,9 +135,9 @@ type CloudKeystoreInstallationState struct {
 	Arn pulumi.StringPtrInput
 	// ID of the certificate to be provisioned to the given `keystoreId`.
 	CertificateId pulumi.StringPtrInput
-	// ID of the certificate after it has been provisioned to the cloud keystore
+	// The ID of the provisioned certificate within the Cloud Keystore
 	CloudCertificateId pulumi.StringPtrInput
-	// Metadata of the certificate after it has been provisioned to the cloud keystore
+	// Metadata of the provisioned certificate from the Cloud Keystore
 	CloudCertificateMetadata pulumi.StringMapInput
 	// Name for the provisioned certificate in the keystore. If the name already exists, the provisioning will replace the previous certificate with the one from `certificateId`. Only valid for AKV and GCM keystores.
 	CloudCertificateName pulumi.StringPtrInput
@@ -269,12 +269,12 @@ func (o CloudKeystoreInstallationOutput) CertificateId() pulumi.StringOutput {
 	return o.ApplyT(func(v *CloudKeystoreInstallation) pulumi.StringOutput { return v.CertificateId }).(pulumi.StringOutput)
 }
 
-// ID of the certificate after it has been provisioned to the cloud keystore
+// The ID of the provisioned certificate within the Cloud Keystore
 func (o CloudKeystoreInstallationOutput) CloudCertificateId() pulumi.StringOutput {
 	return o.ApplyT(func(v *CloudKeystoreInstallation) pulumi.StringOutput { return v.CloudCertificateId }).(pulumi.StringOutput)
 }
 
-// Metadata of the certificate after it has been provisioned to the cloud keystore
+// Metadata of the provisioned certificate from the Cloud Keystore
 func (o CloudKeystoreInstallationOutput) CloudCertificateMetadata() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *CloudKeystoreInstallation) pulumi.StringMapOutput { return v.CloudCertificateMetadata }).(pulumi.StringMapOutput)
 }

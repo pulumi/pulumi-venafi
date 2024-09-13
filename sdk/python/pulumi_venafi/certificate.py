@@ -17,6 +17,7 @@ class CertificateArgs:
                  common_name: pulumi.Input[str],
                  algorithm: Optional[pulumi.Input[str]] = None,
                  certificate_dn: Optional[pulumi.Input[str]] = None,
+                 country: Optional[pulumi.Input[str]] = None,
                  csr_origin: Optional[pulumi.Input[str]] = None,
                  csr_pem: Optional[pulumi.Input[str]] = None,
                  custom_fields: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -24,7 +25,10 @@ class CertificateArgs:
                  expiration_window: Optional[pulumi.Input[int]] = None,
                  issuer_hint: Optional[pulumi.Input[str]] = None,
                  key_password: Optional[pulumi.Input[str]] = None,
+                 locality: Optional[pulumi.Input[str]] = None,
                  nickname: Optional[pulumi.Input[str]] = None,
+                 organization: Optional[pulumi.Input[str]] = None,
+                 organizational_units: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  pkcs12: Optional[pulumi.Input[str]] = None,
                  private_key_pem: Optional[pulumi.Input[str]] = None,
                  renew_required: Optional[pulumi.Input[bool]] = None,
@@ -33,11 +37,13 @@ class CertificateArgs:
                  san_emails: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  san_ips: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  san_uris: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 state: Optional[pulumi.Input[str]] = None,
                  valid_days: Optional[pulumi.Input[int]] = None):
         """
         The set of arguments for constructing a Certificate resource.
         :param pulumi.Input[str] common_name: The common name of the certificate.
         :param pulumi.Input[str] algorithm: Key encryption algorithm, either RSA or ECDSA. Defaults to `RSA`.
+        :param pulumi.Input[str] country: Country of the certificate (C)
         :param pulumi.Input[str] csr_origin: Whether key-pair generation will be `local` or `service` generated. Default is 
                `local`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] custom_fields: Collection of Custom Field name-value pairs to assign to the certificate.
@@ -47,8 +53,11 @@ class CertificateArgs:
         :param pulumi.Input[str] issuer_hint: Used with `valid_days` to indicate the target issuer when using Trust Protection 
                Platform. Relevant values are: `DigiCert`, `Entrust`, and `Microsoft`.
         :param pulumi.Input[str] key_password: The password used to encrypt the private key.
+        :param pulumi.Input[str] locality: Locality/City of the certificate (L)
         :param pulumi.Input[str] nickname: Use to specify a name for the new certificate object that will be created and placed 
                in a policy. Only valid for Trust Protection Platform.
+        :param pulumi.Input[str] organization: Organization of the certificate (O)
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] organizational_units: List of Organizational Units of the certificate (OU)
         :param pulumi.Input[str] pkcs12: A base64-encoded PKCS#12 keystore secured by the `key_password`. Useful when working with resources like 
                azure key_vault_certificate.
         :param pulumi.Input[str] private_key_pem: The private key in PEM format.
@@ -60,6 +69,7 @@ class CertificateArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] san_ips: List of IP addresses to use as alternative subjects of the certificate.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] san_uris: List of Uniform Resource Identifiers (URIs) to use as alternative subjects of 
                the certificate.
+        :param pulumi.Input[str] state: State of the certificate (S)
         :param pulumi.Input[int] valid_days: Desired number of days for which the new certificate will be valid.
         """
         pulumi.set(__self__, "common_name", common_name)
@@ -67,6 +77,8 @@ class CertificateArgs:
             pulumi.set(__self__, "algorithm", algorithm)
         if certificate_dn is not None:
             pulumi.set(__self__, "certificate_dn", certificate_dn)
+        if country is not None:
+            pulumi.set(__self__, "country", country)
         if csr_origin is not None:
             pulumi.set(__self__, "csr_origin", csr_origin)
         if csr_pem is not None:
@@ -81,8 +93,14 @@ class CertificateArgs:
             pulumi.set(__self__, "issuer_hint", issuer_hint)
         if key_password is not None:
             pulumi.set(__self__, "key_password", key_password)
+        if locality is not None:
+            pulumi.set(__self__, "locality", locality)
         if nickname is not None:
             pulumi.set(__self__, "nickname", nickname)
+        if organization is not None:
+            pulumi.set(__self__, "organization", organization)
+        if organizational_units is not None:
+            pulumi.set(__self__, "organizational_units", organizational_units)
         if pkcs12 is not None:
             pulumi.set(__self__, "pkcs12", pkcs12)
         if private_key_pem is not None:
@@ -99,6 +117,8 @@ class CertificateArgs:
             pulumi.set(__self__, "san_ips", san_ips)
         if san_uris is not None:
             pulumi.set(__self__, "san_uris", san_uris)
+        if state is not None:
+            pulumi.set(__self__, "state", state)
         if valid_days is not None:
             pulumi.set(__self__, "valid_days", valid_days)
 
@@ -134,6 +154,18 @@ class CertificateArgs:
     @certificate_dn.setter
     def certificate_dn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "certificate_dn", value)
+
+    @property
+    @pulumi.getter
+    def country(self) -> Optional[pulumi.Input[str]]:
+        """
+        Country of the certificate (C)
+        """
+        return pulumi.get(self, "country")
+
+    @country.setter
+    def country(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "country", value)
 
     @property
     @pulumi.getter(name="csrOrigin")
@@ -221,6 +253,18 @@ class CertificateArgs:
 
     @property
     @pulumi.getter
+    def locality(self) -> Optional[pulumi.Input[str]]:
+        """
+        Locality/City of the certificate (L)
+        """
+        return pulumi.get(self, "locality")
+
+    @locality.setter
+    def locality(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "locality", value)
+
+    @property
+    @pulumi.getter
     def nickname(self) -> Optional[pulumi.Input[str]]:
         """
         Use to specify a name for the new certificate object that will be created and placed 
@@ -231,6 +275,30 @@ class CertificateArgs:
     @nickname.setter
     def nickname(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "nickname", value)
+
+    @property
+    @pulumi.getter
+    def organization(self) -> Optional[pulumi.Input[str]]:
+        """
+        Organization of the certificate (O)
+        """
+        return pulumi.get(self, "organization")
+
+    @organization.setter
+    def organization(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "organization", value)
+
+    @property
+    @pulumi.getter(name="organizationalUnits")
+    def organizational_units(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of Organizational Units of the certificate (OU)
+        """
+        return pulumi.get(self, "organizational_units")
+
+    @organizational_units.setter
+    def organizational_units(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "organizational_units", value)
 
     @property
     @pulumi.getter
@@ -332,6 +400,18 @@ class CertificateArgs:
         pulumi.set(self, "san_uris", value)
 
     @property
+    @pulumi.getter
+    def state(self) -> Optional[pulumi.Input[str]]:
+        """
+        State of the certificate (S)
+        """
+        return pulumi.get(self, "state")
+
+    @state.setter
+    def state(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "state", value)
+
+    @property
     @pulumi.getter(name="validDays")
     def valid_days(self) -> Optional[pulumi.Input[int]]:
         """
@@ -353,6 +433,7 @@ class _CertificateState:
                  certificate_id: Optional[pulumi.Input[str]] = None,
                  chain: Optional[pulumi.Input[str]] = None,
                  common_name: Optional[pulumi.Input[str]] = None,
+                 country: Optional[pulumi.Input[str]] = None,
                  csr_origin: Optional[pulumi.Input[str]] = None,
                  csr_pem: Optional[pulumi.Input[str]] = None,
                  custom_fields: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -360,7 +441,10 @@ class _CertificateState:
                  expiration_window: Optional[pulumi.Input[int]] = None,
                  issuer_hint: Optional[pulumi.Input[str]] = None,
                  key_password: Optional[pulumi.Input[str]] = None,
+                 locality: Optional[pulumi.Input[str]] = None,
                  nickname: Optional[pulumi.Input[str]] = None,
+                 organization: Optional[pulumi.Input[str]] = None,
+                 organizational_units: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  pkcs12: Optional[pulumi.Input[str]] = None,
                  private_key_pem: Optional[pulumi.Input[str]] = None,
                  renew_required: Optional[pulumi.Input[bool]] = None,
@@ -369,6 +453,7 @@ class _CertificateState:
                  san_emails: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  san_ips: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  san_uris: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 state: Optional[pulumi.Input[str]] = None,
                  valid_days: Optional[pulumi.Input[int]] = None):
         """
         Input properties used for looking up and filtering Certificate resources.
@@ -377,6 +462,7 @@ class _CertificateState:
         :param pulumi.Input[str] certificate_id: ID of the issued certificate
         :param pulumi.Input[str] chain: The trust chain of X509 certificate authority certificates in PEM format concatenated together.
         :param pulumi.Input[str] common_name: The common name of the certificate.
+        :param pulumi.Input[str] country: Country of the certificate (C)
         :param pulumi.Input[str] csr_origin: Whether key-pair generation will be `local` or `service` generated. Default is 
                `local`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] custom_fields: Collection of Custom Field name-value pairs to assign to the certificate.
@@ -386,8 +472,11 @@ class _CertificateState:
         :param pulumi.Input[str] issuer_hint: Used with `valid_days` to indicate the target issuer when using Trust Protection 
                Platform. Relevant values are: `DigiCert`, `Entrust`, and `Microsoft`.
         :param pulumi.Input[str] key_password: The password used to encrypt the private key.
+        :param pulumi.Input[str] locality: Locality/City of the certificate (L)
         :param pulumi.Input[str] nickname: Use to specify a name for the new certificate object that will be created and placed 
                in a policy. Only valid for Trust Protection Platform.
+        :param pulumi.Input[str] organization: Organization of the certificate (O)
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] organizational_units: List of Organizational Units of the certificate (OU)
         :param pulumi.Input[str] pkcs12: A base64-encoded PKCS#12 keystore secured by the `key_password`. Useful when working with resources like 
                azure key_vault_certificate.
         :param pulumi.Input[str] private_key_pem: The private key in PEM format.
@@ -399,6 +488,7 @@ class _CertificateState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] san_ips: List of IP addresses to use as alternative subjects of the certificate.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] san_uris: List of Uniform Resource Identifiers (URIs) to use as alternative subjects of 
                the certificate.
+        :param pulumi.Input[str] state: State of the certificate (S)
         :param pulumi.Input[int] valid_days: Desired number of days for which the new certificate will be valid.
         """
         if algorithm is not None:
@@ -413,6 +503,8 @@ class _CertificateState:
             pulumi.set(__self__, "chain", chain)
         if common_name is not None:
             pulumi.set(__self__, "common_name", common_name)
+        if country is not None:
+            pulumi.set(__self__, "country", country)
         if csr_origin is not None:
             pulumi.set(__self__, "csr_origin", csr_origin)
         if csr_pem is not None:
@@ -427,8 +519,14 @@ class _CertificateState:
             pulumi.set(__self__, "issuer_hint", issuer_hint)
         if key_password is not None:
             pulumi.set(__self__, "key_password", key_password)
+        if locality is not None:
+            pulumi.set(__self__, "locality", locality)
         if nickname is not None:
             pulumi.set(__self__, "nickname", nickname)
+        if organization is not None:
+            pulumi.set(__self__, "organization", organization)
+        if organizational_units is not None:
+            pulumi.set(__self__, "organizational_units", organizational_units)
         if pkcs12 is not None:
             pulumi.set(__self__, "pkcs12", pkcs12)
         if private_key_pem is not None:
@@ -445,6 +543,8 @@ class _CertificateState:
             pulumi.set(__self__, "san_ips", san_ips)
         if san_uris is not None:
             pulumi.set(__self__, "san_uris", san_uris)
+        if state is not None:
+            pulumi.set(__self__, "state", state)
         if valid_days is not None:
             pulumi.set(__self__, "valid_days", valid_days)
 
@@ -518,6 +618,18 @@ class _CertificateState:
         pulumi.set(self, "common_name", value)
 
     @property
+    @pulumi.getter
+    def country(self) -> Optional[pulumi.Input[str]]:
+        """
+        Country of the certificate (C)
+        """
+        return pulumi.get(self, "country")
+
+    @country.setter
+    def country(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "country", value)
+
+    @property
     @pulumi.getter(name="csrOrigin")
     def csr_origin(self) -> Optional[pulumi.Input[str]]:
         """
@@ -603,6 +715,18 @@ class _CertificateState:
 
     @property
     @pulumi.getter
+    def locality(self) -> Optional[pulumi.Input[str]]:
+        """
+        Locality/City of the certificate (L)
+        """
+        return pulumi.get(self, "locality")
+
+    @locality.setter
+    def locality(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "locality", value)
+
+    @property
+    @pulumi.getter
     def nickname(self) -> Optional[pulumi.Input[str]]:
         """
         Use to specify a name for the new certificate object that will be created and placed 
@@ -613,6 +737,30 @@ class _CertificateState:
     @nickname.setter
     def nickname(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "nickname", value)
+
+    @property
+    @pulumi.getter
+    def organization(self) -> Optional[pulumi.Input[str]]:
+        """
+        Organization of the certificate (O)
+        """
+        return pulumi.get(self, "organization")
+
+    @organization.setter
+    def organization(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "organization", value)
+
+    @property
+    @pulumi.getter(name="organizationalUnits")
+    def organizational_units(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of Organizational Units of the certificate (OU)
+        """
+        return pulumi.get(self, "organizational_units")
+
+    @organizational_units.setter
+    def organizational_units(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "organizational_units", value)
 
     @property
     @pulumi.getter
@@ -714,6 +862,18 @@ class _CertificateState:
         pulumi.set(self, "san_uris", value)
 
     @property
+    @pulumi.getter
+    def state(self) -> Optional[pulumi.Input[str]]:
+        """
+        State of the certificate (S)
+        """
+        return pulumi.get(self, "state")
+
+    @state.setter
+    def state(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "state", value)
+
+    @property
     @pulumi.getter(name="validDays")
     def valid_days(self) -> Optional[pulumi.Input[int]]:
         """
@@ -734,6 +894,7 @@ class Certificate(pulumi.CustomResource):
                  algorithm: Optional[pulumi.Input[str]] = None,
                  certificate_dn: Optional[pulumi.Input[str]] = None,
                  common_name: Optional[pulumi.Input[str]] = None,
+                 country: Optional[pulumi.Input[str]] = None,
                  csr_origin: Optional[pulumi.Input[str]] = None,
                  csr_pem: Optional[pulumi.Input[str]] = None,
                  custom_fields: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -741,7 +902,10 @@ class Certificate(pulumi.CustomResource):
                  expiration_window: Optional[pulumi.Input[int]] = None,
                  issuer_hint: Optional[pulumi.Input[str]] = None,
                  key_password: Optional[pulumi.Input[str]] = None,
+                 locality: Optional[pulumi.Input[str]] = None,
                  nickname: Optional[pulumi.Input[str]] = None,
+                 organization: Optional[pulumi.Input[str]] = None,
+                 organizational_units: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  pkcs12: Optional[pulumi.Input[str]] = None,
                  private_key_pem: Optional[pulumi.Input[str]] = None,
                  renew_required: Optional[pulumi.Input[bool]] = None,
@@ -750,6 +914,7 @@ class Certificate(pulumi.CustomResource):
                  san_emails: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  san_ips: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  san_uris: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 state: Optional[pulumi.Input[str]] = None,
                  valid_days: Optional[pulumi.Input[int]] = None,
                  __props__=None):
         """
@@ -758,6 +923,7 @@ class Certificate(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] algorithm: Key encryption algorithm, either RSA or ECDSA. Defaults to `RSA`.
         :param pulumi.Input[str] common_name: The common name of the certificate.
+        :param pulumi.Input[str] country: Country of the certificate (C)
         :param pulumi.Input[str] csr_origin: Whether key-pair generation will be `local` or `service` generated. Default is 
                `local`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] custom_fields: Collection of Custom Field name-value pairs to assign to the certificate.
@@ -767,8 +933,11 @@ class Certificate(pulumi.CustomResource):
         :param pulumi.Input[str] issuer_hint: Used with `valid_days` to indicate the target issuer when using Trust Protection 
                Platform. Relevant values are: `DigiCert`, `Entrust`, and `Microsoft`.
         :param pulumi.Input[str] key_password: The password used to encrypt the private key.
+        :param pulumi.Input[str] locality: Locality/City of the certificate (L)
         :param pulumi.Input[str] nickname: Use to specify a name for the new certificate object that will be created and placed 
                in a policy. Only valid for Trust Protection Platform.
+        :param pulumi.Input[str] organization: Organization of the certificate (O)
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] organizational_units: List of Organizational Units of the certificate (OU)
         :param pulumi.Input[str] pkcs12: A base64-encoded PKCS#12 keystore secured by the `key_password`. Useful when working with resources like 
                azure key_vault_certificate.
         :param pulumi.Input[str] private_key_pem: The private key in PEM format.
@@ -780,6 +949,7 @@ class Certificate(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] san_ips: List of IP addresses to use as alternative subjects of the certificate.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] san_uris: List of Uniform Resource Identifiers (URIs) to use as alternative subjects of 
                the certificate.
+        :param pulumi.Input[str] state: State of the certificate (S)
         :param pulumi.Input[int] valid_days: Desired number of days for which the new certificate will be valid.
         """
         ...
@@ -808,6 +978,7 @@ class Certificate(pulumi.CustomResource):
                  algorithm: Optional[pulumi.Input[str]] = None,
                  certificate_dn: Optional[pulumi.Input[str]] = None,
                  common_name: Optional[pulumi.Input[str]] = None,
+                 country: Optional[pulumi.Input[str]] = None,
                  csr_origin: Optional[pulumi.Input[str]] = None,
                  csr_pem: Optional[pulumi.Input[str]] = None,
                  custom_fields: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -815,7 +986,10 @@ class Certificate(pulumi.CustomResource):
                  expiration_window: Optional[pulumi.Input[int]] = None,
                  issuer_hint: Optional[pulumi.Input[str]] = None,
                  key_password: Optional[pulumi.Input[str]] = None,
+                 locality: Optional[pulumi.Input[str]] = None,
                  nickname: Optional[pulumi.Input[str]] = None,
+                 organization: Optional[pulumi.Input[str]] = None,
+                 organizational_units: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  pkcs12: Optional[pulumi.Input[str]] = None,
                  private_key_pem: Optional[pulumi.Input[str]] = None,
                  renew_required: Optional[pulumi.Input[bool]] = None,
@@ -824,6 +998,7 @@ class Certificate(pulumi.CustomResource):
                  san_emails: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  san_ips: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  san_uris: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 state: Optional[pulumi.Input[str]] = None,
                  valid_days: Optional[pulumi.Input[int]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -839,6 +1014,7 @@ class Certificate(pulumi.CustomResource):
             if common_name is None and not opts.urn:
                 raise TypeError("Missing required property 'common_name'")
             __props__.__dict__["common_name"] = common_name
+            __props__.__dict__["country"] = country
             __props__.__dict__["csr_origin"] = csr_origin
             __props__.__dict__["csr_pem"] = csr_pem
             __props__.__dict__["custom_fields"] = custom_fields
@@ -846,7 +1022,10 @@ class Certificate(pulumi.CustomResource):
             __props__.__dict__["expiration_window"] = expiration_window
             __props__.__dict__["issuer_hint"] = issuer_hint
             __props__.__dict__["key_password"] = None if key_password is None else pulumi.Output.secret(key_password)
+            __props__.__dict__["locality"] = locality
             __props__.__dict__["nickname"] = nickname
+            __props__.__dict__["organization"] = organization
+            __props__.__dict__["organizational_units"] = organizational_units
             __props__.__dict__["pkcs12"] = pkcs12
             __props__.__dict__["private_key_pem"] = None if private_key_pem is None else pulumi.Output.secret(private_key_pem)
             __props__.__dict__["renew_required"] = renew_required
@@ -855,6 +1034,7 @@ class Certificate(pulumi.CustomResource):
             __props__.__dict__["san_emails"] = san_emails
             __props__.__dict__["san_ips"] = san_ips
             __props__.__dict__["san_uris"] = san_uris
+            __props__.__dict__["state"] = state
             __props__.__dict__["valid_days"] = valid_days
             __props__.__dict__["certificate"] = None
             __props__.__dict__["certificate_id"] = None
@@ -877,6 +1057,7 @@ class Certificate(pulumi.CustomResource):
             certificate_id: Optional[pulumi.Input[str]] = None,
             chain: Optional[pulumi.Input[str]] = None,
             common_name: Optional[pulumi.Input[str]] = None,
+            country: Optional[pulumi.Input[str]] = None,
             csr_origin: Optional[pulumi.Input[str]] = None,
             csr_pem: Optional[pulumi.Input[str]] = None,
             custom_fields: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -884,7 +1065,10 @@ class Certificate(pulumi.CustomResource):
             expiration_window: Optional[pulumi.Input[int]] = None,
             issuer_hint: Optional[pulumi.Input[str]] = None,
             key_password: Optional[pulumi.Input[str]] = None,
+            locality: Optional[pulumi.Input[str]] = None,
             nickname: Optional[pulumi.Input[str]] = None,
+            organization: Optional[pulumi.Input[str]] = None,
+            organizational_units: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             pkcs12: Optional[pulumi.Input[str]] = None,
             private_key_pem: Optional[pulumi.Input[str]] = None,
             renew_required: Optional[pulumi.Input[bool]] = None,
@@ -893,6 +1077,7 @@ class Certificate(pulumi.CustomResource):
             san_emails: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             san_ips: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             san_uris: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+            state: Optional[pulumi.Input[str]] = None,
             valid_days: Optional[pulumi.Input[int]] = None) -> 'Certificate':
         """
         Get an existing Certificate resource's state with the given name, id, and optional extra
@@ -906,6 +1091,7 @@ class Certificate(pulumi.CustomResource):
         :param pulumi.Input[str] certificate_id: ID of the issued certificate
         :param pulumi.Input[str] chain: The trust chain of X509 certificate authority certificates in PEM format concatenated together.
         :param pulumi.Input[str] common_name: The common name of the certificate.
+        :param pulumi.Input[str] country: Country of the certificate (C)
         :param pulumi.Input[str] csr_origin: Whether key-pair generation will be `local` or `service` generated. Default is 
                `local`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] custom_fields: Collection of Custom Field name-value pairs to assign to the certificate.
@@ -915,8 +1101,11 @@ class Certificate(pulumi.CustomResource):
         :param pulumi.Input[str] issuer_hint: Used with `valid_days` to indicate the target issuer when using Trust Protection 
                Platform. Relevant values are: `DigiCert`, `Entrust`, and `Microsoft`.
         :param pulumi.Input[str] key_password: The password used to encrypt the private key.
+        :param pulumi.Input[str] locality: Locality/City of the certificate (L)
         :param pulumi.Input[str] nickname: Use to specify a name for the new certificate object that will be created and placed 
                in a policy. Only valid for Trust Protection Platform.
+        :param pulumi.Input[str] organization: Organization of the certificate (O)
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] organizational_units: List of Organizational Units of the certificate (OU)
         :param pulumi.Input[str] pkcs12: A base64-encoded PKCS#12 keystore secured by the `key_password`. Useful when working with resources like 
                azure key_vault_certificate.
         :param pulumi.Input[str] private_key_pem: The private key in PEM format.
@@ -928,6 +1117,7 @@ class Certificate(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] san_ips: List of IP addresses to use as alternative subjects of the certificate.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] san_uris: List of Uniform Resource Identifiers (URIs) to use as alternative subjects of 
                the certificate.
+        :param pulumi.Input[str] state: State of the certificate (S)
         :param pulumi.Input[int] valid_days: Desired number of days for which the new certificate will be valid.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -940,6 +1130,7 @@ class Certificate(pulumi.CustomResource):
         __props__.__dict__["certificate_id"] = certificate_id
         __props__.__dict__["chain"] = chain
         __props__.__dict__["common_name"] = common_name
+        __props__.__dict__["country"] = country
         __props__.__dict__["csr_origin"] = csr_origin
         __props__.__dict__["csr_pem"] = csr_pem
         __props__.__dict__["custom_fields"] = custom_fields
@@ -947,7 +1138,10 @@ class Certificate(pulumi.CustomResource):
         __props__.__dict__["expiration_window"] = expiration_window
         __props__.__dict__["issuer_hint"] = issuer_hint
         __props__.__dict__["key_password"] = key_password
+        __props__.__dict__["locality"] = locality
         __props__.__dict__["nickname"] = nickname
+        __props__.__dict__["organization"] = organization
+        __props__.__dict__["organizational_units"] = organizational_units
         __props__.__dict__["pkcs12"] = pkcs12
         __props__.__dict__["private_key_pem"] = private_key_pem
         __props__.__dict__["renew_required"] = renew_required
@@ -956,6 +1150,7 @@ class Certificate(pulumi.CustomResource):
         __props__.__dict__["san_emails"] = san_emails
         __props__.__dict__["san_ips"] = san_ips
         __props__.__dict__["san_uris"] = san_uris
+        __props__.__dict__["state"] = state
         __props__.__dict__["valid_days"] = valid_days
         return Certificate(resource_name, opts=opts, __props__=__props__)
 
@@ -1003,6 +1198,14 @@ class Certificate(pulumi.CustomResource):
         The common name of the certificate.
         """
         return pulumi.get(self, "common_name")
+
+    @property
+    @pulumi.getter
+    def country(self) -> pulumi.Output[Optional[str]]:
+        """
+        Country of the certificate (C)
+        """
+        return pulumi.get(self, "country")
 
     @property
     @pulumi.getter(name="csrOrigin")
@@ -1062,12 +1265,36 @@ class Certificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter
+    def locality(self) -> pulumi.Output[Optional[str]]:
+        """
+        Locality/City of the certificate (L)
+        """
+        return pulumi.get(self, "locality")
+
+    @property
+    @pulumi.getter
     def nickname(self) -> pulumi.Output[Optional[str]]:
         """
         Use to specify a name for the new certificate object that will be created and placed 
         in a policy. Only valid for Trust Protection Platform.
         """
         return pulumi.get(self, "nickname")
+
+    @property
+    @pulumi.getter
+    def organization(self) -> pulumi.Output[Optional[str]]:
+        """
+        Organization of the certificate (O)
+        """
+        return pulumi.get(self, "organization")
+
+    @property
+    @pulumi.getter(name="organizationalUnits")
+    def organizational_units(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        List of Organizational Units of the certificate (OU)
+        """
+        return pulumi.get(self, "organizational_units")
 
     @property
     @pulumi.getter
@@ -1135,6 +1362,14 @@ class Certificate(pulumi.CustomResource):
         the certificate.
         """
         return pulumi.get(self, "san_uris")
+
+    @property
+    @pulumi.getter
+    def state(self) -> pulumi.Output[Optional[str]]:
+        """
+        State of the certificate (S)
+        """
+        return pulumi.get(self, "state")
 
     @property
     @pulumi.getter(name="validDays")
