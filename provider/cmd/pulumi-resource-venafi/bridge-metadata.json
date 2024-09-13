@@ -4,6 +4,9 @@
             "venafi_certificate": {
                 "current": "venafi:index/certificate:Certificate",
                 "fields": {
+                    "organizational_units": {
+                        "maxItemsOne": false
+                    },
                     "san_dns": {
                         "maxItemsOne": false
                     },
