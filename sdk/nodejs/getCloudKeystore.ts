@@ -27,7 +27,6 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getCloudKeystore(args: GetCloudKeystoreArgs, opts?: pulumi.InvokeOptions): Promise<GetCloudKeystoreResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("venafi:index/getCloudKeystore:getCloudKeystore", {
         "cloudProviderId": args.cloudProviderId,
@@ -91,7 +90,11 @@ export interface GetCloudKeystoreResult {
  * ```
  */
 export function getCloudKeystoreOutput(args: GetCloudKeystoreOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCloudKeystoreResult> {
-    return pulumi.output(args).apply((a: any) => getCloudKeystore(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("venafi:index/getCloudKeystore:getCloudKeystore", {
+        "cloudProviderId": args.cloudProviderId,
+        "name": args.name,
+    }, opts);
 }
 
 /**

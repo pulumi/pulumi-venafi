@@ -20,7 +20,6 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getCloudProvider(args: GetCloudProviderArgs, opts?: pulumi.InvokeOptions): Promise<GetCloudProviderResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("venafi:index/getCloudProvider:getCloudProvider", {
         "name": args.name,
@@ -79,7 +78,10 @@ export interface GetCloudProviderResult {
  * ```
  */
 export function getCloudProviderOutput(args: GetCloudProviderOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCloudProviderResult> {
-    return pulumi.output(args).apply((a: any) => getCloudProvider(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("venafi:index/getCloudProvider:getCloudProvider", {
+        "name": args.name,
+    }, opts);
 }
 
 /**
