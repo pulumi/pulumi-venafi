@@ -17,6 +17,7 @@ package venafi
 import (
 	"fmt"
 	"path/filepath"
+	"regexp"
 	"unicode"
 
 	// embed is used to store bridge-metadata.json in the compiled binary
@@ -72,6 +73,7 @@ func Provider() tfbridge.ProviderInfo {
 		Repository:       "https://github.com/pulumi/pulumi-venafi",
 		GitHubOrg:        "Venafi",
 		UpstreamRepoPath: "./upstream",
+		DocRules:         &tfbridge.DocRuleInfo{EditRules: docEditRules},
 		Resources: map[string]*tfbridge.ResourceInfo{
 			"venafi_certificate": {
 				Tok: makeResource(mainMod, "Certificate"),
@@ -131,6 +133,31 @@ func Provider() tfbridge.ProviderInfo {
 	prov.SetAutonaming(255, "-")
 
 	return prov
+}
+
+func docEditRules(defaults []tfbridge.DocsEdit) []tfbridge.DocsEdit {
+	return append(
+		defaults,
+		skipText,
+	)
+}
+
+var regexpsToSkip = []*regexp.Regexp{
+	// Matches TF specific warnings of the format `!> warning text etc...`
+	regexp.MustCompile(`!>(?s:.)*?\n\n`),
+	// Matches TF specific nots of the format `~> note text etc...`
+	regexp.MustCompile(`~>(?s:.)*?\n\n`),
+}
+
+// Helper func to remove a content byte from a file
+var skipText = tfbridge.DocsEdit{
+	Path: "index.md",
+	Edit: func(_ string, content []byte) ([]byte, error) {
+		for _, expression := range regexpsToSkip {
+			content = expression.ReplaceAll(content, nil)
+		}
+		return content, nil
+	},
 }
 
 //go:embed cmd/pulumi-resource-venafi/bridge-metadata.json
