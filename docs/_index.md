@@ -6,7 +6,7 @@ layout: package
 ---
 ## Installation
 
-The venafi provider is available as a package in all Pulumi languages:
+The Venafi provider is available as a package in all Pulumi languages:
 
 * JavaScript/TypeScript: [`@pulumi/venafi`](https://www.npmjs.com/package/@pulumi/venafi)
 * Python: [`pulumi-venafi`](https://pypi.org/project/pulumi-venafi/)
