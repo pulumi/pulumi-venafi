@@ -89,7 +89,7 @@ export interface GetCloudKeystoreResult {
  * });
  * ```
  */
-export function getCloudKeystoreOutput(args: GetCloudKeystoreOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCloudKeystoreResult> {
+export function getCloudKeystoreOutput(args: GetCloudKeystoreOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCloudKeystoreResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("venafi:index/getCloudKeystore:getCloudKeystore", {
         "cloudProviderId": args.cloudProviderId,
