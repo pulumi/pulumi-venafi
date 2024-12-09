@@ -130,7 +130,7 @@ def get_cloud_keystore(cloud_provider_id: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_cloud_keystore_output(cloud_provider_id: Optional[pulumi.Input[str]] = None,
                               name: Optional[pulumi.Input[str]] = None,
-                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCloudKeystoreResult]:
+                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCloudKeystoreResult]:
     """
     Use this data source to get the `ID` of a cloud keystore in Venafi Control Plane, referenced by its name and parent
     cloud provider ID. You can use `get_cloud_provider` data source to obtain the ID of the parent cloud provider.
@@ -156,7 +156,7 @@ def get_cloud_keystore_output(cloud_provider_id: Optional[pulumi.Input[str]] = N
     __args__ = dict()
     __args__['cloudProviderId'] = cloud_provider_id
     __args__['name'] = name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('venafi:index/getCloudKeystore:getCloudKeystore', __args__, opts=opts, typ=GetCloudKeystoreResult)
     return __ret__.apply(lambda __response__: GetCloudKeystoreResult(
         cloud_provider_id=pulumi.get(__response__, 'cloud_provider_id'),
