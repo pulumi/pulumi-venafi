@@ -77,7 +77,7 @@ export interface GetCloudProviderResult {
  * });
  * ```
  */
-export function getCloudProviderOutput(args: GetCloudProviderOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCloudProviderResult> {
+export function getCloudProviderOutput(args: GetCloudProviderOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCloudProviderResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("venafi:index/getCloudProvider:getCloudProvider", {
         "name": args.name,
