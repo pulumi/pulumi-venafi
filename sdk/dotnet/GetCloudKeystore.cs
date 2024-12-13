@@ -78,6 +78,40 @@ namespace Pulumi.Venafi
         /// </summary>
         public static Output<GetCloudKeystoreResult> Invoke(GetCloudKeystoreInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCloudKeystoreResult>("venafi:index/getCloudKeystore:getCloudKeystore", args ?? new GetCloudKeystoreInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to get the `ID` of a cloud keystore in Venafi Control Plane, referenced by its name and parent 
+        /// cloud provider ID. You can use `venafi.getCloudProvider` data source to obtain the ID of the parent cloud provider.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Venafi = Pulumi.Venafi;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     // Find a cloud keystore with a static cloud provider id
+        ///     var ckExampleById = Venafi.GetCloudKeystore.Invoke(new()
+        ///     {
+        ///         CloudProviderId = "e48897d0-2762-11ef-8fab-79ac590dd358",
+        ///         Name = "Cloud Keystore Example",
+        ///     });
+        /// 
+        ///     // Find a cloud keystore by using venafi_cloud_provider data source as input
+        ///     var ckExample = Venafi.GetCloudKeystore.Invoke(new()
+        ///     {
+        ///         CloudProviderId = cpExample.Id,
+        ///         Name = "Cloud Keystore example",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetCloudKeystoreResult> Invoke(GetCloudKeystoreInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetCloudKeystoreResult>("venafi:index/getCloudKeystore:getCloudKeystore", args ?? new GetCloudKeystoreInvokeArgs(), options.WithDefaults());
     }
 
 
