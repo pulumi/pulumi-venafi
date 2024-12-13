@@ -60,6 +60,31 @@ namespace Pulumi.Venafi
         /// </summary>
         public static Output<GetCloudProviderResult> Invoke(GetCloudProviderInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCloudProviderResult>("venafi:index/getCloudProvider:getCloudProvider", args ?? new GetCloudProviderInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to get the `ID` of a cloud provider in Venafi Control Plane, referenced by its name.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Venafi = Pulumi.Venafi;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     // Find a cloud provider
+        ///     var cpExample = Venafi.GetCloudProvider.Invoke(new()
+        ///     {
+        ///         Name = "Cloud Provider Example",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetCloudProviderResult> Invoke(GetCloudProviderInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetCloudProviderResult>("venafi:index/getCloudProvider:getCloudProvider", args ?? new GetCloudProviderInvokeArgs(), options.WithDefaults());
     }
 
 

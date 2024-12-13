@@ -80,21 +80,11 @@ type GetCloudKeystoreResult struct {
 }
 
 func GetCloudKeystoreOutput(ctx *pulumi.Context, args GetCloudKeystoreOutputArgs, opts ...pulumi.InvokeOption) GetCloudKeystoreResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetCloudKeystoreResultOutput, error) {
 			args := v.(GetCloudKeystoreArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv GetCloudKeystoreResult
-			secret, err := ctx.InvokePackageRaw("venafi:index/getCloudKeystore:getCloudKeystore", args, &rv, "", opts...)
-			if err != nil {
-				return GetCloudKeystoreResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(GetCloudKeystoreResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(GetCloudKeystoreResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("venafi:index/getCloudKeystore:getCloudKeystore", args, GetCloudKeystoreResultOutput{}, options).(GetCloudKeystoreResultOutput), nil
 		}).(GetCloudKeystoreResultOutput)
 }
 

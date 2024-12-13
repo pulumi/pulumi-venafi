@@ -71,21 +71,11 @@ type GetCloudProviderResult struct {
 }
 
 func GetCloudProviderOutput(ctx *pulumi.Context, args GetCloudProviderOutputArgs, opts ...pulumi.InvokeOption) GetCloudProviderResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetCloudProviderResultOutput, error) {
 			args := v.(GetCloudProviderArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv GetCloudProviderResult
-			secret, err := ctx.InvokePackageRaw("venafi:index/getCloudProvider:getCloudProvider", args, &rv, "", opts...)
-			if err != nil {
-				return GetCloudProviderResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(GetCloudProviderResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(GetCloudProviderResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("venafi:index/getCloudProvider:getCloudProvider", args, GetCloudProviderResultOutput{}, options).(GetCloudProviderResultOutput), nil
 		}).(GetCloudProviderResultOutput)
 }
 

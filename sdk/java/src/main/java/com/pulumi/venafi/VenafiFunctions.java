@@ -7,6 +7,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.TypeShape;
 import com.pulumi.deployment.Deployment;
 import com.pulumi.deployment.InvokeOptions;
+import com.pulumi.deployment.InvokeOutputOptions;
 import com.pulumi.venafi.Utilities;
 import com.pulumi.venafi.inputs.GetCloudKeystoreArgs;
 import com.pulumi.venafi.inputs.GetCloudKeystorePlainArgs;
@@ -218,6 +219,57 @@ public final class VenafiFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetCloudKeystoreResult> getCloudKeystore(GetCloudKeystoreArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("venafi:index/getCloudKeystore:getCloudKeystore", TypeShape.of(GetCloudKeystoreResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to get the `ID` of a cloud keystore in Venafi Control Plane, referenced by its name and parent
+     * cloud provider ID. You can use `venafi.getCloudProvider` data source to obtain the ID of the parent cloud provider.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.venafi.VenafiFunctions;
+     * import com.pulumi.venafi.inputs.GetCloudKeystoreArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // Find a cloud keystore with a static cloud provider id
+     *         final var ckExampleById = VenafiFunctions.getCloudKeystore(GetCloudKeystoreArgs.builder()
+     *             .cloudProviderId("e48897d0-2762-11ef-8fab-79ac590dd358")
+     *             .name("Cloud Keystore Example")
+     *             .build());
+     * 
+     *         // Find a cloud keystore by using venafi_cloud_provider data source as input
+     *         final var ckExample = VenafiFunctions.getCloudKeystore(GetCloudKeystoreArgs.builder()
+     *             .cloudProviderId(cpExample.id())
+     *             .name("Cloud Keystore example")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetCloudKeystoreResult> getCloudKeystorePlain(GetCloudKeystorePlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("venafi:index/getCloudKeystore:getCloudKeystore", TypeShape.of(GetCloudKeystoreResult.class), args, Utilities.withVersion(options));
     }
@@ -348,6 +400,49 @@ public final class VenafiFunctions {
      * 
      */
     public static Output<GetCloudProviderResult> getCloudProvider(GetCloudProviderArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("venafi:index/getCloudProvider:getCloudProvider", TypeShape.of(GetCloudProviderResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to get the `ID` of a cloud provider in Venafi Control Plane, referenced by its name.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.venafi.VenafiFunctions;
+     * import com.pulumi.venafi.inputs.GetCloudProviderArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // Find a cloud provider
+     *         final var cpExample = VenafiFunctions.getCloudProvider(GetCloudProviderArgs.builder()
+     *             .name("Cloud Provider Example")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetCloudProviderResult> getCloudProvider(GetCloudProviderArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("venafi:index/getCloudProvider:getCloudProvider", TypeShape.of(GetCloudProviderResult.class), args, Utilities.withVersion(options));
     }
     /**
