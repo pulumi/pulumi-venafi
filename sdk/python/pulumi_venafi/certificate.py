@@ -893,6 +893,9 @@ class _CertificateState:
 
 
 class Certificate(pulumi.CustomResource):
+
+    pulumi_type = "venafi:index/certificate:Certificate"
+
     @overload
     def __init__(__self__,
                  resource_name: str,
