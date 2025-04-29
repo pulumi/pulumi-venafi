@@ -110,6 +110,9 @@ class _PolicyState:
 
 
 class Policy(pulumi.CustomResource):
+
+    pulumi_type = "venafi:index/policy:Policy"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -97,6 +97,9 @@ class _SshConfigState:
 
 
 class SshConfig(pulumi.CustomResource):
+
+    pulumi_type = "venafi:index/sshConfig:SshConfig"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

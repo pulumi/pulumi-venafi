@@ -712,6 +712,9 @@ class _SshCertificateState:
 
 
 class SshCertificate(pulumi.CustomResource):
+
+    pulumi_type = "venafi:index/sshCertificate:SshCertificate"
+
     @overload
     def __init__(__self__,
                  resource_name: str,
