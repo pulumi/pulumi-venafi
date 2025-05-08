@@ -244,6 +244,9 @@
                 "type": "string",
                 "description": "DN of the Venafi TLSPDC policy folder or name of the Venafi as a Service application plus issuing template alias.\nExample for Platform: testPolicy\\\\vault Example for Venafi as a Service: myApp\\\\Default\n"
             }
+        },
+        "methods": {
+            "terraformConfig": "pulumi:providers:venafi/terraformConfig"
         }
     },
     "resources": {
@@ -1267,6 +1270,35 @@
         }
     },
     "functions": {
+        "pulumi:providers:venafi/terraformConfig": {
+            "description": "This function returns a Terraform config object with terraform-namecased keys,to be used with the Terraform Module Provider.",
+            "inputs": {
+                "properties": {
+                    "__self__": {
+                        "type": "ref",
+                        "$ref": "#/resources/pulumi:providers:venafi"
+                    }
+                },
+                "type": "pulumi:providers:venafi/terraformConfig",
+                "required": [
+                    "__self__"
+                ]
+            },
+            "outputs": {
+                "properties": {
+                    "result": {
+                        "additionalProperties": {
+                            "$ref": "pulumi.json#/Any"
+                        },
+                        "type": "object"
+                    }
+                },
+                "required": [
+                    "result"
+                ],
+                "type": "object"
+            }
+        },
         "venafi:index/getCloudKeystore:getCloudKeystore": {
             "description": "Use this data source to get the `ID` of a cloud keystore in Venafi Control Plane, referenced by its name and parent \ncloud provider ID. You can use `venafi.getCloudProvider` data source to obtain the ID of the parent cloud provider.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as venafi from \"@pulumi/venafi\";\n\n// Find a cloud keystore with a static cloud provider id\nconst ckExampleById = venafi.getCloudKeystore({\n    cloudProviderId: \"e48897d0-2762-11ef-8fab-79ac590dd358\",\n    name: \"Cloud Keystore Example\",\n});\n// Find a cloud keystore by using venafi_cloud_provider data source as input\nconst ckExample = venafi.getCloudKeystore({\n    cloudProviderId: cpExample.id,\n    name: \"Cloud Keystore example\",\n});\n```\n```python\nimport pulumi\nimport pulumi_venafi as venafi\n\n# Find a cloud keystore with a static cloud provider id\nck_example_by_id = venafi.get_cloud_keystore(cloud_provider_id=\"e48897d0-2762-11ef-8fab-79ac590dd358\",\n    name=\"Cloud Keystore Example\")\n# Find a cloud keystore by using venafi_cloud_provider data source as input\nck_example = venafi.get_cloud_keystore(cloud_provider_id=cp_example[\"id\"],\n    name=\"Cloud Keystore example\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Venafi = Pulumi.Venafi;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    // Find a cloud keystore with a static cloud provider id\n    var ckExampleById = Venafi.GetCloudKeystore.Invoke(new()\n    {\n        CloudProviderId = \"e48897d0-2762-11ef-8fab-79ac590dd358\",\n        Name = \"Cloud Keystore Example\",\n    });\n\n    // Find a cloud keystore by using venafi_cloud_provider data source as input\n    var ckExample = Venafi.GetCloudKeystore.Invoke(new()\n    {\n        CloudProviderId = cpExample.Id,\n        Name = \"Cloud Keystore example\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-venafi/sdk/go/venafi\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t// Find a cloud keystore with a static cloud provider id\n\t\t_, err := venafi.GetCloudKeystore(ctx, \u0026venafi.GetCloudKeystoreArgs{\n\t\t\tCloudProviderId: \"e48897d0-2762-11ef-8fab-79ac590dd358\",\n\t\t\tName:            \"Cloud Keystore Example\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t// Find a cloud keystore by using venafi_cloud_provider data source as input\n\t\t_, err = venafi.GetCloudKeystore(ctx, \u0026venafi.GetCloudKeystoreArgs{\n\t\t\tCloudProviderId: cpExample.Id,\n\t\t\tName:            \"Cloud Keystore example\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.venafi.VenafiFunctions;\nimport com.pulumi.venafi.inputs.GetCloudKeystoreArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        // Find a cloud keystore with a static cloud provider id\n        final var ckExampleById = VenafiFunctions.getCloudKeystore(GetCloudKeystoreArgs.builder()\n            .cloudProviderId(\"e48897d0-2762-11ef-8fab-79ac590dd358\")\n            .name(\"Cloud Keystore Example\")\n            .build());\n\n        // Find a cloud keystore by using venafi_cloud_provider data source as input\n        final var ckExample = VenafiFunctions.getCloudKeystore(GetCloudKeystoreArgs.builder()\n            .cloudProviderId(cpExample.id())\n            .name(\"Cloud Keystore example\")\n            .build());\n\n    }\n}\n```\n```yaml\nvariables:\n  # Find a cloud keystore with a static cloud provider id\n  ckExampleById:\n    fn::invoke:\n      function: venafi:getCloudKeystore\n      arguments:\n        cloudProviderId: e48897d0-2762-11ef-8fab-79ac590dd358\n        name: Cloud Keystore Example\n  # Find a cloud keystore by using venafi_cloud_provider data source as input\n  ckExample:\n    fn::invoke:\n      function: venafi:getCloudKeystore\n      arguments:\n        cloudProviderId: ${cpExample.id}\n        name: Cloud Keystore example\n```\n\u003c!--End PulumiCodeChooser --\u003e\n",
             "inputs": {
