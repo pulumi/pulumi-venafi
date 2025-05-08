@@ -109,10 +109,8 @@ class _PolicyState:
         pulumi.set(self, "zone", value)
 
 
+@pulumi.type_token("venafi:index/policy:Policy")
 class Policy(pulumi.CustomResource):
-
-    pulumi_type = "venafi:index/policy:Policy"
-
     @overload
     def __init__(__self__,
                  resource_name: str,
