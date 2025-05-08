@@ -191,10 +191,8 @@ class _CloudKeystoreInstallationState:
         pulumi.set(self, "cloud_keystore_id", value)
 
 
+@pulumi.type_token("venafi:index/cloudKeystoreInstallation:CloudKeystoreInstallation")
 class CloudKeystoreInstallation(pulumi.CustomResource):
-
-    pulumi_type = "venafi:index/cloudKeystoreInstallation:CloudKeystoreInstallation"
-
     @overload
     def __init__(__self__,
                  resource_name: str,
