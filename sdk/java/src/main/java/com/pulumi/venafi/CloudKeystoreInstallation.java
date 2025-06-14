@@ -162,6 +162,20 @@ public class CloudKeystoreInstallation extends com.pulumi.resources.CustomResour
     public Output<String> cloudKeystoreId() {
         return this.cloudKeystoreId;
     }
+    /**
+     * The GCM certificate scope of the certificate. Only valid for GCM keystores. Supported values from GCM API documentation: DEFAULT, EDGE_CACHE, ALL_REGIONS. Only it&#39;s taken into account if the `cloud_certificate_name` argument is provided.
+     * 
+     */
+    @Export(name="gcmCertScope", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> gcmCertScope;
+
+    /**
+     * @return The GCM certificate scope of the certificate. Only valid for GCM keystores. Supported values from GCM API documentation: DEFAULT, EDGE_CACHE, ALL_REGIONS. Only it&#39;s taken into account if the `cloud_certificate_name` argument is provided.
+     * 
+     */
+    public Output<Optional<String>> gcmCertScope() {
+        return Codegen.optional(this.gcmCertScope);
+    }
 
     /**
      *

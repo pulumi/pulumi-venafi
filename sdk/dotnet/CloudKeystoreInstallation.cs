@@ -92,6 +92,12 @@ namespace Pulumi.Venafi
         [Output("cloudKeystoreId")]
         public Output<string> CloudKeystoreId { get; private set; } = null!;
 
+        /// <summary>
+        /// The GCM certificate scope of the certificate. Only valid for GCM keystores. Supported values from GCM API documentation: DEFAULT, EDGE_CACHE, ALL_REGIONS. Only it's taken into account if the `cloud_certificate_name` argument is provided.
+        /// </summary>
+        [Output("gcmCertScope")]
+        public Output<string?> GcmCertScope { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a CloudKeystoreInstallation resource with the given unique name, arguments, and options.
@@ -162,6 +168,12 @@ namespace Pulumi.Venafi
         [Input("cloudKeystoreId", required: true)]
         public Input<string> CloudKeystoreId { get; set; } = null!;
 
+        /// <summary>
+        /// The GCM certificate scope of the certificate. Only valid for GCM keystores. Supported values from GCM API documentation: DEFAULT, EDGE_CACHE, ALL_REGIONS. Only it's taken into account if the `cloud_certificate_name` argument is provided.
+        /// </summary>
+        [Input("gcmCertScope")]
+        public Input<string>? GcmCertScope { get; set; }
+
         public CloudKeystoreInstallationArgs()
         {
         }
@@ -211,6 +223,12 @@ namespace Pulumi.Venafi
         /// </summary>
         [Input("cloudKeystoreId")]
         public Input<string>? CloudKeystoreId { get; set; }
+
+        /// <summary>
+        /// The GCM certificate scope of the certificate. Only valid for GCM keystores. Supported values from GCM API documentation: DEFAULT, EDGE_CACHE, ALL_REGIONS. Only it's taken into account if the `cloud_certificate_name` argument is provided.
+        /// </summary>
+        [Input("gcmCertScope")]
+        public Input<string>? GcmCertScope { get; set; }
 
         public CloudKeystoreInstallationState()
         {
