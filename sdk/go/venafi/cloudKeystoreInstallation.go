@@ -78,6 +78,8 @@ type CloudKeystoreInstallation struct {
 	CloudCertificateName pulumi.StringPtrOutput `pulumi:"cloudCertificateName"`
 	// ID of the cloud keystore where the certificate will be provisioned.
 	CloudKeystoreId pulumi.StringOutput `pulumi:"cloudKeystoreId"`
+	// The GCM certificate scope of the certificate. Only valid for GCM keystores. Supported values from GCM API documentation: DEFAULT, EDGE_CACHE, ALL_REGIONS. Only it's taken into account if the `cloudCertificateName` argument is provided.
+	GcmCertScope pulumi.StringPtrOutput `pulumi:"gcmCertScope"`
 }
 
 // NewCloudKeystoreInstallation registers a new resource with the given unique name, arguments, and options.
@@ -128,6 +130,8 @@ type cloudKeystoreInstallationState struct {
 	CloudCertificateName *string `pulumi:"cloudCertificateName"`
 	// ID of the cloud keystore where the certificate will be provisioned.
 	CloudKeystoreId *string `pulumi:"cloudKeystoreId"`
+	// The GCM certificate scope of the certificate. Only valid for GCM keystores. Supported values from GCM API documentation: DEFAULT, EDGE_CACHE, ALL_REGIONS. Only it's taken into account if the `cloudCertificateName` argument is provided.
+	GcmCertScope *string `pulumi:"gcmCertScope"`
 }
 
 type CloudKeystoreInstallationState struct {
@@ -143,6 +147,8 @@ type CloudKeystoreInstallationState struct {
 	CloudCertificateName pulumi.StringPtrInput
 	// ID of the cloud keystore where the certificate will be provisioned.
 	CloudKeystoreId pulumi.StringPtrInput
+	// The GCM certificate scope of the certificate. Only valid for GCM keystores. Supported values from GCM API documentation: DEFAULT, EDGE_CACHE, ALL_REGIONS. Only it's taken into account if the `cloudCertificateName` argument is provided.
+	GcmCertScope pulumi.StringPtrInput
 }
 
 func (CloudKeystoreInstallationState) ElementType() reflect.Type {
@@ -158,6 +164,8 @@ type cloudKeystoreInstallationArgs struct {
 	CloudCertificateName *string `pulumi:"cloudCertificateName"`
 	// ID of the cloud keystore where the certificate will be provisioned.
 	CloudKeystoreId string `pulumi:"cloudKeystoreId"`
+	// The GCM certificate scope of the certificate. Only valid for GCM keystores. Supported values from GCM API documentation: DEFAULT, EDGE_CACHE, ALL_REGIONS. Only it's taken into account if the `cloudCertificateName` argument is provided.
+	GcmCertScope *string `pulumi:"gcmCertScope"`
 }
 
 // The set of arguments for constructing a CloudKeystoreInstallation resource.
@@ -170,6 +178,8 @@ type CloudKeystoreInstallationArgs struct {
 	CloudCertificateName pulumi.StringPtrInput
 	// ID of the cloud keystore where the certificate will be provisioned.
 	CloudKeystoreId pulumi.StringInput
+	// The GCM certificate scope of the certificate. Only valid for GCM keystores. Supported values from GCM API documentation: DEFAULT, EDGE_CACHE, ALL_REGIONS. Only it's taken into account if the `cloudCertificateName` argument is provided.
+	GcmCertScope pulumi.StringPtrInput
 }
 
 func (CloudKeystoreInstallationArgs) ElementType() reflect.Type {
@@ -287,6 +297,11 @@ func (o CloudKeystoreInstallationOutput) CloudCertificateName() pulumi.StringPtr
 // ID of the cloud keystore where the certificate will be provisioned.
 func (o CloudKeystoreInstallationOutput) CloudKeystoreId() pulumi.StringOutput {
 	return o.ApplyT(func(v *CloudKeystoreInstallation) pulumi.StringOutput { return v.CloudKeystoreId }).(pulumi.StringOutput)
+}
+
+// The GCM certificate scope of the certificate. Only valid for GCM keystores. Supported values from GCM API documentation: DEFAULT, EDGE_CACHE, ALL_REGIONS. Only it's taken into account if the `cloudCertificateName` argument is provided.
+func (o CloudKeystoreInstallationOutput) GcmCertScope() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CloudKeystoreInstallation) pulumi.StringPtrOutput { return v.GcmCertScope }).(pulumi.StringPtrOutput)
 }
 
 type CloudKeystoreInstallationArrayOutput struct{ *pulumi.OutputState }

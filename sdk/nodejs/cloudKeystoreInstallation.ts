@@ -91,6 +91,10 @@ export class CloudKeystoreInstallation extends pulumi.CustomResource {
      * ID of the cloud keystore where the certificate will be provisioned.
      */
     public readonly cloudKeystoreId!: pulumi.Output<string>;
+    /**
+     * The GCM certificate scope of the certificate. Only valid for GCM keystores. Supported values from GCM API documentation: DEFAULT, EDGE_CACHE, ALL_REGIONS. Only it's taken into account if the `cloudCertificateName` argument is provided.
+     */
+    public readonly gcmCertScope!: pulumi.Output<string | undefined>;
 
     /**
      * Create a CloudKeystoreInstallation resource with the given unique name, arguments, and options.
@@ -111,6 +115,7 @@ export class CloudKeystoreInstallation extends pulumi.CustomResource {
             resourceInputs["cloudCertificateMetadata"] = state ? state.cloudCertificateMetadata : undefined;
             resourceInputs["cloudCertificateName"] = state ? state.cloudCertificateName : undefined;
             resourceInputs["cloudKeystoreId"] = state ? state.cloudKeystoreId : undefined;
+            resourceInputs["gcmCertScope"] = state ? state.gcmCertScope : undefined;
         } else {
             const args = argsOrState as CloudKeystoreInstallationArgs | undefined;
             if ((!args || args.certificateId === undefined) && !opts.urn) {
@@ -123,6 +128,7 @@ export class CloudKeystoreInstallation extends pulumi.CustomResource {
             resourceInputs["certificateId"] = args ? args.certificateId : undefined;
             resourceInputs["cloudCertificateName"] = args ? args.cloudCertificateName : undefined;
             resourceInputs["cloudKeystoreId"] = args ? args.cloudKeystoreId : undefined;
+            resourceInputs["gcmCertScope"] = args ? args.gcmCertScope : undefined;
             resourceInputs["cloudCertificateId"] = undefined /*out*/;
             resourceInputs["cloudCertificateMetadata"] = undefined /*out*/;
         }
@@ -159,6 +165,10 @@ export interface CloudKeystoreInstallationState {
      * ID of the cloud keystore where the certificate will be provisioned.
      */
     cloudKeystoreId?: pulumi.Input<string>;
+    /**
+     * The GCM certificate scope of the certificate. Only valid for GCM keystores. Supported values from GCM API documentation: DEFAULT, EDGE_CACHE, ALL_REGIONS. Only it's taken into account if the `cloudCertificateName` argument is provided.
+     */
+    gcmCertScope?: pulumi.Input<string>;
 }
 
 /**
@@ -181,4 +191,8 @@ export interface CloudKeystoreInstallationArgs {
      * ID of the cloud keystore where the certificate will be provisioned.
      */
     cloudKeystoreId: pulumi.Input<string>;
+    /**
+     * The GCM certificate scope of the certificate. Only valid for GCM keystores. Supported values from GCM API documentation: DEFAULT, EDGE_CACHE, ALL_REGIONS. Only it's taken into account if the `cloudCertificateName` argument is provided.
+     */
+    gcmCertScope?: pulumi.Input<string>;
 }

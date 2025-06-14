@@ -76,6 +76,21 @@ public final class CloudKeystoreInstallationArgs extends com.pulumi.resources.Re
         return this.cloudKeystoreId;
     }
 
+    /**
+     * The GCM certificate scope of the certificate. Only valid for GCM keystores. Supported values from GCM API documentation: DEFAULT, EDGE_CACHE, ALL_REGIONS. Only it&#39;s taken into account if the `cloud_certificate_name` argument is provided.
+     * 
+     */
+    @Import(name="gcmCertScope")
+    private @Nullable Output<String> gcmCertScope;
+
+    /**
+     * @return The GCM certificate scope of the certificate. Only valid for GCM keystores. Supported values from GCM API documentation: DEFAULT, EDGE_CACHE, ALL_REGIONS. Only it&#39;s taken into account if the `cloud_certificate_name` argument is provided.
+     * 
+     */
+    public Optional<Output<String>> gcmCertScope() {
+        return Optional.ofNullable(this.gcmCertScope);
+    }
+
     private CloudKeystoreInstallationArgs() {}
 
     private CloudKeystoreInstallationArgs(CloudKeystoreInstallationArgs $) {
@@ -83,6 +98,7 @@ public final class CloudKeystoreInstallationArgs extends com.pulumi.resources.Re
         this.certificateId = $.certificateId;
         this.cloudCertificateName = $.cloudCertificateName;
         this.cloudKeystoreId = $.cloudKeystoreId;
+        this.gcmCertScope = $.gcmCertScope;
     }
 
     public static Builder builder() {
@@ -185,6 +201,27 @@ public final class CloudKeystoreInstallationArgs extends com.pulumi.resources.Re
          */
         public Builder cloudKeystoreId(String cloudKeystoreId) {
             return cloudKeystoreId(Output.of(cloudKeystoreId));
+        }
+
+        /**
+         * @param gcmCertScope The GCM certificate scope of the certificate. Only valid for GCM keystores. Supported values from GCM API documentation: DEFAULT, EDGE_CACHE, ALL_REGIONS. Only it&#39;s taken into account if the `cloud_certificate_name` argument is provided.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder gcmCertScope(@Nullable Output<String> gcmCertScope) {
+            $.gcmCertScope = gcmCertScope;
+            return this;
+        }
+
+        /**
+         * @param gcmCertScope The GCM certificate scope of the certificate. Only valid for GCM keystores. Supported values from GCM API documentation: DEFAULT, EDGE_CACHE, ALL_REGIONS. Only it&#39;s taken into account if the `cloud_certificate_name` argument is provided.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder gcmCertScope(String gcmCertScope) {
+            return gcmCertScope(Output.of(gcmCertScope));
         }
 
         public CloudKeystoreInstallationArgs build() {

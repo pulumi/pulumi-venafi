@@ -732,6 +732,10 @@
                 "cloudKeystoreId": {
                     "type": "string",
                     "description": "ID of the cloud keystore where the certificate will be provisioned.\n"
+                },
+                "gcmCertScope": {
+                    "type": "string",
+                    "description": "The GCM certificate scope of the certificate. Only valid for GCM keystores. Supported values from GCM API documentation: DEFAULT, EDGE_CACHE, ALL_REGIONS. Only it's taken into account if the `cloud_certificate_name` argument is provided.\n"
                 }
             },
             "required": [
@@ -759,6 +763,10 @@
                     "type": "string",
                     "description": "ID of the cloud keystore where the certificate will be provisioned.\n",
                     "willReplaceOnChanges": true
+                },
+                "gcmCertScope": {
+                    "type": "string",
+                    "description": "The GCM certificate scope of the certificate. Only valid for GCM keystores. Supported values from GCM API documentation: DEFAULT, EDGE_CACHE, ALL_REGIONS. Only it's taken into account if the `cloud_certificate_name` argument is provided.\n"
                 }
             },
             "requiredInputs": [
@@ -797,6 +805,10 @@
                         "type": "string",
                         "description": "ID of the cloud keystore where the certificate will be provisioned.\n",
                         "willReplaceOnChanges": true
+                    },
+                    "gcmCertScope": {
+                        "type": "string",
+                        "description": "The GCM certificate scope of the certificate. Only valid for GCM keystores. Supported values from GCM API documentation: DEFAULT, EDGE_CACHE, ALL_REGIONS. Only it's taken into account if the `cloud_certificate_name` argument is provided.\n"
                     }
                 },
                 "type": "object"
