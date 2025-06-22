@@ -92,7 +92,7 @@ export class CloudKeystoreInstallation extends pulumi.CustomResource {
      */
     public readonly cloudKeystoreId!: pulumi.Output<string>;
     /**
-     * The GCM certificate scope of the certificate. Only valid for GCM keystores. Supported values from GCM API documentation: DEFAULT, EDGE_CACHE, ALL_REGIONS. Only it's taken into account if the `cloudCertificateName` argument is provided.
+     * The GCM certificate scope of the certificate. Only valid for GCM keystores. Supported values from GCM API documentation: DEFAULT, EDGE_CACHE, ALL_REGIONS.
      */
     public readonly gcmCertScope!: pulumi.Output<string | undefined>;
 
@@ -166,7 +166,7 @@ export interface CloudKeystoreInstallationState {
      */
     cloudKeystoreId?: pulumi.Input<string>;
     /**
-     * The GCM certificate scope of the certificate. Only valid for GCM keystores. Supported values from GCM API documentation: DEFAULT, EDGE_CACHE, ALL_REGIONS. Only it's taken into account if the `cloudCertificateName` argument is provided.
+     * The GCM certificate scope of the certificate. Only valid for GCM keystores. Supported values from GCM API documentation: DEFAULT, EDGE_CACHE, ALL_REGIONS.
      */
     gcmCertScope?: pulumi.Input<string>;
 }
@@ -192,7 +192,7 @@ export interface CloudKeystoreInstallationArgs {
      */
     cloudKeystoreId: pulumi.Input<string>;
     /**
-     * The GCM certificate scope of the certificate. Only valid for GCM keystores. Supported values from GCM API documentation: DEFAULT, EDGE_CACHE, ALL_REGIONS. Only it's taken into account if the `cloudCertificateName` argument is provided.
+     * The GCM certificate scope of the certificate. Only valid for GCM keystores. Supported values from GCM API documentation: DEFAULT, EDGE_CACHE, ALL_REGIONS.
      */
     gcmCertScope?: pulumi.Input<string>;
 }
