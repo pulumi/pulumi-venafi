@@ -31,7 +31,7 @@ class CloudKeystoreInstallationArgs:
         :param pulumi.Input[builtins.str] cloud_keystore_id: ID of the cloud keystore where the certificate will be provisioned.
         :param pulumi.Input[builtins.str] arn: ARN of the AWS certificate. Use it to provision the VCP certificate to an existing ACM certificate, instead of a new one. Only valid for ACM keystores.
         :param pulumi.Input[builtins.str] cloud_certificate_name: Name for the provisioned certificate in the keystore. If the name already exists, the provisioning will replace the previous certificate with the one from `certificate_id`. Only valid for AKV and GCM keystores.
-        :param pulumi.Input[builtins.str] gcm_cert_scope: The GCM certificate scope of the certificate. Only valid for GCM keystores. Supported values from GCM API documentation: DEFAULT, EDGE_CACHE, ALL_REGIONS. Only it's taken into account if the `cloud_certificate_name` argument is provided.
+        :param pulumi.Input[builtins.str] gcm_cert_scope: The GCM certificate scope of the certificate. Only valid for GCM keystores. Supported values from GCM API documentation: DEFAULT, EDGE_CACHE, ALL_REGIONS.
         """
         pulumi.set(__self__, "certificate_id", certificate_id)
         pulumi.set(__self__, "cloud_keystore_id", cloud_keystore_id)
@@ -94,7 +94,7 @@ class CloudKeystoreInstallationArgs:
     @pulumi.getter(name="gcmCertScope")
     def gcm_cert_scope(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The GCM certificate scope of the certificate. Only valid for GCM keystores. Supported values from GCM API documentation: DEFAULT, EDGE_CACHE, ALL_REGIONS. Only it's taken into account if the `cloud_certificate_name` argument is provided.
+        The GCM certificate scope of the certificate. Only valid for GCM keystores. Supported values from GCM API documentation: DEFAULT, EDGE_CACHE, ALL_REGIONS.
         """
         return pulumi.get(self, "gcm_cert_scope")
 
@@ -121,7 +121,7 @@ class _CloudKeystoreInstallationState:
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] cloud_certificate_metadata: Metadata of the provisioned certificate from the Cloud Keystore
         :param pulumi.Input[builtins.str] cloud_certificate_name: Name for the provisioned certificate in the keystore. If the name already exists, the provisioning will replace the previous certificate with the one from `certificate_id`. Only valid for AKV and GCM keystores.
         :param pulumi.Input[builtins.str] cloud_keystore_id: ID of the cloud keystore where the certificate will be provisioned.
-        :param pulumi.Input[builtins.str] gcm_cert_scope: The GCM certificate scope of the certificate. Only valid for GCM keystores. Supported values from GCM API documentation: DEFAULT, EDGE_CACHE, ALL_REGIONS. Only it's taken into account if the `cloud_certificate_name` argument is provided.
+        :param pulumi.Input[builtins.str] gcm_cert_scope: The GCM certificate scope of the certificate. Only valid for GCM keystores. Supported values from GCM API documentation: DEFAULT, EDGE_CACHE, ALL_REGIONS.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -214,7 +214,7 @@ class _CloudKeystoreInstallationState:
     @pulumi.getter(name="gcmCertScope")
     def gcm_cert_scope(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The GCM certificate scope of the certificate. Only valid for GCM keystores. Supported values from GCM API documentation: DEFAULT, EDGE_CACHE, ALL_REGIONS. Only it's taken into account if the `cloud_certificate_name` argument is provided.
+        The GCM certificate scope of the certificate. Only valid for GCM keystores. Supported values from GCM API documentation: DEFAULT, EDGE_CACHE, ALL_REGIONS.
         """
         return pulumi.get(self, "gcm_cert_scope")
 
@@ -274,7 +274,7 @@ class CloudKeystoreInstallation(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] certificate_id: ID of the certificate to be provisioned to the given `keystore_id`.
         :param pulumi.Input[builtins.str] cloud_certificate_name: Name for the provisioned certificate in the keystore. If the name already exists, the provisioning will replace the previous certificate with the one from `certificate_id`. Only valid for AKV and GCM keystores.
         :param pulumi.Input[builtins.str] cloud_keystore_id: ID of the cloud keystore where the certificate will be provisioned.
-        :param pulumi.Input[builtins.str] gcm_cert_scope: The GCM certificate scope of the certificate. Only valid for GCM keystores. Supported values from GCM API documentation: DEFAULT, EDGE_CACHE, ALL_REGIONS. Only it's taken into account if the `cloud_certificate_name` argument is provided.
+        :param pulumi.Input[builtins.str] gcm_cert_scope: The GCM certificate scope of the certificate. Only valid for GCM keystores. Supported values from GCM API documentation: DEFAULT, EDGE_CACHE, ALL_REGIONS.
         """
         ...
     @overload
@@ -385,7 +385,7 @@ class CloudKeystoreInstallation(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] cloud_certificate_metadata: Metadata of the provisioned certificate from the Cloud Keystore
         :param pulumi.Input[builtins.str] cloud_certificate_name: Name for the provisioned certificate in the keystore. If the name already exists, the provisioning will replace the previous certificate with the one from `certificate_id`. Only valid for AKV and GCM keystores.
         :param pulumi.Input[builtins.str] cloud_keystore_id: ID of the cloud keystore where the certificate will be provisioned.
-        :param pulumi.Input[builtins.str] gcm_cert_scope: The GCM certificate scope of the certificate. Only valid for GCM keystores. Supported values from GCM API documentation: DEFAULT, EDGE_CACHE, ALL_REGIONS. Only it's taken into account if the `cloud_certificate_name` argument is provided.
+        :param pulumi.Input[builtins.str] gcm_cert_scope: The GCM certificate scope of the certificate. Only valid for GCM keystores. Supported values from GCM API documentation: DEFAULT, EDGE_CACHE, ALL_REGIONS.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -452,7 +452,7 @@ class CloudKeystoreInstallation(pulumi.CustomResource):
     @pulumi.getter(name="gcmCertScope")
     def gcm_cert_scope(self) -> pulumi.Output[Optional[builtins.str]]:
         """
-        The GCM certificate scope of the certificate. Only valid for GCM keystores. Supported values from GCM API documentation: DEFAULT, EDGE_CACHE, ALL_REGIONS. Only it's taken into account if the `cloud_certificate_name` argument is provided.
+        The GCM certificate scope of the certificate. Only valid for GCM keystores. Supported values from GCM API documentation: DEFAULT, EDGE_CACHE, ALL_REGIONS.
         """
         return pulumi.get(self, "gcm_cert_scope")
 

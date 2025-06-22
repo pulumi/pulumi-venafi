@@ -107,14 +107,14 @@ public final class CloudKeystoreInstallationState extends com.pulumi.resources.R
     }
 
     /**
-     * The GCM certificate scope of the certificate. Only valid for GCM keystores. Supported values from GCM API documentation: DEFAULT, EDGE_CACHE, ALL_REGIONS. Only it&#39;s taken into account if the `cloud_certificate_name` argument is provided.
+     * The GCM certificate scope of the certificate. Only valid for GCM keystores. Supported values from GCM API documentation: DEFAULT, EDGE_CACHE, ALL_REGIONS.
      * 
      */
     @Import(name="gcmCertScope")
     private @Nullable Output<String> gcmCertScope;
 
     /**
-     * @return The GCM certificate scope of the certificate. Only valid for GCM keystores. Supported values from GCM API documentation: DEFAULT, EDGE_CACHE, ALL_REGIONS. Only it&#39;s taken into account if the `cloud_certificate_name` argument is provided.
+     * @return The GCM certificate scope of the certificate. Only valid for GCM keystores. Supported values from GCM API documentation: DEFAULT, EDGE_CACHE, ALL_REGIONS.
      * 
      */
     public Optional<Output<String>> gcmCertScope() {
@@ -278,7 +278,7 @@ public final class CloudKeystoreInstallationState extends com.pulumi.resources.R
         }
 
         /**
-         * @param gcmCertScope The GCM certificate scope of the certificate. Only valid for GCM keystores. Supported values from GCM API documentation: DEFAULT, EDGE_CACHE, ALL_REGIONS. Only it&#39;s taken into account if the `cloud_certificate_name` argument is provided.
+         * @param gcmCertScope The GCM certificate scope of the certificate. Only valid for GCM keystores. Supported values from GCM API documentation: DEFAULT, EDGE_CACHE, ALL_REGIONS.
          * 
          * @return builder
          * 
@@ -289,7 +289,7 @@ public final class CloudKeystoreInstallationState extends com.pulumi.resources.R
         }
 
         /**
-         * @param gcmCertScope The GCM certificate scope of the certificate. Only valid for GCM keystores. Supported values from GCM API documentation: DEFAULT, EDGE_CACHE, ALL_REGIONS. Only it&#39;s taken into account if the `cloud_certificate_name` argument is provided.
+         * @param gcmCertScope The GCM certificate scope of the certificate. Only valid for GCM keystores. Supported values from GCM API documentation: DEFAULT, EDGE_CACHE, ALL_REGIONS.
          * 
          * @return builder
          * 

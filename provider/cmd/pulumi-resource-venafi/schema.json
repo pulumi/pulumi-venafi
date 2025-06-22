@@ -735,7 +735,7 @@
                 },
                 "gcmCertScope": {
                     "type": "string",
-                    "description": "The GCM certificate scope of the certificate. Only valid for GCM keystores. Supported values from GCM API documentation: DEFAULT, EDGE_CACHE, ALL_REGIONS. Only it's taken into account if the `cloud_certificate_name` argument is provided.\n"
+                    "description": "The GCM certificate scope of the certificate. Only valid for GCM keystores. Supported values from GCM API documentation: DEFAULT, EDGE_CACHE, ALL_REGIONS.\n"
                 }
             },
             "required": [
@@ -766,7 +766,7 @@
                 },
                 "gcmCertScope": {
                     "type": "string",
-                    "description": "The GCM certificate scope of the certificate. Only valid for GCM keystores. Supported values from GCM API documentation: DEFAULT, EDGE_CACHE, ALL_REGIONS. Only it's taken into account if the `cloud_certificate_name` argument is provided.\n"
+                    "description": "The GCM certificate scope of the certificate. Only valid for GCM keystores. Supported values from GCM API documentation: DEFAULT, EDGE_CACHE, ALL_REGIONS.\n"
                 }
             },
             "requiredInputs": [
@@ -808,7 +808,7 @@
                     },
                     "gcmCertScope": {
                         "type": "string",
-                        "description": "The GCM certificate scope of the certificate. Only valid for GCM keystores. Supported values from GCM API documentation: DEFAULT, EDGE_CACHE, ALL_REGIONS. Only it's taken into account if the `cloud_certificate_name` argument is provided.\n"
+                        "description": "The GCM certificate scope of the certificate. Only valid for GCM keystores. Supported values from GCM API documentation: DEFAULT, EDGE_CACHE, ALL_REGIONS.\n"
                     }
                 },
                 "type": "object"
