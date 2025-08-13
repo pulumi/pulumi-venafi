@@ -94,6 +94,23 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Base64 encoded PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to
+     * TLSPDC
+     * 
+     */
+    @Import(name="p12CertData")
+    private @Nullable Output<String> p12CertData;
+
+    /**
+     * @return Base64 encoded PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to
+     * TLSPDC
+     * 
+     */
+    public Optional<Output<String>> p12CertData() {
+        return Optional.ofNullable(this.p12CertData);
+    }
+
+    /**
      * Filename of PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to
      * TLSPDC
      * 
@@ -111,14 +128,14 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Password for the PKCS#12 keystore declared in p12_cert
+     * Password for the PKCS#12 keystore declared in p12_cert / p12_cert_data
      * 
      */
     @Import(name="p12CertPassword")
     private @Nullable Output<String> p12CertPassword;
 
     /**
-     * @return Password for the PKCS#12 keystore declared in p12_cert
+     * @return Password for the PKCS#12 keystore declared in p12_cert / p12_cert_data
      * 
      */
     public Optional<Output<String>> p12CertPassword() {
@@ -250,6 +267,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         this.clientId = $.clientId;
         this.devMode = $.devMode;
         this.externalJwt = $.externalJwt;
+        this.p12CertData = $.p12CertData;
         this.p12CertFilename = $.p12CertFilename;
         this.p12CertPassword = $.p12CertPassword;
         this.skipRetirement = $.skipRetirement;
@@ -387,6 +405,29 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param p12CertData Base64 encoded PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to
+         * TLSPDC
+         * 
+         * @return builder
+         * 
+         */
+        public Builder p12CertData(@Nullable Output<String> p12CertData) {
+            $.p12CertData = p12CertData;
+            return this;
+        }
+
+        /**
+         * @param p12CertData Base64 encoded PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to
+         * TLSPDC
+         * 
+         * @return builder
+         * 
+         */
+        public Builder p12CertData(String p12CertData) {
+            return p12CertData(Output.of(p12CertData));
+        }
+
+        /**
          * @param p12CertFilename Filename of PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to
          * TLSPDC
          * 
@@ -410,7 +451,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param p12CertPassword Password for the PKCS#12 keystore declared in p12_cert
+         * @param p12CertPassword Password for the PKCS#12 keystore declared in p12_cert / p12_cert_data
          * 
          * @return builder
          * 
@@ -421,7 +462,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param p12CertPassword Password for the PKCS#12 keystore declared in p12_cert
+         * @param p12CertPassword Password for the PKCS#12 keystore declared in p12_cert / p12_cert_data
          * 
          * @return builder
          * 

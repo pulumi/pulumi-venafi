@@ -48,6 +48,14 @@ public final class Config {
         return Codegen.stringProp("externalJwt").config(config).get();
     }
 /**
+ * Base64 encoded PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to
+ * TLSPDC
+ * 
+ */
+    public Optional<String> p12CertData() {
+        return Codegen.stringProp("p12CertData").config(config).get();
+    }
+/**
  * Filename of PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to
  * TLSPDC
  * 
@@ -56,7 +64,7 @@ public final class Config {
         return Codegen.stringProp("p12CertFilename").config(config).get();
     }
 /**
- * Password for the PKCS#12 keystore declared in p12_cert
+ * Password for the PKCS#12 keystore declared in p12_cert / p12_cert_data
  * 
  */
     public Optional<String> p12CertPassword() {

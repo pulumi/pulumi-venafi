@@ -43,6 +43,13 @@ namespace Pulumi.Venafi
         public Output<string?> ExternalJwt { get; private set; } = null!;
 
         /// <summary>
+        /// Base64 encoded PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to
+        /// TLSPDC
+        /// </summary>
+        [Output("p12CertData")]
+        public Output<string?> P12CertData { get; private set; } = null!;
+
+        /// <summary>
         /// Filename of PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to
         /// TLSPDC
         /// </summary>
@@ -50,7 +57,7 @@ namespace Pulumi.Venafi
         public Output<string?> P12CertFilename { get; private set; } = null!;
 
         /// <summary>
-        /// Password for the PKCS#12 keystore declared in p12_cert
+        /// Password for the PKCS#12 keystore declared in p12_cert / p12_cert_data
         /// </summary>
         [Output("p12CertPassword")]
         public Output<string?> P12CertPassword { get; private set; } = null!;
@@ -198,6 +205,13 @@ namespace Pulumi.Venafi
         }
 
         /// <summary>
+        /// Base64 encoded PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to
+        /// TLSPDC
+        /// </summary>
+        [Input("p12CertData")]
+        public Input<string>? P12CertData { get; set; }
+
+        /// <summary>
         /// Filename of PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to
         /// TLSPDC
         /// </summary>
@@ -208,7 +222,7 @@ namespace Pulumi.Venafi
         private Input<string>? _p12CertPassword;
 
         /// <summary>
-        /// Password for the PKCS#12 keystore declared in p12_cert
+        /// Password for the PKCS#12 keystore declared in p12_cert / p12_cert_data
         /// </summary>
         public Input<string>? P12CertPassword
         {

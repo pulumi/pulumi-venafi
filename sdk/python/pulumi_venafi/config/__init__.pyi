@@ -40,6 +40,12 @@ externalJwt: Optional[str]
 JWT of the identity provider associated to the Venafi Control Plane service account that is granting the access token
 """
 
+p12CertData: Optional[str]
+"""
+Base64 encoded PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to
+TLSPDC
+"""
+
 p12CertFilename: Optional[str]
 """
 Filename of PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to
@@ -48,7 +54,7 @@ TLSPDC
 
 p12CertPassword: Optional[str]
 """
-Password for the PKCS#12 keystore declared in p12_cert
+Password for the PKCS#12 keystore declared in p12_cert / p12_cert_data
 """
 
 skipRetirement: Optional[bool]

@@ -83,6 +83,17 @@ namespace Pulumi.Venafi
             set => _externalJwt.Set(value);
         }
 
+        private static readonly __Value<string?> _p12CertData = new __Value<string?>(() => __config.Get("p12CertData"));
+        /// <summary>
+        /// Base64 encoded PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to
+        /// TLSPDC
+        /// </summary>
+        public static string? P12CertData
+        {
+            get => _p12CertData.Get();
+            set => _p12CertData.Set(value);
+        }
+
         private static readonly __Value<string?> _p12CertFilename = new __Value<string?>(() => __config.Get("p12CertFilename"));
         /// <summary>
         /// Filename of PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to
@@ -96,7 +107,7 @@ namespace Pulumi.Venafi
 
         private static readonly __Value<string?> _p12CertPassword = new __Value<string?>(() => __config.Get("p12CertPassword"));
         /// <summary>
-        /// Password for the PKCS#12 keystore declared in p12_cert
+        /// Password for the PKCS#12 keystore declared in p12_cert / p12_cert_data
         /// </summary>
         public static string? P12CertPassword
         {

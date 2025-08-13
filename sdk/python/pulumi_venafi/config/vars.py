@@ -57,6 +57,14 @@ class _ExportableConfig(types.ModuleType):
         return __config__.get('externalJwt')
 
     @_builtins.property
+    def p12_cert_data(self) -> Optional[str]:
+        """
+        Base64 encoded PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to
+        TLSPDC
+        """
+        return __config__.get('p12CertData')
+
+    @_builtins.property
     def p12_cert_filename(self) -> Optional[str]:
         """
         Filename of PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to
@@ -67,7 +75,7 @@ class _ExportableConfig(types.ModuleType):
     @_builtins.property
     def p12_cert_password(self) -> Optional[str]:
         """
-        Password for the PKCS#12 keystore declared in p12_cert
+        Password for the PKCS#12 keystore declared in p12_cert / p12_cert_data
         """
         return __config__.get('p12CertPassword')
 

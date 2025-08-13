@@ -37,13 +37,19 @@ func GetExternalJwt(ctx *pulumi.Context) string {
 	return config.Get(ctx, "venafi:externalJwt")
 }
 
+// Base64 encoded PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to
+// TLSPDC
+func GetP12CertData(ctx *pulumi.Context) string {
+	return config.Get(ctx, "venafi:p12CertData")
+}
+
 // Filename of PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to
 // TLSPDC
 func GetP12CertFilename(ctx *pulumi.Context) string {
 	return config.Get(ctx, "venafi:p12CertFilename")
 }
 
-// Password for the PKCS#12 keystore declared in p12_cert
+// Password for the PKCS#12 keystore declared in p12Cert / p12_cert_data
 func GetP12CertPassword(ctx *pulumi.Context) string {
 	return config.Get(ctx, "venafi:p12CertPassword")
 }
