@@ -24,6 +24,7 @@ class ProviderArgs:
                  client_id: Optional[pulumi.Input[_builtins.str]] = None,
                  dev_mode: Optional[pulumi.Input[_builtins.bool]] = None,
                  external_jwt: Optional[pulumi.Input[_builtins.str]] = None,
+                 p12_cert_data: Optional[pulumi.Input[_builtins.str]] = None,
                  p12_cert_filename: Optional[pulumi.Input[_builtins.str]] = None,
                  p12_cert_password: Optional[pulumi.Input[_builtins.str]] = None,
                  skip_retirement: Optional[pulumi.Input[_builtins.bool]] = None,
@@ -41,9 +42,11 @@ class ProviderArgs:
         :param pulumi.Input[_builtins.bool] dev_mode: When set to true, the resulting certificate will be issued by an ephemeral, no trust CA rather than enrolling using
                Venafi as a Service or Trust Protection Platform. Useful for development and testing
         :param pulumi.Input[_builtins.str] external_jwt: JWT of the identity provider associated to the Venafi Control Plane service account that is granting the access token
+        :param pulumi.Input[_builtins.str] p12_cert_data: Base64 encoded PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to
+               TLSPDC
         :param pulumi.Input[_builtins.str] p12_cert_filename: Filename of PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to
                TLSPDC
-        :param pulumi.Input[_builtins.str] p12_cert_password: Password for the PKCS#12 keystore declared in p12_cert
+        :param pulumi.Input[_builtins.str] p12_cert_password: Password for the PKCS#12 keystore declared in p12_cert / p12_cert_data
         :param pulumi.Input[_builtins.str] token_url: Endpoint URL to request new Venafi Control Plane access tokens
         :param pulumi.Input[_builtins.str] tpp_password: Password for WebSDK user. Example: password
         :param pulumi.Input[_builtins.str] tpp_username: WebSDK user for Venafi TLSPDC. Example: admin
@@ -63,6 +66,8 @@ class ProviderArgs:
             pulumi.set(__self__, "dev_mode", dev_mode)
         if external_jwt is not None:
             pulumi.set(__self__, "external_jwt", external_jwt)
+        if p12_cert_data is not None:
+            pulumi.set(__self__, "p12_cert_data", p12_cert_data)
         if p12_cert_filename is not None:
             pulumi.set(__self__, "p12_cert_filename", p12_cert_filename)
         if p12_cert_password is not None:
@@ -150,6 +155,19 @@ class ProviderArgs:
         pulumi.set(self, "external_jwt", value)
 
     @_builtins.property
+    @pulumi.getter(name="p12CertData")
+    def p12_cert_data(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Base64 encoded PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to
+        TLSPDC
+        """
+        return pulumi.get(self, "p12_cert_data")
+
+    @p12_cert_data.setter
+    def p12_cert_data(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "p12_cert_data", value)
+
+    @_builtins.property
     @pulumi.getter(name="p12CertFilename")
     def p12_cert_filename(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
@@ -166,7 +184,7 @@ class ProviderArgs:
     @pulumi.getter(name="p12CertPassword")
     def p12_cert_password(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Password for the PKCS#12 keystore declared in p12_cert
+        Password for the PKCS#12 keystore declared in p12_cert / p12_cert_data
         """
         return pulumi.get(self, "p12_cert_password")
 
@@ -271,6 +289,7 @@ class Provider(pulumi.ProviderResource):
                  client_id: Optional[pulumi.Input[_builtins.str]] = None,
                  dev_mode: Optional[pulumi.Input[_builtins.bool]] = None,
                  external_jwt: Optional[pulumi.Input[_builtins.str]] = None,
+                 p12_cert_data: Optional[pulumi.Input[_builtins.str]] = None,
                  p12_cert_filename: Optional[pulumi.Input[_builtins.str]] = None,
                  p12_cert_password: Optional[pulumi.Input[_builtins.str]] = None,
                  skip_retirement: Optional[pulumi.Input[_builtins.bool]] = None,
@@ -295,9 +314,11 @@ class Provider(pulumi.ProviderResource):
         :param pulumi.Input[_builtins.bool] dev_mode: When set to true, the resulting certificate will be issued by an ephemeral, no trust CA rather than enrolling using
                Venafi as a Service or Trust Protection Platform. Useful for development and testing
         :param pulumi.Input[_builtins.str] external_jwt: JWT of the identity provider associated to the Venafi Control Plane service account that is granting the access token
+        :param pulumi.Input[_builtins.str] p12_cert_data: Base64 encoded PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to
+               TLSPDC
         :param pulumi.Input[_builtins.str] p12_cert_filename: Filename of PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to
                TLSPDC
-        :param pulumi.Input[_builtins.str] p12_cert_password: Password for the PKCS#12 keystore declared in p12_cert
+        :param pulumi.Input[_builtins.str] p12_cert_password: Password for the PKCS#12 keystore declared in p12_cert / p12_cert_data
         :param pulumi.Input[_builtins.str] token_url: Endpoint URL to request new Venafi Control Plane access tokens
         :param pulumi.Input[_builtins.str] tpp_password: Password for WebSDK user. Example: password
         :param pulumi.Input[_builtins.str] tpp_username: WebSDK user for Venafi TLSPDC. Example: admin
@@ -339,6 +360,7 @@ class Provider(pulumi.ProviderResource):
                  client_id: Optional[pulumi.Input[_builtins.str]] = None,
                  dev_mode: Optional[pulumi.Input[_builtins.bool]] = None,
                  external_jwt: Optional[pulumi.Input[_builtins.str]] = None,
+                 p12_cert_data: Optional[pulumi.Input[_builtins.str]] = None,
                  p12_cert_filename: Optional[pulumi.Input[_builtins.str]] = None,
                  p12_cert_password: Optional[pulumi.Input[_builtins.str]] = None,
                  skip_retirement: Optional[pulumi.Input[_builtins.bool]] = None,
@@ -362,6 +384,7 @@ class Provider(pulumi.ProviderResource):
             __props__.__dict__["client_id"] = client_id
             __props__.__dict__["dev_mode"] = pulumi.Output.from_input(dev_mode).apply(pulumi.runtime.to_json) if dev_mode is not None else None
             __props__.__dict__["external_jwt"] = None if external_jwt is None else pulumi.Output.secret(external_jwt)
+            __props__.__dict__["p12_cert_data"] = p12_cert_data
             __props__.__dict__["p12_cert_filename"] = p12_cert_filename
             __props__.__dict__["p12_cert_password"] = None if p12_cert_password is None else pulumi.Output.secret(p12_cert_password)
             __props__.__dict__["skip_retirement"] = pulumi.Output.from_input(skip_retirement).apply(pulumi.runtime.to_json) if skip_retirement is not None else None
@@ -412,6 +435,15 @@ class Provider(pulumi.ProviderResource):
         return pulumi.get(self, "external_jwt")
 
     @_builtins.property
+    @pulumi.getter(name="p12CertData")
+    def p12_cert_data(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        Base64 encoded PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to
+        TLSPDC
+        """
+        return pulumi.get(self, "p12_cert_data")
+
+    @_builtins.property
     @pulumi.getter(name="p12CertFilename")
     def p12_cert_filename(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
@@ -424,7 +456,7 @@ class Provider(pulumi.ProviderResource):
     @pulumi.getter(name="p12CertPassword")
     def p12_cert_password(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        Password for the PKCS#12 keystore declared in p12_cert
+        Password for the PKCS#12 keystore declared in p12_cert / p12_cert_data
         """
         return pulumi.get(self, "p12_cert_password")
 

@@ -80,6 +80,22 @@ public class Provider extends com.pulumi.resources.ProviderResource {
         return Codegen.optional(this.externalJwt);
     }
     /**
+     * Base64 encoded PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to
+     * TLSPDC
+     * 
+     */
+    @Export(name="p12CertData", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> p12CertData;
+
+    /**
+     * @return Base64 encoded PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to
+     * TLSPDC
+     * 
+     */
+    public Output<Optional<String>> p12CertData() {
+        return Codegen.optional(this.p12CertData);
+    }
+    /**
      * Filename of PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to
      * TLSPDC
      * 
@@ -96,14 +112,14 @@ public class Provider extends com.pulumi.resources.ProviderResource {
         return Codegen.optional(this.p12CertFilename);
     }
     /**
-     * Password for the PKCS#12 keystore declared in p12_cert
+     * Password for the PKCS#12 keystore declared in p12_cert / p12_cert_data
      * 
      */
     @Export(name="p12CertPassword", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> p12CertPassword;
 
     /**
-     * @return Password for the PKCS#12 keystore declared in p12_cert
+     * @return Password for the PKCS#12 keystore declared in p12_cert / p12_cert_data
      * 
      */
     public Output<Optional<String>> p12CertPassword() {

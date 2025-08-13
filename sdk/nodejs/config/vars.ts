@@ -64,6 +64,18 @@ Object.defineProperty(exports, "externalJwt", {
 });
 
 /**
+ * Base64 encoded PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to
+ * TLSPDC
+ */
+export declare const p12CertData: string | undefined;
+Object.defineProperty(exports, "p12CertData", {
+    get() {
+        return __config.get("p12CertData");
+    },
+    enumerable: true,
+});
+
+/**
  * Filename of PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to
  * TLSPDC
  */
@@ -76,7 +88,7 @@ Object.defineProperty(exports, "p12CertFilename", {
 });
 
 /**
- * Password for the PKCS#12 keystore declared in p12_cert
+ * Password for the PKCS#12 keystore declared in p12Cert / p12_cert_data
  */
 export declare const p12CertPassword: string | undefined;
 Object.defineProperty(exports, "p12CertPassword", {

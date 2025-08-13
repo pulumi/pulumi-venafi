@@ -42,12 +42,17 @@ export class Provider extends pulumi.ProviderResource {
      */
     public readonly externalJwt!: pulumi.Output<string | undefined>;
     /**
+     * Base64 encoded PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to
+     * TLSPDC
+     */
+    public readonly p12CertData!: pulumi.Output<string | undefined>;
+    /**
      * Filename of PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to
      * TLSPDC
      */
     public readonly p12CertFilename!: pulumi.Output<string | undefined>;
     /**
-     * Password for the PKCS#12 keystore declared in p12_cert
+     * Password for the PKCS#12 keystore declared in p12Cert / p12_cert_data
      */
     public readonly p12CertPassword!: pulumi.Output<string | undefined>;
     /**
@@ -97,6 +102,7 @@ export class Provider extends pulumi.ProviderResource {
             resourceInputs["clientId"] = args ? args.clientId : undefined;
             resourceInputs["devMode"] = pulumi.output(args ? args.devMode : undefined).apply(JSON.stringify);
             resourceInputs["externalJwt"] = args?.externalJwt ? pulumi.secret(args.externalJwt) : undefined;
+            resourceInputs["p12CertData"] = args ? args.p12CertData : undefined;
             resourceInputs["p12CertFilename"] = args ? args.p12CertFilename : undefined;
             resourceInputs["p12CertPassword"] = args?.p12CertPassword ? pulumi.secret(args.p12CertPassword) : undefined;
             resourceInputs["skipRetirement"] = pulumi.output(args ? args.skipRetirement : undefined).apply(JSON.stringify);
@@ -149,12 +155,17 @@ export interface ProviderArgs {
      */
     externalJwt?: pulumi.Input<string>;
     /**
+     * Base64 encoded PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to
+     * TLSPDC
+     */
+    p12CertData?: pulumi.Input<string>;
+    /**
      * Filename of PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to
      * TLSPDC
      */
     p12CertFilename?: pulumi.Input<string>;
     /**
-     * Password for the PKCS#12 keystore declared in p12_cert
+     * Password for the PKCS#12 keystore declared in p12Cert / p12_cert_data
      */
     p12CertPassword?: pulumi.Input<string>;
     skipRetirement?: pulumi.Input<boolean>;

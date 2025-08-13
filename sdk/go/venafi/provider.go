@@ -26,10 +26,13 @@ type Provider struct {
 	ClientId pulumi.StringPtrOutput `pulumi:"clientId"`
 	// JWT of the identity provider associated to the Venafi Control Plane service account that is granting the access token
 	ExternalJwt pulumi.StringPtrOutput `pulumi:"externalJwt"`
+	// Base64 encoded PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to
+	// TLSPDC
+	P12CertData pulumi.StringPtrOutput `pulumi:"p12CertData"`
 	// Filename of PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to
 	// TLSPDC
 	P12CertFilename pulumi.StringPtrOutput `pulumi:"p12CertFilename"`
-	// Password for the PKCS#12 keystore declared in p12_cert
+	// Password for the PKCS#12 keystore declared in p12Cert / p12_cert_data
 	P12CertPassword pulumi.StringPtrOutput `pulumi:"p12CertPassword"`
 	// Endpoint URL to request new Venafi Control Plane access tokens
 	TokenUrl pulumi.StringPtrOutput `pulumi:"tokenUrl"`
@@ -106,10 +109,13 @@ type providerArgs struct {
 	DevMode *bool `pulumi:"devMode"`
 	// JWT of the identity provider associated to the Venafi Control Plane service account that is granting the access token
 	ExternalJwt *string `pulumi:"externalJwt"`
+	// Base64 encoded PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to
+	// TLSPDC
+	P12CertData *string `pulumi:"p12CertData"`
 	// Filename of PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to
 	// TLSPDC
 	P12CertFilename *string `pulumi:"p12CertFilename"`
-	// Password for the PKCS#12 keystore declared in p12_cert
+	// Password for the PKCS#12 keystore declared in p12Cert / p12_cert_data
 	P12CertPassword *string `pulumi:"p12CertPassword"`
 	SkipRetirement  *bool   `pulumi:"skipRetirement"`
 	// Endpoint URL to request new Venafi Control Plane access tokens
@@ -145,10 +151,13 @@ type ProviderArgs struct {
 	DevMode pulumi.BoolPtrInput
 	// JWT of the identity provider associated to the Venafi Control Plane service account that is granting the access token
 	ExternalJwt pulumi.StringPtrInput
+	// Base64 encoded PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to
+	// TLSPDC
+	P12CertData pulumi.StringPtrInput
 	// Filename of PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to
 	// TLSPDC
 	P12CertFilename pulumi.StringPtrInput
-	// Password for the PKCS#12 keystore declared in p12_cert
+	// Password for the PKCS#12 keystore declared in p12Cert / p12_cert_data
 	P12CertPassword pulumi.StringPtrInput
 	SkipRetirement  pulumi.BoolPtrInput
 	// Endpoint URL to request new Venafi Control Plane access tokens
@@ -251,13 +260,19 @@ func (o ProviderOutput) ExternalJwt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.ExternalJwt }).(pulumi.StringPtrOutput)
 }
 
+// Base64 encoded PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to
+// TLSPDC
+func (o ProviderOutput) P12CertData() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.P12CertData }).(pulumi.StringPtrOutput)
+}
+
 // Filename of PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to
 // TLSPDC
 func (o ProviderOutput) P12CertFilename() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.P12CertFilename }).(pulumi.StringPtrOutput)
 }
 
-// Password for the PKCS#12 keystore declared in p12_cert
+// Password for the PKCS#12 keystore declared in p12Cert / p12_cert_data
 func (o ProviderOutput) P12CertPassword() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.P12CertPassword }).(pulumi.StringPtrOutput)
 }
