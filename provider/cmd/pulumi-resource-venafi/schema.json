@@ -71,13 +71,17 @@
                 "description": "JWT of the identity provider associated to the Venafi Control Plane service account that is granting the access token\n",
                 "secret": true
             },
+            "p12CertData": {
+                "type": "string",
+                "description": "Base64 encoded PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to\nTLSPDC\n"
+            },
             "p12CertFilename": {
                 "type": "string",
                 "description": "Filename of PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to\nTLSPDC\n"
             },
             "p12CertPassword": {
                 "type": "string",
-                "description": "Password for the PKCS#12 keystore declared in p12_cert\n",
+                "description": "Password for the PKCS#12 keystore declared in p12_cert / p12_cert_data\n",
                 "secret": true
             },
             "skipRetirement": {
@@ -139,13 +143,17 @@
                 "description": "JWT of the identity provider associated to the Venafi Control Plane service account that is granting the access token\n",
                 "secret": true
             },
+            "p12CertData": {
+                "type": "string",
+                "description": "Base64 encoded PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to\nTLSPDC\n"
+            },
             "p12CertFilename": {
                 "type": "string",
                 "description": "Filename of PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to\nTLSPDC\n"
             },
             "p12CertPassword": {
                 "type": "string",
-                "description": "Password for the PKCS#12 keystore declared in p12_cert\n",
+                "description": "Password for the PKCS#12 keystore declared in p12_cert / p12_cert_data\n",
                 "secret": true
             },
             "skipRetirement": {
@@ -204,13 +212,17 @@
                 "description": "JWT of the identity provider associated to the Venafi Control Plane service account that is granting the access token\n",
                 "secret": true
             },
+            "p12CertData": {
+                "type": "string",
+                "description": "Base64 encoded PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to\nTLSPDC\n"
+            },
             "p12CertFilename": {
                 "type": "string",
                 "description": "Filename of PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to\nTLSPDC\n"
             },
             "p12CertPassword": {
                 "type": "string",
-                "description": "Password for the PKCS#12 keystore declared in p12_cert\n",
+                "description": "Password for the PKCS#12 keystore declared in p12_cert / p12_cert_data\n",
                 "secret": true
             },
             "skipRetirement": {
