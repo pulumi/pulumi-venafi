@@ -41,8 +41,7 @@ Object.defineProperty(exports, "clientId", {
 });
 
 /**
- * When set to true, the resulting certificate will be issued by an ephemeral, no trust CA rather than enrolling using
- * Venafi as a Service or Trust Protection Platform. Useful for development and testing
+ * When set to true, the resulting certificate will be issued by an ephemeral, no trust CA rather than enrolling using Venafi as a Service or Trust Protection Platform. Useful for development and testing
  */
 export declare const devMode: boolean | undefined;
 Object.defineProperty(exports, "devMode", {
@@ -64,8 +63,7 @@ Object.defineProperty(exports, "externalJwt", {
 });
 
 /**
- * Base64 encoded PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to
- * TLSPDC
+ * Base64 encoded PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to TLSPDC
  */
 export declare const p12CertData: string | undefined;
 Object.defineProperty(exports, "p12CertData", {
@@ -76,8 +74,7 @@ Object.defineProperty(exports, "p12CertData", {
 });
 
 /**
- * Filename of PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to
- * TLSPDC
+ * Filename of PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to TLSPDC
  */
 export declare const p12CertFilename: string | undefined;
 Object.defineProperty(exports, "p12CertFilename", {
@@ -140,8 +137,9 @@ Object.defineProperty(exports, "tppUsername", {
 });
 
 /**
- * Use to specify a PEM-formatted file that contains certificates to be trust anchors for all communications with the
- * Venafi Web Service. Example: trustBundle = "${file("chain.pem")}"
+ * Use to specify a PEM-formatted file that contains certificates to be trust anchors for all communications with the Venafi Web Service.
+ * Example:
+ *   trustBundle = "${file("chain.pem")}"
  */
 export declare const trustBundle: string | undefined;
 Object.defineProperty(exports, "trustBundle", {
@@ -163,8 +161,9 @@ Object.defineProperty(exports, "url", {
 });
 
 /**
- * DN of the Venafi TLSPDC policy folder or name of the Venafi as a Service application plus issuing template alias.
- * Example for Platform: testPolicy\\vault Example for Venafi as a Service: myApp\\Default
+ * DN of the Venafi TLSPDC policy folder or name of the Venafi as a Service application plus issuing template alias. 
+ * Example for Platform: testPolicy\\vault
+ * Example for Venafi as a Service: myApp\\Default
  */
 export declare const zone: string | undefined;
 Object.defineProperty(exports, "zone", {

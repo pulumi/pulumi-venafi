@@ -62,16 +62,14 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * When set to true, the resulting certificate will be issued by an ephemeral, no trust CA rather than enrolling using
-     * Venafi as a Service or Trust Protection Platform. Useful for development and testing
+     * When set to true, the resulting certificate will be issued by an ephemeral, no trust CA rather than enrolling using Venafi as a Service or Trust Protection Platform. Useful for development and testing
      * 
      */
     @Import(name="devMode", json=true)
     private @Nullable Output<Boolean> devMode;
 
     /**
-     * @return When set to true, the resulting certificate will be issued by an ephemeral, no trust CA rather than enrolling using
-     * Venafi as a Service or Trust Protection Platform. Useful for development and testing
+     * @return When set to true, the resulting certificate will be issued by an ephemeral, no trust CA rather than enrolling using Venafi as a Service or Trust Protection Platform. Useful for development and testing
      * 
      */
     public Optional<Output<Boolean>> devMode() {
@@ -94,16 +92,14 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Base64 encoded PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to
-     * TLSPDC
+     * Base64 encoded PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to TLSPDC
      * 
      */
     @Import(name="p12CertData")
     private @Nullable Output<String> p12CertData;
 
     /**
-     * @return Base64 encoded PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to
-     * TLSPDC
+     * @return Base64 encoded PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to TLSPDC
      * 
      */
     public Optional<Output<String>> p12CertData() {
@@ -111,16 +107,14 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Filename of PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to
-     * TLSPDC
+     * Filename of PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to TLSPDC
      * 
      */
     @Import(name="p12CertFilename")
     private @Nullable Output<String> p12CertFilename;
 
     /**
-     * @return Filename of PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to
-     * TLSPDC
+     * @return Filename of PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to TLSPDC
      * 
      */
     public Optional<Output<String>> p12CertFilename() {
@@ -211,16 +205,18 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Use to specify a PEM-formatted file that contains certificates to be trust anchors for all communications with the
-     * Venafi Web Service. Example: trust_bundle = &#34;${file(&#34;chain.pem&#34;)}&#34;
+     * Use to specify a PEM-formatted file that contains certificates to be trust anchors for all communications with the Venafi Web Service.
+     * Example:
+     *   trust_bundle = &#34;${file(&#34;chain.pem&#34;)}&#34;
      * 
      */
     @Import(name="trustBundle")
     private @Nullable Output<String> trustBundle;
 
     /**
-     * @return Use to specify a PEM-formatted file that contains certificates to be trust anchors for all communications with the
-     * Venafi Web Service. Example: trust_bundle = &#34;${file(&#34;chain.pem&#34;)}&#34;
+     * @return Use to specify a PEM-formatted file that contains certificates to be trust anchors for all communications with the Venafi Web Service.
+     * Example:
+     *   trust_bundle = &#34;${file(&#34;chain.pem&#34;)}&#34;
      * 
      */
     public Optional<Output<String>> trustBundle() {
@@ -244,7 +240,8 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * DN of the Venafi TLSPDC policy folder or name of the Venafi as a Service application plus issuing template alias.
-     * Example for Platform: testPolicy\\vault Example for Venafi as a Service: myApp\\Default
+     * Example for Platform: testPolicy\\vault
+     * Example for Venafi as a Service: myApp\\Default
      * 
      */
     @Import(name="zone")
@@ -252,7 +249,8 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * @return DN of the Venafi TLSPDC policy folder or name of the Venafi as a Service application plus issuing template alias.
-     * Example for Platform: testPolicy\\vault Example for Venafi as a Service: myApp\\Default
+     * Example for Platform: testPolicy\\vault
+     * Example for Venafi as a Service: myApp\\Default
      * 
      */
     public Optional<Output<String>> zone() {
@@ -361,8 +359,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param devMode When set to true, the resulting certificate will be issued by an ephemeral, no trust CA rather than enrolling using
-         * Venafi as a Service or Trust Protection Platform. Useful for development and testing
+         * @param devMode When set to true, the resulting certificate will be issued by an ephemeral, no trust CA rather than enrolling using Venafi as a Service or Trust Protection Platform. Useful for development and testing
          * 
          * @return builder
          * 
@@ -373,8 +370,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param devMode When set to true, the resulting certificate will be issued by an ephemeral, no trust CA rather than enrolling using
-         * Venafi as a Service or Trust Protection Platform. Useful for development and testing
+         * @param devMode When set to true, the resulting certificate will be issued by an ephemeral, no trust CA rather than enrolling using Venafi as a Service or Trust Protection Platform. Useful for development and testing
          * 
          * @return builder
          * 
@@ -405,8 +401,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param p12CertData Base64 encoded PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to
-         * TLSPDC
+         * @param p12CertData Base64 encoded PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to TLSPDC
          * 
          * @return builder
          * 
@@ -417,8 +412,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param p12CertData Base64 encoded PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to
-         * TLSPDC
+         * @param p12CertData Base64 encoded PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to TLSPDC
          * 
          * @return builder
          * 
@@ -428,8 +422,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param p12CertFilename Filename of PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to
-         * TLSPDC
+         * @param p12CertFilename Filename of PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to TLSPDC
          * 
          * @return builder
          * 
@@ -440,8 +433,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param p12CertFilename Filename of PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to
-         * TLSPDC
+         * @param p12CertFilename Filename of PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to TLSPDC
          * 
          * @return builder
          * 
@@ -560,8 +552,9 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param trustBundle Use to specify a PEM-formatted file that contains certificates to be trust anchors for all communications with the
-         * Venafi Web Service. Example: trust_bundle = &#34;${file(&#34;chain.pem&#34;)}&#34;
+         * @param trustBundle Use to specify a PEM-formatted file that contains certificates to be trust anchors for all communications with the Venafi Web Service.
+         * Example:
+         *   trust_bundle = &#34;${file(&#34;chain.pem&#34;)}&#34;
          * 
          * @return builder
          * 
@@ -572,8 +565,9 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param trustBundle Use to specify a PEM-formatted file that contains certificates to be trust anchors for all communications with the
-         * Venafi Web Service. Example: trust_bundle = &#34;${file(&#34;chain.pem&#34;)}&#34;
+         * @param trustBundle Use to specify a PEM-formatted file that contains certificates to be trust anchors for all communications with the Venafi Web Service.
+         * Example:
+         *   trust_bundle = &#34;${file(&#34;chain.pem&#34;)}&#34;
          * 
          * @return builder
          * 
@@ -605,7 +599,8 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param zone DN of the Venafi TLSPDC policy folder or name of the Venafi as a Service application plus issuing template alias.
-         * Example for Platform: testPolicy\\vault Example for Venafi as a Service: myApp\\Default
+         * Example for Platform: testPolicy\\vault
+         * Example for Venafi as a Service: myApp\\Default
          * 
          * @return builder
          * 
@@ -617,7 +612,8 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param zone DN of the Venafi TLSPDC policy folder or name of the Venafi as a Service application plus issuing template alias.
-         * Example for Platform: testPolicy\\vault Example for Venafi as a Service: myApp\\Default
+         * Example for Platform: testPolicy\\vault
+         * Example for Venafi as a Service: myApp\\Default
          * 
          * @return builder
          * 

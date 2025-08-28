@@ -33,8 +33,7 @@ public final class Config {
         return Codegen.stringProp("clientId").config(config).get();
     }
 /**
- * When set to true, the resulting certificate will be issued by an ephemeral, no trust CA rather than enrolling using
- * Venafi as a Service or Trust Protection Platform. Useful for development and testing
+ * When set to true, the resulting certificate will be issued by an ephemeral, no trust CA rather than enrolling using Venafi as a Service or Trust Protection Platform. Useful for development and testing
  * 
  */
     public Optional<Boolean> devMode() {
@@ -48,16 +47,14 @@ public final class Config {
         return Codegen.stringProp("externalJwt").config(config).get();
     }
 /**
- * Base64 encoded PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to
- * TLSPDC
+ * Base64 encoded PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to TLSPDC
  * 
  */
     public Optional<String> p12CertData() {
         return Codegen.stringProp("p12CertData").config(config).get();
     }
 /**
- * Filename of PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to
- * TLSPDC
+ * Filename of PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to TLSPDC
  * 
  */
     public Optional<String> p12CertFilename() {
@@ -95,8 +92,9 @@ public final class Config {
         return Codegen.stringProp("tppUsername").config(config).get();
     }
 /**
- * Use to specify a PEM-formatted file that contains certificates to be trust anchors for all communications with the
- * Venafi Web Service. Example: trust_bundle = &#34;${file(&#34;chain.pem&#34;)}&#34;
+ * Use to specify a PEM-formatted file that contains certificates to be trust anchors for all communications with the Venafi Web Service.
+ * Example:
+ *   trust_bundle = &#34;${file(&#34;chain.pem&#34;)}&#34;
  * 
  */
     public Optional<String> trustBundle() {
@@ -111,7 +109,8 @@ public final class Config {
     }
 /**
  * DN of the Venafi TLSPDC policy folder or name of the Venafi as a Service application plus issuing template alias.
- * Example for Platform: testPolicy\\vault Example for Venafi as a Service: myApp\\Default
+ * Example for Platform: testPolicy\\vault
+ * Example for Venafi as a Service: myApp\\Default
  * 
  */
     public Optional<String> zone() {

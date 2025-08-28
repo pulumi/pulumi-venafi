@@ -47,15 +47,15 @@ export class SshConfig extends pulumi.CustomResource {
     /**
      * (Optional, string) The template's CA public key.
      */
-    public /*out*/ readonly caPublicKey!: pulumi.Output<string>;
+    declare public /*out*/ readonly caPublicKey: pulumi.Output<string>;
     /**
      * (Optional, set of strings) A list of user names exported from the template.
      */
-    public /*out*/ readonly principals!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly principals: pulumi.Output<string[]>;
     /**
      * The SSH certificate issuing template.
      */
-    public readonly template!: pulumi.Output<string>;
+    declare public readonly template: pulumi.Output<string>;
 
     /**
      * Create a SshConfig resource with the given unique name, arguments, and options.
@@ -70,15 +70,15 @@ export class SshConfig extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SshConfigState | undefined;
-            resourceInputs["caPublicKey"] = state ? state.caPublicKey : undefined;
-            resourceInputs["principals"] = state ? state.principals : undefined;
-            resourceInputs["template"] = state ? state.template : undefined;
+            resourceInputs["caPublicKey"] = state?.caPublicKey;
+            resourceInputs["principals"] = state?.principals;
+            resourceInputs["template"] = state?.template;
         } else {
             const args = argsOrState as SshConfigArgs | undefined;
-            if ((!args || args.template === undefined) && !opts.urn) {
+            if (args?.template === undefined && !opts.urn) {
                 throw new Error("Missing required property 'template'");
             }
-            resourceInputs["template"] = args ? args.template : undefined;
+            resourceInputs["template"] = args?.template;
             resourceInputs["caPublicKey"] = undefined /*out*/;
             resourceInputs["principals"] = undefined /*out*/;
         }

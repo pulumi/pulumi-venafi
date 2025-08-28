@@ -26,8 +26,7 @@ func GetClientId(ctx *pulumi.Context) string {
 	return config.Get(ctx, "venafi:clientId")
 }
 
-// When set to true, the resulting certificate will be issued by an ephemeral, no trust CA rather than enrolling using
-// Venafi as a Service or Trust Protection Platform. Useful for development and testing
+// When set to true, the resulting certificate will be issued by an ephemeral, no trust CA rather than enrolling using Venafi as a Service or Trust Protection Platform. Useful for development and testing
 func GetDevMode(ctx *pulumi.Context) bool {
 	return config.GetBool(ctx, "venafi:devMode")
 }
@@ -37,14 +36,12 @@ func GetExternalJwt(ctx *pulumi.Context) string {
 	return config.Get(ctx, "venafi:externalJwt")
 }
 
-// Base64 encoded PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to
-// TLSPDC
+// Base64 encoded PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to TLSPDC
 func GetP12CertData(ctx *pulumi.Context) string {
 	return config.Get(ctx, "venafi:p12CertData")
 }
 
-// Filename of PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to
-// TLSPDC
+// Filename of PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to TLSPDC
 func GetP12CertFilename(ctx *pulumi.Context) string {
 	return config.Get(ctx, "venafi:p12CertFilename")
 }
@@ -76,8 +73,10 @@ func GetTppUsername(ctx *pulumi.Context) string {
 	return config.Get(ctx, "venafi:tppUsername")
 }
 
-// Use to specify a PEM-formatted file that contains certificates to be trust anchors for all communications with the
-// Venafi Web Service. Example: trustBundle = "${file("chain.pem")}"
+// Use to specify a PEM-formatted file that contains certificates to be trust anchors for all communications with the Venafi Web Service.
+// Example:
+//
+//	trustBundle = "${file("chain.pem")}"
 func GetTrustBundle(ctx *pulumi.Context) string {
 	return config.Get(ctx, "venafi:trustBundle")
 }
@@ -88,7 +87,8 @@ func GetUrl(ctx *pulumi.Context) string {
 }
 
 // DN of the Venafi TLSPDC policy folder or name of the Venafi as a Service application plus issuing template alias.
-// Example for Platform: testPolicy\\vault Example for Venafi as a Service: myApp\\Default
+// Example for Platform: testPolicy\\vault
+// Example for Venafi as a Service: myApp\\Default
 func GetZone(ctx *pulumi.Context) string {
 	return config.Get(ctx, "venafi:zone")
 }

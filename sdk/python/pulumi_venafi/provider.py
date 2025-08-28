@@ -39,22 +39,21 @@ class ProviderArgs:
         :param pulumi.Input[_builtins.str] access_token: Access token for Venafi TLSPDC, user should use this for authentication
         :param pulumi.Input[_builtins.str] api_key: API key for Venafi Control Plane. Example: 142231b7-cvb0-412e-886b-6aeght0bc93d
         :param pulumi.Input[_builtins.str] client_id: application that will be using the token
-        :param pulumi.Input[_builtins.bool] dev_mode: When set to true, the resulting certificate will be issued by an ephemeral, no trust CA rather than enrolling using
-               Venafi as a Service or Trust Protection Platform. Useful for development and testing
+        :param pulumi.Input[_builtins.bool] dev_mode: When set to true, the resulting certificate will be issued by an ephemeral, no trust CA rather than enrolling using Venafi as a Service or Trust Protection Platform. Useful for development and testing
         :param pulumi.Input[_builtins.str] external_jwt: JWT of the identity provider associated to the Venafi Control Plane service account that is granting the access token
-        :param pulumi.Input[_builtins.str] p12_cert_data: Base64 encoded PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to
-               TLSPDC
-        :param pulumi.Input[_builtins.str] p12_cert_filename: Filename of PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to
-               TLSPDC
+        :param pulumi.Input[_builtins.str] p12_cert_data: Base64 encoded PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to TLSPDC
+        :param pulumi.Input[_builtins.str] p12_cert_filename: Filename of PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to TLSPDC
         :param pulumi.Input[_builtins.str] p12_cert_password: Password for the PKCS#12 keystore declared in p12_cert / p12_cert_data
         :param pulumi.Input[_builtins.str] token_url: Endpoint URL to request new Venafi Control Plane access tokens
         :param pulumi.Input[_builtins.str] tpp_password: Password for WebSDK user. Example: password
         :param pulumi.Input[_builtins.str] tpp_username: WebSDK user for Venafi TLSPDC. Example: admin
-        :param pulumi.Input[_builtins.str] trust_bundle: Use to specify a PEM-formatted file that contains certificates to be trust anchors for all communications with the
-               Venafi Web Service. Example: trust_bundle = "${file("chain.pem")}"
+        :param pulumi.Input[_builtins.str] trust_bundle: Use to specify a PEM-formatted file that contains certificates to be trust anchors for all communications with the Venafi Web Service.
+               Example:
+                 trust_bundle = "${file("chain.pem")}"
         :param pulumi.Input[_builtins.str] url: The Venafi Platform URL. Example: https://tpp.venafi.example/vedsdk
-        :param pulumi.Input[_builtins.str] zone: DN of the Venafi TLSPDC policy folder or name of the Venafi as a Service application plus issuing template alias.
-               Example for Platform: testPolicy\\\\vault Example for Venafi as a Service: myApp\\\\Default
+        :param pulumi.Input[_builtins.str] zone: DN of the Venafi TLSPDC policy folder or name of the Venafi as a Service application plus issuing template alias. 
+               Example for Platform: testPolicy\\\\vault
+               Example for Venafi as a Service: myApp\\\\Default
         """
         if access_token is not None:
             pulumi.set(__self__, "access_token", access_token)
@@ -133,8 +132,7 @@ class ProviderArgs:
     @pulumi.getter(name="devMode")
     def dev_mode(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        When set to true, the resulting certificate will be issued by an ephemeral, no trust CA rather than enrolling using
-        Venafi as a Service or Trust Protection Platform. Useful for development and testing
+        When set to true, the resulting certificate will be issued by an ephemeral, no trust CA rather than enrolling using Venafi as a Service or Trust Protection Platform. Useful for development and testing
         """
         return pulumi.get(self, "dev_mode")
 
@@ -158,8 +156,7 @@ class ProviderArgs:
     @pulumi.getter(name="p12CertData")
     def p12_cert_data(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Base64 encoded PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to
-        TLSPDC
+        Base64 encoded PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to TLSPDC
         """
         return pulumi.get(self, "p12_cert_data")
 
@@ -171,8 +168,7 @@ class ProviderArgs:
     @pulumi.getter(name="p12CertFilename")
     def p12_cert_filename(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Filename of PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to
-        TLSPDC
+        Filename of PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to TLSPDC
         """
         return pulumi.get(self, "p12_cert_filename")
 
@@ -243,8 +239,9 @@ class ProviderArgs:
     @pulumi.getter(name="trustBundle")
     def trust_bundle(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Use to specify a PEM-formatted file that contains certificates to be trust anchors for all communications with the
-        Venafi Web Service. Example: trust_bundle = "${file("chain.pem")}"
+        Use to specify a PEM-formatted file that contains certificates to be trust anchors for all communications with the Venafi Web Service.
+        Example:
+          trust_bundle = "${file("chain.pem")}"
         """
         return pulumi.get(self, "trust_bundle")
 
@@ -268,8 +265,9 @@ class ProviderArgs:
     @pulumi.getter
     def zone(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        DN of the Venafi TLSPDC policy folder or name of the Venafi as a Service application plus issuing template alias.
-        Example for Platform: testPolicy\\\\vault Example for Venafi as a Service: myApp\\\\Default
+        DN of the Venafi TLSPDC policy folder or name of the Venafi as a Service application plus issuing template alias. 
+        Example for Platform: testPolicy\\\\vault
+        Example for Venafi as a Service: myApp\\\\Default
         """
         return pulumi.get(self, "zone")
 
@@ -311,22 +309,21 @@ class Provider(pulumi.ProviderResource):
         :param pulumi.Input[_builtins.str] access_token: Access token for Venafi TLSPDC, user should use this for authentication
         :param pulumi.Input[_builtins.str] api_key: API key for Venafi Control Plane. Example: 142231b7-cvb0-412e-886b-6aeght0bc93d
         :param pulumi.Input[_builtins.str] client_id: application that will be using the token
-        :param pulumi.Input[_builtins.bool] dev_mode: When set to true, the resulting certificate will be issued by an ephemeral, no trust CA rather than enrolling using
-               Venafi as a Service or Trust Protection Platform. Useful for development and testing
+        :param pulumi.Input[_builtins.bool] dev_mode: When set to true, the resulting certificate will be issued by an ephemeral, no trust CA rather than enrolling using Venafi as a Service or Trust Protection Platform. Useful for development and testing
         :param pulumi.Input[_builtins.str] external_jwt: JWT of the identity provider associated to the Venafi Control Plane service account that is granting the access token
-        :param pulumi.Input[_builtins.str] p12_cert_data: Base64 encoded PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to
-               TLSPDC
-        :param pulumi.Input[_builtins.str] p12_cert_filename: Filename of PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to
-               TLSPDC
+        :param pulumi.Input[_builtins.str] p12_cert_data: Base64 encoded PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to TLSPDC
+        :param pulumi.Input[_builtins.str] p12_cert_filename: Filename of PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to TLSPDC
         :param pulumi.Input[_builtins.str] p12_cert_password: Password for the PKCS#12 keystore declared in p12_cert / p12_cert_data
         :param pulumi.Input[_builtins.str] token_url: Endpoint URL to request new Venafi Control Plane access tokens
         :param pulumi.Input[_builtins.str] tpp_password: Password for WebSDK user. Example: password
         :param pulumi.Input[_builtins.str] tpp_username: WebSDK user for Venafi TLSPDC. Example: admin
-        :param pulumi.Input[_builtins.str] trust_bundle: Use to specify a PEM-formatted file that contains certificates to be trust anchors for all communications with the
-               Venafi Web Service. Example: trust_bundle = "${file("chain.pem")}"
+        :param pulumi.Input[_builtins.str] trust_bundle: Use to specify a PEM-formatted file that contains certificates to be trust anchors for all communications with the Venafi Web Service.
+               Example:
+                 trust_bundle = "${file("chain.pem")}"
         :param pulumi.Input[_builtins.str] url: The Venafi Platform URL. Example: https://tpp.venafi.example/vedsdk
-        :param pulumi.Input[_builtins.str] zone: DN of the Venafi TLSPDC policy folder or name of the Venafi as a Service application plus issuing template alias.
-               Example for Platform: testPolicy\\\\vault Example for Venafi as a Service: myApp\\\\Default
+        :param pulumi.Input[_builtins.str] zone: DN of the Venafi TLSPDC policy folder or name of the Venafi as a Service application plus issuing template alias. 
+               Example for Platform: testPolicy\\\\vault
+               Example for Venafi as a Service: myApp\\\\Default
         """
         ...
     @overload
@@ -438,8 +435,7 @@ class Provider(pulumi.ProviderResource):
     @pulumi.getter(name="p12CertData")
     def p12_cert_data(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        Base64 encoded PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to
-        TLSPDC
+        Base64 encoded PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to TLSPDC
         """
         return pulumi.get(self, "p12_cert_data")
 
@@ -447,8 +443,7 @@ class Provider(pulumi.ProviderResource):
     @pulumi.getter(name="p12CertFilename")
     def p12_cert_filename(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        Filename of PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to
-        TLSPDC
+        Filename of PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to TLSPDC
         """
         return pulumi.get(self, "p12_cert_filename")
 
@@ -490,8 +485,9 @@ class Provider(pulumi.ProviderResource):
     @pulumi.getter(name="trustBundle")
     def trust_bundle(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        Use to specify a PEM-formatted file that contains certificates to be trust anchors for all communications with the
-        Venafi Web Service. Example: trust_bundle = "${file("chain.pem")}"
+        Use to specify a PEM-formatted file that contains certificates to be trust anchors for all communications with the Venafi Web Service.
+        Example:
+          trust_bundle = "${file("chain.pem")}"
         """
         return pulumi.get(self, "trust_bundle")
 
@@ -507,8 +503,9 @@ class Provider(pulumi.ProviderResource):
     @pulumi.getter
     def zone(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        DN of the Venafi TLSPDC policy folder or name of the Venafi as a Service application plus issuing template alias.
-        Example for Platform: testPolicy\\\\vault Example for Venafi as a Service: myApp\\\\Default
+        DN of the Venafi TLSPDC policy folder or name of the Venafi as a Service application plus issuing template alias. 
+        Example for Platform: testPolicy\\\\vault
+        Example for Venafi as a Service: myApp\\\\Default
         """
         return pulumi.get(self, "zone")
 

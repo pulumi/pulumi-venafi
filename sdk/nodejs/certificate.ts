@@ -35,116 +35,116 @@ export class Certificate extends pulumi.CustomResource {
     /**
      * Key encryption algorithm, either RSA or ECDSA. Defaults to `RSA`.
      */
-    public readonly algorithm!: pulumi.Output<string | undefined>;
+    declare public readonly algorithm: pulumi.Output<string | undefined>;
     /**
      * The X509 certificate in PEM format.
      */
-    public /*out*/ readonly certificate!: pulumi.Output<string>;
-    public readonly certificateDn!: pulumi.Output<string>;
+    declare public /*out*/ readonly certificate: pulumi.Output<string>;
+    declare public readonly certificateDn: pulumi.Output<string>;
     /**
      * ID of the issued certificate
      */
-    public /*out*/ readonly certificateId!: pulumi.Output<string>;
+    declare public /*out*/ readonly certificateId: pulumi.Output<string>;
     /**
      * The trust chain of X509 certificate authority certificates in PEM format concatenated together.
      */
-    public /*out*/ readonly chain!: pulumi.Output<string>;
+    declare public /*out*/ readonly chain: pulumi.Output<string>;
     /**
      * The common name of the certificate.
      */
-    public readonly commonName!: pulumi.Output<string>;
+    declare public readonly commonName: pulumi.Output<string>;
     /**
      * Country of the certificate (C)
      */
-    public readonly country!: pulumi.Output<string | undefined>;
+    declare public readonly country: pulumi.Output<string | undefined>;
     /**
      * Whether key-pair generation will be `local` or `service` generated. Default is 
      * `local`.
      */
-    public readonly csrOrigin!: pulumi.Output<string | undefined>;
-    public readonly csrPem!: pulumi.Output<string>;
+    declare public readonly csrOrigin: pulumi.Output<string | undefined>;
+    declare public readonly csrPem: pulumi.Output<string>;
     /**
      * Collection of Custom Field name-value pairs to assign to the certificate.
      */
-    public readonly customFields!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly customFields: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * ECDSA curve to use when generating a key
      */
-    public readonly ecdsaCurve!: pulumi.Output<string | undefined>;
+    declare public readonly ecdsaCurve: pulumi.Output<string | undefined>;
     /**
      * Number of hours before certificate expiry to request a new certificate. 
      * Defaults to `168`.
      */
-    public readonly expirationWindow!: pulumi.Output<number | undefined>;
+    declare public readonly expirationWindow: pulumi.Output<number | undefined>;
     /**
      * Used with `validDays` to indicate the target issuer when using Trust Protection 
      * Platform. Relevant values are: `DigiCert`, `Entrust`, and `Microsoft`.
      */
-    public readonly issuerHint!: pulumi.Output<string | undefined>;
+    declare public readonly issuerHint: pulumi.Output<string | undefined>;
     /**
      * The password used to encrypt the private key.
      */
-    public readonly keyPassword!: pulumi.Output<string | undefined>;
+    declare public readonly keyPassword: pulumi.Output<string | undefined>;
     /**
      * Locality/City of the certificate (L)
      */
-    public readonly locality!: pulumi.Output<string | undefined>;
+    declare public readonly locality: pulumi.Output<string | undefined>;
     /**
      * Use to specify a name for the new certificate object that will be created and placed 
      * in a policy. Only valid for Trust Protection Platform.
      */
-    public readonly nickname!: pulumi.Output<string | undefined>;
+    declare public readonly nickname: pulumi.Output<string | undefined>;
     /**
      * Organization of the certificate (O)
      */
-    public readonly organization!: pulumi.Output<string | undefined>;
+    declare public readonly organization: pulumi.Output<string | undefined>;
     /**
      * List of Organizational Units of the certificate (OU)
      */
-    public readonly organizationalUnits!: pulumi.Output<string[] | undefined>;
+    declare public readonly organizationalUnits: pulumi.Output<string[] | undefined>;
     /**
      * A base64-encoded PKCS#12 keystore secured by the `keyPassword`. Useful when working with resources like 
      * azure key_vault_certificate.
      */
-    public readonly pkcs12!: pulumi.Output<string>;
+    declare public readonly pkcs12: pulumi.Output<string>;
     /**
      * The private key in PEM format.
      */
-    public readonly privateKeyPem!: pulumi.Output<string>;
+    declare public readonly privateKeyPem: pulumi.Output<string>;
     /**
      * Indicates the certificate should be reissued. This means the resource will destroyed and recreated
      */
-    public readonly renewRequired!: pulumi.Output<boolean | undefined>;
+    declare public readonly renewRequired: pulumi.Output<boolean | undefined>;
     /**
      * Number of bits to use when generating an RSA key. Applies when algorithm is `RSA`. 
      * Defaults to `2048`.
      */
-    public readonly rsaBits!: pulumi.Output<number | undefined>;
+    declare public readonly rsaBits: pulumi.Output<number | undefined>;
     /**
      * List of DNS names to use as alternative subjects of the certificate.
      */
-    public readonly sanDns!: pulumi.Output<string[] | undefined>;
+    declare public readonly sanDns: pulumi.Output<string[] | undefined>;
     /**
      * List of email addresses to use as alternative subjects of the certificate.
      */
-    public readonly sanEmails!: pulumi.Output<string[] | undefined>;
+    declare public readonly sanEmails: pulumi.Output<string[] | undefined>;
     /**
      * List of IP addresses to use as alternative subjects of the certificate.
      */
-    public readonly sanIps!: pulumi.Output<string[] | undefined>;
+    declare public readonly sanIps: pulumi.Output<string[] | undefined>;
     /**
      * List of Uniform Resource Identifiers (URIs) to use as alternative subjects of 
      * the certificate.
      */
-    public readonly sanUris!: pulumi.Output<string[] | undefined>;
+    declare public readonly sanUris: pulumi.Output<string[] | undefined>;
     /**
      * State of the certificate (S)
      */
-    public readonly state!: pulumi.Output<string | undefined>;
+    declare public readonly state: pulumi.Output<string | undefined>;
     /**
      * Desired number of days for which the new certificate will be valid.
      */
-    public readonly validDays!: pulumi.Output<number | undefined>;
+    declare public readonly validDays: pulumi.Output<number | undefined>;
 
     /**
      * Create a Certificate resource with the given unique name, arguments, and options.
@@ -159,64 +159,64 @@ export class Certificate extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as CertificateState | undefined;
-            resourceInputs["algorithm"] = state ? state.algorithm : undefined;
-            resourceInputs["certificate"] = state ? state.certificate : undefined;
-            resourceInputs["certificateDn"] = state ? state.certificateDn : undefined;
-            resourceInputs["certificateId"] = state ? state.certificateId : undefined;
-            resourceInputs["chain"] = state ? state.chain : undefined;
-            resourceInputs["commonName"] = state ? state.commonName : undefined;
-            resourceInputs["country"] = state ? state.country : undefined;
-            resourceInputs["csrOrigin"] = state ? state.csrOrigin : undefined;
-            resourceInputs["csrPem"] = state ? state.csrPem : undefined;
-            resourceInputs["customFields"] = state ? state.customFields : undefined;
-            resourceInputs["ecdsaCurve"] = state ? state.ecdsaCurve : undefined;
-            resourceInputs["expirationWindow"] = state ? state.expirationWindow : undefined;
-            resourceInputs["issuerHint"] = state ? state.issuerHint : undefined;
-            resourceInputs["keyPassword"] = state ? state.keyPassword : undefined;
-            resourceInputs["locality"] = state ? state.locality : undefined;
-            resourceInputs["nickname"] = state ? state.nickname : undefined;
-            resourceInputs["organization"] = state ? state.organization : undefined;
-            resourceInputs["organizationalUnits"] = state ? state.organizationalUnits : undefined;
-            resourceInputs["pkcs12"] = state ? state.pkcs12 : undefined;
-            resourceInputs["privateKeyPem"] = state ? state.privateKeyPem : undefined;
-            resourceInputs["renewRequired"] = state ? state.renewRequired : undefined;
-            resourceInputs["rsaBits"] = state ? state.rsaBits : undefined;
-            resourceInputs["sanDns"] = state ? state.sanDns : undefined;
-            resourceInputs["sanEmails"] = state ? state.sanEmails : undefined;
-            resourceInputs["sanIps"] = state ? state.sanIps : undefined;
-            resourceInputs["sanUris"] = state ? state.sanUris : undefined;
-            resourceInputs["state"] = state ? state.state : undefined;
-            resourceInputs["validDays"] = state ? state.validDays : undefined;
+            resourceInputs["algorithm"] = state?.algorithm;
+            resourceInputs["certificate"] = state?.certificate;
+            resourceInputs["certificateDn"] = state?.certificateDn;
+            resourceInputs["certificateId"] = state?.certificateId;
+            resourceInputs["chain"] = state?.chain;
+            resourceInputs["commonName"] = state?.commonName;
+            resourceInputs["country"] = state?.country;
+            resourceInputs["csrOrigin"] = state?.csrOrigin;
+            resourceInputs["csrPem"] = state?.csrPem;
+            resourceInputs["customFields"] = state?.customFields;
+            resourceInputs["ecdsaCurve"] = state?.ecdsaCurve;
+            resourceInputs["expirationWindow"] = state?.expirationWindow;
+            resourceInputs["issuerHint"] = state?.issuerHint;
+            resourceInputs["keyPassword"] = state?.keyPassword;
+            resourceInputs["locality"] = state?.locality;
+            resourceInputs["nickname"] = state?.nickname;
+            resourceInputs["organization"] = state?.organization;
+            resourceInputs["organizationalUnits"] = state?.organizationalUnits;
+            resourceInputs["pkcs12"] = state?.pkcs12;
+            resourceInputs["privateKeyPem"] = state?.privateKeyPem;
+            resourceInputs["renewRequired"] = state?.renewRequired;
+            resourceInputs["rsaBits"] = state?.rsaBits;
+            resourceInputs["sanDns"] = state?.sanDns;
+            resourceInputs["sanEmails"] = state?.sanEmails;
+            resourceInputs["sanIps"] = state?.sanIps;
+            resourceInputs["sanUris"] = state?.sanUris;
+            resourceInputs["state"] = state?.state;
+            resourceInputs["validDays"] = state?.validDays;
         } else {
             const args = argsOrState as CertificateArgs | undefined;
-            if ((!args || args.commonName === undefined) && !opts.urn) {
+            if (args?.commonName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'commonName'");
             }
-            resourceInputs["algorithm"] = args ? args.algorithm : undefined;
-            resourceInputs["certificateDn"] = args ? args.certificateDn : undefined;
-            resourceInputs["commonName"] = args ? args.commonName : undefined;
-            resourceInputs["country"] = args ? args.country : undefined;
-            resourceInputs["csrOrigin"] = args ? args.csrOrigin : undefined;
-            resourceInputs["csrPem"] = args ? args.csrPem : undefined;
-            resourceInputs["customFields"] = args ? args.customFields : undefined;
-            resourceInputs["ecdsaCurve"] = args ? args.ecdsaCurve : undefined;
-            resourceInputs["expirationWindow"] = args ? args.expirationWindow : undefined;
-            resourceInputs["issuerHint"] = args ? args.issuerHint : undefined;
+            resourceInputs["algorithm"] = args?.algorithm;
+            resourceInputs["certificateDn"] = args?.certificateDn;
+            resourceInputs["commonName"] = args?.commonName;
+            resourceInputs["country"] = args?.country;
+            resourceInputs["csrOrigin"] = args?.csrOrigin;
+            resourceInputs["csrPem"] = args?.csrPem;
+            resourceInputs["customFields"] = args?.customFields;
+            resourceInputs["ecdsaCurve"] = args?.ecdsaCurve;
+            resourceInputs["expirationWindow"] = args?.expirationWindow;
+            resourceInputs["issuerHint"] = args?.issuerHint;
             resourceInputs["keyPassword"] = args?.keyPassword ? pulumi.secret(args.keyPassword) : undefined;
-            resourceInputs["locality"] = args ? args.locality : undefined;
-            resourceInputs["nickname"] = args ? args.nickname : undefined;
-            resourceInputs["organization"] = args ? args.organization : undefined;
-            resourceInputs["organizationalUnits"] = args ? args.organizationalUnits : undefined;
-            resourceInputs["pkcs12"] = args ? args.pkcs12 : undefined;
+            resourceInputs["locality"] = args?.locality;
+            resourceInputs["nickname"] = args?.nickname;
+            resourceInputs["organization"] = args?.organization;
+            resourceInputs["organizationalUnits"] = args?.organizationalUnits;
+            resourceInputs["pkcs12"] = args?.pkcs12;
             resourceInputs["privateKeyPem"] = args?.privateKeyPem ? pulumi.secret(args.privateKeyPem) : undefined;
-            resourceInputs["renewRequired"] = args ? args.renewRequired : undefined;
-            resourceInputs["rsaBits"] = args ? args.rsaBits : undefined;
-            resourceInputs["sanDns"] = args ? args.sanDns : undefined;
-            resourceInputs["sanEmails"] = args ? args.sanEmails : undefined;
-            resourceInputs["sanIps"] = args ? args.sanIps : undefined;
-            resourceInputs["sanUris"] = args ? args.sanUris : undefined;
-            resourceInputs["state"] = args ? args.state : undefined;
-            resourceInputs["validDays"] = args ? args.validDays : undefined;
+            resourceInputs["renewRequired"] = args?.renewRequired;
+            resourceInputs["rsaBits"] = args?.rsaBits;
+            resourceInputs["sanDns"] = args?.sanDns;
+            resourceInputs["sanEmails"] = args?.sanEmails;
+            resourceInputs["sanIps"] = args?.sanIps;
+            resourceInputs["sanUris"] = args?.sanUris;
+            resourceInputs["state"] = args?.state;
+            resourceInputs["validDays"] = args?.validDays;
             resourceInputs["certificate"] = undefined /*out*/;
             resourceInputs["certificateId"] = undefined /*out*/;
             resourceInputs["chain"] = undefined /*out*/;
