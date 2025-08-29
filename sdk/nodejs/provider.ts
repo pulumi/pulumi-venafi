@@ -28,63 +28,63 @@ export class Provider extends pulumi.ProviderResource {
     /**
      * Access token for Venafi TLSPDC, user should use this for authentication
      */
-    public readonly accessToken!: pulumi.Output<string | undefined>;
+    declare public readonly accessToken: pulumi.Output<string | undefined>;
     /**
      * API key for Venafi Control Plane. Example: 142231b7-cvb0-412e-886b-6aeght0bc93d
      */
-    public readonly apiKey!: pulumi.Output<string | undefined>;
+    declare public readonly apiKey: pulumi.Output<string | undefined>;
     /**
      * application that will be using the token
      */
-    public readonly clientId!: pulumi.Output<string | undefined>;
+    declare public readonly clientId: pulumi.Output<string | undefined>;
     /**
      * JWT of the identity provider associated to the Venafi Control Plane service account that is granting the access token
      */
-    public readonly externalJwt!: pulumi.Output<string | undefined>;
+    declare public readonly externalJwt: pulumi.Output<string | undefined>;
     /**
-     * Base64 encoded PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to
-     * TLSPDC
+     * Base64 encoded PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to TLSPDC
      */
-    public readonly p12CertData!: pulumi.Output<string | undefined>;
+    declare public readonly p12CertData: pulumi.Output<string | undefined>;
     /**
-     * Filename of PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to
-     * TLSPDC
+     * Filename of PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to TLSPDC
      */
-    public readonly p12CertFilename!: pulumi.Output<string | undefined>;
+    declare public readonly p12CertFilename: pulumi.Output<string | undefined>;
     /**
      * Password for the PKCS#12 keystore declared in p12Cert / p12_cert_data
      */
-    public readonly p12CertPassword!: pulumi.Output<string | undefined>;
+    declare public readonly p12CertPassword: pulumi.Output<string | undefined>;
     /**
      * Endpoint URL to request new Venafi Control Plane access tokens
      */
-    public readonly tokenUrl!: pulumi.Output<string | undefined>;
+    declare public readonly tokenUrl: pulumi.Output<string | undefined>;
     /**
      * Password for WebSDK user. Example: password
      *
      * @deprecated , please use accessToken instead
      */
-    public readonly tppPassword!: pulumi.Output<string | undefined>;
+    declare public readonly tppPassword: pulumi.Output<string | undefined>;
     /**
      * WebSDK user for Venafi TLSPDC. Example: admin
      *
      * @deprecated , please use accessToken instead
      */
-    public readonly tppUsername!: pulumi.Output<string | undefined>;
+    declare public readonly tppUsername: pulumi.Output<string | undefined>;
     /**
-     * Use to specify a PEM-formatted file that contains certificates to be trust anchors for all communications with the
-     * Venafi Web Service. Example: trustBundle = "${file("chain.pem")}"
+     * Use to specify a PEM-formatted file that contains certificates to be trust anchors for all communications with the Venafi Web Service.
+     * Example:
+     *   trustBundle = "${file("chain.pem")}"
      */
-    public readonly trustBundle!: pulumi.Output<string | undefined>;
+    declare public readonly trustBundle: pulumi.Output<string | undefined>;
     /**
      * The Venafi Platform URL. Example: https://tpp.venafi.example/vedsdk
      */
-    public readonly url!: pulumi.Output<string | undefined>;
+    declare public readonly url: pulumi.Output<string | undefined>;
     /**
-     * DN of the Venafi TLSPDC policy folder or name of the Venafi as a Service application plus issuing template alias.
-     * Example for Platform: testPolicy\\vault Example for Venafi as a Service: myApp\\Default
+     * DN of the Venafi TLSPDC policy folder or name of the Venafi as a Service application plus issuing template alias. 
+     * Example for Platform: testPolicy\\vault
+     * Example for Venafi as a Service: myApp\\Default
      */
-    public readonly zone!: pulumi.Output<string | undefined>;
+    declare public readonly zone: pulumi.Output<string | undefined>;
 
     /**
      * Create a Provider resource with the given unique name, arguments, and options.
@@ -99,19 +99,19 @@ export class Provider extends pulumi.ProviderResource {
         {
             resourceInputs["accessToken"] = args?.accessToken ? pulumi.secret(args.accessToken) : undefined;
             resourceInputs["apiKey"] = args?.apiKey ? pulumi.secret(args.apiKey) : undefined;
-            resourceInputs["clientId"] = args ? args.clientId : undefined;
-            resourceInputs["devMode"] = pulumi.output(args ? args.devMode : undefined).apply(JSON.stringify);
+            resourceInputs["clientId"] = args?.clientId;
+            resourceInputs["devMode"] = pulumi.output(args?.devMode).apply(JSON.stringify);
             resourceInputs["externalJwt"] = args?.externalJwt ? pulumi.secret(args.externalJwt) : undefined;
-            resourceInputs["p12CertData"] = args ? args.p12CertData : undefined;
-            resourceInputs["p12CertFilename"] = args ? args.p12CertFilename : undefined;
+            resourceInputs["p12CertData"] = args?.p12CertData;
+            resourceInputs["p12CertFilename"] = args?.p12CertFilename;
             resourceInputs["p12CertPassword"] = args?.p12CertPassword ? pulumi.secret(args.p12CertPassword) : undefined;
-            resourceInputs["skipRetirement"] = pulumi.output(args ? args.skipRetirement : undefined).apply(JSON.stringify);
+            resourceInputs["skipRetirement"] = pulumi.output(args?.skipRetirement).apply(JSON.stringify);
             resourceInputs["tokenUrl"] = args?.tokenUrl ? pulumi.secret(args.tokenUrl) : undefined;
             resourceInputs["tppPassword"] = args?.tppPassword ? pulumi.secret(args.tppPassword) : undefined;
-            resourceInputs["tppUsername"] = args ? args.tppUsername : undefined;
-            resourceInputs["trustBundle"] = args ? args.trustBundle : undefined;
-            resourceInputs["url"] = args ? args.url : undefined;
-            resourceInputs["zone"] = args ? args.zone : undefined;
+            resourceInputs["tppUsername"] = args?.tppUsername;
+            resourceInputs["trustBundle"] = args?.trustBundle;
+            resourceInputs["url"] = args?.url;
+            resourceInputs["zone"] = args?.zone;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["accessToken", "apiKey", "externalJwt", "p12CertPassword", "tokenUrl", "tppPassword"] };
@@ -146,8 +146,7 @@ export interface ProviderArgs {
      */
     clientId?: pulumi.Input<string>;
     /**
-     * When set to true, the resulting certificate will be issued by an ephemeral, no trust CA rather than enrolling using
-     * Venafi as a Service or Trust Protection Platform. Useful for development and testing
+     * When set to true, the resulting certificate will be issued by an ephemeral, no trust CA rather than enrolling using Venafi as a Service or Trust Protection Platform. Useful for development and testing
      */
     devMode?: pulumi.Input<boolean>;
     /**
@@ -155,13 +154,11 @@ export interface ProviderArgs {
      */
     externalJwt?: pulumi.Input<string>;
     /**
-     * Base64 encoded PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to
-     * TLSPDC
+     * Base64 encoded PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to TLSPDC
      */
     p12CertData?: pulumi.Input<string>;
     /**
-     * Filename of PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to
-     * TLSPDC
+     * Filename of PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to TLSPDC
      */
     p12CertFilename?: pulumi.Input<string>;
     /**
@@ -186,8 +183,9 @@ export interface ProviderArgs {
      */
     tppUsername?: pulumi.Input<string>;
     /**
-     * Use to specify a PEM-formatted file that contains certificates to be trust anchors for all communications with the
-     * Venafi Web Service. Example: trustBundle = "${file("chain.pem")}"
+     * Use to specify a PEM-formatted file that contains certificates to be trust anchors for all communications with the Venafi Web Service.
+     * Example:
+     *   trustBundle = "${file("chain.pem")}"
      */
     trustBundle?: pulumi.Input<string>;
     /**
@@ -195,8 +193,9 @@ export interface ProviderArgs {
      */
     url?: pulumi.Input<string>;
     /**
-     * DN of the Venafi TLSPDC policy folder or name of the Venafi as a Service application plus issuing template alias.
-     * Example for Platform: testPolicy\\vault Example for Venafi as a Service: myApp\\Default
+     * DN of the Venafi TLSPDC policy folder or name of the Venafi as a Service application plus issuing template alias. 
+     * Example for Platform: testPolicy\\vault
+     * Example for Venafi as a Service: myApp\\Default
      */
     zone?: pulumi.Input<string>;
 }

@@ -80,32 +80,28 @@ public class Provider extends com.pulumi.resources.ProviderResource {
         return Codegen.optional(this.externalJwt);
     }
     /**
-     * Base64 encoded PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to
-     * TLSPDC
+     * Base64 encoded PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to TLSPDC
      * 
      */
     @Export(name="p12CertData", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> p12CertData;
 
     /**
-     * @return Base64 encoded PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to
-     * TLSPDC
+     * @return Base64 encoded PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to TLSPDC
      * 
      */
     public Output<Optional<String>> p12CertData() {
         return Codegen.optional(this.p12CertData);
     }
     /**
-     * Filename of PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to
-     * TLSPDC
+     * Filename of PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to TLSPDC
      * 
      */
     @Export(name="p12CertFilename", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> p12CertFilename;
 
     /**
-     * @return Filename of PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to
-     * TLSPDC
+     * @return Filename of PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to TLSPDC
      * 
      */
     public Output<Optional<String>> p12CertFilename() {
@@ -176,16 +172,18 @@ public class Provider extends com.pulumi.resources.ProviderResource {
         return Codegen.optional(this.tppUsername);
     }
     /**
-     * Use to specify a PEM-formatted file that contains certificates to be trust anchors for all communications with the
-     * Venafi Web Service. Example: trust_bundle = &#34;${file(&#34;chain.pem&#34;)}&#34;
+     * Use to specify a PEM-formatted file that contains certificates to be trust anchors for all communications with the Venafi Web Service.
+     * Example:
+     *   trust_bundle = &#34;${file(&#34;chain.pem&#34;)}&#34;
      * 
      */
     @Export(name="trustBundle", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> trustBundle;
 
     /**
-     * @return Use to specify a PEM-formatted file that contains certificates to be trust anchors for all communications with the
-     * Venafi Web Service. Example: trust_bundle = &#34;${file(&#34;chain.pem&#34;)}&#34;
+     * @return Use to specify a PEM-formatted file that contains certificates to be trust anchors for all communications with the Venafi Web Service.
+     * Example:
+     *   trust_bundle = &#34;${file(&#34;chain.pem&#34;)}&#34;
      * 
      */
     public Output<Optional<String>> trustBundle() {
@@ -207,7 +205,8 @@ public class Provider extends com.pulumi.resources.ProviderResource {
     }
     /**
      * DN of the Venafi TLSPDC policy folder or name of the Venafi as a Service application plus issuing template alias.
-     * Example for Platform: testPolicy\\vault Example for Venafi as a Service: myApp\\Default
+     * Example for Platform: testPolicy\\vault
+     * Example for Venafi as a Service: myApp\\Default
      * 
      */
     @Export(name="zone", refs={String.class}, tree="[0]")
@@ -215,7 +214,8 @@ public class Provider extends com.pulumi.resources.ProviderResource {
 
     /**
      * @return DN of the Venafi TLSPDC policy folder or name of the Venafi as a Service application plus issuing template alias.
-     * Example for Platform: testPolicy\\vault Example for Venafi as a Service: myApp\\Default
+     * Example for Platform: testPolicy\\vault
+     * Example for Venafi as a Service: myApp\\Default
      * 
      */
     public Output<Optional<String>> zone() {

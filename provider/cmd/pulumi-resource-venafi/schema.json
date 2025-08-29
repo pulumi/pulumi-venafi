@@ -50,38 +50,38 @@
         "variables": {
             "accessToken": {
                 "type": "string",
-                "description": "Access token for Venafi TLSPDC, user should use this for authentication\n",
+                "description": "Access token for Venafi TLSPDC, user should use this for authentication",
                 "secret": true
             },
             "apiKey": {
                 "type": "string",
-                "description": "API key for Venafi Control Plane. Example: 142231b7-cvb0-412e-886b-6aeght0bc93d\n",
+                "description": "API key for Venafi Control Plane. Example: 142231b7-cvb0-412e-886b-6aeght0bc93d",
                 "secret": true
             },
             "clientId": {
                 "type": "string",
-                "description": "application that will be using the token\n"
+                "description": "application that will be using the token"
             },
             "devMode": {
                 "type": "boolean",
-                "description": "When set to true, the resulting certificate will be issued by an ephemeral, no trust CA rather than enrolling using\nVenafi as a Service or Trust Protection Platform. Useful for development and testing\n"
+                "description": "When set to true, the resulting certificate will be issued by an ephemeral, no trust CA rather than enrolling using Venafi as a Service or Trust Protection Platform. Useful for development and testing"
             },
             "externalJwt": {
                 "type": "string",
-                "description": "JWT of the identity provider associated to the Venafi Control Plane service account that is granting the access token\n",
+                "description": "JWT of the identity provider associated to the Venafi Control Plane service account that is granting the access token",
                 "secret": true
             },
             "p12CertData": {
                 "type": "string",
-                "description": "Base64 encoded PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to\nTLSPDC\n"
+                "description": "Base64 encoded PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to TLSPDC"
             },
             "p12CertFilename": {
                 "type": "string",
-                "description": "Filename of PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to\nTLSPDC\n"
+                "description": "Filename of PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to TLSPDC"
             },
             "p12CertPassword": {
                 "type": "string",
-                "description": "Password for the PKCS#12 keystore declared in p12_cert / p12_cert_data\n",
+                "description": "Password for the PKCS#12 keystore declared in p12_cert / p12_cert_data",
                 "secret": true
             },
             "skipRetirement": {
@@ -89,31 +89,31 @@
             },
             "tokenUrl": {
                 "type": "string",
-                "description": "Endpoint URL to request new Venafi Control Plane access tokens\n",
+                "description": "Endpoint URL to request new Venafi Control Plane access tokens",
                 "secret": true
             },
             "tppPassword": {
                 "type": "string",
-                "description": "Password for WebSDK user. Example: password\n",
+                "description": "Password for WebSDK user. Example: password",
                 "deprecationMessage": ", please use access_token instead",
                 "secret": true
             },
             "tppUsername": {
                 "type": "string",
-                "description": "WebSDK user for Venafi TLSPDC. Example: admin\n",
+                "description": "WebSDK user for Venafi TLSPDC. Example: admin",
                 "deprecationMessage": ", please use access_token instead"
             },
             "trustBundle": {
                 "type": "string",
-                "description": "Use to specify a PEM-formatted file that contains certificates to be trust anchors for all communications with the\nVenafi Web Service. Example: trust_bundle = \"${file(\"chain.pem\")}\"\n"
+                "description": "Use to specify a PEM-formatted file that contains certificates to be trust anchors for all communications with the Venafi Web Service.\nExample:\n  trust_bundle = \"${file(\"chain.pem\")}\""
             },
             "url": {
                 "type": "string",
-                "description": "The Venafi Platform URL. Example: https://tpp.venafi.example/vedsdk\n"
+                "description": "The Venafi Platform URL. Example: https://tpp.venafi.example/vedsdk"
             },
             "zone": {
                 "type": "string",
-                "description": "DN of the Venafi TLSPDC policy folder or name of the Venafi as a Service application plus issuing template alias.\nExample for Platform: testPolicy\\\\vault Example for Venafi as a Service: myApp\\\\Default\n"
+                "description": "DN of the Venafi TLSPDC policy folder or name of the Venafi as a Service application plus issuing template alias. \nExample for Platform: testPolicy\\\\vault\nExample for Venafi as a Service: myApp\\\\Default"
             }
         }
     },
@@ -122,38 +122,38 @@
         "properties": {
             "accessToken": {
                 "type": "string",
-                "description": "Access token for Venafi TLSPDC, user should use this for authentication\n",
+                "description": "Access token for Venafi TLSPDC, user should use this for authentication",
                 "secret": true
             },
             "apiKey": {
                 "type": "string",
-                "description": "API key for Venafi Control Plane. Example: 142231b7-cvb0-412e-886b-6aeght0bc93d\n",
+                "description": "API key for Venafi Control Plane. Example: 142231b7-cvb0-412e-886b-6aeght0bc93d",
                 "secret": true
             },
             "clientId": {
                 "type": "string",
-                "description": "application that will be using the token\n"
+                "description": "application that will be using the token"
             },
             "devMode": {
                 "type": "boolean",
-                "description": "When set to true, the resulting certificate will be issued by an ephemeral, no trust CA rather than enrolling using\nVenafi as a Service or Trust Protection Platform. Useful for development and testing\n"
+                "description": "When set to true, the resulting certificate will be issued by an ephemeral, no trust CA rather than enrolling using Venafi as a Service or Trust Protection Platform. Useful for development and testing"
             },
             "externalJwt": {
                 "type": "string",
-                "description": "JWT of the identity provider associated to the Venafi Control Plane service account that is granting the access token\n",
+                "description": "JWT of the identity provider associated to the Venafi Control Plane service account that is granting the access token",
                 "secret": true
             },
             "p12CertData": {
                 "type": "string",
-                "description": "Base64 encoded PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to\nTLSPDC\n"
+                "description": "Base64 encoded PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to TLSPDC"
             },
             "p12CertFilename": {
                 "type": "string",
-                "description": "Filename of PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to\nTLSPDC\n"
+                "description": "Filename of PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to TLSPDC"
             },
             "p12CertPassword": {
                 "type": "string",
-                "description": "Password for the PKCS#12 keystore declared in p12_cert / p12_cert_data\n",
+                "description": "Password for the PKCS#12 keystore declared in p12_cert / p12_cert_data",
                 "secret": true
             },
             "skipRetirement": {
@@ -161,68 +161,68 @@
             },
             "tokenUrl": {
                 "type": "string",
-                "description": "Endpoint URL to request new Venafi Control Plane access tokens\n",
+                "description": "Endpoint URL to request new Venafi Control Plane access tokens",
                 "secret": true
             },
             "tppPassword": {
                 "type": "string",
-                "description": "Password for WebSDK user. Example: password\n",
+                "description": "Password for WebSDK user. Example: password",
                 "deprecationMessage": ", please use access_token instead",
                 "secret": true
             },
             "tppUsername": {
                 "type": "string",
-                "description": "WebSDK user for Venafi TLSPDC. Example: admin\n",
+                "description": "WebSDK user for Venafi TLSPDC. Example: admin",
                 "deprecationMessage": ", please use access_token instead"
             },
             "trustBundle": {
                 "type": "string",
-                "description": "Use to specify a PEM-formatted file that contains certificates to be trust anchors for all communications with the\nVenafi Web Service. Example: trust_bundle = \"${file(\"chain.pem\")}\"\n"
+                "description": "Use to specify a PEM-formatted file that contains certificates to be trust anchors for all communications with the Venafi Web Service.\nExample:\n  trust_bundle = \"${file(\"chain.pem\")}\""
             },
             "url": {
                 "type": "string",
-                "description": "The Venafi Platform URL. Example: https://tpp.venafi.example/vedsdk\n"
+                "description": "The Venafi Platform URL. Example: https://tpp.venafi.example/vedsdk"
             },
             "zone": {
                 "type": "string",
-                "description": "DN of the Venafi TLSPDC policy folder or name of the Venafi as a Service application plus issuing template alias.\nExample for Platform: testPolicy\\\\vault Example for Venafi as a Service: myApp\\\\Default\n"
+                "description": "DN of the Venafi TLSPDC policy folder or name of the Venafi as a Service application plus issuing template alias. \nExample for Platform: testPolicy\\\\vault\nExample for Venafi as a Service: myApp\\\\Default"
             }
         },
         "inputProperties": {
             "accessToken": {
                 "type": "string",
-                "description": "Access token for Venafi TLSPDC, user should use this for authentication\n",
+                "description": "Access token for Venafi TLSPDC, user should use this for authentication",
                 "secret": true
             },
             "apiKey": {
                 "type": "string",
-                "description": "API key for Venafi Control Plane. Example: 142231b7-cvb0-412e-886b-6aeght0bc93d\n",
+                "description": "API key for Venafi Control Plane. Example: 142231b7-cvb0-412e-886b-6aeght0bc93d",
                 "secret": true
             },
             "clientId": {
                 "type": "string",
-                "description": "application that will be using the token\n"
+                "description": "application that will be using the token"
             },
             "devMode": {
                 "type": "boolean",
-                "description": "When set to true, the resulting certificate will be issued by an ephemeral, no trust CA rather than enrolling using\nVenafi as a Service or Trust Protection Platform. Useful for development and testing\n"
+                "description": "When set to true, the resulting certificate will be issued by an ephemeral, no trust CA rather than enrolling using Venafi as a Service or Trust Protection Platform. Useful for development and testing"
             },
             "externalJwt": {
                 "type": "string",
-                "description": "JWT of the identity provider associated to the Venafi Control Plane service account that is granting the access token\n",
+                "description": "JWT of the identity provider associated to the Venafi Control Plane service account that is granting the access token",
                 "secret": true
             },
             "p12CertData": {
                 "type": "string",
-                "description": "Base64 encoded PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to\nTLSPDC\n"
+                "description": "Base64 encoded PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to TLSPDC"
             },
             "p12CertFilename": {
                 "type": "string",
-                "description": "Filename of PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to\nTLSPDC\n"
+                "description": "Filename of PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to TLSPDC"
             },
             "p12CertPassword": {
                 "type": "string",
-                "description": "Password for the PKCS#12 keystore declared in p12_cert / p12_cert_data\n",
+                "description": "Password for the PKCS#12 keystore declared in p12_cert / p12_cert_data",
                 "secret": true
             },
             "skipRetirement": {
@@ -230,31 +230,31 @@
             },
             "tokenUrl": {
                 "type": "string",
-                "description": "Endpoint URL to request new Venafi Control Plane access tokens\n",
+                "description": "Endpoint URL to request new Venafi Control Plane access tokens",
                 "secret": true
             },
             "tppPassword": {
                 "type": "string",
-                "description": "Password for WebSDK user. Example: password\n",
+                "description": "Password for WebSDK user. Example: password",
                 "deprecationMessage": ", please use access_token instead",
                 "secret": true
             },
             "tppUsername": {
                 "type": "string",
-                "description": "WebSDK user for Venafi TLSPDC. Example: admin\n",
+                "description": "WebSDK user for Venafi TLSPDC. Example: admin",
                 "deprecationMessage": ", please use access_token instead"
             },
             "trustBundle": {
                 "type": "string",
-                "description": "Use to specify a PEM-formatted file that contains certificates to be trust anchors for all communications with the\nVenafi Web Service. Example: trust_bundle = \"${file(\"chain.pem\")}\"\n"
+                "description": "Use to specify a PEM-formatted file that contains certificates to be trust anchors for all communications with the Venafi Web Service.\nExample:\n  trust_bundle = \"${file(\"chain.pem\")}\""
             },
             "url": {
                 "type": "string",
-                "description": "The Venafi Platform URL. Example: https://tpp.venafi.example/vedsdk\n"
+                "description": "The Venafi Platform URL. Example: https://tpp.venafi.example/vedsdk"
             },
             "zone": {
                 "type": "string",
-                "description": "DN of the Venafi TLSPDC policy folder or name of the Venafi as a Service application plus issuing template alias.\nExample for Platform: testPolicy\\\\vault Example for Venafi as a Service: myApp\\\\Default\n"
+                "description": "DN of the Venafi TLSPDC policy folder or name of the Venafi as a Service application plus issuing template alias. \nExample for Platform: testPolicy\\\\vault\nExample for Venafi as a Service: myApp\\\\Default"
             }
         },
         "methods": {
@@ -282,7 +282,7 @@
                 },
                 "certificateId": {
                     "type": "string",
-                    "description": "ID of the issued certificate\n"
+                    "description": "ID of the issued certificate"
                 },
                 "chain": {
                     "type": "string",
@@ -294,7 +294,7 @@
                 },
                 "country": {
                     "type": "string",
-                    "description": "Country of the certificate (C)\n"
+                    "description": "Country of the certificate (C)"
                 },
                 "csrOrigin": {
                     "type": "string",
@@ -312,7 +312,7 @@
                 },
                 "ecdsaCurve": {
                     "type": "string",
-                    "description": "ECDSA curve to use when generating a key\n"
+                    "description": "ECDSA curve to use when generating a key"
                 },
                 "expirationWindow": {
                     "type": "integer",
@@ -329,7 +329,7 @@
                 },
                 "locality": {
                     "type": "string",
-                    "description": "Locality/City of the certificate (L)\n"
+                    "description": "Locality/City of the certificate (L)"
                 },
                 "nickname": {
                     "type": "string",
@@ -337,14 +337,14 @@
                 },
                 "organization": {
                     "type": "string",
-                    "description": "Organization of the certificate (O)\n"
+                    "description": "Organization of the certificate (O)"
                 },
                 "organizationalUnits": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
-                    "description": "List of Organizational Units of the certificate (OU)\n"
+                    "description": "List of Organizational Units of the certificate (OU)"
                 },
                 "pkcs12": {
                     "type": "string",
@@ -357,7 +357,7 @@
                 },
                 "renewRequired": {
                     "type": "boolean",
-                    "description": "Indicates the certificate should be reissued. This means the resource will destroyed and recreated\n"
+                    "description": "Indicates the certificate should be reissued. This means the resource will destroyed and recreated"
                 },
                 "rsaBits": {
                     "type": "integer",
@@ -393,7 +393,7 @@
                 },
                 "state": {
                     "type": "string",
-                    "description": "State of the certificate (S)\n"
+                    "description": "State of the certificate (S)"
                 },
                 "validDays": {
                     "type": "integer",
@@ -426,7 +426,7 @@
                 },
                 "country": {
                     "type": "string",
-                    "description": "Country of the certificate (C)\n",
+                    "description": "Country of the certificate (C)",
                     "willReplaceOnChanges": true
                 },
                 "csrOrigin": {
@@ -447,7 +447,7 @@
                 },
                 "ecdsaCurve": {
                     "type": "string",
-                    "description": "ECDSA curve to use when generating a key\n",
+                    "description": "ECDSA curve to use when generating a key",
                     "willReplaceOnChanges": true
                 },
                 "expirationWindow": {
@@ -467,7 +467,7 @@
                 },
                 "locality": {
                     "type": "string",
-                    "description": "Locality/City of the certificate (L)\n",
+                    "description": "Locality/City of the certificate (L)",
                     "willReplaceOnChanges": true
                 },
                 "nickname": {
@@ -477,7 +477,7 @@
                 },
                 "organization": {
                     "type": "string",
-                    "description": "Organization of the certificate (O)\n",
+                    "description": "Organization of the certificate (O)",
                     "willReplaceOnChanges": true
                 },
                 "organizationalUnits": {
@@ -485,7 +485,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "List of Organizational Units of the certificate (OU)\n",
+                    "description": "List of Organizational Units of the certificate (OU)",
                     "willReplaceOnChanges": true
                 },
                 "pkcs12": {
@@ -499,7 +499,7 @@
                 },
                 "renewRequired": {
                     "type": "boolean",
-                    "description": "Indicates the certificate should be reissued. This means the resource will destroyed and recreated\n",
+                    "description": "Indicates the certificate should be reissued. This means the resource will destroyed and recreated",
                     "willReplaceOnChanges": true
                 },
                 "rsaBits": {
@@ -541,7 +541,7 @@
                 },
                 "state": {
                     "type": "string",
-                    "description": "State of the certificate (S)\n",
+                    "description": "State of the certificate (S)",
                     "willReplaceOnChanges": true
                 },
                 "validDays": {
@@ -575,7 +575,7 @@
                     },
                     "certificateId": {
                         "type": "string",
-                        "description": "ID of the issued certificate\n"
+                        "description": "ID of the issued certificate"
                     },
                     "chain": {
                         "type": "string",
@@ -588,7 +588,7 @@
                     },
                     "country": {
                         "type": "string",
-                        "description": "Country of the certificate (C)\n",
+                        "description": "Country of the certificate (C)",
                         "willReplaceOnChanges": true
                     },
                     "csrOrigin": {
@@ -609,7 +609,7 @@
                     },
                     "ecdsaCurve": {
                         "type": "string",
-                        "description": "ECDSA curve to use when generating a key\n",
+                        "description": "ECDSA curve to use when generating a key",
                         "willReplaceOnChanges": true
                     },
                     "expirationWindow": {
@@ -629,7 +629,7 @@
                     },
                     "locality": {
                         "type": "string",
-                        "description": "Locality/City of the certificate (L)\n",
+                        "description": "Locality/City of the certificate (L)",
                         "willReplaceOnChanges": true
                     },
                     "nickname": {
@@ -639,7 +639,7 @@
                     },
                     "organization": {
                         "type": "string",
-                        "description": "Organization of the certificate (O)\n",
+                        "description": "Organization of the certificate (O)",
                         "willReplaceOnChanges": true
                     },
                     "organizationalUnits": {
@@ -647,7 +647,7 @@
                         "items": {
                             "type": "string"
                         },
-                        "description": "List of Organizational Units of the certificate (OU)\n",
+                        "description": "List of Organizational Units of the certificate (OU)",
                         "willReplaceOnChanges": true
                     },
                     "pkcs12": {
@@ -661,7 +661,7 @@
                     },
                     "renewRequired": {
                         "type": "boolean",
-                        "description": "Indicates the certificate should be reissued. This means the resource will destroyed and recreated\n",
+                        "description": "Indicates the certificate should be reissued. This means the resource will destroyed and recreated",
                         "willReplaceOnChanges": true
                     },
                     "rsaBits": {
@@ -703,7 +703,7 @@
                     },
                     "state": {
                         "type": "string",
-                        "description": "State of the certificate (S)\n",
+                        "description": "State of the certificate (S)",
                         "willReplaceOnChanges": true
                     },
                     "validDays": {
@@ -1352,7 +1352,7 @@
                         "type": "string"
                     },
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "machineIdentitiesCount": {
@@ -1397,7 +1397,7 @@
                 "description": "A collection of values returned by getCloudProvider.\n",
                 "properties": {
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "keystoresCount": {
