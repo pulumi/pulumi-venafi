@@ -43,15 +43,13 @@ namespace Pulumi.Venafi
         public Output<string?> ExternalJwt { get; private set; } = null!;
 
         /// <summary>
-        /// Base64 encoded PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to
-        /// TLSPDC
+        /// Base64 encoded PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to TLSPDC
         /// </summary>
         [Output("p12CertData")]
         public Output<string?> P12CertData { get; private set; } = null!;
 
         /// <summary>
-        /// Filename of PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to
-        /// TLSPDC
+        /// Filename of PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to TLSPDC
         /// </summary>
         [Output("p12CertFilename")]
         public Output<string?> P12CertFilename { get; private set; } = null!;
@@ -81,8 +79,9 @@ namespace Pulumi.Venafi
         public Output<string?> TppUsername { get; private set; } = null!;
 
         /// <summary>
-        /// Use to specify a PEM-formatted file that contains certificates to be trust anchors for all communications with the
-        /// Venafi Web Service. Example: trust_bundle = "${file("chain.pem")}"
+        /// Use to specify a PEM-formatted file that contains certificates to be trust anchors for all communications with the Venafi Web Service.
+        /// Example:
+        ///   trust_bundle = "${file("chain.pem")}"
         /// </summary>
         [Output("trustBundle")]
         public Output<string?> TrustBundle { get; private set; } = null!;
@@ -94,8 +93,9 @@ namespace Pulumi.Venafi
         public Output<string?> Url { get; private set; } = null!;
 
         /// <summary>
-        /// DN of the Venafi TLSPDC policy folder or name of the Venafi as a Service application plus issuing template alias.
-        /// Example for Platform: testPolicy\\vault Example for Venafi as a Service: myApp\\Default
+        /// DN of the Venafi TLSPDC policy folder or name of the Venafi as a Service application plus issuing template alias. 
+        /// Example for Platform: testPolicy\\vault
+        /// Example for Venafi as a Service: myApp\\Default
         /// </summary>
         [Output("zone")]
         public Output<string?> Zone { get; private set; } = null!;
@@ -182,8 +182,7 @@ namespace Pulumi.Venafi
         public Input<string>? ClientId { get; set; }
 
         /// <summary>
-        /// When set to true, the resulting certificate will be issued by an ephemeral, no trust CA rather than enrolling using
-        /// Venafi as a Service or Trust Protection Platform. Useful for development and testing
+        /// When set to true, the resulting certificate will be issued by an ephemeral, no trust CA rather than enrolling using Venafi as a Service or Trust Protection Platform. Useful for development and testing
         /// </summary>
         [Input("devMode", json: true)]
         public Input<bool>? DevMode { get; set; }
@@ -205,15 +204,13 @@ namespace Pulumi.Venafi
         }
 
         /// <summary>
-        /// Base64 encoded PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to
-        /// TLSPDC
+        /// Base64 encoded PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to TLSPDC
         /// </summary>
         [Input("p12CertData")]
         public Input<string>? P12CertData { get; set; }
 
         /// <summary>
-        /// Filename of PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to
-        /// TLSPDC
+        /// Filename of PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to TLSPDC
         /// </summary>
         [Input("p12CertFilename")]
         public Input<string>? P12CertFilename { get; set; }
@@ -277,8 +274,9 @@ namespace Pulumi.Venafi
         public Input<string>? TppUsername { get; set; }
 
         /// <summary>
-        /// Use to specify a PEM-formatted file that contains certificates to be trust anchors for all communications with the
-        /// Venafi Web Service. Example: trust_bundle = "${file("chain.pem")}"
+        /// Use to specify a PEM-formatted file that contains certificates to be trust anchors for all communications with the Venafi Web Service.
+        /// Example:
+        ///   trust_bundle = "${file("chain.pem")}"
         /// </summary>
         [Input("trustBundle")]
         public Input<string>? TrustBundle { get; set; }
@@ -290,8 +288,9 @@ namespace Pulumi.Venafi
         public Input<string>? Url { get; set; }
 
         /// <summary>
-        /// DN of the Venafi TLSPDC policy folder or name of the Venafi as a Service application plus issuing template alias.
-        /// Example for Platform: testPolicy\\vault Example for Venafi as a Service: myApp\\Default
+        /// DN of the Venafi TLSPDC policy folder or name of the Venafi as a Service application plus issuing template alias. 
+        /// Example for Platform: testPolicy\\vault
+        /// Example for Venafi as a Service: myApp\\Default
         /// </summary>
         [Input("zone")]
         public Input<string>? Zone { get; set; }

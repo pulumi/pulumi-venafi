@@ -44,8 +44,7 @@ class _ExportableConfig(types.ModuleType):
     @_builtins.property
     def dev_mode(self) -> Optional[bool]:
         """
-        When set to true, the resulting certificate will be issued by an ephemeral, no trust CA rather than enrolling using
-        Venafi as a Service or Trust Protection Platform. Useful for development and testing
+        When set to true, the resulting certificate will be issued by an ephemeral, no trust CA rather than enrolling using Venafi as a Service or Trust Protection Platform. Useful for development and testing
         """
         return __config__.get_bool('devMode')
 
@@ -59,16 +58,14 @@ class _ExportableConfig(types.ModuleType):
     @_builtins.property
     def p12_cert_data(self) -> Optional[str]:
         """
-        Base64 encoded PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to
-        TLSPDC
+        Base64 encoded PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to TLSPDC
         """
         return __config__.get('p12CertData')
 
     @_builtins.property
     def p12_cert_filename(self) -> Optional[str]:
         """
-        Filename of PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to
-        TLSPDC
+        Filename of PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to TLSPDC
         """
         return __config__.get('p12CertFilename')
 
@@ -107,8 +104,9 @@ class _ExportableConfig(types.ModuleType):
     @_builtins.property
     def trust_bundle(self) -> Optional[str]:
         """
-        Use to specify a PEM-formatted file that contains certificates to be trust anchors for all communications with the
-        Venafi Web Service. Example: trust_bundle = "${file("chain.pem")}"
+        Use to specify a PEM-formatted file that contains certificates to be trust anchors for all communications with the Venafi Web Service.
+        Example:
+          trust_bundle = "${file("chain.pem")}"
         """
         return __config__.get('trustBundle')
 
@@ -122,8 +120,9 @@ class _ExportableConfig(types.ModuleType):
     @_builtins.property
     def zone(self) -> Optional[str]:
         """
-        DN of the Venafi TLSPDC policy folder or name of the Venafi as a Service application plus issuing template alias.
-        Example for Platform: testPolicy\\\\vault Example for Venafi as a Service: myApp\\\\Default
+        DN of the Venafi TLSPDC policy folder or name of the Venafi as a Service application plus issuing template alias. 
+        Example for Platform: testPolicy\\\\vault
+        Example for Venafi as a Service: myApp\\\\Default
         """
         return __config__.get('zone')
 

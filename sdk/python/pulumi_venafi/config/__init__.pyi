@@ -31,8 +31,7 @@ application that will be using the token
 
 devMode: Optional[bool]
 """
-When set to true, the resulting certificate will be issued by an ephemeral, no trust CA rather than enrolling using
-Venafi as a Service or Trust Protection Platform. Useful for development and testing
+When set to true, the resulting certificate will be issued by an ephemeral, no trust CA rather than enrolling using Venafi as a Service or Trust Protection Platform. Useful for development and testing
 """
 
 externalJwt: Optional[str]
@@ -42,14 +41,12 @@ JWT of the identity provider associated to the Venafi Control Plane service acco
 
 p12CertData: Optional[str]
 """
-Base64 encoded PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to
-TLSPDC
+Base64 encoded PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to TLSPDC
 """
 
 p12CertFilename: Optional[str]
 """
-Filename of PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to
-TLSPDC
+Filename of PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to TLSPDC
 """
 
 p12CertPassword: Optional[str]
@@ -76,8 +73,9 @@ WebSDK user for Venafi TLSPDC. Example: admin
 
 trustBundle: Optional[str]
 """
-Use to specify a PEM-formatted file that contains certificates to be trust anchors for all communications with the
-Venafi Web Service. Example: trust_bundle = "${file("chain.pem")}"
+Use to specify a PEM-formatted file that contains certificates to be trust anchors for all communications with the Venafi Web Service.
+Example:
+  trust_bundle = "${file("chain.pem")}"
 """
 
 url: Optional[str]
@@ -87,7 +85,8 @@ The Venafi Platform URL. Example: https://tpp.venafi.example/vedsdk
 
 zone: Optional[str]
 """
-DN of the Venafi TLSPDC policy folder or name of the Venafi as a Service application plus issuing template alias.
-Example for Platform: testPolicy\\\\vault Example for Venafi as a Service: myApp\\\\Default
+DN of the Venafi TLSPDC policy folder or name of the Venafi as a Service application plus issuing template alias. 
+Example for Platform: testPolicy\\\\vault
+Example for Venafi as a Service: myApp\\\\Default
 """
 

@@ -74,12 +74,12 @@ export class Policy extends pulumi.CustomResource {
      * [here](https://github.com/Venafi/vcert/blob/master/README-POLICY-SPEC.md). Typically read from a file using the `file`
      * function.
      */
-    public readonly policySpecification!: pulumi.Output<string | undefined>;
+    declare public readonly policySpecification: pulumi.Output<string | undefined>;
     /**
      * The *Trust Protection Plaform* policy folder or *Venafi Control Plane* application and 
      * issuing template.
      */
-    public readonly zone!: pulumi.Output<string | undefined>;
+    declare public readonly zone: pulumi.Output<string | undefined>;
 
     /**
      * Create a Policy resource with the given unique name, arguments, and options.
@@ -94,12 +94,12 @@ export class Policy extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as PolicyState | undefined;
-            resourceInputs["policySpecification"] = state ? state.policySpecification : undefined;
-            resourceInputs["zone"] = state ? state.zone : undefined;
+            resourceInputs["policySpecification"] = state?.policySpecification;
+            resourceInputs["zone"] = state?.zone;
         } else {
             const args = argsOrState as PolicyArgs | undefined;
-            resourceInputs["policySpecification"] = args ? args.policySpecification : undefined;
-            resourceInputs["zone"] = args ? args.zone : undefined;
+            resourceInputs["policySpecification"] = args?.policySpecification;
+            resourceInputs["zone"] = args?.zone;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Policy.__pulumiType, name, resourceInputs, opts);

@@ -70,31 +70,31 @@ export class CloudKeystoreInstallation extends pulumi.CustomResource {
     /**
      * ARN of the AWS certificate. Use it to provision the VCP certificate to an existing ACM certificate, instead of a new one. Only valid for ACM keystores.
      */
-    public readonly arn!: pulumi.Output<string | undefined>;
+    declare public readonly arn: pulumi.Output<string | undefined>;
     /**
      * ID of the certificate to be provisioned to the given `keystoreId`.
      */
-    public readonly certificateId!: pulumi.Output<string>;
+    declare public readonly certificateId: pulumi.Output<string>;
     /**
      * The ID of the provisioned certificate within the Cloud Keystore
      */
-    public /*out*/ readonly cloudCertificateId!: pulumi.Output<string>;
+    declare public /*out*/ readonly cloudCertificateId: pulumi.Output<string>;
     /**
      * Metadata of the provisioned certificate from the Cloud Keystore
      */
-    public /*out*/ readonly cloudCertificateMetadata!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly cloudCertificateMetadata: pulumi.Output<{[key: string]: string}>;
     /**
      * Name for the provisioned certificate in the keystore. If the name already exists, the provisioning will replace the previous certificate with the one from `certificateId`. Only valid for AKV and GCM keystores.
      */
-    public readonly cloudCertificateName!: pulumi.Output<string | undefined>;
+    declare public readonly cloudCertificateName: pulumi.Output<string | undefined>;
     /**
      * ID of the cloud keystore where the certificate will be provisioned.
      */
-    public readonly cloudKeystoreId!: pulumi.Output<string>;
+    declare public readonly cloudKeystoreId: pulumi.Output<string>;
     /**
      * The GCM certificate scope of the certificate. Only valid for GCM keystores. Supported values from GCM API documentation: DEFAULT, EDGE_CACHE, ALL_REGIONS.
      */
-    public readonly gcmCertScope!: pulumi.Output<string | undefined>;
+    declare public readonly gcmCertScope: pulumi.Output<string | undefined>;
 
     /**
      * Create a CloudKeystoreInstallation resource with the given unique name, arguments, and options.
@@ -109,26 +109,26 @@ export class CloudKeystoreInstallation extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as CloudKeystoreInstallationState | undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["certificateId"] = state ? state.certificateId : undefined;
-            resourceInputs["cloudCertificateId"] = state ? state.cloudCertificateId : undefined;
-            resourceInputs["cloudCertificateMetadata"] = state ? state.cloudCertificateMetadata : undefined;
-            resourceInputs["cloudCertificateName"] = state ? state.cloudCertificateName : undefined;
-            resourceInputs["cloudKeystoreId"] = state ? state.cloudKeystoreId : undefined;
-            resourceInputs["gcmCertScope"] = state ? state.gcmCertScope : undefined;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["certificateId"] = state?.certificateId;
+            resourceInputs["cloudCertificateId"] = state?.cloudCertificateId;
+            resourceInputs["cloudCertificateMetadata"] = state?.cloudCertificateMetadata;
+            resourceInputs["cloudCertificateName"] = state?.cloudCertificateName;
+            resourceInputs["cloudKeystoreId"] = state?.cloudKeystoreId;
+            resourceInputs["gcmCertScope"] = state?.gcmCertScope;
         } else {
             const args = argsOrState as CloudKeystoreInstallationArgs | undefined;
-            if ((!args || args.certificateId === undefined) && !opts.urn) {
+            if (args?.certificateId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'certificateId'");
             }
-            if ((!args || args.cloudKeystoreId === undefined) && !opts.urn) {
+            if (args?.cloudKeystoreId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'cloudKeystoreId'");
             }
-            resourceInputs["arn"] = args ? args.arn : undefined;
-            resourceInputs["certificateId"] = args ? args.certificateId : undefined;
-            resourceInputs["cloudCertificateName"] = args ? args.cloudCertificateName : undefined;
-            resourceInputs["cloudKeystoreId"] = args ? args.cloudKeystoreId : undefined;
-            resourceInputs["gcmCertScope"] = args ? args.gcmCertScope : undefined;
+            resourceInputs["arn"] = args?.arn;
+            resourceInputs["certificateId"] = args?.certificateId;
+            resourceInputs["cloudCertificateName"] = args?.cloudCertificateName;
+            resourceInputs["cloudKeystoreId"] = args?.cloudKeystoreId;
+            resourceInputs["gcmCertScope"] = args?.gcmCertScope;
             resourceInputs["cloudCertificateId"] = undefined /*out*/;
             resourceInputs["cloudCertificateMetadata"] = undefined /*out*/;
         }

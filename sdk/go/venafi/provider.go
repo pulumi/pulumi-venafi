@@ -26,11 +26,9 @@ type Provider struct {
 	ClientId pulumi.StringPtrOutput `pulumi:"clientId"`
 	// JWT of the identity provider associated to the Venafi Control Plane service account that is granting the access token
 	ExternalJwt pulumi.StringPtrOutput `pulumi:"externalJwt"`
-	// Base64 encoded PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to
-	// TLSPDC
+	// Base64 encoded PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to TLSPDC
 	P12CertData pulumi.StringPtrOutput `pulumi:"p12CertData"`
-	// Filename of PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to
-	// TLSPDC
+	// Filename of PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to TLSPDC
 	P12CertFilename pulumi.StringPtrOutput `pulumi:"p12CertFilename"`
 	// Password for the PKCS#12 keystore declared in p12Cert / p12_cert_data
 	P12CertPassword pulumi.StringPtrOutput `pulumi:"p12CertPassword"`
@@ -44,13 +42,15 @@ type Provider struct {
 	//
 	// Deprecated: , please use accessToken instead
 	TppUsername pulumi.StringPtrOutput `pulumi:"tppUsername"`
-	// Use to specify a PEM-formatted file that contains certificates to be trust anchors for all communications with the
-	// Venafi Web Service. Example: trustBundle = "${file("chain.pem")}"
+	// Use to specify a PEM-formatted file that contains certificates to be trust anchors for all communications with the Venafi Web Service.
+	// Example:
+	//   trustBundle = "${file("chain.pem")}"
 	TrustBundle pulumi.StringPtrOutput `pulumi:"trustBundle"`
 	// The Venafi Platform URL. Example: https://tpp.venafi.example/vedsdk
 	Url pulumi.StringPtrOutput `pulumi:"url"`
 	// DN of the Venafi TLSPDC policy folder or name of the Venafi as a Service application plus issuing template alias.
-	// Example for Platform: testPolicy\\vault Example for Venafi as a Service: myApp\\Default
+	// Example for Platform: testPolicy\\vault
+	// Example for Venafi as a Service: myApp\\Default
 	Zone pulumi.StringPtrOutput `pulumi:"zone"`
 }
 
@@ -104,16 +104,13 @@ type providerArgs struct {
 	ApiKey *string `pulumi:"apiKey"`
 	// application that will be using the token
 	ClientId *string `pulumi:"clientId"`
-	// When set to true, the resulting certificate will be issued by an ephemeral, no trust CA rather than enrolling using
-	// Venafi as a Service or Trust Protection Platform. Useful for development and testing
+	// When set to true, the resulting certificate will be issued by an ephemeral, no trust CA rather than enrolling using Venafi as a Service or Trust Protection Platform. Useful for development and testing
 	DevMode *bool `pulumi:"devMode"`
 	// JWT of the identity provider associated to the Venafi Control Plane service account that is granting the access token
 	ExternalJwt *string `pulumi:"externalJwt"`
-	// Base64 encoded PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to
-	// TLSPDC
+	// Base64 encoded PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to TLSPDC
 	P12CertData *string `pulumi:"p12CertData"`
-	// Filename of PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to
-	// TLSPDC
+	// Filename of PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to TLSPDC
 	P12CertFilename *string `pulumi:"p12CertFilename"`
 	// Password for the PKCS#12 keystore declared in p12Cert / p12_cert_data
 	P12CertPassword *string `pulumi:"p12CertPassword"`
@@ -128,13 +125,15 @@ type providerArgs struct {
 	//
 	// Deprecated: , please use accessToken instead
 	TppUsername *string `pulumi:"tppUsername"`
-	// Use to specify a PEM-formatted file that contains certificates to be trust anchors for all communications with the
-	// Venafi Web Service. Example: trustBundle = "${file("chain.pem")}"
+	// Use to specify a PEM-formatted file that contains certificates to be trust anchors for all communications with the Venafi Web Service.
+	// Example:
+	//   trustBundle = "${file("chain.pem")}"
 	TrustBundle *string `pulumi:"trustBundle"`
 	// The Venafi Platform URL. Example: https://tpp.venafi.example/vedsdk
 	Url *string `pulumi:"url"`
 	// DN of the Venafi TLSPDC policy folder or name of the Venafi as a Service application plus issuing template alias.
-	// Example for Platform: testPolicy\\vault Example for Venafi as a Service: myApp\\Default
+	// Example for Platform: testPolicy\\vault
+	// Example for Venafi as a Service: myApp\\Default
 	Zone *string `pulumi:"zone"`
 }
 
@@ -146,16 +145,13 @@ type ProviderArgs struct {
 	ApiKey pulumi.StringPtrInput
 	// application that will be using the token
 	ClientId pulumi.StringPtrInput
-	// When set to true, the resulting certificate will be issued by an ephemeral, no trust CA rather than enrolling using
-	// Venafi as a Service or Trust Protection Platform. Useful for development and testing
+	// When set to true, the resulting certificate will be issued by an ephemeral, no trust CA rather than enrolling using Venafi as a Service or Trust Protection Platform. Useful for development and testing
 	DevMode pulumi.BoolPtrInput
 	// JWT of the identity provider associated to the Venafi Control Plane service account that is granting the access token
 	ExternalJwt pulumi.StringPtrInput
-	// Base64 encoded PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to
-	// TLSPDC
+	// Base64 encoded PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to TLSPDC
 	P12CertData pulumi.StringPtrInput
-	// Filename of PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to
-	// TLSPDC
+	// Filename of PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to TLSPDC
 	P12CertFilename pulumi.StringPtrInput
 	// Password for the PKCS#12 keystore declared in p12Cert / p12_cert_data
 	P12CertPassword pulumi.StringPtrInput
@@ -170,13 +166,15 @@ type ProviderArgs struct {
 	//
 	// Deprecated: , please use accessToken instead
 	TppUsername pulumi.StringPtrInput
-	// Use to specify a PEM-formatted file that contains certificates to be trust anchors for all communications with the
-	// Venafi Web Service. Example: trustBundle = "${file("chain.pem")}"
+	// Use to specify a PEM-formatted file that contains certificates to be trust anchors for all communications with the Venafi Web Service.
+	// Example:
+	//   trustBundle = "${file("chain.pem")}"
 	TrustBundle pulumi.StringPtrInput
 	// The Venafi Platform URL. Example: https://tpp.venafi.example/vedsdk
 	Url pulumi.StringPtrInput
 	// DN of the Venafi TLSPDC policy folder or name of the Venafi as a Service application plus issuing template alias.
-	// Example for Platform: testPolicy\\vault Example for Venafi as a Service: myApp\\Default
+	// Example for Platform: testPolicy\\vault
+	// Example for Venafi as a Service: myApp\\Default
 	Zone pulumi.StringPtrInput
 }
 
@@ -260,14 +258,12 @@ func (o ProviderOutput) ExternalJwt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.ExternalJwt }).(pulumi.StringPtrOutput)
 }
 
-// Base64 encoded PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to
-// TLSPDC
+// Base64 encoded PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to TLSPDC
 func (o ProviderOutput) P12CertData() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.P12CertData }).(pulumi.StringPtrOutput)
 }
 
-// Filename of PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to
-// TLSPDC
+// Filename of PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to TLSPDC
 func (o ProviderOutput) P12CertFilename() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.P12CertFilename }).(pulumi.StringPtrOutput)
 }
@@ -296,8 +292,10 @@ func (o ProviderOutput) TppUsername() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.TppUsername }).(pulumi.StringPtrOutput)
 }
 
-// Use to specify a PEM-formatted file that contains certificates to be trust anchors for all communications with the
-// Venafi Web Service. Example: trustBundle = "${file("chain.pem")}"
+// Use to specify a PEM-formatted file that contains certificates to be trust anchors for all communications with the Venafi Web Service.
+// Example:
+//
+//	trustBundle = "${file("chain.pem")}"
 func (o ProviderOutput) TrustBundle() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.TrustBundle }).(pulumi.StringPtrOutput)
 }
@@ -308,7 +306,8 @@ func (o ProviderOutput) Url() pulumi.StringPtrOutput {
 }
 
 // DN of the Venafi TLSPDC policy folder or name of the Venafi as a Service application plus issuing template alias.
-// Example for Platform: testPolicy\\vault Example for Venafi as a Service: myApp\\Default
+// Example for Platform: testPolicy\\vault
+// Example for Venafi as a Service: myApp\\Default
 func (o ProviderOutput) Zone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.Zone }).(pulumi.StringPtrOutput)
 }

@@ -64,8 +64,7 @@ namespace Pulumi.Venafi
 
         private static readonly __Value<bool?> _devMode = new __Value<bool?>(() => __config.GetBoolean("devMode"));
         /// <summary>
-        /// When set to true, the resulting certificate will be issued by an ephemeral, no trust CA rather than enrolling using
-        /// Venafi as a Service or Trust Protection Platform. Useful for development and testing
+        /// When set to true, the resulting certificate will be issued by an ephemeral, no trust CA rather than enrolling using Venafi as a Service or Trust Protection Platform. Useful for development and testing
         /// </summary>
         public static bool? DevMode
         {
@@ -85,8 +84,7 @@ namespace Pulumi.Venafi
 
         private static readonly __Value<string?> _p12CertData = new __Value<string?>(() => __config.Get("p12CertData"));
         /// <summary>
-        /// Base64 encoded PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to
-        /// TLSPDC
+        /// Base64 encoded PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to TLSPDC
         /// </summary>
         public static string? P12CertData
         {
@@ -96,8 +94,7 @@ namespace Pulumi.Venafi
 
         private static readonly __Value<string?> _p12CertFilename = new __Value<string?>(() => __config.Get("p12CertFilename"));
         /// <summary>
-        /// Filename of PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to
-        /// TLSPDC
+        /// Filename of PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to TLSPDC
         /// </summary>
         public static string? P12CertFilename
         {
@@ -154,8 +151,9 @@ namespace Pulumi.Venafi
 
         private static readonly __Value<string?> _trustBundle = new __Value<string?>(() => __config.Get("trustBundle"));
         /// <summary>
-        /// Use to specify a PEM-formatted file that contains certificates to be trust anchors for all communications with the
-        /// Venafi Web Service. Example: trust_bundle = "${file("chain.pem")}"
+        /// Use to specify a PEM-formatted file that contains certificates to be trust anchors for all communications with the Venafi Web Service.
+        /// Example:
+        ///   trust_bundle = "${file("chain.pem")}"
         /// </summary>
         public static string? TrustBundle
         {
@@ -175,8 +173,9 @@ namespace Pulumi.Venafi
 
         private static readonly __Value<string?> _zone = new __Value<string?>(() => __config.Get("zone"));
         /// <summary>
-        /// DN of the Venafi TLSPDC policy folder or name of the Venafi as a Service application plus issuing template alias.
-        /// Example for Platform: testPolicy\\vault Example for Venafi as a Service: myApp\\Default
+        /// DN of the Venafi TLSPDC policy folder or name of the Venafi as a Service application plus issuing template alias. 
+        /// Example for Platform: testPolicy\\vault
+        /// Example for Venafi as a Service: myApp\\Default
         /// </summary>
         public static string? Zone
         {
