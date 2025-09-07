@@ -18,6 +18,9 @@
                     },
                     "san_uri": {
                         "maxItemsOne": false
+                    },
+                    "tags": {
+                        "maxItemsOne": false
                     }
                 }
             },
