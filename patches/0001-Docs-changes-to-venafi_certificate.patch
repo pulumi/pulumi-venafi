@@ -5,7 +5,7 @@ Subject: [PATCH] Docs changes to venafi_certificate
 
 
 diff --git a/website/docs/r/venafi_certificate.html.markdown b/website/docs/r/venafi_certificate.html.markdown
-index 20b50fb..11deb9d 100644
+index bffcca2..ea75cf8 100644
 --- a/website/docs/r/venafi_certificate.html.markdown
 +++ b/website/docs/r/venafi_certificate.html.markdown
 @@ -14,6 +14,11 @@ For backward compatibility during Terraform state refresh please update to versi
@@ -20,7 +20,7 @@ index 20b50fb..11deb9d 100644
  ## Example Usage
  
  ```hcl
-@@ -93,58 +98,7 @@ The following attributes are exported:
+@@ -95,58 +100,7 @@ The following attributes are exported:
  
  ## Certificate Renewal
  
