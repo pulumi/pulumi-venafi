@@ -142,6 +142,10 @@ export class Certificate extends pulumi.CustomResource {
      */
     declare public readonly state: pulumi.Output<string | undefined>;
     /**
+     * List of Certificate Tags defined in Venafi Control Plane.
+     */
+    declare public readonly tags: pulumi.Output<string[] | undefined>;
+    /**
      * Desired number of days for which the new certificate will be valid.
      */
     declare public readonly validDays: pulumi.Output<number | undefined>;
@@ -186,6 +190,7 @@ export class Certificate extends pulumi.CustomResource {
             resourceInputs["sanIps"] = state?.sanIps;
             resourceInputs["sanUris"] = state?.sanUris;
             resourceInputs["state"] = state?.state;
+            resourceInputs["tags"] = state?.tags;
             resourceInputs["validDays"] = state?.validDays;
         } else {
             const args = argsOrState as CertificateArgs | undefined;
@@ -216,6 +221,7 @@ export class Certificate extends pulumi.CustomResource {
             resourceInputs["sanIps"] = args?.sanIps;
             resourceInputs["sanUris"] = args?.sanUris;
             resourceInputs["state"] = args?.state;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["validDays"] = args?.validDays;
             resourceInputs["certificate"] = undefined /*out*/;
             resourceInputs["certificateId"] = undefined /*out*/;
@@ -342,6 +348,10 @@ export interface CertificateState {
      */
     state?: pulumi.Input<string>;
     /**
+     * List of Certificate Tags defined in Venafi Control Plane.
+     */
+    tags?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
      * Desired number of days for which the new certificate will be valid.
      */
     validDays?: pulumi.Input<number>;
@@ -448,6 +458,10 @@ export interface CertificateArgs {
      * State of the certificate (S)
      */
     state?: pulumi.Input<string>;
+    /**
+     * List of Certificate Tags defined in Venafi Control Plane.
+     */
+    tags?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Desired number of days for which the new certificate will be valid.
      */

@@ -397,6 +397,20 @@ public class Certificate extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.state);
     }
     /**
+     * List of Certificate Tags defined in Venafi Control Plane.
+     * 
+     */
+    @Export(name="tags", refs={List.class,String.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<String>> tags;
+
+    /**
+     * @return List of Certificate Tags defined in Venafi Control Plane.
+     * 
+     */
+    public Output<Optional<List<String>>> tags() {
+        return Codegen.optional(this.tags);
+    }
+    /**
      * Desired number of days for which the new certificate will be valid.
      * 
      */

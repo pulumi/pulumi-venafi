@@ -1277,7 +1277,7 @@ The following configuration inputs are supported:
 * `p12CertFilename` - (Optional, string) Filename of PKCS#12 keystore containing a client certificate, private key,
 * `p12CertData` - (Optional, string) Base64 encoded PKCS#12 keystore containing a client certificate, private key,
   and chain certificates to authenticate to Venafi Trust Protection Platform.
-* `p12CertPassword` - (Optional, string) Password for the PKCS#12 keystore declared in `p12CertFilename`. Applies
+* `p12CertPassword` - (Optional, string) Password for the PKCS#12 keystore declared in `p12CertFilename` or in `p12CertData`. Applies
   only to Venafi Trust Protection Platform.
 * `skipRetirement` - (Optional, boolean) If it's specified with value `true` then the certificate retirement on the
   related Venafi Platform (TLSPDC or TLSPC) will be skipped. A value of `false` is equivalent to omit this argument.

@@ -74,6 +74,8 @@ type Certificate struct {
 	SanUris pulumi.StringArrayOutput `pulumi:"sanUris"`
 	// State of the certificate (S)
 	State pulumi.StringPtrOutput `pulumi:"state"`
+	// List of Certificate Tags defined in Venafi Control Plane.
+	Tags pulumi.StringArrayOutput `pulumi:"tags"`
 	// Desired number of days for which the new certificate will be valid.
 	ValidDays pulumi.IntPtrOutput `pulumi:"validDays"`
 }
@@ -181,6 +183,8 @@ type certificateState struct {
 	SanUris []string `pulumi:"sanUris"`
 	// State of the certificate (S)
 	State *string `pulumi:"state"`
+	// List of Certificate Tags defined in Venafi Control Plane.
+	Tags []string `pulumi:"tags"`
 	// Desired number of days for which the new certificate will be valid.
 	ValidDays *int `pulumi:"validDays"`
 }
@@ -245,6 +249,8 @@ type CertificateState struct {
 	SanUris pulumi.StringArrayInput
 	// State of the certificate (S)
 	State pulumi.StringPtrInput
+	// List of Certificate Tags defined in Venafi Control Plane.
+	Tags pulumi.StringArrayInput
 	// Desired number of days for which the new certificate will be valid.
 	ValidDays pulumi.IntPtrInput
 }
@@ -307,6 +313,8 @@ type certificateArgs struct {
 	SanUris []string `pulumi:"sanUris"`
 	// State of the certificate (S)
 	State *string `pulumi:"state"`
+	// List of Certificate Tags defined in Venafi Control Plane.
+	Tags []string `pulumi:"tags"`
 	// Desired number of days for which the new certificate will be valid.
 	ValidDays *int `pulumi:"validDays"`
 }
@@ -366,6 +374,8 @@ type CertificateArgs struct {
 	SanUris pulumi.StringArrayInput
 	// State of the certificate (S)
 	State pulumi.StringPtrInput
+	// List of Certificate Tags defined in Venafi Control Plane.
+	Tags pulumi.StringArrayInput
 	// Desired number of days for which the new certificate will be valid.
 	ValidDays pulumi.IntPtrInput
 }
@@ -595,6 +605,11 @@ func (o CertificateOutput) SanUris() pulumi.StringArrayOutput {
 // State of the certificate (S)
 func (o CertificateOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Certificate) pulumi.StringPtrOutput { return v.State }).(pulumi.StringPtrOutput)
+}
+
+// List of Certificate Tags defined in Venafi Control Plane.
+func (o CertificateOutput) Tags() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Certificate) pulumi.StringArrayOutput { return v.Tags }).(pulumi.StringArrayOutput)
 }
 
 // Desired number of days for which the new certificate will be valid.

@@ -43,6 +43,7 @@ class CertificateArgs:
                  san_ips: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  san_uris: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  state: Optional[pulumi.Input[_builtins.str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  valid_days: Optional[pulumi.Input[_builtins.int]] = None):
         """
         The set of arguments for constructing a Certificate resource.
@@ -75,6 +76,7 @@ class CertificateArgs:
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] san_uris: List of Uniform Resource Identifiers (URIs) to use as alternative subjects of 
                the certificate.
         :param pulumi.Input[_builtins.str] state: State of the certificate (S)
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] tags: List of Certificate Tags defined in Venafi Control Plane.
         :param pulumi.Input[_builtins.int] valid_days: Desired number of days for which the new certificate will be valid.
         """
         pulumi.set(__self__, "common_name", common_name)
@@ -124,6 +126,8 @@ class CertificateArgs:
             pulumi.set(__self__, "san_uris", san_uris)
         if state is not None:
             pulumi.set(__self__, "state", state)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
         if valid_days is not None:
             pulumi.set(__self__, "valid_days", valid_days)
 
@@ -417,6 +421,18 @@ class CertificateArgs:
         pulumi.set(self, "state", value)
 
     @_builtins.property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        List of Certificate Tags defined in Venafi Control Plane.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @_builtins.property
     @pulumi.getter(name="validDays")
     def valid_days(self) -> Optional[pulumi.Input[_builtins.int]]:
         """
@@ -459,6 +475,7 @@ class _CertificateState:
                  san_ips: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  san_uris: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  state: Optional[pulumi.Input[_builtins.str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  valid_days: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering Certificate resources.
@@ -494,6 +511,7 @@ class _CertificateState:
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] san_uris: List of Uniform Resource Identifiers (URIs) to use as alternative subjects of 
                the certificate.
         :param pulumi.Input[_builtins.str] state: State of the certificate (S)
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] tags: List of Certificate Tags defined in Venafi Control Plane.
         :param pulumi.Input[_builtins.int] valid_days: Desired number of days for which the new certificate will be valid.
         """
         if algorithm is not None:
@@ -550,6 +568,8 @@ class _CertificateState:
             pulumi.set(__self__, "san_uris", san_uris)
         if state is not None:
             pulumi.set(__self__, "state", state)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
         if valid_days is not None:
             pulumi.set(__self__, "valid_days", valid_days)
 
@@ -879,6 +899,18 @@ class _CertificateState:
         pulumi.set(self, "state", value)
 
     @_builtins.property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        List of Certificate Tags defined in Venafi Control Plane.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @_builtins.property
     @pulumi.getter(name="validDays")
     def valid_days(self) -> Optional[pulumi.Input[_builtins.int]]:
         """
@@ -921,6 +953,7 @@ class Certificate(pulumi.CustomResource):
                  san_ips: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  san_uris: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  state: Optional[pulumi.Input[_builtins.str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  valid_days: Optional[pulumi.Input[_builtins.int]] = None,
                  __props__=None):
         """
@@ -956,6 +989,7 @@ class Certificate(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] san_uris: List of Uniform Resource Identifiers (URIs) to use as alternative subjects of 
                the certificate.
         :param pulumi.Input[_builtins.str] state: State of the certificate (S)
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] tags: List of Certificate Tags defined in Venafi Control Plane.
         :param pulumi.Input[_builtins.int] valid_days: Desired number of days for which the new certificate will be valid.
         """
         ...
@@ -1005,6 +1039,7 @@ class Certificate(pulumi.CustomResource):
                  san_ips: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  san_uris: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  state: Optional[pulumi.Input[_builtins.str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  valid_days: Optional[pulumi.Input[_builtins.int]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -1041,6 +1076,7 @@ class Certificate(pulumi.CustomResource):
             __props__.__dict__["san_ips"] = san_ips
             __props__.__dict__["san_uris"] = san_uris
             __props__.__dict__["state"] = state
+            __props__.__dict__["tags"] = tags
             __props__.__dict__["valid_days"] = valid_days
             __props__.__dict__["certificate"] = None
             __props__.__dict__["certificate_id"] = None
@@ -1084,6 +1120,7 @@ class Certificate(pulumi.CustomResource):
             san_ips: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
             san_uris: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
             state: Optional[pulumi.Input[_builtins.str]] = None,
+            tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
             valid_days: Optional[pulumi.Input[_builtins.int]] = None) -> 'Certificate':
         """
         Get an existing Certificate resource's state with the given name, id, and optional extra
@@ -1124,6 +1161,7 @@ class Certificate(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] san_uris: List of Uniform Resource Identifiers (URIs) to use as alternative subjects of 
                the certificate.
         :param pulumi.Input[_builtins.str] state: State of the certificate (S)
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] tags: List of Certificate Tags defined in Venafi Control Plane.
         :param pulumi.Input[_builtins.int] valid_days: Desired number of days for which the new certificate will be valid.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -1157,6 +1195,7 @@ class Certificate(pulumi.CustomResource):
         __props__.__dict__["san_ips"] = san_ips
         __props__.__dict__["san_uris"] = san_uris
         __props__.__dict__["state"] = state
+        __props__.__dict__["tags"] = tags
         __props__.__dict__["valid_days"] = valid_days
         return Certificate(resource_name, opts=opts, __props__=__props__)
 
@@ -1376,6 +1415,14 @@ class Certificate(pulumi.CustomResource):
         State of the certificate (S)
         """
         return pulumi.get(self, "state")
+
+    @_builtins.property
+    @pulumi.getter
+    def tags(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
+        """
+        List of Certificate Tags defined in Venafi Control Plane.
+        """
+        return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="validDays")

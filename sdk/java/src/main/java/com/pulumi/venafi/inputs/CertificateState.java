@@ -423,6 +423,21 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * List of Certificate Tags defined in Venafi Control Plane.
+     * 
+     */
+    @Import(name="tags")
+    private @Nullable Output<List<String>> tags;
+
+    /**
+     * @return List of Certificate Tags defined in Venafi Control Plane.
+     * 
+     */
+    public Optional<Output<List<String>>> tags() {
+        return Optional.ofNullable(this.tags);
+    }
+
+    /**
      * Desired number of days for which the new certificate will be valid.
      * 
      */
@@ -467,6 +482,7 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
         this.sanIps = $.sanIps;
         this.sanUris = $.sanUris;
         this.state = $.state;
+        this.tags = $.tags;
         this.validDays = $.validDays;
     }
 
@@ -1094,6 +1110,37 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder state(String state) {
             return state(Output.of(state));
+        }
+
+        /**
+         * @param tags List of Certificate Tags defined in Venafi Control Plane.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tags(@Nullable Output<List<String>> tags) {
+            $.tags = tags;
+            return this;
+        }
+
+        /**
+         * @param tags List of Certificate Tags defined in Venafi Control Plane.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tags(List<String> tags) {
+            return tags(Output.of(tags));
+        }
+
+        /**
+         * @param tags List of Certificate Tags defined in Venafi Control Plane.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tags(String... tags) {
+            return tags(List.of(tags));
         }
 
         /**

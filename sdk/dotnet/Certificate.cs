@@ -176,6 +176,12 @@ namespace Pulumi.Venafi
         public Output<string?> State { get; private set; } = null!;
 
         /// <summary>
+        /// List of Certificate Tags defined in Venafi Control Plane.
+        /// </summary>
+        [Output("tags")]
+        public Output<ImmutableArray<string>> Tags { get; private set; } = null!;
+
+        /// <summary>
         /// Desired number of days for which the new certificate will be valid.
         /// </summary>
         [Output("validDays")]
@@ -433,6 +439,18 @@ namespace Pulumi.Venafi
         [Input("state")]
         public Input<string>? State { get; set; }
 
+        [Input("tags")]
+        private InputList<string>? _tags;
+
+        /// <summary>
+        /// List of Certificate Tags defined in Venafi Control Plane.
+        /// </summary>
+        public InputList<string> Tags
+        {
+            get => _tags ?? (_tags = new InputList<string>());
+            set => _tags = value;
+        }
+
         /// <summary>
         /// Desired number of days for which the new certificate will be valid.
         /// </summary>
@@ -665,6 +683,18 @@ namespace Pulumi.Venafi
         /// </summary>
         [Input("state")]
         public Input<string>? State { get; set; }
+
+        [Input("tags")]
+        private InputList<string>? _tags;
+
+        /// <summary>
+        /// List of Certificate Tags defined in Venafi Control Plane.
+        /// </summary>
+        public InputList<string> Tags
+        {
+            get => _tags ?? (_tags = new InputList<string>());
+            set => _tags = value;
+        }
 
         /// <summary>
         /// Desired number of days for which the new certificate will be valid.
