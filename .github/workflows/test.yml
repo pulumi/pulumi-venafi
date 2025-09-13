@@ -76,11 +76,19 @@ jobs:
       run: cd examples && go test -v -count=1 -cover -timeout 2h -tags=${{ matrix.language }} -skip TestPulumiExamples -parallel 4 .
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        VENAFI_TPP_PASSWORD: ${{ steps.esc-secrets.outputs.VENAFI_TPP_PASSWORD }}
+        VENAFI_TPP_USER: ${{ steps.esc-secrets.outputs.VENAFI_TPP_USER }}
+        VENAFI_URL: ${{ steps.esc-secrets.outputs.VENAFI_URL }}
+        VENAFI_ZONE: ${{ steps.esc-secrets.outputs.VENAFI_ZONE }}
     - name: Run pulumi/examples tests
       if: matrix.testTarget == 'pulumiExamples'
       run: cd examples && go test -v -count=1 -cover -timeout 2h -tags=${{ matrix.language }} -run TestPulumiExamples -parallel 4 .
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        VENAFI_TPP_PASSWORD: ${{ steps.esc-secrets.outputs.VENAFI_TPP_PASSWORD }}
+        VENAFI_TPP_USER: ${{ steps.esc-secrets.outputs.VENAFI_TPP_USER }}
+        VENAFI_URL: ${{ steps.esc-secrets.outputs.VENAFI_URL }}
+        VENAFI_ZONE: ${{ steps.esc-secrets.outputs.VENAFI_ZONE }}
     strategy:
       fail-fast: false
       matrix:
