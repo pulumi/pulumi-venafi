@@ -52,8 +52,8 @@ namespace Pulumi.Venafi
         public Output<string?> Country { get; private set; } = null!;
 
         /// <summary>
-        /// Whether key-pair generation will be `local` or `service` generated. Default is 
-        /// `local`.
+        /// Whether key-pair generation will be `Local` or `Service` generated. Default is 
+        /// `Local`.
         /// </summary>
         [Output("csrOrigin")]
         public Output<string?> CsrOrigin { get; private set; } = null!;
@@ -81,7 +81,7 @@ namespace Pulumi.Venafi
         public Output<int?> ExpirationWindow { get; private set; } = null!;
 
         /// <summary>
-        /// Used with `valid_days` to indicate the target issuer when using Trust Protection 
+        /// Used with `ValidDays` to indicate the target issuer when using Trust Protection 
         /// Platform. Relevant values are: `DigiCert`, `Entrust`, and `Microsoft`.
         /// </summary>
         [Output("issuerHint")]
@@ -119,7 +119,7 @@ namespace Pulumi.Venafi
         public Output<ImmutableArray<string>> OrganizationalUnits { get; private set; } = null!;
 
         /// <summary>
-        /// A base64-encoded PKCS#12 keystore secured by the `key_password`. Useful when working with resources like 
+        /// A base64-encoded PKCS#12 keystore secured by the `KeyPassword`. Useful when working with resources like 
         /// azure key_vault_certificate.
         /// </summary>
         [Output("pkcs12")]
@@ -260,8 +260,8 @@ namespace Pulumi.Venafi
         public Input<string>? Country { get; set; }
 
         /// <summary>
-        /// Whether key-pair generation will be `local` or `service` generated. Default is 
-        /// `local`.
+        /// Whether key-pair generation will be `Local` or `Service` generated. Default is 
+        /// `Local`.
         /// </summary>
         [Input("csrOrigin")]
         public Input<string>? CsrOrigin { get; set; }
@@ -295,7 +295,7 @@ namespace Pulumi.Venafi
         public Input<int>? ExpirationWindow { get; set; }
 
         /// <summary>
-        /// Used with `valid_days` to indicate the target issuer when using Trust Protection 
+        /// Used with `ValidDays` to indicate the target issuer when using Trust Protection 
         /// Platform. Relevant values are: `DigiCert`, `Entrust`, and `Microsoft`.
         /// </summary>
         [Input("issuerHint")]
@@ -349,7 +349,7 @@ namespace Pulumi.Venafi
         }
 
         /// <summary>
-        /// A base64-encoded PKCS#12 keystore secured by the `key_password`. Useful when working with resources like 
+        /// A base64-encoded PKCS#12 keystore secured by the `KeyPassword`. Useful when working with resources like 
         /// azure key_vault_certificate.
         /// </summary>
         [Input("pkcs12")]
@@ -505,8 +505,8 @@ namespace Pulumi.Venafi
         public Input<string>? Country { get; set; }
 
         /// <summary>
-        /// Whether key-pair generation will be `local` or `service` generated. Default is 
-        /// `local`.
+        /// Whether key-pair generation will be `Local` or `Service` generated. Default is 
+        /// `Local`.
         /// </summary>
         [Input("csrOrigin")]
         public Input<string>? CsrOrigin { get; set; }
@@ -540,7 +540,7 @@ namespace Pulumi.Venafi
         public Input<int>? ExpirationWindow { get; set; }
 
         /// <summary>
-        /// Used with `valid_days` to indicate the target issuer when using Trust Protection 
+        /// Used with `ValidDays` to indicate the target issuer when using Trust Protection 
         /// Platform. Relevant values are: `DigiCert`, `Entrust`, and `Microsoft`.
         /// </summary>
         [Input("issuerHint")]
@@ -594,7 +594,7 @@ namespace Pulumi.Venafi
         }
 
         /// <summary>
-        /// A base64-encoded PKCS#12 keystore secured by the `key_password`. Useful when working with resources like 
+        /// A base64-encoded PKCS#12 keystore secured by the `KeyPassword`. Useful when working with resources like 
         /// azure key_vault_certificate.
         /// </summary>
         [Input("pkcs12")]

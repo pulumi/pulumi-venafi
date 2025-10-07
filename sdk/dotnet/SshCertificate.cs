@@ -100,7 +100,7 @@ namespace Pulumi.Venafi
         public Output<int?> KeySize { get; private set; } = null!;
 
         /// <summary>
-        /// The friendly name of the SSH certificate object. When not specified the `key_id` 
+        /// The friendly name of the SSH certificate object. When not specified the `KeyId` 
         /// is used for the friendly name. If the object already exists the old certificate is archived and the CA issues a new
         /// certificate.
         /// </summary>
@@ -139,8 +139,8 @@ namespace Pulumi.Venafi
         public Output<string> PublicKeyFingerprint { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies whether the public key will be `local` (default), `file` or 
-        /// `service` generated.
+        /// Specifies whether the public key will be `Local` (default), `File` or 
+        /// `Service` generated.
         /// </summary>
         [Output("publicKeyMethod")]
         public Output<string?> PublicKeyMethod { get; private set; } = null!;
@@ -312,7 +312,7 @@ namespace Pulumi.Venafi
         public Input<int>? KeySize { get; set; }
 
         /// <summary>
-        /// The friendly name of the SSH certificate object. When not specified the `key_id` 
+        /// The friendly name of the SSH certificate object. When not specified the `KeyId` 
         /// is used for the friendly name. If the object already exists the old certificate is archived and the CA issues a new
         /// certificate.
         /// </summary>
@@ -352,8 +352,8 @@ namespace Pulumi.Venafi
         public Input<string>? PublicKey { get; set; }
 
         /// <summary>
-        /// Specifies whether the public key will be `local` (default), `file` or 
-        /// `service` generated.
+        /// Specifies whether the public key will be `Local` (default), `File` or 
+        /// `Service` generated.
         /// </summary>
         [Input("publicKeyMethod")]
         public Input<string>? PublicKeyMethod { get; set; }
@@ -477,7 +477,7 @@ namespace Pulumi.Venafi
         public Input<int>? KeySize { get; set; }
 
         /// <summary>
-        /// The friendly name of the SSH certificate object. When not specified the `key_id` 
+        /// The friendly name of the SSH certificate object. When not specified the `KeyId` 
         /// is used for the friendly name. If the object already exists the old certificate is archived and the CA issues a new
         /// certificate.
         /// </summary>
@@ -529,8 +529,8 @@ namespace Pulumi.Venafi
         public Input<string>? PublicKeyFingerprint { get; set; }
 
         /// <summary>
-        /// Specifies whether the public key will be `local` (default), `file` or 
-        /// `service` generated.
+        /// Specifies whether the public key will be `Local` (default), `File` or 
+        /// `Service` generated.
         /// </summary>
         [Input("publicKeyMethod")]
         public Input<string>? PublicKeyMethod { get; set; }
