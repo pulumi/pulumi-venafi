@@ -104,7 +104,7 @@ namespace Pulumi.Venafi
 
         private static readonly __Value<string?> _p12CertPassword = new __Value<string?>(() => __config.Get("p12CertPassword"));
         /// <summary>
-        /// Password for the PKCS#12 keystore declared in p12_cert / p12_cert_data
+        /// Password for the PKCS#12 keystore declared in P12Cert / p12_cert_data
         /// </summary>
         public static string? P12CertPassword
         {
@@ -153,7 +153,7 @@ namespace Pulumi.Venafi
         /// <summary>
         /// Use to specify a PEM-formatted file that contains certificates to be trust anchors for all communications with the Venafi Web Service.
         /// Example:
-        ///   trust_bundle = "${file("chain.pem")}"
+        ///   TrustBundle = "${file("chain.pem")}"
         /// </summary>
         public static string? TrustBundle
         {

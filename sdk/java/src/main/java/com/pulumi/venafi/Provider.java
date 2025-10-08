@@ -108,14 +108,14 @@ public class Provider extends com.pulumi.resources.ProviderResource {
         return Codegen.optional(this.p12CertFilename);
     }
     /**
-     * Password for the PKCS#12 keystore declared in p12_cert / p12_cert_data
+     * Password for the PKCS#12 keystore declared in p12Cert / p12_cert_data
      * 
      */
     @Export(name="p12CertPassword", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> p12CertPassword;
 
     /**
-     * @return Password for the PKCS#12 keystore declared in p12_cert / p12_cert_data
+     * @return Password for the PKCS#12 keystore declared in p12Cert / p12_cert_data
      * 
      */
     public Output<Optional<String>> p12CertPassword() {
@@ -139,10 +139,10 @@ public class Provider extends com.pulumi.resources.ProviderResource {
      * Password for WebSDK user. Example: password
      * 
      * @deprecated
-     * , please use access_token instead
+     * , please use accessToken instead
      * 
      */
-    @Deprecated /* , please use access_token instead */
+    @Deprecated /* , please use accessToken instead */
     @Export(name="tppPassword", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> tppPassword;
 
@@ -157,10 +157,10 @@ public class Provider extends com.pulumi.resources.ProviderResource {
      * WebSDK user for Venafi TLSPDC. Example: admin
      * 
      * @deprecated
-     * , please use access_token instead
+     * , please use accessToken instead
      * 
      */
-    @Deprecated /* , please use access_token instead */
+    @Deprecated /* , please use accessToken instead */
     @Export(name="tppUsername", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> tppUsername;
 
@@ -174,7 +174,7 @@ public class Provider extends com.pulumi.resources.ProviderResource {
     /**
      * Use to specify a PEM-formatted file that contains certificates to be trust anchors for all communications with the Venafi Web Service.
      * Example:
-     *   trust_bundle = &#34;${file(&#34;chain.pem&#34;)}&#34;
+     *   trustBundle = &#34;${file(&#34;chain.pem&#34;)}&#34;
      * 
      */
     @Export(name="trustBundle", refs={String.class}, tree="[0]")
@@ -183,7 +183,7 @@ public class Provider extends com.pulumi.resources.ProviderResource {
     /**
      * @return Use to specify a PEM-formatted file that contains certificates to be trust anchors for all communications with the Venafi Web Service.
      * Example:
-     *   trust_bundle = &#34;${file(&#34;chain.pem&#34;)}&#34;
+     *   trustBundle = &#34;${file(&#34;chain.pem&#34;)}&#34;
      * 
      */
     public Output<Optional<String>> trustBundle() {
