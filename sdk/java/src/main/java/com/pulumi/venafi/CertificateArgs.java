@@ -144,7 +144,7 @@ public final class CertificateArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Used with `valid_days` to indicate the target issuer when using Trust Protection
+     * Used with `validDays` to indicate the target issuer when using Trust Protection
      * Platform. Relevant values are: `DigiCert`, `Entrust`, and `Microsoft`.
      * 
      */
@@ -152,7 +152,7 @@ public final class CertificateArgs extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<String> issuerHint;
 
     /**
-     * @return Used with `valid_days` to indicate the target issuer when using Trust Protection
+     * @return Used with `validDays` to indicate the target issuer when using Trust Protection
      * Platform. Relevant values are: `DigiCert`, `Entrust`, and `Microsoft`.
      * 
      */
@@ -238,7 +238,7 @@ public final class CertificateArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A base64-encoded PKCS#12 keystore secured by the `key_password`. Useful when working with resources like
+     * A base64-encoded PKCS#12 keystore secured by the `keyPassword`. Useful when working with resources like
      * azure key_vault_certificate.
      * 
      */
@@ -246,7 +246,7 @@ public final class CertificateArgs extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<String> pkcs12;
 
     /**
-     * @return A base64-encoded PKCS#12 keystore secured by the `key_password`. Useful when working with resources like
+     * @return A base64-encoded PKCS#12 keystore secured by the `keyPassword`. Useful when working with resources like
      * azure key_vault_certificate.
      * 
      */
@@ -627,7 +627,7 @@ public final class CertificateArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param issuerHint Used with `valid_days` to indicate the target issuer when using Trust Protection
+         * @param issuerHint Used with `validDays` to indicate the target issuer when using Trust Protection
          * Platform. Relevant values are: `DigiCert`, `Entrust`, and `Microsoft`.
          * 
          * @return builder
@@ -639,7 +639,7 @@ public final class CertificateArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param issuerHint Used with `valid_days` to indicate the target issuer when using Trust Protection
+         * @param issuerHint Used with `validDays` to indicate the target issuer when using Trust Protection
          * Platform. Relevant values are: `DigiCert`, `Entrust`, and `Microsoft`.
          * 
          * @return builder
@@ -767,7 +767,7 @@ public final class CertificateArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param pkcs12 A base64-encoded PKCS#12 keystore secured by the `key_password`. Useful when working with resources like
+         * @param pkcs12 A base64-encoded PKCS#12 keystore secured by the `keyPassword`. Useful when working with resources like
          * azure key_vault_certificate.
          * 
          * @return builder
@@ -779,7 +779,7 @@ public final class CertificateArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param pkcs12 A base64-encoded PKCS#12 keystore secured by the `key_password`. Useful when working with resources like
+         * @param pkcs12 A base64-encoded PKCS#12 keystore secured by the `keyPassword`. Useful when working with resources like
          * azure key_vault_certificate.
          * 
          * @return builder
