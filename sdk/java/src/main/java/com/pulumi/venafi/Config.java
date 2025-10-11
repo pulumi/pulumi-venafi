@@ -61,7 +61,7 @@ public final class Config {
         return Codegen.stringProp("p12CertFilename").config(config).get();
     }
 /**
- * Password for the PKCS#12 keystore declared in p12_cert / p12_cert_data
+ * Password for the PKCS#12 keystore declared in p12Cert / p12_cert_data
  * 
  */
     public Optional<String> p12CertPassword() {
@@ -94,7 +94,7 @@ public final class Config {
 /**
  * Use to specify a PEM-formatted file that contains certificates to be trust anchors for all communications with the Venafi Web Service.
  * Example:
- *   trust_bundle = &#34;${file(&#34;chain.pem&#34;)}&#34;
+ *   trustBundle = &#34;${file(&#34;chain.pem&#34;)}&#34;
  * 
  */
     public Optional<String> trustBundle() {
