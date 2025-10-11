@@ -55,7 +55,7 @@ namespace Pulumi.Venafi
         public Output<string?> P12CertFilename { get; private set; } = null!;
 
         /// <summary>
-        /// Password for the PKCS#12 keystore declared in p12_cert / p12_cert_data
+        /// Password for the PKCS#12 keystore declared in P12Cert / p12_cert_data
         /// </summary>
         [Output("p12CertPassword")]
         public Output<string?> P12CertPassword { get; private set; } = null!;
@@ -81,7 +81,7 @@ namespace Pulumi.Venafi
         /// <summary>
         /// Use to specify a PEM-formatted file that contains certificates to be trust anchors for all communications with the Venafi Web Service.
         /// Example:
-        ///   trust_bundle = "${file("chain.pem")}"
+        ///   TrustBundle = "${file("chain.pem")}"
         /// </summary>
         [Output("trustBundle")]
         public Output<string?> TrustBundle { get; private set; } = null!;
@@ -219,7 +219,7 @@ namespace Pulumi.Venafi
         private Input<string>? _p12CertPassword;
 
         /// <summary>
-        /// Password for the PKCS#12 keystore declared in p12_cert / p12_cert_data
+        /// Password for the PKCS#12 keystore declared in P12Cert / p12_cert_data
         /// </summary>
         public Input<string>? P12CertPassword
         {
@@ -256,7 +256,7 @@ namespace Pulumi.Venafi
         /// <summary>
         /// Password for WebSDK user. Example: password
         /// </summary>
-        [Obsolete(@", please use access_token instead")]
+        [Obsolete(@", please use AccessToken instead")]
         public Input<string>? TppPassword
         {
             get => _tppPassword;
@@ -276,7 +276,7 @@ namespace Pulumi.Venafi
         /// <summary>
         /// Use to specify a PEM-formatted file that contains certificates to be trust anchors for all communications with the Venafi Web Service.
         /// Example:
-        ///   trust_bundle = "${file("chain.pem")}"
+        ///   TrustBundle = "${file("chain.pem")}"
         /// </summary>
         [Input("trustBundle")]
         public Input<string>? TrustBundle { get; set; }

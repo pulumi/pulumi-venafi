@@ -32,14 +32,14 @@ public final class CloudKeystoreInstallationArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * ID of the certificate to be provisioned to the given `keystore_id`.
+     * ID of the certificate to be provisioned to the given `keystoreId`.
      * 
      */
     @Import(name="certificateId", required=true)
     private Output<String> certificateId;
 
     /**
-     * @return ID of the certificate to be provisioned to the given `keystore_id`.
+     * @return ID of the certificate to be provisioned to the given `keystoreId`.
      * 
      */
     public Output<String> certificateId() {
@@ -47,14 +47,14 @@ public final class CloudKeystoreInstallationArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * Name for the provisioned certificate in the keystore. If the name already exists, the provisioning will replace the previous certificate with the one from `certificate_id`. Only valid for AKV and GCM keystores.
+     * Name for the provisioned certificate in the keystore. If the name already exists, the provisioning will replace the previous certificate with the one from `certificateId`. Only valid for AKV and GCM keystores.
      * 
      */
     @Import(name="cloudCertificateName")
     private @Nullable Output<String> cloudCertificateName;
 
     /**
-     * @return Name for the provisioned certificate in the keystore. If the name already exists, the provisioning will replace the previous certificate with the one from `certificate_id`. Only valid for AKV and GCM keystores.
+     * @return Name for the provisioned certificate in the keystore. If the name already exists, the provisioning will replace the previous certificate with the one from `certificateId`. Only valid for AKV and GCM keystores.
      * 
      */
     public Optional<Output<String>> cloudCertificateName() {
@@ -141,7 +141,7 @@ public final class CloudKeystoreInstallationArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param certificateId ID of the certificate to be provisioned to the given `keystore_id`.
+         * @param certificateId ID of the certificate to be provisioned to the given `keystoreId`.
          * 
          * @return builder
          * 
@@ -152,7 +152,7 @@ public final class CloudKeystoreInstallationArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param certificateId ID of the certificate to be provisioned to the given `keystore_id`.
+         * @param certificateId ID of the certificate to be provisioned to the given `keystoreId`.
          * 
          * @return builder
          * 
@@ -162,7 +162,7 @@ public final class CloudKeystoreInstallationArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param cloudCertificateName Name for the provisioned certificate in the keystore. If the name already exists, the provisioning will replace the previous certificate with the one from `certificate_id`. Only valid for AKV and GCM keystores.
+         * @param cloudCertificateName Name for the provisioned certificate in the keystore. If the name already exists, the provisioning will replace the previous certificate with the one from `certificateId`. Only valid for AKV and GCM keystores.
          * 
          * @return builder
          * 
@@ -173,7 +173,7 @@ public final class CloudKeystoreInstallationArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param cloudCertificateName Name for the provisioned certificate in the keystore. If the name already exists, the provisioning will replace the previous certificate with the one from `certificate_id`. Only valid for AKV and GCM keystores.
+         * @param cloudCertificateName Name for the provisioned certificate in the keystore. If the name already exists, the provisioning will replace the previous certificate with the one from `certificateId`. Only valid for AKV and GCM keystores.
          * 
          * @return builder
          * 

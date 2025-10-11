@@ -177,7 +177,7 @@ public class Certificate extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.expirationWindow);
     }
     /**
-     * Used with `valid_days` to indicate the target issuer when using Trust Protection
+     * Used with `validDays` to indicate the target issuer when using Trust Protection
      * Platform. Relevant values are: `DigiCert`, `Entrust`, and `Microsoft`.
      * 
      */
@@ -185,7 +185,7 @@ public class Certificate extends com.pulumi.resources.CustomResource {
     private Output</* @Nullable */ String> issuerHint;
 
     /**
-     * @return Used with `valid_days` to indicate the target issuer when using Trust Protection
+     * @return Used with `validDays` to indicate the target issuer when using Trust Protection
      * Platform. Relevant values are: `DigiCert`, `Entrust`, and `Microsoft`.
      * 
      */
@@ -265,7 +265,7 @@ public class Certificate extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.organizationalUnits);
     }
     /**
-     * A base64-encoded PKCS#12 keystore secured by the `key_password`. Useful when working with resources like
+     * A base64-encoded PKCS#12 keystore secured by the `keyPassword`. Useful when working with resources like
      * azure key_vault_certificate.
      * 
      */
@@ -273,7 +273,7 @@ public class Certificate extends com.pulumi.resources.CustomResource {
     private Output<String> pkcs12;
 
     /**
-     * @return A base64-encoded PKCS#12 keystore secured by the `key_password`. Useful when working with resources like
+     * @return A base64-encoded PKCS#12 keystore secured by the `keyPassword`. Useful when working with resources like
      * azure key_vault_certificate.
      * 
      */

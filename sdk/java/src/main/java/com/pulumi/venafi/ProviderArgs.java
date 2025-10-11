@@ -122,14 +122,14 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Password for the PKCS#12 keystore declared in p12_cert / p12_cert_data
+     * Password for the PKCS#12 keystore declared in p12Cert / p12_cert_data
      * 
      */
     @Import(name="p12CertPassword")
     private @Nullable Output<String> p12CertPassword;
 
     /**
-     * @return Password for the PKCS#12 keystore declared in p12_cert / p12_cert_data
+     * @return Password for the PKCS#12 keystore declared in p12Cert / p12_cert_data
      * 
      */
     public Optional<Output<String>> p12CertPassword() {
@@ -162,10 +162,10 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
      * Password for WebSDK user. Example: password
      * 
      * @deprecated
-     * , please use access_token instead
+     * , please use accessToken instead
      * 
      */
-    @Deprecated /* , please use access_token instead */
+    @Deprecated /* , please use accessToken instead */
     @Import(name="tppPassword")
     private @Nullable Output<String> tppPassword;
 
@@ -173,10 +173,10 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
      * @return Password for WebSDK user. Example: password
      * 
      * @deprecated
-     * , please use access_token instead
+     * , please use accessToken instead
      * 
      */
-    @Deprecated /* , please use access_token instead */
+    @Deprecated /* , please use accessToken instead */
     public Optional<Output<String>> tppPassword() {
         return Optional.ofNullable(this.tppPassword);
     }
@@ -185,10 +185,10 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
      * WebSDK user for Venafi TLSPDC. Example: admin
      * 
      * @deprecated
-     * , please use access_token instead
+     * , please use accessToken instead
      * 
      */
-    @Deprecated /* , please use access_token instead */
+    @Deprecated /* , please use accessToken instead */
     @Import(name="tppUsername")
     private @Nullable Output<String> tppUsername;
 
@@ -196,10 +196,10 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
      * @return WebSDK user for Venafi TLSPDC. Example: admin
      * 
      * @deprecated
-     * , please use access_token instead
+     * , please use accessToken instead
      * 
      */
-    @Deprecated /* , please use access_token instead */
+    @Deprecated /* , please use accessToken instead */
     public Optional<Output<String>> tppUsername() {
         return Optional.ofNullable(this.tppUsername);
     }
@@ -207,7 +207,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * Use to specify a PEM-formatted file that contains certificates to be trust anchors for all communications with the Venafi Web Service.
      * Example:
-     *   trust_bundle = &#34;${file(&#34;chain.pem&#34;)}&#34;
+     *   trustBundle = &#34;${file(&#34;chain.pem&#34;)}&#34;
      * 
      */
     @Import(name="trustBundle")
@@ -216,7 +216,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * @return Use to specify a PEM-formatted file that contains certificates to be trust anchors for all communications with the Venafi Web Service.
      * Example:
-     *   trust_bundle = &#34;${file(&#34;chain.pem&#34;)}&#34;
+     *   trustBundle = &#34;${file(&#34;chain.pem&#34;)}&#34;
      * 
      */
     public Optional<Output<String>> trustBundle() {
@@ -443,7 +443,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param p12CertPassword Password for the PKCS#12 keystore declared in p12_cert / p12_cert_data
+         * @param p12CertPassword Password for the PKCS#12 keystore declared in p12Cert / p12_cert_data
          * 
          * @return builder
          * 
@@ -454,7 +454,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param p12CertPassword Password for the PKCS#12 keystore declared in p12_cert / p12_cert_data
+         * @param p12CertPassword Password for the PKCS#12 keystore declared in p12Cert / p12_cert_data
          * 
          * @return builder
          * 
@@ -499,10 +499,10 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          * @deprecated
-         * , please use access_token instead
+         * , please use accessToken instead
          * 
          */
-        @Deprecated /* , please use access_token instead */
+        @Deprecated /* , please use accessToken instead */
         public Builder tppPassword(@Nullable Output<String> tppPassword) {
             $.tppPassword = tppPassword;
             return this;
@@ -514,10 +514,10 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          * @deprecated
-         * , please use access_token instead
+         * , please use accessToken instead
          * 
          */
-        @Deprecated /* , please use access_token instead */
+        @Deprecated /* , please use accessToken instead */
         public Builder tppPassword(String tppPassword) {
             return tppPassword(Output.of(tppPassword));
         }
@@ -528,10 +528,10 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          * @deprecated
-         * , please use access_token instead
+         * , please use accessToken instead
          * 
          */
-        @Deprecated /* , please use access_token instead */
+        @Deprecated /* , please use accessToken instead */
         public Builder tppUsername(@Nullable Output<String> tppUsername) {
             $.tppUsername = tppUsername;
             return this;
@@ -543,10 +543,10 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          * @deprecated
-         * , please use access_token instead
+         * , please use accessToken instead
          * 
          */
-        @Deprecated /* , please use access_token instead */
+        @Deprecated /* , please use accessToken instead */
         public Builder tppUsername(String tppUsername) {
             return tppUsername(Output.of(tppUsername));
         }
@@ -554,7 +554,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param trustBundle Use to specify a PEM-formatted file that contains certificates to be trust anchors for all communications with the Venafi Web Service.
          * Example:
-         *   trust_bundle = &#34;${file(&#34;chain.pem&#34;)}&#34;
+         *   trustBundle = &#34;${file(&#34;chain.pem&#34;)}&#34;
          * 
          * @return builder
          * 
@@ -567,7 +567,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param trustBundle Use to specify a PEM-formatted file that contains certificates to be trust anchors for all communications with the Venafi Web Service.
          * Example:
-         *   trust_bundle = &#34;${file(&#34;chain.pem&#34;)}&#34;
+         *   trustBundle = &#34;${file(&#34;chain.pem&#34;)}&#34;
          * 
          * @return builder
          * 

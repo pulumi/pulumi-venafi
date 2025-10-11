@@ -195,7 +195,7 @@ public class SshCertificate extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.keySize);
     }
     /**
-     * The friendly name of the SSH certificate object. When not specified the `key_id`
+     * The friendly name of the SSH certificate object. When not specified the `keyId`
      * is used for the friendly name. If the object already exists the old certificate is archived and the CA issues a new
      * certificate.
      * 
@@ -204,7 +204,7 @@ public class SshCertificate extends com.pulumi.resources.CustomResource {
     private Output</* @Nullable */ String> objectName;
 
     /**
-     * @return The friendly name of the SSH certificate object. When not specified the `key_id`
+     * @return The friendly name of the SSH certificate object. When not specified the `keyId`
      * is used for the friendly name. If the object already exists the old certificate is archived and the CA issues a new
      * certificate.
      * 

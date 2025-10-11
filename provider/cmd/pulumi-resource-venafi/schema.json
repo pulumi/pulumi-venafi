@@ -81,7 +81,7 @@
             },
             "p12CertPassword": {
                 "type": "string",
-                "description": "Password for the PKCS#12 keystore declared in p12_cert / p12_cert_data",
+                "description": "Password for the PKCS#12 keystore declared in\u003cspan pulumi-lang-nodejs=\" p12Cert \" pulumi-lang-dotnet=\" P12Cert \" pulumi-lang-go=\" p12Cert \" pulumi-lang-python=\" p12_cert \" pulumi-lang-yaml=\" p12Cert \" pulumi-lang-java=\" p12Cert \"\u003e p12_cert \u003c/span\u003e/ p12_cert_data",
                 "secret": true
             },
             "skipRetirement": {
@@ -95,17 +95,17 @@
             "tppPassword": {
                 "type": "string",
                 "description": "Password for WebSDK user. Example: password",
-                "deprecationMessage": ", please use access_token instead",
+                "deprecationMessage": ", please use\u003cspan pulumi-lang-nodejs=\" accessToken \" pulumi-lang-dotnet=\" AccessToken \" pulumi-lang-go=\" accessToken \" pulumi-lang-python=\" access_token \" pulumi-lang-yaml=\" accessToken \" pulumi-lang-java=\" accessToken \"\u003e access_token \u003c/span\u003einstead",
                 "secret": true
             },
             "tppUsername": {
                 "type": "string",
                 "description": "WebSDK user for Venafi TLSPDC. Example: admin",
-                "deprecationMessage": ", please use access_token instead"
+                "deprecationMessage": ", please use\u003cspan pulumi-lang-nodejs=\" accessToken \" pulumi-lang-dotnet=\" AccessToken \" pulumi-lang-go=\" accessToken \" pulumi-lang-python=\" access_token \" pulumi-lang-yaml=\" accessToken \" pulumi-lang-java=\" accessToken \"\u003e access_token \u003c/span\u003einstead"
             },
             "trustBundle": {
                 "type": "string",
-                "description": "Use to specify a PEM-formatted file that contains certificates to be trust anchors for all communications with the Venafi Web Service.\nExample:\n  trust_bundle = \"${file(\"chain.pem\")}\""
+                "description": "Use to specify a PEM-formatted file that contains certificates to be trust anchors for all communications with the Venafi Web Service.\nExample:\n \u003cspan pulumi-lang-nodejs=\" trustBundle \" pulumi-lang-dotnet=\" TrustBundle \" pulumi-lang-go=\" trustBundle \" pulumi-lang-python=\" trust_bundle \" pulumi-lang-yaml=\" trustBundle \" pulumi-lang-java=\" trustBundle \"\u003e trust_bundle \u003c/span\u003e= \"${file(\"chain.pem\")}\""
             },
             "url": {
                 "type": "string",
@@ -153,7 +153,7 @@
             },
             "p12CertPassword": {
                 "type": "string",
-                "description": "Password for the PKCS#12 keystore declared in p12_cert / p12_cert_data",
+                "description": "Password for the PKCS#12 keystore declared in\u003cspan pulumi-lang-nodejs=\" p12Cert \" pulumi-lang-dotnet=\" P12Cert \" pulumi-lang-go=\" p12Cert \" pulumi-lang-python=\" p12_cert \" pulumi-lang-yaml=\" p12Cert \" pulumi-lang-java=\" p12Cert \"\u003e p12_cert \u003c/span\u003e/ p12_cert_data",
                 "secret": true
             },
             "skipRetirement": {
@@ -167,17 +167,17 @@
             "tppPassword": {
                 "type": "string",
                 "description": "Password for WebSDK user. Example: password",
-                "deprecationMessage": ", please use access_token instead",
+                "deprecationMessage": ", please use\u003cspan pulumi-lang-nodejs=\" accessToken \" pulumi-lang-dotnet=\" AccessToken \" pulumi-lang-go=\" accessToken \" pulumi-lang-python=\" access_token \" pulumi-lang-yaml=\" accessToken \" pulumi-lang-java=\" accessToken \"\u003e access_token \u003c/span\u003einstead",
                 "secret": true
             },
             "tppUsername": {
                 "type": "string",
                 "description": "WebSDK user for Venafi TLSPDC. Example: admin",
-                "deprecationMessage": ", please use access_token instead"
+                "deprecationMessage": ", please use\u003cspan pulumi-lang-nodejs=\" accessToken \" pulumi-lang-dotnet=\" AccessToken \" pulumi-lang-go=\" accessToken \" pulumi-lang-python=\" access_token \" pulumi-lang-yaml=\" accessToken \" pulumi-lang-java=\" accessToken \"\u003e access_token \u003c/span\u003einstead"
             },
             "trustBundle": {
                 "type": "string",
-                "description": "Use to specify a PEM-formatted file that contains certificates to be trust anchors for all communications with the Venafi Web Service.\nExample:\n  trust_bundle = \"${file(\"chain.pem\")}\""
+                "description": "Use to specify a PEM-formatted file that contains certificates to be trust anchors for all communications with the Venafi Web Service.\nExample:\n \u003cspan pulumi-lang-nodejs=\" trustBundle \" pulumi-lang-dotnet=\" TrustBundle \" pulumi-lang-go=\" trustBundle \" pulumi-lang-python=\" trust_bundle \" pulumi-lang-yaml=\" trustBundle \" pulumi-lang-java=\" trustBundle \"\u003e trust_bundle \u003c/span\u003e= \"${file(\"chain.pem\")}\""
             },
             "url": {
                 "type": "string",
@@ -222,7 +222,7 @@
             },
             "p12CertPassword": {
                 "type": "string",
-                "description": "Password for the PKCS#12 keystore declared in p12_cert / p12_cert_data",
+                "description": "Password for the PKCS#12 keystore declared in\u003cspan pulumi-lang-nodejs=\" p12Cert \" pulumi-lang-dotnet=\" P12Cert \" pulumi-lang-go=\" p12Cert \" pulumi-lang-python=\" p12_cert \" pulumi-lang-yaml=\" p12Cert \" pulumi-lang-java=\" p12Cert \"\u003e p12_cert \u003c/span\u003e/ p12_cert_data",
                 "secret": true
             },
             "skipRetirement": {
@@ -236,17 +236,17 @@
             "tppPassword": {
                 "type": "string",
                 "description": "Password for WebSDK user. Example: password",
-                "deprecationMessage": ", please use access_token instead",
+                "deprecationMessage": ", please use\u003cspan pulumi-lang-nodejs=\" accessToken \" pulumi-lang-dotnet=\" AccessToken \" pulumi-lang-go=\" accessToken \" pulumi-lang-python=\" access_token \" pulumi-lang-yaml=\" accessToken \" pulumi-lang-java=\" accessToken \"\u003e access_token \u003c/span\u003einstead",
                 "secret": true
             },
             "tppUsername": {
                 "type": "string",
                 "description": "WebSDK user for Venafi TLSPDC. Example: admin",
-                "deprecationMessage": ", please use access_token instead"
+                "deprecationMessage": ", please use\u003cspan pulumi-lang-nodejs=\" accessToken \" pulumi-lang-dotnet=\" AccessToken \" pulumi-lang-go=\" accessToken \" pulumi-lang-python=\" access_token \" pulumi-lang-yaml=\" accessToken \" pulumi-lang-java=\" accessToken \"\u003e access_token \u003c/span\u003einstead"
             },
             "trustBundle": {
                 "type": "string",
-                "description": "Use to specify a PEM-formatted file that contains certificates to be trust anchors for all communications with the Venafi Web Service.\nExample:\n  trust_bundle = \"${file(\"chain.pem\")}\""
+                "description": "Use to specify a PEM-formatted file that contains certificates to be trust anchors for all communications with the Venafi Web Service.\nExample:\n \u003cspan pulumi-lang-nodejs=\" trustBundle \" pulumi-lang-dotnet=\" TrustBundle \" pulumi-lang-go=\" trustBundle \" pulumi-lang-python=\" trust_bundle \" pulumi-lang-yaml=\" trustBundle \" pulumi-lang-java=\" trustBundle \"\u003e trust_bundle \u003c/span\u003e= \"${file(\"chain.pem\")}\""
             },
             "url": {
                 "type": "string",
@@ -298,7 +298,7 @@
                 },
                 "csrOrigin": {
                     "type": "string",
-                    "description": "Whether key-pair generation will be `local` or `service` generated. Default is \n`local`.\n"
+                    "description": "Whether key-pair generation will be \u003cspan pulumi-lang-nodejs=\"`local`\" pulumi-lang-dotnet=\"`Local`\" pulumi-lang-go=\"`local`\" pulumi-lang-python=\"`local`\" pulumi-lang-yaml=\"`local`\" pulumi-lang-java=\"`local`\"\u003e`local`\u003c/span\u003e or \u003cspan pulumi-lang-nodejs=\"`service`\" pulumi-lang-dotnet=\"`Service`\" pulumi-lang-go=\"`service`\" pulumi-lang-python=\"`service`\" pulumi-lang-yaml=\"`service`\" pulumi-lang-java=\"`service`\"\u003e`service`\u003c/span\u003e generated. Default is \n\u003cspan pulumi-lang-nodejs=\"`local`\" pulumi-lang-dotnet=\"`Local`\" pulumi-lang-go=\"`local`\" pulumi-lang-python=\"`local`\" pulumi-lang-yaml=\"`local`\" pulumi-lang-java=\"`local`\"\u003e`local`\u003c/span\u003e.\n"
                 },
                 "csrPem": {
                     "type": "string"
@@ -316,11 +316,11 @@
                 },
                 "expirationWindow": {
                     "type": "integer",
-                    "description": "Number of hours before certificate expiry to request a new certificate. \nDefaults to `168`.\n"
+                    "description": "Number of hours before certificate expiry to request a new certificate. \nDefaults to \u003cspan pulumi-lang-nodejs=\"`168`\" pulumi-lang-dotnet=\"`168`\" pulumi-lang-go=\"`168`\" pulumi-lang-python=\"`168`\" pulumi-lang-yaml=\"`168`\" pulumi-lang-java=\"`168`\"\u003e`168`\u003c/span\u003e.\n"
                 },
                 "issuerHint": {
                     "type": "string",
-                    "description": "Used with `valid_days` to indicate the target issuer when using Trust Protection \nPlatform. Relevant values are: `DigiCert`, `Entrust`, and `Microsoft`.\n"
+                    "description": "Used with \u003cspan pulumi-lang-nodejs=\"`validDays`\" pulumi-lang-dotnet=\"`ValidDays`\" pulumi-lang-go=\"`validDays`\" pulumi-lang-python=\"`valid_days`\" pulumi-lang-yaml=\"`validDays`\" pulumi-lang-java=\"`validDays`\"\u003e`valid_days`\u003c/span\u003e to indicate the target issuer when using Trust Protection \nPlatform. Relevant values are: `DigiCert`, `Entrust`, and `Microsoft`.\n"
                 },
                 "keyPassword": {
                     "type": "string",
@@ -348,7 +348,7 @@
                 },
                 "pkcs12": {
                     "type": "string",
-                    "description": "A base64-encoded PKCS#12 keystore secured by the `key_password`. Useful when working with resources like \nazure key_vault_certificate.\n"
+                    "description": "A base64-encoded PKCS#12 keystore secured by the \u003cspan pulumi-lang-nodejs=\"`keyPassword`\" pulumi-lang-dotnet=\"`KeyPassword`\" pulumi-lang-go=\"`keyPassword`\" pulumi-lang-python=\"`key_password`\" pulumi-lang-yaml=\"`keyPassword`\" pulumi-lang-java=\"`keyPassword`\"\u003e`key_password`\u003c/span\u003e. Useful when working with resources like \nazure key_vault_certificate.\n"
                 },
                 "privateKeyPem": {
                     "type": "string",
@@ -361,7 +361,7 @@
                 },
                 "rsaBits": {
                     "type": "integer",
-                    "description": "Number of bits to use when generating an RSA key. Applies when algorithm is `RSA`. \nDefaults to `2048`.\n"
+                    "description": "Number of bits to use when generating an RSA key. Applies when algorithm is `RSA`. \nDefaults to \u003cspan pulumi-lang-nodejs=\"`2048`\" pulumi-lang-dotnet=\"`2048`\" pulumi-lang-go=\"`2048`\" pulumi-lang-python=\"`2048`\" pulumi-lang-yaml=\"`2048`\" pulumi-lang-java=\"`2048`\"\u003e`2048`\u003c/span\u003e.\n"
                 },
                 "sanDns": {
                     "type": "array",
@@ -438,7 +438,7 @@
                 },
                 "csrOrigin": {
                     "type": "string",
-                    "description": "Whether key-pair generation will be `local` or `service` generated. Default is \n`local`.\n",
+                    "description": "Whether key-pair generation will be \u003cspan pulumi-lang-nodejs=\"`local`\" pulumi-lang-dotnet=\"`Local`\" pulumi-lang-go=\"`local`\" pulumi-lang-python=\"`local`\" pulumi-lang-yaml=\"`local`\" pulumi-lang-java=\"`local`\"\u003e`local`\u003c/span\u003e or \u003cspan pulumi-lang-nodejs=\"`service`\" pulumi-lang-dotnet=\"`Service`\" pulumi-lang-go=\"`service`\" pulumi-lang-python=\"`service`\" pulumi-lang-yaml=\"`service`\" pulumi-lang-java=\"`service`\"\u003e`service`\u003c/span\u003e generated. Default is \n\u003cspan pulumi-lang-nodejs=\"`local`\" pulumi-lang-dotnet=\"`Local`\" pulumi-lang-go=\"`local`\" pulumi-lang-python=\"`local`\" pulumi-lang-yaml=\"`local`\" pulumi-lang-java=\"`local`\"\u003e`local`\u003c/span\u003e.\n",
                     "willReplaceOnChanges": true
                 },
                 "csrPem": {
@@ -459,11 +459,11 @@
                 },
                 "expirationWindow": {
                     "type": "integer",
-                    "description": "Number of hours before certificate expiry to request a new certificate. \nDefaults to `168`.\n"
+                    "description": "Number of hours before certificate expiry to request a new certificate. \nDefaults to \u003cspan pulumi-lang-nodejs=\"`168`\" pulumi-lang-dotnet=\"`168`\" pulumi-lang-go=\"`168`\" pulumi-lang-python=\"`168`\" pulumi-lang-yaml=\"`168`\" pulumi-lang-java=\"`168`\"\u003e`168`\u003c/span\u003e.\n"
                 },
                 "issuerHint": {
                     "type": "string",
-                    "description": "Used with `valid_days` to indicate the target issuer when using Trust Protection \nPlatform. Relevant values are: `DigiCert`, `Entrust`, and `Microsoft`.\n",
+                    "description": "Used with \u003cspan pulumi-lang-nodejs=\"`validDays`\" pulumi-lang-dotnet=\"`ValidDays`\" pulumi-lang-go=\"`validDays`\" pulumi-lang-python=\"`valid_days`\" pulumi-lang-yaml=\"`validDays`\" pulumi-lang-java=\"`validDays`\"\u003e`valid_days`\u003c/span\u003e to indicate the target issuer when using Trust Protection \nPlatform. Relevant values are: `DigiCert`, `Entrust`, and `Microsoft`.\n",
                     "willReplaceOnChanges": true
                 },
                 "keyPassword": {
@@ -497,7 +497,7 @@
                 },
                 "pkcs12": {
                     "type": "string",
-                    "description": "A base64-encoded PKCS#12 keystore secured by the `key_password`. Useful when working with resources like \nazure key_vault_certificate.\n"
+                    "description": "A base64-encoded PKCS#12 keystore secured by the \u003cspan pulumi-lang-nodejs=\"`keyPassword`\" pulumi-lang-dotnet=\"`KeyPassword`\" pulumi-lang-go=\"`keyPassword`\" pulumi-lang-python=\"`key_password`\" pulumi-lang-yaml=\"`keyPassword`\" pulumi-lang-java=\"`keyPassword`\"\u003e`key_password`\u003c/span\u003e. Useful when working with resources like \nazure key_vault_certificate.\n"
                 },
                 "privateKeyPem": {
                     "type": "string",
@@ -511,7 +511,7 @@
                 },
                 "rsaBits": {
                     "type": "integer",
-                    "description": "Number of bits to use when generating an RSA key. Applies when algorithm is `RSA`. \nDefaults to `2048`.\n",
+                    "description": "Number of bits to use when generating an RSA key. Applies when algorithm is `RSA`. \nDefaults to \u003cspan pulumi-lang-nodejs=\"`2048`\" pulumi-lang-dotnet=\"`2048`\" pulumi-lang-go=\"`2048`\" pulumi-lang-python=\"`2048`\" pulumi-lang-yaml=\"`2048`\" pulumi-lang-java=\"`2048`\"\u003e`2048`\u003c/span\u003e.\n",
                     "willReplaceOnChanges": true
                 },
                 "sanDns": {
@@ -607,7 +607,7 @@
                     },
                     "csrOrigin": {
                         "type": "string",
-                        "description": "Whether key-pair generation will be `local` or `service` generated. Default is \n`local`.\n",
+                        "description": "Whether key-pair generation will be \u003cspan pulumi-lang-nodejs=\"`local`\" pulumi-lang-dotnet=\"`Local`\" pulumi-lang-go=\"`local`\" pulumi-lang-python=\"`local`\" pulumi-lang-yaml=\"`local`\" pulumi-lang-java=\"`local`\"\u003e`local`\u003c/span\u003e or \u003cspan pulumi-lang-nodejs=\"`service`\" pulumi-lang-dotnet=\"`Service`\" pulumi-lang-go=\"`service`\" pulumi-lang-python=\"`service`\" pulumi-lang-yaml=\"`service`\" pulumi-lang-java=\"`service`\"\u003e`service`\u003c/span\u003e generated. Default is \n\u003cspan pulumi-lang-nodejs=\"`local`\" pulumi-lang-dotnet=\"`Local`\" pulumi-lang-go=\"`local`\" pulumi-lang-python=\"`local`\" pulumi-lang-yaml=\"`local`\" pulumi-lang-java=\"`local`\"\u003e`local`\u003c/span\u003e.\n",
                         "willReplaceOnChanges": true
                     },
                     "csrPem": {
@@ -628,11 +628,11 @@
                     },
                     "expirationWindow": {
                         "type": "integer",
-                        "description": "Number of hours before certificate expiry to request a new certificate. \nDefaults to `168`.\n"
+                        "description": "Number of hours before certificate expiry to request a new certificate. \nDefaults to \u003cspan pulumi-lang-nodejs=\"`168`\" pulumi-lang-dotnet=\"`168`\" pulumi-lang-go=\"`168`\" pulumi-lang-python=\"`168`\" pulumi-lang-yaml=\"`168`\" pulumi-lang-java=\"`168`\"\u003e`168`\u003c/span\u003e.\n"
                     },
                     "issuerHint": {
                         "type": "string",
-                        "description": "Used with `valid_days` to indicate the target issuer when using Trust Protection \nPlatform. Relevant values are: `DigiCert`, `Entrust`, and `Microsoft`.\n",
+                        "description": "Used with \u003cspan pulumi-lang-nodejs=\"`validDays`\" pulumi-lang-dotnet=\"`ValidDays`\" pulumi-lang-go=\"`validDays`\" pulumi-lang-python=\"`valid_days`\" pulumi-lang-yaml=\"`validDays`\" pulumi-lang-java=\"`validDays`\"\u003e`valid_days`\u003c/span\u003e to indicate the target issuer when using Trust Protection \nPlatform. Relevant values are: `DigiCert`, `Entrust`, and `Microsoft`.\n",
                         "willReplaceOnChanges": true
                     },
                     "keyPassword": {
@@ -666,7 +666,7 @@
                     },
                     "pkcs12": {
                         "type": "string",
-                        "description": "A base64-encoded PKCS#12 keystore secured by the `key_password`. Useful when working with resources like \nazure key_vault_certificate.\n"
+                        "description": "A base64-encoded PKCS#12 keystore secured by the \u003cspan pulumi-lang-nodejs=\"`keyPassword`\" pulumi-lang-dotnet=\"`KeyPassword`\" pulumi-lang-go=\"`keyPassword`\" pulumi-lang-python=\"`key_password`\" pulumi-lang-yaml=\"`keyPassword`\" pulumi-lang-java=\"`keyPassword`\"\u003e`key_password`\u003c/span\u003e. Useful when working with resources like \nazure key_vault_certificate.\n"
                     },
                     "privateKeyPem": {
                         "type": "string",
@@ -680,7 +680,7 @@
                     },
                     "rsaBits": {
                         "type": "integer",
-                        "description": "Number of bits to use when generating an RSA key. Applies when algorithm is `RSA`. \nDefaults to `2048`.\n",
+                        "description": "Number of bits to use when generating an RSA key. Applies when algorithm is `RSA`. \nDefaults to \u003cspan pulumi-lang-nodejs=\"`2048`\" pulumi-lang-dotnet=\"`2048`\" pulumi-lang-go=\"`2048`\" pulumi-lang-python=\"`2048`\" pulumi-lang-yaml=\"`2048`\" pulumi-lang-java=\"`2048`\"\u003e`2048`\u003c/span\u003e.\n",
                         "willReplaceOnChanges": true
                     },
                     "sanDns": {
@@ -745,7 +745,7 @@
                 },
                 "certificateId": {
                     "type": "string",
-                    "description": "ID of the certificate to be provisioned to the given `keystore_id`.\n"
+                    "description": "ID of the certificate to be provisioned to the given \u003cspan pulumi-lang-nodejs=\"`keystoreId`\" pulumi-lang-dotnet=\"`KeystoreId`\" pulumi-lang-go=\"`keystoreId`\" pulumi-lang-python=\"`keystore_id`\" pulumi-lang-yaml=\"`keystoreId`\" pulumi-lang-java=\"`keystoreId`\"\u003e`keystore_id`\u003c/span\u003e.\n"
                 },
                 "cloudCertificateId": {
                     "type": "string",
@@ -760,7 +760,7 @@
                 },
                 "cloudCertificateName": {
                     "type": "string",
-                    "description": "Name for the provisioned certificate in the keystore. If the name already exists, the provisioning will replace the previous certificate with the one from `certificate_id`. Only valid for AKV and GCM keystores.\n"
+                    "description": "Name for the provisioned certificate in the keystore. If the name already exists, the provisioning will replace the previous certificate with the one from \u003cspan pulumi-lang-nodejs=\"`certificateId`\" pulumi-lang-dotnet=\"`CertificateId`\" pulumi-lang-go=\"`certificateId`\" pulumi-lang-python=\"`certificate_id`\" pulumi-lang-yaml=\"`certificateId`\" pulumi-lang-java=\"`certificateId`\"\u003e`certificate_id`\u003c/span\u003e. Only valid for AKV and GCM keystores.\n"
                 },
                 "cloudKeystoreId": {
                     "type": "string",
@@ -785,11 +785,11 @@
                 },
                 "certificateId": {
                     "type": "string",
-                    "description": "ID of the certificate to be provisioned to the given `keystore_id`.\n"
+                    "description": "ID of the certificate to be provisioned to the given \u003cspan pulumi-lang-nodejs=\"`keystoreId`\" pulumi-lang-dotnet=\"`KeystoreId`\" pulumi-lang-go=\"`keystoreId`\" pulumi-lang-python=\"`keystore_id`\" pulumi-lang-yaml=\"`keystoreId`\" pulumi-lang-java=\"`keystoreId`\"\u003e`keystore_id`\u003c/span\u003e.\n"
                 },
                 "cloudCertificateName": {
                     "type": "string",
-                    "description": "Name for the provisioned certificate in the keystore. If the name already exists, the provisioning will replace the previous certificate with the one from `certificate_id`. Only valid for AKV and GCM keystores.\n",
+                    "description": "Name for the provisioned certificate in the keystore. If the name already exists, the provisioning will replace the previous certificate with the one from \u003cspan pulumi-lang-nodejs=\"`certificateId`\" pulumi-lang-dotnet=\"`CertificateId`\" pulumi-lang-go=\"`certificateId`\" pulumi-lang-python=\"`certificate_id`\" pulumi-lang-yaml=\"`certificateId`\" pulumi-lang-java=\"`certificateId`\"\u003e`certificate_id`\u003c/span\u003e. Only valid for AKV and GCM keystores.\n",
                     "willReplaceOnChanges": true
                 },
                 "cloudKeystoreId": {
@@ -816,7 +816,7 @@
                     },
                     "certificateId": {
                         "type": "string",
-                        "description": "ID of the certificate to be provisioned to the given `keystore_id`.\n"
+                        "description": "ID of the certificate to be provisioned to the given \u003cspan pulumi-lang-nodejs=\"`keystoreId`\" pulumi-lang-dotnet=\"`KeystoreId`\" pulumi-lang-go=\"`keystoreId`\" pulumi-lang-python=\"`keystore_id`\" pulumi-lang-yaml=\"`keystoreId`\" pulumi-lang-java=\"`keystoreId`\"\u003e`keystore_id`\u003c/span\u003e.\n"
                     },
                     "cloudCertificateId": {
                         "type": "string",
@@ -831,7 +831,7 @@
                     },
                     "cloudCertificateName": {
                         "type": "string",
-                        "description": "Name for the provisioned certificate in the keystore. If the name already exists, the provisioning will replace the previous certificate with the one from `certificate_id`. Only valid for AKV and GCM keystores.\n",
+                        "description": "Name for the provisioned certificate in the keystore. If the name already exists, the provisioning will replace the previous certificate with the one from \u003cspan pulumi-lang-nodejs=\"`certificateId`\" pulumi-lang-dotnet=\"`CertificateId`\" pulumi-lang-go=\"`certificateId`\" pulumi-lang-python=\"`certificate_id`\" pulumi-lang-yaml=\"`certificateId`\" pulumi-lang-java=\"`certificateId`\"\u003e`certificate_id`\u003c/span\u003e. Only valid for AKV and GCM keystores.\n",
                         "willReplaceOnChanges": true
                     },
                     "cloudKeystoreId": {
@@ -852,7 +852,7 @@
             "properties": {
                 "policySpecification": {
                     "type": "string",
-                    "description": "The JSON-formatted certificate policy specification as documented \n[here](https://github.com/Venafi/vcert/blob/master/README-POLICY-SPEC.md). Typically read from a file using the `file`\nfunction.\n"
+                    "description": "The JSON-formatted certificate policy specification as documented \n[here](https://github.com/Venafi/vcert/blob/master/README-POLICY-SPEC.md). Typically read from a file using the \u003cspan pulumi-lang-nodejs=\"`file`\" pulumi-lang-dotnet=\"`File`\" pulumi-lang-go=\"`file`\" pulumi-lang-python=\"`file`\" pulumi-lang-yaml=\"`file`\" pulumi-lang-java=\"`file`\"\u003e`file`\u003c/span\u003e\nfunction.\n"
                 },
                 "zone": {
                     "type": "string",
@@ -862,7 +862,7 @@
             "inputProperties": {
                 "policySpecification": {
                     "type": "string",
-                    "description": "The JSON-formatted certificate policy specification as documented \n[here](https://github.com/Venafi/vcert/blob/master/README-POLICY-SPEC.md). Typically read from a file using the `file`\nfunction.\n",
+                    "description": "The JSON-formatted certificate policy specification as documented \n[here](https://github.com/Venafi/vcert/blob/master/README-POLICY-SPEC.md). Typically read from a file using the \u003cspan pulumi-lang-nodejs=\"`file`\" pulumi-lang-dotnet=\"`File`\" pulumi-lang-go=\"`file`\" pulumi-lang-python=\"`file`\" pulumi-lang-yaml=\"`file`\" pulumi-lang-java=\"`file`\"\u003e`file`\u003c/span\u003e\nfunction.\n",
                     "willReplaceOnChanges": true
                 },
                 "zone": {
@@ -876,7 +876,7 @@
                 "properties": {
                     "policySpecification": {
                         "type": "string",
-                        "description": "The JSON-formatted certificate policy specification as documented \n[here](https://github.com/Venafi/vcert/blob/master/README-POLICY-SPEC.md). Typically read from a file using the `file`\nfunction.\n",
+                        "description": "The JSON-formatted certificate policy specification as documented \n[here](https://github.com/Venafi/vcert/blob/master/README-POLICY-SPEC.md). Typically read from a file using the \u003cspan pulumi-lang-nodejs=\"`file`\" pulumi-lang-dotnet=\"`File`\" pulumi-lang-go=\"`file`\" pulumi-lang-python=\"`file`\" pulumi-lang-yaml=\"`file`\" pulumi-lang-java=\"`file`\"\u003e`file`\u003c/span\u003e\nfunction.\n",
                         "willReplaceOnChanges": true
                     },
                     "zone": {
@@ -932,11 +932,11 @@
                 },
                 "keySize": {
                     "type": "integer",
-                    "description": "Number of bits to use when creating a key pair. (e.g. `3072`).\n"
+                    "description": "Number of bits to use when creating a key pair. (e.g. \u003cspan pulumi-lang-nodejs=\"`3072`\" pulumi-lang-dotnet=\"`3072`\" pulumi-lang-go=\"`3072`\" pulumi-lang-python=\"`3072`\" pulumi-lang-yaml=\"`3072`\" pulumi-lang-java=\"`3072`\"\u003e`3072`\u003c/span\u003e).\n"
                 },
                 "objectName": {
                     "type": "string",
-                    "description": "The friendly name of the SSH certificate object. When not specified the `key_id` \nis used for the friendly name. If the object already exists the old certificate is archived and the CA issues a new\ncertificate.\n"
+                    "description": "The friendly name of the SSH certificate object. When not specified the \u003cspan pulumi-lang-nodejs=\"`keyId`\" pulumi-lang-dotnet=\"`KeyId`\" pulumi-lang-go=\"`keyId`\" pulumi-lang-python=\"`key_id`\" pulumi-lang-yaml=\"`keyId`\" pulumi-lang-java=\"`keyId`\"\u003e`key_id`\u003c/span\u003e \nis used for the friendly name. If the object already exists the old certificate is archived and the CA issues a new\ncertificate.\n"
                 },
                 "principal": {
                     "type": "array",
@@ -967,7 +967,7 @@
                 },
                 "publicKeyMethod": {
                     "type": "string",
-                    "description": "Specifies whether the public key will be `local` (default), `file` or \n`service` generated.\n"
+                    "description": "Specifies whether the public key will be \u003cspan pulumi-lang-nodejs=\"`local`\" pulumi-lang-dotnet=\"`Local`\" pulumi-lang-go=\"`local`\" pulumi-lang-python=\"`local`\" pulumi-lang-yaml=\"`local`\" pulumi-lang-java=\"`local`\"\u003e`local`\u003c/span\u003e (default), \u003cspan pulumi-lang-nodejs=\"`file`\" pulumi-lang-dotnet=\"`File`\" pulumi-lang-go=\"`file`\" pulumi-lang-python=\"`file`\" pulumi-lang-yaml=\"`file`\" pulumi-lang-java=\"`file`\"\u003e`file`\u003c/span\u003e or \n\u003cspan pulumi-lang-nodejs=\"`service`\" pulumi-lang-dotnet=\"`Service`\" pulumi-lang-go=\"`service`\" pulumi-lang-python=\"`service`\" pulumi-lang-yaml=\"`service`\" pulumi-lang-java=\"`service`\"\u003e`service`\u003c/span\u003e generated.\n"
                 },
                 "serial": {
                     "type": "string",
@@ -1057,12 +1057,12 @@
                 },
                 "keySize": {
                     "type": "integer",
-                    "description": "Number of bits to use when creating a key pair. (e.g. `3072`).\n",
+                    "description": "Number of bits to use when creating a key pair. (e.g. \u003cspan pulumi-lang-nodejs=\"`3072`\" pulumi-lang-dotnet=\"`3072`\" pulumi-lang-go=\"`3072`\" pulumi-lang-python=\"`3072`\" pulumi-lang-yaml=\"`3072`\" pulumi-lang-java=\"`3072`\"\u003e`3072`\u003c/span\u003e).\n",
                     "willReplaceOnChanges": true
                 },
                 "objectName": {
                     "type": "string",
-                    "description": "The friendly name of the SSH certificate object. When not specified the `key_id` \nis used for the friendly name. If the object already exists the old certificate is archived and the CA issues a new\ncertificate.\n",
+                    "description": "The friendly name of the SSH certificate object. When not specified the \u003cspan pulumi-lang-nodejs=\"`keyId`\" pulumi-lang-dotnet=\"`KeyId`\" pulumi-lang-go=\"`keyId`\" pulumi-lang-python=\"`key_id`\" pulumi-lang-yaml=\"`keyId`\" pulumi-lang-java=\"`keyId`\"\u003e`key_id`\u003c/span\u003e \nis used for the friendly name. If the object already exists the old certificate is archived and the CA issues a new\ncertificate.\n",
                     "willReplaceOnChanges": true
                 },
                 "principal": {
@@ -1089,7 +1089,7 @@
                 },
                 "publicKeyMethod": {
                     "type": "string",
-                    "description": "Specifies whether the public key will be `local` (default), `file` or \n`service` generated.\n",
+                    "description": "Specifies whether the public key will be \u003cspan pulumi-lang-nodejs=\"`local`\" pulumi-lang-dotnet=\"`Local`\" pulumi-lang-go=\"`local`\" pulumi-lang-python=\"`local`\" pulumi-lang-yaml=\"`local`\" pulumi-lang-java=\"`local`\"\u003e`local`\u003c/span\u003e (default), \u003cspan pulumi-lang-nodejs=\"`file`\" pulumi-lang-dotnet=\"`File`\" pulumi-lang-go=\"`file`\" pulumi-lang-python=\"`file`\" pulumi-lang-yaml=\"`file`\" pulumi-lang-java=\"`file`\"\u003e`file`\u003c/span\u003e or \n\u003cspan pulumi-lang-nodejs=\"`service`\" pulumi-lang-dotnet=\"`Service`\" pulumi-lang-go=\"`service`\" pulumi-lang-python=\"`service`\" pulumi-lang-yaml=\"`service`\" pulumi-lang-java=\"`service`\"\u003e`service`\u003c/span\u003e generated.\n",
                     "willReplaceOnChanges": true
                 },
                 "sourceAddresses": {
@@ -1170,12 +1170,12 @@
                     },
                     "keySize": {
                         "type": "integer",
-                        "description": "Number of bits to use when creating a key pair. (e.g. `3072`).\n",
+                        "description": "Number of bits to use when creating a key pair. (e.g. \u003cspan pulumi-lang-nodejs=\"`3072`\" pulumi-lang-dotnet=\"`3072`\" pulumi-lang-go=\"`3072`\" pulumi-lang-python=\"`3072`\" pulumi-lang-yaml=\"`3072`\" pulumi-lang-java=\"`3072`\"\u003e`3072`\u003c/span\u003e).\n",
                         "willReplaceOnChanges": true
                     },
                     "objectName": {
                         "type": "string",
-                        "description": "The friendly name of the SSH certificate object. When not specified the `key_id` \nis used for the friendly name. If the object already exists the old certificate is archived and the CA issues a new\ncertificate.\n",
+                        "description": "The friendly name of the SSH certificate object. When not specified the \u003cspan pulumi-lang-nodejs=\"`keyId`\" pulumi-lang-dotnet=\"`KeyId`\" pulumi-lang-go=\"`keyId`\" pulumi-lang-python=\"`key_id`\" pulumi-lang-yaml=\"`keyId`\" pulumi-lang-java=\"`keyId`\"\u003e`key_id`\u003c/span\u003e \nis used for the friendly name. If the object already exists the old certificate is archived and the CA issues a new\ncertificate.\n",
                         "willReplaceOnChanges": true
                     },
                     "principal": {
@@ -1210,7 +1210,7 @@
                     },
                     "publicKeyMethod": {
                         "type": "string",
-                        "description": "Specifies whether the public key will be `local` (default), `file` or \n`service` generated.\n",
+                        "description": "Specifies whether the public key will be \u003cspan pulumi-lang-nodejs=\"`local`\" pulumi-lang-dotnet=\"`Local`\" pulumi-lang-go=\"`local`\" pulumi-lang-python=\"`local`\" pulumi-lang-yaml=\"`local`\" pulumi-lang-java=\"`local`\"\u003e`local`\u003c/span\u003e (default), \u003cspan pulumi-lang-nodejs=\"`file`\" pulumi-lang-dotnet=\"`File`\" pulumi-lang-go=\"`file`\" pulumi-lang-python=\"`file`\" pulumi-lang-yaml=\"`file`\" pulumi-lang-java=\"`file`\"\u003e`file`\u003c/span\u003e or \n\u003cspan pulumi-lang-nodejs=\"`service`\" pulumi-lang-dotnet=\"`Service`\" pulumi-lang-go=\"`service`\" pulumi-lang-python=\"`service`\" pulumi-lang-yaml=\"`service`\" pulumi-lang-java=\"`service`\"\u003e`service`\u003c/span\u003e generated.\n",
                         "willReplaceOnChanges": true
                     },
                     "serial": {
@@ -1345,7 +1345,7 @@
             }
         },
         "venafi:index/getCloudKeystore:getCloudKeystore": {
-            "description": "Use this data source to get the `ID` of a cloud keystore in Venafi Control Plane, referenced by its name and parent \ncloud provider ID. You can use `venafi.getCloudProvider` data source to obtain the ID of the parent cloud provider.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as venafi from \"@pulumi/venafi\";\n\n// Find a cloud keystore with a static cloud provider id\nconst ckExampleById = venafi.getCloudKeystore({\n    cloudProviderId: \"e48897d0-2762-11ef-8fab-79ac590dd358\",\n    name: \"Cloud Keystore Example\",\n});\n// Find a cloud keystore by using venafi_cloud_provider data source as input\nconst ckExample = venafi.getCloudKeystore({\n    cloudProviderId: cpExample.id,\n    name: \"Cloud Keystore example\",\n});\n```\n```python\nimport pulumi\nimport pulumi_venafi as venafi\n\n# Find a cloud keystore with a static cloud provider id\nck_example_by_id = venafi.get_cloud_keystore(cloud_provider_id=\"e48897d0-2762-11ef-8fab-79ac590dd358\",\n    name=\"Cloud Keystore Example\")\n# Find a cloud keystore by using venafi_cloud_provider data source as input\nck_example = venafi.get_cloud_keystore(cloud_provider_id=cp_example[\"id\"],\n    name=\"Cloud Keystore example\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Venafi = Pulumi.Venafi;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    // Find a cloud keystore with a static cloud provider id\n    var ckExampleById = Venafi.GetCloudKeystore.Invoke(new()\n    {\n        CloudProviderId = \"e48897d0-2762-11ef-8fab-79ac590dd358\",\n        Name = \"Cloud Keystore Example\",\n    });\n\n    // Find a cloud keystore by using venafi_cloud_provider data source as input\n    var ckExample = Venafi.GetCloudKeystore.Invoke(new()\n    {\n        CloudProviderId = cpExample.Id,\n        Name = \"Cloud Keystore example\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-venafi/sdk/go/venafi\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t// Find a cloud keystore with a static cloud provider id\n\t\t_, err := venafi.GetCloudKeystore(ctx, \u0026venafi.GetCloudKeystoreArgs{\n\t\t\tCloudProviderId: \"e48897d0-2762-11ef-8fab-79ac590dd358\",\n\t\t\tName:            \"Cloud Keystore Example\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t// Find a cloud keystore by using venafi_cloud_provider data source as input\n\t\t_, err = venafi.GetCloudKeystore(ctx, \u0026venafi.GetCloudKeystoreArgs{\n\t\t\tCloudProviderId: cpExample.Id,\n\t\t\tName:            \"Cloud Keystore example\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.venafi.VenafiFunctions;\nimport com.pulumi.venafi.inputs.GetCloudKeystoreArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        // Find a cloud keystore with a static cloud provider id\n        final var ckExampleById = VenafiFunctions.getCloudKeystore(GetCloudKeystoreArgs.builder()\n            .cloudProviderId(\"e48897d0-2762-11ef-8fab-79ac590dd358\")\n            .name(\"Cloud Keystore Example\")\n            .build());\n\n        // Find a cloud keystore by using venafi_cloud_provider data source as input\n        final var ckExample = VenafiFunctions.getCloudKeystore(GetCloudKeystoreArgs.builder()\n            .cloudProviderId(cpExample.id())\n            .name(\"Cloud Keystore example\")\n            .build());\n\n    }\n}\n```\n```yaml\nvariables:\n  # Find a cloud keystore with a static cloud provider id\n  ckExampleById:\n    fn::invoke:\n      function: venafi:getCloudKeystore\n      arguments:\n        cloudProviderId: e48897d0-2762-11ef-8fab-79ac590dd358\n        name: Cloud Keystore Example\n  # Find a cloud keystore by using venafi_cloud_provider data source as input\n  ckExample:\n    fn::invoke:\n      function: venafi:getCloudKeystore\n      arguments:\n        cloudProviderId: ${cpExample.id}\n        name: Cloud Keystore example\n```\n\u003c!--End PulumiCodeChooser --\u003e\n",
+            "description": "Use this data source to get the `ID` of a cloud keystore in Venafi Control Plane, referenced by its name and parent \ncloud provider ID. You can use \u003cspan pulumi-lang-nodejs=\"`venafi.getCloudProvider`\" pulumi-lang-dotnet=\"`venafi.getCloudProvider`\" pulumi-lang-go=\"`getCloudProvider`\" pulumi-lang-python=\"`get_cloud_provider`\" pulumi-lang-yaml=\"`venafi.getCloudProvider`\" pulumi-lang-java=\"`venafi.getCloudProvider`\"\u003e`venafi.getCloudProvider`\u003c/span\u003e data source to obtain the ID of the parent cloud provider.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as venafi from \"@pulumi/venafi\";\n\n// Find a cloud keystore with a static cloud provider id\nconst ckExampleById = venafi.getCloudKeystore({\n    cloudProviderId: \"e48897d0-2762-11ef-8fab-79ac590dd358\",\n    name: \"Cloud Keystore Example\",\n});\n// Find a cloud keystore by using venafi_cloud_provider data source as input\nconst ckExample = venafi.getCloudKeystore({\n    cloudProviderId: cpExample.id,\n    name: \"Cloud Keystore example\",\n});\n```\n```python\nimport pulumi\nimport pulumi_venafi as venafi\n\n# Find a cloud keystore with a static cloud provider id\nck_example_by_id = venafi.get_cloud_keystore(cloud_provider_id=\"e48897d0-2762-11ef-8fab-79ac590dd358\",\n    name=\"Cloud Keystore Example\")\n# Find a cloud keystore by using venafi_cloud_provider data source as input\nck_example = venafi.get_cloud_keystore(cloud_provider_id=cp_example[\"id\"],\n    name=\"Cloud Keystore example\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Venafi = Pulumi.Venafi;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    // Find a cloud keystore with a static cloud provider id\n    var ckExampleById = Venafi.GetCloudKeystore.Invoke(new()\n    {\n        CloudProviderId = \"e48897d0-2762-11ef-8fab-79ac590dd358\",\n        Name = \"Cloud Keystore Example\",\n    });\n\n    // Find a cloud keystore by using venafi_cloud_provider data source as input\n    var ckExample = Venafi.GetCloudKeystore.Invoke(new()\n    {\n        CloudProviderId = cpExample.Id,\n        Name = \"Cloud Keystore example\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-venafi/sdk/go/venafi\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t// Find a cloud keystore with a static cloud provider id\n\t\t_, err := venafi.GetCloudKeystore(ctx, \u0026venafi.GetCloudKeystoreArgs{\n\t\t\tCloudProviderId: \"e48897d0-2762-11ef-8fab-79ac590dd358\",\n\t\t\tName:            \"Cloud Keystore Example\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t// Find a cloud keystore by using venafi_cloud_provider data source as input\n\t\t_, err = venafi.GetCloudKeystore(ctx, \u0026venafi.GetCloudKeystoreArgs{\n\t\t\tCloudProviderId: cpExample.Id,\n\t\t\tName:            \"Cloud Keystore example\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.venafi.VenafiFunctions;\nimport com.pulumi.venafi.inputs.GetCloudKeystoreArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        // Find a cloud keystore with a static cloud provider id\n        final var ckExampleById = VenafiFunctions.getCloudKeystore(GetCloudKeystoreArgs.builder()\n            .cloudProviderId(\"e48897d0-2762-11ef-8fab-79ac590dd358\")\n            .name(\"Cloud Keystore Example\")\n            .build());\n\n        // Find a cloud keystore by using venafi_cloud_provider data source as input\n        final var ckExample = VenafiFunctions.getCloudKeystore(GetCloudKeystoreArgs.builder()\n            .cloudProviderId(cpExample.id())\n            .name(\"Cloud Keystore example\")\n            .build());\n\n    }\n}\n```\n```yaml\nvariables:\n  # Find a cloud keystore with a static cloud provider id\n  ckExampleById:\n    fn::invoke:\n      function: venafi:getCloudKeystore\n      arguments:\n        cloudProviderId: e48897d0-2762-11ef-8fab-79ac590dd358\n        name: Cloud Keystore Example\n  # Find a cloud keystore by using venafi_cloud_provider data source as input\n  ckExample:\n    fn::invoke:\n      function: venafi:getCloudKeystore\n      arguments:\n        cloudProviderId: ${cpExample.id}\n        name: Cloud Keystore example\n```\n\u003c!--End PulumiCodeChooser --\u003e\n",
             "inputs": {
                 "description": "A collection of arguments for invoking getCloudKeystore.\n",
                 "properties": {

@@ -131,7 +131,7 @@ public final class SshCertificateArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The friendly name of the SSH certificate object. When not specified the `key_id`
+     * The friendly name of the SSH certificate object. When not specified the `keyId`
      * is used for the friendly name. If the object already exists the old certificate is archived and the CA issues a new
      * certificate.
      * 
@@ -140,7 +140,7 @@ public final class SshCertificateArgs extends com.pulumi.resources.ResourceArgs 
     private @Nullable Output<String> objectName;
 
     /**
-     * @return The friendly name of the SSH certificate object. When not specified the `key_id`
+     * @return The friendly name of the SSH certificate object. When not specified the `keyId`
      * is used for the friendly name. If the object already exists the old certificate is archived and the CA issues a new
      * certificate.
      * 
@@ -499,7 +499,7 @@ public final class SshCertificateArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param objectName The friendly name of the SSH certificate object. When not specified the `key_id`
+         * @param objectName The friendly name of the SSH certificate object. When not specified the `keyId`
          * is used for the friendly name. If the object already exists the old certificate is archived and the CA issues a new
          * certificate.
          * 
@@ -512,7 +512,7 @@ public final class SshCertificateArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param objectName The friendly name of the SSH certificate object. When not specified the `key_id`
+         * @param objectName The friendly name of the SSH certificate object. When not specified the `keyId`
          * is used for the friendly name. If the object already exists the old certificate is archived and the CA issues a new
          * certificate.
          * 

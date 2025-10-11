@@ -91,14 +91,14 @@ public class CloudKeystoreInstallation extends com.pulumi.resources.CustomResour
         return Codegen.optional(this.arn);
     }
     /**
-     * ID of the certificate to be provisioned to the given `keystore_id`.
+     * ID of the certificate to be provisioned to the given `keystoreId`.
      * 
      */
     @Export(name="certificateId", refs={String.class}, tree="[0]")
     private Output<String> certificateId;
 
     /**
-     * @return ID of the certificate to be provisioned to the given `keystore_id`.
+     * @return ID of the certificate to be provisioned to the given `keystoreId`.
      * 
      */
     public Output<String> certificateId() {
@@ -133,14 +133,14 @@ public class CloudKeystoreInstallation extends com.pulumi.resources.CustomResour
         return this.cloudCertificateMetadata;
     }
     /**
-     * Name for the provisioned certificate in the keystore. If the name already exists, the provisioning will replace the previous certificate with the one from `certificate_id`. Only valid for AKV and GCM keystores.
+     * Name for the provisioned certificate in the keystore. If the name already exists, the provisioning will replace the previous certificate with the one from `certificateId`. Only valid for AKV and GCM keystores.
      * 
      */
     @Export(name="cloudCertificateName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> cloudCertificateName;
 
     /**
-     * @return Name for the provisioned certificate in the keystore. If the name already exists, the provisioning will replace the previous certificate with the one from `certificate_id`. Only valid for AKV and GCM keystores.
+     * @return Name for the provisioned certificate in the keystore. If the name already exists, the provisioning will replace the previous certificate with the one from `certificateId`. Only valid for AKV and GCM keystores.
      * 
      */
     public Output<Optional<String>> cloudCertificateName() {

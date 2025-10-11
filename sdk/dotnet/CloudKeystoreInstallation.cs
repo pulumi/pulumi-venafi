@@ -63,7 +63,7 @@ namespace Pulumi.Venafi
         public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// ID of the certificate to be provisioned to the given `keystore_id`.
+        /// ID of the certificate to be provisioned to the given `KeystoreId`.
         /// </summary>
         [Output("certificateId")]
         public Output<string> CertificateId { get; private set; } = null!;
@@ -81,7 +81,7 @@ namespace Pulumi.Venafi
         public Output<ImmutableDictionary<string, string>> CloudCertificateMetadata { get; private set; } = null!;
 
         /// <summary>
-        /// Name for the provisioned certificate in the keystore. If the name already exists, the provisioning will replace the previous certificate with the one from `certificate_id`. Only valid for AKV and GCM keystores.
+        /// Name for the provisioned certificate in the keystore. If the name already exists, the provisioning will replace the previous certificate with the one from `CertificateId`. Only valid for AKV and GCM keystores.
         /// </summary>
         [Output("cloudCertificateName")]
         public Output<string?> CloudCertificateName { get; private set; } = null!;
@@ -151,13 +151,13 @@ namespace Pulumi.Venafi
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// ID of the certificate to be provisioned to the given `keystore_id`.
+        /// ID of the certificate to be provisioned to the given `KeystoreId`.
         /// </summary>
         [Input("certificateId", required: true)]
         public Input<string> CertificateId { get; set; } = null!;
 
         /// <summary>
-        /// Name for the provisioned certificate in the keystore. If the name already exists, the provisioning will replace the previous certificate with the one from `certificate_id`. Only valid for AKV and GCM keystores.
+        /// Name for the provisioned certificate in the keystore. If the name already exists, the provisioning will replace the previous certificate with the one from `CertificateId`. Only valid for AKV and GCM keystores.
         /// </summary>
         [Input("cloudCertificateName")]
         public Input<string>? CloudCertificateName { get; set; }
@@ -189,7 +189,7 @@ namespace Pulumi.Venafi
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// ID of the certificate to be provisioned to the given `keystore_id`.
+        /// ID of the certificate to be provisioned to the given `KeystoreId`.
         /// </summary>
         [Input("certificateId")]
         public Input<string>? CertificateId { get; set; }
@@ -213,7 +213,7 @@ namespace Pulumi.Venafi
         }
 
         /// <summary>
-        /// Name for the provisioned certificate in the keystore. If the name already exists, the provisioning will replace the previous certificate with the one from `certificate_id`. Only valid for AKV and GCM keystores.
+        /// Name for the provisioned certificate in the keystore. If the name already exists, the provisioning will replace the previous certificate with the one from `CertificateId`. Only valid for AKV and GCM keystores.
         /// </summary>
         [Input("cloudCertificateName")]
         public Input<string>? CloudCertificateName { get; set; }
