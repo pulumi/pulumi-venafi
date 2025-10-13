@@ -59,7 +59,7 @@ namespace Pulumi.Venafi
     {
         /// <summary>
         /// The JSON-formatted certificate policy specification as documented 
-        /// [here](https://github.com/Venafi/vcert/blob/master/README-POLICY-SPEC.md). Typically read from a file using the `file`
+        /// [here](https://github.com/Venafi/vcert/blob/master/README-POLICY-SPEC.md). Typically read from a file using the `File`
         /// function.
         /// </summary>
         [Output("policySpecification")]
@@ -120,7 +120,7 @@ namespace Pulumi.Venafi
     {
         /// <summary>
         /// The JSON-formatted certificate policy specification as documented 
-        /// [here](https://github.com/Venafi/vcert/blob/master/README-POLICY-SPEC.md). Typically read from a file using the `file`
+        /// [here](https://github.com/Venafi/vcert/blob/master/README-POLICY-SPEC.md). Typically read from a file using the `File`
         /// function.
         /// </summary>
         [Input("policySpecification")]
@@ -143,7 +143,7 @@ namespace Pulumi.Venafi
     {
         /// <summary>
         /// The JSON-formatted certificate policy specification as documented 
-        /// [here](https://github.com/Venafi/vcert/blob/master/README-POLICY-SPEC.md). Typically read from a file using the `file`
+        /// [here](https://github.com/Venafi/vcert/blob/master/README-POLICY-SPEC.md). Typically read from a file using the `File`
         /// function.
         /// </summary>
         [Input("policySpecification")]
