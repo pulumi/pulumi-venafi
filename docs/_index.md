@@ -54,6 +54,7 @@ config:
         value: Business App\Enterprise CIT
 
 ```
+
 ```typescript
 import * as pulumi from "@pulumi/pulumi";
 import * as venafi from "@pulumi/venafi";
@@ -61,6 +62,7 @@ import * as venafi from "@pulumi/venafi";
 // Generate a key pair and request a certificate
 const webserver = new venafi.Certificate("webserver", {});
 ```
+
 {{% /choosable %}}
 {{% choosable language python %}}
 ```yaml
@@ -74,6 +76,7 @@ config:
         value: Business App\Enterprise CIT
 
 ```
+
 ```python
 import pulumi
 import pulumi_venafi as venafi
@@ -81,6 +84,7 @@ import pulumi_venafi as venafi
 # Generate a key pair and request a certificate
 webserver = venafi.Certificate("webserver")
 ```
+
 {{% /choosable %}}
 {{% choosable language csharp %}}
 ```yaml
@@ -94,6 +98,7 @@ config:
         value: Business App\Enterprise CIT
 
 ```
+
 ```csharp
 using System.Collections.Generic;
 using System.Linq;
@@ -108,6 +113,7 @@ return await Deployment.RunAsync(() =>
 });
 
 ```
+
 {{% /choosable %}}
 {{% choosable language go %}}
 ```yaml
@@ -121,6 +127,7 @@ config:
         value: Business App\Enterprise CIT
 
 ```
+
 ```go
 package main
 
@@ -140,6 +147,7 @@ func main() {
 	})
 }
 ```
+
 {{% /choosable %}}
 {{% choosable language yaml %}}
 ```yaml
@@ -153,12 +161,14 @@ config:
         value: Business App\Enterprise CIT
 
 ```
+
 ```yaml
 resources:
   # Generate a key pair and request a certificate
   webserver:
     type: venafi:Certificate
 ```
+
 {{% /choosable %}}
 {{% choosable language java %}}
 ```yaml
@@ -172,6 +182,7 @@ config:
         value: Business App\Enterprise CIT
 
 ```
+
 ```java
 package generated_program;
 
@@ -198,6 +209,7 @@ public class App {
     }
 }
 ```
+
 {{% /choosable %}}
 {{< /chooser >}}
 ### EU tenants
@@ -217,6 +229,7 @@ config:
         value: Business App\Enterprise CIT
 
 ```
+
 ```typescript
 import * as pulumi from "@pulumi/pulumi";
 import * as venafi from "@pulumi/venafi";
@@ -224,6 +237,7 @@ import * as venafi from "@pulumi/venafi";
 // Generate a key pair and request a certificate
 const webserver = new venafi.Certificate("webserver", {});
 ```
+
 {{% /choosable %}}
 {{% choosable language python %}}
 ```yaml
@@ -239,6 +253,7 @@ config:
         value: Business App\Enterprise CIT
 
 ```
+
 ```python
 import pulumi
 import pulumi_venafi as venafi
@@ -246,6 +261,7 @@ import pulumi_venafi as venafi
 # Generate a key pair and request a certificate
 webserver = venafi.Certificate("webserver")
 ```
+
 {{% /choosable %}}
 {{% choosable language csharp %}}
 ```yaml
@@ -261,6 +277,7 @@ config:
         value: Business App\Enterprise CIT
 
 ```
+
 ```csharp
 using System.Collections.Generic;
 using System.Linq;
@@ -275,6 +292,7 @@ return await Deployment.RunAsync(() =>
 });
 
 ```
+
 {{% /choosable %}}
 {{% choosable language go %}}
 ```yaml
@@ -290,6 +308,7 @@ config:
         value: Business App\Enterprise CIT
 
 ```
+
 ```go
 package main
 
@@ -309,6 +328,7 @@ func main() {
 	})
 }
 ```
+
 {{% /choosable %}}
 {{% choosable language yaml %}}
 ```yaml
@@ -324,12 +344,14 @@ config:
         value: Business App\Enterprise CIT
 
 ```
+
 ```yaml
 resources:
   # Generate a key pair and request a certificate
   webserver:
     type: venafi:Certificate
 ```
+
 {{% /choosable %}}
 {{% choosable language java %}}
 ```yaml
@@ -345,6 +367,7 @@ config:
         value: Business App\Enterprise CIT
 
 ```
+
 ```java
 package generated_program;
 
@@ -371,6 +394,7 @@ public class App {
     }
 }
 ```
+
 {{% /choosable %}}
 {{< /chooser >}}
 ### AU tenants
@@ -390,6 +414,7 @@ config:
         value: Business App\Enterprise CIT
 
 ```
+
 ```typescript
 import * as pulumi from "@pulumi/pulumi";
 import * as venafi from "@pulumi/venafi";
@@ -397,6 +422,7 @@ import * as venafi from "@pulumi/venafi";
 // Generate a key pair and request a certificate
 const webserver = new venafi.Certificate("webserver", {});
 ```
+
 {{% /choosable %}}
 {{% choosable language python %}}
 ```yaml
@@ -412,6 +438,7 @@ config:
         value: Business App\Enterprise CIT
 
 ```
+
 ```python
 import pulumi
 import pulumi_venafi as venafi
@@ -419,6 +446,7 @@ import pulumi_venafi as venafi
 # Generate a key pair and request a certificate
 webserver = venafi.Certificate("webserver")
 ```
+
 {{% /choosable %}}
 {{% choosable language csharp %}}
 ```yaml
@@ -434,6 +462,7 @@ config:
         value: Business App\Enterprise CIT
 
 ```
+
 ```csharp
 using System.Collections.Generic;
 using System.Linq;
@@ -448,6 +477,7 @@ return await Deployment.RunAsync(() =>
 });
 
 ```
+
 {{% /choosable %}}
 {{% choosable language go %}}
 ```yaml
@@ -463,6 +493,7 @@ config:
         value: Business App\Enterprise CIT
 
 ```
+
 ```go
 package main
 
@@ -482,6 +513,7 @@ func main() {
 	})
 }
 ```
+
 {{% /choosable %}}
 {{% choosable language yaml %}}
 ```yaml
@@ -497,12 +529,14 @@ config:
         value: Business App\Enterprise CIT
 
 ```
+
 ```yaml
 resources:
   # Generate a key pair and request a certificate
   webserver:
     type: venafi:Certificate
 ```
+
 {{% /choosable %}}
 {{% choosable language java %}}
 ```yaml
@@ -518,6 +552,7 @@ config:
         value: Business App\Enterprise CIT
 
 ```
+
 ```java
 package generated_program;
 
@@ -544,6 +579,7 @@ public class App {
     }
 }
 ```
+
 {{% /choosable %}}
 {{< /chooser >}}
 ### UK tenants
@@ -563,6 +599,7 @@ config:
         value: Business App\Enterprise CIT
 
 ```
+
 ```typescript
 import * as pulumi from "@pulumi/pulumi";
 import * as venafi from "@pulumi/venafi";
@@ -570,6 +607,7 @@ import * as venafi from "@pulumi/venafi";
 // Generate a key pair and request a certificate
 const webserver = new venafi.Certificate("webserver", {});
 ```
+
 {{% /choosable %}}
 {{% choosable language python %}}
 ```yaml
@@ -585,6 +623,7 @@ config:
         value: Business App\Enterprise CIT
 
 ```
+
 ```python
 import pulumi
 import pulumi_venafi as venafi
@@ -592,6 +631,7 @@ import pulumi_venafi as venafi
 # Generate a key pair and request a certificate
 webserver = venafi.Certificate("webserver")
 ```
+
 {{% /choosable %}}
 {{% choosable language csharp %}}
 ```yaml
@@ -607,6 +647,7 @@ config:
         value: Business App\Enterprise CIT
 
 ```
+
 ```csharp
 using System.Collections.Generic;
 using System.Linq;
@@ -621,6 +662,7 @@ return await Deployment.RunAsync(() =>
 });
 
 ```
+
 {{% /choosable %}}
 {{% choosable language go %}}
 ```yaml
@@ -636,6 +678,7 @@ config:
         value: Business App\Enterprise CIT
 
 ```
+
 ```go
 package main
 
@@ -655,6 +698,7 @@ func main() {
 	})
 }
 ```
+
 {{% /choosable %}}
 {{% choosable language yaml %}}
 ```yaml
@@ -670,12 +714,14 @@ config:
         value: Business App\Enterprise CIT
 
 ```
+
 ```yaml
 resources:
   # Generate a key pair and request a certificate
   webserver:
     type: venafi:Certificate
 ```
+
 {{% /choosable %}}
 {{% choosable language java %}}
 ```yaml
@@ -691,6 +737,7 @@ config:
         value: Business App\Enterprise CIT
 
 ```
+
 ```java
 package generated_program;
 
@@ -717,6 +764,7 @@ public class App {
     }
 }
 ```
+
 {{% /choosable %}}
 {{< /chooser >}}
 ### SG tenants
@@ -736,6 +784,7 @@ config:
         value: Business App\Enterprise CIT
 
 ```
+
 ```typescript
 import * as pulumi from "@pulumi/pulumi";
 import * as venafi from "@pulumi/venafi";
@@ -743,6 +792,7 @@ import * as venafi from "@pulumi/venafi";
 // Generate a key pair and request a certificate
 const webserver = new venafi.Certificate("webserver", {});
 ```
+
 {{% /choosable %}}
 {{% choosable language python %}}
 ```yaml
@@ -758,6 +808,7 @@ config:
         value: Business App\Enterprise CIT
 
 ```
+
 ```python
 import pulumi
 import pulumi_venafi as venafi
@@ -765,6 +816,7 @@ import pulumi_venafi as venafi
 # Generate a key pair and request a certificate
 webserver = venafi.Certificate("webserver")
 ```
+
 {{% /choosable %}}
 {{% choosable language csharp %}}
 ```yaml
@@ -780,6 +832,7 @@ config:
         value: Business App\Enterprise CIT
 
 ```
+
 ```csharp
 using System.Collections.Generic;
 using System.Linq;
@@ -794,6 +847,7 @@ return await Deployment.RunAsync(() =>
 });
 
 ```
+
 {{% /choosable %}}
 {{% choosable language go %}}
 ```yaml
@@ -809,6 +863,7 @@ config:
         value: Business App\Enterprise CIT
 
 ```
+
 ```go
 package main
 
@@ -828,6 +883,7 @@ func main() {
 	})
 }
 ```
+
 {{% /choosable %}}
 {{% choosable language yaml %}}
 ```yaml
@@ -843,12 +899,14 @@ config:
         value: Business App\Enterprise CIT
 
 ```
+
 ```yaml
 resources:
   # Generate a key pair and request a certificate
   webserver:
     type: venafi:Certificate
 ```
+
 {{% /choosable %}}
 {{% choosable language java %}}
 ```yaml
@@ -864,6 +922,7 @@ config:
         value: Business App\Enterprise CIT
 
 ```
+
 ```java
 package generated_program;
 
@@ -890,6 +949,7 @@ public class App {
     }
 }
 ```
+
 {{% /choosable %}}
 {{< /chooser >}}
 ### CA tenants
@@ -909,6 +969,7 @@ config:
         value: Business App\Enterprise CIT
 
 ```
+
 ```typescript
 import * as pulumi from "@pulumi/pulumi";
 import * as venafi from "@pulumi/venafi";
@@ -916,6 +977,7 @@ import * as venafi from "@pulumi/venafi";
 // Generate a key pair and request a certificate
 const webserver = new venafi.Certificate("webserver", {});
 ```
+
 {{% /choosable %}}
 {{% choosable language python %}}
 ```yaml
@@ -931,6 +993,7 @@ config:
         value: Business App\Enterprise CIT
 
 ```
+
 ```python
 import pulumi
 import pulumi_venafi as venafi
@@ -938,6 +1001,7 @@ import pulumi_venafi as venafi
 # Generate a key pair and request a certificate
 webserver = venafi.Certificate("webserver")
 ```
+
 {{% /choosable %}}
 {{% choosable language csharp %}}
 ```yaml
@@ -953,6 +1017,7 @@ config:
         value: Business App\Enterprise CIT
 
 ```
+
 ```csharp
 using System.Collections.Generic;
 using System.Linq;
@@ -967,6 +1032,7 @@ return await Deployment.RunAsync(() =>
 });
 
 ```
+
 {{% /choosable %}}
 {{% choosable language go %}}
 ```yaml
@@ -982,6 +1048,7 @@ config:
         value: Business App\Enterprise CIT
 
 ```
+
 ```go
 package main
 
@@ -1001,6 +1068,7 @@ func main() {
 	})
 }
 ```
+
 {{% /choosable %}}
 {{% choosable language yaml %}}
 ```yaml
@@ -1016,12 +1084,14 @@ config:
         value: Business App\Enterprise CIT
 
 ```
+
 ```yaml
 resources:
   # Generate a key pair and request a certificate
   webserver:
     type: venafi:Certificate
 ```
+
 {{% /choosable %}}
 {{% choosable language java %}}
 ```yaml
@@ -1037,6 +1107,7 @@ config:
         value: Business App\Enterprise CIT
 
 ```
+
 ```java
 package generated_program;
 
@@ -1063,6 +1134,7 @@ public class App {
     }
 }
 ```
+
 {{% /choosable %}}
 {{< /chooser >}}
 ## Example Usage for Venafi Trust Protection Platform
@@ -1095,6 +1167,7 @@ config:
         value: DevOps\Pulumi
 
 ```
+
 ```typescript
 import * as pulumi from "@pulumi/pulumi";
 import * as venafi from "@pulumi/venafi";
@@ -1102,6 +1175,7 @@ import * as venafi from "@pulumi/venafi";
 // Generate a key pair and request a certificate
 const webserver = new venafi.Certificate("webserver", {});
 ```
+
 {{% /choosable %}}
 {{% choosable language python %}}
 ```yaml
@@ -1119,6 +1193,7 @@ config:
         value: DevOps\Pulumi
 
 ```
+
 ```python
 import pulumi
 import pulumi_venafi as venafi
@@ -1126,6 +1201,7 @@ import pulumi_venafi as venafi
 # Generate a key pair and request a certificate
 webserver = venafi.Certificate("webserver")
 ```
+
 {{% /choosable %}}
 {{% choosable language csharp %}}
 ```yaml
@@ -1143,6 +1219,7 @@ config:
         value: DevOps\Pulumi
 
 ```
+
 ```csharp
 using System.Collections.Generic;
 using System.Linq;
@@ -1157,6 +1234,7 @@ return await Deployment.RunAsync(() =>
 });
 
 ```
+
 {{% /choosable %}}
 {{% choosable language go %}}
 ```yaml
@@ -1174,6 +1252,7 @@ config:
         value: DevOps\Pulumi
 
 ```
+
 ```go
 package main
 
@@ -1193,6 +1272,7 @@ func main() {
 	})
 }
 ```
+
 {{% /choosable %}}
 {{% choosable language yaml %}}
 ```yaml
@@ -1210,12 +1290,14 @@ config:
         value: DevOps\Pulumi
 
 ```
+
 ```yaml
 resources:
   # Generate a key pair and request a certificate
   webserver:
     type: venafi:Certificate
 ```
+
 {{% /choosable %}}
 {{% choosable language java %}}
 ```yaml
@@ -1233,6 +1315,7 @@ config:
         value: DevOps\Pulumi
 
 ```
+
 ```java
 package generated_program;
 
@@ -1259,6 +1342,7 @@ public class App {
     }
 }
 ```
+
 {{% /choosable %}}
 {{< /chooser >}}
 ## Configuration Reference
