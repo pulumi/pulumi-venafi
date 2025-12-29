@@ -58,8 +58,6 @@ import (
 //
 // Using `pulumi import`, import a Machine Identity from Venafi Control Plane using their ID. For example:
 //
-// console
-//
 // ```sh
 // $ pulumi import venafi:index/cloudKeystoreInstallation:CloudKeystoreInstallation example 2155bd32-2234-22ac-7cfd-ff1198845aa2
 // ```
