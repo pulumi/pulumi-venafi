@@ -1,0 +1,3 @@
+name: venafi
+description: A Pulumi resource provider for venafi.
+language: python
