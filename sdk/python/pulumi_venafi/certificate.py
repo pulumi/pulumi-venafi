@@ -957,7 +957,45 @@ class Certificate(pulumi.CustomResource):
                  valid_days: Optional[pulumi.Input[_builtins.int]] = None,
                  __props__=None):
         """
-        Create a Certificate resource with the given unique name, props, and options.
+        !> We dropped support for RSA PKCS#1 formatted keys for TLS certificates in version 15.0 and also for EC Keys in version
+        0.15.4 (you can find out more about this transition in [here](https://github.com/Venafi/vcert/releases/tag/v4.17.0)).
+        For backward compatibility during Terraform state refresh please update to version 0.15.5 or above.
+
+        Provides access to TLS key and certificate data enrolled using Venafi. This can be used to define a certificate.
+
+        The `Certificate` resource handles certificate renewals as long as a
+        `pulumi up` is run within the `expiration_window` period. Keep in mind that the
+        `expiration_window` in the provider configuration needs to align with the renewal
+        window of the issuing CA to achieve the desired result.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_venafi as venafi
+
+        webserver = venafi.Certificate("webserver",
+            common_name="web.venafi.example",
+            san_dns=[
+                "web01.venafi.example",
+                "web02.venafi.example",
+            ],
+            algorithm="RSA",
+            rsa_bits=2048,
+            key_password=pk_pass,
+            custom_fields={
+                "Cost Center": "AB1234",
+                "Environment": "UAT|Staging",
+            })
+        ```
+
+        ## Certificate Renewal
+
+        The `Certificate` resource handles certificate renewals as long as a
+        `pulumi up` is done within the `expiration_window` period. Keep in mind that the
+        `expiration_window` in the Terraform configuration needs to align with the renewal
+        window of the issuing CA to achieve the desired result.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] algorithm: Key encryption algorithm, either RSA or ECDSA. Defaults to `RSA`.
@@ -999,7 +1037,45 @@ class Certificate(pulumi.CustomResource):
                  args: CertificateArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a Certificate resource with the given unique name, props, and options.
+        !> We dropped support for RSA PKCS#1 formatted keys for TLS certificates in version 15.0 and also for EC Keys in version
+        0.15.4 (you can find out more about this transition in [here](https://github.com/Venafi/vcert/releases/tag/v4.17.0)).
+        For backward compatibility during Terraform state refresh please update to version 0.15.5 or above.
+
+        Provides access to TLS key and certificate data enrolled using Venafi. This can be used to define a certificate.
+
+        The `Certificate` resource handles certificate renewals as long as a
+        `pulumi up` is run within the `expiration_window` period. Keep in mind that the
+        `expiration_window` in the provider configuration needs to align with the renewal
+        window of the issuing CA to achieve the desired result.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_venafi as venafi
+
+        webserver = venafi.Certificate("webserver",
+            common_name="web.venafi.example",
+            san_dns=[
+                "web01.venafi.example",
+                "web02.venafi.example",
+            ],
+            algorithm="RSA",
+            rsa_bits=2048,
+            key_password=pk_pass,
+            custom_fields={
+                "Cost Center": "AB1234",
+                "Environment": "UAT|Staging",
+            })
+        ```
+
+        ## Certificate Renewal
+
+        The `Certificate` resource handles certificate renewals as long as a
+        `pulumi up` is done within the `expiration_window` period. Keep in mind that the
+        `expiration_window` in the Terraform configuration needs to align with the renewal
+        window of the issuing CA to achieve the desired result.
+
         :param str resource_name: The name of the resource.
         :param CertificateArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.

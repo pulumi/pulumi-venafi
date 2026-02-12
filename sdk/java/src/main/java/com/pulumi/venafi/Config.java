@@ -67,6 +67,10 @@ public final class Config {
     public Optional<String> p12CertPassword() {
         return Codegen.stringProp("p12CertPassword").config(config).get();
     }
+/**
+ * When true, certificates will not be retired on Venafi platforms when terraform destroy is run. Default is false
+ * 
+ */
     public Optional<Boolean> skipRetirement() {
         return Codegen.booleanProp("skipRetirement").config(config).get();
     }

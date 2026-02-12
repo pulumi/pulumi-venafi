@@ -18,6 +18,69 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * !&gt; We dropped support for RSA PKCS#1 formatted keys for TLS certificates in version 15.0 and also for EC Keys in version
+ * 0.15.4 (you can find out more about this transition in [here](https://github.com/Venafi/vcert/releases/tag/v4.17.0)).
+ * For backward compatibility during Terraform state refresh please update to version 0.15.5 or above.
+ * 
+ * Provides access to TLS key and certificate data enrolled using Venafi. This can be used to define a certificate.
+ * 
+ * The `venafi.Certificate` resource handles certificate renewals as long as a
+ * `pulumi up` is run within the `expirationWindow` period. Keep in mind that the
+ * `expirationWindow` in the provider configuration needs to align with the renewal
+ * window of the issuing CA to achieve the desired result.
+ * 
+ * ## Example Usage
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.venafi.Certificate;
+ * import com.pulumi.venafi.CertificateArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var webserver = new Certificate("webserver", CertificateArgs.builder()
+ *             .commonName("web.venafi.example")
+ *             .sanDns(            
+ *                 "web01.venafi.example",
+ *                 "web02.venafi.example")
+ *             .algorithm("RSA")
+ *             .rsaBits(2048)
+ *             .keyPassword(pkPass)
+ *             .customFields(Map.ofEntries(
+ *                 Map.entry("Cost Center", "AB1234"),
+ *                 Map.entry("Environment", "UAT|Staging")
+ *             ))
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * ## Certificate Renewal
+ * 
+ * The `venafi.Certificate` resource handles certificate renewals as long as a
+ * `pulumi up` is done within the `expirationWindow` period. Keep in mind that the
+ * `expirationWindow` in the Terraform configuration needs to align with the renewal
+ * window of the issuing CA to achieve the desired result.
+ * 
+ */
 @ResourceType(type="venafi:index/certificate:Certificate")
 public class Certificate extends com.pulumi.resources.CustomResource {
     /**

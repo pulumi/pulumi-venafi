@@ -95,6 +95,9 @@ Object.defineProperty(exports, "p12CertPassword", {
     enumerable: true,
 });
 
+/**
+ * When true, certificates will not be retired on Venafi platforms when terraform destroy is run. Default is false
+ */
 export declare const skipRetirement: boolean | undefined;
 Object.defineProperty(exports, "skipRetirement", {
     get() {

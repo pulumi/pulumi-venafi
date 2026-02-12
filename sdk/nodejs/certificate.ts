@@ -4,6 +4,47 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
+/**
+ * !> We dropped support for RSA PKCS#1 formatted keys for TLS certificates in version 15.0 and also for EC Keys in version
+ * 0.15.4 (you can find out more about this transition in [here](https://github.com/Venafi/vcert/releases/tag/v4.17.0)).
+ * For backward compatibility during Terraform state refresh please update to version 0.15.5 or above.
+ *
+ * Provides access to TLS key and certificate data enrolled using Venafi. This can be used to define a certificate.
+ *
+ * The `venafi.Certificate` resource handles certificate renewals as long as a
+ * `pulumi up` is run within the `expirationWindow` period. Keep in mind that the
+ * `expirationWindow` in the provider configuration needs to align with the renewal
+ * window of the issuing CA to achieve the desired result.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as venafi from "@pulumi/venafi";
+ *
+ * const webserver = new venafi.Certificate("webserver", {
+ *     commonName: "web.venafi.example",
+ *     sanDns: [
+ *         "web01.venafi.example",
+ *         "web02.venafi.example",
+ *     ],
+ *     algorithm: "RSA",
+ *     rsaBits: 2048,
+ *     keyPassword: pkPass,
+ *     customFields: {
+ *         "Cost Center": "AB1234",
+ *         Environment: "UAT|Staging",
+ *     },
+ * });
+ * ```
+ *
+ * ## Certificate Renewal
+ *
+ * The `venafi.Certificate` resource handles certificate renewals as long as a
+ * `pulumi up` is done within the `expirationWindow` period. Keep in mind that the
+ * `expirationWindow` in the Terraform configuration needs to align with the renewal
+ * window of the issuing CA to achieve the desired result.
+ */
 export class Certificate extends pulumi.CustomResource {
     /**
      * Get an existing Certificate resource's state with the given name, ID, and optional extra

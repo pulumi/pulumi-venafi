@@ -55,6 +55,9 @@ Password for the PKCS#12 keystore declared in p12_cert / p12_cert_data
 """
 
 skipRetirement: Optional[bool]
+"""
+When true, certificates will not be retired on Venafi platforms when terraform destroy is run. Default is false
+"""
 
 tokenUrl: Optional[str]
 """

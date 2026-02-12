@@ -78,6 +78,9 @@ class _ExportableConfig(types.ModuleType):
 
     @_builtins.property
     def skip_retirement(self) -> Optional[bool]:
+        """
+        When true, certificates will not be retired on Venafi platforms when terraform destroy is run. Default is false
+        """
         return __config__.get_bool('skipRetirement')
 
     @_builtins.property
