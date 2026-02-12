@@ -58,20 +58,41 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * The `venafi_policy` resource supports the Terraform import method.
- * 
- * When used, the `zone` and `policy_specification` resource arguments are not required since the zone is a required
- * 
+ * The `venafi.Policy` resource supports the Terraform import method.
+ * When used, the `zone` and `policySpecification` resource arguments are not required since the zone is a required
  * parameter of the import method and the policy specification is populated from the existing infrastructure. Policy that
- * 
  * is successfully imported is also output to a file named after the zone that was specified.
  * 
- * hcl
+ * <pre>
+ * {@code
+ * package generated_program;
  * 
- * resource &#34;venafi_policy&#34; &#34;existing_policy&#34; {}
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.venafi.Policy;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var existingPolicy = new Policy("existingPolicy");
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
  * 
  * ```sh
- * $ pulumi import venafi:index/policy:Policy existing_policy&#34; &#34;My Business App\\Enterprise Trusted Certs&#34;
+ * terraform import &#34;venafi_policy.existing_policy&#34; &#34;My Business App\\Enterprise Trusted Certs&#34;
  * ```
  * 
  */

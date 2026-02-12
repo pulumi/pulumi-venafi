@@ -113,6 +113,9 @@ namespace Pulumi.Venafi
         }
 
         private static readonly __Value<bool?> _skipRetirement = new __Value<bool?>(() => __config.GetBoolean("skipRetirement"));
+        /// <summary>
+        /// When true, certificates will not be retired on Venafi platforms when terraform destroy is run. Default is false
+        /// </summary>
         public static bool? SkipRetirement
         {
             get => _skipRetirement.Get();

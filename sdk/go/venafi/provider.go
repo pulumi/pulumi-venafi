@@ -114,7 +114,8 @@ type providerArgs struct {
 	P12CertFilename *string `pulumi:"p12CertFilename"`
 	// Password for the PKCS#12 keystore declared in p12Cert / p12_cert_data
 	P12CertPassword *string `pulumi:"p12CertPassword"`
-	SkipRetirement  *bool   `pulumi:"skipRetirement"`
+	// When true, certificates will not be retired on Venafi platforms when terraform destroy is run. Default is false
+	SkipRetirement *bool `pulumi:"skipRetirement"`
 	// Endpoint URL to request new Venafi Control Plane access tokens
 	TokenUrl *string `pulumi:"tokenUrl"`
 	// Password for WebSDK user. Example: password
@@ -155,7 +156,8 @@ type ProviderArgs struct {
 	P12CertFilename pulumi.StringPtrInput
 	// Password for the PKCS#12 keystore declared in p12Cert / p12_cert_data
 	P12CertPassword pulumi.StringPtrInput
-	SkipRetirement  pulumi.BoolPtrInput
+	// When true, certificates will not be retired on Venafi platforms when terraform destroy is run. Default is false
+	SkipRetirement pulumi.BoolPtrInput
 	// Endpoint URL to request new Venafi Control Plane access tokens
 	TokenUrl pulumi.StringPtrInput
 	// Password for WebSDK user. Example: password

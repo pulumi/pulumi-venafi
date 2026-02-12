@@ -165,6 +165,9 @@ export interface ProviderArgs {
      * Password for the PKCS#12 keystore declared in p12Cert / p12_cert_data
      */
     p12CertPassword?: pulumi.Input<string>;
+    /**
+     * When true, certificates will not be retired on Venafi platforms when terraform destroy is run. Default is false
+     */
     skipRetirement?: pulumi.Input<boolean>;
     /**
      * Endpoint URL to request new Venafi Control Plane access tokens

@@ -50,6 +50,8 @@ func GetP12CertFilename(ctx *pulumi.Context) string {
 func GetP12CertPassword(ctx *pulumi.Context) string {
 	return config.Get(ctx, "venafi:p12CertPassword")
 }
+
+// When true, certificates will not be retired on Venafi platforms when terraform destroy is run. Default is false
 func GetSkipRetirement(ctx *pulumi.Context) bool {
 	return config.GetBool(ctx, "venafi:skipRetirement")
 }

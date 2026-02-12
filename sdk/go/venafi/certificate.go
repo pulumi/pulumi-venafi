@@ -12,6 +12,60 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// !> We dropped support for RSA PKCS#1 formatted keys for TLS certificates in version 15.0 and also for EC Keys in version
+// 0.15.4 (you can find out more about this transition in [here](https://github.com/Venafi/vcert/releases/tag/v4.17.0)).
+// For backward compatibility during Terraform state refresh please update to version 0.15.5 or above.
+//
+// Provides access to TLS key and certificate data enrolled using Venafi. This can be used to define a certificate.
+//
+// The `Certificate` resource handles certificate renewals as long as a
+// `pulumi up` is run within the `expirationWindow` period. Keep in mind that the
+// `expirationWindow` in the provider configuration needs to align with the renewal
+// window of the issuing CA to achieve the desired result.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-venafi/sdk/go/venafi"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := venafi.NewCertificate(ctx, "webserver", &venafi.CertificateArgs{
+//				CommonName: pulumi.String("web.venafi.example"),
+//				SanDns: pulumi.StringArray{
+//					pulumi.String("web01.venafi.example"),
+//					pulumi.String("web02.venafi.example"),
+//				},
+//				Algorithm:   pulumi.String("RSA"),
+//				RsaBits:     pulumi.Int(2048),
+//				KeyPassword: pulumi.Any(pkPass),
+//				CustomFields: pulumi.StringMap{
+//					"Cost Center": pulumi.String("AB1234"),
+//					"Environment": pulumi.String("UAT|Staging"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Certificate Renewal
+//
+// The `Certificate` resource handles certificate renewals as long as a
+// `pulumi up` is done within the `expirationWindow` period. Keep in mind that the
+// `expirationWindow` in the Terraform configuration needs to align with the renewal
+// window of the issuing CA to achieve the desired result.
 type Certificate struct {
 	pulumi.CustomResourceState
 
