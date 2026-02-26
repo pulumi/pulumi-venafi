@@ -22,6 +22,7 @@ class SshConfigArgs:
                  template: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a SshConfig resource.
+
         :param pulumi.Input[_builtins.str] template: The SSH certificate issuing template.
         """
         pulumi.set(__self__, "template", template)
@@ -47,6 +48,7 @@ class _SshConfigState:
                  template: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering SshConfig resources.
+
         :param pulumi.Input[_builtins.str] ca_public_key: (Optional, string) The template's CA public key.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] principals: (Optional, set of strings) A list of user names exported from the template.
         :param pulumi.Input[_builtins.str] template: The SSH certificate issuing template.
@@ -115,6 +117,7 @@ class SshConfig(pulumi.CustomResource):
         cit = venafi.SshConfig("cit", template="devops-terraform-cit")
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] template: The SSH certificate issuing template.
@@ -136,6 +139,7 @@ class SshConfig(pulumi.CustomResource):
 
         cit = venafi.SshConfig("cit", template="devops-terraform-cit")
         ```
+
 
         :param str resource_name: The name of the resource.
         :param SshConfigArgs args: The arguments to use to populate this resource's properties.

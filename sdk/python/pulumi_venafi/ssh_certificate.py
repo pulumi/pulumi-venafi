@@ -37,6 +37,7 @@ class SshCertificateArgs:
                  windows: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a SshCertificate resource.
+
         :param pulumi.Input[_builtins.str] key_id: The identifier of the requested SSH certificate.
         :param pulumi.Input[_builtins.str] template: The SSH certificate issuing template.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] destination_addresses: A list of one or more valid IP or CIDR destination hosts where the 
@@ -327,6 +328,7 @@ class _SshCertificateState:
                  windows: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering SshCertificate resources.
+
         :param pulumi.Input[_builtins.str] certificate: The issued SSH certificate.
         :param pulumi.Input[_builtins.str] certificate_type: Indicates whether the SSH certificate is for client or server authentication.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] destination_addresses: A list of one or more valid IP or CIDR destination hosts where the 
@@ -752,6 +754,7 @@ class SshCertificate(pulumi.CustomResource):
             valid_hours=24)
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] destination_addresses: A list of one or more valid IP or CIDR destination hosts where the 
@@ -803,6 +806,7 @@ class SshCertificate(pulumi.CustomResource):
             principals=["seamus"],
             valid_hours=24)
         ```
+
 
         :param str resource_name: The name of the resource.
         :param SshCertificateArgs args: The arguments to use to populate this resource's properties.

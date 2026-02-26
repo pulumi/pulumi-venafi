@@ -47,6 +47,7 @@ class CertificateArgs:
                  valid_days: Optional[pulumi.Input[_builtins.int]] = None):
         """
         The set of arguments for constructing a Certificate resource.
+
         :param pulumi.Input[_builtins.str] common_name: The common name of the certificate.
         :param pulumi.Input[_builtins.str] algorithm: Key encryption algorithm, either RSA or ECDSA. Defaults to `RSA`.
         :param pulumi.Input[_builtins.str] country: Country of the certificate (C)
@@ -479,6 +480,7 @@ class _CertificateState:
                  valid_days: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering Certificate resources.
+
         :param pulumi.Input[_builtins.str] algorithm: Key encryption algorithm, either RSA or ECDSA. Defaults to `RSA`.
         :param pulumi.Input[_builtins.str] certificate: The X509 certificate in PEM format.
         :param pulumi.Input[_builtins.str] certificate_id: ID of the issued certificate
@@ -996,6 +998,7 @@ class Certificate(pulumi.CustomResource):
         `expiration_window` in the Terraform configuration needs to align with the renewal
         window of the issuing CA to achieve the desired result.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] algorithm: Key encryption algorithm, either RSA or ECDSA. Defaults to `RSA`.
@@ -1075,6 +1078,7 @@ class Certificate(pulumi.CustomResource):
         `pulumi up` is done within the `expiration_window` period. Keep in mind that the
         `expiration_window` in the Terraform configuration needs to align with the renewal
         window of the issuing CA to achieve the desired result.
+
 
         :param str resource_name: The name of the resource.
         :param CertificateArgs args: The arguments to use to populate this resource's properties.
