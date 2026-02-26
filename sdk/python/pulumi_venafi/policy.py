@@ -23,6 +23,7 @@ class PolicyArgs:
                  zone: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Policy resource.
+
         :param pulumi.Input[_builtins.str] policy_specification: The JSON-formatted certificate policy specification as documented 
                [here](https://github.com/Venafi/vcert/blob/master/README-POLICY-SPEC.md). Typically read from a file using the `file`
                function.
@@ -69,6 +70,7 @@ class _PolicyState:
                  zone: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Policy resources.
+
         :param pulumi.Input[_builtins.str] policy_specification: The JSON-formatted certificate policy specification as documented 
                [here](https://github.com/Venafi/vcert/blob/master/README-POLICY-SPEC.md). Typically read from a file using the `file`
                function.
@@ -151,6 +153,7 @@ class Policy(pulumi.CustomResource):
         terraform import "venafi_policy.existing_policy" "My Business App\\\\Enterprise Trusted Certs"
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] policy_specification: The JSON-formatted certificate policy specification as documented 
@@ -198,6 +201,7 @@ class Policy(pulumi.CustomResource):
         ```sh
         terraform import "venafi_policy.existing_policy" "My Business App\\\\Enterprise Trusted Certs"
         ```
+
 
         :param str resource_name: The name of the resource.
         :param PolicyArgs args: The arguments to use to populate this resource's properties.
