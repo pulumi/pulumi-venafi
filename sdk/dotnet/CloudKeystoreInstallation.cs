@@ -25,7 +25,7 @@ namespace Pulumi.Venafi
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     // Provision a certificate to cloud keystore with static values
-    ///     var ckInstallationExampleById = new Venafi.CloudKeystoreInstallation("ck_installation_example_by_id", new()
+    ///     var ckInstallationExampleById = new Venafi.Index.CloudKeystoreInstallation("ck_installation_example_by_id", new()
     ///     {
     ///         CloudKeystoreId = "e48897d0-2762-11ef-198k-79ac590dd358",
     ///         CertificateId = "1877af16-2762-11ef-8fab-cc123456ff7",
@@ -33,7 +33,7 @@ namespace Pulumi.Venafi
     ///     });
     /// 
     ///     // Provision a certificate to cloud keystore
-    ///     var ckInstallationExample = new Venafi.CloudKeystoreInstallation("ck_installation_example", new()
+    ///     var ckInstallationExample = new Venafi.Index.CloudKeystoreInstallation("ck_installation_example", new()
     ///     {
     ///         CloudKeystoreId = ckExample.Id,
     ///         CertificateId = certificateExample.CertificateId,

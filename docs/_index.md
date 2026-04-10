@@ -108,7 +108,7 @@ using Venafi = Pulumi.Venafi;
 return await Deployment.RunAsync(() =>
 {
     // Generate a key pair and request a certificate
-    var webserver = new Venafi.Certificate("webserver");
+    var webserver = new Venafi.Index.Certificate("webserver");
 
 });
 
@@ -287,7 +287,7 @@ using Venafi = Pulumi.Venafi;
 return await Deployment.RunAsync(() =>
 {
     // Generate a key pair and request a certificate
-    var webserver = new Venafi.Certificate("webserver");
+    var webserver = new Venafi.Index.Certificate("webserver");
 
 });
 
@@ -472,7 +472,7 @@ using Venafi = Pulumi.Venafi;
 return await Deployment.RunAsync(() =>
 {
     // Generate a key pair and request a certificate
-    var webserver = new Venafi.Certificate("webserver");
+    var webserver = new Venafi.Index.Certificate("webserver");
 
 });
 
@@ -657,7 +657,7 @@ using Venafi = Pulumi.Venafi;
 return await Deployment.RunAsync(() =>
 {
     // Generate a key pair and request a certificate
-    var webserver = new Venafi.Certificate("webserver");
+    var webserver = new Venafi.Index.Certificate("webserver");
 
 });
 
@@ -842,7 +842,7 @@ using Venafi = Pulumi.Venafi;
 return await Deployment.RunAsync(() =>
 {
     // Generate a key pair and request a certificate
-    var webserver = new Venafi.Certificate("webserver");
+    var webserver = new Venafi.Index.Certificate("webserver");
 
 });
 
@@ -1027,7 +1027,7 @@ using Venafi = Pulumi.Venafi;
 return await Deployment.RunAsync(() =>
 {
     // Generate a key pair and request a certificate
-    var webserver = new Venafi.Certificate("webserver");
+    var webserver = new Venafi.Index.Certificate("webserver");
 
 });
 
@@ -1229,7 +1229,7 @@ using Venafi = Pulumi.Venafi;
 return await Deployment.RunAsync(() =>
 {
     // Generate a key pair and request a certificate
-    var webserver = new Venafi.Certificate("webserver");
+    var webserver = new Venafi.Index.Certificate("webserver");
 
 });
 

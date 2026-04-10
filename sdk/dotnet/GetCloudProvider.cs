@@ -25,7 +25,7 @@ namespace Pulumi.Venafi
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
         ///     // Find a cloud provider
-        ///     var cpExample = Venafi.GetCloudProvider.Invoke(new()
+        ///     var cpExample = Venafi.Index.GetCloudProvider.Invoke(new()
         ///     {
         ///         Name = "Cloud Provider Example",
         ///     });
@@ -50,7 +50,7 @@ namespace Pulumi.Venafi
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
         ///     // Find a cloud provider
-        ///     var cpExample = Venafi.GetCloudProvider.Invoke(new()
+        ///     var cpExample = Venafi.Index.GetCloudProvider.Invoke(new()
         ///     {
         ///         Name = "Cloud Provider Example",
         ///     });
@@ -75,7 +75,7 @@ namespace Pulumi.Venafi
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
         ///     // Find a cloud provider
-        ///     var cpExample = Venafi.GetCloudProvider.Invoke(new()
+        ///     var cpExample = Venafi.Index.GetCloudProvider.Invoke(new()
         ///     {
         ///         Name = "Cloud Provider Example",
         ///     });
