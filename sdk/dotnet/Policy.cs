@@ -24,10 +24,10 @@ namespace Pulumi.Venafi
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var internalPolicy = new Venafi.Policy("internal_policy", new()
+    ///     var internalPolicy = new Venafi.Index.Policy("internal_policy", new()
     ///     {
     ///         Zone = "My Business App\\Enterprise Trusted Certs",
-    ///         PolicySpecification = Std.File.Invoke(new()
+    ///         PolicySpecification = Std.Index.File.Invoke(new()
     ///         {
     ///             Input = "/path-to/internal-policy.json",
     ///         }).Apply(invoke =&gt; invoke.Result),
@@ -51,7 +51,7 @@ namespace Pulumi.Venafi
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var existingPolicy = new Venafi.Policy("existing_policy");
+    ///     var existingPolicy = new Venafi.Index.Policy("existing_policy");
     /// 
     /// });
     /// ```

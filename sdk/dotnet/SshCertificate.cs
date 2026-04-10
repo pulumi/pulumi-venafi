@@ -22,7 +22,7 @@ namespace Pulumi.Venafi
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var sshCert = new Venafi.SshCertificate("ssh_cert", new()
+    ///     var sshCert = new Venafi.Index.SshCertificate("ssh_cert", new()
     ///     {
     ///         KeyId = "my-first-ssh-certificate",
     ///         Template = "Sample SSH CA",

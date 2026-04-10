@@ -31,7 +31,7 @@ namespace Pulumi.Venafi
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var webserver = new Venafi.Certificate("webserver", new()
+    ///     var webserver = new Venafi.Index.Certificate("webserver", new()
     ///     {
     ///         CommonName = "web.venafi.example",
     ///         SanDns = new[]

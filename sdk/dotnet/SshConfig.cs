@@ -22,7 +22,7 @@ namespace Pulumi.Venafi
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var cit = new Venafi.SshConfig("cit", new()
+    ///     var cit = new Venafi.Index.SshConfig("cit", new()
     ///     {
     ///         Template = "devops-terraform-cit",
     ///     });

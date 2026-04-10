@@ -26,14 +26,14 @@ namespace Pulumi.Venafi
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
         ///     // Find a cloud keystore with a static cloud provider id
-        ///     var ckExampleById = Venafi.GetCloudKeystore.Invoke(new()
+        ///     var ckExampleById = Venafi.Index.GetCloudKeystore.Invoke(new()
         ///     {
         ///         CloudProviderId = "e48897d0-2762-11ef-8fab-79ac590dd358",
         ///         Name = "Cloud Keystore Example",
         ///     });
         /// 
         ///     // Find a cloud keystore by using venafi_cloud_provider data source as input
-        ///     var ckExample = Venafi.GetCloudKeystore.Invoke(new()
+        ///     var ckExample = Venafi.Index.GetCloudKeystore.Invoke(new()
         ///     {
         ///         CloudProviderId = cpExample.Id,
         ///         Name = "Cloud Keystore example",
@@ -60,14 +60,14 @@ namespace Pulumi.Venafi
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
         ///     // Find a cloud keystore with a static cloud provider id
-        ///     var ckExampleById = Venafi.GetCloudKeystore.Invoke(new()
+        ///     var ckExampleById = Venafi.Index.GetCloudKeystore.Invoke(new()
         ///     {
         ///         CloudProviderId = "e48897d0-2762-11ef-8fab-79ac590dd358",
         ///         Name = "Cloud Keystore Example",
         ///     });
         /// 
         ///     // Find a cloud keystore by using venafi_cloud_provider data source as input
-        ///     var ckExample = Venafi.GetCloudKeystore.Invoke(new()
+        ///     var ckExample = Venafi.Index.GetCloudKeystore.Invoke(new()
         ///     {
         ///         CloudProviderId = cpExample.Id,
         ///         Name = "Cloud Keystore example",
@@ -94,14 +94,14 @@ namespace Pulumi.Venafi
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
         ///     // Find a cloud keystore with a static cloud provider id
-        ///     var ckExampleById = Venafi.GetCloudKeystore.Invoke(new()
+        ///     var ckExampleById = Venafi.Index.GetCloudKeystore.Invoke(new()
         ///     {
         ///         CloudProviderId = "e48897d0-2762-11ef-8fab-79ac590dd358",
         ///         Name = "Cloud Keystore Example",
         ///     });
         /// 
         ///     // Find a cloud keystore by using venafi_cloud_provider data source as input
-        ///     var ckExample = Venafi.GetCloudKeystore.Invoke(new()
+        ///     var ckExample = Venafi.Index.GetCloudKeystore.Invoke(new()
         ///     {
         ///         CloudProviderId = cpExample.Id,
         ///         Name = "Cloud Keystore example",
