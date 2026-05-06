@@ -33,8 +33,8 @@ public final class VenafiFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.venafi.VenafiFunctions;
      * import com.pulumi.venafi.inputs.GetCloudKeystoreArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -82,8 +82,8 @@ public final class VenafiFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.venafi.VenafiFunctions;
      * import com.pulumi.venafi.inputs.GetCloudKeystoreArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -131,8 +131,8 @@ public final class VenafiFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.venafi.VenafiFunctions;
      * import com.pulumi.venafi.inputs.GetCloudKeystoreArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -180,8 +180,8 @@ public final class VenafiFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.venafi.VenafiFunctions;
      * import com.pulumi.venafi.inputs.GetCloudKeystoreArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -229,8 +229,8 @@ public final class VenafiFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.venafi.VenafiFunctions;
      * import com.pulumi.venafi.inputs.GetCloudKeystoreArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -277,8 +277,8 @@ public final class VenafiFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.venafi.VenafiFunctions;
      * import com.pulumi.venafi.inputs.GetCloudProviderArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -318,8 +318,8 @@ public final class VenafiFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.venafi.VenafiFunctions;
      * import com.pulumi.venafi.inputs.GetCloudProviderArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -359,8 +359,8 @@ public final class VenafiFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.venafi.VenafiFunctions;
      * import com.pulumi.venafi.inputs.GetCloudProviderArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -400,8 +400,8 @@ public final class VenafiFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.venafi.VenafiFunctions;
      * import com.pulumi.venafi.inputs.GetCloudProviderArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -441,8 +441,8 @@ public final class VenafiFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.venafi.VenafiFunctions;
      * import com.pulumi.venafi.inputs.GetCloudProviderArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
