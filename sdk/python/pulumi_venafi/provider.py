@@ -19,21 +19,21 @@ __all__ = ['ProviderArgs', 'Provider']
 @pulumi.input_type
 class ProviderArgs:
     def __init__(__self__, *,
-                 access_token: Optional[pulumi.Input[_builtins.str]] = None,
-                 api_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 client_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 dev_mode: Optional[pulumi.Input[_builtins.bool]] = None,
-                 external_jwt: Optional[pulumi.Input[_builtins.str]] = None,
-                 p12_cert_data: Optional[pulumi.Input[_builtins.str]] = None,
-                 p12_cert_filename: Optional[pulumi.Input[_builtins.str]] = None,
-                 p12_cert_password: Optional[pulumi.Input[_builtins.str]] = None,
-                 skip_retirement: Optional[pulumi.Input[_builtins.bool]] = None,
-                 token_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 tpp_password: Optional[pulumi.Input[_builtins.str]] = None,
-                 tpp_username: Optional[pulumi.Input[_builtins.str]] = None,
-                 trust_bundle: Optional[pulumi.Input[_builtins.str]] = None,
-                 url: Optional[pulumi.Input[_builtins.str]] = None,
-                 zone: Optional[pulumi.Input[_builtins.str]] = None):
+                 access_token: pulumi.Input[Optional[_builtins.str]] = None,
+                 api_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 dev_mode: pulumi.Input[Optional[_builtins.bool]] = None,
+                 external_jwt: pulumi.Input[Optional[_builtins.str]] = None,
+                 p12_cert_data: pulumi.Input[Optional[_builtins.str]] = None,
+                 p12_cert_filename: pulumi.Input[Optional[_builtins.str]] = None,
+                 p12_cert_password: pulumi.Input[Optional[_builtins.str]] = None,
+                 skip_retirement: pulumi.Input[Optional[_builtins.bool]] = None,
+                 token_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 tpp_password: pulumi.Input[Optional[_builtins.str]] = None,
+                 tpp_username: pulumi.Input[Optional[_builtins.str]] = None,
+                 trust_bundle: pulumi.Input[Optional[_builtins.str]] = None,
+                 url: pulumi.Input[Optional[_builtins.str]] = None,
+                 zone: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Provider resource.
 
@@ -96,153 +96,153 @@ class ProviderArgs:
 
     @_builtins.property
     @pulumi.getter(name="accessToken")
-    def access_token(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def access_token(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Access token for Venafi TLSPDC, user should use this for authentication
         """
         return pulumi.get(self, "access_token")
 
     @access_token.setter
-    def access_token(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def access_token(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "access_token", value)
 
     @_builtins.property
     @pulumi.getter(name="apiKey")
-    def api_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def api_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         API key for Venafi Control Plane. Example: 142231b7-cvb0-412e-886b-6aeght0bc93d
         """
         return pulumi.get(self, "api_key")
 
     @api_key.setter
-    def api_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def api_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "api_key", value)
 
     @_builtins.property
     @pulumi.getter(name="clientId")
-    def client_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def client_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         application that will be using the token
         """
         return pulumi.get(self, "client_id")
 
     @client_id.setter
-    def client_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def client_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "client_id", value)
 
     @_builtins.property
     @pulumi.getter(name="devMode")
-    def dev_mode(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def dev_mode(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         When set to true, the resulting certificate will be issued by an ephemeral, no trust CA rather than enrolling using Venafi as a Service or Trust Protection Platform. Useful for development and testing
         """
         return pulumi.get(self, "dev_mode")
 
     @dev_mode.setter
-    def dev_mode(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def dev_mode(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "dev_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="externalJwt")
-    def external_jwt(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def external_jwt(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         JWT of the identity provider associated to the Venafi Control Plane service account that is granting the access token
         """
         return pulumi.get(self, "external_jwt")
 
     @external_jwt.setter
-    def external_jwt(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def external_jwt(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "external_jwt", value)
 
     @_builtins.property
     @pulumi.getter(name="p12CertData")
-    def p12_cert_data(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def p12_cert_data(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Base64 encoded PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to TLSPDC
         """
         return pulumi.get(self, "p12_cert_data")
 
     @p12_cert_data.setter
-    def p12_cert_data(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def p12_cert_data(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "p12_cert_data", value)
 
     @_builtins.property
     @pulumi.getter(name="p12CertFilename")
-    def p12_cert_filename(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def p12_cert_filename(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Filename of PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to TLSPDC
         """
         return pulumi.get(self, "p12_cert_filename")
 
     @p12_cert_filename.setter
-    def p12_cert_filename(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def p12_cert_filename(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "p12_cert_filename", value)
 
     @_builtins.property
     @pulumi.getter(name="p12CertPassword")
-    def p12_cert_password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def p12_cert_password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Password for the PKCS#12 keystore declared in p12_cert / p12_cert_data
         """
         return pulumi.get(self, "p12_cert_password")
 
     @p12_cert_password.setter
-    def p12_cert_password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def p12_cert_password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "p12_cert_password", value)
 
     @_builtins.property
     @pulumi.getter(name="skipRetirement")
-    def skip_retirement(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def skip_retirement(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         When true, certificates will not be retired on Venafi platforms when terraform destroy is run. Default is false
         """
         return pulumi.get(self, "skip_retirement")
 
     @skip_retirement.setter
-    def skip_retirement(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def skip_retirement(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "skip_retirement", value)
 
     @_builtins.property
     @pulumi.getter(name="tokenUrl")
-    def token_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def token_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Endpoint URL to request new Venafi Control Plane access tokens
         """
         return pulumi.get(self, "token_url")
 
     @token_url.setter
-    def token_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def token_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "token_url", value)
 
     @_builtins.property
     @pulumi.getter(name="tppPassword")
     @_utilities.deprecated(""", please use access_token instead""")
-    def tpp_password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tpp_password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Password for WebSDK user. Example: password
         """
         return pulumi.get(self, "tpp_password")
 
     @tpp_password.setter
-    def tpp_password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tpp_password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tpp_password", value)
 
     @_builtins.property
     @pulumi.getter(name="tppUsername")
     @_utilities.deprecated(""", please use access_token instead""")
-    def tpp_username(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tpp_username(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         WebSDK user for Venafi TLSPDC. Example: admin
         """
         return pulumi.get(self, "tpp_username")
 
     @tpp_username.setter
-    def tpp_username(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tpp_username(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tpp_username", value)
 
     @_builtins.property
     @pulumi.getter(name="trustBundle")
-    def trust_bundle(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def trust_bundle(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Use to specify a PEM-formatted file that contains certificates to be trust anchors for all communications with the Venafi Web Service.
         Example:
@@ -251,24 +251,24 @@ class ProviderArgs:
         return pulumi.get(self, "trust_bundle")
 
     @trust_bundle.setter
-    def trust_bundle(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def trust_bundle(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "trust_bundle", value)
 
     @_builtins.property
     @pulumi.getter
-    def url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Venafi Platform URL. Example: https://tpp.venafi.example/vedsdk
         """
         return pulumi.get(self, "url")
 
     @url.setter
-    def url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "url", value)
 
     @_builtins.property
     @pulumi.getter
-    def zone(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def zone(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         DN of the Venafi TLSPDC policy folder or name of the Venafi as a Service application plus issuing template alias. 
         Example for Platform: testPolicy\\\\vault
@@ -277,7 +277,7 @@ class ProviderArgs:
         return pulumi.get(self, "zone")
 
     @zone.setter
-    def zone(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def zone(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "zone", value)
 
 
@@ -287,21 +287,21 @@ class Provider(pulumi.ProviderResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_token: Optional[pulumi.Input[_builtins.str]] = None,
-                 api_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 client_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 dev_mode: Optional[pulumi.Input[_builtins.bool]] = None,
-                 external_jwt: Optional[pulumi.Input[_builtins.str]] = None,
-                 p12_cert_data: Optional[pulumi.Input[_builtins.str]] = None,
-                 p12_cert_filename: Optional[pulumi.Input[_builtins.str]] = None,
-                 p12_cert_password: Optional[pulumi.Input[_builtins.str]] = None,
-                 skip_retirement: Optional[pulumi.Input[_builtins.bool]] = None,
-                 token_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 tpp_password: Optional[pulumi.Input[_builtins.str]] = None,
-                 tpp_username: Optional[pulumi.Input[_builtins.str]] = None,
-                 trust_bundle: Optional[pulumi.Input[_builtins.str]] = None,
-                 url: Optional[pulumi.Input[_builtins.str]] = None,
-                 zone: Optional[pulumi.Input[_builtins.str]] = None,
+                 access_token: pulumi.Input[Optional[_builtins.str]] = None,
+                 api_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 dev_mode: pulumi.Input[Optional[_builtins.bool]] = None,
+                 external_jwt: pulumi.Input[Optional[_builtins.str]] = None,
+                 p12_cert_data: pulumi.Input[Optional[_builtins.str]] = None,
+                 p12_cert_filename: pulumi.Input[Optional[_builtins.str]] = None,
+                 p12_cert_password: pulumi.Input[Optional[_builtins.str]] = None,
+                 skip_retirement: pulumi.Input[Optional[_builtins.bool]] = None,
+                 token_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 tpp_password: pulumi.Input[Optional[_builtins.str]] = None,
+                 tpp_username: pulumi.Input[Optional[_builtins.str]] = None,
+                 trust_bundle: pulumi.Input[Optional[_builtins.str]] = None,
+                 url: pulumi.Input[Optional[_builtins.str]] = None,
+                 zone: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         The provider type for the venafi package. By default, resources use package-wide configuration
@@ -360,21 +360,21 @@ class Provider(pulumi.ProviderResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_token: Optional[pulumi.Input[_builtins.str]] = None,
-                 api_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 client_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 dev_mode: Optional[pulumi.Input[_builtins.bool]] = None,
-                 external_jwt: Optional[pulumi.Input[_builtins.str]] = None,
-                 p12_cert_data: Optional[pulumi.Input[_builtins.str]] = None,
-                 p12_cert_filename: Optional[pulumi.Input[_builtins.str]] = None,
-                 p12_cert_password: Optional[pulumi.Input[_builtins.str]] = None,
-                 skip_retirement: Optional[pulumi.Input[_builtins.bool]] = None,
-                 token_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 tpp_password: Optional[pulumi.Input[_builtins.str]] = None,
-                 tpp_username: Optional[pulumi.Input[_builtins.str]] = None,
-                 trust_bundle: Optional[pulumi.Input[_builtins.str]] = None,
-                 url: Optional[pulumi.Input[_builtins.str]] = None,
-                 zone: Optional[pulumi.Input[_builtins.str]] = None,
+                 access_token: pulumi.Input[Optional[_builtins.str]] = None,
+                 api_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 dev_mode: pulumi.Input[Optional[_builtins.bool]] = None,
+                 external_jwt: pulumi.Input[Optional[_builtins.str]] = None,
+                 p12_cert_data: pulumi.Input[Optional[_builtins.str]] = None,
+                 p12_cert_filename: pulumi.Input[Optional[_builtins.str]] = None,
+                 p12_cert_password: pulumi.Input[Optional[_builtins.str]] = None,
+                 skip_retirement: pulumi.Input[Optional[_builtins.bool]] = None,
+                 token_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 tpp_password: pulumi.Input[Optional[_builtins.str]] = None,
+                 tpp_username: pulumi.Input[Optional[_builtins.str]] = None,
+                 trust_bundle: pulumi.Input[Optional[_builtins.str]] = None,
+                 url: pulumi.Input[Optional[_builtins.str]] = None,
+                 zone: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

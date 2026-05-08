@@ -19,8 +19,8 @@ __all__ = ['PolicyArgs', 'Policy']
 @pulumi.input_type
 class PolicyArgs:
     def __init__(__self__, *,
-                 policy_specification: Optional[pulumi.Input[_builtins.str]] = None,
-                 zone: Optional[pulumi.Input[_builtins.str]] = None):
+                 policy_specification: pulumi.Input[Optional[_builtins.str]] = None,
+                 zone: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Policy resource.
 
@@ -37,7 +37,7 @@ class PolicyArgs:
 
     @_builtins.property
     @pulumi.getter(name="policySpecification")
-    def policy_specification(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def policy_specification(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The JSON-formatted certificate policy specification as documented 
         [here](https://github.com/Venafi/vcert/blob/master/README-POLICY-SPEC.md). Typically read from a file using the `file`
@@ -46,12 +46,12 @@ class PolicyArgs:
         return pulumi.get(self, "policy_specification")
 
     @policy_specification.setter
-    def policy_specification(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def policy_specification(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "policy_specification", value)
 
     @_builtins.property
     @pulumi.getter
-    def zone(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def zone(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The *Trust Protection Plaform* policy folder or *Venafi Control Plane* application and 
         issuing template.
@@ -59,15 +59,15 @@ class PolicyArgs:
         return pulumi.get(self, "zone")
 
     @zone.setter
-    def zone(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def zone(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "zone", value)
 
 
 @pulumi.input_type
 class _PolicyState:
     def __init__(__self__, *,
-                 policy_specification: Optional[pulumi.Input[_builtins.str]] = None,
-                 zone: Optional[pulumi.Input[_builtins.str]] = None):
+                 policy_specification: pulumi.Input[Optional[_builtins.str]] = None,
+                 zone: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Policy resources.
 
@@ -84,7 +84,7 @@ class _PolicyState:
 
     @_builtins.property
     @pulumi.getter(name="policySpecification")
-    def policy_specification(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def policy_specification(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The JSON-formatted certificate policy specification as documented 
         [here](https://github.com/Venafi/vcert/blob/master/README-POLICY-SPEC.md). Typically read from a file using the `file`
@@ -93,12 +93,12 @@ class _PolicyState:
         return pulumi.get(self, "policy_specification")
 
     @policy_specification.setter
-    def policy_specification(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def policy_specification(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "policy_specification", value)
 
     @_builtins.property
     @pulumi.getter
-    def zone(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def zone(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The *Trust Protection Plaform* policy folder or *Venafi Control Plane* application and 
         issuing template.
@@ -106,7 +106,7 @@ class _PolicyState:
         return pulumi.get(self, "zone")
 
     @zone.setter
-    def zone(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def zone(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "zone", value)
 
 
@@ -116,8 +116,8 @@ class Policy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 policy_specification: Optional[pulumi.Input[_builtins.str]] = None,
-                 zone: Optional[pulumi.Input[_builtins.str]] = None,
+                 policy_specification: pulumi.Input[Optional[_builtins.str]] = None,
+                 zone: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Provides access to read and write certificate policy in Venafi. This can be used to define a new policy (folder in
@@ -218,8 +218,8 @@ class Policy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 policy_specification: Optional[pulumi.Input[_builtins.str]] = None,
-                 zone: Optional[pulumi.Input[_builtins.str]] = None,
+                 policy_specification: pulumi.Input[Optional[_builtins.str]] = None,
+                 zone: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -241,8 +241,8 @@ class Policy(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            policy_specification: Optional[pulumi.Input[_builtins.str]] = None,
-            zone: Optional[pulumi.Input[_builtins.str]] = None) -> 'Policy':
+            policy_specification: pulumi.Input[Optional[_builtins.str]] = None,
+            zone: pulumi.Input[Optional[_builtins.str]] = None) -> 'Policy':
         """
         Get an existing Policy resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

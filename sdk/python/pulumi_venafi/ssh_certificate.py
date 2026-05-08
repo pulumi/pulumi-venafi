@@ -21,20 +21,20 @@ class SshCertificateArgs:
     def __init__(__self__, *,
                  key_id: pulumi.Input[_builtins.str],
                  template: pulumi.Input[_builtins.str],
-                 destination_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 extensions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 folder: Optional[pulumi.Input[_builtins.str]] = None,
-                 force_command: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_passphrase: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_size: Optional[pulumi.Input[_builtins.int]] = None,
-                 object_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 principal: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 principals: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 public_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_key_method: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 valid_hours: Optional[pulumi.Input[_builtins.int]] = None,
-                 windows: Optional[pulumi.Input[_builtins.bool]] = None):
+                 destination_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 extensions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 folder: pulumi.Input[Optional[_builtins.str]] = None,
+                 force_command: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_passphrase: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_size: pulumi.Input[Optional[_builtins.int]] = None,
+                 object_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 principal: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 principals: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 public_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_key_method: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 valid_hours: pulumi.Input[Optional[_builtins.int]] = None,
+                 windows: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a SshCertificate resource.
 
@@ -123,7 +123,7 @@ class SshCertificateArgs:
 
     @_builtins.property
     @pulumi.getter(name="destinationAddresses")
-    def destination_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def destination_addresses(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of one or more valid IP or CIDR destination hosts where the 
         certificate will authenticate.
@@ -131,12 +131,12 @@ class SshCertificateArgs:
         return pulumi.get(self, "destination_addresses")
 
     @destination_addresses.setter
-    def destination_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def destination_addresses(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "destination_addresses", value)
 
     @_builtins.property
     @pulumi.getter
-    def extensions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def extensions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of key-value pairs that contain certificate extensions from the CA 
         template for client certificates. Allowed values (case-sensitive): `permit-X11-forwarding`, `permit-agent-forwarding`,
@@ -145,60 +145,60 @@ class SshCertificateArgs:
         return pulumi.get(self, "extensions")
 
     @extensions.setter
-    def extensions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def extensions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "extensions", value)
 
     @_builtins.property
     @pulumi.getter
-    def folder(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def folder(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The DN of the policy folder where the SSH certificate object will be created.
         """
         return pulumi.get(self, "folder")
 
     @folder.setter
-    def folder(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def folder(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "folder", value)
 
     @_builtins.property
     @pulumi.getter(name="forceCommand")
-    def force_command(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def force_command(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A command to run after successful login.
         """
         return pulumi.get(self, "force_command")
 
     @force_command.setter
-    def force_command(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def force_command(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "force_command", value)
 
     @_builtins.property
     @pulumi.getter(name="keyPassphrase")
-    def key_passphrase(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key_passphrase(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Passphrase for encrypting the private key.
         """
         return pulumi.get(self, "key_passphrase")
 
     @key_passphrase.setter
-    def key_passphrase(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key_passphrase(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key_passphrase", value)
 
     @_builtins.property
     @pulumi.getter(name="keySize")
-    def key_size(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def key_size(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Number of bits to use when creating a key pair. (e.g. `3072`).
         """
         return pulumi.get(self, "key_size")
 
     @key_size.setter
-    def key_size(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def key_size(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "key_size", value)
 
     @_builtins.property
     @pulumi.getter(name="objectName")
-    def object_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def object_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The friendly name of the SSH certificate object. When not specified the `key_id` 
         is used for the friendly name. If the object already exists the old certificate is archived and the CA issues a new
@@ -207,13 +207,13 @@ class SshCertificateArgs:
         return pulumi.get(self, "object_name")
 
     @object_name.setter
-    def object_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def object_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "object_name", value)
 
     @_builtins.property
     @pulumi.getter
     @_utilities.deprecated("""This will be removed in the future. Use \"principals\" instead""")
-    def principal(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def principal(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         [DEPRECATED] - (Optional, set of strings) Use "principals" instead. A list of usernames for whom the 
         requested certificate will be valid.
@@ -221,36 +221,36 @@ class SshCertificateArgs:
         return pulumi.get(self, "principal")
 
     @principal.setter
-    def principal(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def principal(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "principal", value)
 
     @_builtins.property
     @pulumi.getter
-    def principals(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def principals(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of usernames for whom the requested certificate will be valid.
         """
         return pulumi.get(self, "principals")
 
     @principals.setter
-    def principals(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def principals(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "principals", value)
 
     @_builtins.property
     @pulumi.getter(name="publicKey")
-    def public_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def public_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The OpenSSH formatted public key that will be used to generate the SSH certificate.
         """
         return pulumi.get(self, "public_key")
 
     @public_key.setter
-    def public_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def public_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "public_key", value)
 
     @_builtins.property
     @pulumi.getter(name="publicKeyMethod")
-    def public_key_method(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def public_key_method(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies whether the public key will be `local` (default), `file` or 
         `service` generated.
@@ -258,12 +258,12 @@ class SshCertificateArgs:
         return pulumi.get(self, "public_key_method")
 
     @public_key_method.setter
-    def public_key_method(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def public_key_method(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "public_key_method", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceAddresses")
-    def source_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def source_addresses(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of one or more valid IP or CIDR addresses that can use the SSH 
         certificate.
@@ -271,61 +271,61 @@ class SshCertificateArgs:
         return pulumi.get(self, "source_addresses")
 
     @source_addresses.setter
-    def source_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def source_addresses(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "source_addresses", value)
 
     @_builtins.property
     @pulumi.getter(name="validHours")
-    def valid_hours(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def valid_hours(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Desired number of hours for which the certificate will be valid.
         """
         return pulumi.get(self, "valid_hours")
 
     @valid_hours.setter
-    def valid_hours(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def valid_hours(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "valid_hours", value)
 
     @_builtins.property
     @pulumi.getter
-    def windows(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def windows(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether the private key will use Windows/DOS style line breaks.
         """
         return pulumi.get(self, "windows")
 
     @windows.setter
-    def windows(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def windows(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "windows", value)
 
 
 @pulumi.input_type
 class _SshCertificateState:
     def __init__(__self__, *,
-                 certificate: Optional[pulumi.Input[_builtins.str]] = None,
-                 certificate_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 destination_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 extensions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 folder: Optional[pulumi.Input[_builtins.str]] = None,
-                 force_command: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_passphrase: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_size: Optional[pulumi.Input[_builtins.int]] = None,
-                 object_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 principal: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 principals: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 private_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_key_fingerprint: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_key_method: Optional[pulumi.Input[_builtins.str]] = None,
-                 serial: Optional[pulumi.Input[_builtins.str]] = None,
-                 signing_ca: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 template: Optional[pulumi.Input[_builtins.str]] = None,
-                 valid_from: Optional[pulumi.Input[_builtins.str]] = None,
-                 valid_hours: Optional[pulumi.Input[_builtins.int]] = None,
-                 valid_to: Optional[pulumi.Input[_builtins.str]] = None,
-                 windows: Optional[pulumi.Input[_builtins.bool]] = None):
+                 certificate: pulumi.Input[Optional[_builtins.str]] = None,
+                 certificate_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 destination_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 extensions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 folder: pulumi.Input[Optional[_builtins.str]] = None,
+                 force_command: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_passphrase: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_size: pulumi.Input[Optional[_builtins.int]] = None,
+                 object_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 principal: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 principals: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 private_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_key_fingerprint: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_key_method: pulumi.Input[Optional[_builtins.str]] = None,
+                 serial: pulumi.Input[Optional[_builtins.str]] = None,
+                 signing_ca: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 template: pulumi.Input[Optional[_builtins.str]] = None,
+                 valid_from: pulumi.Input[Optional[_builtins.str]] = None,
+                 valid_hours: pulumi.Input[Optional[_builtins.int]] = None,
+                 valid_to: pulumi.Input[Optional[_builtins.str]] = None,
+                 windows: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering SshCertificate resources.
 
@@ -416,31 +416,31 @@ class _SshCertificateState:
 
     @_builtins.property
     @pulumi.getter
-    def certificate(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def certificate(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The issued SSH certificate.
         """
         return pulumi.get(self, "certificate")
 
     @certificate.setter
-    def certificate(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def certificate(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "certificate", value)
 
     @_builtins.property
     @pulumi.getter(name="certificateType")
-    def certificate_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def certificate_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Indicates whether the SSH certificate is for client or server authentication.
         """
         return pulumi.get(self, "certificate_type")
 
     @certificate_type.setter
-    def certificate_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def certificate_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "certificate_type", value)
 
     @_builtins.property
     @pulumi.getter(name="destinationAddresses")
-    def destination_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def destination_addresses(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of one or more valid IP or CIDR destination hosts where the 
         certificate will authenticate.
@@ -448,12 +448,12 @@ class _SshCertificateState:
         return pulumi.get(self, "destination_addresses")
 
     @destination_addresses.setter
-    def destination_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def destination_addresses(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "destination_addresses", value)
 
     @_builtins.property
     @pulumi.getter
-    def extensions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def extensions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of key-value pairs that contain certificate extensions from the CA 
         template for client certificates. Allowed values (case-sensitive): `permit-X11-forwarding`, `permit-agent-forwarding`,
@@ -462,72 +462,72 @@ class _SshCertificateState:
         return pulumi.get(self, "extensions")
 
     @extensions.setter
-    def extensions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def extensions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "extensions", value)
 
     @_builtins.property
     @pulumi.getter
-    def folder(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def folder(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The DN of the policy folder where the SSH certificate object will be created.
         """
         return pulumi.get(self, "folder")
 
     @folder.setter
-    def folder(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def folder(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "folder", value)
 
     @_builtins.property
     @pulumi.getter(name="forceCommand")
-    def force_command(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def force_command(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A command to run after successful login.
         """
         return pulumi.get(self, "force_command")
 
     @force_command.setter
-    def force_command(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def force_command(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "force_command", value)
 
     @_builtins.property
     @pulumi.getter(name="keyId")
-    def key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The identifier of the requested SSH certificate.
         """
         return pulumi.get(self, "key_id")
 
     @key_id.setter
-    def key_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key_id", value)
 
     @_builtins.property
     @pulumi.getter(name="keyPassphrase")
-    def key_passphrase(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key_passphrase(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Passphrase for encrypting the private key.
         """
         return pulumi.get(self, "key_passphrase")
 
     @key_passphrase.setter
-    def key_passphrase(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key_passphrase(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key_passphrase", value)
 
     @_builtins.property
     @pulumi.getter(name="keySize")
-    def key_size(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def key_size(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Number of bits to use when creating a key pair. (e.g. `3072`).
         """
         return pulumi.get(self, "key_size")
 
     @key_size.setter
-    def key_size(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def key_size(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "key_size", value)
 
     @_builtins.property
     @pulumi.getter(name="objectName")
-    def object_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def object_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The friendly name of the SSH certificate object. When not specified the `key_id` 
         is used for the friendly name. If the object already exists the old certificate is archived and the CA issues a new
@@ -536,13 +536,13 @@ class _SshCertificateState:
         return pulumi.get(self, "object_name")
 
     @object_name.setter
-    def object_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def object_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "object_name", value)
 
     @_builtins.property
     @pulumi.getter
     @_utilities.deprecated("""This will be removed in the future. Use \"principals\" instead""")
-    def principal(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def principal(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         [DEPRECATED] - (Optional, set of strings) Use "principals" instead. A list of usernames for whom the 
         requested certificate will be valid.
@@ -550,60 +550,60 @@ class _SshCertificateState:
         return pulumi.get(self, "principal")
 
     @principal.setter
-    def principal(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def principal(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "principal", value)
 
     @_builtins.property
     @pulumi.getter
-    def principals(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def principals(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of usernames for whom the requested certificate will be valid.
         """
         return pulumi.get(self, "principals")
 
     @principals.setter
-    def principals(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def principals(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "principals", value)
 
     @_builtins.property
     @pulumi.getter(name="privateKey")
-    def private_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def private_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The private key for the SSH certificate if generated by Venafi.
         """
         return pulumi.get(self, "private_key")
 
     @private_key.setter
-    def private_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def private_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "private_key", value)
 
     @_builtins.property
     @pulumi.getter(name="publicKey")
-    def public_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def public_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The OpenSSH formatted public key that will be used to generate the SSH certificate.
         """
         return pulumi.get(self, "public_key")
 
     @public_key.setter
-    def public_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def public_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "public_key", value)
 
     @_builtins.property
     @pulumi.getter(name="publicKeyFingerprint")
-    def public_key_fingerprint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def public_key_fingerprint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The SHA256 fingerprint of the SSH certificate's public key.
         """
         return pulumi.get(self, "public_key_fingerprint")
 
     @public_key_fingerprint.setter
-    def public_key_fingerprint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def public_key_fingerprint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "public_key_fingerprint", value)
 
     @_builtins.property
     @pulumi.getter(name="publicKeyMethod")
-    def public_key_method(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def public_key_method(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies whether the public key will be `local` (default), `file` or 
         `service` generated.
@@ -611,36 +611,36 @@ class _SshCertificateState:
         return pulumi.get(self, "public_key_method")
 
     @public_key_method.setter
-    def public_key_method(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def public_key_method(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "public_key_method", value)
 
     @_builtins.property
     @pulumi.getter
-    def serial(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def serial(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The serial number of the SSH certificate.
         """
         return pulumi.get(self, "serial")
 
     @serial.setter
-    def serial(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def serial(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "serial", value)
 
     @_builtins.property
     @pulumi.getter(name="signingCa")
-    def signing_ca(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def signing_ca(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The SHA256 fingerprint of the CA that signed the SSH certificate.
         """
         return pulumi.get(self, "signing_ca")
 
     @signing_ca.setter
-    def signing_ca(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def signing_ca(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "signing_ca", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceAddresses")
-    def source_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def source_addresses(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of one or more valid IP or CIDR addresses that can use the SSH 
         certificate.
@@ -648,67 +648,67 @@ class _SshCertificateState:
         return pulumi.get(self, "source_addresses")
 
     @source_addresses.setter
-    def source_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def source_addresses(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "source_addresses", value)
 
     @_builtins.property
     @pulumi.getter
-    def template(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def template(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The SSH certificate issuing template.
         """
         return pulumi.get(self, "template")
 
     @template.setter
-    def template(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def template(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "template", value)
 
     @_builtins.property
     @pulumi.getter(name="validFrom")
-    def valid_from(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def valid_from(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The date the SSH certificate was issued.
         """
         return pulumi.get(self, "valid_from")
 
     @valid_from.setter
-    def valid_from(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def valid_from(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "valid_from", value)
 
     @_builtins.property
     @pulumi.getter(name="validHours")
-    def valid_hours(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def valid_hours(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Desired number of hours for which the certificate will be valid.
         """
         return pulumi.get(self, "valid_hours")
 
     @valid_hours.setter
-    def valid_hours(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def valid_hours(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "valid_hours", value)
 
     @_builtins.property
     @pulumi.getter(name="validTo")
-    def valid_to(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def valid_to(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The date the SSH certificate will expire.
         """
         return pulumi.get(self, "valid_to")
 
     @valid_to.setter
-    def valid_to(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def valid_to(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "valid_to", value)
 
     @_builtins.property
     @pulumi.getter
-    def windows(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def windows(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether the private key will use Windows/DOS style line breaks.
         """
         return pulumi.get(self, "windows")
 
     @windows.setter
-    def windows(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def windows(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "windows", value)
 
 
@@ -718,22 +718,22 @@ class SshCertificate(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 destination_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 extensions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 folder: Optional[pulumi.Input[_builtins.str]] = None,
-                 force_command: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_passphrase: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_size: Optional[pulumi.Input[_builtins.int]] = None,
-                 object_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 principal: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 principals: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 public_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_key_method: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 template: Optional[pulumi.Input[_builtins.str]] = None,
-                 valid_hours: Optional[pulumi.Input[_builtins.int]] = None,
-                 windows: Optional[pulumi.Input[_builtins.bool]] = None,
+                 destination_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 extensions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 folder: pulumi.Input[Optional[_builtins.str]] = None,
+                 force_command: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_passphrase: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_size: pulumi.Input[Optional[_builtins.int]] = None,
+                 object_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 principal: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 principals: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 public_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_key_method: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 template: pulumi.Input[Optional[_builtins.str]] = None,
+                 valid_hours: pulumi.Input[Optional[_builtins.int]] = None,
+                 windows: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         """
         Provides access to request and retrieve SSH certificates from *Venafi Trust Protection Platform*.
@@ -823,22 +823,22 @@ class SshCertificate(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 destination_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 extensions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 folder: Optional[pulumi.Input[_builtins.str]] = None,
-                 force_command: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_passphrase: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_size: Optional[pulumi.Input[_builtins.int]] = None,
-                 object_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 principal: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 principals: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 public_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_key_method: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 template: Optional[pulumi.Input[_builtins.str]] = None,
-                 valid_hours: Optional[pulumi.Input[_builtins.int]] = None,
-                 windows: Optional[pulumi.Input[_builtins.bool]] = None,
+                 destination_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 extensions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 folder: pulumi.Input[Optional[_builtins.str]] = None,
+                 force_command: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_passphrase: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_size: pulumi.Input[Optional[_builtins.int]] = None,
+                 object_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 principal: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 principals: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 public_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_key_method: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 template: pulumi.Input[Optional[_builtins.str]] = None,
+                 valid_hours: pulumi.Input[Optional[_builtins.int]] = None,
+                 windows: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -888,30 +888,30 @@ class SshCertificate(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            certificate: Optional[pulumi.Input[_builtins.str]] = None,
-            certificate_type: Optional[pulumi.Input[_builtins.str]] = None,
-            destination_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            extensions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            folder: Optional[pulumi.Input[_builtins.str]] = None,
-            force_command: Optional[pulumi.Input[_builtins.str]] = None,
-            key_id: Optional[pulumi.Input[_builtins.str]] = None,
-            key_passphrase: Optional[pulumi.Input[_builtins.str]] = None,
-            key_size: Optional[pulumi.Input[_builtins.int]] = None,
-            object_name: Optional[pulumi.Input[_builtins.str]] = None,
-            principal: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            principals: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            private_key: Optional[pulumi.Input[_builtins.str]] = None,
-            public_key: Optional[pulumi.Input[_builtins.str]] = None,
-            public_key_fingerprint: Optional[pulumi.Input[_builtins.str]] = None,
-            public_key_method: Optional[pulumi.Input[_builtins.str]] = None,
-            serial: Optional[pulumi.Input[_builtins.str]] = None,
-            signing_ca: Optional[pulumi.Input[_builtins.str]] = None,
-            source_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            template: Optional[pulumi.Input[_builtins.str]] = None,
-            valid_from: Optional[pulumi.Input[_builtins.str]] = None,
-            valid_hours: Optional[pulumi.Input[_builtins.int]] = None,
-            valid_to: Optional[pulumi.Input[_builtins.str]] = None,
-            windows: Optional[pulumi.Input[_builtins.bool]] = None) -> 'SshCertificate':
+            certificate: pulumi.Input[Optional[_builtins.str]] = None,
+            certificate_type: pulumi.Input[Optional[_builtins.str]] = None,
+            destination_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            extensions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            folder: pulumi.Input[Optional[_builtins.str]] = None,
+            force_command: pulumi.Input[Optional[_builtins.str]] = None,
+            key_id: pulumi.Input[Optional[_builtins.str]] = None,
+            key_passphrase: pulumi.Input[Optional[_builtins.str]] = None,
+            key_size: pulumi.Input[Optional[_builtins.int]] = None,
+            object_name: pulumi.Input[Optional[_builtins.str]] = None,
+            principal: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            principals: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            private_key: pulumi.Input[Optional[_builtins.str]] = None,
+            public_key: pulumi.Input[Optional[_builtins.str]] = None,
+            public_key_fingerprint: pulumi.Input[Optional[_builtins.str]] = None,
+            public_key_method: pulumi.Input[Optional[_builtins.str]] = None,
+            serial: pulumi.Input[Optional[_builtins.str]] = None,
+            signing_ca: pulumi.Input[Optional[_builtins.str]] = None,
+            source_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            template: pulumi.Input[Optional[_builtins.str]] = None,
+            valid_from: pulumi.Input[Optional[_builtins.str]] = None,
+            valid_hours: pulumi.Input[Optional[_builtins.int]] = None,
+            valid_to: pulumi.Input[Optional[_builtins.str]] = None,
+            windows: pulumi.Input[Optional[_builtins.bool]] = None) -> 'SshCertificate':
         """
         Get an existing SshCertificate resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

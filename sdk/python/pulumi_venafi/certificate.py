@@ -20,31 +20,31 @@ __all__ = ['CertificateArgs', 'Certificate']
 class CertificateArgs:
     def __init__(__self__, *,
                  common_name: pulumi.Input[_builtins.str],
-                 algorithm: Optional[pulumi.Input[_builtins.str]] = None,
-                 certificate_dn: Optional[pulumi.Input[_builtins.str]] = None,
-                 country: Optional[pulumi.Input[_builtins.str]] = None,
-                 csr_origin: Optional[pulumi.Input[_builtins.str]] = None,
-                 csr_pem: Optional[pulumi.Input[_builtins.str]] = None,
-                 custom_fields: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 ecdsa_curve: Optional[pulumi.Input[_builtins.str]] = None,
-                 expiration_window: Optional[pulumi.Input[_builtins.int]] = None,
-                 issuer_hint: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_password: Optional[pulumi.Input[_builtins.str]] = None,
-                 locality: Optional[pulumi.Input[_builtins.str]] = None,
-                 nickname: Optional[pulumi.Input[_builtins.str]] = None,
-                 organization: Optional[pulumi.Input[_builtins.str]] = None,
-                 organizational_units: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 pkcs12: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_key_pem: Optional[pulumi.Input[_builtins.str]] = None,
-                 renew_required: Optional[pulumi.Input[_builtins.bool]] = None,
-                 rsa_bits: Optional[pulumi.Input[_builtins.int]] = None,
-                 san_dns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 san_emails: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 san_ips: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 san_uris: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 state: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 valid_days: Optional[pulumi.Input[_builtins.int]] = None):
+                 algorithm: pulumi.Input[Optional[_builtins.str]] = None,
+                 certificate_dn: pulumi.Input[Optional[_builtins.str]] = None,
+                 country: pulumi.Input[Optional[_builtins.str]] = None,
+                 csr_origin: pulumi.Input[Optional[_builtins.str]] = None,
+                 csr_pem: pulumi.Input[Optional[_builtins.str]] = None,
+                 custom_fields: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 ecdsa_curve: pulumi.Input[Optional[_builtins.str]] = None,
+                 expiration_window: pulumi.Input[Optional[_builtins.int]] = None,
+                 issuer_hint: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_password: pulumi.Input[Optional[_builtins.str]] = None,
+                 locality: pulumi.Input[Optional[_builtins.str]] = None,
+                 nickname: pulumi.Input[Optional[_builtins.str]] = None,
+                 organization: pulumi.Input[Optional[_builtins.str]] = None,
+                 organizational_units: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 pkcs12: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_key_pem: pulumi.Input[Optional[_builtins.str]] = None,
+                 renew_required: pulumi.Input[Optional[_builtins.bool]] = None,
+                 rsa_bits: pulumi.Input[Optional[_builtins.int]] = None,
+                 san_dns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 san_emails: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 san_ips: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 san_uris: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 state: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 valid_days: pulumi.Input[Optional[_builtins.int]] = None):
         """
         The set of arguments for constructing a Certificate resource.
 
@@ -146,40 +146,40 @@ class CertificateArgs:
 
     @_builtins.property
     @pulumi.getter
-    def algorithm(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def algorithm(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Key encryption algorithm, either RSA or ECDSA. Defaults to `RSA`.
         """
         return pulumi.get(self, "algorithm")
 
     @algorithm.setter
-    def algorithm(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def algorithm(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "algorithm", value)
 
     @_builtins.property
     @pulumi.getter(name="certificateDn")
-    def certificate_dn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def certificate_dn(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "certificate_dn")
 
     @certificate_dn.setter
-    def certificate_dn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def certificate_dn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "certificate_dn", value)
 
     @_builtins.property
     @pulumi.getter
-    def country(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def country(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Country of the certificate (C)
         """
         return pulumi.get(self, "country")
 
     @country.setter
-    def country(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def country(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "country", value)
 
     @_builtins.property
     @pulumi.getter(name="csrOrigin")
-    def csr_origin(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def csr_origin(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Whether key-pair generation will be `local` or `service` generated. Default is 
         `local`.
@@ -187,45 +187,45 @@ class CertificateArgs:
         return pulumi.get(self, "csr_origin")
 
     @csr_origin.setter
-    def csr_origin(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def csr_origin(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "csr_origin", value)
 
     @_builtins.property
     @pulumi.getter(name="csrPem")
-    def csr_pem(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def csr_pem(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "csr_pem")
 
     @csr_pem.setter
-    def csr_pem(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def csr_pem(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "csr_pem", value)
 
     @_builtins.property
     @pulumi.getter(name="customFields")
-    def custom_fields(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def custom_fields(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Collection of Custom Field name-value pairs to assign to the certificate.
         """
         return pulumi.get(self, "custom_fields")
 
     @custom_fields.setter
-    def custom_fields(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def custom_fields(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "custom_fields", value)
 
     @_builtins.property
     @pulumi.getter(name="ecdsaCurve")
-    def ecdsa_curve(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ecdsa_curve(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ECDSA curve to use when generating a key
         """
         return pulumi.get(self, "ecdsa_curve")
 
     @ecdsa_curve.setter
-    def ecdsa_curve(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ecdsa_curve(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ecdsa_curve", value)
 
     @_builtins.property
     @pulumi.getter(name="expirationWindow")
-    def expiration_window(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def expiration_window(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Number of hours before certificate expiry to request a new certificate. 
         Defaults to `168`.
@@ -233,12 +233,12 @@ class CertificateArgs:
         return pulumi.get(self, "expiration_window")
 
     @expiration_window.setter
-    def expiration_window(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def expiration_window(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "expiration_window", value)
 
     @_builtins.property
     @pulumi.getter(name="issuerHint")
-    def issuer_hint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def issuer_hint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Used with `valid_days` to indicate the target issuer when using Trust Protection 
         Platform. Relevant values are: `DigiCert`, `Entrust`, and `Microsoft`.
@@ -246,36 +246,36 @@ class CertificateArgs:
         return pulumi.get(self, "issuer_hint")
 
     @issuer_hint.setter
-    def issuer_hint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def issuer_hint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "issuer_hint", value)
 
     @_builtins.property
     @pulumi.getter(name="keyPassword")
-    def key_password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key_password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The password used to encrypt the private key.
         """
         return pulumi.get(self, "key_password")
 
     @key_password.setter
-    def key_password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key_password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key_password", value)
 
     @_builtins.property
     @pulumi.getter
-    def locality(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def locality(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Locality/City of the certificate (L)
         """
         return pulumi.get(self, "locality")
 
     @locality.setter
-    def locality(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def locality(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "locality", value)
 
     @_builtins.property
     @pulumi.getter
-    def nickname(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def nickname(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Use to specify a name for the new certificate object that will be created and placed 
         in a policy. Only valid for Trust Protection Platform.
@@ -283,36 +283,36 @@ class CertificateArgs:
         return pulumi.get(self, "nickname")
 
     @nickname.setter
-    def nickname(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def nickname(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "nickname", value)
 
     @_builtins.property
     @pulumi.getter
-    def organization(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def organization(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Organization of the certificate (O)
         """
         return pulumi.get(self, "organization")
 
     @organization.setter
-    def organization(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def organization(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "organization", value)
 
     @_builtins.property
     @pulumi.getter(name="organizationalUnits")
-    def organizational_units(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def organizational_units(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of Organizational Units of the certificate (OU)
         """
         return pulumi.get(self, "organizational_units")
 
     @organizational_units.setter
-    def organizational_units(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def organizational_units(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "organizational_units", value)
 
     @_builtins.property
     @pulumi.getter
-    def pkcs12(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def pkcs12(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A base64-encoded PKCS#12 keystore secured by the `key_password`. Useful when working with resources like 
         azure key_vault_certificate.
@@ -320,36 +320,36 @@ class CertificateArgs:
         return pulumi.get(self, "pkcs12")
 
     @pkcs12.setter
-    def pkcs12(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def pkcs12(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "pkcs12", value)
 
     @_builtins.property
     @pulumi.getter(name="privateKeyPem")
-    def private_key_pem(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def private_key_pem(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The private key in PEM format.
         """
         return pulumi.get(self, "private_key_pem")
 
     @private_key_pem.setter
-    def private_key_pem(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def private_key_pem(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "private_key_pem", value)
 
     @_builtins.property
     @pulumi.getter(name="renewRequired")
-    def renew_required(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def renew_required(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates the certificate should be reissued. This means the resource will destroyed and recreated
         """
         return pulumi.get(self, "renew_required")
 
     @renew_required.setter
-    def renew_required(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def renew_required(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "renew_required", value)
 
     @_builtins.property
     @pulumi.getter(name="rsaBits")
-    def rsa_bits(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def rsa_bits(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Number of bits to use when generating an RSA key. Applies when algorithm is `RSA`. 
         Defaults to `2048`.
@@ -357,48 +357,48 @@ class CertificateArgs:
         return pulumi.get(self, "rsa_bits")
 
     @rsa_bits.setter
-    def rsa_bits(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def rsa_bits(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "rsa_bits", value)
 
     @_builtins.property
     @pulumi.getter(name="sanDns")
-    def san_dns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def san_dns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of DNS names to use as alternative subjects of the certificate.
         """
         return pulumi.get(self, "san_dns")
 
     @san_dns.setter
-    def san_dns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def san_dns(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "san_dns", value)
 
     @_builtins.property
     @pulumi.getter(name="sanEmails")
-    def san_emails(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def san_emails(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of email addresses to use as alternative subjects of the certificate.
         """
         return pulumi.get(self, "san_emails")
 
     @san_emails.setter
-    def san_emails(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def san_emails(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "san_emails", value)
 
     @_builtins.property
     @pulumi.getter(name="sanIps")
-    def san_ips(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def san_ips(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of IP addresses to use as alternative subjects of the certificate.
         """
         return pulumi.get(self, "san_ips")
 
     @san_ips.setter
-    def san_ips(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def san_ips(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "san_ips", value)
 
     @_builtins.property
     @pulumi.getter(name="sanUris")
-    def san_uris(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def san_uris(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of Uniform Resource Identifiers (URIs) to use as alternative subjects of 
         the certificate.
@@ -406,78 +406,78 @@ class CertificateArgs:
         return pulumi.get(self, "san_uris")
 
     @san_uris.setter
-    def san_uris(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def san_uris(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "san_uris", value)
 
     @_builtins.property
     @pulumi.getter
-    def state(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def state(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         State of the certificate (S)
         """
         return pulumi.get(self, "state")
 
     @state.setter
-    def state(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def state(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "state", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of Certificate Tags defined in Venafi Control Plane.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="validDays")
-    def valid_days(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def valid_days(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Desired number of days for which the new certificate will be valid.
         """
         return pulumi.get(self, "valid_days")
 
     @valid_days.setter
-    def valid_days(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def valid_days(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "valid_days", value)
 
 
 @pulumi.input_type
 class _CertificateState:
     def __init__(__self__, *,
-                 algorithm: Optional[pulumi.Input[_builtins.str]] = None,
-                 certificate: Optional[pulumi.Input[_builtins.str]] = None,
-                 certificate_dn: Optional[pulumi.Input[_builtins.str]] = None,
-                 certificate_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 chain: Optional[pulumi.Input[_builtins.str]] = None,
-                 common_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 country: Optional[pulumi.Input[_builtins.str]] = None,
-                 csr_origin: Optional[pulumi.Input[_builtins.str]] = None,
-                 csr_pem: Optional[pulumi.Input[_builtins.str]] = None,
-                 custom_fields: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 ecdsa_curve: Optional[pulumi.Input[_builtins.str]] = None,
-                 expiration_window: Optional[pulumi.Input[_builtins.int]] = None,
-                 issuer_hint: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_password: Optional[pulumi.Input[_builtins.str]] = None,
-                 locality: Optional[pulumi.Input[_builtins.str]] = None,
-                 nickname: Optional[pulumi.Input[_builtins.str]] = None,
-                 organization: Optional[pulumi.Input[_builtins.str]] = None,
-                 organizational_units: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 pkcs12: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_key_pem: Optional[pulumi.Input[_builtins.str]] = None,
-                 renew_required: Optional[pulumi.Input[_builtins.bool]] = None,
-                 rsa_bits: Optional[pulumi.Input[_builtins.int]] = None,
-                 san_dns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 san_emails: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 san_ips: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 san_uris: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 state: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 valid_days: Optional[pulumi.Input[_builtins.int]] = None):
+                 algorithm: pulumi.Input[Optional[_builtins.str]] = None,
+                 certificate: pulumi.Input[Optional[_builtins.str]] = None,
+                 certificate_dn: pulumi.Input[Optional[_builtins.str]] = None,
+                 certificate_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 chain: pulumi.Input[Optional[_builtins.str]] = None,
+                 common_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 country: pulumi.Input[Optional[_builtins.str]] = None,
+                 csr_origin: pulumi.Input[Optional[_builtins.str]] = None,
+                 csr_pem: pulumi.Input[Optional[_builtins.str]] = None,
+                 custom_fields: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 ecdsa_curve: pulumi.Input[Optional[_builtins.str]] = None,
+                 expiration_window: pulumi.Input[Optional[_builtins.int]] = None,
+                 issuer_hint: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_password: pulumi.Input[Optional[_builtins.str]] = None,
+                 locality: pulumi.Input[Optional[_builtins.str]] = None,
+                 nickname: pulumi.Input[Optional[_builtins.str]] = None,
+                 organization: pulumi.Input[Optional[_builtins.str]] = None,
+                 organizational_units: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 pkcs12: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_key_pem: pulumi.Input[Optional[_builtins.str]] = None,
+                 renew_required: pulumi.Input[Optional[_builtins.bool]] = None,
+                 rsa_bits: pulumi.Input[Optional[_builtins.int]] = None,
+                 san_dns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 san_emails: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 san_ips: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 san_uris: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 state: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 valid_days: pulumi.Input[Optional[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering Certificate resources.
 
@@ -577,88 +577,88 @@ class _CertificateState:
 
     @_builtins.property
     @pulumi.getter
-    def algorithm(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def algorithm(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Key encryption algorithm, either RSA or ECDSA. Defaults to `RSA`.
         """
         return pulumi.get(self, "algorithm")
 
     @algorithm.setter
-    def algorithm(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def algorithm(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "algorithm", value)
 
     @_builtins.property
     @pulumi.getter
-    def certificate(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def certificate(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The X509 certificate in PEM format.
         """
         return pulumi.get(self, "certificate")
 
     @certificate.setter
-    def certificate(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def certificate(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "certificate", value)
 
     @_builtins.property
     @pulumi.getter(name="certificateDn")
-    def certificate_dn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def certificate_dn(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "certificate_dn")
 
     @certificate_dn.setter
-    def certificate_dn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def certificate_dn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "certificate_dn", value)
 
     @_builtins.property
     @pulumi.getter(name="certificateId")
-    def certificate_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def certificate_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ID of the issued certificate
         """
         return pulumi.get(self, "certificate_id")
 
     @certificate_id.setter
-    def certificate_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def certificate_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "certificate_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def chain(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def chain(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The trust chain of X509 certificate authority certificates in PEM format concatenated together.
         """
         return pulumi.get(self, "chain")
 
     @chain.setter
-    def chain(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def chain(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "chain", value)
 
     @_builtins.property
     @pulumi.getter(name="commonName")
-    def common_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def common_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The common name of the certificate.
         """
         return pulumi.get(self, "common_name")
 
     @common_name.setter
-    def common_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def common_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "common_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def country(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def country(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Country of the certificate (C)
         """
         return pulumi.get(self, "country")
 
     @country.setter
-    def country(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def country(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "country", value)
 
     @_builtins.property
     @pulumi.getter(name="csrOrigin")
-    def csr_origin(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def csr_origin(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Whether key-pair generation will be `local` or `service` generated. Default is 
         `local`.
@@ -666,45 +666,45 @@ class _CertificateState:
         return pulumi.get(self, "csr_origin")
 
     @csr_origin.setter
-    def csr_origin(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def csr_origin(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "csr_origin", value)
 
     @_builtins.property
     @pulumi.getter(name="csrPem")
-    def csr_pem(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def csr_pem(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "csr_pem")
 
     @csr_pem.setter
-    def csr_pem(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def csr_pem(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "csr_pem", value)
 
     @_builtins.property
     @pulumi.getter(name="customFields")
-    def custom_fields(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def custom_fields(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Collection of Custom Field name-value pairs to assign to the certificate.
         """
         return pulumi.get(self, "custom_fields")
 
     @custom_fields.setter
-    def custom_fields(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def custom_fields(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "custom_fields", value)
 
     @_builtins.property
     @pulumi.getter(name="ecdsaCurve")
-    def ecdsa_curve(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ecdsa_curve(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ECDSA curve to use when generating a key
         """
         return pulumi.get(self, "ecdsa_curve")
 
     @ecdsa_curve.setter
-    def ecdsa_curve(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ecdsa_curve(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ecdsa_curve", value)
 
     @_builtins.property
     @pulumi.getter(name="expirationWindow")
-    def expiration_window(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def expiration_window(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Number of hours before certificate expiry to request a new certificate. 
         Defaults to `168`.
@@ -712,12 +712,12 @@ class _CertificateState:
         return pulumi.get(self, "expiration_window")
 
     @expiration_window.setter
-    def expiration_window(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def expiration_window(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "expiration_window", value)
 
     @_builtins.property
     @pulumi.getter(name="issuerHint")
-    def issuer_hint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def issuer_hint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Used with `valid_days` to indicate the target issuer when using Trust Protection 
         Platform. Relevant values are: `DigiCert`, `Entrust`, and `Microsoft`.
@@ -725,36 +725,36 @@ class _CertificateState:
         return pulumi.get(self, "issuer_hint")
 
     @issuer_hint.setter
-    def issuer_hint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def issuer_hint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "issuer_hint", value)
 
     @_builtins.property
     @pulumi.getter(name="keyPassword")
-    def key_password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key_password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The password used to encrypt the private key.
         """
         return pulumi.get(self, "key_password")
 
     @key_password.setter
-    def key_password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key_password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key_password", value)
 
     @_builtins.property
     @pulumi.getter
-    def locality(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def locality(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Locality/City of the certificate (L)
         """
         return pulumi.get(self, "locality")
 
     @locality.setter
-    def locality(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def locality(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "locality", value)
 
     @_builtins.property
     @pulumi.getter
-    def nickname(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def nickname(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Use to specify a name for the new certificate object that will be created and placed 
         in a policy. Only valid for Trust Protection Platform.
@@ -762,36 +762,36 @@ class _CertificateState:
         return pulumi.get(self, "nickname")
 
     @nickname.setter
-    def nickname(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def nickname(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "nickname", value)
 
     @_builtins.property
     @pulumi.getter
-    def organization(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def organization(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Organization of the certificate (O)
         """
         return pulumi.get(self, "organization")
 
     @organization.setter
-    def organization(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def organization(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "organization", value)
 
     @_builtins.property
     @pulumi.getter(name="organizationalUnits")
-    def organizational_units(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def organizational_units(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of Organizational Units of the certificate (OU)
         """
         return pulumi.get(self, "organizational_units")
 
     @organizational_units.setter
-    def organizational_units(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def organizational_units(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "organizational_units", value)
 
     @_builtins.property
     @pulumi.getter
-    def pkcs12(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def pkcs12(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A base64-encoded PKCS#12 keystore secured by the `key_password`. Useful when working with resources like 
         azure key_vault_certificate.
@@ -799,36 +799,36 @@ class _CertificateState:
         return pulumi.get(self, "pkcs12")
 
     @pkcs12.setter
-    def pkcs12(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def pkcs12(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "pkcs12", value)
 
     @_builtins.property
     @pulumi.getter(name="privateKeyPem")
-    def private_key_pem(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def private_key_pem(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The private key in PEM format.
         """
         return pulumi.get(self, "private_key_pem")
 
     @private_key_pem.setter
-    def private_key_pem(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def private_key_pem(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "private_key_pem", value)
 
     @_builtins.property
     @pulumi.getter(name="renewRequired")
-    def renew_required(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def renew_required(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates the certificate should be reissued. This means the resource will destroyed and recreated
         """
         return pulumi.get(self, "renew_required")
 
     @renew_required.setter
-    def renew_required(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def renew_required(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "renew_required", value)
 
     @_builtins.property
     @pulumi.getter(name="rsaBits")
-    def rsa_bits(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def rsa_bits(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Number of bits to use when generating an RSA key. Applies when algorithm is `RSA`. 
         Defaults to `2048`.
@@ -836,48 +836,48 @@ class _CertificateState:
         return pulumi.get(self, "rsa_bits")
 
     @rsa_bits.setter
-    def rsa_bits(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def rsa_bits(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "rsa_bits", value)
 
     @_builtins.property
     @pulumi.getter(name="sanDns")
-    def san_dns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def san_dns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of DNS names to use as alternative subjects of the certificate.
         """
         return pulumi.get(self, "san_dns")
 
     @san_dns.setter
-    def san_dns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def san_dns(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "san_dns", value)
 
     @_builtins.property
     @pulumi.getter(name="sanEmails")
-    def san_emails(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def san_emails(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of email addresses to use as alternative subjects of the certificate.
         """
         return pulumi.get(self, "san_emails")
 
     @san_emails.setter
-    def san_emails(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def san_emails(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "san_emails", value)
 
     @_builtins.property
     @pulumi.getter(name="sanIps")
-    def san_ips(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def san_ips(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of IP addresses to use as alternative subjects of the certificate.
         """
         return pulumi.get(self, "san_ips")
 
     @san_ips.setter
-    def san_ips(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def san_ips(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "san_ips", value)
 
     @_builtins.property
     @pulumi.getter(name="sanUris")
-    def san_uris(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def san_uris(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of Uniform Resource Identifiers (URIs) to use as alternative subjects of 
         the certificate.
@@ -885,43 +885,43 @@ class _CertificateState:
         return pulumi.get(self, "san_uris")
 
     @san_uris.setter
-    def san_uris(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def san_uris(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "san_uris", value)
 
     @_builtins.property
     @pulumi.getter
-    def state(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def state(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         State of the certificate (S)
         """
         return pulumi.get(self, "state")
 
     @state.setter
-    def state(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def state(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "state", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of Certificate Tags defined in Venafi Control Plane.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="validDays")
-    def valid_days(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def valid_days(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Desired number of days for which the new certificate will be valid.
         """
         return pulumi.get(self, "valid_days")
 
     @valid_days.setter
-    def valid_days(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def valid_days(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "valid_days", value)
 
 
@@ -931,32 +931,32 @@ class Certificate(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 algorithm: Optional[pulumi.Input[_builtins.str]] = None,
-                 certificate_dn: Optional[pulumi.Input[_builtins.str]] = None,
-                 common_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 country: Optional[pulumi.Input[_builtins.str]] = None,
-                 csr_origin: Optional[pulumi.Input[_builtins.str]] = None,
-                 csr_pem: Optional[pulumi.Input[_builtins.str]] = None,
-                 custom_fields: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 ecdsa_curve: Optional[pulumi.Input[_builtins.str]] = None,
-                 expiration_window: Optional[pulumi.Input[_builtins.int]] = None,
-                 issuer_hint: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_password: Optional[pulumi.Input[_builtins.str]] = None,
-                 locality: Optional[pulumi.Input[_builtins.str]] = None,
-                 nickname: Optional[pulumi.Input[_builtins.str]] = None,
-                 organization: Optional[pulumi.Input[_builtins.str]] = None,
-                 organizational_units: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 pkcs12: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_key_pem: Optional[pulumi.Input[_builtins.str]] = None,
-                 renew_required: Optional[pulumi.Input[_builtins.bool]] = None,
-                 rsa_bits: Optional[pulumi.Input[_builtins.int]] = None,
-                 san_dns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 san_emails: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 san_ips: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 san_uris: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 state: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 valid_days: Optional[pulumi.Input[_builtins.int]] = None,
+                 algorithm: pulumi.Input[Optional[_builtins.str]] = None,
+                 certificate_dn: pulumi.Input[Optional[_builtins.str]] = None,
+                 common_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 country: pulumi.Input[Optional[_builtins.str]] = None,
+                 csr_origin: pulumi.Input[Optional[_builtins.str]] = None,
+                 csr_pem: pulumi.Input[Optional[_builtins.str]] = None,
+                 custom_fields: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 ecdsa_curve: pulumi.Input[Optional[_builtins.str]] = None,
+                 expiration_window: pulumi.Input[Optional[_builtins.int]] = None,
+                 issuer_hint: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_password: pulumi.Input[Optional[_builtins.str]] = None,
+                 locality: pulumi.Input[Optional[_builtins.str]] = None,
+                 nickname: pulumi.Input[Optional[_builtins.str]] = None,
+                 organization: pulumi.Input[Optional[_builtins.str]] = None,
+                 organizational_units: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 pkcs12: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_key_pem: pulumi.Input[Optional[_builtins.str]] = None,
+                 renew_required: pulumi.Input[Optional[_builtins.bool]] = None,
+                 rsa_bits: pulumi.Input[Optional[_builtins.int]] = None,
+                 san_dns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 san_emails: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 san_ips: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 san_uris: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 state: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 valid_days: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         """
         !> We dropped support for RSA PKCS#1 formatted keys for TLS certificates in version 15.0 and also for EC Keys in version
@@ -1095,32 +1095,32 @@ class Certificate(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 algorithm: Optional[pulumi.Input[_builtins.str]] = None,
-                 certificate_dn: Optional[pulumi.Input[_builtins.str]] = None,
-                 common_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 country: Optional[pulumi.Input[_builtins.str]] = None,
-                 csr_origin: Optional[pulumi.Input[_builtins.str]] = None,
-                 csr_pem: Optional[pulumi.Input[_builtins.str]] = None,
-                 custom_fields: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 ecdsa_curve: Optional[pulumi.Input[_builtins.str]] = None,
-                 expiration_window: Optional[pulumi.Input[_builtins.int]] = None,
-                 issuer_hint: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_password: Optional[pulumi.Input[_builtins.str]] = None,
-                 locality: Optional[pulumi.Input[_builtins.str]] = None,
-                 nickname: Optional[pulumi.Input[_builtins.str]] = None,
-                 organization: Optional[pulumi.Input[_builtins.str]] = None,
-                 organizational_units: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 pkcs12: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_key_pem: Optional[pulumi.Input[_builtins.str]] = None,
-                 renew_required: Optional[pulumi.Input[_builtins.bool]] = None,
-                 rsa_bits: Optional[pulumi.Input[_builtins.int]] = None,
-                 san_dns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 san_emails: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 san_ips: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 san_uris: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 state: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 valid_days: Optional[pulumi.Input[_builtins.int]] = None,
+                 algorithm: pulumi.Input[Optional[_builtins.str]] = None,
+                 certificate_dn: pulumi.Input[Optional[_builtins.str]] = None,
+                 common_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 country: pulumi.Input[Optional[_builtins.str]] = None,
+                 csr_origin: pulumi.Input[Optional[_builtins.str]] = None,
+                 csr_pem: pulumi.Input[Optional[_builtins.str]] = None,
+                 custom_fields: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 ecdsa_curve: pulumi.Input[Optional[_builtins.str]] = None,
+                 expiration_window: pulumi.Input[Optional[_builtins.int]] = None,
+                 issuer_hint: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_password: pulumi.Input[Optional[_builtins.str]] = None,
+                 locality: pulumi.Input[Optional[_builtins.str]] = None,
+                 nickname: pulumi.Input[Optional[_builtins.str]] = None,
+                 organization: pulumi.Input[Optional[_builtins.str]] = None,
+                 organizational_units: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 pkcs12: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_key_pem: pulumi.Input[Optional[_builtins.str]] = None,
+                 renew_required: pulumi.Input[Optional[_builtins.bool]] = None,
+                 rsa_bits: pulumi.Input[Optional[_builtins.int]] = None,
+                 san_dns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 san_emails: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 san_ips: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 san_uris: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 state: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 valid_days: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -1173,35 +1173,35 @@ class Certificate(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            algorithm: Optional[pulumi.Input[_builtins.str]] = None,
-            certificate: Optional[pulumi.Input[_builtins.str]] = None,
-            certificate_dn: Optional[pulumi.Input[_builtins.str]] = None,
-            certificate_id: Optional[pulumi.Input[_builtins.str]] = None,
-            chain: Optional[pulumi.Input[_builtins.str]] = None,
-            common_name: Optional[pulumi.Input[_builtins.str]] = None,
-            country: Optional[pulumi.Input[_builtins.str]] = None,
-            csr_origin: Optional[pulumi.Input[_builtins.str]] = None,
-            csr_pem: Optional[pulumi.Input[_builtins.str]] = None,
-            custom_fields: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            ecdsa_curve: Optional[pulumi.Input[_builtins.str]] = None,
-            expiration_window: Optional[pulumi.Input[_builtins.int]] = None,
-            issuer_hint: Optional[pulumi.Input[_builtins.str]] = None,
-            key_password: Optional[pulumi.Input[_builtins.str]] = None,
-            locality: Optional[pulumi.Input[_builtins.str]] = None,
-            nickname: Optional[pulumi.Input[_builtins.str]] = None,
-            organization: Optional[pulumi.Input[_builtins.str]] = None,
-            organizational_units: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            pkcs12: Optional[pulumi.Input[_builtins.str]] = None,
-            private_key_pem: Optional[pulumi.Input[_builtins.str]] = None,
-            renew_required: Optional[pulumi.Input[_builtins.bool]] = None,
-            rsa_bits: Optional[pulumi.Input[_builtins.int]] = None,
-            san_dns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            san_emails: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            san_ips: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            san_uris: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            state: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            valid_days: Optional[pulumi.Input[_builtins.int]] = None) -> 'Certificate':
+            algorithm: pulumi.Input[Optional[_builtins.str]] = None,
+            certificate: pulumi.Input[Optional[_builtins.str]] = None,
+            certificate_dn: pulumi.Input[Optional[_builtins.str]] = None,
+            certificate_id: pulumi.Input[Optional[_builtins.str]] = None,
+            chain: pulumi.Input[Optional[_builtins.str]] = None,
+            common_name: pulumi.Input[Optional[_builtins.str]] = None,
+            country: pulumi.Input[Optional[_builtins.str]] = None,
+            csr_origin: pulumi.Input[Optional[_builtins.str]] = None,
+            csr_pem: pulumi.Input[Optional[_builtins.str]] = None,
+            custom_fields: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            ecdsa_curve: pulumi.Input[Optional[_builtins.str]] = None,
+            expiration_window: pulumi.Input[Optional[_builtins.int]] = None,
+            issuer_hint: pulumi.Input[Optional[_builtins.str]] = None,
+            key_password: pulumi.Input[Optional[_builtins.str]] = None,
+            locality: pulumi.Input[Optional[_builtins.str]] = None,
+            nickname: pulumi.Input[Optional[_builtins.str]] = None,
+            organization: pulumi.Input[Optional[_builtins.str]] = None,
+            organizational_units: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            pkcs12: pulumi.Input[Optional[_builtins.str]] = None,
+            private_key_pem: pulumi.Input[Optional[_builtins.str]] = None,
+            renew_required: pulumi.Input[Optional[_builtins.bool]] = None,
+            rsa_bits: pulumi.Input[Optional[_builtins.int]] = None,
+            san_dns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            san_emails: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            san_ips: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            san_uris: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            state: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            valid_days: pulumi.Input[Optional[_builtins.int]] = None) -> 'Certificate':
         """
         Get an existing Certificate resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

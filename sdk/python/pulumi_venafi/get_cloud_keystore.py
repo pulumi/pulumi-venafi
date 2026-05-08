@@ -128,8 +128,8 @@ def get_cloud_keystore(cloud_provider_id: Optional[_builtins.str] = None,
         machine_identities_count=pulumi.get(__ret__, 'machine_identities_count'),
         name=pulumi.get(__ret__, 'name'),
         type=pulumi.get(__ret__, 'type'))
-def get_cloud_keystore_output(cloud_provider_id: Optional[pulumi.Input[_builtins.str]] = None,
-                              name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_cloud_keystore_output(cloud_provider_id: pulumi.Input[Optional[_builtins.str]] = None,
+                              name: pulumi.Input[Optional[_builtins.str]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCloudKeystoreResult]:
     """
     Use this data source to get the `ID` of a cloud keystore in Venafi Control Plane, referenced by its name and parent

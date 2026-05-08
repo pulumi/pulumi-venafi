@@ -282,120 +282,120 @@ export interface CertificateState {
     /**
      * Key encryption algorithm, either RSA or ECDSA. Defaults to `RSA`.
      */
-    algorithm?: pulumi.Input<string>;
+    algorithm?: pulumi.Input<string | undefined>;
     /**
      * The X509 certificate in PEM format.
      */
-    certificate?: pulumi.Input<string>;
-    certificateDn?: pulumi.Input<string>;
+    certificate?: pulumi.Input<string | undefined>;
+    certificateDn?: pulumi.Input<string | undefined>;
     /**
      * ID of the issued certificate
      */
-    certificateId?: pulumi.Input<string>;
+    certificateId?: pulumi.Input<string | undefined>;
     /**
      * The trust chain of X509 certificate authority certificates in PEM format concatenated together.
      */
-    chain?: pulumi.Input<string>;
+    chain?: pulumi.Input<string | undefined>;
     /**
      * The common name of the certificate.
      */
-    commonName?: pulumi.Input<string>;
+    commonName?: pulumi.Input<string | undefined>;
     /**
      * Country of the certificate (C)
      */
-    country?: pulumi.Input<string>;
+    country?: pulumi.Input<string | undefined>;
     /**
      * Whether key-pair generation will be `local` or `service` generated. Default is 
      * `local`.
      */
-    csrOrigin?: pulumi.Input<string>;
-    csrPem?: pulumi.Input<string>;
+    csrOrigin?: pulumi.Input<string | undefined>;
+    csrPem?: pulumi.Input<string | undefined>;
     /**
      * Collection of Custom Field name-value pairs to assign to the certificate.
      */
-    customFields?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    customFields?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * ECDSA curve to use when generating a key
      */
-    ecdsaCurve?: pulumi.Input<string>;
+    ecdsaCurve?: pulumi.Input<string | undefined>;
     /**
      * Number of hours before certificate expiry to request a new certificate. 
      * Defaults to `168`.
      */
-    expirationWindow?: pulumi.Input<number>;
+    expirationWindow?: pulumi.Input<number | undefined>;
     /**
      * Used with `validDays` to indicate the target issuer when using Trust Protection 
      * Platform. Relevant values are: `DigiCert`, `Entrust`, and `Microsoft`.
      */
-    issuerHint?: pulumi.Input<string>;
+    issuerHint?: pulumi.Input<string | undefined>;
     /**
      * The password used to encrypt the private key.
      */
-    keyPassword?: pulumi.Input<string>;
+    keyPassword?: pulumi.Input<string | undefined>;
     /**
      * Locality/City of the certificate (L)
      */
-    locality?: pulumi.Input<string>;
+    locality?: pulumi.Input<string | undefined>;
     /**
      * Use to specify a name for the new certificate object that will be created and placed 
      * in a policy. Only valid for Trust Protection Platform.
      */
-    nickname?: pulumi.Input<string>;
+    nickname?: pulumi.Input<string | undefined>;
     /**
      * Organization of the certificate (O)
      */
-    organization?: pulumi.Input<string>;
+    organization?: pulumi.Input<string | undefined>;
     /**
      * List of Organizational Units of the certificate (OU)
      */
-    organizationalUnits?: pulumi.Input<pulumi.Input<string>[]>;
+    organizationalUnits?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * A base64-encoded PKCS#12 keystore secured by the `keyPassword`. Useful when working with resources like 
      * azure key_vault_certificate.
      */
-    pkcs12?: pulumi.Input<string>;
+    pkcs12?: pulumi.Input<string | undefined>;
     /**
      * The private key in PEM format.
      */
-    privateKeyPem?: pulumi.Input<string>;
+    privateKeyPem?: pulumi.Input<string | undefined>;
     /**
      * Indicates the certificate should be reissued. This means the resource will destroyed and recreated
      */
-    renewRequired?: pulumi.Input<boolean>;
+    renewRequired?: pulumi.Input<boolean | undefined>;
     /**
      * Number of bits to use when generating an RSA key. Applies when algorithm is `RSA`. 
      * Defaults to `2048`.
      */
-    rsaBits?: pulumi.Input<number>;
+    rsaBits?: pulumi.Input<number | undefined>;
     /**
      * List of DNS names to use as alternative subjects of the certificate.
      */
-    sanDns?: pulumi.Input<pulumi.Input<string>[]>;
+    sanDns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * List of email addresses to use as alternative subjects of the certificate.
      */
-    sanEmails?: pulumi.Input<pulumi.Input<string>[]>;
+    sanEmails?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * List of IP addresses to use as alternative subjects of the certificate.
      */
-    sanIps?: pulumi.Input<pulumi.Input<string>[]>;
+    sanIps?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * List of Uniform Resource Identifiers (URIs) to use as alternative subjects of 
      * the certificate.
      */
-    sanUris?: pulumi.Input<pulumi.Input<string>[]>;
+    sanUris?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * State of the certificate (S)
      */
-    state?: pulumi.Input<string>;
+    state?: pulumi.Input<string | undefined>;
     /**
      * List of Certificate Tags defined in Venafi Control Plane.
      */
-    tags?: pulumi.Input<pulumi.Input<string>[]>;
+    tags?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Desired number of days for which the new certificate will be valid.
      */
-    validDays?: pulumi.Input<number>;
+    validDays?: pulumi.Input<number | undefined>;
 }
 
 /**
@@ -405,8 +405,8 @@ export interface CertificateArgs {
     /**
      * Key encryption algorithm, either RSA or ECDSA. Defaults to `RSA`.
      */
-    algorithm?: pulumi.Input<string>;
-    certificateDn?: pulumi.Input<string>;
+    algorithm?: pulumi.Input<string | undefined>;
+    certificateDn?: pulumi.Input<string | undefined>;
     /**
      * The common name of the certificate.
      */
@@ -414,97 +414,97 @@ export interface CertificateArgs {
     /**
      * Country of the certificate (C)
      */
-    country?: pulumi.Input<string>;
+    country?: pulumi.Input<string | undefined>;
     /**
      * Whether key-pair generation will be `local` or `service` generated. Default is 
      * `local`.
      */
-    csrOrigin?: pulumi.Input<string>;
-    csrPem?: pulumi.Input<string>;
+    csrOrigin?: pulumi.Input<string | undefined>;
+    csrPem?: pulumi.Input<string | undefined>;
     /**
      * Collection of Custom Field name-value pairs to assign to the certificate.
      */
-    customFields?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    customFields?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * ECDSA curve to use when generating a key
      */
-    ecdsaCurve?: pulumi.Input<string>;
+    ecdsaCurve?: pulumi.Input<string | undefined>;
     /**
      * Number of hours before certificate expiry to request a new certificate. 
      * Defaults to `168`.
      */
-    expirationWindow?: pulumi.Input<number>;
+    expirationWindow?: pulumi.Input<number | undefined>;
     /**
      * Used with `validDays` to indicate the target issuer when using Trust Protection 
      * Platform. Relevant values are: `DigiCert`, `Entrust`, and `Microsoft`.
      */
-    issuerHint?: pulumi.Input<string>;
+    issuerHint?: pulumi.Input<string | undefined>;
     /**
      * The password used to encrypt the private key.
      */
-    keyPassword?: pulumi.Input<string>;
+    keyPassword?: pulumi.Input<string | undefined>;
     /**
      * Locality/City of the certificate (L)
      */
-    locality?: pulumi.Input<string>;
+    locality?: pulumi.Input<string | undefined>;
     /**
      * Use to specify a name for the new certificate object that will be created and placed 
      * in a policy. Only valid for Trust Protection Platform.
      */
-    nickname?: pulumi.Input<string>;
+    nickname?: pulumi.Input<string | undefined>;
     /**
      * Organization of the certificate (O)
      */
-    organization?: pulumi.Input<string>;
+    organization?: pulumi.Input<string | undefined>;
     /**
      * List of Organizational Units of the certificate (OU)
      */
-    organizationalUnits?: pulumi.Input<pulumi.Input<string>[]>;
+    organizationalUnits?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * A base64-encoded PKCS#12 keystore secured by the `keyPassword`. Useful when working with resources like 
      * azure key_vault_certificate.
      */
-    pkcs12?: pulumi.Input<string>;
+    pkcs12?: pulumi.Input<string | undefined>;
     /**
      * The private key in PEM format.
      */
-    privateKeyPem?: pulumi.Input<string>;
+    privateKeyPem?: pulumi.Input<string | undefined>;
     /**
      * Indicates the certificate should be reissued. This means the resource will destroyed and recreated
      */
-    renewRequired?: pulumi.Input<boolean>;
+    renewRequired?: pulumi.Input<boolean | undefined>;
     /**
      * Number of bits to use when generating an RSA key. Applies when algorithm is `RSA`. 
      * Defaults to `2048`.
      */
-    rsaBits?: pulumi.Input<number>;
+    rsaBits?: pulumi.Input<number | undefined>;
     /**
      * List of DNS names to use as alternative subjects of the certificate.
      */
-    sanDns?: pulumi.Input<pulumi.Input<string>[]>;
+    sanDns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * List of email addresses to use as alternative subjects of the certificate.
      */
-    sanEmails?: pulumi.Input<pulumi.Input<string>[]>;
+    sanEmails?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * List of IP addresses to use as alternative subjects of the certificate.
      */
-    sanIps?: pulumi.Input<pulumi.Input<string>[]>;
+    sanIps?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * List of Uniform Resource Identifiers (URIs) to use as alternative subjects of 
      * the certificate.
      */
-    sanUris?: pulumi.Input<pulumi.Input<string>[]>;
+    sanUris?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * State of the certificate (S)
      */
-    state?: pulumi.Input<string>;
+    state?: pulumi.Input<string | undefined>;
     /**
      * List of Certificate Tags defined in Venafi Control Plane.
      */
-    tags?: pulumi.Input<pulumi.Input<string>[]>;
+    tags?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Desired number of days for which the new certificate will be valid.
      */
-    validDays?: pulumi.Input<number>;
+    validDays?: pulumi.Input<number | undefined>;
 }

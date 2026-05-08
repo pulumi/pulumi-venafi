@@ -21,9 +21,9 @@ class CloudKeystoreInstallationArgs:
     def __init__(__self__, *,
                  certificate_id: pulumi.Input[_builtins.str],
                  cloud_keystore_id: pulumi.Input[_builtins.str],
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 cloud_certificate_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 gcm_cert_scope: Optional[pulumi.Input[_builtins.str]] = None):
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 cloud_certificate_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 gcm_cert_scope: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a CloudKeystoreInstallation resource.
 
@@ -68,51 +68,51 @@ class CloudKeystoreInstallationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the AWS certificate. Use it to provision the VCP certificate to an existing ACM certificate, instead of a new one. Only valid for ACM keystores.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter(name="cloudCertificateName")
-    def cloud_certificate_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cloud_certificate_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name for the provisioned certificate in the keystore. If the name already exists, the provisioning will replace the previous certificate with the one from `certificate_id`. Only valid for AKV and GCM keystores.
         """
         return pulumi.get(self, "cloud_certificate_name")
 
     @cloud_certificate_name.setter
-    def cloud_certificate_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cloud_certificate_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cloud_certificate_name", value)
 
     @_builtins.property
     @pulumi.getter(name="gcmCertScope")
-    def gcm_cert_scope(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def gcm_cert_scope(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The GCM certificate scope of the certificate. Only valid for GCM keystores. Supported values from GCM API documentation: DEFAULT, EDGE_CACHE, ALL_REGIONS.
         """
         return pulumi.get(self, "gcm_cert_scope")
 
     @gcm_cert_scope.setter
-    def gcm_cert_scope(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def gcm_cert_scope(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "gcm_cert_scope", value)
 
 
 @pulumi.input_type
 class _CloudKeystoreInstallationState:
     def __init__(__self__, *,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 certificate_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 cloud_certificate_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 cloud_certificate_metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 cloud_certificate_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 cloud_keystore_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 gcm_cert_scope: Optional[pulumi.Input[_builtins.str]] = None):
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 certificate_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 cloud_certificate_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 cloud_certificate_metadata: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 cloud_certificate_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 cloud_keystore_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 gcm_cert_scope: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering CloudKeystoreInstallation resources.
 
@@ -141,86 +141,86 @@ class _CloudKeystoreInstallationState:
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the AWS certificate. Use it to provision the VCP certificate to an existing ACM certificate, instead of a new one. Only valid for ACM keystores.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter(name="certificateId")
-    def certificate_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def certificate_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ID of the certificate to be provisioned to the given `keystore_id`.
         """
         return pulumi.get(self, "certificate_id")
 
     @certificate_id.setter
-    def certificate_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def certificate_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "certificate_id", value)
 
     @_builtins.property
     @pulumi.getter(name="cloudCertificateId")
-    def cloud_certificate_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cloud_certificate_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the provisioned certificate within the Cloud Keystore
         """
         return pulumi.get(self, "cloud_certificate_id")
 
     @cloud_certificate_id.setter
-    def cloud_certificate_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cloud_certificate_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cloud_certificate_id", value)
 
     @_builtins.property
     @pulumi.getter(name="cloudCertificateMetadata")
-    def cloud_certificate_metadata(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def cloud_certificate_metadata(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Metadata of the provisioned certificate from the Cloud Keystore
         """
         return pulumi.get(self, "cloud_certificate_metadata")
 
     @cloud_certificate_metadata.setter
-    def cloud_certificate_metadata(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def cloud_certificate_metadata(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "cloud_certificate_metadata", value)
 
     @_builtins.property
     @pulumi.getter(name="cloudCertificateName")
-    def cloud_certificate_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cloud_certificate_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name for the provisioned certificate in the keystore. If the name already exists, the provisioning will replace the previous certificate with the one from `certificate_id`. Only valid for AKV and GCM keystores.
         """
         return pulumi.get(self, "cloud_certificate_name")
 
     @cloud_certificate_name.setter
-    def cloud_certificate_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cloud_certificate_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cloud_certificate_name", value)
 
     @_builtins.property
     @pulumi.getter(name="cloudKeystoreId")
-    def cloud_keystore_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cloud_keystore_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ID of the cloud keystore where the certificate will be provisioned.
         """
         return pulumi.get(self, "cloud_keystore_id")
 
     @cloud_keystore_id.setter
-    def cloud_keystore_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cloud_keystore_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cloud_keystore_id", value)
 
     @_builtins.property
     @pulumi.getter(name="gcmCertScope")
-    def gcm_cert_scope(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def gcm_cert_scope(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The GCM certificate scope of the certificate. Only valid for GCM keystores. Supported values from GCM API documentation: DEFAULT, EDGE_CACHE, ALL_REGIONS.
         """
         return pulumi.get(self, "gcm_cert_scope")
 
     @gcm_cert_scope.setter
-    def gcm_cert_scope(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def gcm_cert_scope(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "gcm_cert_scope", value)
 
 
@@ -230,11 +230,11 @@ class CloudKeystoreInstallation(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 certificate_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 cloud_certificate_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 cloud_keystore_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 gcm_cert_scope: Optional[pulumi.Input[_builtins.str]] = None,
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 certificate_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 cloud_certificate_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 cloud_keystore_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 gcm_cert_scope: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Provisions a certificate from Venafi Control Plane's inventory to any of the supported Cloud Providers: Amazon
@@ -329,11 +329,11 @@ class CloudKeystoreInstallation(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 certificate_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 cloud_certificate_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 cloud_keystore_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 gcm_cert_scope: Optional[pulumi.Input[_builtins.str]] = None,
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 certificate_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 cloud_certificate_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 cloud_keystore_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 gcm_cert_scope: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -364,13 +364,13 @@ class CloudKeystoreInstallation(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            certificate_id: Optional[pulumi.Input[_builtins.str]] = None,
-            cloud_certificate_id: Optional[pulumi.Input[_builtins.str]] = None,
-            cloud_certificate_metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            cloud_certificate_name: Optional[pulumi.Input[_builtins.str]] = None,
-            cloud_keystore_id: Optional[pulumi.Input[_builtins.str]] = None,
-            gcm_cert_scope: Optional[pulumi.Input[_builtins.str]] = None) -> 'CloudKeystoreInstallation':
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            certificate_id: pulumi.Input[Optional[_builtins.str]] = None,
+            cloud_certificate_id: pulumi.Input[Optional[_builtins.str]] = None,
+            cloud_certificate_metadata: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            cloud_certificate_name: pulumi.Input[Optional[_builtins.str]] = None,
+            cloud_keystore_id: pulumi.Input[Optional[_builtins.str]] = None,
+            gcm_cert_scope: pulumi.Input[Optional[_builtins.str]] = None) -> 'CloudKeystoreInstallation':
         """
         Get an existing CloudKeystoreInstallation resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

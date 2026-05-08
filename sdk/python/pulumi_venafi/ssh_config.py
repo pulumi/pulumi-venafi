@@ -43,9 +43,9 @@ class SshConfigArgs:
 @pulumi.input_type
 class _SshConfigState:
     def __init__(__self__, *,
-                 ca_public_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 principals: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 template: Optional[pulumi.Input[_builtins.str]] = None):
+                 ca_public_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 principals: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 template: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering SshConfig resources.
 
@@ -62,38 +62,38 @@ class _SshConfigState:
 
     @_builtins.property
     @pulumi.getter(name="caPublicKey")
-    def ca_public_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ca_public_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Optional, string) The template's CA public key.
         """
         return pulumi.get(self, "ca_public_key")
 
     @ca_public_key.setter
-    def ca_public_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ca_public_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ca_public_key", value)
 
     @_builtins.property
     @pulumi.getter
-    def principals(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def principals(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         (Optional, set of strings) A list of user names exported from the template.
         """
         return pulumi.get(self, "principals")
 
     @principals.setter
-    def principals(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def principals(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "principals", value)
 
     @_builtins.property
     @pulumi.getter
-    def template(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def template(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The SSH certificate issuing template.
         """
         return pulumi.get(self, "template")
 
     @template.setter
-    def template(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def template(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "template", value)
 
 
@@ -103,7 +103,7 @@ class SshConfig(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 template: Optional[pulumi.Input[_builtins.str]] = None,
+                 template: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Provides access to retrieve configuration from SSH certificate issuance template from *Venafi Trust Protection Platform*.
@@ -156,7 +156,7 @@ class SshConfig(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 template: Optional[pulumi.Input[_builtins.str]] = None,
+                 template: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -181,9 +181,9 @@ class SshConfig(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            ca_public_key: Optional[pulumi.Input[_builtins.str]] = None,
-            principals: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            template: Optional[pulumi.Input[_builtins.str]] = None) -> 'SshConfig':
+            ca_public_key: pulumi.Input[Optional[_builtins.str]] = None,
+            principals: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            template: pulumi.Input[Optional[_builtins.str]] = None) -> 'SshConfig':
         """
         Get an existing SshConfig resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

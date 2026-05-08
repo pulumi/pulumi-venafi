@@ -136,71 +136,71 @@ export interface ProviderArgs {
     /**
      * Access token for Venafi TLSPDC, user should use this for authentication
      */
-    accessToken?: pulumi.Input<string>;
+    accessToken?: pulumi.Input<string | undefined>;
     /**
      * API key for Venafi Control Plane. Example: 142231b7-cvb0-412e-886b-6aeght0bc93d
      */
-    apiKey?: pulumi.Input<string>;
+    apiKey?: pulumi.Input<string | undefined>;
     /**
      * application that will be using the token
      */
-    clientId?: pulumi.Input<string>;
+    clientId?: pulumi.Input<string | undefined>;
     /**
      * When set to true, the resulting certificate will be issued by an ephemeral, no trust CA rather than enrolling using Venafi as a Service or Trust Protection Platform. Useful for development and testing
      */
-    devMode?: pulumi.Input<boolean>;
+    devMode?: pulumi.Input<boolean | undefined>;
     /**
      * JWT of the identity provider associated to the Venafi Control Plane service account that is granting the access token
      */
-    externalJwt?: pulumi.Input<string>;
+    externalJwt?: pulumi.Input<string | undefined>;
     /**
      * Base64 encoded PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to TLSPDC
      */
-    p12CertData?: pulumi.Input<string>;
+    p12CertData?: pulumi.Input<string | undefined>;
     /**
      * Filename of PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to TLSPDC
      */
-    p12CertFilename?: pulumi.Input<string>;
+    p12CertFilename?: pulumi.Input<string | undefined>;
     /**
      * Password for the PKCS#12 keystore declared in p12Cert / p12_cert_data
      */
-    p12CertPassword?: pulumi.Input<string>;
+    p12CertPassword?: pulumi.Input<string | undefined>;
     /**
      * When true, certificates will not be retired on Venafi platforms when terraform destroy is run. Default is false
      */
-    skipRetirement?: pulumi.Input<boolean>;
+    skipRetirement?: pulumi.Input<boolean | undefined>;
     /**
      * Endpoint URL to request new Venafi Control Plane access tokens
      */
-    tokenUrl?: pulumi.Input<string>;
+    tokenUrl?: pulumi.Input<string | undefined>;
     /**
      * Password for WebSDK user. Example: password
      *
      * @deprecated , please use accessToken instead
      */
-    tppPassword?: pulumi.Input<string>;
+    tppPassword?: pulumi.Input<string | undefined>;
     /**
      * WebSDK user for Venafi TLSPDC. Example: admin
      *
      * @deprecated , please use accessToken instead
      */
-    tppUsername?: pulumi.Input<string>;
+    tppUsername?: pulumi.Input<string | undefined>;
     /**
      * Use to specify a PEM-formatted file that contains certificates to be trust anchors for all communications with the Venafi Web Service.
      * Example:
      *   trustBundle = "${file("chain.pem")}"
      */
-    trustBundle?: pulumi.Input<string>;
+    trustBundle?: pulumi.Input<string | undefined>;
     /**
      * The Venafi Platform URL. Example: https://tpp.venafi.example/vedsdk
      */
-    url?: pulumi.Input<string>;
+    url?: pulumi.Input<string | undefined>;
     /**
      * DN of the Venafi TLSPDC policy folder or name of the Venafi as a Service application plus issuing template alias. 
      * Example for Platform: testPolicy\\vault
      * Example for Venafi as a Service: myApp\\Default
      */
-    zone?: pulumi.Input<string>;
+    zone?: pulumi.Input<string | undefined>;
 }
 
 export namespace Provider {
