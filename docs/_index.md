@@ -108,7 +108,7 @@ using Venafi = Pulumi.Venafi;
 return await Deployment.RunAsync(() =>
 {
     // Generate a key pair and request a certificate
-    var webserver = new Venafi.Index.Certificate("webserver");
+    var webserver = new Venafi.Certificate("webserver");
 
 });
 
@@ -190,8 +190,8 @@ import com.pulumi.Context;
 import com.pulumi.Pulumi;
 import com.pulumi.core.Output;
 import com.pulumi.venafi.Certificate;
-import java.util.List;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Map;
 import java.io.File;
 import java.nio.file.Files;
@@ -287,7 +287,7 @@ using Venafi = Pulumi.Venafi;
 return await Deployment.RunAsync(() =>
 {
     // Generate a key pair and request a certificate
-    var webserver = new Venafi.Index.Certificate("webserver");
+    var webserver = new Venafi.Certificate("webserver");
 
 });
 
@@ -375,8 +375,8 @@ import com.pulumi.Context;
 import com.pulumi.Pulumi;
 import com.pulumi.core.Output;
 import com.pulumi.venafi.Certificate;
-import java.util.List;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Map;
 import java.io.File;
 import java.nio.file.Files;
@@ -472,7 +472,7 @@ using Venafi = Pulumi.Venafi;
 return await Deployment.RunAsync(() =>
 {
     // Generate a key pair and request a certificate
-    var webserver = new Venafi.Index.Certificate("webserver");
+    var webserver = new Venafi.Certificate("webserver");
 
 });
 
@@ -560,8 +560,8 @@ import com.pulumi.Context;
 import com.pulumi.Pulumi;
 import com.pulumi.core.Output;
 import com.pulumi.venafi.Certificate;
-import java.util.List;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Map;
 import java.io.File;
 import java.nio.file.Files;
@@ -657,7 +657,7 @@ using Venafi = Pulumi.Venafi;
 return await Deployment.RunAsync(() =>
 {
     // Generate a key pair and request a certificate
-    var webserver = new Venafi.Index.Certificate("webserver");
+    var webserver = new Venafi.Certificate("webserver");
 
 });
 
@@ -745,8 +745,8 @@ import com.pulumi.Context;
 import com.pulumi.Pulumi;
 import com.pulumi.core.Output;
 import com.pulumi.venafi.Certificate;
-import java.util.List;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Map;
 import java.io.File;
 import java.nio.file.Files;
@@ -842,7 +842,7 @@ using Venafi = Pulumi.Venafi;
 return await Deployment.RunAsync(() =>
 {
     // Generate a key pair and request a certificate
-    var webserver = new Venafi.Index.Certificate("webserver");
+    var webserver = new Venafi.Certificate("webserver");
 
 });
 
@@ -930,8 +930,8 @@ import com.pulumi.Context;
 import com.pulumi.Pulumi;
 import com.pulumi.core.Output;
 import com.pulumi.venafi.Certificate;
-import java.util.List;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Map;
 import java.io.File;
 import java.nio.file.Files;
@@ -1027,7 +1027,7 @@ using Venafi = Pulumi.Venafi;
 return await Deployment.RunAsync(() =>
 {
     // Generate a key pair and request a certificate
-    var webserver = new Venafi.Index.Certificate("webserver");
+    var webserver = new Venafi.Certificate("webserver");
 
 });
 
@@ -1115,8 +1115,8 @@ import com.pulumi.Context;
 import com.pulumi.Pulumi;
 import com.pulumi.core.Output;
 import com.pulumi.venafi.Certificate;
-import java.util.List;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Map;
 import java.io.File;
 import java.nio.file.Files;
@@ -1229,7 +1229,7 @@ using Venafi = Pulumi.Venafi;
 return await Deployment.RunAsync(() =>
 {
     // Generate a key pair and request a certificate
-    var webserver = new Venafi.Index.Certificate("webserver");
+    var webserver = new Venafi.Certificate("webserver");
 
 });
 
@@ -1323,8 +1323,8 @@ import com.pulumi.Context;
 import com.pulumi.Pulumi;
 import com.pulumi.core.Output;
 import com.pulumi.venafi.Certificate;
-import java.util.List;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Map;
 import java.io.File;
 import java.nio.file.Files;

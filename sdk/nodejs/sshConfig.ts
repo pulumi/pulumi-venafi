@@ -94,15 +94,15 @@ export interface SshConfigState {
     /**
      * (Optional, string) The template's CA public key.
      */
-    caPublicKey?: pulumi.Input<string>;
+    caPublicKey?: pulumi.Input<string | undefined>;
     /**
      * (Optional, set of strings) A list of user names exported from the template.
      */
-    principals?: pulumi.Input<pulumi.Input<string>[]>;
+    principals?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The SSH certificate issuing template.
      */
-    template?: pulumi.Input<string>;
+    template?: pulumi.Input<string | undefined>;
 }
 
 /**

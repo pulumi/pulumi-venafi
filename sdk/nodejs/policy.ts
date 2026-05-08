@@ -115,12 +115,12 @@ export interface PolicyState {
      * [here](https://github.com/Venafi/vcert/blob/master/README-POLICY-SPEC.md). Typically read from a file using the `file`
      * function.
      */
-    policySpecification?: pulumi.Input<string>;
+    policySpecification?: pulumi.Input<string | undefined>;
     /**
      * The *Trust Protection Plaform* policy folder or *Venafi Control Plane* application and 
      * issuing template.
      */
-    zone?: pulumi.Input<string>;
+    zone?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -132,10 +132,10 @@ export interface PolicyArgs {
      * [here](https://github.com/Venafi/vcert/blob/master/README-POLICY-SPEC.md). Typically read from a file using the `file`
      * function.
      */
-    policySpecification?: pulumi.Input<string>;
+    policySpecification?: pulumi.Input<string | undefined>;
     /**
      * The *Trust Protection Plaform* policy folder or *Venafi Control Plane* application and 
      * issuing template.
      */
-    zone?: pulumi.Input<string>;
+    zone?: pulumi.Input<string | undefined>;
 }

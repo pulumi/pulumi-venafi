@@ -142,31 +142,31 @@ export interface CloudKeystoreInstallationState {
     /**
      * ARN of the AWS certificate. Use it to provision the VCP certificate to an existing ACM certificate, instead of a new one. Only valid for ACM keystores.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * ID of the certificate to be provisioned to the given `keystoreId`.
      */
-    certificateId?: pulumi.Input<string>;
+    certificateId?: pulumi.Input<string | undefined>;
     /**
      * The ID of the provisioned certificate within the Cloud Keystore
      */
-    cloudCertificateId?: pulumi.Input<string>;
+    cloudCertificateId?: pulumi.Input<string | undefined>;
     /**
      * Metadata of the provisioned certificate from the Cloud Keystore
      */
-    cloudCertificateMetadata?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    cloudCertificateMetadata?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Name for the provisioned certificate in the keystore. If the name already exists, the provisioning will replace the previous certificate with the one from `certificateId`. Only valid for AKV and GCM keystores.
      */
-    cloudCertificateName?: pulumi.Input<string>;
+    cloudCertificateName?: pulumi.Input<string | undefined>;
     /**
      * ID of the cloud keystore where the certificate will be provisioned.
      */
-    cloudKeystoreId?: pulumi.Input<string>;
+    cloudKeystoreId?: pulumi.Input<string | undefined>;
     /**
      * The GCM certificate scope of the certificate. Only valid for GCM keystores. Supported values from GCM API documentation: DEFAULT, EDGE_CACHE, ALL_REGIONS.
      */
-    gcmCertScope?: pulumi.Input<string>;
+    gcmCertScope?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -176,7 +176,7 @@ export interface CloudKeystoreInstallationArgs {
     /**
      * ARN of the AWS certificate. Use it to provision the VCP certificate to an existing ACM certificate, instead of a new one. Only valid for ACM keystores.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * ID of the certificate to be provisioned to the given `keystoreId`.
      */
@@ -184,7 +184,7 @@ export interface CloudKeystoreInstallationArgs {
     /**
      * Name for the provisioned certificate in the keystore. If the name already exists, the provisioning will replace the previous certificate with the one from `certificateId`. Only valid for AKV and GCM keystores.
      */
-    cloudCertificateName?: pulumi.Input<string>;
+    cloudCertificateName?: pulumi.Input<string | undefined>;
     /**
      * ID of the cloud keystore where the certificate will be provisioned.
      */
@@ -192,5 +192,5 @@ export interface CloudKeystoreInstallationArgs {
     /**
      * The GCM certificate scope of the certificate. Only valid for GCM keystores. Supported values from GCM API documentation: DEFAULT, EDGE_CACHE, ALL_REGIONS.
      */
-    gcmCertScope?: pulumi.Input<string>;
+    gcmCertScope?: pulumi.Input<string | undefined>;
 }

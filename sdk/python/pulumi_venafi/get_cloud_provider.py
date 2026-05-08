@@ -136,7 +136,7 @@ def get_cloud_provider(name: Optional[_builtins.str] = None,
         status=pulumi.get(__ret__, 'status'),
         status_details=pulumi.get(__ret__, 'status_details'),
         type=pulumi.get(__ret__, 'type'))
-def get_cloud_provider_output(name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_cloud_provider_output(name: pulumi.Input[Optional[_builtins.str]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCloudProviderResult]:
     """
     Use this data source to get the `ID` of a cloud provider in Venafi Control Plane, referenced by its name.
