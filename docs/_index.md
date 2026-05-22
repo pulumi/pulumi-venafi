@@ -41,7 +41,7 @@ certificate authority that will issue certificates. The zone is formed by combin
 Template API Alias (e.g. "Business App\Enterprise CIT").
 ### US tenants
 
-{{< chooser language "typescript,python,go,csharp,java,yaml" >}}
+{{< chooser language "typescript,python,go,csharp,java,yaml,hcl" >}}
 {{% choosable language typescript %}}
 ```yaml
 # Pulumi.yaml provider configuration file
@@ -207,6 +207,22 @@ public class App {
         var webserver = new Certificate("webserver");
 
     }
+}
+```
+
+{{% /choosable %}}
+{{% choosable language hcl %}}
+```hcl
+pulumi {
+  required_providers {
+    venafi = {
+      source = "pulumi/venafi"
+    }
+  }
+}
+
+# Generate a key pair and request a certificate
+resource "venafi_certificate" "webserver" {
 }
 ```
 
@@ -214,7 +230,7 @@ public class App {
 {{< /chooser >}}
 ### EU tenants
 
-{{< chooser language "typescript,python,go,csharp,java,yaml" >}}
+{{< chooser language "typescript,python,go,csharp,java,yaml,hcl" >}}
 {{% choosable language typescript %}}
 ```yaml
 # Pulumi.yaml provider configuration file
@@ -392,6 +408,22 @@ public class App {
         var webserver = new Certificate("webserver");
 
     }
+}
+```
+
+{{% /choosable %}}
+{{% choosable language hcl %}}
+```hcl
+pulumi {
+  required_providers {
+    venafi = {
+      source = "pulumi/venafi"
+    }
+  }
+}
+
+# Generate a key pair and request a certificate
+resource "venafi_certificate" "webserver" {
 }
 ```
 
@@ -399,7 +431,7 @@ public class App {
 {{< /chooser >}}
 ### AU tenants
 
-{{< chooser language "typescript,python,go,csharp,java,yaml" >}}
+{{< chooser language "typescript,python,go,csharp,java,yaml,hcl" >}}
 {{% choosable language typescript %}}
 ```yaml
 # Pulumi.yaml provider configuration file
@@ -577,6 +609,22 @@ public class App {
         var webserver = new Certificate("webserver");
 
     }
+}
+```
+
+{{% /choosable %}}
+{{% choosable language hcl %}}
+```hcl
+pulumi {
+  required_providers {
+    venafi = {
+      source = "pulumi/venafi"
+    }
+  }
+}
+
+# Generate a key pair and request a certificate
+resource "venafi_certificate" "webserver" {
 }
 ```
 
@@ -584,7 +632,7 @@ public class App {
 {{< /chooser >}}
 ### UK tenants
 
-{{< chooser language "typescript,python,go,csharp,java,yaml" >}}
+{{< chooser language "typescript,python,go,csharp,java,yaml,hcl" >}}
 {{% choosable language typescript %}}
 ```yaml
 # Pulumi.yaml provider configuration file
@@ -762,6 +810,22 @@ public class App {
         var webserver = new Certificate("webserver");
 
     }
+}
+```
+
+{{% /choosable %}}
+{{% choosable language hcl %}}
+```hcl
+pulumi {
+  required_providers {
+    venafi = {
+      source = "pulumi/venafi"
+    }
+  }
+}
+
+# Generate a key pair and request a certificate
+resource "venafi_certificate" "webserver" {
 }
 ```
 
@@ -769,7 +833,7 @@ public class App {
 {{< /chooser >}}
 ### SG tenants
 
-{{< chooser language "typescript,python,go,csharp,java,yaml" >}}
+{{< chooser language "typescript,python,go,csharp,java,yaml,hcl" >}}
 {{% choosable language typescript %}}
 ```yaml
 # Pulumi.yaml provider configuration file
@@ -947,6 +1011,22 @@ public class App {
         var webserver = new Certificate("webserver");
 
     }
+}
+```
+
+{{% /choosable %}}
+{{% choosable language hcl %}}
+```hcl
+pulumi {
+  required_providers {
+    venafi = {
+      source = "pulumi/venafi"
+    }
+  }
+}
+
+# Generate a key pair and request a certificate
+resource "venafi_certificate" "webserver" {
 }
 ```
 
@@ -954,7 +1034,7 @@ public class App {
 {{< /chooser >}}
 ### CA tenants
 
-{{< chooser language "typescript,python,go,csharp,java,yaml" >}}
+{{< chooser language "typescript,python,go,csharp,java,yaml,hcl" >}}
 {{% choosable language typescript %}}
 ```yaml
 # Pulumi.yaml provider configuration file
@@ -1132,6 +1212,22 @@ public class App {
         var webserver = new Certificate("webserver");
 
     }
+}
+```
+
+{{% /choosable %}}
+{{% choosable language hcl %}}
+```hcl
+pulumi {
+  required_providers {
+    venafi = {
+      source = "pulumi/venafi"
+    }
+  }
+}
+
+# Generate a key pair and request a certificate
+resource "venafi_certificate" "webserver" {
 }
 ```
 
@@ -1150,7 +1246,7 @@ Obtain the required `accessToken` for Trust Protection Platform using the [VCert
 Platform's Authorize REST API method. The *configuration:manage* scope is required to set certificate policy using the
 `venafi.Policy` resource.
 
-{{< chooser language "typescript,python,go,csharp,java,yaml" >}}
+{{< chooser language "typescript,python,go,csharp,java,yaml,hcl" >}}
 {{% choosable language typescript %}}
 ```yaml
 # Pulumi.yaml provider configuration file
@@ -1340,6 +1436,22 @@ public class App {
         var webserver = new Certificate("webserver");
 
     }
+}
+```
+
+{{% /choosable %}}
+{{% choosable language hcl %}}
+```hcl
+pulumi {
+  required_providers {
+    venafi = {
+      source = "pulumi/venafi"
+    }
+  }
+}
+
+# Generate a key pair and request a certificate
+resource "venafi_certificate" "webserver" {
 }
 ```
 
