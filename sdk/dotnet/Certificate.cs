@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Venafi
 {
     /// <summary>
-    /// !&gt; We dropped support for RSA PKCS#1 formatted keys for TLS certificates in version 15.0 and also for EC Keys in version
+    /// &gt; We dropped support for RSA PKCS#1 formatted keys for TLS certificates in version 15.0 and also for EC Keys in version
     /// 0.15.4 (you can find out more about this transition in [here](https://github.com/Venafi/vcert/releases/tag/v4.17.0)).
     /// For backward compatibility during Terraform state refresh please update to version 0.15.5 or above.
     /// 
