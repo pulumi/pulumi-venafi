@@ -16,7 +16,7 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Provisions a certificate from Venafi Control Plane&#39;s inventory to any of the supported Cloud Providers: Amazon
+ * Provisions a certificate from CyberArk Certificate Manager, SaaS inventory to any of the supported Cloud Providers: Amazon
  * Certificate Manager, Azure KeyVault or Google Certificate Manager. Exports the ID of the provisioned certificate:
  * certificate name for AKV and GCM or ARN for ACM.
  * 
@@ -65,7 +65,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import a Machine Identity from Venafi Control Plane using their ID. For example:
+ * Using `pulumi import`, import a Machine Identity from CyberArk Certificate Manager, SaaS using their ID. For example:
  * 
  * ```sh
  * $ pulumi import venafi:index/cloudKeystoreInstallation:CloudKeystoreInstallation example 2155bd32-2234-22ac-7cfd-ff1198845aa2
@@ -75,14 +75,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="venafi:index/cloudKeystoreInstallation:CloudKeystoreInstallation")
 public class CloudKeystoreInstallation extends com.pulumi.resources.CustomResource {
     /**
-     * ARN of the AWS certificate. Use it to provision the VCP certificate to an existing ACM certificate, instead of a new one. Only valid for ACM keystores.
+     * ARN of the AWS certificate. Use it to provision the CyberArk Certificate Manager, SaaS certificate to an existing ACM certificate, instead of a new one. Only valid for ACM keystores.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> arn;
 
     /**
-     * @return ARN of the AWS certificate. Use it to provision the VCP certificate to an existing ACM certificate, instead of a new one. Only valid for ACM keystores.
+     * @return ARN of the AWS certificate. Use it to provision the CyberArk Certificate Manager, SaaS certificate to an existing ACM certificate, instead of a new one. Only valid for ACM keystores.
      * 
      */
     public Output<Optional<String>> arn() {

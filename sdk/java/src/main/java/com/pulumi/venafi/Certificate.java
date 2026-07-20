@@ -24,12 +24,6 @@ import javax.annotation.Nullable;
  * For backward compatibility during Terraform state refresh please update to version 0.15.5 or above.
  * 
  * Provides access to TLS key and certificate data enrolled using Venafi. This can be used to define a certificate.
- * 
- * The `venafi.Certificate` resource handles certificate renewals as long as a
- * `pulumi up` is run within the `expirationWindow` period. Keep in mind that the
- * `expirationWindow` in the provider configuration needs to align with the renewal
- * window of the issuing CA to achieve the desired result.
- * 
  * ## Example Usage
  * 
  * <pre>
@@ -72,13 +66,11 @@ import javax.annotation.Nullable;
  * }
  * }
  * </pre>
- * 
  * ## Certificate Renewal
  * 
- * The `venafi.Certificate` resource handles certificate renewals as long as a
- * `pulumi up` is done within the `expirationWindow` period. Keep in mind that the
- * `expirationWindow` in the Terraform configuration needs to align with the renewal
- * window of the issuing CA to achieve the desired result.
+ * The `venafi.Certificate` resource handles certificate renewals as long as a `pulumi up` is done within the
+ * `expirationWindow` period. Keep in mind that the `expirationWindow` in the Terraform configuration needs to align with
+ * the renewal window of the issuing CA to achieve the desired result.
  * 
  */
 @ResourceType(type="venafi:index/certificate:Certificate")
@@ -240,16 +232,16 @@ public class Certificate extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.expirationWindow);
     }
     /**
-     * Used with `validDays` to indicate the target issuer when using Trust Protection
-     * Platform. Relevant values are: `DigiCert`, `Entrust`, and `Microsoft`.
+     * Used with `validDays` to indicate the target issuer when using CyberArk Certificate Manager, Self-Hosted.
+     * Relevant values are: `DigiCert`, `Entrust`, and `Microsoft`.
      * 
      */
     @Export(name="issuerHint", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> issuerHint;
 
     /**
-     * @return Used with `validDays` to indicate the target issuer when using Trust Protection
-     * Platform. Relevant values are: `DigiCert`, `Entrust`, and `Microsoft`.
+     * @return Used with `validDays` to indicate the target issuer when using CyberArk Certificate Manager, Self-Hosted.
+     * Relevant values are: `DigiCert`, `Entrust`, and `Microsoft`.
      * 
      */
     public Output<Optional<String>> issuerHint() {
@@ -285,7 +277,7 @@ public class Certificate extends com.pulumi.resources.CustomResource {
     }
     /**
      * Use to specify a name for the new certificate object that will be created and placed
-     * in a policy. Only valid for Trust Protection Platform.
+     * in a policy. Only valid for CyberArk Certificate Manager, Self-Hosted.
      * 
      */
     @Export(name="nickname", refs={String.class}, tree="[0]")
@@ -293,7 +285,7 @@ public class Certificate extends com.pulumi.resources.CustomResource {
 
     /**
      * @return Use to specify a name for the new certificate object that will be created and placed
-     * in a policy. Only valid for Trust Protection Platform.
+     * in a policy. Only valid for CyberArk Certificate Manager, Self-Hosted.
      * 
      */
     public Output<Optional<String>> nickname() {
@@ -460,14 +452,14 @@ public class Certificate extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.state);
     }
     /**
-     * List of Certificate Tags defined in Venafi Control Plane.
+     * List of Certificate Tags defined in CyberArk Certificate Manager, SaaS.
      * 
      */
     @Export(name="tags", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> tags;
 
     /**
-     * @return List of Certificate Tags defined in Venafi Control Plane.
+     * @return List of Certificate Tags defined in CyberArk Certificate Manager, SaaS.
      * 
      */
     public Output<Optional<List<String>>> tags() {
@@ -529,6 +521,7 @@ public class Certificate extends com.pulumi.resources.CustomResource {
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
                 "keyPassword",
+                "pkcs12",
                 "privateKeyPem"
             ))
             .build();

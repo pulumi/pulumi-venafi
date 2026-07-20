@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
- * Use this data source to get the `ID` of a cloud provider in Venafi Control Plane, referenced by its name.
+ * Use this data source to get the `ID` of a cloud provider in CyberArk Certificate Manager, SaaS, referenced by its name.
  *
  * ## Example Usage
  *
@@ -63,7 +63,7 @@ export interface GetCloudProviderResult {
     readonly type: string;
 }
 /**
- * Use this data source to get the `ID` of a cloud provider in Venafi Control Plane, referenced by its name.
+ * Use this data source to get the `ID` of a cloud provider in CyberArk Certificate Manager, SaaS, referenced by its name.
  *
  * ## Example Usage
  *

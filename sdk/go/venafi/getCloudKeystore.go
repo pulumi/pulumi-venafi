@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Use this data source to get the `ID` of a cloud keystore in Venafi Control Plane, referenced by its name and parent
+// Use this data source to get the `ID` of a cloud keystore in CyberArk Certificate Manager, SaaS, referenced by its name and parent
 // cloud provider ID. You can use `getCloudProvider` data source to obtain the ID of the parent cloud provider.
 //
 // ## Example Usage

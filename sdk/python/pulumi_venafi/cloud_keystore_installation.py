@@ -29,7 +29,7 @@ class CloudKeystoreInstallationArgs:
 
         :param pulumi.Input[_builtins.str] certificate_id: ID of the certificate to be provisioned to the given `keystore_id`.
         :param pulumi.Input[_builtins.str] cloud_keystore_id: ID of the cloud keystore where the certificate will be provisioned.
-        :param pulumi.Input[_builtins.str] arn: ARN of the AWS certificate. Use it to provision the VCP certificate to an existing ACM certificate, instead of a new one. Only valid for ACM keystores.
+        :param pulumi.Input[_builtins.str] arn: ARN of the AWS certificate. Use it to provision the CyberArk Certificate Manager, SaaS certificate to an existing ACM certificate, instead of a new one. Only valid for ACM keystores.
         :param pulumi.Input[_builtins.str] cloud_certificate_name: Name for the provisioned certificate in the keystore. If the name already exists, the provisioning will replace the previous certificate with the one from `certificate_id`. Only valid for AKV and GCM keystores.
         :param pulumi.Input[_builtins.str] gcm_cert_scope: The GCM certificate scope of the certificate. Only valid for GCM keystores. Supported values from GCM API documentation: DEFAULT, EDGE_CACHE, ALL_REGIONS.
         """
@@ -70,7 +70,7 @@ class CloudKeystoreInstallationArgs:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        ARN of the AWS certificate. Use it to provision the VCP certificate to an existing ACM certificate, instead of a new one. Only valid for ACM keystores.
+        ARN of the AWS certificate. Use it to provision the CyberArk Certificate Manager, SaaS certificate to an existing ACM certificate, instead of a new one. Only valid for ACM keystores.
         """
         return pulumi.get(self, "arn")
 
@@ -116,7 +116,7 @@ class _CloudKeystoreInstallationState:
         """
         Input properties used for looking up and filtering CloudKeystoreInstallation resources.
 
-        :param pulumi.Input[_builtins.str] arn: ARN of the AWS certificate. Use it to provision the VCP certificate to an existing ACM certificate, instead of a new one. Only valid for ACM keystores.
+        :param pulumi.Input[_builtins.str] arn: ARN of the AWS certificate. Use it to provision the CyberArk Certificate Manager, SaaS certificate to an existing ACM certificate, instead of a new one. Only valid for ACM keystores.
         :param pulumi.Input[_builtins.str] certificate_id: ID of the certificate to be provisioned to the given `keystore_id`.
         :param pulumi.Input[_builtins.str] cloud_certificate_id: The ID of the provisioned certificate within the Cloud Keystore
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] cloud_certificate_metadata: Metadata of the provisioned certificate from the Cloud Keystore
@@ -143,7 +143,7 @@ class _CloudKeystoreInstallationState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        ARN of the AWS certificate. Use it to provision the VCP certificate to an existing ACM certificate, instead of a new one. Only valid for ACM keystores.
+        ARN of the AWS certificate. Use it to provision the CyberArk Certificate Manager, SaaS certificate to an existing ACM certificate, instead of a new one. Only valid for ACM keystores.
         """
         return pulumi.get(self, "arn")
 
@@ -237,7 +237,7 @@ class CloudKeystoreInstallation(pulumi.CustomResource):
                  gcm_cert_scope: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
-        Provisions a certificate from Venafi Control Plane's inventory to any of the supported Cloud Providers: Amazon
+        Provisions a certificate from CyberArk Certificate Manager, SaaS inventory to any of the supported Cloud Providers: Amazon
         Certificate Manager, Azure KeyVault or Google Certificate Manager. Exports the ID of the provisioned certificate:
         certificate name for AKV and GCM or ARN for ACM.
 
@@ -261,7 +261,7 @@ class CloudKeystoreInstallation(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import a Machine Identity from Venafi Control Plane using their ID. For example:
+        Using `pulumi import`, import a Machine Identity from CyberArk Certificate Manager, SaaS using their ID. For example:
 
         ```sh
         $ pulumi import venafi:index/cloudKeystoreInstallation:CloudKeystoreInstallation example 2155bd32-2234-22ac-7cfd-ff1198845aa2
@@ -270,7 +270,7 @@ class CloudKeystoreInstallation(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: ARN of the AWS certificate. Use it to provision the VCP certificate to an existing ACM certificate, instead of a new one. Only valid for ACM keystores.
+        :param pulumi.Input[_builtins.str] arn: ARN of the AWS certificate. Use it to provision the CyberArk Certificate Manager, SaaS certificate to an existing ACM certificate, instead of a new one. Only valid for ACM keystores.
         :param pulumi.Input[_builtins.str] certificate_id: ID of the certificate to be provisioned to the given `keystore_id`.
         :param pulumi.Input[_builtins.str] cloud_certificate_name: Name for the provisioned certificate in the keystore. If the name already exists, the provisioning will replace the previous certificate with the one from `certificate_id`. Only valid for AKV and GCM keystores.
         :param pulumi.Input[_builtins.str] cloud_keystore_id: ID of the cloud keystore where the certificate will be provisioned.
@@ -283,7 +283,7 @@ class CloudKeystoreInstallation(pulumi.CustomResource):
                  args: CloudKeystoreInstallationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provisions a certificate from Venafi Control Plane's inventory to any of the supported Cloud Providers: Amazon
+        Provisions a certificate from CyberArk Certificate Manager, SaaS inventory to any of the supported Cloud Providers: Amazon
         Certificate Manager, Azure KeyVault or Google Certificate Manager. Exports the ID of the provisioned certificate:
         certificate name for AKV and GCM or ARN for ACM.
 
@@ -307,7 +307,7 @@ class CloudKeystoreInstallation(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import a Machine Identity from Venafi Control Plane using their ID. For example:
+        Using `pulumi import`, import a Machine Identity from CyberArk Certificate Manager, SaaS using their ID. For example:
 
         ```sh
         $ pulumi import venafi:index/cloudKeystoreInstallation:CloudKeystoreInstallation example 2155bd32-2234-22ac-7cfd-ff1198845aa2
@@ -378,7 +378,7 @@ class CloudKeystoreInstallation(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: ARN of the AWS certificate. Use it to provision the VCP certificate to an existing ACM certificate, instead of a new one. Only valid for ACM keystores.
+        :param pulumi.Input[_builtins.str] arn: ARN of the AWS certificate. Use it to provision the CyberArk Certificate Manager, SaaS certificate to an existing ACM certificate, instead of a new one. Only valid for ACM keystores.
         :param pulumi.Input[_builtins.str] certificate_id: ID of the certificate to be provisioned to the given `keystore_id`.
         :param pulumi.Input[_builtins.str] cloud_certificate_id: The ID of the provisioned certificate within the Cloud Keystore
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] cloud_certificate_metadata: Metadata of the provisioned certificate from the Cloud Keystore
@@ -403,7 +403,7 @@ class CloudKeystoreInstallation(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        ARN of the AWS certificate. Use it to provision the VCP certificate to an existing ACM certificate, instead of a new one. Only valid for ACM keystores.
+        ARN of the AWS certificate. Use it to provision the CyberArk Certificate Manager, SaaS certificate to an existing ACM certificate, instead of a new one. Only valid for ACM keystores.
         """
         return pulumi.get(self, "arn")
 

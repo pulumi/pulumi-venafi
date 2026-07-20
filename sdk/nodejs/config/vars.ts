@@ -8,7 +8,7 @@ declare var exports: any;
 const __config = new pulumi.Config("venafi");
 
 /**
- * Access token for Venafi TLSPDC, user should use this for authentication
+ * Access token for CyberArk Certificate Manager, Self-Hosted, user should use this for authentication
  */
 export declare const accessToken: string | undefined;
 Object.defineProperty(exports, "accessToken", {
@@ -19,7 +19,7 @@ Object.defineProperty(exports, "accessToken", {
 });
 
 /**
- * API key for Venafi Control Plane. Example: 142231b7-cvb0-412e-886b-6aeght0bc93d
+ * API key for CyberArk Certificate Manager, SaaS. Example: 142231b7-cvb0-412e-886b-6aeght0bc93d
  */
 export declare const apiKey: string | undefined;
 Object.defineProperty(exports, "apiKey", {
@@ -41,7 +41,18 @@ Object.defineProperty(exports, "clientId", {
 });
 
 /**
- * When set to true, the resulting certificate will be issued by an ephemeral, no trust CA rather than enrolling using Venafi as a Service or Trust Protection Platform. Useful for development and testing
+ * Client Secret for CyberArk Certificate Manager, Self-Hosted or Palo Alto Networks Next-Gen Trust Security (NGTS)
+ */
+export declare const clientSecret: string | undefined;
+Object.defineProperty(exports, "clientSecret", {
+    get() {
+        return __config.get("clientSecret");
+    },
+    enumerable: true,
+});
+
+/**
+ * When set to true, the resulting certificate will be issued by an ephemeral, no trust CA rather than enrolling using CyberArk Certificate Manager, SaaS or CyberArk Certificate Manager, Self-Hosted. Useful for development and testing
  */
 export declare const devMode: boolean | undefined;
 Object.defineProperty(exports, "devMode", {
@@ -52,7 +63,7 @@ Object.defineProperty(exports, "devMode", {
 });
 
 /**
- * JWT of the identity provider associated to the Venafi Control Plane service account that is granting the access token
+ * JWT of the identity provider associated to the CyberArk Certificate Manager, SaaS service account that is granting the access token
  */
 export declare const externalJwt: string | undefined;
 Object.defineProperty(exports, "externalJwt", {
@@ -63,7 +74,7 @@ Object.defineProperty(exports, "externalJwt", {
 });
 
 /**
- * Base64 encoded PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to TLSPDC
+ * Base64 encoded PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to CyberArk Certificate Manager, Self-Hosted
  */
 export declare const p12CertData: string | undefined;
 Object.defineProperty(exports, "p12CertData", {
@@ -74,7 +85,7 @@ Object.defineProperty(exports, "p12CertData", {
 });
 
 /**
- * Filename of PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to TLSPDC
+ * Filename of PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to CyberArk Certificate Manager, Self-Hosted
  */
 export declare const p12CertFilename: string | undefined;
 Object.defineProperty(exports, "p12CertFilename", {
@@ -96,7 +107,7 @@ Object.defineProperty(exports, "p12CertPassword", {
 });
 
 /**
- * When true, certificates will not be retired on Venafi platforms when terraform destroy is run. Default is false
+ * When true, certificates will not be retired on CyberArk platforms when terraform destroy is run. Default is false
  */
 export declare const skipRetirement: boolean | undefined;
 Object.defineProperty(exports, "skipRetirement", {
@@ -107,7 +118,7 @@ Object.defineProperty(exports, "skipRetirement", {
 });
 
 /**
- * Endpoint URL to request new Venafi Control Plane access tokens
+ * Endpoint URL to request new CyberArk Certificate Manager, SaaS access tokens
  */
 export declare const tokenUrl: string | undefined;
 Object.defineProperty(exports, "tokenUrl", {
@@ -129,7 +140,7 @@ Object.defineProperty(exports, "tppPassword", {
 });
 
 /**
- * WebSDK user for Venafi TLSPDC. Example: admin
+ * WebSDK user for CyberArk Certificate Manager, Self-Hosted. Example: admin
  */
 export declare const tppUsername: string | undefined;
 Object.defineProperty(exports, "tppUsername", {
@@ -140,7 +151,7 @@ Object.defineProperty(exports, "tppUsername", {
 });
 
 /**
- * Use to specify a PEM-formatted file that contains certificates to be trust anchors for all communications with the Venafi Web Service.
+ * Use to specify a PEM-formatted file that contains certificates to be trust anchors for all communications with the CyberArk Web Service.
  * Example:
  *   trustBundle = "${file("chain.pem")}"
  */
@@ -153,7 +164,18 @@ Object.defineProperty(exports, "trustBundle", {
 });
 
 /**
- * The Venafi Platform URL. Example: https://tpp.venafi.example/vedsdk
+ * The Palo Alto Networks Next-Gen Trust Security (NGTS) TSG ID to use when issuing a token. Only used if platform is detected as 'ngts'
+ */
+export declare const tsgId: string | undefined;
+Object.defineProperty(exports, "tsgId", {
+    get() {
+        return __config.get("tsgId");
+    },
+    enumerable: true,
+});
+
+/**
+ * The CyberArk Platform URL. Example: https://cmsh.cyberark.example/vedsdk
  */
 export declare const url: string | undefined;
 Object.defineProperty(exports, "url", {
@@ -164,9 +186,9 @@ Object.defineProperty(exports, "url", {
 });
 
 /**
- * DN of the Venafi TLSPDC policy folder or name of the Venafi as a Service application plus issuing template alias. 
- * Example for Platform: testPolicy\\vault
- * Example for Venafi as a Service: myApp\\Default
+ * DN of the CyberArk Certificate Manager, Self-Hosted policy folder or name of the CyberArk Certificate Manager, SaaS application plus issuing template alias.
+ * Example for CyberArk Certificate Manager, Self-Hosted: testPolicy\\vault
+ * Example for CyberArk Certificate Manager, SaaS: myApp\\Default
  */
 export declare const zone: string | undefined;
 Object.defineProperty(exports, "zone", {

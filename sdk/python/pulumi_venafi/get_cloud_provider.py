@@ -109,7 +109,7 @@ class AwaitableGetCloudProviderResult(GetCloudProviderResult):
 def get_cloud_provider(name: Optional[_builtins.str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCloudProviderResult:
     """
-    Use this data source to get the `ID` of a cloud provider in Venafi Control Plane, referenced by its name.
+    Use this data source to get the `ID` of a cloud provider in CyberArk Certificate Manager, SaaS, referenced by its name.
 
     ## Example Usage
 
@@ -139,7 +139,7 @@ def get_cloud_provider(name: Optional[_builtins.str] = None,
 def get_cloud_provider_output(name: pulumi.Input[Optional[_builtins.str]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCloudProviderResult]:
     """
-    Use this data source to get the `ID` of a cloud provider in Venafi Control Plane, referenced by its name.
+    Use this data source to get the `ID` of a cloud provider in CyberArk Certificate Manager, SaaS, referenced by its name.
 
     ## Example Usage
 

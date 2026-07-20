@@ -19,13 +19,13 @@ namespace Pulumi.Venafi
     public partial class Provider : global::Pulumi.ProviderResource
     {
         /// <summary>
-        /// Access token for Venafi TLSPDC, user should use this for authentication
+        /// Access token for CyberArk Certificate Manager, Self-Hosted, user should use this for authentication
         /// </summary>
         [Output("accessToken")]
         public Output<string?> AccessToken { get; private set; } = null!;
 
         /// <summary>
-        /// API key for Venafi Control Plane. Example: 142231b7-cvb0-412e-886b-6aeght0bc93d
+        /// API key for CyberArk Certificate Manager, SaaS. Example: 142231b7-cvb0-412e-886b-6aeght0bc93d
         /// </summary>
         [Output("apiKey")]
         public Output<string?> ApiKey { get; private set; } = null!;
@@ -37,19 +37,25 @@ namespace Pulumi.Venafi
         public Output<string?> ClientId { get; private set; } = null!;
 
         /// <summary>
-        /// JWT of the identity provider associated to the Venafi Control Plane service account that is granting the access token
+        /// Client Secret for CyberArk Certificate Manager, Self-Hosted or Palo Alto Networks Next-Gen Trust Security (NGTS)
+        /// </summary>
+        [Output("clientSecret")]
+        public Output<string?> ClientSecret { get; private set; } = null!;
+
+        /// <summary>
+        /// JWT of the identity provider associated to the CyberArk Certificate Manager, SaaS service account that is granting the access token
         /// </summary>
         [Output("externalJwt")]
         public Output<string?> ExternalJwt { get; private set; } = null!;
 
         /// <summary>
-        /// Base64 encoded PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to TLSPDC
+        /// Base64 encoded PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to CyberArk Certificate Manager, Self-Hosted
         /// </summary>
         [Output("p12CertData")]
         public Output<string?> P12CertData { get; private set; } = null!;
 
         /// <summary>
-        /// Filename of PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to TLSPDC
+        /// Filename of PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to CyberArk Certificate Manager, Self-Hosted
         /// </summary>
         [Output("p12CertFilename")]
         public Output<string?> P12CertFilename { get; private set; } = null!;
@@ -61,7 +67,7 @@ namespace Pulumi.Venafi
         public Output<string?> P12CertPassword { get; private set; } = null!;
 
         /// <summary>
-        /// Endpoint URL to request new Venafi Control Plane access tokens
+        /// Endpoint URL to request new CyberArk Certificate Manager, SaaS access tokens
         /// </summary>
         [Output("tokenUrl")]
         public Output<string?> TokenUrl { get; private set; } = null!;
@@ -73,13 +79,13 @@ namespace Pulumi.Venafi
         public Output<string?> TppPassword { get; private set; } = null!;
 
         /// <summary>
-        /// WebSDK user for Venafi TLSPDC. Example: admin
+        /// WebSDK user for CyberArk Certificate Manager, Self-Hosted. Example: admin
         /// </summary>
         [Output("tppUsername")]
         public Output<string?> TppUsername { get; private set; } = null!;
 
         /// <summary>
-        /// Use to specify a PEM-formatted file that contains certificates to be trust anchors for all communications with the Venafi Web Service.
+        /// Use to specify a PEM-formatted file that contains certificates to be trust anchors for all communications with the CyberArk Web Service.
         /// Example:
         ///   TrustBundle = "${file("chain.pem")}"
         /// </summary>
@@ -87,15 +93,21 @@ namespace Pulumi.Venafi
         public Output<string?> TrustBundle { get; private set; } = null!;
 
         /// <summary>
-        /// The Venafi Platform URL. Example: https://tpp.venafi.example/vedsdk
+        /// The Palo Alto Networks Next-Gen Trust Security (NGTS) TSG ID to use when issuing a token. Only used if platform is detected as 'ngts'
+        /// </summary>
+        [Output("tsgId")]
+        public Output<string?> TsgId { get; private set; } = null!;
+
+        /// <summary>
+        /// The CyberArk Platform URL. Example: https://cmsh.cyberark.example/vedsdk
         /// </summary>
         [Output("url")]
         public Output<string?> Url { get; private set; } = null!;
 
         /// <summary>
-        /// DN of the Venafi TLSPDC policy folder or name of the Venafi as a Service application plus issuing template alias. 
-        /// Example for Platform: testPolicy\\vault
-        /// Example for Venafi as a Service: myApp\\Default
+        /// DN of the CyberArk Certificate Manager, Self-Hosted policy folder or name of the CyberArk Certificate Manager, SaaS application plus issuing template alias. 
+        /// Example for CyberArk Certificate Manager, Self-Hosted: testPolicy\\vault
+        /// Example for CyberArk Certificate Manager, SaaS: myApp\\Default
         /// </summary>
         [Output("zone")]
         public Output<string?> Zone { get; private set; } = null!;
@@ -122,6 +134,7 @@ namespace Pulumi.Venafi
                 {
                     "accessToken",
                     "apiKey",
+                    "clientSecret",
                     "externalJwt",
                     "p12CertPassword",
                     "tokenUrl",
@@ -147,7 +160,7 @@ namespace Pulumi.Venafi
         private Input<string>? _accessToken;
 
         /// <summary>
-        /// Access token for Venafi TLSPDC, user should use this for authentication
+        /// Access token for CyberArk Certificate Manager, Self-Hosted, user should use this for authentication
         /// </summary>
         public Input<string>? AccessToken
         {
@@ -163,7 +176,7 @@ namespace Pulumi.Venafi
         private Input<string>? _apiKey;
 
         /// <summary>
-        /// API key for Venafi Control Plane. Example: 142231b7-cvb0-412e-886b-6aeght0bc93d
+        /// API key for CyberArk Certificate Manager, SaaS. Example: 142231b7-cvb0-412e-886b-6aeght0bc93d
         /// </summary>
         public Input<string>? ApiKey
         {
@@ -181,8 +194,24 @@ namespace Pulumi.Venafi
         [Input("clientId")]
         public Input<string>? ClientId { get; set; }
 
+        [Input("clientSecret")]
+        private Input<string>? _clientSecret;
+
         /// <summary>
-        /// When set to true, the resulting certificate will be issued by an ephemeral, no trust CA rather than enrolling using Venafi as a Service or Trust Protection Platform. Useful for development and testing
+        /// Client Secret for CyberArk Certificate Manager, Self-Hosted or Palo Alto Networks Next-Gen Trust Security (NGTS)
+        /// </summary>
+        public Input<string>? ClientSecret
+        {
+            get => _clientSecret;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _clientSecret = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        /// <summary>
+        /// When set to true, the resulting certificate will be issued by an ephemeral, no trust CA rather than enrolling using CyberArk Certificate Manager, SaaS or CyberArk Certificate Manager, Self-Hosted. Useful for development and testing
         /// </summary>
         [Input("devMode", json: true)]
         public Input<bool>? DevMode { get; set; }
@@ -191,7 +220,7 @@ namespace Pulumi.Venafi
         private Input<string>? _externalJwt;
 
         /// <summary>
-        /// JWT of the identity provider associated to the Venafi Control Plane service account that is granting the access token
+        /// JWT of the identity provider associated to the CyberArk Certificate Manager, SaaS service account that is granting the access token
         /// </summary>
         public Input<string>? ExternalJwt
         {
@@ -204,13 +233,13 @@ namespace Pulumi.Venafi
         }
 
         /// <summary>
-        /// Base64 encoded PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to TLSPDC
+        /// Base64 encoded PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to CyberArk Certificate Manager, Self-Hosted
         /// </summary>
         [Input("p12CertData")]
         public Input<string>? P12CertData { get; set; }
 
         /// <summary>
-        /// Filename of PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to TLSPDC
+        /// Filename of PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to CyberArk Certificate Manager, Self-Hosted
         /// </summary>
         [Input("p12CertFilename")]
         public Input<string>? P12CertFilename { get; set; }
@@ -232,7 +261,7 @@ namespace Pulumi.Venafi
         }
 
         /// <summary>
-        /// When true, certificates will not be retired on Venafi platforms when terraform destroy is run. Default is false
+        /// When true, certificates will not be retired on CyberArk platforms when terraform destroy is run. Default is false
         /// </summary>
         [Input("skipRetirement", json: true)]
         public Input<bool>? SkipRetirement { get; set; }
@@ -241,7 +270,7 @@ namespace Pulumi.Venafi
         private Input<string>? _tokenUrl;
 
         /// <summary>
-        /// Endpoint URL to request new Venafi Control Plane access tokens
+        /// Endpoint URL to request new CyberArk Certificate Manager, SaaS access tokens
         /// </summary>
         public Input<string>? TokenUrl
         {
@@ -271,13 +300,13 @@ namespace Pulumi.Venafi
         }
 
         /// <summary>
-        /// WebSDK user for Venafi TLSPDC. Example: admin
+        /// WebSDK user for CyberArk Certificate Manager, Self-Hosted. Example: admin
         /// </summary>
         [Input("tppUsername")]
         public Input<string>? TppUsername { get; set; }
 
         /// <summary>
-        /// Use to specify a PEM-formatted file that contains certificates to be trust anchors for all communications with the Venafi Web Service.
+        /// Use to specify a PEM-formatted file that contains certificates to be trust anchors for all communications with the CyberArk Web Service.
         /// Example:
         ///   TrustBundle = "${file("chain.pem")}"
         /// </summary>
@@ -285,15 +314,21 @@ namespace Pulumi.Venafi
         public Input<string>? TrustBundle { get; set; }
 
         /// <summary>
-        /// The Venafi Platform URL. Example: https://tpp.venafi.example/vedsdk
+        /// The Palo Alto Networks Next-Gen Trust Security (NGTS) TSG ID to use when issuing a token. Only used if platform is detected as 'ngts'
+        /// </summary>
+        [Input("tsgId")]
+        public Input<string>? TsgId { get; set; }
+
+        /// <summary>
+        /// The CyberArk Platform URL. Example: https://cmsh.cyberark.example/vedsdk
         /// </summary>
         [Input("url")]
         public Input<string>? Url { get; set; }
 
         /// <summary>
-        /// DN of the Venafi TLSPDC policy folder or name of the Venafi as a Service application plus issuing template alias. 
-        /// Example for Platform: testPolicy\\vault
-        /// Example for Venafi as a Service: myApp\\Default
+        /// DN of the CyberArk Certificate Manager, Self-Hosted policy folder or name of the CyberArk Certificate Manager, SaaS application plus issuing template alias. 
+        /// Example for CyberArk Certificate Manager, Self-Hosted: testPolicy\\vault
+        /// Example for CyberArk Certificate Manager, SaaS: myApp\\Default
         /// </summary>
         [Input("zone")]
         public Input<string>? Zone { get; set; }

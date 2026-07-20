@@ -17,14 +17,14 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     public static final ProviderArgs Empty = new ProviderArgs();
 
     /**
-     * Access token for Venafi TLSPDC, user should use this for authentication
+     * Access token for CyberArk Certificate Manager, Self-Hosted, user should use this for authentication
      * 
      */
     @Import(name="accessToken")
     private @Nullable Output<String> accessToken;
 
     /**
-     * @return Access token for Venafi TLSPDC, user should use this for authentication
+     * @return Access token for CyberArk Certificate Manager, Self-Hosted, user should use this for authentication
      * 
      */
     public Optional<Output<String>> accessToken() {
@@ -32,14 +32,14 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * API key for Venafi Control Plane. Example: 142231b7-cvb0-412e-886b-6aeght0bc93d
+     * API key for CyberArk Certificate Manager, SaaS. Example: 142231b7-cvb0-412e-886b-6aeght0bc93d
      * 
      */
     @Import(name="apiKey")
     private @Nullable Output<String> apiKey;
 
     /**
-     * @return API key for Venafi Control Plane. Example: 142231b7-cvb0-412e-886b-6aeght0bc93d
+     * @return API key for CyberArk Certificate Manager, SaaS. Example: 142231b7-cvb0-412e-886b-6aeght0bc93d
      * 
      */
     public Optional<Output<String>> apiKey() {
@@ -62,14 +62,29 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * When set to true, the resulting certificate will be issued by an ephemeral, no trust CA rather than enrolling using Venafi as a Service or Trust Protection Platform. Useful for development and testing
+     * Client Secret for CyberArk Certificate Manager, Self-Hosted or Palo Alto Networks Next-Gen Trust Security (NGTS)
+     * 
+     */
+    @Import(name="clientSecret")
+    private @Nullable Output<String> clientSecret;
+
+    /**
+     * @return Client Secret for CyberArk Certificate Manager, Self-Hosted or Palo Alto Networks Next-Gen Trust Security (NGTS)
+     * 
+     */
+    public Optional<Output<String>> clientSecret() {
+        return Optional.ofNullable(this.clientSecret);
+    }
+
+    /**
+     * When set to true, the resulting certificate will be issued by an ephemeral, no trust CA rather than enrolling using CyberArk Certificate Manager, SaaS or CyberArk Certificate Manager, Self-Hosted. Useful for development and testing
      * 
      */
     @Import(name="devMode", json=true)
     private @Nullable Output<Boolean> devMode;
 
     /**
-     * @return When set to true, the resulting certificate will be issued by an ephemeral, no trust CA rather than enrolling using Venafi as a Service or Trust Protection Platform. Useful for development and testing
+     * @return When set to true, the resulting certificate will be issued by an ephemeral, no trust CA rather than enrolling using CyberArk Certificate Manager, SaaS or CyberArk Certificate Manager, Self-Hosted. Useful for development and testing
      * 
      */
     public Optional<Output<Boolean>> devMode() {
@@ -77,14 +92,14 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * JWT of the identity provider associated to the Venafi Control Plane service account that is granting the access token
+     * JWT of the identity provider associated to the CyberArk Certificate Manager, SaaS service account that is granting the access token
      * 
      */
     @Import(name="externalJwt")
     private @Nullable Output<String> externalJwt;
 
     /**
-     * @return JWT of the identity provider associated to the Venafi Control Plane service account that is granting the access token
+     * @return JWT of the identity provider associated to the CyberArk Certificate Manager, SaaS service account that is granting the access token
      * 
      */
     public Optional<Output<String>> externalJwt() {
@@ -92,14 +107,14 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Base64 encoded PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to TLSPDC
+     * Base64 encoded PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to CyberArk Certificate Manager, Self-Hosted
      * 
      */
     @Import(name="p12CertData")
     private @Nullable Output<String> p12CertData;
 
     /**
-     * @return Base64 encoded PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to TLSPDC
+     * @return Base64 encoded PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to CyberArk Certificate Manager, Self-Hosted
      * 
      */
     public Optional<Output<String>> p12CertData() {
@@ -107,14 +122,14 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Filename of PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to TLSPDC
+     * Filename of PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to CyberArk Certificate Manager, Self-Hosted
      * 
      */
     @Import(name="p12CertFilename")
     private @Nullable Output<String> p12CertFilename;
 
     /**
-     * @return Filename of PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to TLSPDC
+     * @return Filename of PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to CyberArk Certificate Manager, Self-Hosted
      * 
      */
     public Optional<Output<String>> p12CertFilename() {
@@ -137,14 +152,14 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * When true, certificates will not be retired on Venafi platforms when terraform destroy is run. Default is false
+     * When true, certificates will not be retired on CyberArk platforms when terraform destroy is run. Default is false
      * 
      */
     @Import(name="skipRetirement", json=true)
     private @Nullable Output<Boolean> skipRetirement;
 
     /**
-     * @return When true, certificates will not be retired on Venafi platforms when terraform destroy is run. Default is false
+     * @return When true, certificates will not be retired on CyberArk platforms when terraform destroy is run. Default is false
      * 
      */
     public Optional<Output<Boolean>> skipRetirement() {
@@ -152,14 +167,14 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Endpoint URL to request new Venafi Control Plane access tokens
+     * Endpoint URL to request new CyberArk Certificate Manager, SaaS access tokens
      * 
      */
     @Import(name="tokenUrl")
     private @Nullable Output<String> tokenUrl;
 
     /**
-     * @return Endpoint URL to request new Venafi Control Plane access tokens
+     * @return Endpoint URL to request new CyberArk Certificate Manager, SaaS access tokens
      * 
      */
     public Optional<Output<String>> tokenUrl() {
@@ -190,7 +205,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * WebSDK user for Venafi TLSPDC. Example: admin
+     * WebSDK user for CyberArk Certificate Manager, Self-Hosted. Example: admin
      * 
      * @deprecated
      * , please use accessToken instead
@@ -201,7 +216,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<String> tppUsername;
 
     /**
-     * @return WebSDK user for Venafi TLSPDC. Example: admin
+     * @return WebSDK user for CyberArk Certificate Manager, Self-Hosted. Example: admin
      * 
      * @deprecated
      * , please use accessToken instead
@@ -213,7 +228,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Use to specify a PEM-formatted file that contains certificates to be trust anchors for all communications with the Venafi Web Service.
+     * Use to specify a PEM-formatted file that contains certificates to be trust anchors for all communications with the CyberArk Web Service.
      * Example:
      *   trustBundle = &#34;${file(&#34;chain.pem&#34;)}&#34;
      * 
@@ -222,7 +237,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<String> trustBundle;
 
     /**
-     * @return Use to specify a PEM-formatted file that contains certificates to be trust anchors for all communications with the Venafi Web Service.
+     * @return Use to specify a PEM-formatted file that contains certificates to be trust anchors for all communications with the CyberArk Web Service.
      * Example:
      *   trustBundle = &#34;${file(&#34;chain.pem&#34;)}&#34;
      * 
@@ -232,14 +247,29 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Venafi Platform URL. Example: https://tpp.venafi.example/vedsdk
+     * The Palo Alto Networks Next-Gen Trust Security (NGTS) TSG ID to use when issuing a token. Only used if platform is detected as &#39;ngts&#39;
+     * 
+     */
+    @Import(name="tsgId")
+    private @Nullable Output<String> tsgId;
+
+    /**
+     * @return The Palo Alto Networks Next-Gen Trust Security (NGTS) TSG ID to use when issuing a token. Only used if platform is detected as &#39;ngts&#39;
+     * 
+     */
+    public Optional<Output<String>> tsgId() {
+        return Optional.ofNullable(this.tsgId);
+    }
+
+    /**
+     * The CyberArk Platform URL. Example: https://cmsh.cyberark.example/vedsdk
      * 
      */
     @Import(name="url")
     private @Nullable Output<String> url;
 
     /**
-     * @return The Venafi Platform URL. Example: https://tpp.venafi.example/vedsdk
+     * @return The CyberArk Platform URL. Example: https://cmsh.cyberark.example/vedsdk
      * 
      */
     public Optional<Output<String>> url() {
@@ -247,18 +277,18 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * DN of the Venafi TLSPDC policy folder or name of the Venafi as a Service application plus issuing template alias.
-     * Example for Platform: testPolicy\\vault
-     * Example for Venafi as a Service: myApp\\Default
+     * DN of the CyberArk Certificate Manager, Self-Hosted policy folder or name of the CyberArk Certificate Manager, SaaS application plus issuing template alias.
+     * Example for CyberArk Certificate Manager, Self-Hosted: testPolicy\\vault
+     * Example for CyberArk Certificate Manager, SaaS: myApp\\Default
      * 
      */
     @Import(name="zone")
     private @Nullable Output<String> zone;
 
     /**
-     * @return DN of the Venafi TLSPDC policy folder or name of the Venafi as a Service application plus issuing template alias.
-     * Example for Platform: testPolicy\\vault
-     * Example for Venafi as a Service: myApp\\Default
+     * @return DN of the CyberArk Certificate Manager, Self-Hosted policy folder or name of the CyberArk Certificate Manager, SaaS application plus issuing template alias.
+     * Example for CyberArk Certificate Manager, Self-Hosted: testPolicy\\vault
+     * Example for CyberArk Certificate Manager, SaaS: myApp\\Default
      * 
      */
     public Optional<Output<String>> zone() {
@@ -271,6 +301,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         this.accessToken = $.accessToken;
         this.apiKey = $.apiKey;
         this.clientId = $.clientId;
+        this.clientSecret = $.clientSecret;
         this.devMode = $.devMode;
         this.externalJwt = $.externalJwt;
         this.p12CertData = $.p12CertData;
@@ -281,6 +312,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         this.tppPassword = $.tppPassword;
         this.tppUsername = $.tppUsername;
         this.trustBundle = $.trustBundle;
+        this.tsgId = $.tsgId;
         this.url = $.url;
         this.zone = $.zone;
     }
@@ -304,7 +336,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param accessToken Access token for Venafi TLSPDC, user should use this for authentication
+         * @param accessToken Access token for CyberArk Certificate Manager, Self-Hosted, user should use this for authentication
          * 
          * @return builder
          * 
@@ -315,7 +347,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param accessToken Access token for Venafi TLSPDC, user should use this for authentication
+         * @param accessToken Access token for CyberArk Certificate Manager, Self-Hosted, user should use this for authentication
          * 
          * @return builder
          * 
@@ -325,7 +357,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param apiKey API key for Venafi Control Plane. Example: 142231b7-cvb0-412e-886b-6aeght0bc93d
+         * @param apiKey API key for CyberArk Certificate Manager, SaaS. Example: 142231b7-cvb0-412e-886b-6aeght0bc93d
          * 
          * @return builder
          * 
@@ -336,7 +368,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param apiKey API key for Venafi Control Plane. Example: 142231b7-cvb0-412e-886b-6aeght0bc93d
+         * @param apiKey API key for CyberArk Certificate Manager, SaaS. Example: 142231b7-cvb0-412e-886b-6aeght0bc93d
          * 
          * @return builder
          * 
@@ -367,7 +399,28 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param devMode When set to true, the resulting certificate will be issued by an ephemeral, no trust CA rather than enrolling using Venafi as a Service or Trust Protection Platform. Useful for development and testing
+         * @param clientSecret Client Secret for CyberArk Certificate Manager, Self-Hosted or Palo Alto Networks Next-Gen Trust Security (NGTS)
+         * 
+         * @return builder
+         * 
+         */
+        public Builder clientSecret(@Nullable Output<String> clientSecret) {
+            $.clientSecret = clientSecret;
+            return this;
+        }
+
+        /**
+         * @param clientSecret Client Secret for CyberArk Certificate Manager, Self-Hosted or Palo Alto Networks Next-Gen Trust Security (NGTS)
+         * 
+         * @return builder
+         * 
+         */
+        public Builder clientSecret(String clientSecret) {
+            return clientSecret(Output.of(clientSecret));
+        }
+
+        /**
+         * @param devMode When set to true, the resulting certificate will be issued by an ephemeral, no trust CA rather than enrolling using CyberArk Certificate Manager, SaaS or CyberArk Certificate Manager, Self-Hosted. Useful for development and testing
          * 
          * @return builder
          * 
@@ -378,7 +431,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param devMode When set to true, the resulting certificate will be issued by an ephemeral, no trust CA rather than enrolling using Venafi as a Service or Trust Protection Platform. Useful for development and testing
+         * @param devMode When set to true, the resulting certificate will be issued by an ephemeral, no trust CA rather than enrolling using CyberArk Certificate Manager, SaaS or CyberArk Certificate Manager, Self-Hosted. Useful for development and testing
          * 
          * @return builder
          * 
@@ -388,7 +441,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param externalJwt JWT of the identity provider associated to the Venafi Control Plane service account that is granting the access token
+         * @param externalJwt JWT of the identity provider associated to the CyberArk Certificate Manager, SaaS service account that is granting the access token
          * 
          * @return builder
          * 
@@ -399,7 +452,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param externalJwt JWT of the identity provider associated to the Venafi Control Plane service account that is granting the access token
+         * @param externalJwt JWT of the identity provider associated to the CyberArk Certificate Manager, SaaS service account that is granting the access token
          * 
          * @return builder
          * 
@@ -409,7 +462,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param p12CertData Base64 encoded PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to TLSPDC
+         * @param p12CertData Base64 encoded PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to CyberArk Certificate Manager, Self-Hosted
          * 
          * @return builder
          * 
@@ -420,7 +473,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param p12CertData Base64 encoded PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to TLSPDC
+         * @param p12CertData Base64 encoded PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to CyberArk Certificate Manager, Self-Hosted
          * 
          * @return builder
          * 
@@ -430,7 +483,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param p12CertFilename Filename of PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to TLSPDC
+         * @param p12CertFilename Filename of PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to CyberArk Certificate Manager, Self-Hosted
          * 
          * @return builder
          * 
@@ -441,7 +494,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param p12CertFilename Filename of PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to TLSPDC
+         * @param p12CertFilename Filename of PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to CyberArk Certificate Manager, Self-Hosted
          * 
          * @return builder
          * 
@@ -472,7 +525,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param skipRetirement When true, certificates will not be retired on Venafi platforms when terraform destroy is run. Default is false
+         * @param skipRetirement When true, certificates will not be retired on CyberArk platforms when terraform destroy is run. Default is false
          * 
          * @return builder
          * 
@@ -483,7 +536,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param skipRetirement When true, certificates will not be retired on Venafi platforms when terraform destroy is run. Default is false
+         * @param skipRetirement When true, certificates will not be retired on CyberArk platforms when terraform destroy is run. Default is false
          * 
          * @return builder
          * 
@@ -493,7 +546,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tokenUrl Endpoint URL to request new Venafi Control Plane access tokens
+         * @param tokenUrl Endpoint URL to request new CyberArk Certificate Manager, SaaS access tokens
          * 
          * @return builder
          * 
@@ -504,7 +557,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tokenUrl Endpoint URL to request new Venafi Control Plane access tokens
+         * @param tokenUrl Endpoint URL to request new CyberArk Certificate Manager, SaaS access tokens
          * 
          * @return builder
          * 
@@ -543,7 +596,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tppUsername WebSDK user for Venafi TLSPDC. Example: admin
+         * @param tppUsername WebSDK user for CyberArk Certificate Manager, Self-Hosted. Example: admin
          * 
          * @return builder
          * 
@@ -558,7 +611,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tppUsername WebSDK user for Venafi TLSPDC. Example: admin
+         * @param tppUsername WebSDK user for CyberArk Certificate Manager, Self-Hosted. Example: admin
          * 
          * @return builder
          * 
@@ -572,7 +625,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param trustBundle Use to specify a PEM-formatted file that contains certificates to be trust anchors for all communications with the Venafi Web Service.
+         * @param trustBundle Use to specify a PEM-formatted file that contains certificates to be trust anchors for all communications with the CyberArk Web Service.
          * Example:
          *   trustBundle = &#34;${file(&#34;chain.pem&#34;)}&#34;
          * 
@@ -585,7 +638,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param trustBundle Use to specify a PEM-formatted file that contains certificates to be trust anchors for all communications with the Venafi Web Service.
+         * @param trustBundle Use to specify a PEM-formatted file that contains certificates to be trust anchors for all communications with the CyberArk Web Service.
          * Example:
          *   trustBundle = &#34;${file(&#34;chain.pem&#34;)}&#34;
          * 
@@ -597,7 +650,28 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param url The Venafi Platform URL. Example: https://tpp.venafi.example/vedsdk
+         * @param tsgId The Palo Alto Networks Next-Gen Trust Security (NGTS) TSG ID to use when issuing a token. Only used if platform is detected as &#39;ngts&#39;
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tsgId(@Nullable Output<String> tsgId) {
+            $.tsgId = tsgId;
+            return this;
+        }
+
+        /**
+         * @param tsgId The Palo Alto Networks Next-Gen Trust Security (NGTS) TSG ID to use when issuing a token. Only used if platform is detected as &#39;ngts&#39;
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tsgId(String tsgId) {
+            return tsgId(Output.of(tsgId));
+        }
+
+        /**
+         * @param url The CyberArk Platform URL. Example: https://cmsh.cyberark.example/vedsdk
          * 
          * @return builder
          * 
@@ -608,7 +682,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param url The Venafi Platform URL. Example: https://tpp.venafi.example/vedsdk
+         * @param url The CyberArk Platform URL. Example: https://cmsh.cyberark.example/vedsdk
          * 
          * @return builder
          * 
@@ -618,9 +692,9 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param zone DN of the Venafi TLSPDC policy folder or name of the Venafi as a Service application plus issuing template alias.
-         * Example for Platform: testPolicy\\vault
-         * Example for Venafi as a Service: myApp\\Default
+         * @param zone DN of the CyberArk Certificate Manager, Self-Hosted policy folder or name of the CyberArk Certificate Manager, SaaS application plus issuing template alias.
+         * Example for CyberArk Certificate Manager, Self-Hosted: testPolicy\\vault
+         * Example for CyberArk Certificate Manager, SaaS: myApp\\Default
          * 
          * @return builder
          * 
@@ -631,9 +705,9 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param zone DN of the Venafi TLSPDC policy folder or name of the Venafi as a Service application plus issuing template alias.
-         * Example for Platform: testPolicy\\vault
-         * Example for Venafi as a Service: myApp\\Default
+         * @param zone DN of the CyberArk Certificate Manager, Self-Hosted policy folder or name of the CyberArk Certificate Manager, SaaS application plus issuing template alias.
+         * Example for CyberArk Certificate Manager, Self-Hosted: testPolicy\\vault
+         * Example for CyberArk Certificate Manager, SaaS: myApp\\Default
          * 
          * @return builder
          * 

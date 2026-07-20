@@ -51,33 +51,33 @@ class CertificateArgs:
         :param pulumi.Input[_builtins.str] common_name: The common name of the certificate.
         :param pulumi.Input[_builtins.str] algorithm: Key encryption algorithm, either RSA or ECDSA. Defaults to `RSA`.
         :param pulumi.Input[_builtins.str] country: Country of the certificate (C)
-        :param pulumi.Input[_builtins.str] csr_origin: Whether key-pair generation will be `local` or `service` generated. Default is 
+        :param pulumi.Input[_builtins.str] csr_origin: Whether key-pair generation will be `local` or `service` generated. Default is
                `local`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] custom_fields: Collection of Custom Field name-value pairs to assign to the certificate.
         :param pulumi.Input[_builtins.str] ecdsa_curve: ECDSA curve to use when generating a key
-        :param pulumi.Input[_builtins.int] expiration_window: Number of hours before certificate expiry to request a new certificate. 
+        :param pulumi.Input[_builtins.int] expiration_window: Number of hours before certificate expiry to request a new certificate.
                Defaults to `168`.
-        :param pulumi.Input[_builtins.str] issuer_hint: Used with `valid_days` to indicate the target issuer when using Trust Protection 
-               Platform. Relevant values are: `DigiCert`, `Entrust`, and `Microsoft`.
+        :param pulumi.Input[_builtins.str] issuer_hint: Used with `valid_days` to indicate the target issuer when using CyberArk Certificate Manager, Self-Hosted.
+               Relevant values are: `DigiCert`, `Entrust`, and `Microsoft`.
         :param pulumi.Input[_builtins.str] key_password: The password used to encrypt the private key.
         :param pulumi.Input[_builtins.str] locality: Locality/City of the certificate (L)
-        :param pulumi.Input[_builtins.str] nickname: Use to specify a name for the new certificate object that will be created and placed 
-               in a policy. Only valid for Trust Protection Platform.
+        :param pulumi.Input[_builtins.str] nickname: Use to specify a name for the new certificate object that will be created and placed
+               in a policy. Only valid for CyberArk Certificate Manager, Self-Hosted.
         :param pulumi.Input[_builtins.str] organization: Organization of the certificate (O)
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] organizational_units: List of Organizational Units of the certificate (OU)
-        :param pulumi.Input[_builtins.str] pkcs12: A base64-encoded PKCS#12 keystore secured by the `key_password`. Useful when working with resources like 
+        :param pulumi.Input[_builtins.str] pkcs12: A base64-encoded PKCS#12 keystore secured by the `key_password`. Useful when working with resources like
                azure key_vault_certificate.
         :param pulumi.Input[_builtins.str] private_key_pem: The private key in PEM format.
         :param pulumi.Input[_builtins.bool] renew_required: Indicates the certificate should be reissued. This means the resource will destroyed and recreated
-        :param pulumi.Input[_builtins.int] rsa_bits: Number of bits to use when generating an RSA key. Applies when algorithm is `RSA`. 
+        :param pulumi.Input[_builtins.int] rsa_bits: Number of bits to use when generating an RSA key. Applies when algorithm is `RSA`.
                Defaults to `2048`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] san_dns: List of DNS names to use as alternative subjects of the certificate.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] san_emails: List of email addresses to use as alternative subjects of the certificate.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] san_ips: List of IP addresses to use as alternative subjects of the certificate.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] san_uris: List of Uniform Resource Identifiers (URIs) to use as alternative subjects of 
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] san_uris: List of Uniform Resource Identifiers (URIs) to use as alternative subjects of
                the certificate.
         :param pulumi.Input[_builtins.str] state: State of the certificate (S)
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] tags: List of Certificate Tags defined in Venafi Control Plane.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] tags: List of Certificate Tags defined in CyberArk Certificate Manager, SaaS.
         :param pulumi.Input[_builtins.int] valid_days: Desired number of days for which the new certificate will be valid.
         """
         pulumi.set(__self__, "common_name", common_name)
@@ -181,7 +181,7 @@ class CertificateArgs:
     @pulumi.getter(name="csrOrigin")
     def csr_origin(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Whether key-pair generation will be `local` or `service` generated. Default is 
+        Whether key-pair generation will be `local` or `service` generated. Default is
         `local`.
         """
         return pulumi.get(self, "csr_origin")
@@ -227,7 +227,7 @@ class CertificateArgs:
     @pulumi.getter(name="expirationWindow")
     def expiration_window(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        Number of hours before certificate expiry to request a new certificate. 
+        Number of hours before certificate expiry to request a new certificate.
         Defaults to `168`.
         """
         return pulumi.get(self, "expiration_window")
@@ -240,8 +240,8 @@ class CertificateArgs:
     @pulumi.getter(name="issuerHint")
     def issuer_hint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Used with `valid_days` to indicate the target issuer when using Trust Protection 
-        Platform. Relevant values are: `DigiCert`, `Entrust`, and `Microsoft`.
+        Used with `valid_days` to indicate the target issuer when using CyberArk Certificate Manager, Self-Hosted.
+        Relevant values are: `DigiCert`, `Entrust`, and `Microsoft`.
         """
         return pulumi.get(self, "issuer_hint")
 
@@ -277,8 +277,8 @@ class CertificateArgs:
     @pulumi.getter
     def nickname(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Use to specify a name for the new certificate object that will be created and placed 
-        in a policy. Only valid for Trust Protection Platform.
+        Use to specify a name for the new certificate object that will be created and placed
+        in a policy. Only valid for CyberArk Certificate Manager, Self-Hosted.
         """
         return pulumi.get(self, "nickname")
 
@@ -314,7 +314,7 @@ class CertificateArgs:
     @pulumi.getter
     def pkcs12(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        A base64-encoded PKCS#12 keystore secured by the `key_password`. Useful when working with resources like 
+        A base64-encoded PKCS#12 keystore secured by the `key_password`. Useful when working with resources like
         azure key_vault_certificate.
         """
         return pulumi.get(self, "pkcs12")
@@ -351,7 +351,7 @@ class CertificateArgs:
     @pulumi.getter(name="rsaBits")
     def rsa_bits(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        Number of bits to use when generating an RSA key. Applies when algorithm is `RSA`. 
+        Number of bits to use when generating an RSA key. Applies when algorithm is `RSA`.
         Defaults to `2048`.
         """
         return pulumi.get(self, "rsa_bits")
@@ -400,7 +400,7 @@ class CertificateArgs:
     @pulumi.getter(name="sanUris")
     def san_uris(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        List of Uniform Resource Identifiers (URIs) to use as alternative subjects of 
+        List of Uniform Resource Identifiers (URIs) to use as alternative subjects of
         the certificate.
         """
         return pulumi.get(self, "san_uris")
@@ -425,7 +425,7 @@ class CertificateArgs:
     @pulumi.getter
     def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        List of Certificate Tags defined in Venafi Control Plane.
+        List of Certificate Tags defined in CyberArk Certificate Manager, SaaS.
         """
         return pulumi.get(self, "tags")
 
@@ -487,33 +487,33 @@ class _CertificateState:
         :param pulumi.Input[_builtins.str] chain: The trust chain of X509 certificate authority certificates in PEM format concatenated together.
         :param pulumi.Input[_builtins.str] common_name: The common name of the certificate.
         :param pulumi.Input[_builtins.str] country: Country of the certificate (C)
-        :param pulumi.Input[_builtins.str] csr_origin: Whether key-pair generation will be `local` or `service` generated. Default is 
+        :param pulumi.Input[_builtins.str] csr_origin: Whether key-pair generation will be `local` or `service` generated. Default is
                `local`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] custom_fields: Collection of Custom Field name-value pairs to assign to the certificate.
         :param pulumi.Input[_builtins.str] ecdsa_curve: ECDSA curve to use when generating a key
-        :param pulumi.Input[_builtins.int] expiration_window: Number of hours before certificate expiry to request a new certificate. 
+        :param pulumi.Input[_builtins.int] expiration_window: Number of hours before certificate expiry to request a new certificate.
                Defaults to `168`.
-        :param pulumi.Input[_builtins.str] issuer_hint: Used with `valid_days` to indicate the target issuer when using Trust Protection 
-               Platform. Relevant values are: `DigiCert`, `Entrust`, and `Microsoft`.
+        :param pulumi.Input[_builtins.str] issuer_hint: Used with `valid_days` to indicate the target issuer when using CyberArk Certificate Manager, Self-Hosted.
+               Relevant values are: `DigiCert`, `Entrust`, and `Microsoft`.
         :param pulumi.Input[_builtins.str] key_password: The password used to encrypt the private key.
         :param pulumi.Input[_builtins.str] locality: Locality/City of the certificate (L)
-        :param pulumi.Input[_builtins.str] nickname: Use to specify a name for the new certificate object that will be created and placed 
-               in a policy. Only valid for Trust Protection Platform.
+        :param pulumi.Input[_builtins.str] nickname: Use to specify a name for the new certificate object that will be created and placed
+               in a policy. Only valid for CyberArk Certificate Manager, Self-Hosted.
         :param pulumi.Input[_builtins.str] organization: Organization of the certificate (O)
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] organizational_units: List of Organizational Units of the certificate (OU)
-        :param pulumi.Input[_builtins.str] pkcs12: A base64-encoded PKCS#12 keystore secured by the `key_password`. Useful when working with resources like 
+        :param pulumi.Input[_builtins.str] pkcs12: A base64-encoded PKCS#12 keystore secured by the `key_password`. Useful when working with resources like
                azure key_vault_certificate.
         :param pulumi.Input[_builtins.str] private_key_pem: The private key in PEM format.
         :param pulumi.Input[_builtins.bool] renew_required: Indicates the certificate should be reissued. This means the resource will destroyed and recreated
-        :param pulumi.Input[_builtins.int] rsa_bits: Number of bits to use when generating an RSA key. Applies when algorithm is `RSA`. 
+        :param pulumi.Input[_builtins.int] rsa_bits: Number of bits to use when generating an RSA key. Applies when algorithm is `RSA`.
                Defaults to `2048`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] san_dns: List of DNS names to use as alternative subjects of the certificate.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] san_emails: List of email addresses to use as alternative subjects of the certificate.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] san_ips: List of IP addresses to use as alternative subjects of the certificate.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] san_uris: List of Uniform Resource Identifiers (URIs) to use as alternative subjects of 
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] san_uris: List of Uniform Resource Identifiers (URIs) to use as alternative subjects of
                the certificate.
         :param pulumi.Input[_builtins.str] state: State of the certificate (S)
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] tags: List of Certificate Tags defined in Venafi Control Plane.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] tags: List of Certificate Tags defined in CyberArk Certificate Manager, SaaS.
         :param pulumi.Input[_builtins.int] valid_days: Desired number of days for which the new certificate will be valid.
         """
         if algorithm is not None:
@@ -660,7 +660,7 @@ class _CertificateState:
     @pulumi.getter(name="csrOrigin")
     def csr_origin(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Whether key-pair generation will be `local` or `service` generated. Default is 
+        Whether key-pair generation will be `local` or `service` generated. Default is
         `local`.
         """
         return pulumi.get(self, "csr_origin")
@@ -706,7 +706,7 @@ class _CertificateState:
     @pulumi.getter(name="expirationWindow")
     def expiration_window(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        Number of hours before certificate expiry to request a new certificate. 
+        Number of hours before certificate expiry to request a new certificate.
         Defaults to `168`.
         """
         return pulumi.get(self, "expiration_window")
@@ -719,8 +719,8 @@ class _CertificateState:
     @pulumi.getter(name="issuerHint")
     def issuer_hint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Used with `valid_days` to indicate the target issuer when using Trust Protection 
-        Platform. Relevant values are: `DigiCert`, `Entrust`, and `Microsoft`.
+        Used with `valid_days` to indicate the target issuer when using CyberArk Certificate Manager, Self-Hosted.
+        Relevant values are: `DigiCert`, `Entrust`, and `Microsoft`.
         """
         return pulumi.get(self, "issuer_hint")
 
@@ -756,8 +756,8 @@ class _CertificateState:
     @pulumi.getter
     def nickname(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Use to specify a name for the new certificate object that will be created and placed 
-        in a policy. Only valid for Trust Protection Platform.
+        Use to specify a name for the new certificate object that will be created and placed
+        in a policy. Only valid for CyberArk Certificate Manager, Self-Hosted.
         """
         return pulumi.get(self, "nickname")
 
@@ -793,7 +793,7 @@ class _CertificateState:
     @pulumi.getter
     def pkcs12(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        A base64-encoded PKCS#12 keystore secured by the `key_password`. Useful when working with resources like 
+        A base64-encoded PKCS#12 keystore secured by the `key_password`. Useful when working with resources like
         azure key_vault_certificate.
         """
         return pulumi.get(self, "pkcs12")
@@ -830,7 +830,7 @@ class _CertificateState:
     @pulumi.getter(name="rsaBits")
     def rsa_bits(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        Number of bits to use when generating an RSA key. Applies when algorithm is `RSA`. 
+        Number of bits to use when generating an RSA key. Applies when algorithm is `RSA`.
         Defaults to `2048`.
         """
         return pulumi.get(self, "rsa_bits")
@@ -879,7 +879,7 @@ class _CertificateState:
     @pulumi.getter(name="sanUris")
     def san_uris(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        List of Uniform Resource Identifiers (URIs) to use as alternative subjects of 
+        List of Uniform Resource Identifiers (URIs) to use as alternative subjects of
         the certificate.
         """
         return pulumi.get(self, "san_uris")
@@ -904,7 +904,7 @@ class _CertificateState:
     @pulumi.getter
     def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        List of Certificate Tags defined in Venafi Control Plane.
+        List of Certificate Tags defined in CyberArk Certificate Manager, SaaS.
         """
         return pulumi.get(self, "tags")
 
@@ -964,12 +964,6 @@ class Certificate(pulumi.CustomResource):
         For backward compatibility during Terraform state refresh please update to version 0.15.5 or above.
 
         Provides access to TLS key and certificate data enrolled using Venafi. This can be used to define a certificate.
-
-        The `Certificate` resource handles certificate renewals as long as a
-        `pulumi up` is run within the `expiration_window` period. Keep in mind that the
-        `expiration_window` in the provider configuration needs to align with the renewal
-        window of the issuing CA to achieve the desired result.
-
         ## Example Usage
 
         ```python
@@ -990,13 +984,11 @@ class Certificate(pulumi.CustomResource):
                 "Environment": "UAT|Staging",
             })
         ```
-
         ## Certificate Renewal
 
-        The `Certificate` resource handles certificate renewals as long as a
-        `pulumi up` is done within the `expiration_window` period. Keep in mind that the
-        `expiration_window` in the Terraform configuration needs to align with the renewal
-        window of the issuing CA to achieve the desired result.
+        The `Certificate` resource handles certificate renewals as long as a `pulumi up` is done within the
+        `expiration_window` period. Keep in mind that the `expiration_window` in the Terraform configuration needs to align with
+        the renewal window of the issuing CA to achieve the desired result.
 
 
         :param str resource_name: The name of the resource.
@@ -1004,33 +996,33 @@ class Certificate(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] algorithm: Key encryption algorithm, either RSA or ECDSA. Defaults to `RSA`.
         :param pulumi.Input[_builtins.str] common_name: The common name of the certificate.
         :param pulumi.Input[_builtins.str] country: Country of the certificate (C)
-        :param pulumi.Input[_builtins.str] csr_origin: Whether key-pair generation will be `local` or `service` generated. Default is 
+        :param pulumi.Input[_builtins.str] csr_origin: Whether key-pair generation will be `local` or `service` generated. Default is
                `local`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] custom_fields: Collection of Custom Field name-value pairs to assign to the certificate.
         :param pulumi.Input[_builtins.str] ecdsa_curve: ECDSA curve to use when generating a key
-        :param pulumi.Input[_builtins.int] expiration_window: Number of hours before certificate expiry to request a new certificate. 
+        :param pulumi.Input[_builtins.int] expiration_window: Number of hours before certificate expiry to request a new certificate.
                Defaults to `168`.
-        :param pulumi.Input[_builtins.str] issuer_hint: Used with `valid_days` to indicate the target issuer when using Trust Protection 
-               Platform. Relevant values are: `DigiCert`, `Entrust`, and `Microsoft`.
+        :param pulumi.Input[_builtins.str] issuer_hint: Used with `valid_days` to indicate the target issuer when using CyberArk Certificate Manager, Self-Hosted.
+               Relevant values are: `DigiCert`, `Entrust`, and `Microsoft`.
         :param pulumi.Input[_builtins.str] key_password: The password used to encrypt the private key.
         :param pulumi.Input[_builtins.str] locality: Locality/City of the certificate (L)
-        :param pulumi.Input[_builtins.str] nickname: Use to specify a name for the new certificate object that will be created and placed 
-               in a policy. Only valid for Trust Protection Platform.
+        :param pulumi.Input[_builtins.str] nickname: Use to specify a name for the new certificate object that will be created and placed
+               in a policy. Only valid for CyberArk Certificate Manager, Self-Hosted.
         :param pulumi.Input[_builtins.str] organization: Organization of the certificate (O)
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] organizational_units: List of Organizational Units of the certificate (OU)
-        :param pulumi.Input[_builtins.str] pkcs12: A base64-encoded PKCS#12 keystore secured by the `key_password`. Useful when working with resources like 
+        :param pulumi.Input[_builtins.str] pkcs12: A base64-encoded PKCS#12 keystore secured by the `key_password`. Useful when working with resources like
                azure key_vault_certificate.
         :param pulumi.Input[_builtins.str] private_key_pem: The private key in PEM format.
         :param pulumi.Input[_builtins.bool] renew_required: Indicates the certificate should be reissued. This means the resource will destroyed and recreated
-        :param pulumi.Input[_builtins.int] rsa_bits: Number of bits to use when generating an RSA key. Applies when algorithm is `RSA`. 
+        :param pulumi.Input[_builtins.int] rsa_bits: Number of bits to use when generating an RSA key. Applies when algorithm is `RSA`.
                Defaults to `2048`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] san_dns: List of DNS names to use as alternative subjects of the certificate.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] san_emails: List of email addresses to use as alternative subjects of the certificate.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] san_ips: List of IP addresses to use as alternative subjects of the certificate.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] san_uris: List of Uniform Resource Identifiers (URIs) to use as alternative subjects of 
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] san_uris: List of Uniform Resource Identifiers (URIs) to use as alternative subjects of
                the certificate.
         :param pulumi.Input[_builtins.str] state: State of the certificate (S)
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] tags: List of Certificate Tags defined in Venafi Control Plane.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] tags: List of Certificate Tags defined in CyberArk Certificate Manager, SaaS.
         :param pulumi.Input[_builtins.int] valid_days: Desired number of days for which the new certificate will be valid.
         """
         ...
@@ -1045,12 +1037,6 @@ class Certificate(pulumi.CustomResource):
         For backward compatibility during Terraform state refresh please update to version 0.15.5 or above.
 
         Provides access to TLS key and certificate data enrolled using Venafi. This can be used to define a certificate.
-
-        The `Certificate` resource handles certificate renewals as long as a
-        `pulumi up` is run within the `expiration_window` period. Keep in mind that the
-        `expiration_window` in the provider configuration needs to align with the renewal
-        window of the issuing CA to achieve the desired result.
-
         ## Example Usage
 
         ```python
@@ -1071,13 +1057,11 @@ class Certificate(pulumi.CustomResource):
                 "Environment": "UAT|Staging",
             })
         ```
-
         ## Certificate Renewal
 
-        The `Certificate` resource handles certificate renewals as long as a
-        `pulumi up` is done within the `expiration_window` period. Keep in mind that the
-        `expiration_window` in the Terraform configuration needs to align with the renewal
-        window of the issuing CA to achieve the desired result.
+        The `Certificate` resource handles certificate renewals as long as a `pulumi up` is done within the
+        `expiration_window` period. Keep in mind that the `expiration_window` in the Terraform configuration needs to align with
+        the renewal window of the issuing CA to achieve the desired result.
 
 
         :param str resource_name: The name of the resource.
@@ -1147,7 +1131,7 @@ class Certificate(pulumi.CustomResource):
             __props__.__dict__["nickname"] = nickname
             __props__.__dict__["organization"] = organization
             __props__.__dict__["organizational_units"] = organizational_units
-            __props__.__dict__["pkcs12"] = pkcs12
+            __props__.__dict__["pkcs12"] = None if pkcs12 is None else pulumi.Output.secret(pkcs12)
             __props__.__dict__["private_key_pem"] = None if private_key_pem is None else pulumi.Output.secret(private_key_pem)
             __props__.__dict__["renew_required"] = renew_required
             __props__.__dict__["rsa_bits"] = rsa_bits
@@ -1161,7 +1145,7 @@ class Certificate(pulumi.CustomResource):
             __props__.__dict__["certificate"] = None
             __props__.__dict__["certificate_id"] = None
             __props__.__dict__["chain"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["keyPassword", "privateKeyPem"])
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["keyPassword", "pkcs12", "privateKeyPem"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Certificate, __self__).__init__(
             'venafi:index/certificate:Certificate',
@@ -1215,33 +1199,33 @@ class Certificate(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] chain: The trust chain of X509 certificate authority certificates in PEM format concatenated together.
         :param pulumi.Input[_builtins.str] common_name: The common name of the certificate.
         :param pulumi.Input[_builtins.str] country: Country of the certificate (C)
-        :param pulumi.Input[_builtins.str] csr_origin: Whether key-pair generation will be `local` or `service` generated. Default is 
+        :param pulumi.Input[_builtins.str] csr_origin: Whether key-pair generation will be `local` or `service` generated. Default is
                `local`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] custom_fields: Collection of Custom Field name-value pairs to assign to the certificate.
         :param pulumi.Input[_builtins.str] ecdsa_curve: ECDSA curve to use when generating a key
-        :param pulumi.Input[_builtins.int] expiration_window: Number of hours before certificate expiry to request a new certificate. 
+        :param pulumi.Input[_builtins.int] expiration_window: Number of hours before certificate expiry to request a new certificate.
                Defaults to `168`.
-        :param pulumi.Input[_builtins.str] issuer_hint: Used with `valid_days` to indicate the target issuer when using Trust Protection 
-               Platform. Relevant values are: `DigiCert`, `Entrust`, and `Microsoft`.
+        :param pulumi.Input[_builtins.str] issuer_hint: Used with `valid_days` to indicate the target issuer when using CyberArk Certificate Manager, Self-Hosted.
+               Relevant values are: `DigiCert`, `Entrust`, and `Microsoft`.
         :param pulumi.Input[_builtins.str] key_password: The password used to encrypt the private key.
         :param pulumi.Input[_builtins.str] locality: Locality/City of the certificate (L)
-        :param pulumi.Input[_builtins.str] nickname: Use to specify a name for the new certificate object that will be created and placed 
-               in a policy. Only valid for Trust Protection Platform.
+        :param pulumi.Input[_builtins.str] nickname: Use to specify a name for the new certificate object that will be created and placed
+               in a policy. Only valid for CyberArk Certificate Manager, Self-Hosted.
         :param pulumi.Input[_builtins.str] organization: Organization of the certificate (O)
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] organizational_units: List of Organizational Units of the certificate (OU)
-        :param pulumi.Input[_builtins.str] pkcs12: A base64-encoded PKCS#12 keystore secured by the `key_password`. Useful when working with resources like 
+        :param pulumi.Input[_builtins.str] pkcs12: A base64-encoded PKCS#12 keystore secured by the `key_password`. Useful when working with resources like
                azure key_vault_certificate.
         :param pulumi.Input[_builtins.str] private_key_pem: The private key in PEM format.
         :param pulumi.Input[_builtins.bool] renew_required: Indicates the certificate should be reissued. This means the resource will destroyed and recreated
-        :param pulumi.Input[_builtins.int] rsa_bits: Number of bits to use when generating an RSA key. Applies when algorithm is `RSA`. 
+        :param pulumi.Input[_builtins.int] rsa_bits: Number of bits to use when generating an RSA key. Applies when algorithm is `RSA`.
                Defaults to `2048`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] san_dns: List of DNS names to use as alternative subjects of the certificate.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] san_emails: List of email addresses to use as alternative subjects of the certificate.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] san_ips: List of IP addresses to use as alternative subjects of the certificate.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] san_uris: List of Uniform Resource Identifiers (URIs) to use as alternative subjects of 
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] san_uris: List of Uniform Resource Identifiers (URIs) to use as alternative subjects of
                the certificate.
         :param pulumi.Input[_builtins.str] state: State of the certificate (S)
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] tags: List of Certificate Tags defined in Venafi Control Plane.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] tags: List of Certificate Tags defined in CyberArk Certificate Manager, SaaS.
         :param pulumi.Input[_builtins.int] valid_days: Desired number of days for which the new certificate will be valid.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -1336,7 +1320,7 @@ class Certificate(pulumi.CustomResource):
     @pulumi.getter(name="csrOrigin")
     def csr_origin(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        Whether key-pair generation will be `local` or `service` generated. Default is 
+        Whether key-pair generation will be `local` or `service` generated. Default is
         `local`.
         """
         return pulumi.get(self, "csr_origin")
@@ -1366,7 +1350,7 @@ class Certificate(pulumi.CustomResource):
     @pulumi.getter(name="expirationWindow")
     def expiration_window(self) -> pulumi.Output[Optional[_builtins.int]]:
         """
-        Number of hours before certificate expiry to request a new certificate. 
+        Number of hours before certificate expiry to request a new certificate.
         Defaults to `168`.
         """
         return pulumi.get(self, "expiration_window")
@@ -1375,8 +1359,8 @@ class Certificate(pulumi.CustomResource):
     @pulumi.getter(name="issuerHint")
     def issuer_hint(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        Used with `valid_days` to indicate the target issuer when using Trust Protection 
-        Platform. Relevant values are: `DigiCert`, `Entrust`, and `Microsoft`.
+        Used with `valid_days` to indicate the target issuer when using CyberArk Certificate Manager, Self-Hosted.
+        Relevant values are: `DigiCert`, `Entrust`, and `Microsoft`.
         """
         return pulumi.get(self, "issuer_hint")
 
@@ -1400,8 +1384,8 @@ class Certificate(pulumi.CustomResource):
     @pulumi.getter
     def nickname(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        Use to specify a name for the new certificate object that will be created and placed 
-        in a policy. Only valid for Trust Protection Platform.
+        Use to specify a name for the new certificate object that will be created and placed
+        in a policy. Only valid for CyberArk Certificate Manager, Self-Hosted.
         """
         return pulumi.get(self, "nickname")
 
@@ -1425,7 +1409,7 @@ class Certificate(pulumi.CustomResource):
     @pulumi.getter
     def pkcs12(self) -> pulumi.Output[_builtins.str]:
         """
-        A base64-encoded PKCS#12 keystore secured by the `key_password`. Useful when working with resources like 
+        A base64-encoded PKCS#12 keystore secured by the `key_password`. Useful when working with resources like
         azure key_vault_certificate.
         """
         return pulumi.get(self, "pkcs12")
@@ -1450,7 +1434,7 @@ class Certificate(pulumi.CustomResource):
     @pulumi.getter(name="rsaBits")
     def rsa_bits(self) -> pulumi.Output[Optional[_builtins.int]]:
         """
-        Number of bits to use when generating an RSA key. Applies when algorithm is `RSA`. 
+        Number of bits to use when generating an RSA key. Applies when algorithm is `RSA`.
         Defaults to `2048`.
         """
         return pulumi.get(self, "rsa_bits")
@@ -1483,7 +1467,7 @@ class Certificate(pulumi.CustomResource):
     @pulumi.getter(name="sanUris")
     def san_uris(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
         """
-        List of Uniform Resource Identifiers (URIs) to use as alternative subjects of 
+        List of Uniform Resource Identifiers (URIs) to use as alternative subjects of
         the certificate.
         """
         return pulumi.get(self, "san_uris")
@@ -1500,7 +1484,7 @@ class Certificate(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
         """
-        List of Certificate Tags defined in Venafi Control Plane.
+        List of Certificate Tags defined in CyberArk Certificate Manager, SaaS.
         """
         return pulumi.get(self, "tags")
 

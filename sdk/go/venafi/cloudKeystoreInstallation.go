@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provisions a certificate from Venafi Control Plane's inventory to any of the supported Cloud Providers: Amazon
+// Provisions a certificate from CyberArk Certificate Manager, SaaS inventory to any of the supported Cloud Providers: Amazon
 // Certificate Manager, Azure KeyVault or Google Certificate Manager. Exports the ID of the provisioned certificate:
 // certificate name for AKV and GCM or ARN for ACM.
 //
@@ -56,7 +56,7 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import a Machine Identity from Venafi Control Plane using their ID. For example:
+// Using `pulumi import`, import a Machine Identity from CyberArk Certificate Manager, SaaS using their ID. For example:
 //
 // ```sh
 // $ pulumi import venafi:index/cloudKeystoreInstallation:CloudKeystoreInstallation example 2155bd32-2234-22ac-7cfd-ff1198845aa2
@@ -64,7 +64,7 @@ import (
 type CloudKeystoreInstallation struct {
 	pulumi.CustomResourceState
 
-	// ARN of the AWS certificate. Use it to provision the VCP certificate to an existing ACM certificate, instead of a new one. Only valid for ACM keystores.
+	// ARN of the AWS certificate. Use it to provision the CyberArk Certificate Manager, SaaS certificate to an existing ACM certificate, instead of a new one. Only valid for ACM keystores.
 	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// ID of the certificate to be provisioned to the given `keystoreId`.
 	CertificateId pulumi.StringOutput `pulumi:"certificateId"`
@@ -116,7 +116,7 @@ func GetCloudKeystoreInstallation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering CloudKeystoreInstallation resources.
 type cloudKeystoreInstallationState struct {
-	// ARN of the AWS certificate. Use it to provision the VCP certificate to an existing ACM certificate, instead of a new one. Only valid for ACM keystores.
+	// ARN of the AWS certificate. Use it to provision the CyberArk Certificate Manager, SaaS certificate to an existing ACM certificate, instead of a new one. Only valid for ACM keystores.
 	Arn *string `pulumi:"arn"`
 	// ID of the certificate to be provisioned to the given `keystoreId`.
 	CertificateId *string `pulumi:"certificateId"`
@@ -133,7 +133,7 @@ type cloudKeystoreInstallationState struct {
 }
 
 type CloudKeystoreInstallationState struct {
-	// ARN of the AWS certificate. Use it to provision the VCP certificate to an existing ACM certificate, instead of a new one. Only valid for ACM keystores.
+	// ARN of the AWS certificate. Use it to provision the CyberArk Certificate Manager, SaaS certificate to an existing ACM certificate, instead of a new one. Only valid for ACM keystores.
 	Arn pulumi.StringPtrInput
 	// ID of the certificate to be provisioned to the given `keystoreId`.
 	CertificateId pulumi.StringPtrInput
@@ -154,7 +154,7 @@ func (CloudKeystoreInstallationState) ElementType() reflect.Type {
 }
 
 type cloudKeystoreInstallationArgs struct {
-	// ARN of the AWS certificate. Use it to provision the VCP certificate to an existing ACM certificate, instead of a new one. Only valid for ACM keystores.
+	// ARN of the AWS certificate. Use it to provision the CyberArk Certificate Manager, SaaS certificate to an existing ACM certificate, instead of a new one. Only valid for ACM keystores.
 	Arn *string `pulumi:"arn"`
 	// ID of the certificate to be provisioned to the given `keystoreId`.
 	CertificateId string `pulumi:"certificateId"`
@@ -168,7 +168,7 @@ type cloudKeystoreInstallationArgs struct {
 
 // The set of arguments for constructing a CloudKeystoreInstallation resource.
 type CloudKeystoreInstallationArgs struct {
-	// ARN of the AWS certificate. Use it to provision the VCP certificate to an existing ACM certificate, instead of a new one. Only valid for ACM keystores.
+	// ARN of the AWS certificate. Use it to provision the CyberArk Certificate Manager, SaaS certificate to an existing ACM certificate, instead of a new one. Only valid for ACM keystores.
 	Arn pulumi.StringPtrInput
 	// ID of the certificate to be provisioned to the given `keystoreId`.
 	CertificateId pulumi.StringInput
@@ -267,7 +267,7 @@ func (o CloudKeystoreInstallationOutput) ToCloudKeystoreInstallationOutputWithCo
 	return o
 }
 
-// ARN of the AWS certificate. Use it to provision the VCP certificate to an existing ACM certificate, instead of a new one. Only valid for ACM keystores.
+// ARN of the AWS certificate. Use it to provision the CyberArk Certificate Manager, SaaS certificate to an existing ACM certificate, instead of a new one. Only valid for ACM keystores.
 func (o CloudKeystoreInstallationOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CloudKeystoreInstallation) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }

@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
- * Provides access to retrieve configuration from SSH certificate issuance template from *Venafi Trust Protection Platform*.
+ * Provides access to retrieve configuration from SSH certificate issuance template from *CyberArk Certificate Manager, Self-Hosted*.
  *
  * ## Example Usage
  *

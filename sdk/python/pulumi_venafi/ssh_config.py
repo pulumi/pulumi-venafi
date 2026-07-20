@@ -106,7 +106,7 @@ class SshConfig(pulumi.CustomResource):
                  template: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
-        Provides access to retrieve configuration from SSH certificate issuance template from *Venafi Trust Protection Platform*.
+        Provides access to retrieve configuration from SSH certificate issuance template from *CyberArk Certificate Manager, Self-Hosted*.
 
         ## Example Usage
 
@@ -129,7 +129,7 @@ class SshConfig(pulumi.CustomResource):
                  args: SshConfigArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides access to retrieve configuration from SSH certificate issuance template from *Venafi Trust Protection Platform*.
+        Provides access to retrieve configuration from SSH certificate issuance template from *CyberArk Certificate Manager, Self-Hosted*.
 
         ## Example Usage
 
