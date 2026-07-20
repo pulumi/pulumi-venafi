@@ -24,6 +24,7 @@ import (
 	_ "embed"
 
 	"github.com/Venafi/terraform-provider-venafi/venafi"
+	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfgen"
 
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
 	tfbridgetokens "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge/tokens"
@@ -72,7 +73,6 @@ func Provider() tfbridge.ProviderInfo {
 		Homepage:         "https://pulumi.io",
 		Repository:       "https://github.com/pulumi/pulumi-venafi",
 		GitHubOrg:        "Venafi",
-		UpstreamRepoPath: "./upstream",
 		DocRules:         &tfbridge.DocRuleInfo{EditRules: docEditRules},
 		Resources: map[string]*tfbridge.ResourceInfo{
 			"venafi_certificate": {
@@ -133,6 +133,7 @@ func docEditRules(defaults []tfbridge.DocsEdit) []tfbridge.DocsEdit {
 	return append(
 		defaults,
 		skipText,
+		skipCertImport,
 	)
 }
 
@@ -151,6 +152,15 @@ var skipText = tfbridge.DocsEdit{
 			content = expression.ReplaceAll(content, nil)
 		}
 		return content, nil
+	},
+}
+
+var skipCertImport = tfbridge.DocsEdit{
+	Path: "venafi_certificate.*",
+	Edit: func(_ string, content []byte) ([]byte, error) {
+		return tfgen.SkipSectionByHeaderContent(content, func(headerText string) bool {
+			return headerText == "Import"
+		})
 	},
 }
 
