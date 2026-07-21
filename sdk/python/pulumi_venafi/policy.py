@@ -24,10 +24,10 @@ class PolicyArgs:
         """
         The set of arguments for constructing a Policy resource.
 
-        :param pulumi.Input[_builtins.str] policy_specification: The JSON-formatted certificate policy specification as documented 
+        :param pulumi.Input[_builtins.str] policy_specification: The JSON-formatted certificate policy specification as documented
                [here](https://github.com/Venafi/vcert/blob/master/README-POLICY-SPEC.md). Typically read from a file using the `file`
                function.
-        :param pulumi.Input[_builtins.str] zone: The *Trust Protection Plaform* policy folder or *Venafi Control Plane* application and 
+        :param pulumi.Input[_builtins.str] zone: The *CyberArk Certificate Manager, Self-Hosted* policy folder or *CyberArk Certificate Manager, SaaS* application and
                issuing template.
         """
         if policy_specification is not None:
@@ -39,7 +39,7 @@ class PolicyArgs:
     @pulumi.getter(name="policySpecification")
     def policy_specification(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The JSON-formatted certificate policy specification as documented 
+        The JSON-formatted certificate policy specification as documented
         [here](https://github.com/Venafi/vcert/blob/master/README-POLICY-SPEC.md). Typically read from a file using the `file`
         function.
         """
@@ -53,7 +53,7 @@ class PolicyArgs:
     @pulumi.getter
     def zone(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The *Trust Protection Plaform* policy folder or *Venafi Control Plane* application and 
+        The *CyberArk Certificate Manager, Self-Hosted* policy folder or *CyberArk Certificate Manager, SaaS* application and
         issuing template.
         """
         return pulumi.get(self, "zone")
@@ -71,10 +71,10 @@ class _PolicyState:
         """
         Input properties used for looking up and filtering Policy resources.
 
-        :param pulumi.Input[_builtins.str] policy_specification: The JSON-formatted certificate policy specification as documented 
+        :param pulumi.Input[_builtins.str] policy_specification: The JSON-formatted certificate policy specification as documented
                [here](https://github.com/Venafi/vcert/blob/master/README-POLICY-SPEC.md). Typically read from a file using the `file`
                function.
-        :param pulumi.Input[_builtins.str] zone: The *Trust Protection Plaform* policy folder or *Venafi Control Plane* application and 
+        :param pulumi.Input[_builtins.str] zone: The *CyberArk Certificate Manager, Self-Hosted* policy folder or *CyberArk Certificate Manager, SaaS* application and
                issuing template.
         """
         if policy_specification is not None:
@@ -86,7 +86,7 @@ class _PolicyState:
     @pulumi.getter(name="policySpecification")
     def policy_specification(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The JSON-formatted certificate policy specification as documented 
+        The JSON-formatted certificate policy specification as documented
         [here](https://github.com/Venafi/vcert/blob/master/README-POLICY-SPEC.md). Typically read from a file using the `file`
         function.
         """
@@ -100,7 +100,7 @@ class _PolicyState:
     @pulumi.getter
     def zone(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The *Trust Protection Plaform* policy folder or *Venafi Control Plane* application and 
+        The *CyberArk Certificate Manager, Self-Hosted* policy folder or *CyberArk Certificate Manager, SaaS* application and
         issuing template.
         """
         return pulumi.get(self, "zone")
@@ -120,8 +120,8 @@ class Policy(pulumi.CustomResource):
                  zone: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
-        Provides access to read and write certificate policy in Venafi. This can be used to define a new policy (folder in
-        *Trust Protection Platform*; application and issuing template in *Venafi Control Plane*).
+        Provides access to read and write certificate policy in CyberArk Machine Identity Service. This can be used to define a new policy (folder in
+        *CyberArk Certificate Manager, Self-Hosted*; application and issuing template in *CyberArk Certificate Manager, SaaS*).
 
         ## Example Usage
 
@@ -156,10 +156,10 @@ class Policy(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] policy_specification: The JSON-formatted certificate policy specification as documented 
+        :param pulumi.Input[_builtins.str] policy_specification: The JSON-formatted certificate policy specification as documented
                [here](https://github.com/Venafi/vcert/blob/master/README-POLICY-SPEC.md). Typically read from a file using the `file`
                function.
-        :param pulumi.Input[_builtins.str] zone: The *Trust Protection Plaform* policy folder or *Venafi Control Plane* application and 
+        :param pulumi.Input[_builtins.str] zone: The *CyberArk Certificate Manager, Self-Hosted* policy folder or *CyberArk Certificate Manager, SaaS* application and
                issuing template.
         """
         ...
@@ -169,8 +169,8 @@ class Policy(pulumi.CustomResource):
                  args: Optional[PolicyArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides access to read and write certificate policy in Venafi. This can be used to define a new policy (folder in
-        *Trust Protection Platform*; application and issuing template in *Venafi Control Plane*).
+        Provides access to read and write certificate policy in CyberArk Machine Identity Service. This can be used to define a new policy (folder in
+        *CyberArk Certificate Manager, Self-Hosted*; application and issuing template in *CyberArk Certificate Manager, SaaS*).
 
         ## Example Usage
 
@@ -250,10 +250,10 @@ class Policy(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] policy_specification: The JSON-formatted certificate policy specification as documented 
+        :param pulumi.Input[_builtins.str] policy_specification: The JSON-formatted certificate policy specification as documented
                [here](https://github.com/Venafi/vcert/blob/master/README-POLICY-SPEC.md). Typically read from a file using the `file`
                function.
-        :param pulumi.Input[_builtins.str] zone: The *Trust Protection Plaform* policy folder or *Venafi Control Plane* application and 
+        :param pulumi.Input[_builtins.str] zone: The *CyberArk Certificate Manager, Self-Hosted* policy folder or *CyberArk Certificate Manager, SaaS* application and
                issuing template.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -268,7 +268,7 @@ class Policy(pulumi.CustomResource):
     @pulumi.getter(name="policySpecification")
     def policy_specification(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The JSON-formatted certificate policy specification as documented 
+        The JSON-formatted certificate policy specification as documented
         [here](https://github.com/Venafi/vcert/blob/master/README-POLICY-SPEC.md). Typically read from a file using the `file`
         function.
         """
@@ -278,7 +278,7 @@ class Policy(pulumi.CustomResource):
     @pulumi.getter
     def zone(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The *Trust Protection Plaform* policy folder or *Venafi Control Plane* application and 
+        The *CyberArk Certificate Manager, Self-Hosted* policy folder or *CyberArk Certificate Manager, SaaS* application and
         issuing template.
         """
         return pulumi.get(self, "zone")

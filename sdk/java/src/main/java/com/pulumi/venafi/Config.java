@@ -12,14 +12,14 @@ public final class Config {
 
     private static final com.pulumi.Config config = com.pulumi.Config.of("venafi");
 /**
- * Access token for Venafi TLSPDC, user should use this for authentication
+ * Access token for CyberArk Certificate Manager, Self-Hosted, user should use this for authentication
  * 
  */
     public Optional<String> accessToken() {
         return Codegen.stringProp("accessToken").config(config).get();
     }
 /**
- * API key for Venafi Control Plane. Example: 142231b7-cvb0-412e-886b-6aeght0bc93d
+ * API key for CyberArk Certificate Manager, SaaS. Example: 142231b7-cvb0-412e-886b-6aeght0bc93d
  * 
  */
     public Optional<String> apiKey() {
@@ -33,28 +33,35 @@ public final class Config {
         return Codegen.stringProp("clientId").config(config).get();
     }
 /**
- * When set to true, the resulting certificate will be issued by an ephemeral, no trust CA rather than enrolling using Venafi as a Service or Trust Protection Platform. Useful for development and testing
+ * Client Secret for CyberArk Certificate Manager, Self-Hosted or Palo Alto Networks Next-Gen Trust Security (NGTS)
+ * 
+ */
+    public Optional<String> clientSecret() {
+        return Codegen.stringProp("clientSecret").config(config).get();
+    }
+/**
+ * When set to true, the resulting certificate will be issued by an ephemeral, no trust CA rather than enrolling using CyberArk Certificate Manager, SaaS or CyberArk Certificate Manager, Self-Hosted. Useful for development and testing
  * 
  */
     public Optional<Boolean> devMode() {
         return Codegen.booleanProp("devMode").config(config).get();
     }
 /**
- * JWT of the identity provider associated to the Venafi Control Plane service account that is granting the access token
+ * JWT of the identity provider associated to the CyberArk Certificate Manager, SaaS service account that is granting the access token
  * 
  */
     public Optional<String> externalJwt() {
         return Codegen.stringProp("externalJwt").config(config).get();
     }
 /**
- * Base64 encoded PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to TLSPDC
+ * Base64 encoded PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to CyberArk Certificate Manager, Self-Hosted
  * 
  */
     public Optional<String> p12CertData() {
         return Codegen.stringProp("p12CertData").config(config).get();
     }
 /**
- * Filename of PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to TLSPDC
+ * Filename of PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to CyberArk Certificate Manager, Self-Hosted
  * 
  */
     public Optional<String> p12CertFilename() {
@@ -68,14 +75,14 @@ public final class Config {
         return Codegen.stringProp("p12CertPassword").config(config).get();
     }
 /**
- * When true, certificates will not be retired on Venafi platforms when terraform destroy is run. Default is false
+ * When true, certificates will not be retired on CyberArk platforms when terraform destroy is run. Default is false
  * 
  */
     public Optional<Boolean> skipRetirement() {
         return Codegen.booleanProp("skipRetirement").config(config).get();
     }
 /**
- * Endpoint URL to request new Venafi Control Plane access tokens
+ * Endpoint URL to request new CyberArk Certificate Manager, SaaS access tokens
  * 
  */
     public Optional<String> tokenUrl() {
@@ -89,14 +96,14 @@ public final class Config {
         return Codegen.stringProp("tppPassword").config(config).get();
     }
 /**
- * WebSDK user for Venafi TLSPDC. Example: admin
+ * WebSDK user for CyberArk Certificate Manager, Self-Hosted. Example: admin
  * 
  */
     public Optional<String> tppUsername() {
         return Codegen.stringProp("tppUsername").config(config).get();
     }
 /**
- * Use to specify a PEM-formatted file that contains certificates to be trust anchors for all communications with the Venafi Web Service.
+ * Use to specify a PEM-formatted file that contains certificates to be trust anchors for all communications with the CyberArk Web Service.
  * Example:
  *   trustBundle = &#34;${file(&#34;chain.pem&#34;)}&#34;
  * 
@@ -105,16 +112,23 @@ public final class Config {
         return Codegen.stringProp("trustBundle").config(config).get();
     }
 /**
- * The Venafi Platform URL. Example: https://tpp.venafi.example/vedsdk
+ * The Palo Alto Networks Next-Gen Trust Security (NGTS) TSG ID to use when issuing a token. Only used if platform is detected as &#39;ngts&#39;
+ * 
+ */
+    public Optional<String> tsgId() {
+        return Codegen.stringProp("tsgId").config(config).get();
+    }
+/**
+ * The CyberArk Platform URL. Example: https://cmsh.cyberark.example/vedsdk
  * 
  */
     public Optional<String> url() {
         return Codegen.stringProp("url").config(config).get();
     }
 /**
- * DN of the Venafi TLSPDC policy folder or name of the Venafi as a Service application plus issuing template alias.
- * Example for Platform: testPolicy\\vault
- * Example for Venafi as a Service: myApp\\Default
+ * DN of the CyberArk Certificate Manager, Self-Hosted policy folder or name of the CyberArk Certificate Manager, SaaS application plus issuing template alias.
+ * Example for CyberArk Certificate Manager, Self-Hosted: testPolicy\\vault
+ * Example for CyberArk Certificate Manager, SaaS: myApp\\Default
  * 
  */
     public Optional<String> zone() {

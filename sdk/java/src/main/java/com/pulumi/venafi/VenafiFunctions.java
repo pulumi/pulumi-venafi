@@ -19,7 +19,7 @@ import java.util.concurrent.CompletableFuture;
 
 public final class VenafiFunctions {
     /**
-     * Use this data source to get the `ID` of a cloud keystore in Venafi Control Plane, referenced by its name and parent
+     * Use this data source to get the `ID` of a cloud keystore in CyberArk Certificate Manager, SaaS, referenced by its name and parent
      * cloud provider ID. You can use `venafi.getCloudProvider` data source to obtain the ID of the parent cloud provider.
      * 
      * ## Example Usage
@@ -68,7 +68,7 @@ public final class VenafiFunctions {
         return getCloudKeystore(args, InvokeOptions.Empty);
     }
     /**
-     * Use this data source to get the `ID` of a cloud keystore in Venafi Control Plane, referenced by its name and parent
+     * Use this data source to get the `ID` of a cloud keystore in CyberArk Certificate Manager, SaaS, referenced by its name and parent
      * cloud provider ID. You can use `venafi.getCloudProvider` data source to obtain the ID of the parent cloud provider.
      * 
      * ## Example Usage
@@ -117,7 +117,7 @@ public final class VenafiFunctions {
         return getCloudKeystorePlain(args, InvokeOptions.Empty);
     }
     /**
-     * Use this data source to get the `ID` of a cloud keystore in Venafi Control Plane, referenced by its name and parent
+     * Use this data source to get the `ID` of a cloud keystore in CyberArk Certificate Manager, SaaS, referenced by its name and parent
      * cloud provider ID. You can use `venafi.getCloudProvider` data source to obtain the ID of the parent cloud provider.
      * 
      * ## Example Usage
@@ -166,7 +166,7 @@ public final class VenafiFunctions {
         return Deployment.getInstance().invoke("venafi:index/getCloudKeystore:getCloudKeystore", TypeShape.of(GetCloudKeystoreResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Use this data source to get the `ID` of a cloud keystore in Venafi Control Plane, referenced by its name and parent
+     * Use this data source to get the `ID` of a cloud keystore in CyberArk Certificate Manager, SaaS, referenced by its name and parent
      * cloud provider ID. You can use `venafi.getCloudProvider` data source to obtain the ID of the parent cloud provider.
      * 
      * ## Example Usage
@@ -215,7 +215,7 @@ public final class VenafiFunctions {
         return Deployment.getInstance().invoke("venafi:index/getCloudKeystore:getCloudKeystore", TypeShape.of(GetCloudKeystoreResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Use this data source to get the `ID` of a cloud keystore in Venafi Control Plane, referenced by its name and parent
+     * Use this data source to get the `ID` of a cloud keystore in CyberArk Certificate Manager, SaaS, referenced by its name and parent
      * cloud provider ID. You can use `venafi.getCloudProvider` data source to obtain the ID of the parent cloud provider.
      * 
      * ## Example Usage
@@ -264,7 +264,7 @@ public final class VenafiFunctions {
         return Deployment.getInstance().invokeAsync("venafi:index/getCloudKeystore:getCloudKeystore", TypeShape.of(GetCloudKeystoreResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Use this data source to get the `ID` of a cloud provider in Venafi Control Plane, referenced by its name.
+     * Use this data source to get the `ID` of a cloud provider in CyberArk Certificate Manager, SaaS, referenced by its name.
      * 
      * ## Example Usage
      * 
@@ -305,7 +305,7 @@ public final class VenafiFunctions {
         return getCloudProvider(args, InvokeOptions.Empty);
     }
     /**
-     * Use this data source to get the `ID` of a cloud provider in Venafi Control Plane, referenced by its name.
+     * Use this data source to get the `ID` of a cloud provider in CyberArk Certificate Manager, SaaS, referenced by its name.
      * 
      * ## Example Usage
      * 
@@ -346,7 +346,7 @@ public final class VenafiFunctions {
         return getCloudProviderPlain(args, InvokeOptions.Empty);
     }
     /**
-     * Use this data source to get the `ID` of a cloud provider in Venafi Control Plane, referenced by its name.
+     * Use this data source to get the `ID` of a cloud provider in CyberArk Certificate Manager, SaaS, referenced by its name.
      * 
      * ## Example Usage
      * 
@@ -387,7 +387,7 @@ public final class VenafiFunctions {
         return Deployment.getInstance().invoke("venafi:index/getCloudProvider:getCloudProvider", TypeShape.of(GetCloudProviderResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Use this data source to get the `ID` of a cloud provider in Venafi Control Plane, referenced by its name.
+     * Use this data source to get the `ID` of a cloud provider in CyberArk Certificate Manager, SaaS, referenced by its name.
      * 
      * ## Example Usage
      * 
@@ -428,7 +428,7 @@ public final class VenafiFunctions {
         return Deployment.getInstance().invoke("venafi:index/getCloudProvider:getCloudProvider", TypeShape.of(GetCloudProviderResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Use this data source to get the `ID` of a cloud provider in Venafi Control Plane, referenced by its name.
+     * Use this data source to get the `ID` of a cloud provider in CyberArk Certificate Manager, SaaS, referenced by its name.
      * 
      * ## Example Usage
      * 

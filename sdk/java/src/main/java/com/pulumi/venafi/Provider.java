@@ -24,28 +24,28 @@ import javax.annotation.Nullable;
 @ResourceType(type="pulumi:providers:venafi")
 public class Provider extends com.pulumi.resources.ProviderResource {
     /**
-     * Access token for Venafi TLSPDC, user should use this for authentication
+     * Access token for CyberArk Certificate Manager, Self-Hosted, user should use this for authentication
      * 
      */
     @Export(name="accessToken", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> accessToken;
 
     /**
-     * @return Access token for Venafi TLSPDC, user should use this for authentication
+     * @return Access token for CyberArk Certificate Manager, Self-Hosted, user should use this for authentication
      * 
      */
     public Output<Optional<String>> accessToken() {
         return Codegen.optional(this.accessToken);
     }
     /**
-     * API key for Venafi Control Plane. Example: 142231b7-cvb0-412e-886b-6aeght0bc93d
+     * API key for CyberArk Certificate Manager, SaaS. Example: 142231b7-cvb0-412e-886b-6aeght0bc93d
      * 
      */
     @Export(name="apiKey", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> apiKey;
 
     /**
-     * @return API key for Venafi Control Plane. Example: 142231b7-cvb0-412e-886b-6aeght0bc93d
+     * @return API key for CyberArk Certificate Manager, SaaS. Example: 142231b7-cvb0-412e-886b-6aeght0bc93d
      * 
      */
     public Output<Optional<String>> apiKey() {
@@ -66,42 +66,56 @@ public class Provider extends com.pulumi.resources.ProviderResource {
         return Codegen.optional(this.clientId);
     }
     /**
-     * JWT of the identity provider associated to the Venafi Control Plane service account that is granting the access token
+     * Client Secret for CyberArk Certificate Manager, Self-Hosted or Palo Alto Networks Next-Gen Trust Security (NGTS)
+     * 
+     */
+    @Export(name="clientSecret", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> clientSecret;
+
+    /**
+     * @return Client Secret for CyberArk Certificate Manager, Self-Hosted or Palo Alto Networks Next-Gen Trust Security (NGTS)
+     * 
+     */
+    public Output<Optional<String>> clientSecret() {
+        return Codegen.optional(this.clientSecret);
+    }
+    /**
+     * JWT of the identity provider associated to the CyberArk Certificate Manager, SaaS service account that is granting the access token
      * 
      */
     @Export(name="externalJwt", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> externalJwt;
 
     /**
-     * @return JWT of the identity provider associated to the Venafi Control Plane service account that is granting the access token
+     * @return JWT of the identity provider associated to the CyberArk Certificate Manager, SaaS service account that is granting the access token
      * 
      */
     public Output<Optional<String>> externalJwt() {
         return Codegen.optional(this.externalJwt);
     }
     /**
-     * Base64 encoded PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to TLSPDC
+     * Base64 encoded PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to CyberArk Certificate Manager, Self-Hosted
      * 
      */
     @Export(name="p12CertData", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> p12CertData;
 
     /**
-     * @return Base64 encoded PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to TLSPDC
+     * @return Base64 encoded PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to CyberArk Certificate Manager, Self-Hosted
      * 
      */
     public Output<Optional<String>> p12CertData() {
         return Codegen.optional(this.p12CertData);
     }
     /**
-     * Filename of PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to TLSPDC
+     * Filename of PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to CyberArk Certificate Manager, Self-Hosted
      * 
      */
     @Export(name="p12CertFilename", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> p12CertFilename;
 
     /**
-     * @return Filename of PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to TLSPDC
+     * @return Filename of PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to CyberArk Certificate Manager, Self-Hosted
      * 
      */
     public Output<Optional<String>> p12CertFilename() {
@@ -122,14 +136,14 @@ public class Provider extends com.pulumi.resources.ProviderResource {
         return Codegen.optional(this.p12CertPassword);
     }
     /**
-     * Endpoint URL to request new Venafi Control Plane access tokens
+     * Endpoint URL to request new CyberArk Certificate Manager, SaaS access tokens
      * 
      */
     @Export(name="tokenUrl", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> tokenUrl;
 
     /**
-     * @return Endpoint URL to request new Venafi Control Plane access tokens
+     * @return Endpoint URL to request new CyberArk Certificate Manager, SaaS access tokens
      * 
      */
     public Output<Optional<String>> tokenUrl() {
@@ -154,7 +168,7 @@ public class Provider extends com.pulumi.resources.ProviderResource {
         return Codegen.optional(this.tppPassword);
     }
     /**
-     * WebSDK user for Venafi TLSPDC. Example: admin
+     * WebSDK user for CyberArk Certificate Manager, Self-Hosted. Example: admin
      * 
      * @deprecated
      * , please use accessToken instead
@@ -165,14 +179,14 @@ public class Provider extends com.pulumi.resources.ProviderResource {
     private Output</* @Nullable */ String> tppUsername;
 
     /**
-     * @return WebSDK user for Venafi TLSPDC. Example: admin
+     * @return WebSDK user for CyberArk Certificate Manager, Self-Hosted. Example: admin
      * 
      */
     public Output<Optional<String>> tppUsername() {
         return Codegen.optional(this.tppUsername);
     }
     /**
-     * Use to specify a PEM-formatted file that contains certificates to be trust anchors for all communications with the Venafi Web Service.
+     * Use to specify a PEM-formatted file that contains certificates to be trust anchors for all communications with the CyberArk Web Service.
      * Example:
      *   trustBundle = &#34;${file(&#34;chain.pem&#34;)}&#34;
      * 
@@ -181,7 +195,7 @@ public class Provider extends com.pulumi.resources.ProviderResource {
     private Output</* @Nullable */ String> trustBundle;
 
     /**
-     * @return Use to specify a PEM-formatted file that contains certificates to be trust anchors for all communications with the Venafi Web Service.
+     * @return Use to specify a PEM-formatted file that contains certificates to be trust anchors for all communications with the CyberArk Web Service.
      * Example:
      *   trustBundle = &#34;${file(&#34;chain.pem&#34;)}&#34;
      * 
@@ -190,32 +204,46 @@ public class Provider extends com.pulumi.resources.ProviderResource {
         return Codegen.optional(this.trustBundle);
     }
     /**
-     * The Venafi Platform URL. Example: https://tpp.venafi.example/vedsdk
+     * The Palo Alto Networks Next-Gen Trust Security (NGTS) TSG ID to use when issuing a token. Only used if platform is detected as &#39;ngts&#39;
+     * 
+     */
+    @Export(name="tsgId", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> tsgId;
+
+    /**
+     * @return The Palo Alto Networks Next-Gen Trust Security (NGTS) TSG ID to use when issuing a token. Only used if platform is detected as &#39;ngts&#39;
+     * 
+     */
+    public Output<Optional<String>> tsgId() {
+        return Codegen.optional(this.tsgId);
+    }
+    /**
+     * The CyberArk Platform URL. Example: https://cmsh.cyberark.example/vedsdk
      * 
      */
     @Export(name="url", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> url;
 
     /**
-     * @return The Venafi Platform URL. Example: https://tpp.venafi.example/vedsdk
+     * @return The CyberArk Platform URL. Example: https://cmsh.cyberark.example/vedsdk
      * 
      */
     public Output<Optional<String>> url() {
         return Codegen.optional(this.url);
     }
     /**
-     * DN of the Venafi TLSPDC policy folder or name of the Venafi as a Service application plus issuing template alias.
-     * Example for Platform: testPolicy\\vault
-     * Example for Venafi as a Service: myApp\\Default
+     * DN of the CyberArk Certificate Manager, Self-Hosted policy folder or name of the CyberArk Certificate Manager, SaaS application plus issuing template alias.
+     * Example for CyberArk Certificate Manager, Self-Hosted: testPolicy\\vault
+     * Example for CyberArk Certificate Manager, SaaS: myApp\\Default
      * 
      */
     @Export(name="zone", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> zone;
 
     /**
-     * @return DN of the Venafi TLSPDC policy folder or name of the Venafi as a Service application plus issuing template alias.
-     * Example for Platform: testPolicy\\vault
-     * Example for Venafi as a Service: myApp\\Default
+     * @return DN of the CyberArk Certificate Manager, Self-Hosted policy folder or name of the CyberArk Certificate Manager, SaaS application plus issuing template alias.
+     * Example for CyberArk Certificate Manager, Self-Hosted: testPolicy\\vault
+     * Example for CyberArk Certificate Manager, SaaS: myApp\\Default
      * 
      */
     public Output<Optional<String>> zone() {
@@ -260,6 +288,7 @@ public class Provider extends com.pulumi.resources.ProviderResource {
             .additionalSecretOutputs(List.of(
                 "accessToken",
                 "apiKey",
+                "clientSecret",
                 "externalJwt",
                 "p12CertPassword",
                 "tokenUrl",

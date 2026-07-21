@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Venafi
 {
     /// <summary>
-    /// Provisions a certificate from Venafi Control Plane's inventory to any of the supported Cloud Providers: Amazon
+    /// Provisions a certificate from CyberArk Certificate Manager, SaaS inventory to any of the supported Cloud Providers: Amazon
     /// Certificate Manager, Azure KeyVault or Google Certificate Manager. Exports the ID of the provisioned certificate:
     /// certificate name for AKV and GCM or ARN for ACM.
     /// 
@@ -45,7 +45,7 @@ namespace Pulumi.Venafi
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import a Machine Identity from Venafi Control Plane using their ID. For example:
+    /// Using `pulumi import`, import a Machine Identity from CyberArk Certificate Manager, SaaS using their ID. For example:
     /// 
     /// ```sh
     /// $ pulumi import venafi:index/cloudKeystoreInstallation:CloudKeystoreInstallation example 2155bd32-2234-22ac-7cfd-ff1198845aa2
@@ -55,7 +55,7 @@ namespace Pulumi.Venafi
     public partial class CloudKeystoreInstallation : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// ARN of the AWS certificate. Use it to provision the VCP certificate to an existing ACM certificate, instead of a new one. Only valid for ACM keystores.
+        /// ARN of the AWS certificate. Use it to provision the CyberArk Certificate Manager, SaaS certificate to an existing ACM certificate, instead of a new one. Only valid for ACM keystores.
         /// </summary>
         [Output("arn")]
         public Output<string?> Arn { get; private set; } = null!;
@@ -143,7 +143,7 @@ namespace Pulumi.Venafi
     public sealed class CloudKeystoreInstallationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// ARN of the AWS certificate. Use it to provision the VCP certificate to an existing ACM certificate, instead of a new one. Only valid for ACM keystores.
+        /// ARN of the AWS certificate. Use it to provision the CyberArk Certificate Manager, SaaS certificate to an existing ACM certificate, instead of a new one. Only valid for ACM keystores.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
@@ -181,7 +181,7 @@ namespace Pulumi.Venafi
     public sealed class CloudKeystoreInstallationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// ARN of the AWS certificate. Use it to provision the VCP certificate to an existing ACM certificate, instead of a new one. Only valid for ACM keystores.
+        /// ARN of the AWS certificate. Use it to provision the CyberArk Certificate Manager, SaaS certificate to an existing ACM certificate, instead of a new one. Only valid for ACM keystores.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

@@ -11,12 +11,12 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
-// Access token for Venafi TLSPDC, user should use this for authentication
+// Access token for CyberArk Certificate Manager, Self-Hosted, user should use this for authentication
 func GetAccessToken(ctx *pulumi.Context) string {
 	return config.Get(ctx, "venafi:accessToken")
 }
 
-// API key for Venafi Control Plane. Example: 142231b7-cvb0-412e-886b-6aeght0bc93d
+// API key for CyberArk Certificate Manager, SaaS. Example: 142231b7-cvb0-412e-886b-6aeght0bc93d
 func GetApiKey(ctx *pulumi.Context) string {
 	return config.Get(ctx, "venafi:apiKey")
 }
@@ -26,22 +26,27 @@ func GetClientId(ctx *pulumi.Context) string {
 	return config.Get(ctx, "venafi:clientId")
 }
 
-// When set to true, the resulting certificate will be issued by an ephemeral, no trust CA rather than enrolling using Venafi as a Service or Trust Protection Platform. Useful for development and testing
+// Client Secret for CyberArk Certificate Manager, Self-Hosted or Palo Alto Networks Next-Gen Trust Security (NGTS)
+func GetClientSecret(ctx *pulumi.Context) string {
+	return config.Get(ctx, "venafi:clientSecret")
+}
+
+// When set to true, the resulting certificate will be issued by an ephemeral, no trust CA rather than enrolling using CyberArk Certificate Manager, SaaS or CyberArk Certificate Manager, Self-Hosted. Useful for development and testing
 func GetDevMode(ctx *pulumi.Context) bool {
 	return config.GetBool(ctx, "venafi:devMode")
 }
 
-// JWT of the identity provider associated to the Venafi Control Plane service account that is granting the access token
+// JWT of the identity provider associated to the CyberArk Certificate Manager, SaaS service account that is granting the access token
 func GetExternalJwt(ctx *pulumi.Context) string {
 	return config.Get(ctx, "venafi:externalJwt")
 }
 
-// Base64 encoded PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to TLSPDC
+// Base64 encoded PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to CyberArk Certificate Manager, Self-Hosted
 func GetP12CertData(ctx *pulumi.Context) string {
 	return config.Get(ctx, "venafi:p12CertData")
 }
 
-// Filename of PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to TLSPDC
+// Filename of PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to CyberArk Certificate Manager, Self-Hosted
 func GetP12CertFilename(ctx *pulumi.Context) string {
 	return config.Get(ctx, "venafi:p12CertFilename")
 }
@@ -51,12 +56,12 @@ func GetP12CertPassword(ctx *pulumi.Context) string {
 	return config.Get(ctx, "venafi:p12CertPassword")
 }
 
-// When true, certificates will not be retired on Venafi platforms when terraform destroy is run. Default is false
+// When true, certificates will not be retired on CyberArk platforms when terraform destroy is run. Default is false
 func GetSkipRetirement(ctx *pulumi.Context) bool {
 	return config.GetBool(ctx, "venafi:skipRetirement")
 }
 
-// Endpoint URL to request new Venafi Control Plane access tokens
+// Endpoint URL to request new CyberArk Certificate Manager, SaaS access tokens
 func GetTokenUrl(ctx *pulumi.Context) string {
 	return config.Get(ctx, "venafi:tokenUrl")
 }
@@ -68,14 +73,14 @@ func GetTppPassword(ctx *pulumi.Context) string {
 	return config.Get(ctx, "venafi:tppPassword")
 }
 
-// WebSDK user for Venafi TLSPDC. Example: admin
+// WebSDK user for CyberArk Certificate Manager, Self-Hosted. Example: admin
 //
 // Deprecated: , please use accessToken instead
 func GetTppUsername(ctx *pulumi.Context) string {
 	return config.Get(ctx, "venafi:tppUsername")
 }
 
-// Use to specify a PEM-formatted file that contains certificates to be trust anchors for all communications with the Venafi Web Service.
+// Use to specify a PEM-formatted file that contains certificates to be trust anchors for all communications with the CyberArk Web Service.
 // Example:
 //
 //	trustBundle = "${file("chain.pem")}"
@@ -83,14 +88,19 @@ func GetTrustBundle(ctx *pulumi.Context) string {
 	return config.Get(ctx, "venafi:trustBundle")
 }
 
-// The Venafi Platform URL. Example: https://tpp.venafi.example/vedsdk
+// The Palo Alto Networks Next-Gen Trust Security (NGTS) TSG ID to use when issuing a token. Only used if platform is detected as 'ngts'
+func GetTsgId(ctx *pulumi.Context) string {
+	return config.Get(ctx, "venafi:tsgId")
+}
+
+// The CyberArk Platform URL. Example: https://cmsh.cyberark.example/vedsdk
 func GetUrl(ctx *pulumi.Context) string {
 	return config.Get(ctx, "venafi:url")
 }
 
-// DN of the Venafi TLSPDC policy folder or name of the Venafi as a Service application plus issuing template alias.
-// Example for Platform: testPolicy\\vault
-// Example for Venafi as a Service: myApp\\Default
+// DN of the CyberArk Certificate Manager, Self-Hosted policy folder or name of the CyberArk Certificate Manager, SaaS application plus issuing template alias.
+// Example for CyberArk Certificate Manager, Self-Hosted: testPolicy\\vault
+// Example for CyberArk Certificate Manager, SaaS: myApp\\Default
 func GetZone(ctx *pulumi.Context) string {
 	return config.Get(ctx, "venafi:zone")
 }

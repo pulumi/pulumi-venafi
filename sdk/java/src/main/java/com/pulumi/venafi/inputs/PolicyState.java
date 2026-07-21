@@ -35,7 +35,7 @@ public final class PolicyState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The *Trust Protection Plaform* policy folder or *Venafi Control Plane* application and
+     * The *CyberArk Certificate Manager, Self-Hosted* policy folder or *CyberArk Certificate Manager, SaaS* application and
      * issuing template.
      * 
      */
@@ -43,7 +43,7 @@ public final class PolicyState extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<String> zone;
 
     /**
-     * @return The *Trust Protection Plaform* policy folder or *Venafi Control Plane* application and
+     * @return The *CyberArk Certificate Manager, Self-Hosted* policy folder or *CyberArk Certificate Manager, SaaS* application and
      * issuing template.
      * 
      */
@@ -102,7 +102,7 @@ public final class PolicyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param zone The *Trust Protection Plaform* policy folder or *Venafi Control Plane* application and
+         * @param zone The *CyberArk Certificate Manager, Self-Hosted* policy folder or *CyberArk Certificate Manager, SaaS* application and
          * issuing template.
          * 
          * @return builder
@@ -114,7 +114,7 @@ public final class PolicyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param zone The *Trust Protection Plaform* policy folder or *Venafi Control Plane* application and
+         * @param zone The *CyberArk Certificate Manager, Self-Hosted* policy folder or *CyberArk Certificate Manager, SaaS* application and
          * issuing template.
          * 
          * @return builder

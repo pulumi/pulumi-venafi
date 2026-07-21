@@ -5,8 +5,8 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
- * Provides access to read and write certificate policy in Venafi. This can be used to define a new policy (folder in
- * *Trust Protection Platform*; application and issuing template in *Venafi Control Plane*).
+ * Provides access to read and write certificate policy in CyberArk Machine Identity Service. This can be used to define a new policy (folder in
+ * *CyberArk Certificate Manager, Self-Hosted*; application and issuing template in *CyberArk Certificate Manager, SaaS*).
  *
  * ## Example Usage
  *
@@ -70,13 +70,13 @@ export class Policy extends pulumi.CustomResource {
     }
 
     /**
-     * The JSON-formatted certificate policy specification as documented 
+     * The JSON-formatted certificate policy specification as documented
      * [here](https://github.com/Venafi/vcert/blob/master/README-POLICY-SPEC.md). Typically read from a file using the `file`
      * function.
      */
     declare public readonly policySpecification: pulumi.Output<string | undefined>;
     /**
-     * The *Trust Protection Plaform* policy folder or *Venafi Control Plane* application and 
+     * The *CyberArk Certificate Manager, Self-Hosted* policy folder or *CyberArk Certificate Manager, SaaS* application and
      * issuing template.
      */
     declare public readonly zone: pulumi.Output<string | undefined>;
@@ -111,13 +111,13 @@ export class Policy extends pulumi.CustomResource {
  */
 export interface PolicyState {
     /**
-     * The JSON-formatted certificate policy specification as documented 
+     * The JSON-formatted certificate policy specification as documented
      * [here](https://github.com/Venafi/vcert/blob/master/README-POLICY-SPEC.md). Typically read from a file using the `file`
      * function.
      */
     policySpecification?: pulumi.Input<string | undefined>;
     /**
-     * The *Trust Protection Plaform* policy folder or *Venafi Control Plane* application and 
+     * The *CyberArk Certificate Manager, Self-Hosted* policy folder or *CyberArk Certificate Manager, SaaS* application and
      * issuing template.
      */
     zone?: pulumi.Input<string | undefined>;
@@ -128,13 +128,13 @@ export interface PolicyState {
  */
 export interface PolicyArgs {
     /**
-     * The JSON-formatted certificate policy specification as documented 
+     * The JSON-formatted certificate policy specification as documented
      * [here](https://github.com/Venafi/vcert/blob/master/README-POLICY-SPEC.md). Typically read from a file using the `file`
      * function.
      */
     policySpecification?: pulumi.Input<string | undefined>;
     /**
-     * The *Trust Protection Plaform* policy folder or *Venafi Control Plane* application and 
+     * The *CyberArk Certificate Manager, Self-Hosted* policy folder or *CyberArk Certificate Manager, SaaS* application and
      * issuing template.
      */
     zone?: pulumi.Input<string | undefined>;

@@ -27,6 +27,7 @@ import (
 
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
 	tfbridgetokens "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge/tokens"
+	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfgen"
 	shimv2 "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfshim/sdk-v2"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/tokens"
 
@@ -64,16 +65,15 @@ func Provider() tfbridge.ProviderInfo {
 
 	// Create a Pulumi provider mapping
 	prov := tfbridge.ProviderInfo{
-		P:                p,
-		Name:             "venafi",
-		Description:      "A Pulumi package for creating and managing venafi cloud resources.",
-		Keywords:         []string{"pulumi", "venafi"},
-		License:          "Apache-2.0",
-		Homepage:         "https://pulumi.io",
-		Repository:       "https://github.com/pulumi/pulumi-venafi",
-		GitHubOrg:        "Venafi",
-		UpstreamRepoPath: "./upstream",
-		DocRules:         &tfbridge.DocRuleInfo{EditRules: docEditRules},
+		P:           p,
+		Name:        "venafi",
+		Description: "A Pulumi package for creating and managing venafi cloud resources.",
+		Keywords:    []string{"pulumi", "venafi"},
+		License:     "Apache-2.0",
+		Homepage:    "https://pulumi.io",
+		Repository:  "https://github.com/pulumi/pulumi-venafi",
+		GitHubOrg:   "Venafi",
+		DocRules:    &tfbridge.DocRuleInfo{EditRules: docEditRules},
 		Resources: map[string]*tfbridge.ResourceInfo{
 			"venafi_certificate": {
 				Tok: makeResource(mainMod, "Certificate"),
@@ -133,6 +133,7 @@ func docEditRules(defaults []tfbridge.DocsEdit) []tfbridge.DocsEdit {
 	return append(
 		defaults,
 		skipText,
+		skipCertImport,
 	)
 }
 
@@ -151,6 +152,15 @@ var skipText = tfbridge.DocsEdit{
 			content = expression.ReplaceAll(content, nil)
 		}
 		return content, nil
+	},
+}
+
+var skipCertImport = tfbridge.DocsEdit{
+	Path: "venafi_certificate.*",
+	Edit: func(_ string, content []byte) ([]byte, error) {
+		return tfgen.SkipSectionByHeaderContent(content, func(headerText string) bool {
+			return headerText == "Import"
+		})
 	},
 }
 

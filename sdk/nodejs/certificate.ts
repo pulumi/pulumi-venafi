@@ -10,12 +10,6 @@ import * as utilities from "./utilities";
  * For backward compatibility during Terraform state refresh please update to version 0.15.5 or above.
  *
  * Provides access to TLS key and certificate data enrolled using Venafi. This can be used to define a certificate.
- *
- * The `venafi.Certificate` resource handles certificate renewals as long as a
- * `pulumi up` is run within the `expirationWindow` period. Keep in mind that the
- * `expirationWindow` in the provider configuration needs to align with the renewal
- * window of the issuing CA to achieve the desired result.
- *
  * ## Example Usage
  *
  * ```typescript
@@ -37,13 +31,11 @@ import * as utilities from "./utilities";
  *     },
  * });
  * ```
- *
  * ## Certificate Renewal
  *
- * The `venafi.Certificate` resource handles certificate renewals as long as a
- * `pulumi up` is done within the `expirationWindow` period. Keep in mind that the
- * `expirationWindow` in the Terraform configuration needs to align with the renewal
- * window of the issuing CA to achieve the desired result.
+ * The `venafi.Certificate` resource handles certificate renewals as long as a `pulumi up` is done within the
+ * `expirationWindow` period. Keep in mind that the `expirationWindow` in the Terraform configuration needs to align with
+ * the renewal window of the issuing CA to achieve the desired result.
  */
 export class Certificate extends pulumi.CustomResource {
     /**
@@ -99,7 +91,7 @@ export class Certificate extends pulumi.CustomResource {
      */
     declare public readonly country: pulumi.Output<string | undefined>;
     /**
-     * Whether key-pair generation will be `local` or `service` generated. Default is 
+     * Whether key-pair generation will be `local` or `service` generated. Default is
      * `local`.
      */
     declare public readonly csrOrigin: pulumi.Output<string | undefined>;
@@ -113,13 +105,13 @@ export class Certificate extends pulumi.CustomResource {
      */
     declare public readonly ecdsaCurve: pulumi.Output<string | undefined>;
     /**
-     * Number of hours before certificate expiry to request a new certificate. 
+     * Number of hours before certificate expiry to request a new certificate.
      * Defaults to `168`.
      */
     declare public readonly expirationWindow: pulumi.Output<number | undefined>;
     /**
-     * Used with `validDays` to indicate the target issuer when using Trust Protection 
-     * Platform. Relevant values are: `DigiCert`, `Entrust`, and `Microsoft`.
+     * Used with `validDays` to indicate the target issuer when using CyberArk Certificate Manager, Self-Hosted.
+     * Relevant values are: `DigiCert`, `Entrust`, and `Microsoft`.
      */
     declare public readonly issuerHint: pulumi.Output<string | undefined>;
     /**
@@ -131,8 +123,8 @@ export class Certificate extends pulumi.CustomResource {
      */
     declare public readonly locality: pulumi.Output<string | undefined>;
     /**
-     * Use to specify a name for the new certificate object that will be created and placed 
-     * in a policy. Only valid for Trust Protection Platform.
+     * Use to specify a name for the new certificate object that will be created and placed
+     * in a policy. Only valid for CyberArk Certificate Manager, Self-Hosted.
      */
     declare public readonly nickname: pulumi.Output<string | undefined>;
     /**
@@ -144,7 +136,7 @@ export class Certificate extends pulumi.CustomResource {
      */
     declare public readonly organizationalUnits: pulumi.Output<string[] | undefined>;
     /**
-     * A base64-encoded PKCS#12 keystore secured by the `keyPassword`. Useful when working with resources like 
+     * A base64-encoded PKCS#12 keystore secured by the `keyPassword`. Useful when working with resources like
      * azure key_vault_certificate.
      */
     declare public readonly pkcs12: pulumi.Output<string>;
@@ -157,7 +149,7 @@ export class Certificate extends pulumi.CustomResource {
      */
     declare public readonly renewRequired: pulumi.Output<boolean | undefined>;
     /**
-     * Number of bits to use when generating an RSA key. Applies when algorithm is `RSA`. 
+     * Number of bits to use when generating an RSA key. Applies when algorithm is `RSA`.
      * Defaults to `2048`.
      */
     declare public readonly rsaBits: pulumi.Output<number | undefined>;
@@ -174,7 +166,7 @@ export class Certificate extends pulumi.CustomResource {
      */
     declare public readonly sanIps: pulumi.Output<string[] | undefined>;
     /**
-     * List of Uniform Resource Identifiers (URIs) to use as alternative subjects of 
+     * List of Uniform Resource Identifiers (URIs) to use as alternative subjects of
      * the certificate.
      */
     declare public readonly sanUris: pulumi.Output<string[] | undefined>;
@@ -183,7 +175,7 @@ export class Certificate extends pulumi.CustomResource {
      */
     declare public readonly state: pulumi.Output<string | undefined>;
     /**
-     * List of Certificate Tags defined in Venafi Control Plane.
+     * List of Certificate Tags defined in CyberArk Certificate Manager, SaaS.
      */
     declare public readonly tags: pulumi.Output<string[] | undefined>;
     /**
@@ -253,7 +245,7 @@ export class Certificate extends pulumi.CustomResource {
             resourceInputs["nickname"] = args?.nickname;
             resourceInputs["organization"] = args?.organization;
             resourceInputs["organizationalUnits"] = args?.organizationalUnits;
-            resourceInputs["pkcs12"] = args?.pkcs12;
+            resourceInputs["pkcs12"] = args?.pkcs12 ? pulumi.secret(args.pkcs12) : undefined;
             resourceInputs["privateKeyPem"] = args?.privateKeyPem ? pulumi.secret(args.privateKeyPem) : undefined;
             resourceInputs["renewRequired"] = args?.renewRequired;
             resourceInputs["rsaBits"] = args?.rsaBits;
@@ -269,7 +261,7 @@ export class Certificate extends pulumi.CustomResource {
             resourceInputs["chain"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["keyPassword", "privateKeyPem"] };
+        const secretOpts = { additionalSecretOutputs: ["keyPassword", "pkcs12", "privateKeyPem"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
         super(Certificate.__pulumiType, name, resourceInputs, opts);
     }
@@ -305,7 +297,7 @@ export interface CertificateState {
      */
     country?: pulumi.Input<string | undefined>;
     /**
-     * Whether key-pair generation will be `local` or `service` generated. Default is 
+     * Whether key-pair generation will be `local` or `service` generated. Default is
      * `local`.
      */
     csrOrigin?: pulumi.Input<string | undefined>;
@@ -319,13 +311,13 @@ export interface CertificateState {
      */
     ecdsaCurve?: pulumi.Input<string | undefined>;
     /**
-     * Number of hours before certificate expiry to request a new certificate. 
+     * Number of hours before certificate expiry to request a new certificate.
      * Defaults to `168`.
      */
     expirationWindow?: pulumi.Input<number | undefined>;
     /**
-     * Used with `validDays` to indicate the target issuer when using Trust Protection 
-     * Platform. Relevant values are: `DigiCert`, `Entrust`, and `Microsoft`.
+     * Used with `validDays` to indicate the target issuer when using CyberArk Certificate Manager, Self-Hosted.
+     * Relevant values are: `DigiCert`, `Entrust`, and `Microsoft`.
      */
     issuerHint?: pulumi.Input<string | undefined>;
     /**
@@ -337,8 +329,8 @@ export interface CertificateState {
      */
     locality?: pulumi.Input<string | undefined>;
     /**
-     * Use to specify a name for the new certificate object that will be created and placed 
-     * in a policy. Only valid for Trust Protection Platform.
+     * Use to specify a name for the new certificate object that will be created and placed
+     * in a policy. Only valid for CyberArk Certificate Manager, Self-Hosted.
      */
     nickname?: pulumi.Input<string | undefined>;
     /**
@@ -350,7 +342,7 @@ export interface CertificateState {
      */
     organizationalUnits?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
-     * A base64-encoded PKCS#12 keystore secured by the `keyPassword`. Useful when working with resources like 
+     * A base64-encoded PKCS#12 keystore secured by the `keyPassword`. Useful when working with resources like
      * azure key_vault_certificate.
      */
     pkcs12?: pulumi.Input<string | undefined>;
@@ -363,7 +355,7 @@ export interface CertificateState {
      */
     renewRequired?: pulumi.Input<boolean | undefined>;
     /**
-     * Number of bits to use when generating an RSA key. Applies when algorithm is `RSA`. 
+     * Number of bits to use when generating an RSA key. Applies when algorithm is `RSA`.
      * Defaults to `2048`.
      */
     rsaBits?: pulumi.Input<number | undefined>;
@@ -380,7 +372,7 @@ export interface CertificateState {
      */
     sanIps?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
-     * List of Uniform Resource Identifiers (URIs) to use as alternative subjects of 
+     * List of Uniform Resource Identifiers (URIs) to use as alternative subjects of
      * the certificate.
      */
     sanUris?: pulumi.Input<pulumi.Input<string>[] | undefined>;
@@ -389,7 +381,7 @@ export interface CertificateState {
      */
     state?: pulumi.Input<string | undefined>;
     /**
-     * List of Certificate Tags defined in Venafi Control Plane.
+     * List of Certificate Tags defined in CyberArk Certificate Manager, SaaS.
      */
     tags?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
@@ -416,7 +408,7 @@ export interface CertificateArgs {
      */
     country?: pulumi.Input<string | undefined>;
     /**
-     * Whether key-pair generation will be `local` or `service` generated. Default is 
+     * Whether key-pair generation will be `local` or `service` generated. Default is
      * `local`.
      */
     csrOrigin?: pulumi.Input<string | undefined>;
@@ -430,13 +422,13 @@ export interface CertificateArgs {
      */
     ecdsaCurve?: pulumi.Input<string | undefined>;
     /**
-     * Number of hours before certificate expiry to request a new certificate. 
+     * Number of hours before certificate expiry to request a new certificate.
      * Defaults to `168`.
      */
     expirationWindow?: pulumi.Input<number | undefined>;
     /**
-     * Used with `validDays` to indicate the target issuer when using Trust Protection 
-     * Platform. Relevant values are: `DigiCert`, `Entrust`, and `Microsoft`.
+     * Used with `validDays` to indicate the target issuer when using CyberArk Certificate Manager, Self-Hosted.
+     * Relevant values are: `DigiCert`, `Entrust`, and `Microsoft`.
      */
     issuerHint?: pulumi.Input<string | undefined>;
     /**
@@ -448,8 +440,8 @@ export interface CertificateArgs {
      */
     locality?: pulumi.Input<string | undefined>;
     /**
-     * Use to specify a name for the new certificate object that will be created and placed 
-     * in a policy. Only valid for Trust Protection Platform.
+     * Use to specify a name for the new certificate object that will be created and placed
+     * in a policy. Only valid for CyberArk Certificate Manager, Self-Hosted.
      */
     nickname?: pulumi.Input<string | undefined>;
     /**
@@ -461,7 +453,7 @@ export interface CertificateArgs {
      */
     organizationalUnits?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
-     * A base64-encoded PKCS#12 keystore secured by the `keyPassword`. Useful when working with resources like 
+     * A base64-encoded PKCS#12 keystore secured by the `keyPassword`. Useful when working with resources like
      * azure key_vault_certificate.
      */
     pkcs12?: pulumi.Input<string | undefined>;
@@ -474,7 +466,7 @@ export interface CertificateArgs {
      */
     renewRequired?: pulumi.Input<boolean | undefined>;
     /**
-     * Number of bits to use when generating an RSA key. Applies when algorithm is `RSA`. 
+     * Number of bits to use when generating an RSA key. Applies when algorithm is `RSA`.
      * Defaults to `2048`.
      */
     rsaBits?: pulumi.Input<number | undefined>;
@@ -491,7 +483,7 @@ export interface CertificateArgs {
      */
     sanIps?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
-     * List of Uniform Resource Identifiers (URIs) to use as alternative subjects of 
+     * List of Uniform Resource Identifiers (URIs) to use as alternative subjects of
      * the certificate.
      */
     sanUris?: pulumi.Input<pulumi.Input<string>[] | undefined>;
@@ -500,7 +492,7 @@ export interface CertificateArgs {
      */
     state?: pulumi.Input<string | undefined>;
     /**
-     * List of Certificate Tags defined in Venafi Control Plane.
+     * List of Certificate Tags defined in CyberArk Certificate Manager, SaaS.
      */
     tags?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**

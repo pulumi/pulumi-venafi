@@ -23,14 +23,14 @@ class _ExportableConfig(types.ModuleType):
     @_builtins.property
     def access_token(self) -> Optional[str]:
         """
-        Access token for Venafi TLSPDC, user should use this for authentication
+        Access token for CyberArk Certificate Manager, Self-Hosted, user should use this for authentication
         """
         return __config__.get('accessToken')
 
     @_builtins.property
     def api_key(self) -> Optional[str]:
         """
-        API key for Venafi Control Plane. Example: 142231b7-cvb0-412e-886b-6aeght0bc93d
+        API key for CyberArk Certificate Manager, SaaS. Example: 142231b7-cvb0-412e-886b-6aeght0bc93d
         """
         return __config__.get('apiKey')
 
@@ -42,30 +42,37 @@ class _ExportableConfig(types.ModuleType):
         return __config__.get('clientId')
 
     @_builtins.property
+    def client_secret(self) -> Optional[str]:
+        """
+        Client Secret for CyberArk Certificate Manager, Self-Hosted or Palo Alto Networks Next-Gen Trust Security (NGTS)
+        """
+        return __config__.get('clientSecret')
+
+    @_builtins.property
     def dev_mode(self) -> Optional[bool]:
         """
-        When set to true, the resulting certificate will be issued by an ephemeral, no trust CA rather than enrolling using Venafi as a Service or Trust Protection Platform. Useful for development and testing
+        When set to true, the resulting certificate will be issued by an ephemeral, no trust CA rather than enrolling using CyberArk Certificate Manager, SaaS or CyberArk Certificate Manager, Self-Hosted. Useful for development and testing
         """
         return __config__.get_bool('devMode')
 
     @_builtins.property
     def external_jwt(self) -> Optional[str]:
         """
-        JWT of the identity provider associated to the Venafi Control Plane service account that is granting the access token
+        JWT of the identity provider associated to the CyberArk Certificate Manager, SaaS service account that is granting the access token
         """
         return __config__.get('externalJwt')
 
     @_builtins.property
     def p12_cert_data(self) -> Optional[str]:
         """
-        Base64 encoded PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to TLSPDC
+        Base64 encoded PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to CyberArk Certificate Manager, Self-Hosted
         """
         return __config__.get('p12CertData')
 
     @_builtins.property
     def p12_cert_filename(self) -> Optional[str]:
         """
-        Filename of PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to TLSPDC
+        Filename of PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to CyberArk Certificate Manager, Self-Hosted
         """
         return __config__.get('p12CertFilename')
 
@@ -79,14 +86,14 @@ class _ExportableConfig(types.ModuleType):
     @_builtins.property
     def skip_retirement(self) -> Optional[bool]:
         """
-        When true, certificates will not be retired on Venafi platforms when terraform destroy is run. Default is false
+        When true, certificates will not be retired on CyberArk platforms when terraform destroy is run. Default is false
         """
         return __config__.get_bool('skipRetirement')
 
     @_builtins.property
     def token_url(self) -> Optional[str]:
         """
-        Endpoint URL to request new Venafi Control Plane access tokens
+        Endpoint URL to request new CyberArk Certificate Manager, SaaS access tokens
         """
         return __config__.get('tokenUrl')
 
@@ -100,32 +107,39 @@ class _ExportableConfig(types.ModuleType):
     @_builtins.property
     def tpp_username(self) -> Optional[str]:
         """
-        WebSDK user for Venafi TLSPDC. Example: admin
+        WebSDK user for CyberArk Certificate Manager, Self-Hosted. Example: admin
         """
         return __config__.get('tppUsername')
 
     @_builtins.property
     def trust_bundle(self) -> Optional[str]:
         """
-        Use to specify a PEM-formatted file that contains certificates to be trust anchors for all communications with the Venafi Web Service.
+        Use to specify a PEM-formatted file that contains certificates to be trust anchors for all communications with the CyberArk Web Service.
         Example:
           trust_bundle = "${file("chain.pem")}"
         """
         return __config__.get('trustBundle')
 
     @_builtins.property
+    def tsg_id(self) -> Optional[str]:
+        """
+        The Palo Alto Networks Next-Gen Trust Security (NGTS) TSG ID to use when issuing a token. Only used if platform is detected as 'ngts'
+        """
+        return __config__.get('tsgId')
+
+    @_builtins.property
     def url(self) -> Optional[str]:
         """
-        The Venafi Platform URL. Example: https://tpp.venafi.example/vedsdk
+        The CyberArk Platform URL. Example: https://cmsh.cyberark.example/vedsdk
         """
         return __config__.get('url')
 
     @_builtins.property
     def zone(self) -> Optional[str]:
         """
-        DN of the Venafi TLSPDC policy folder or name of the Venafi as a Service application plus issuing template alias. 
-        Example for Platform: testPolicy\\\\vault
-        Example for Venafi as a Service: myApp\\\\Default
+        DN of the CyberArk Certificate Manager, Self-Hosted policy folder or name of the CyberArk Certificate Manager, SaaS application plus issuing template alias.
+        Example for CyberArk Certificate Manager, Self-Hosted: testPolicy\\\\vault
+        Example for CyberArk Certificate Manager, SaaS: myApp\\\\Default
         """
         return __config__.get('zone')
 

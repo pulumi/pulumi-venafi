@@ -12,7 +12,7 @@ namespace Pulumi.Venafi
     public static class GetCloudProvider
     {
         /// <summary>
-        /// Use this data source to get the `ID` of a cloud provider in Venafi Control Plane, referenced by its name.
+        /// Use this data source to get the `ID` of a cloud provider in CyberArk Certificate Manager, SaaS, referenced by its name.
         /// 
         /// ## Example Usage
         /// 
@@ -37,7 +37,7 @@ namespace Pulumi.Venafi
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCloudProviderResult>("venafi:index/getCloudProvider:getCloudProvider", args ?? new GetCloudProviderArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Use this data source to get the `ID` of a cloud provider in Venafi Control Plane, referenced by its name.
+        /// Use this data source to get the `ID` of a cloud provider in CyberArk Certificate Manager, SaaS, referenced by its name.
         /// 
         /// ## Example Usage
         /// 
@@ -62,7 +62,7 @@ namespace Pulumi.Venafi
             => global::Pulumi.Deployment.Instance.Invoke<GetCloudProviderResult>("venafi:index/getCloudProvider:getCloudProvider", args ?? new GetCloudProviderInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Use this data source to get the `ID` of a cloud provider in Venafi Control Plane, referenced by its name.
+        /// Use this data source to get the `ID` of a cloud provider in CyberArk Certificate Manager, SaaS, referenced by its name.
         /// 
         /// ## Example Usage
         /// 

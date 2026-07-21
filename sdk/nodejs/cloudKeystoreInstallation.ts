@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
- * Provisions a certificate from Venafi Control Plane's inventory to any of the supported Cloud Providers: Amazon
+ * Provisions a certificate from CyberArk Certificate Manager, SaaS inventory to any of the supported Cloud Providers: Amazon
  * Certificate Manager, Azure KeyVault or Google Certificate Manager. Exports the ID of the provisioned certificate:
  * certificate name for AKV and GCM or ARN for ACM.
  *
@@ -31,7 +31,7 @@ import * as utilities from "./utilities";
  *
  * ## Import
  *
- * Using `pulumi import`, import a Machine Identity from Venafi Control Plane using their ID. For example:
+ * Using `pulumi import`, import a Machine Identity from CyberArk Certificate Manager, SaaS using their ID. For example:
  *
  * ```sh
  * $ pulumi import venafi:index/cloudKeystoreInstallation:CloudKeystoreInstallation example 2155bd32-2234-22ac-7cfd-ff1198845aa2
@@ -66,7 +66,7 @@ export class CloudKeystoreInstallation extends pulumi.CustomResource {
     }
 
     /**
-     * ARN of the AWS certificate. Use it to provision the VCP certificate to an existing ACM certificate, instead of a new one. Only valid for ACM keystores.
+     * ARN of the AWS certificate. Use it to provision the CyberArk Certificate Manager, SaaS certificate to an existing ACM certificate, instead of a new one. Only valid for ACM keystores.
      */
     declare public readonly arn: pulumi.Output<string | undefined>;
     /**
@@ -140,7 +140,7 @@ export class CloudKeystoreInstallation extends pulumi.CustomResource {
  */
 export interface CloudKeystoreInstallationState {
     /**
-     * ARN of the AWS certificate. Use it to provision the VCP certificate to an existing ACM certificate, instead of a new one. Only valid for ACM keystores.
+     * ARN of the AWS certificate. Use it to provision the CyberArk Certificate Manager, SaaS certificate to an existing ACM certificate, instead of a new one. Only valid for ACM keystores.
      */
     arn?: pulumi.Input<string | undefined>;
     /**
@@ -174,7 +174,7 @@ export interface CloudKeystoreInstallationState {
  */
 export interface CloudKeystoreInstallationArgs {
     /**
-     * ARN of the AWS certificate. Use it to provision the VCP certificate to an existing ACM certificate, instead of a new one. Only valid for ACM keystores.
+     * ARN of the AWS certificate. Use it to provision the CyberArk Certificate Manager, SaaS certificate to an existing ACM certificate, instead of a new one. Only valid for ACM keystores.
      */
     arn?: pulumi.Input<string | undefined>;
     /**

@@ -95,7 +95,7 @@ def get_cloud_keystore(cloud_provider_id: Optional[_builtins.str] = None,
                        name: Optional[_builtins.str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCloudKeystoreResult:
     """
-    Use this data source to get the `ID` of a cloud keystore in Venafi Control Plane, referenced by its name and parent
+    Use this data source to get the `ID` of a cloud keystore in CyberArk Certificate Manager, SaaS, referenced by its name and parent
     cloud provider ID. You can use `get_cloud_provider` data source to obtain the ID of the parent cloud provider.
 
     ## Example Usage
@@ -132,7 +132,7 @@ def get_cloud_keystore_output(cloud_provider_id: pulumi.Input[Optional[_builtins
                               name: pulumi.Input[Optional[_builtins.str]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCloudKeystoreResult]:
     """
-    Use this data source to get the `ID` of a cloud keystore in Venafi Control Plane, referenced by its name and parent
+    Use this data source to get the `ID` of a cloud keystore in CyberArk Certificate Manager, SaaS, referenced by its name and parent
     cloud provider ID. You can use `get_cloud_provider` data source to obtain the ID of the parent cloud provider.
 
     ## Example Usage

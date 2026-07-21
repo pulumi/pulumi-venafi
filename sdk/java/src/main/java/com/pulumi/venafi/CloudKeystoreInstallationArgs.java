@@ -17,14 +17,14 @@ public final class CloudKeystoreInstallationArgs extends com.pulumi.resources.Re
     public static final CloudKeystoreInstallationArgs Empty = new CloudKeystoreInstallationArgs();
 
     /**
-     * ARN of the AWS certificate. Use it to provision the VCP certificate to an existing ACM certificate, instead of a new one. Only valid for ACM keystores.
+     * ARN of the AWS certificate. Use it to provision the CyberArk Certificate Manager, SaaS certificate to an existing ACM certificate, instead of a new one. Only valid for ACM keystores.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return ARN of the AWS certificate. Use it to provision the VCP certificate to an existing ACM certificate, instead of a new one. Only valid for ACM keystores.
+     * @return ARN of the AWS certificate. Use it to provision the CyberArk Certificate Manager, SaaS certificate to an existing ACM certificate, instead of a new one. Only valid for ACM keystores.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -120,7 +120,7 @@ public final class CloudKeystoreInstallationArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param arn ARN of the AWS certificate. Use it to provision the VCP certificate to an existing ACM certificate, instead of a new one. Only valid for ACM keystores.
+         * @param arn ARN of the AWS certificate. Use it to provision the CyberArk Certificate Manager, SaaS certificate to an existing ACM certificate, instead of a new one. Only valid for ACM keystores.
          * 
          * @return builder
          * 
@@ -131,7 +131,7 @@ public final class CloudKeystoreInstallationArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param arn ARN of the AWS certificate. Use it to provision the VCP certificate to an existing ACM certificate, instead of a new one. Only valid for ACM keystores.
+         * @param arn ARN of the AWS certificate. Use it to provision the CyberArk Certificate Manager, SaaS certificate to an existing ACM certificate, instead of a new one. Only valid for ACM keystores.
          * 
          * @return builder
          * 

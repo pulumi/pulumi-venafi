@@ -11,8 +11,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides access to read and write certificate policy in Venafi. This can be used to define a new policy (folder in
-// *Trust Protection Platform*; application and issuing template in *Venafi Control Plane*).
+// Provides access to read and write certificate policy in CyberArk Machine Identity Service. This can be used to define a new policy (folder in
+// *CyberArk Certificate Manager, Self-Hosted*; application and issuing template in *CyberArk Certificate Manager, SaaS*).
 //
 // ## Example Usage
 //
@@ -21,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-std/sdk/v2/go/std"
+//	"github.com/pulumi/pulumi-std/sdk/go/std"
 //	"github.com/pulumi/pulumi-venafi/sdk/go/venafi"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -87,7 +87,7 @@ type Policy struct {
 	// [here](https://github.com/Venafi/vcert/blob/master/README-POLICY-SPEC.md). Typically read from a file using the `file`
 	// function.
 	PolicySpecification pulumi.StringPtrOutput `pulumi:"policySpecification"`
-	// The *Trust Protection Plaform* policy folder or *Venafi Control Plane* application and
+	// The *CyberArk Certificate Manager, Self-Hosted* policy folder or *CyberArk Certificate Manager, SaaS* application and
 	// issuing template.
 	Zone pulumi.StringPtrOutput `pulumi:"zone"`
 }
@@ -126,7 +126,7 @@ type policyState struct {
 	// [here](https://github.com/Venafi/vcert/blob/master/README-POLICY-SPEC.md). Typically read from a file using the `file`
 	// function.
 	PolicySpecification *string `pulumi:"policySpecification"`
-	// The *Trust Protection Plaform* policy folder or *Venafi Control Plane* application and
+	// The *CyberArk Certificate Manager, Self-Hosted* policy folder or *CyberArk Certificate Manager, SaaS* application and
 	// issuing template.
 	Zone *string `pulumi:"zone"`
 }
@@ -136,7 +136,7 @@ type PolicyState struct {
 	// [here](https://github.com/Venafi/vcert/blob/master/README-POLICY-SPEC.md). Typically read from a file using the `file`
 	// function.
 	PolicySpecification pulumi.StringPtrInput
-	// The *Trust Protection Plaform* policy folder or *Venafi Control Plane* application and
+	// The *CyberArk Certificate Manager, Self-Hosted* policy folder or *CyberArk Certificate Manager, SaaS* application and
 	// issuing template.
 	Zone pulumi.StringPtrInput
 }
@@ -150,7 +150,7 @@ type policyArgs struct {
 	// [here](https://github.com/Venafi/vcert/blob/master/README-POLICY-SPEC.md). Typically read from a file using the `file`
 	// function.
 	PolicySpecification *string `pulumi:"policySpecification"`
-	// The *Trust Protection Plaform* policy folder or *Venafi Control Plane* application and
+	// The *CyberArk Certificate Manager, Self-Hosted* policy folder or *CyberArk Certificate Manager, SaaS* application and
 	// issuing template.
 	Zone *string `pulumi:"zone"`
 }
@@ -161,7 +161,7 @@ type PolicyArgs struct {
 	// [here](https://github.com/Venafi/vcert/blob/master/README-POLICY-SPEC.md). Typically read from a file using the `file`
 	// function.
 	PolicySpecification pulumi.StringPtrInput
-	// The *Trust Protection Plaform* policy folder or *Venafi Control Plane* application and
+	// The *CyberArk Certificate Manager, Self-Hosted* policy folder or *CyberArk Certificate Manager, SaaS* application and
 	// issuing template.
 	Zone pulumi.StringPtrInput
 }
@@ -260,7 +260,7 @@ func (o PolicyOutput) PolicySpecification() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Policy) pulumi.StringPtrOutput { return v.PolicySpecification }).(pulumi.StringPtrOutput)
 }
 
-// The *Trust Protection Plaform* policy folder or *Venafi Control Plane* application and
+// The *CyberArk Certificate Manager, Self-Hosted* policy folder or *CyberArk Certificate Manager, SaaS* application and
 // issuing template.
 func (o PolicyOutput) Zone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Policy) pulumi.StringPtrOutput { return v.Zone }).(pulumi.StringPtrOutput)

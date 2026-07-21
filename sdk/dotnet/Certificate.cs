@@ -15,12 +15,6 @@ namespace Pulumi.Venafi
     /// For backward compatibility during Terraform state refresh please update to version 0.15.5 or above.
     /// 
     /// Provides access to TLS key and certificate data enrolled using Venafi. This can be used to define a certificate.
-    /// 
-    /// The `venafi.Certificate` resource handles certificate renewals as long as a
-    /// `pulumi up` is run within the `ExpirationWindow` period. Keep in mind that the
-    /// `ExpirationWindow` in the provider configuration needs to align with the renewal
-    /// window of the issuing CA to achieve the desired result.
-    /// 
     /// ## Example Usage
     /// 
     /// ```csharp
@@ -51,13 +45,11 @@ namespace Pulumi.Venafi
     /// 
     /// });
     /// ```
-    /// 
     /// ## Certificate Renewal
     /// 
-    /// The `venafi.Certificate` resource handles certificate renewals as long as a
-    /// `pulumi up` is done within the `ExpirationWindow` period. Keep in mind that the
-    /// `ExpirationWindow` in the Terraform configuration needs to align with the renewal
-    /// window of the issuing CA to achieve the desired result.
+    /// The `venafi.Certificate` resource handles certificate renewals as long as a `pulumi up` is done within the
+    /// `ExpirationWindow` period. Keep in mind that the `ExpirationWindow` in the Terraform configuration needs to align with
+    /// the renewal window of the issuing CA to achieve the desired result.
     /// </summary>
     [VenafiResourceType("venafi:index/certificate:Certificate")]
     public partial class Certificate : global::Pulumi.CustomResource
@@ -102,7 +94,7 @@ namespace Pulumi.Venafi
         public Output<string?> Country { get; private set; } = null!;
 
         /// <summary>
-        /// Whether key-pair generation will be `Local` or `Service` generated. Default is 
+        /// Whether key-pair generation will be `Local` or `Service` generated. Default is
         /// `Local`.
         /// </summary>
         [Output("csrOrigin")]
@@ -124,15 +116,15 @@ namespace Pulumi.Venafi
         public Output<string?> EcdsaCurve { get; private set; } = null!;
 
         /// <summary>
-        /// Number of hours before certificate expiry to request a new certificate. 
+        /// Number of hours before certificate expiry to request a new certificate.
         /// Defaults to `168`.
         /// </summary>
         [Output("expirationWindow")]
         public Output<int?> ExpirationWindow { get; private set; } = null!;
 
         /// <summary>
-        /// Used with `ValidDays` to indicate the target issuer when using Trust Protection 
-        /// Platform. Relevant values are: `DigiCert`, `Entrust`, and `Microsoft`.
+        /// Used with `ValidDays` to indicate the target issuer when using CyberArk Certificate Manager, Self-Hosted.
+        /// Relevant values are: `DigiCert`, `Entrust`, and `Microsoft`.
         /// </summary>
         [Output("issuerHint")]
         public Output<string?> IssuerHint { get; private set; } = null!;
@@ -150,8 +142,8 @@ namespace Pulumi.Venafi
         public Output<string?> Locality { get; private set; } = null!;
 
         /// <summary>
-        /// Use to specify a name for the new certificate object that will be created and placed 
-        /// in a policy. Only valid for Trust Protection Platform.
+        /// Use to specify a name for the new certificate object that will be created and placed
+        /// in a policy. Only valid for CyberArk Certificate Manager, Self-Hosted.
         /// </summary>
         [Output("nickname")]
         public Output<string?> Nickname { get; private set; } = null!;
@@ -169,7 +161,7 @@ namespace Pulumi.Venafi
         public Output<ImmutableArray<string>> OrganizationalUnits { get; private set; } = null!;
 
         /// <summary>
-        /// A base64-encoded PKCS#12 keystore secured by the `KeyPassword`. Useful when working with resources like 
+        /// A base64-encoded PKCS#12 keystore secured by the `KeyPassword`. Useful when working with resources like
         /// azure key_vault_certificate.
         /// </summary>
         [Output("pkcs12")]
@@ -188,7 +180,7 @@ namespace Pulumi.Venafi
         public Output<bool?> RenewRequired { get; private set; } = null!;
 
         /// <summary>
-        /// Number of bits to use when generating an RSA key. Applies when algorithm is `RSA`. 
+        /// Number of bits to use when generating an RSA key. Applies when algorithm is `RSA`.
         /// Defaults to `2048`.
         /// </summary>
         [Output("rsaBits")]
@@ -213,7 +205,7 @@ namespace Pulumi.Venafi
         public Output<ImmutableArray<string>> SanIps { get; private set; } = null!;
 
         /// <summary>
-        /// List of Uniform Resource Identifiers (URIs) to use as alternative subjects of 
+        /// List of Uniform Resource Identifiers (URIs) to use as alternative subjects of
         /// the certificate.
         /// </summary>
         [Output("sanUris")]
@@ -226,7 +218,7 @@ namespace Pulumi.Venafi
         public Output<string?> State { get; private set; } = null!;
 
         /// <summary>
-        /// List of Certificate Tags defined in Venafi Control Plane.
+        /// List of Certificate Tags defined in CyberArk Certificate Manager, SaaS.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<string>> Tags { get; private set; } = null!;
@@ -263,6 +255,7 @@ namespace Pulumi.Venafi
                 AdditionalSecretOutputs =
                 {
                     "keyPassword",
+                    "pkcs12",
                     "privateKeyPem",
                 },
             };
@@ -310,7 +303,7 @@ namespace Pulumi.Venafi
         public Input<string>? Country { get; set; }
 
         /// <summary>
-        /// Whether key-pair generation will be `Local` or `Service` generated. Default is 
+        /// Whether key-pair generation will be `Local` or `Service` generated. Default is
         /// `Local`.
         /// </summary>
         [Input("csrOrigin")]
@@ -338,15 +331,15 @@ namespace Pulumi.Venafi
         public Input<string>? EcdsaCurve { get; set; }
 
         /// <summary>
-        /// Number of hours before certificate expiry to request a new certificate. 
+        /// Number of hours before certificate expiry to request a new certificate.
         /// Defaults to `168`.
         /// </summary>
         [Input("expirationWindow")]
         public Input<int>? ExpirationWindow { get; set; }
 
         /// <summary>
-        /// Used with `ValidDays` to indicate the target issuer when using Trust Protection 
-        /// Platform. Relevant values are: `DigiCert`, `Entrust`, and `Microsoft`.
+        /// Used with `ValidDays` to indicate the target issuer when using CyberArk Certificate Manager, Self-Hosted.
+        /// Relevant values are: `DigiCert`, `Entrust`, and `Microsoft`.
         /// </summary>
         [Input("issuerHint")]
         public Input<string>? IssuerHint { get; set; }
@@ -374,8 +367,8 @@ namespace Pulumi.Venafi
         public Input<string>? Locality { get; set; }
 
         /// <summary>
-        /// Use to specify a name for the new certificate object that will be created and placed 
-        /// in a policy. Only valid for Trust Protection Platform.
+        /// Use to specify a name for the new certificate object that will be created and placed
+        /// in a policy. Only valid for CyberArk Certificate Manager, Self-Hosted.
         /// </summary>
         [Input("nickname")]
         public Input<string>? Nickname { get; set; }
@@ -398,12 +391,22 @@ namespace Pulumi.Venafi
             set => _organizationalUnits = value;
         }
 
+        [Input("pkcs12")]
+        private Input<string>? _pkcs12;
+
         /// <summary>
-        /// A base64-encoded PKCS#12 keystore secured by the `KeyPassword`. Useful when working with resources like 
+        /// A base64-encoded PKCS#12 keystore secured by the `KeyPassword`. Useful when working with resources like
         /// azure key_vault_certificate.
         /// </summary>
-        [Input("pkcs12")]
-        public Input<string>? Pkcs12 { get; set; }
+        public Input<string>? Pkcs12
+        {
+            get => _pkcs12;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _pkcs12 = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         [Input("privateKeyPem")]
         private Input<string>? _privateKeyPem;
@@ -428,7 +431,7 @@ namespace Pulumi.Venafi
         public Input<bool>? RenewRequired { get; set; }
 
         /// <summary>
-        /// Number of bits to use when generating an RSA key. Applies when algorithm is `RSA`. 
+        /// Number of bits to use when generating an RSA key. Applies when algorithm is `RSA`.
         /// Defaults to `2048`.
         /// </summary>
         [Input("rsaBits")]
@@ -474,7 +477,7 @@ namespace Pulumi.Venafi
         private InputList<string>? _sanUris;
 
         /// <summary>
-        /// List of Uniform Resource Identifiers (URIs) to use as alternative subjects of 
+        /// List of Uniform Resource Identifiers (URIs) to use as alternative subjects of
         /// the certificate.
         /// </summary>
         public InputList<string> SanUris
@@ -493,7 +496,7 @@ namespace Pulumi.Venafi
         private InputList<string>? _tags;
 
         /// <summary>
-        /// List of Certificate Tags defined in Venafi Control Plane.
+        /// List of Certificate Tags defined in CyberArk Certificate Manager, SaaS.
         /// </summary>
         public InputList<string> Tags
         {
@@ -555,7 +558,7 @@ namespace Pulumi.Venafi
         public Input<string>? Country { get; set; }
 
         /// <summary>
-        /// Whether key-pair generation will be `Local` or `Service` generated. Default is 
+        /// Whether key-pair generation will be `Local` or `Service` generated. Default is
         /// `Local`.
         /// </summary>
         [Input("csrOrigin")]
@@ -583,15 +586,15 @@ namespace Pulumi.Venafi
         public Input<string>? EcdsaCurve { get; set; }
 
         /// <summary>
-        /// Number of hours before certificate expiry to request a new certificate. 
+        /// Number of hours before certificate expiry to request a new certificate.
         /// Defaults to `168`.
         /// </summary>
         [Input("expirationWindow")]
         public Input<int>? ExpirationWindow { get; set; }
 
         /// <summary>
-        /// Used with `ValidDays` to indicate the target issuer when using Trust Protection 
-        /// Platform. Relevant values are: `DigiCert`, `Entrust`, and `Microsoft`.
+        /// Used with `ValidDays` to indicate the target issuer when using CyberArk Certificate Manager, Self-Hosted.
+        /// Relevant values are: `DigiCert`, `Entrust`, and `Microsoft`.
         /// </summary>
         [Input("issuerHint")]
         public Input<string>? IssuerHint { get; set; }
@@ -619,8 +622,8 @@ namespace Pulumi.Venafi
         public Input<string>? Locality { get; set; }
 
         /// <summary>
-        /// Use to specify a name for the new certificate object that will be created and placed 
-        /// in a policy. Only valid for Trust Protection Platform.
+        /// Use to specify a name for the new certificate object that will be created and placed
+        /// in a policy. Only valid for CyberArk Certificate Manager, Self-Hosted.
         /// </summary>
         [Input("nickname")]
         public Input<string>? Nickname { get; set; }
@@ -643,12 +646,22 @@ namespace Pulumi.Venafi
             set => _organizationalUnits = value;
         }
 
+        [Input("pkcs12")]
+        private Input<string>? _pkcs12;
+
         /// <summary>
-        /// A base64-encoded PKCS#12 keystore secured by the `KeyPassword`. Useful when working with resources like 
+        /// A base64-encoded PKCS#12 keystore secured by the `KeyPassword`. Useful when working with resources like
         /// azure key_vault_certificate.
         /// </summary>
-        [Input("pkcs12")]
-        public Input<string>? Pkcs12 { get; set; }
+        public Input<string>? Pkcs12
+        {
+            get => _pkcs12;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _pkcs12 = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         [Input("privateKeyPem")]
         private Input<string>? _privateKeyPem;
@@ -673,7 +686,7 @@ namespace Pulumi.Venafi
         public Input<bool>? RenewRequired { get; set; }
 
         /// <summary>
-        /// Number of bits to use when generating an RSA key. Applies when algorithm is `RSA`. 
+        /// Number of bits to use when generating an RSA key. Applies when algorithm is `RSA`.
         /// Defaults to `2048`.
         /// </summary>
         [Input("rsaBits")]
@@ -719,7 +732,7 @@ namespace Pulumi.Venafi
         private InputList<string>? _sanUris;
 
         /// <summary>
-        /// List of Uniform Resource Identifiers (URIs) to use as alternative subjects of 
+        /// List of Uniform Resource Identifiers (URIs) to use as alternative subjects of
         /// the certificate.
         /// </summary>
         public InputList<string> SanUris
@@ -738,7 +751,7 @@ namespace Pulumi.Venafi
         private InputList<string>? _tags;
 
         /// <summary>
-        /// List of Certificate Tags defined in Venafi Control Plane.
+        /// List of Certificate Tags defined in CyberArk Certificate Manager, SaaS.
         /// </summary>
         public InputList<string> Tags
         {

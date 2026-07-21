@@ -144,16 +144,16 @@ public final class CertificateArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Used with `validDays` to indicate the target issuer when using Trust Protection
-     * Platform. Relevant values are: `DigiCert`, `Entrust`, and `Microsoft`.
+     * Used with `validDays` to indicate the target issuer when using CyberArk Certificate Manager, Self-Hosted.
+     * Relevant values are: `DigiCert`, `Entrust`, and `Microsoft`.
      * 
      */
     @Import(name="issuerHint")
     private @Nullable Output<String> issuerHint;
 
     /**
-     * @return Used with `validDays` to indicate the target issuer when using Trust Protection
-     * Platform. Relevant values are: `DigiCert`, `Entrust`, and `Microsoft`.
+     * @return Used with `validDays` to indicate the target issuer when using CyberArk Certificate Manager, Self-Hosted.
+     * Relevant values are: `DigiCert`, `Entrust`, and `Microsoft`.
      * 
      */
     public Optional<Output<String>> issuerHint() {
@@ -192,7 +192,7 @@ public final class CertificateArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * Use to specify a name for the new certificate object that will be created and placed
-     * in a policy. Only valid for Trust Protection Platform.
+     * in a policy. Only valid for CyberArk Certificate Manager, Self-Hosted.
      * 
      */
     @Import(name="nickname")
@@ -200,7 +200,7 @@ public final class CertificateArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * @return Use to specify a name for the new certificate object that will be created and placed
-     * in a policy. Only valid for Trust Protection Platform.
+     * in a policy. Only valid for CyberArk Certificate Manager, Self-Hosted.
      * 
      */
     public Optional<Output<String>> nickname() {
@@ -379,14 +379,14 @@ public final class CertificateArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * List of Certificate Tags defined in Venafi Control Plane.
+     * List of Certificate Tags defined in CyberArk Certificate Manager, SaaS.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<List<String>> tags;
 
     /**
-     * @return List of Certificate Tags defined in Venafi Control Plane.
+     * @return List of Certificate Tags defined in CyberArk Certificate Manager, SaaS.
      * 
      */
     public Optional<Output<List<String>>> tags() {
@@ -627,8 +627,8 @@ public final class CertificateArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param issuerHint Used with `validDays` to indicate the target issuer when using Trust Protection
-         * Platform. Relevant values are: `DigiCert`, `Entrust`, and `Microsoft`.
+         * @param issuerHint Used with `validDays` to indicate the target issuer when using CyberArk Certificate Manager, Self-Hosted.
+         * Relevant values are: `DigiCert`, `Entrust`, and `Microsoft`.
          * 
          * @return builder
          * 
@@ -639,8 +639,8 @@ public final class CertificateArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param issuerHint Used with `validDays` to indicate the target issuer when using Trust Protection
-         * Platform. Relevant values are: `DigiCert`, `Entrust`, and `Microsoft`.
+         * @param issuerHint Used with `validDays` to indicate the target issuer when using CyberArk Certificate Manager, Self-Hosted.
+         * Relevant values are: `DigiCert`, `Entrust`, and `Microsoft`.
          * 
          * @return builder
          * 
@@ -693,7 +693,7 @@ public final class CertificateArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param nickname Use to specify a name for the new certificate object that will be created and placed
-         * in a policy. Only valid for Trust Protection Platform.
+         * in a policy. Only valid for CyberArk Certificate Manager, Self-Hosted.
          * 
          * @return builder
          * 
@@ -705,7 +705,7 @@ public final class CertificateArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param nickname Use to specify a name for the new certificate object that will be created and placed
-         * in a policy. Only valid for Trust Protection Platform.
+         * in a policy. Only valid for CyberArk Certificate Manager, Self-Hosted.
          * 
          * @return builder
          * 
@@ -1003,7 +1003,7 @@ public final class CertificateArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags List of Certificate Tags defined in Venafi Control Plane.
+         * @param tags List of Certificate Tags defined in CyberArk Certificate Manager, SaaS.
          * 
          * @return builder
          * 
@@ -1014,7 +1014,7 @@ public final class CertificateArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags List of Certificate Tags defined in Venafi Control Plane.
+         * @param tags List of Certificate Tags defined in CyberArk Certificate Manager, SaaS.
          * 
          * @return builder
          * 
@@ -1024,7 +1024,7 @@ public final class CertificateArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags List of Certificate Tags defined in Venafi Control Plane.
+         * @param tags List of Certificate Tags defined in CyberArk Certificate Manager, SaaS.
          * 
          * @return builder
          * 

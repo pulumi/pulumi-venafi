@@ -15,7 +15,7 @@ import java.util.List;
 import javax.annotation.Nullable;
 
 /**
- * Provides access to retrieve configuration from SSH certificate issuance template from *Venafi Trust Protection Platform*.
+ * Provides access to retrieve configuration from SSH certificate issuance template from *CyberArk Certificate Manager, Self-Hosted*.
  * 
  * ## Example Usage
  * 

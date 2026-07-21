@@ -10,8 +10,8 @@ using Pulumi.Serialization;
 namespace Pulumi.Venafi
 {
     /// <summary>
-    /// Provides access to read and write certificate policy in Venafi. This can be used to define a new policy (folder in
-    /// *Trust Protection Platform*; application and issuing template in *Venafi Control Plane*).
+    /// Provides access to read and write certificate policy in CyberArk Machine Identity Service. This can be used to define a new policy (folder in
+    /// *CyberArk Certificate Manager, Self-Hosted*; application and issuing template in *CyberArk Certificate Manager, SaaS*).
     /// 
     /// ## Example Usage
     /// 
@@ -72,7 +72,7 @@ namespace Pulumi.Venafi
         public Output<string?> PolicySpecification { get; private set; } = null!;
 
         /// <summary>
-        /// The *Trust Protection Plaform* policy folder or *Venafi Control Plane* application and 
+        /// The *CyberArk Certificate Manager, Self-Hosted* policy folder or *CyberArk Certificate Manager, SaaS* application and 
         /// issuing template.
         /// </summary>
         [Output("zone")]
@@ -133,7 +133,7 @@ namespace Pulumi.Venafi
         public Input<string>? PolicySpecification { get; set; }
 
         /// <summary>
-        /// The *Trust Protection Plaform* policy folder or *Venafi Control Plane* application and 
+        /// The *CyberArk Certificate Manager, Self-Hosted* policy folder or *CyberArk Certificate Manager, SaaS* application and 
         /// issuing template.
         /// </summary>
         [Input("zone")]
@@ -156,7 +156,7 @@ namespace Pulumi.Venafi
         public Input<string>? PolicySpecification { get; set; }
 
         /// <summary>
-        /// The *Trust Protection Plaform* policy folder or *Venafi Control Plane* application and 
+        /// The *CyberArk Certificate Manager, Self-Hosted* policy folder or *CyberArk Certificate Manager, SaaS* application and 
         /// issuing template.
         /// </summary>
         [Input("zone")]

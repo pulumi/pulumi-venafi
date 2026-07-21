@@ -34,7 +34,7 @@ namespace Pulumi.Venafi
 
         private static readonly __Value<string?> _accessToken = new __Value<string?>(() => __config.Get("accessToken"));
         /// <summary>
-        /// Access token for Venafi TLSPDC, user should use this for authentication
+        /// Access token for CyberArk Certificate Manager, Self-Hosted, user should use this for authentication
         /// </summary>
         public static string? AccessToken
         {
@@ -44,7 +44,7 @@ namespace Pulumi.Venafi
 
         private static readonly __Value<string?> _apiKey = new __Value<string?>(() => __config.Get("apiKey"));
         /// <summary>
-        /// API key for Venafi Control Plane. Example: 142231b7-cvb0-412e-886b-6aeght0bc93d
+        /// API key for CyberArk Certificate Manager, SaaS. Example: 142231b7-cvb0-412e-886b-6aeght0bc93d
         /// </summary>
         public static string? ApiKey
         {
@@ -62,9 +62,19 @@ namespace Pulumi.Venafi
             set => _clientId.Set(value);
         }
 
+        private static readonly __Value<string?> _clientSecret = new __Value<string?>(() => __config.Get("clientSecret"));
+        /// <summary>
+        /// Client Secret for CyberArk Certificate Manager, Self-Hosted or Palo Alto Networks Next-Gen Trust Security (NGTS)
+        /// </summary>
+        public static string? ClientSecret
+        {
+            get => _clientSecret.Get();
+            set => _clientSecret.Set(value);
+        }
+
         private static readonly __Value<bool?> _devMode = new __Value<bool?>(() => __config.GetBoolean("devMode"));
         /// <summary>
-        /// When set to true, the resulting certificate will be issued by an ephemeral, no trust CA rather than enrolling using Venafi as a Service or Trust Protection Platform. Useful for development and testing
+        /// When set to true, the resulting certificate will be issued by an ephemeral, no trust CA rather than enrolling using CyberArk Certificate Manager, SaaS or CyberArk Certificate Manager, Self-Hosted. Useful for development and testing
         /// </summary>
         public static bool? DevMode
         {
@@ -74,7 +84,7 @@ namespace Pulumi.Venafi
 
         private static readonly __Value<string?> _externalJwt = new __Value<string?>(() => __config.Get("externalJwt"));
         /// <summary>
-        /// JWT of the identity provider associated to the Venafi Control Plane service account that is granting the access token
+        /// JWT of the identity provider associated to the CyberArk Certificate Manager, SaaS service account that is granting the access token
         /// </summary>
         public static string? ExternalJwt
         {
@@ -84,7 +94,7 @@ namespace Pulumi.Venafi
 
         private static readonly __Value<string?> _p12CertData = new __Value<string?>(() => __config.Get("p12CertData"));
         /// <summary>
-        /// Base64 encoded PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to TLSPDC
+        /// Base64 encoded PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to CyberArk Certificate Manager, Self-Hosted
         /// </summary>
         public static string? P12CertData
         {
@@ -94,7 +104,7 @@ namespace Pulumi.Venafi
 
         private static readonly __Value<string?> _p12CertFilename = new __Value<string?>(() => __config.Get("p12CertFilename"));
         /// <summary>
-        /// Filename of PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to TLSPDC
+        /// Filename of PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to CyberArk Certificate Manager, Self-Hosted
         /// </summary>
         public static string? P12CertFilename
         {
@@ -114,7 +124,7 @@ namespace Pulumi.Venafi
 
         private static readonly __Value<bool?> _skipRetirement = new __Value<bool?>(() => __config.GetBoolean("skipRetirement"));
         /// <summary>
-        /// When true, certificates will not be retired on Venafi platforms when terraform destroy is run. Default is false
+        /// When true, certificates will not be retired on CyberArk platforms when terraform destroy is run. Default is false
         /// </summary>
         public static bool? SkipRetirement
         {
@@ -124,7 +134,7 @@ namespace Pulumi.Venafi
 
         private static readonly __Value<string?> _tokenUrl = new __Value<string?>(() => __config.Get("tokenUrl"));
         /// <summary>
-        /// Endpoint URL to request new Venafi Control Plane access tokens
+        /// Endpoint URL to request new CyberArk Certificate Manager, SaaS access tokens
         /// </summary>
         public static string? TokenUrl
         {
@@ -144,7 +154,7 @@ namespace Pulumi.Venafi
 
         private static readonly __Value<string?> _tppUsername = new __Value<string?>(() => __config.Get("tppUsername"));
         /// <summary>
-        /// WebSDK user for Venafi TLSPDC. Example: admin
+        /// WebSDK user for CyberArk Certificate Manager, Self-Hosted. Example: admin
         /// </summary>
         public static string? TppUsername
         {
@@ -154,7 +164,7 @@ namespace Pulumi.Venafi
 
         private static readonly __Value<string?> _trustBundle = new __Value<string?>(() => __config.Get("trustBundle"));
         /// <summary>
-        /// Use to specify a PEM-formatted file that contains certificates to be trust anchors for all communications with the Venafi Web Service.
+        /// Use to specify a PEM-formatted file that contains certificates to be trust anchors for all communications with the CyberArk Web Service.
         /// Example:
         ///   TrustBundle = "${file("chain.pem")}"
         /// </summary>
@@ -164,9 +174,19 @@ namespace Pulumi.Venafi
             set => _trustBundle.Set(value);
         }
 
+        private static readonly __Value<string?> _tsgId = new __Value<string?>(() => __config.Get("tsgId"));
+        /// <summary>
+        /// The Palo Alto Networks Next-Gen Trust Security (NGTS) TSG ID to use when issuing a token. Only used if platform is detected as 'ngts'
+        /// </summary>
+        public static string? TsgId
+        {
+            get => _tsgId.Get();
+            set => _tsgId.Set(value);
+        }
+
         private static readonly __Value<string?> _url = new __Value<string?>(() => __config.Get("url"));
         /// <summary>
-        /// The Venafi Platform URL. Example: https://tpp.venafi.example/vedsdk
+        /// The CyberArk Platform URL. Example: https://cmsh.cyberark.example/vedsdk
         /// </summary>
         public static string? Url
         {
@@ -176,9 +196,9 @@ namespace Pulumi.Venafi
 
         private static readonly __Value<string?> _zone = new __Value<string?>(() => __config.Get("zone"));
         /// <summary>
-        /// DN of the Venafi TLSPDC policy folder or name of the Venafi as a Service application plus issuing template alias. 
-        /// Example for Platform: testPolicy\\vault
-        /// Example for Venafi as a Service: myApp\\Default
+        /// DN of the CyberArk Certificate Manager, Self-Hosted policy folder or name of the CyberArk Certificate Manager, SaaS application plus issuing template alias. 
+        /// Example for CyberArk Certificate Manager, Self-Hosted: testPolicy\\vault
+        /// Example for CyberArk Certificate Manager, SaaS: myApp\\Default
         /// </summary>
         public static string? Zone
         {

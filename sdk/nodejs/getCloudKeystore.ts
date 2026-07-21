@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
- * Use this data source to get the `ID` of a cloud keystore in Venafi Control Plane, referenced by its name and parent
+ * Use this data source to get the `ID` of a cloud keystore in CyberArk Certificate Manager, SaaS, referenced by its name and parent
  * cloud provider ID. You can use `venafi.getCloudProvider` data source to obtain the ID of the parent cloud provider.
  *
  * ## Example Usage
@@ -68,7 +68,7 @@ export interface GetCloudKeystoreResult {
     readonly type: string;
 }
 /**
- * Use this data source to get the `ID` of a cloud keystore in Venafi Control Plane, referenced by its name and parent
+ * Use this data source to get the `ID` of a cloud keystore in CyberArk Certificate Manager, SaaS, referenced by its name and parent
  * cloud provider ID. You can use `venafi.getCloudProvider` data source to obtain the ID of the parent cloud provider.
  *
  * ## Example Usage

@@ -40,25 +40,25 @@ class SshCertificateArgs:
 
         :param pulumi.Input[_builtins.str] key_id: The identifier of the requested SSH certificate.
         :param pulumi.Input[_builtins.str] template: The SSH certificate issuing template.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] destination_addresses: A list of one or more valid IP or CIDR destination hosts where the 
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] destination_addresses: A list of one or more valid IP or CIDR destination hosts where the
                certificate will authenticate.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] extensions: A list of key-value pairs that contain certificate extensions from the CA 
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] extensions: A list of key-value pairs that contain certificate extensions from the CA
                template for client certificates. Allowed values (case-sensitive): `permit-X11-forwarding`, `permit-agent-forwarding`,
                `permit-port-forwarding`, `permit-pty`, `permit-user-rc`.
         :param pulumi.Input[_builtins.str] folder: The DN of the policy folder where the SSH certificate object will be created.
         :param pulumi.Input[_builtins.str] force_command: A command to run after successful login.
         :param pulumi.Input[_builtins.str] key_passphrase: Passphrase for encrypting the private key.
         :param pulumi.Input[_builtins.int] key_size: Number of bits to use when creating a key pair. (e.g. `3072`).
-        :param pulumi.Input[_builtins.str] object_name: The friendly name of the SSH certificate object. When not specified the `key_id` 
+        :param pulumi.Input[_builtins.str] object_name: The friendly name of the SSH certificate object. When not specified the `key_id`
                is used for the friendly name. If the object already exists the old certificate is archived and the CA issues a new
                certificate.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] principal: [DEPRECATED] - (Optional, set of strings) Use "principals" instead. A list of usernames for whom the 
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] principal: [DEPRECATED] - (Optional, set of strings) Use "principals" instead. A list of usernames for whom the
                requested certificate will be valid.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] principals: A list of usernames for whom the requested certificate will be valid.
         :param pulumi.Input[_builtins.str] public_key: The OpenSSH formatted public key that will be used to generate the SSH certificate.
-        :param pulumi.Input[_builtins.str] public_key_method: Specifies whether the public key will be `local` (default), `file` or 
+        :param pulumi.Input[_builtins.str] public_key_method: Specifies whether the public key will be `local` (default), `file` or
                `service` generated.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] source_addresses: A list of one or more valid IP or CIDR addresses that can use the SSH 
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] source_addresses: A list of one or more valid IP or CIDR addresses that can use the SSH
                certificate.
         :param pulumi.Input[_builtins.int] valid_hours: Desired number of hours for which the certificate will be valid.
         :param pulumi.Input[_builtins.bool] windows: Specifies whether the private key will use Windows/DOS style line breaks.
@@ -125,7 +125,7 @@ class SshCertificateArgs:
     @pulumi.getter(name="destinationAddresses")
     def destination_addresses(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        A list of one or more valid IP or CIDR destination hosts where the 
+        A list of one or more valid IP or CIDR destination hosts where the
         certificate will authenticate.
         """
         return pulumi.get(self, "destination_addresses")
@@ -138,7 +138,7 @@ class SshCertificateArgs:
     @pulumi.getter
     def extensions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        A list of key-value pairs that contain certificate extensions from the CA 
+        A list of key-value pairs that contain certificate extensions from the CA
         template for client certificates. Allowed values (case-sensitive): `permit-X11-forwarding`, `permit-agent-forwarding`,
         `permit-port-forwarding`, `permit-pty`, `permit-user-rc`.
         """
@@ -200,7 +200,7 @@ class SshCertificateArgs:
     @pulumi.getter(name="objectName")
     def object_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The friendly name of the SSH certificate object. When not specified the `key_id` 
+        The friendly name of the SSH certificate object. When not specified the `key_id`
         is used for the friendly name. If the object already exists the old certificate is archived and the CA issues a new
         certificate.
         """
@@ -215,7 +215,7 @@ class SshCertificateArgs:
     @_utilities.deprecated("""This will be removed in the future. Use \"principals\" instead""")
     def principal(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        [DEPRECATED] - (Optional, set of strings) Use "principals" instead. A list of usernames for whom the 
+        [DEPRECATED] - (Optional, set of strings) Use "principals" instead. A list of usernames for whom the
         requested certificate will be valid.
         """
         return pulumi.get(self, "principal")
@@ -252,7 +252,7 @@ class SshCertificateArgs:
     @pulumi.getter(name="publicKeyMethod")
     def public_key_method(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies whether the public key will be `local` (default), `file` or 
+        Specifies whether the public key will be `local` (default), `file` or
         `service` generated.
         """
         return pulumi.get(self, "public_key_method")
@@ -265,7 +265,7 @@ class SshCertificateArgs:
     @pulumi.getter(name="sourceAddresses")
     def source_addresses(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        A list of one or more valid IP or CIDR addresses that can use the SSH 
+        A list of one or more valid IP or CIDR addresses that can use the SSH
         certificate.
         """
         return pulumi.get(self, "source_addresses")
@@ -331,9 +331,9 @@ class _SshCertificateState:
 
         :param pulumi.Input[_builtins.str] certificate: The issued SSH certificate.
         :param pulumi.Input[_builtins.str] certificate_type: Indicates whether the SSH certificate is for client or server authentication.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] destination_addresses: A list of one or more valid IP or CIDR destination hosts where the 
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] destination_addresses: A list of one or more valid IP or CIDR destination hosts where the
                certificate will authenticate.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] extensions: A list of key-value pairs that contain certificate extensions from the CA 
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] extensions: A list of key-value pairs that contain certificate extensions from the CA
                template for client certificates. Allowed values (case-sensitive): `permit-X11-forwarding`, `permit-agent-forwarding`,
                `permit-port-forwarding`, `permit-pty`, `permit-user-rc`.
         :param pulumi.Input[_builtins.str] folder: The DN of the policy folder where the SSH certificate object will be created.
@@ -341,20 +341,20 @@ class _SshCertificateState:
         :param pulumi.Input[_builtins.str] key_id: The identifier of the requested SSH certificate.
         :param pulumi.Input[_builtins.str] key_passphrase: Passphrase for encrypting the private key.
         :param pulumi.Input[_builtins.int] key_size: Number of bits to use when creating a key pair. (e.g. `3072`).
-        :param pulumi.Input[_builtins.str] object_name: The friendly name of the SSH certificate object. When not specified the `key_id` 
+        :param pulumi.Input[_builtins.str] object_name: The friendly name of the SSH certificate object. When not specified the `key_id`
                is used for the friendly name. If the object already exists the old certificate is archived and the CA issues a new
                certificate.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] principal: [DEPRECATED] - (Optional, set of strings) Use "principals" instead. A list of usernames for whom the 
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] principal: [DEPRECATED] - (Optional, set of strings) Use "principals" instead. A list of usernames for whom the
                requested certificate will be valid.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] principals: A list of usernames for whom the requested certificate will be valid.
-        :param pulumi.Input[_builtins.str] private_key: The private key for the SSH certificate if generated by Venafi.
+        :param pulumi.Input[_builtins.str] private_key: The private key for the SSH certificate if generated by CyberArk Machine Identity Service.
         :param pulumi.Input[_builtins.str] public_key: The OpenSSH formatted public key that will be used to generate the SSH certificate.
         :param pulumi.Input[_builtins.str] public_key_fingerprint: The SHA256 fingerprint of the SSH certificate's public key.
-        :param pulumi.Input[_builtins.str] public_key_method: Specifies whether the public key will be `local` (default), `file` or 
+        :param pulumi.Input[_builtins.str] public_key_method: Specifies whether the public key will be `local` (default), `file` or
                `service` generated.
         :param pulumi.Input[_builtins.str] serial: The serial number of the SSH certificate.
         :param pulumi.Input[_builtins.str] signing_ca: The SHA256 fingerprint of the CA that signed the SSH certificate.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] source_addresses: A list of one or more valid IP or CIDR addresses that can use the SSH 
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] source_addresses: A list of one or more valid IP or CIDR addresses that can use the SSH
                certificate.
         :param pulumi.Input[_builtins.str] template: The SSH certificate issuing template.
         :param pulumi.Input[_builtins.str] valid_from: The date the SSH certificate was issued.
@@ -442,7 +442,7 @@ class _SshCertificateState:
     @pulumi.getter(name="destinationAddresses")
     def destination_addresses(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        A list of one or more valid IP or CIDR destination hosts where the 
+        A list of one or more valid IP or CIDR destination hosts where the
         certificate will authenticate.
         """
         return pulumi.get(self, "destination_addresses")
@@ -455,7 +455,7 @@ class _SshCertificateState:
     @pulumi.getter
     def extensions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        A list of key-value pairs that contain certificate extensions from the CA 
+        A list of key-value pairs that contain certificate extensions from the CA
         template for client certificates. Allowed values (case-sensitive): `permit-X11-forwarding`, `permit-agent-forwarding`,
         `permit-port-forwarding`, `permit-pty`, `permit-user-rc`.
         """
@@ -529,7 +529,7 @@ class _SshCertificateState:
     @pulumi.getter(name="objectName")
     def object_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The friendly name of the SSH certificate object. When not specified the `key_id` 
+        The friendly name of the SSH certificate object. When not specified the `key_id`
         is used for the friendly name. If the object already exists the old certificate is archived and the CA issues a new
         certificate.
         """
@@ -544,7 +544,7 @@ class _SshCertificateState:
     @_utilities.deprecated("""This will be removed in the future. Use \"principals\" instead""")
     def principal(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        [DEPRECATED] - (Optional, set of strings) Use "principals" instead. A list of usernames for whom the 
+        [DEPRECATED] - (Optional, set of strings) Use "principals" instead. A list of usernames for whom the
         requested certificate will be valid.
         """
         return pulumi.get(self, "principal")
@@ -569,7 +569,7 @@ class _SshCertificateState:
     @pulumi.getter(name="privateKey")
     def private_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The private key for the SSH certificate if generated by Venafi.
+        The private key for the SSH certificate if generated by CyberArk Machine Identity Service.
         """
         return pulumi.get(self, "private_key")
 
@@ -605,7 +605,7 @@ class _SshCertificateState:
     @pulumi.getter(name="publicKeyMethod")
     def public_key_method(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies whether the public key will be `local` (default), `file` or 
+        Specifies whether the public key will be `local` (default), `file` or
         `service` generated.
         """
         return pulumi.get(self, "public_key_method")
@@ -642,7 +642,7 @@ class _SshCertificateState:
     @pulumi.getter(name="sourceAddresses")
     def source_addresses(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        A list of one or more valid IP or CIDR addresses that can use the SSH 
+        A list of one or more valid IP or CIDR addresses that can use the SSH
         certificate.
         """
         return pulumi.get(self, "source_addresses")
@@ -736,7 +736,7 @@ class SshCertificate(pulumi.CustomResource):
                  windows: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         """
-        Provides access to request and retrieve SSH certificates from *Venafi Trust Protection Platform*.
+        Provides access to request and retrieve SSH certificates from *CyberArk Certificate Manager, Self-Hosted*.
 
         ## Example Usage
 
@@ -757,9 +757,9 @@ class SshCertificate(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] destination_addresses: A list of one or more valid IP or CIDR destination hosts where the 
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] destination_addresses: A list of one or more valid IP or CIDR destination hosts where the
                certificate will authenticate.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] extensions: A list of key-value pairs that contain certificate extensions from the CA 
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] extensions: A list of key-value pairs that contain certificate extensions from the CA
                template for client certificates. Allowed values (case-sensitive): `permit-X11-forwarding`, `permit-agent-forwarding`,
                `permit-port-forwarding`, `permit-pty`, `permit-user-rc`.
         :param pulumi.Input[_builtins.str] folder: The DN of the policy folder where the SSH certificate object will be created.
@@ -767,16 +767,16 @@ class SshCertificate(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] key_id: The identifier of the requested SSH certificate.
         :param pulumi.Input[_builtins.str] key_passphrase: Passphrase for encrypting the private key.
         :param pulumi.Input[_builtins.int] key_size: Number of bits to use when creating a key pair. (e.g. `3072`).
-        :param pulumi.Input[_builtins.str] object_name: The friendly name of the SSH certificate object. When not specified the `key_id` 
+        :param pulumi.Input[_builtins.str] object_name: The friendly name of the SSH certificate object. When not specified the `key_id`
                is used for the friendly name. If the object already exists the old certificate is archived and the CA issues a new
                certificate.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] principal: [DEPRECATED] - (Optional, set of strings) Use "principals" instead. A list of usernames for whom the 
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] principal: [DEPRECATED] - (Optional, set of strings) Use "principals" instead. A list of usernames for whom the
                requested certificate will be valid.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] principals: A list of usernames for whom the requested certificate will be valid.
         :param pulumi.Input[_builtins.str] public_key: The OpenSSH formatted public key that will be used to generate the SSH certificate.
-        :param pulumi.Input[_builtins.str] public_key_method: Specifies whether the public key will be `local` (default), `file` or 
+        :param pulumi.Input[_builtins.str] public_key_method: Specifies whether the public key will be `local` (default), `file` or
                `service` generated.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] source_addresses: A list of one or more valid IP or CIDR addresses that can use the SSH 
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] source_addresses: A list of one or more valid IP or CIDR addresses that can use the SSH
                certificate.
         :param pulumi.Input[_builtins.str] template: The SSH certificate issuing template.
         :param pulumi.Input[_builtins.int] valid_hours: Desired number of hours for which the certificate will be valid.
@@ -789,7 +789,7 @@ class SshCertificate(pulumi.CustomResource):
                  args: SshCertificateArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides access to request and retrieve SSH certificates from *Venafi Trust Protection Platform*.
+        Provides access to request and retrieve SSH certificates from *CyberArk Certificate Manager, Self-Hosted*.
 
         ## Example Usage
 
@@ -876,7 +876,7 @@ class SshCertificate(pulumi.CustomResource):
             __props__.__dict__["signing_ca"] = None
             __props__.__dict__["valid_from"] = None
             __props__.__dict__["valid_to"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["keyPassphrase"])
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["keyPassphrase", "privateKey"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(SshCertificate, __self__).__init__(
             'venafi:index/sshCertificate:SshCertificate',
@@ -921,9 +921,9 @@ class SshCertificate(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] certificate: The issued SSH certificate.
         :param pulumi.Input[_builtins.str] certificate_type: Indicates whether the SSH certificate is for client or server authentication.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] destination_addresses: A list of one or more valid IP or CIDR destination hosts where the 
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] destination_addresses: A list of one or more valid IP or CIDR destination hosts where the
                certificate will authenticate.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] extensions: A list of key-value pairs that contain certificate extensions from the CA 
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] extensions: A list of key-value pairs that contain certificate extensions from the CA
                template for client certificates. Allowed values (case-sensitive): `permit-X11-forwarding`, `permit-agent-forwarding`,
                `permit-port-forwarding`, `permit-pty`, `permit-user-rc`.
         :param pulumi.Input[_builtins.str] folder: The DN of the policy folder where the SSH certificate object will be created.
@@ -931,20 +931,20 @@ class SshCertificate(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] key_id: The identifier of the requested SSH certificate.
         :param pulumi.Input[_builtins.str] key_passphrase: Passphrase for encrypting the private key.
         :param pulumi.Input[_builtins.int] key_size: Number of bits to use when creating a key pair. (e.g. `3072`).
-        :param pulumi.Input[_builtins.str] object_name: The friendly name of the SSH certificate object. When not specified the `key_id` 
+        :param pulumi.Input[_builtins.str] object_name: The friendly name of the SSH certificate object. When not specified the `key_id`
                is used for the friendly name. If the object already exists the old certificate is archived and the CA issues a new
                certificate.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] principal: [DEPRECATED] - (Optional, set of strings) Use "principals" instead. A list of usernames for whom the 
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] principal: [DEPRECATED] - (Optional, set of strings) Use "principals" instead. A list of usernames for whom the
                requested certificate will be valid.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] principals: A list of usernames for whom the requested certificate will be valid.
-        :param pulumi.Input[_builtins.str] private_key: The private key for the SSH certificate if generated by Venafi.
+        :param pulumi.Input[_builtins.str] private_key: The private key for the SSH certificate if generated by CyberArk Machine Identity Service.
         :param pulumi.Input[_builtins.str] public_key: The OpenSSH formatted public key that will be used to generate the SSH certificate.
         :param pulumi.Input[_builtins.str] public_key_fingerprint: The SHA256 fingerprint of the SSH certificate's public key.
-        :param pulumi.Input[_builtins.str] public_key_method: Specifies whether the public key will be `local` (default), `file` or 
+        :param pulumi.Input[_builtins.str] public_key_method: Specifies whether the public key will be `local` (default), `file` or
                `service` generated.
         :param pulumi.Input[_builtins.str] serial: The serial number of the SSH certificate.
         :param pulumi.Input[_builtins.str] signing_ca: The SHA256 fingerprint of the CA that signed the SSH certificate.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] source_addresses: A list of one or more valid IP or CIDR addresses that can use the SSH 
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] source_addresses: A list of one or more valid IP or CIDR addresses that can use the SSH
                certificate.
         :param pulumi.Input[_builtins.str] template: The SSH certificate issuing template.
         :param pulumi.Input[_builtins.str] valid_from: The date the SSH certificate was issued.
@@ -1002,7 +1002,7 @@ class SshCertificate(pulumi.CustomResource):
     @pulumi.getter(name="destinationAddresses")
     def destination_addresses(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
         """
-        A list of one or more valid IP or CIDR destination hosts where the 
+        A list of one or more valid IP or CIDR destination hosts where the
         certificate will authenticate.
         """
         return pulumi.get(self, "destination_addresses")
@@ -1011,7 +1011,7 @@ class SshCertificate(pulumi.CustomResource):
     @pulumi.getter
     def extensions(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
         """
-        A list of key-value pairs that contain certificate extensions from the CA 
+        A list of key-value pairs that contain certificate extensions from the CA
         template for client certificates. Allowed values (case-sensitive): `permit-X11-forwarding`, `permit-agent-forwarding`,
         `permit-port-forwarding`, `permit-pty`, `permit-user-rc`.
         """
@@ -1061,7 +1061,7 @@ class SshCertificate(pulumi.CustomResource):
     @pulumi.getter(name="objectName")
     def object_name(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The friendly name of the SSH certificate object. When not specified the `key_id` 
+        The friendly name of the SSH certificate object. When not specified the `key_id`
         is used for the friendly name. If the object already exists the old certificate is archived and the CA issues a new
         certificate.
         """
@@ -1072,7 +1072,7 @@ class SshCertificate(pulumi.CustomResource):
     @_utilities.deprecated("""This will be removed in the future. Use \"principals\" instead""")
     def principal(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
         """
-        [DEPRECATED] - (Optional, set of strings) Use "principals" instead. A list of usernames for whom the 
+        [DEPRECATED] - (Optional, set of strings) Use "principals" instead. A list of usernames for whom the
         requested certificate will be valid.
         """
         return pulumi.get(self, "principal")
@@ -1089,7 +1089,7 @@ class SshCertificate(pulumi.CustomResource):
     @pulumi.getter(name="privateKey")
     def private_key(self) -> pulumi.Output[_builtins.str]:
         """
-        The private key for the SSH certificate if generated by Venafi.
+        The private key for the SSH certificate if generated by CyberArk Machine Identity Service.
         """
         return pulumi.get(self, "private_key")
 
@@ -1113,7 +1113,7 @@ class SshCertificate(pulumi.CustomResource):
     @pulumi.getter(name="publicKeyMethod")
     def public_key_method(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        Specifies whether the public key will be `local` (default), `file` or 
+        Specifies whether the public key will be `local` (default), `file` or
         `service` generated.
         """
         return pulumi.get(self, "public_key_method")
@@ -1138,7 +1138,7 @@ class SshCertificate(pulumi.CustomResource):
     @pulumi.getter(name="sourceAddresses")
     def source_addresses(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
         """
-        A list of one or more valid IP or CIDR addresses that can use the SSH 
+        A list of one or more valid IP or CIDR addresses that can use the SSH
         certificate.
         """
         return pulumi.get(self, "source_addresses")

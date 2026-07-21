@@ -22,6 +22,7 @@ class ProviderArgs:
                  access_token: pulumi.Input[Optional[_builtins.str]] = None,
                  api_key: pulumi.Input[Optional[_builtins.str]] = None,
                  client_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_secret: pulumi.Input[Optional[_builtins.str]] = None,
                  dev_mode: pulumi.Input[Optional[_builtins.bool]] = None,
                  external_jwt: pulumi.Input[Optional[_builtins.str]] = None,
                  p12_cert_data: pulumi.Input[Optional[_builtins.str]] = None,
@@ -32,30 +33,33 @@ class ProviderArgs:
                  tpp_password: pulumi.Input[Optional[_builtins.str]] = None,
                  tpp_username: pulumi.Input[Optional[_builtins.str]] = None,
                  trust_bundle: pulumi.Input[Optional[_builtins.str]] = None,
+                 tsg_id: pulumi.Input[Optional[_builtins.str]] = None,
                  url: pulumi.Input[Optional[_builtins.str]] = None,
                  zone: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Provider resource.
 
-        :param pulumi.Input[_builtins.str] access_token: Access token for Venafi TLSPDC, user should use this for authentication
-        :param pulumi.Input[_builtins.str] api_key: API key for Venafi Control Plane. Example: 142231b7-cvb0-412e-886b-6aeght0bc93d
+        :param pulumi.Input[_builtins.str] access_token: Access token for CyberArk Certificate Manager, Self-Hosted, user should use this for authentication
+        :param pulumi.Input[_builtins.str] api_key: API key for CyberArk Certificate Manager, SaaS. Example: 142231b7-cvb0-412e-886b-6aeght0bc93d
         :param pulumi.Input[_builtins.str] client_id: application that will be using the token
-        :param pulumi.Input[_builtins.bool] dev_mode: When set to true, the resulting certificate will be issued by an ephemeral, no trust CA rather than enrolling using Venafi as a Service or Trust Protection Platform. Useful for development and testing
-        :param pulumi.Input[_builtins.str] external_jwt: JWT of the identity provider associated to the Venafi Control Plane service account that is granting the access token
-        :param pulumi.Input[_builtins.str] p12_cert_data: Base64 encoded PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to TLSPDC
-        :param pulumi.Input[_builtins.str] p12_cert_filename: Filename of PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to TLSPDC
+        :param pulumi.Input[_builtins.str] client_secret: Client Secret for CyberArk Certificate Manager, Self-Hosted or Palo Alto Networks Next-Gen Trust Security (NGTS)
+        :param pulumi.Input[_builtins.bool] dev_mode: When set to true, the resulting certificate will be issued by an ephemeral, no trust CA rather than enrolling using CyberArk Certificate Manager, SaaS or CyberArk Certificate Manager, Self-Hosted. Useful for development and testing
+        :param pulumi.Input[_builtins.str] external_jwt: JWT of the identity provider associated to the CyberArk Certificate Manager, SaaS service account that is granting the access token
+        :param pulumi.Input[_builtins.str] p12_cert_data: Base64 encoded PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to CyberArk Certificate Manager, Self-Hosted
+        :param pulumi.Input[_builtins.str] p12_cert_filename: Filename of PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to CyberArk Certificate Manager, Self-Hosted
         :param pulumi.Input[_builtins.str] p12_cert_password: Password for the PKCS#12 keystore declared in p12_cert / p12_cert_data
-        :param pulumi.Input[_builtins.bool] skip_retirement: When true, certificates will not be retired on Venafi platforms when terraform destroy is run. Default is false
-        :param pulumi.Input[_builtins.str] token_url: Endpoint URL to request new Venafi Control Plane access tokens
+        :param pulumi.Input[_builtins.bool] skip_retirement: When true, certificates will not be retired on CyberArk platforms when terraform destroy is run. Default is false
+        :param pulumi.Input[_builtins.str] token_url: Endpoint URL to request new CyberArk Certificate Manager, SaaS access tokens
         :param pulumi.Input[_builtins.str] tpp_password: Password for WebSDK user. Example: password
-        :param pulumi.Input[_builtins.str] tpp_username: WebSDK user for Venafi TLSPDC. Example: admin
-        :param pulumi.Input[_builtins.str] trust_bundle: Use to specify a PEM-formatted file that contains certificates to be trust anchors for all communications with the Venafi Web Service.
+        :param pulumi.Input[_builtins.str] tpp_username: WebSDK user for CyberArk Certificate Manager, Self-Hosted. Example: admin
+        :param pulumi.Input[_builtins.str] trust_bundle: Use to specify a PEM-formatted file that contains certificates to be trust anchors for all communications with the CyberArk Web Service.
                Example:
                  trust_bundle = "${file("chain.pem")}"
-        :param pulumi.Input[_builtins.str] url: The Venafi Platform URL. Example: https://tpp.venafi.example/vedsdk
-        :param pulumi.Input[_builtins.str] zone: DN of the Venafi TLSPDC policy folder or name of the Venafi as a Service application plus issuing template alias. 
-               Example for Platform: testPolicy\\\\vault
-               Example for Venafi as a Service: myApp\\\\Default
+        :param pulumi.Input[_builtins.str] tsg_id: The Palo Alto Networks Next-Gen Trust Security (NGTS) TSG ID to use when issuing a token. Only used if platform is detected as 'ngts'
+        :param pulumi.Input[_builtins.str] url: The CyberArk Platform URL. Example: https://cmsh.cyberark.example/vedsdk
+        :param pulumi.Input[_builtins.str] zone: DN of the CyberArk Certificate Manager, Self-Hosted policy folder or name of the CyberArk Certificate Manager, SaaS application plus issuing template alias.
+               Example for CyberArk Certificate Manager, Self-Hosted: testPolicy\\\\vault
+               Example for CyberArk Certificate Manager, SaaS: myApp\\\\Default
         """
         if access_token is not None:
             pulumi.set(__self__, "access_token", access_token)
@@ -63,6 +67,8 @@ class ProviderArgs:
             pulumi.set(__self__, "api_key", api_key)
         if client_id is not None:
             pulumi.set(__self__, "client_id", client_id)
+        if client_secret is not None:
+            pulumi.set(__self__, "client_secret", client_secret)
         if dev_mode is not None:
             pulumi.set(__self__, "dev_mode", dev_mode)
         if external_jwt is not None:
@@ -89,6 +95,8 @@ class ProviderArgs:
             pulumi.set(__self__, "tpp_username", tpp_username)
         if trust_bundle is not None:
             pulumi.set(__self__, "trust_bundle", trust_bundle)
+        if tsg_id is not None:
+            pulumi.set(__self__, "tsg_id", tsg_id)
         if url is not None:
             pulumi.set(__self__, "url", url)
         if zone is not None:
@@ -98,7 +106,7 @@ class ProviderArgs:
     @pulumi.getter(name="accessToken")
     def access_token(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Access token for Venafi TLSPDC, user should use this for authentication
+        Access token for CyberArk Certificate Manager, Self-Hosted, user should use this for authentication
         """
         return pulumi.get(self, "access_token")
 
@@ -110,7 +118,7 @@ class ProviderArgs:
     @pulumi.getter(name="apiKey")
     def api_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        API key for Venafi Control Plane. Example: 142231b7-cvb0-412e-886b-6aeght0bc93d
+        API key for CyberArk Certificate Manager, SaaS. Example: 142231b7-cvb0-412e-886b-6aeght0bc93d
         """
         return pulumi.get(self, "api_key")
 
@@ -131,10 +139,22 @@ class ProviderArgs:
         pulumi.set(self, "client_id", value)
 
     @_builtins.property
+    @pulumi.getter(name="clientSecret")
+    def client_secret(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Client Secret for CyberArk Certificate Manager, Self-Hosted or Palo Alto Networks Next-Gen Trust Security (NGTS)
+        """
+        return pulumi.get(self, "client_secret")
+
+    @client_secret.setter
+    def client_secret(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "client_secret", value)
+
+    @_builtins.property
     @pulumi.getter(name="devMode")
     def dev_mode(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        When set to true, the resulting certificate will be issued by an ephemeral, no trust CA rather than enrolling using Venafi as a Service or Trust Protection Platform. Useful for development and testing
+        When set to true, the resulting certificate will be issued by an ephemeral, no trust CA rather than enrolling using CyberArk Certificate Manager, SaaS or CyberArk Certificate Manager, Self-Hosted. Useful for development and testing
         """
         return pulumi.get(self, "dev_mode")
 
@@ -146,7 +166,7 @@ class ProviderArgs:
     @pulumi.getter(name="externalJwt")
     def external_jwt(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        JWT of the identity provider associated to the Venafi Control Plane service account that is granting the access token
+        JWT of the identity provider associated to the CyberArk Certificate Manager, SaaS service account that is granting the access token
         """
         return pulumi.get(self, "external_jwt")
 
@@ -158,7 +178,7 @@ class ProviderArgs:
     @pulumi.getter(name="p12CertData")
     def p12_cert_data(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Base64 encoded PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to TLSPDC
+        Base64 encoded PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to CyberArk Certificate Manager, Self-Hosted
         """
         return pulumi.get(self, "p12_cert_data")
 
@@ -170,7 +190,7 @@ class ProviderArgs:
     @pulumi.getter(name="p12CertFilename")
     def p12_cert_filename(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Filename of PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to TLSPDC
+        Filename of PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to CyberArk Certificate Manager, Self-Hosted
         """
         return pulumi.get(self, "p12_cert_filename")
 
@@ -194,7 +214,7 @@ class ProviderArgs:
     @pulumi.getter(name="skipRetirement")
     def skip_retirement(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        When true, certificates will not be retired on Venafi platforms when terraform destroy is run. Default is false
+        When true, certificates will not be retired on CyberArk platforms when terraform destroy is run. Default is false
         """
         return pulumi.get(self, "skip_retirement")
 
@@ -206,7 +226,7 @@ class ProviderArgs:
     @pulumi.getter(name="tokenUrl")
     def token_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Endpoint URL to request new Venafi Control Plane access tokens
+        Endpoint URL to request new CyberArk Certificate Manager, SaaS access tokens
         """
         return pulumi.get(self, "token_url")
 
@@ -232,7 +252,7 @@ class ProviderArgs:
     @_utilities.deprecated(""", please use access_token instead""")
     def tpp_username(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        WebSDK user for Venafi TLSPDC. Example: admin
+        WebSDK user for CyberArk Certificate Manager, Self-Hosted. Example: admin
         """
         return pulumi.get(self, "tpp_username")
 
@@ -244,7 +264,7 @@ class ProviderArgs:
     @pulumi.getter(name="trustBundle")
     def trust_bundle(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Use to specify a PEM-formatted file that contains certificates to be trust anchors for all communications with the Venafi Web Service.
+        Use to specify a PEM-formatted file that contains certificates to be trust anchors for all communications with the CyberArk Web Service.
         Example:
           trust_bundle = "${file("chain.pem")}"
         """
@@ -255,10 +275,22 @@ class ProviderArgs:
         pulumi.set(self, "trust_bundle", value)
 
     @_builtins.property
+    @pulumi.getter(name="tsgId")
+    def tsg_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The Palo Alto Networks Next-Gen Trust Security (NGTS) TSG ID to use when issuing a token. Only used if platform is detected as 'ngts'
+        """
+        return pulumi.get(self, "tsg_id")
+
+    @tsg_id.setter
+    def tsg_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "tsg_id", value)
+
+    @_builtins.property
     @pulumi.getter
     def url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Venafi Platform URL. Example: https://tpp.venafi.example/vedsdk
+        The CyberArk Platform URL. Example: https://cmsh.cyberark.example/vedsdk
         """
         return pulumi.get(self, "url")
 
@@ -270,9 +302,9 @@ class ProviderArgs:
     @pulumi.getter
     def zone(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        DN of the Venafi TLSPDC policy folder or name of the Venafi as a Service application plus issuing template alias. 
-        Example for Platform: testPolicy\\\\vault
-        Example for Venafi as a Service: myApp\\\\Default
+        DN of the CyberArk Certificate Manager, Self-Hosted policy folder or name of the CyberArk Certificate Manager, SaaS application plus issuing template alias.
+        Example for CyberArk Certificate Manager, Self-Hosted: testPolicy\\\\vault
+        Example for CyberArk Certificate Manager, SaaS: myApp\\\\Default
         """
         return pulumi.get(self, "zone")
 
@@ -290,6 +322,7 @@ class Provider(pulumi.ProviderResource):
                  access_token: pulumi.Input[Optional[_builtins.str]] = None,
                  api_key: pulumi.Input[Optional[_builtins.str]] = None,
                  client_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_secret: pulumi.Input[Optional[_builtins.str]] = None,
                  dev_mode: pulumi.Input[Optional[_builtins.bool]] = None,
                  external_jwt: pulumi.Input[Optional[_builtins.str]] = None,
                  p12_cert_data: pulumi.Input[Optional[_builtins.str]] = None,
@@ -300,6 +333,7 @@ class Provider(pulumi.ProviderResource):
                  tpp_password: pulumi.Input[Optional[_builtins.str]] = None,
                  tpp_username: pulumi.Input[Optional[_builtins.str]] = None,
                  trust_bundle: pulumi.Input[Optional[_builtins.str]] = None,
+                 tsg_id: pulumi.Input[Optional[_builtins.str]] = None,
                  url: pulumi.Input[Optional[_builtins.str]] = None,
                  zone: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -312,25 +346,27 @@ class Provider(pulumi.ProviderResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] access_token: Access token for Venafi TLSPDC, user should use this for authentication
-        :param pulumi.Input[_builtins.str] api_key: API key for Venafi Control Plane. Example: 142231b7-cvb0-412e-886b-6aeght0bc93d
+        :param pulumi.Input[_builtins.str] access_token: Access token for CyberArk Certificate Manager, Self-Hosted, user should use this for authentication
+        :param pulumi.Input[_builtins.str] api_key: API key for CyberArk Certificate Manager, SaaS. Example: 142231b7-cvb0-412e-886b-6aeght0bc93d
         :param pulumi.Input[_builtins.str] client_id: application that will be using the token
-        :param pulumi.Input[_builtins.bool] dev_mode: When set to true, the resulting certificate will be issued by an ephemeral, no trust CA rather than enrolling using Venafi as a Service or Trust Protection Platform. Useful for development and testing
-        :param pulumi.Input[_builtins.str] external_jwt: JWT of the identity provider associated to the Venafi Control Plane service account that is granting the access token
-        :param pulumi.Input[_builtins.str] p12_cert_data: Base64 encoded PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to TLSPDC
-        :param pulumi.Input[_builtins.str] p12_cert_filename: Filename of PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to TLSPDC
+        :param pulumi.Input[_builtins.str] client_secret: Client Secret for CyberArk Certificate Manager, Self-Hosted or Palo Alto Networks Next-Gen Trust Security (NGTS)
+        :param pulumi.Input[_builtins.bool] dev_mode: When set to true, the resulting certificate will be issued by an ephemeral, no trust CA rather than enrolling using CyberArk Certificate Manager, SaaS or CyberArk Certificate Manager, Self-Hosted. Useful for development and testing
+        :param pulumi.Input[_builtins.str] external_jwt: JWT of the identity provider associated to the CyberArk Certificate Manager, SaaS service account that is granting the access token
+        :param pulumi.Input[_builtins.str] p12_cert_data: Base64 encoded PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to CyberArk Certificate Manager, Self-Hosted
+        :param pulumi.Input[_builtins.str] p12_cert_filename: Filename of PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to CyberArk Certificate Manager, Self-Hosted
         :param pulumi.Input[_builtins.str] p12_cert_password: Password for the PKCS#12 keystore declared in p12_cert / p12_cert_data
-        :param pulumi.Input[_builtins.bool] skip_retirement: When true, certificates will not be retired on Venafi platforms when terraform destroy is run. Default is false
-        :param pulumi.Input[_builtins.str] token_url: Endpoint URL to request new Venafi Control Plane access tokens
+        :param pulumi.Input[_builtins.bool] skip_retirement: When true, certificates will not be retired on CyberArk platforms when terraform destroy is run. Default is false
+        :param pulumi.Input[_builtins.str] token_url: Endpoint URL to request new CyberArk Certificate Manager, SaaS access tokens
         :param pulumi.Input[_builtins.str] tpp_password: Password for WebSDK user. Example: password
-        :param pulumi.Input[_builtins.str] tpp_username: WebSDK user for Venafi TLSPDC. Example: admin
-        :param pulumi.Input[_builtins.str] trust_bundle: Use to specify a PEM-formatted file that contains certificates to be trust anchors for all communications with the Venafi Web Service.
+        :param pulumi.Input[_builtins.str] tpp_username: WebSDK user for CyberArk Certificate Manager, Self-Hosted. Example: admin
+        :param pulumi.Input[_builtins.str] trust_bundle: Use to specify a PEM-formatted file that contains certificates to be trust anchors for all communications with the CyberArk Web Service.
                Example:
                  trust_bundle = "${file("chain.pem")}"
-        :param pulumi.Input[_builtins.str] url: The Venafi Platform URL. Example: https://tpp.venafi.example/vedsdk
-        :param pulumi.Input[_builtins.str] zone: DN of the Venafi TLSPDC policy folder or name of the Venafi as a Service application plus issuing template alias. 
-               Example for Platform: testPolicy\\\\vault
-               Example for Venafi as a Service: myApp\\\\Default
+        :param pulumi.Input[_builtins.str] tsg_id: The Palo Alto Networks Next-Gen Trust Security (NGTS) TSG ID to use when issuing a token. Only used if platform is detected as 'ngts'
+        :param pulumi.Input[_builtins.str] url: The CyberArk Platform URL. Example: https://cmsh.cyberark.example/vedsdk
+        :param pulumi.Input[_builtins.str] zone: DN of the CyberArk Certificate Manager, Self-Hosted policy folder or name of the CyberArk Certificate Manager, SaaS application plus issuing template alias.
+               Example for CyberArk Certificate Manager, Self-Hosted: testPolicy\\\\vault
+               Example for CyberArk Certificate Manager, SaaS: myApp\\\\Default
         """
         ...
     @overload
@@ -363,6 +399,7 @@ class Provider(pulumi.ProviderResource):
                  access_token: pulumi.Input[Optional[_builtins.str]] = None,
                  api_key: pulumi.Input[Optional[_builtins.str]] = None,
                  client_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_secret: pulumi.Input[Optional[_builtins.str]] = None,
                  dev_mode: pulumi.Input[Optional[_builtins.bool]] = None,
                  external_jwt: pulumi.Input[Optional[_builtins.str]] = None,
                  p12_cert_data: pulumi.Input[Optional[_builtins.str]] = None,
@@ -373,6 +410,7 @@ class Provider(pulumi.ProviderResource):
                  tpp_password: pulumi.Input[Optional[_builtins.str]] = None,
                  tpp_username: pulumi.Input[Optional[_builtins.str]] = None,
                  trust_bundle: pulumi.Input[Optional[_builtins.str]] = None,
+                 tsg_id: pulumi.Input[Optional[_builtins.str]] = None,
                  url: pulumi.Input[Optional[_builtins.str]] = None,
                  zone: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -387,6 +425,7 @@ class Provider(pulumi.ProviderResource):
             __props__.__dict__["access_token"] = None if access_token is None else pulumi.Output.secret(access_token)
             __props__.__dict__["api_key"] = None if api_key is None else pulumi.Output.secret(api_key)
             __props__.__dict__["client_id"] = client_id
+            __props__.__dict__["client_secret"] = None if client_secret is None else pulumi.Output.secret(client_secret)
             __props__.__dict__["dev_mode"] = pulumi.Output.from_input(dev_mode).apply(pulumi.runtime.to_json) if dev_mode is not None else None
             __props__.__dict__["external_jwt"] = None if external_jwt is None else pulumi.Output.secret(external_jwt)
             __props__.__dict__["p12_cert_data"] = p12_cert_data
@@ -397,9 +436,10 @@ class Provider(pulumi.ProviderResource):
             __props__.__dict__["tpp_password"] = None if tpp_password is None else pulumi.Output.secret(tpp_password)
             __props__.__dict__["tpp_username"] = tpp_username
             __props__.__dict__["trust_bundle"] = trust_bundle
+            __props__.__dict__["tsg_id"] = tsg_id
             __props__.__dict__["url"] = url
             __props__.__dict__["zone"] = zone
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["accessToken", "apiKey", "externalJwt", "p12CertPassword", "tokenUrl", "tppPassword"])
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["accessToken", "apiKey", "clientSecret", "externalJwt", "p12CertPassword", "tokenUrl", "tppPassword"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Provider, __self__).__init__(
             'venafi',
@@ -411,7 +451,7 @@ class Provider(pulumi.ProviderResource):
     @pulumi.getter(name="accessToken")
     def access_token(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        Access token for Venafi TLSPDC, user should use this for authentication
+        Access token for CyberArk Certificate Manager, Self-Hosted, user should use this for authentication
         """
         return pulumi.get(self, "access_token")
 
@@ -419,7 +459,7 @@ class Provider(pulumi.ProviderResource):
     @pulumi.getter(name="apiKey")
     def api_key(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        API key for Venafi Control Plane. Example: 142231b7-cvb0-412e-886b-6aeght0bc93d
+        API key for CyberArk Certificate Manager, SaaS. Example: 142231b7-cvb0-412e-886b-6aeght0bc93d
         """
         return pulumi.get(self, "api_key")
 
@@ -432,10 +472,18 @@ class Provider(pulumi.ProviderResource):
         return pulumi.get(self, "client_id")
 
     @_builtins.property
+    @pulumi.getter(name="clientSecret")
+    def client_secret(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        Client Secret for CyberArk Certificate Manager, Self-Hosted or Palo Alto Networks Next-Gen Trust Security (NGTS)
+        """
+        return pulumi.get(self, "client_secret")
+
+    @_builtins.property
     @pulumi.getter(name="externalJwt")
     def external_jwt(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        JWT of the identity provider associated to the Venafi Control Plane service account that is granting the access token
+        JWT of the identity provider associated to the CyberArk Certificate Manager, SaaS service account that is granting the access token
         """
         return pulumi.get(self, "external_jwt")
 
@@ -443,7 +491,7 @@ class Provider(pulumi.ProviderResource):
     @pulumi.getter(name="p12CertData")
     def p12_cert_data(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        Base64 encoded PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to TLSPDC
+        Base64 encoded PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to CyberArk Certificate Manager, Self-Hosted
         """
         return pulumi.get(self, "p12_cert_data")
 
@@ -451,7 +499,7 @@ class Provider(pulumi.ProviderResource):
     @pulumi.getter(name="p12CertFilename")
     def p12_cert_filename(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        Filename of PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to TLSPDC
+        Filename of PKCS#12 keystore containing a client certificate, private key, and chain certificates to authenticate to CyberArk Certificate Manager, Self-Hosted
         """
         return pulumi.get(self, "p12_cert_filename")
 
@@ -467,7 +515,7 @@ class Provider(pulumi.ProviderResource):
     @pulumi.getter(name="tokenUrl")
     def token_url(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        Endpoint URL to request new Venafi Control Plane access tokens
+        Endpoint URL to request new CyberArk Certificate Manager, SaaS access tokens
         """
         return pulumi.get(self, "token_url")
 
@@ -485,7 +533,7 @@ class Provider(pulumi.ProviderResource):
     @_utilities.deprecated(""", please use access_token instead""")
     def tpp_username(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        WebSDK user for Venafi TLSPDC. Example: admin
+        WebSDK user for CyberArk Certificate Manager, Self-Hosted. Example: admin
         """
         return pulumi.get(self, "tpp_username")
 
@@ -493,17 +541,25 @@ class Provider(pulumi.ProviderResource):
     @pulumi.getter(name="trustBundle")
     def trust_bundle(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        Use to specify a PEM-formatted file that contains certificates to be trust anchors for all communications with the Venafi Web Service.
+        Use to specify a PEM-formatted file that contains certificates to be trust anchors for all communications with the CyberArk Web Service.
         Example:
           trust_bundle = "${file("chain.pem")}"
         """
         return pulumi.get(self, "trust_bundle")
 
     @_builtins.property
+    @pulumi.getter(name="tsgId")
+    def tsg_id(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The Palo Alto Networks Next-Gen Trust Security (NGTS) TSG ID to use when issuing a token. Only used if platform is detected as 'ngts'
+        """
+        return pulumi.get(self, "tsg_id")
+
+    @_builtins.property
     @pulumi.getter
     def url(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The Venafi Platform URL. Example: https://tpp.venafi.example/vedsdk
+        The CyberArk Platform URL. Example: https://cmsh.cyberark.example/vedsdk
         """
         return pulumi.get(self, "url")
 
@@ -511,9 +567,9 @@ class Provider(pulumi.ProviderResource):
     @pulumi.getter
     def zone(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        DN of the Venafi TLSPDC policy folder or name of the Venafi as a Service application plus issuing template alias. 
-        Example for Platform: testPolicy\\\\vault
-        Example for Venafi as a Service: myApp\\\\Default
+        DN of the CyberArk Certificate Manager, Self-Hosted policy folder or name of the CyberArk Certificate Manager, SaaS application plus issuing template alias.
+        Example for CyberArk Certificate Manager, Self-Hosted: testPolicy\\\\vault
+        Example for CyberArk Certificate Manager, SaaS: myApp\\\\Default
         """
         return pulumi.get(self, "zone")
 

@@ -17,12 +17,6 @@ import (
 // For backward compatibility during Terraform state refresh please update to version 0.15.5 or above.
 //
 // Provides access to TLS key and certificate data enrolled using Venafi. This can be used to define a certificate.
-//
-// The `Certificate` resource handles certificate renewals as long as a
-// `pulumi up` is run within the `expirationWindow` period. Keep in mind that the
-// `expirationWindow` in the provider configuration needs to align with the renewal
-// window of the issuing CA to achieve the desired result.
-//
 // ## Example Usage
 //
 // ```go
@@ -59,13 +53,11 @@ import (
 //	}
 //
 // ```
-//
 // ## Certificate Renewal
 //
-// The `Certificate` resource handles certificate renewals as long as a
-// `pulumi up` is done within the `expirationWindow` period. Keep in mind that the
-// `expirationWindow` in the Terraform configuration needs to align with the renewal
-// window of the issuing CA to achieve the desired result.
+// The `Certificate` resource handles certificate renewals as long as a `pulumi up` is done within the
+// `expirationWindow` period. Keep in mind that the `expirationWindow` in the Terraform configuration needs to align with
+// the renewal window of the issuing CA to achieve the desired result.
 type Certificate struct {
 	pulumi.CustomResourceState
 
@@ -93,15 +85,15 @@ type Certificate struct {
 	// Number of hours before certificate expiry to request a new certificate.
 	// Defaults to `168`.
 	ExpirationWindow pulumi.IntPtrOutput `pulumi:"expirationWindow"`
-	// Used with `validDays` to indicate the target issuer when using Trust Protection
-	// Platform. Relevant values are: `DigiCert`, `Entrust`, and `Microsoft`.
+	// Used with `validDays` to indicate the target issuer when using CyberArk Certificate Manager, Self-Hosted.
+	// Relevant values are: `DigiCert`, `Entrust`, and `Microsoft`.
 	IssuerHint pulumi.StringPtrOutput `pulumi:"issuerHint"`
 	// The password used to encrypt the private key.
 	KeyPassword pulumi.StringPtrOutput `pulumi:"keyPassword"`
 	// Locality/City of the certificate (L)
 	Locality pulumi.StringPtrOutput `pulumi:"locality"`
 	// Use to specify a name for the new certificate object that will be created and placed
-	// in a policy. Only valid for Trust Protection Platform.
+	// in a policy. Only valid for CyberArk Certificate Manager, Self-Hosted.
 	Nickname pulumi.StringPtrOutput `pulumi:"nickname"`
 	// Organization of the certificate (O)
 	Organization pulumi.StringPtrOutput `pulumi:"organization"`
@@ -128,7 +120,7 @@ type Certificate struct {
 	SanUris pulumi.StringArrayOutput `pulumi:"sanUris"`
 	// State of the certificate (S)
 	State pulumi.StringPtrOutput `pulumi:"state"`
-	// List of Certificate Tags defined in Venafi Control Plane.
+	// List of Certificate Tags defined in CyberArk Certificate Manager, SaaS.
 	Tags pulumi.StringArrayOutput `pulumi:"tags"`
 	// Desired number of days for which the new certificate will be valid.
 	ValidDays pulumi.IntPtrOutput `pulumi:"validDays"`
@@ -147,11 +139,15 @@ func NewCertificate(ctx *pulumi.Context,
 	if args.KeyPassword != nil {
 		args.KeyPassword = pulumi.ToSecret(args.KeyPassword).(pulumi.StringPtrInput)
 	}
+	if args.Pkcs12 != nil {
+		args.Pkcs12 = pulumi.ToSecret(args.Pkcs12).(pulumi.StringPtrInput)
+	}
 	if args.PrivateKeyPem != nil {
 		args.PrivateKeyPem = pulumi.ToSecret(args.PrivateKeyPem).(pulumi.StringPtrInput)
 	}
 	secrets := pulumi.AdditionalSecretOutputs([]string{
 		"keyPassword",
+		"pkcs12",
 		"privateKeyPem",
 	})
 	opts = append(opts, secrets)
@@ -202,15 +198,15 @@ type certificateState struct {
 	// Number of hours before certificate expiry to request a new certificate.
 	// Defaults to `168`.
 	ExpirationWindow *int `pulumi:"expirationWindow"`
-	// Used with `validDays` to indicate the target issuer when using Trust Protection
-	// Platform. Relevant values are: `DigiCert`, `Entrust`, and `Microsoft`.
+	// Used with `validDays` to indicate the target issuer when using CyberArk Certificate Manager, Self-Hosted.
+	// Relevant values are: `DigiCert`, `Entrust`, and `Microsoft`.
 	IssuerHint *string `pulumi:"issuerHint"`
 	// The password used to encrypt the private key.
 	KeyPassword *string `pulumi:"keyPassword"`
 	// Locality/City of the certificate (L)
 	Locality *string `pulumi:"locality"`
 	// Use to specify a name for the new certificate object that will be created and placed
-	// in a policy. Only valid for Trust Protection Platform.
+	// in a policy. Only valid for CyberArk Certificate Manager, Self-Hosted.
 	Nickname *string `pulumi:"nickname"`
 	// Organization of the certificate (O)
 	Organization *string `pulumi:"organization"`
@@ -237,7 +233,7 @@ type certificateState struct {
 	SanUris []string `pulumi:"sanUris"`
 	// State of the certificate (S)
 	State *string `pulumi:"state"`
-	// List of Certificate Tags defined in Venafi Control Plane.
+	// List of Certificate Tags defined in CyberArk Certificate Manager, SaaS.
 	Tags []string `pulumi:"tags"`
 	// Desired number of days for which the new certificate will be valid.
 	ValidDays *int `pulumi:"validDays"`
@@ -268,15 +264,15 @@ type CertificateState struct {
 	// Number of hours before certificate expiry to request a new certificate.
 	// Defaults to `168`.
 	ExpirationWindow pulumi.IntPtrInput
-	// Used with `validDays` to indicate the target issuer when using Trust Protection
-	// Platform. Relevant values are: `DigiCert`, `Entrust`, and `Microsoft`.
+	// Used with `validDays` to indicate the target issuer when using CyberArk Certificate Manager, Self-Hosted.
+	// Relevant values are: `DigiCert`, `Entrust`, and `Microsoft`.
 	IssuerHint pulumi.StringPtrInput
 	// The password used to encrypt the private key.
 	KeyPassword pulumi.StringPtrInput
 	// Locality/City of the certificate (L)
 	Locality pulumi.StringPtrInput
 	// Use to specify a name for the new certificate object that will be created and placed
-	// in a policy. Only valid for Trust Protection Platform.
+	// in a policy. Only valid for CyberArk Certificate Manager, Self-Hosted.
 	Nickname pulumi.StringPtrInput
 	// Organization of the certificate (O)
 	Organization pulumi.StringPtrInput
@@ -303,7 +299,7 @@ type CertificateState struct {
 	SanUris pulumi.StringArrayInput
 	// State of the certificate (S)
 	State pulumi.StringPtrInput
-	// List of Certificate Tags defined in Venafi Control Plane.
+	// List of Certificate Tags defined in CyberArk Certificate Manager, SaaS.
 	Tags pulumi.StringArrayInput
 	// Desired number of days for which the new certificate will be valid.
 	ValidDays pulumi.IntPtrInput
@@ -332,15 +328,15 @@ type certificateArgs struct {
 	// Number of hours before certificate expiry to request a new certificate.
 	// Defaults to `168`.
 	ExpirationWindow *int `pulumi:"expirationWindow"`
-	// Used with `validDays` to indicate the target issuer when using Trust Protection
-	// Platform. Relevant values are: `DigiCert`, `Entrust`, and `Microsoft`.
+	// Used with `validDays` to indicate the target issuer when using CyberArk Certificate Manager, Self-Hosted.
+	// Relevant values are: `DigiCert`, `Entrust`, and `Microsoft`.
 	IssuerHint *string `pulumi:"issuerHint"`
 	// The password used to encrypt the private key.
 	KeyPassword *string `pulumi:"keyPassword"`
 	// Locality/City of the certificate (L)
 	Locality *string `pulumi:"locality"`
 	// Use to specify a name for the new certificate object that will be created and placed
-	// in a policy. Only valid for Trust Protection Platform.
+	// in a policy. Only valid for CyberArk Certificate Manager, Self-Hosted.
 	Nickname *string `pulumi:"nickname"`
 	// Organization of the certificate (O)
 	Organization *string `pulumi:"organization"`
@@ -367,7 +363,7 @@ type certificateArgs struct {
 	SanUris []string `pulumi:"sanUris"`
 	// State of the certificate (S)
 	State *string `pulumi:"state"`
-	// List of Certificate Tags defined in Venafi Control Plane.
+	// List of Certificate Tags defined in CyberArk Certificate Manager, SaaS.
 	Tags []string `pulumi:"tags"`
 	// Desired number of days for which the new certificate will be valid.
 	ValidDays *int `pulumi:"validDays"`
@@ -393,15 +389,15 @@ type CertificateArgs struct {
 	// Number of hours before certificate expiry to request a new certificate.
 	// Defaults to `168`.
 	ExpirationWindow pulumi.IntPtrInput
-	// Used with `validDays` to indicate the target issuer when using Trust Protection
-	// Platform. Relevant values are: `DigiCert`, `Entrust`, and `Microsoft`.
+	// Used with `validDays` to indicate the target issuer when using CyberArk Certificate Manager, Self-Hosted.
+	// Relevant values are: `DigiCert`, `Entrust`, and `Microsoft`.
 	IssuerHint pulumi.StringPtrInput
 	// The password used to encrypt the private key.
 	KeyPassword pulumi.StringPtrInput
 	// Locality/City of the certificate (L)
 	Locality pulumi.StringPtrInput
 	// Use to specify a name for the new certificate object that will be created and placed
-	// in a policy. Only valid for Trust Protection Platform.
+	// in a policy. Only valid for CyberArk Certificate Manager, Self-Hosted.
 	Nickname pulumi.StringPtrInput
 	// Organization of the certificate (O)
 	Organization pulumi.StringPtrInput
@@ -428,7 +424,7 @@ type CertificateArgs struct {
 	SanUris pulumi.StringArrayInput
 	// State of the certificate (S)
 	State pulumi.StringPtrInput
-	// List of Certificate Tags defined in Venafi Control Plane.
+	// List of Certificate Tags defined in CyberArk Certificate Manager, SaaS.
 	Tags pulumi.StringArrayInput
 	// Desired number of days for which the new certificate will be valid.
 	ValidDays pulumi.IntPtrInput
@@ -581,8 +577,8 @@ func (o CertificateOutput) ExpirationWindow() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Certificate) pulumi.IntPtrOutput { return v.ExpirationWindow }).(pulumi.IntPtrOutput)
 }
 
-// Used with `validDays` to indicate the target issuer when using Trust Protection
-// Platform. Relevant values are: `DigiCert`, `Entrust`, and `Microsoft`.
+// Used with `validDays` to indicate the target issuer when using CyberArk Certificate Manager, Self-Hosted.
+// Relevant values are: `DigiCert`, `Entrust`, and `Microsoft`.
 func (o CertificateOutput) IssuerHint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Certificate) pulumi.StringPtrOutput { return v.IssuerHint }).(pulumi.StringPtrOutput)
 }
@@ -598,7 +594,7 @@ func (o CertificateOutput) Locality() pulumi.StringPtrOutput {
 }
 
 // Use to specify a name for the new certificate object that will be created and placed
-// in a policy. Only valid for Trust Protection Platform.
+// in a policy. Only valid for CyberArk Certificate Manager, Self-Hosted.
 func (o CertificateOutput) Nickname() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Certificate) pulumi.StringPtrOutput { return v.Nickname }).(pulumi.StringPtrOutput)
 }
@@ -661,7 +657,7 @@ func (o CertificateOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Certificate) pulumi.StringPtrOutput { return v.State }).(pulumi.StringPtrOutput)
 }
 
-// List of Certificate Tags defined in Venafi Control Plane.
+// List of Certificate Tags defined in CyberArk Certificate Manager, SaaS.
 func (o CertificateOutput) Tags() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Certificate) pulumi.StringArrayOutput { return v.Tags }).(pulumi.StringArrayOutput)
 }
