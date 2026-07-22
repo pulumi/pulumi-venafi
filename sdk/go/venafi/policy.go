@@ -21,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-std/sdk/go/std"
+//	"github.com/pulumi/pulumi-std/sdk/v2/go/std"
 //	"github.com/pulumi/pulumi-venafi/sdk/go/venafi"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
