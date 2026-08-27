@@ -71,12 +71,8 @@ type GetCloudProviderResult struct {
 }
 
 func GetCloudProviderOutput(ctx *pulumi.Context, args GetCloudProviderOutputArgs, opts ...pulumi.InvokeOption) GetCloudProviderResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetCloudProviderResultOutput, error) {
-			args := v.(GetCloudProviderArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("venafi:index/getCloudProvider:getCloudProvider", args, GetCloudProviderResultOutput{}, options).(GetCloudProviderResultOutput), nil
-		}).(GetCloudProviderResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("venafi:index/getCloudProvider:getCloudProvider", args, GetCloudProviderResultOutput{}, options).(GetCloudProviderResultOutput)
 }
 
 // A collection of arguments for invoking getCloudProvider.
