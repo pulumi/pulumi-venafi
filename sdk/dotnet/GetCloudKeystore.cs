@@ -32,7 +32,7 @@ namespace Pulumi.Venafi
         ///         Name = "Cloud Keystore Example",
         ///     });
         /// 
-        ///     // Find a cloud keystore by using venafi_cloud_provider data source as input
+        ///     // Find a cloud keystore by using venafi_cloud_provider function as input
         ///     var ckExample = Venafi.GetCloudKeystore.Invoke(new()
         ///     {
         ///         CloudProviderId = cpExample.Id,
@@ -66,7 +66,7 @@ namespace Pulumi.Venafi
         ///         Name = "Cloud Keystore Example",
         ///     });
         /// 
-        ///     // Find a cloud keystore by using venafi_cloud_provider data source as input
+        ///     // Find a cloud keystore by using venafi_cloud_provider function as input
         ///     var ckExample = Venafi.GetCloudKeystore.Invoke(new()
         ///     {
         ///         CloudProviderId = cpExample.Id,
@@ -100,7 +100,7 @@ namespace Pulumi.Venafi
         ///         Name = "Cloud Keystore Example",
         ///     });
         /// 
-        ///     // Find a cloud keystore by using venafi_cloud_provider data source as input
+        ///     // Find a cloud keystore by using venafi_cloud_provider function as input
         ///     var ckExample = Venafi.GetCloudKeystore.Invoke(new()
         ///     {
         ///         CloudProviderId = cpExample.Id,

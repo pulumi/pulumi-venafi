@@ -53,9 +53,9 @@ import javax.annotation.Nullable;
  * 
  *         // Provision a certificate to cloud keystore
  *         var ckInstallationExample = new CloudKeystoreInstallation("ckInstallationExample", CloudKeystoreInstallationArgs.builder()
- *             .cloudKeystoreId(ckExample.id())
- *             .certificateId(certificateExample.certificateId())
- *             .cloudCertificateName(certificateExample.commonName())
+ *             .cloudKeystoreId(ckExample.get("id"))
+ *             .certificateId(certificateExample.get("certificateId"))
+ *             .cloudCertificateName(certificateExample.get("commonName"))
  *             .build());
  * 
  *     }

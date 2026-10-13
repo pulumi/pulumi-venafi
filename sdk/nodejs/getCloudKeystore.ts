@@ -19,7 +19,7 @@ import * as utilities from "./utilities";
  *     cloudProviderId: "e48897d0-2762-11ef-8fab-79ac590dd358",
  *     name: "Cloud Keystore Example",
  * });
- * // Find a cloud keystore by using venafi_cloud_provider data source as input
+ * // Find a cloud keystore by using venafi_cloud_provider function as input
  * const ckExample = venafi.getCloudKeystore({
  *     cloudProviderId: cpExample.id,
  *     name: "Cloud Keystore example",
@@ -82,7 +82,7 @@ export interface GetCloudKeystoreResult {
  *     cloudProviderId: "e48897d0-2762-11ef-8fab-79ac590dd358",
  *     name: "Cloud Keystore Example",
  * });
- * // Find a cloud keystore by using venafi_cloud_provider data source as input
+ * // Find a cloud keystore by using venafi_cloud_provider function as input
  * const ckExample = venafi.getCloudKeystore({
  *     cloudProviderId: cpExample.id,
  *     name: "Cloud Keystore example",
