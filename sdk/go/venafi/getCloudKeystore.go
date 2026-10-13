@@ -36,7 +36,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			// Find a cloud keystore by using venafi_cloud_provider data source as input
+//			// Find a cloud keystore by using venafi_cloud_provider function as input
 //			_, err = venafi.GetCloudKeystore(ctx, &venafi.GetCloudKeystoreArgs{
 //				CloudProviderId: cpExample.Id,
 //				Name:            "Cloud Keystore example",

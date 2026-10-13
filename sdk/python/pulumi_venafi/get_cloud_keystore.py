@@ -107,7 +107,7 @@ def get_cloud_keystore(cloud_provider_id: Optional[_builtins.str] = None,
     # Find a cloud keystore with a static cloud provider id
     ck_example_by_id = venafi.get_cloud_keystore(cloud_provider_id="e48897d0-2762-11ef-8fab-79ac590dd358",
         name="Cloud Keystore Example")
-    # Find a cloud keystore by using venafi_cloud_provider data source as input
+    # Find a cloud keystore by using venafi_cloud_provider function as input
     ck_example = venafi.get_cloud_keystore(cloud_provider_id=cp_example["id"],
         name="Cloud Keystore example")
     ```
@@ -144,7 +144,7 @@ def get_cloud_keystore_output(cloud_provider_id: pulumi.Input[Optional[_builtins
     # Find a cloud keystore with a static cloud provider id
     ck_example_by_id = venafi.get_cloud_keystore(cloud_provider_id="e48897d0-2762-11ef-8fab-79ac590dd358",
         name="Cloud Keystore Example")
-    # Find a cloud keystore by using venafi_cloud_provider data source as input
+    # Find a cloud keystore by using venafi_cloud_provider function as input
     ck_example = venafi.get_cloud_keystore(cloud_provider_id=cp_example["id"],
         name="Cloud Keystore example")
     ```

@@ -52,9 +52,9 @@ public final class VenafiFunctions {
      *             .name("Cloud Keystore Example")
      *             .build());
      * 
-     *         // Find a cloud keystore by using venafi_cloud_provider data source as input
+     *         // Find a cloud keystore by using venafi_cloud_provider function as input
      *         final var ckExample = VenafiFunctions.getCloudKeystore(GetCloudKeystoreArgs.builder()
-     *             .cloudProviderId(cpExample.id())
+     *             .cloudProviderId(cpExample.get("id"))
      *             .name("Cloud Keystore example")
      *             .build());
      * 
@@ -101,9 +101,9 @@ public final class VenafiFunctions {
      *             .name("Cloud Keystore Example")
      *             .build());
      * 
-     *         // Find a cloud keystore by using venafi_cloud_provider data source as input
+     *         // Find a cloud keystore by using venafi_cloud_provider function as input
      *         final var ckExample = VenafiFunctions.getCloudKeystore(GetCloudKeystoreArgs.builder()
-     *             .cloudProviderId(cpExample.id())
+     *             .cloudProviderId(cpExample.get("id"))
      *             .name("Cloud Keystore example")
      *             .build());
      * 
@@ -150,9 +150,9 @@ public final class VenafiFunctions {
      *             .name("Cloud Keystore Example")
      *             .build());
      * 
-     *         // Find a cloud keystore by using venafi_cloud_provider data source as input
+     *         // Find a cloud keystore by using venafi_cloud_provider function as input
      *         final var ckExample = VenafiFunctions.getCloudKeystore(GetCloudKeystoreArgs.builder()
-     *             .cloudProviderId(cpExample.id())
+     *             .cloudProviderId(cpExample.get("id"))
      *             .name("Cloud Keystore example")
      *             .build());
      * 
@@ -199,9 +199,9 @@ public final class VenafiFunctions {
      *             .name("Cloud Keystore Example")
      *             .build());
      * 
-     *         // Find a cloud keystore by using venafi_cloud_provider data source as input
+     *         // Find a cloud keystore by using venafi_cloud_provider function as input
      *         final var ckExample = VenafiFunctions.getCloudKeystore(GetCloudKeystoreArgs.builder()
-     *             .cloudProviderId(cpExample.id())
+     *             .cloudProviderId(cpExample.get("id"))
      *             .name("Cloud Keystore example")
      *             .build());
      * 
@@ -248,9 +248,9 @@ public final class VenafiFunctions {
      *             .name("Cloud Keystore Example")
      *             .build());
      * 
-     *         // Find a cloud keystore by using venafi_cloud_provider data source as input
+     *         // Find a cloud keystore by using venafi_cloud_provider function as input
      *         final var ckExample = VenafiFunctions.getCloudKeystore(GetCloudKeystoreArgs.builder()
-     *             .cloudProviderId(cpExample.id())
+     *             .cloudProviderId(cpExample.get("id"))
      *             .name("Cloud Keystore example")
      *             .build());
      * 

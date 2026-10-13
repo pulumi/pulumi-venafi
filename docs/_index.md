@@ -213,7 +213,7 @@ public class App {
 {{% /choosable %}}
 {{% choosable language hcl %}}
 ```hcl
-pulumi {
+terraform {
   required_providers {
     venafi = {
       source = "pulumi/venafi"
@@ -223,6 +223,9 @@ pulumi {
 
 # Generate a key pair and request a certificate
 resource "venafi_certificate" "webserver" {
+  lifecycle {
+    create_before_destroy = true
+  }
 }
 ```
 
@@ -414,7 +417,7 @@ public class App {
 {{% /choosable %}}
 {{% choosable language hcl %}}
 ```hcl
-pulumi {
+terraform {
   required_providers {
     venafi = {
       source = "pulumi/venafi"
@@ -424,6 +427,9 @@ pulumi {
 
 # Generate a key pair and request a certificate
 resource "venafi_certificate" "webserver" {
+  lifecycle {
+    create_before_destroy = true
+  }
 }
 ```
 
@@ -615,7 +621,7 @@ public class App {
 {{% /choosable %}}
 {{% choosable language hcl %}}
 ```hcl
-pulumi {
+terraform {
   required_providers {
     venafi = {
       source = "pulumi/venafi"
@@ -625,6 +631,9 @@ pulumi {
 
 # Generate a key pair and request a certificate
 resource "venafi_certificate" "webserver" {
+  lifecycle {
+    create_before_destroy = true
+  }
 }
 ```
 
@@ -816,7 +825,7 @@ public class App {
 {{% /choosable %}}
 {{% choosable language hcl %}}
 ```hcl
-pulumi {
+terraform {
   required_providers {
     venafi = {
       source = "pulumi/venafi"
@@ -826,6 +835,9 @@ pulumi {
 
 # Generate a key pair and request a certificate
 resource "venafi_certificate" "webserver" {
+  lifecycle {
+    create_before_destroy = true
+  }
 }
 ```
 
@@ -1017,7 +1029,7 @@ public class App {
 {{% /choosable %}}
 {{% choosable language hcl %}}
 ```hcl
-pulumi {
+terraform {
   required_providers {
     venafi = {
       source = "pulumi/venafi"
@@ -1027,6 +1039,9 @@ pulumi {
 
 # Generate a key pair and request a certificate
 resource "venafi_certificate" "webserver" {
+  lifecycle {
+    create_before_destroy = true
+  }
 }
 ```
 
@@ -1218,7 +1233,7 @@ public class App {
 {{% /choosable %}}
 {{% choosable language hcl %}}
 ```hcl
-pulumi {
+terraform {
   required_providers {
     venafi = {
       source = "pulumi/venafi"
@@ -1228,6 +1243,9 @@ pulumi {
 
 # Generate a key pair and request a certificate
 resource "venafi_certificate" "webserver" {
+  lifecycle {
+    create_before_destroy = true
+  }
 }
 ```
 
@@ -1260,7 +1278,7 @@ config:
     venafi:url:
         value: https://tpp.venafi.example
     venafi:zone:
-        value: DevOps\Pulumi
+        value: DevOps\Terraform
 
 ```
 
@@ -1286,7 +1304,7 @@ config:
     venafi:url:
         value: https://tpp.venafi.example
     venafi:zone:
-        value: DevOps\Pulumi
+        value: DevOps\Terraform
 
 ```
 
@@ -1312,7 +1330,7 @@ config:
     venafi:url:
         value: https://tpp.venafi.example
     venafi:zone:
-        value: DevOps\Pulumi
+        value: DevOps\Terraform
 
 ```
 
@@ -1345,7 +1363,7 @@ config:
     venafi:url:
         value: https://tpp.venafi.example
     venafi:zone:
-        value: DevOps\Pulumi
+        value: DevOps\Terraform
 
 ```
 
@@ -1383,7 +1401,7 @@ config:
     venafi:url:
         value: https://tpp.venafi.example
     venafi:zone:
-        value: DevOps\Pulumi
+        value: DevOps\Terraform
 
 ```
 
@@ -1408,7 +1426,7 @@ config:
     venafi:url:
         value: https://tpp.venafi.example
     venafi:zone:
-        value: DevOps\Pulumi
+        value: DevOps\Terraform
 
 ```
 
@@ -1442,7 +1460,7 @@ public class App {
 {{% /choosable %}}
 {{% choosable language hcl %}}
 ```hcl
-pulumi {
+terraform {
   required_providers {
     venafi = {
       source = "pulumi/venafi"
@@ -1452,6 +1470,9 @@ pulumi {
 
 # Generate a key pair and request a certificate
 resource "venafi_certificate" "webserver" {
+  lifecycle {
+    create_before_destroy = true
+  }
 }
 ```
 
@@ -1679,7 +1700,7 @@ public class App {
 {{% /choosable %}}
 {{% choosable language hcl %}}
 ```hcl
-pulumi {
+terraform {
   required_providers {
     venafi = {
       source = "pulumi/venafi"
@@ -1689,6 +1710,9 @@ pulumi {
 
 # Generate a key pair and request a certificate
 resource "venafi_certificate" "webserver" {
+  lifecycle {
+    create_before_destroy = true
+  }
 }
 ```
 
