@@ -105,7 +105,7 @@ namespace Pulumi.Venafi
         public Output<string?> Url { get; private set; } = null!;
 
         /// <summary>
-        /// DN of the CyberArk Certificate Manager, Self-Hosted policy folder or name of the CyberArk Certificate Manager, SaaS application plus issuing template alias. 
+        /// DN of the CyberArk Certificate Manager, Self-Hosted policy folder or name of the CyberArk Certificate Manager, SaaS application plus issuing template alias.
         /// Example for CyberArk Certificate Manager, Self-Hosted: testPolicy\\vault
         /// Example for CyberArk Certificate Manager, SaaS: myApp\\Default
         /// </summary>
@@ -326,7 +326,7 @@ namespace Pulumi.Venafi
         public Input<string>? Url { get; set; }
 
         /// <summary>
-        /// DN of the CyberArk Certificate Manager, Self-Hosted policy folder or name of the CyberArk Certificate Manager, SaaS application plus issuing template alias. 
+        /// DN of the CyberArk Certificate Manager, Self-Hosted policy folder or name of the CyberArk Certificate Manager, SaaS application plus issuing template alias.
         /// Example for CyberArk Certificate Manager, Self-Hosted: testPolicy\\vault
         /// Example for CyberArk Certificate Manager, SaaS: myApp\\Default
         /// </summary>

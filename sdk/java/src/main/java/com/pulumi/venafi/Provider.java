@@ -152,11 +152,10 @@ public class Provider extends com.pulumi.resources.ProviderResource {
     /**
      * Password for WebSDK user. Example: password
      * 
-     * @deprecated
-     * , please use accessToken instead
+     * @deprecated , please use accessToken instead
      * 
      */
-    @Deprecated /* , please use accessToken instead */
+    @Deprecated
     @Export(name="tppPassword", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> tppPassword;
 
@@ -170,11 +169,10 @@ public class Provider extends com.pulumi.resources.ProviderResource {
     /**
      * WebSDK user for CyberArk Certificate Manager, Self-Hosted. Example: admin
      * 
-     * @deprecated
-     * , please use accessToken instead
+     * @deprecated , please use accessToken instead
      * 
      */
-    @Deprecated /* , please use accessToken instead */
+    @Deprecated
     @Export(name="tppUsername", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> tppUsername;
 
@@ -233,8 +231,8 @@ public class Provider extends com.pulumi.resources.ProviderResource {
     }
     /**
      * DN of the CyberArk Certificate Manager, Self-Hosted policy folder or name of the CyberArk Certificate Manager, SaaS application plus issuing template alias.
-     * Example for CyberArk Certificate Manager, Self-Hosted: testPolicy\\vault
-     * Example for CyberArk Certificate Manager, SaaS: myApp\\Default
+     * Example for CyberArk Certificate Manager, Self-Hosted: testPolicy&#92;&#92;vault
+     * Example for CyberArk Certificate Manager, SaaS: myApp&#92;&#92;Default
      * 
      */
     @Export(name="zone", refs={String.class}, tree="[0]")
@@ -242,8 +240,8 @@ public class Provider extends com.pulumi.resources.ProviderResource {
 
     /**
      * @return DN of the CyberArk Certificate Manager, Self-Hosted policy folder or name of the CyberArk Certificate Manager, SaaS application plus issuing template alias.
-     * Example for CyberArk Certificate Manager, Self-Hosted: testPolicy\\vault
-     * Example for CyberArk Certificate Manager, SaaS: myApp\\Default
+     * Example for CyberArk Certificate Manager, Self-Hosted: testPolicy&#92;&#92;vault
+     * Example for CyberArk Certificate Manager, SaaS: myApp&#92;&#92;Default
      * 
      */
     public Output<Optional<String>> zone() {

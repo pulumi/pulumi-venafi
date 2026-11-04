@@ -127,8 +127,8 @@ public final class Config {
     }
 /**
  * DN of the CyberArk Certificate Manager, Self-Hosted policy folder or name of the CyberArk Certificate Manager, SaaS application plus issuing template alias.
- * Example for CyberArk Certificate Manager, Self-Hosted: testPolicy\\vault
- * Example for CyberArk Certificate Manager, SaaS: myApp\\Default
+ * Example for CyberArk Certificate Manager, Self-Hosted: testPolicy&#92;&#92;vault
+ * Example for CyberArk Certificate Manager, SaaS: myApp&#92;&#92;Default
  * 
  */
     public Optional<String> zone() {

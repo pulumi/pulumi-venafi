@@ -216,11 +216,10 @@ public class SshCertificate extends com.pulumi.resources.CustomResource {
      * [DEPRECATED] - (Optional, set of strings) Use &#34;principals&#34; instead. A list of usernames for whom the
      * requested certificate will be valid.
      * 
-     * @deprecated
-     * This will be removed in the future. Use &#34;principals&#34; instead
+     * @deprecated This will be removed in the future. Use &#34;principals&#34; instead
      * 
      */
-    @Deprecated /* This will be removed in the future. Use ""principals"" instead */
+    @Deprecated
     @Export(name="principal", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> principal;
 

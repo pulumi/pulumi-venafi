@@ -182,11 +182,10 @@ public final class SshCertificateState extends com.pulumi.resources.ResourceArgs
      * [DEPRECATED] - (Optional, set of strings) Use &#34;principals&#34; instead. A list of usernames for whom the
      * requested certificate will be valid.
      * 
-     * @deprecated
-     * This will be removed in the future. Use &#34;principals&#34; instead
+     * @deprecated This will be removed in the future. Use &#34;principals&#34; instead
      * 
      */
-    @Deprecated /* This will be removed in the future. Use ""principals"" instead */
+    @Deprecated
     @Import(name="principal")
     private @Nullable Output<List<String>> principal;
 
@@ -194,11 +193,10 @@ public final class SshCertificateState extends com.pulumi.resources.ResourceArgs
      * @return [DEPRECATED] - (Optional, set of strings) Use &#34;principals&#34; instead. A list of usernames for whom the
      * requested certificate will be valid.
      * 
-     * @deprecated
-     * This will be removed in the future. Use &#34;principals&#34; instead
+     * @deprecated This will be removed in the future. Use &#34;principals&#34; instead
      * 
      */
-    @Deprecated /* This will be removed in the future. Use ""principals"" instead */
+    @Deprecated
     public Optional<Output<List<String>>> principal() {
         return Optional.ofNullable(this.principal);
     }
@@ -698,11 +696,10 @@ public final class SshCertificateState extends com.pulumi.resources.ResourceArgs
          * 
          * @return builder
          * 
-         * @deprecated
-         * This will be removed in the future. Use &#34;principals&#34; instead
+         * @deprecated This will be removed in the future. Use &#34;principals&#34; instead
          * 
          */
-        @Deprecated /* This will be removed in the future. Use ""principals"" instead */
+        @Deprecated
         public Builder principal(@Nullable Output<List<String>> principal) {
             $.principal = principal;
             return this;
@@ -714,11 +711,10 @@ public final class SshCertificateState extends com.pulumi.resources.ResourceArgs
          * 
          * @return builder
          * 
-         * @deprecated
-         * This will be removed in the future. Use &#34;principals&#34; instead
+         * @deprecated This will be removed in the future. Use &#34;principals&#34; instead
          * 
          */
-        @Deprecated /* This will be removed in the future. Use ""principals"" instead */
+        @Deprecated
         public Builder principal(List<String> principal) {
             return principal(Output.of(principal));
         }
@@ -729,11 +725,10 @@ public final class SshCertificateState extends com.pulumi.resources.ResourceArgs
          * 
          * @return builder
          * 
-         * @deprecated
-         * This will be removed in the future. Use &#34;principals&#34; instead
+         * @deprecated This will be removed in the future. Use &#34;principals&#34; instead
          * 
          */
-        @Deprecated /* This will be removed in the future. Use ""principals"" instead */
+        @Deprecated
         public Builder principal(String... principal) {
             return principal(List.of(principal));
         }

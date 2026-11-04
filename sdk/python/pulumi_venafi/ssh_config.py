@@ -204,6 +204,18 @@ class SshConfig(pulumi.CustomResource):
         __props__.__dict__["template"] = template
         return SshConfig(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            ca_public_key: pulumi.Input[Optional[_builtins.str]] = None,
+            principals: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            template: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["caPublicKey"] = ca_public_key
+        __props__["principals"] = principals
+        __props__["template"] = template
+        return pulumi.runtime.exists_resource(None, 'venafi:index/sshConfig:SshConfig', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="caPublicKey")
     def ca_public_key(self) -> pulumi.Output[_builtins.str]:

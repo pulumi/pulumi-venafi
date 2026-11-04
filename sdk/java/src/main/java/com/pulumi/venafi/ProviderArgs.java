@@ -184,22 +184,20 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * Password for WebSDK user. Example: password
      * 
-     * @deprecated
-     * , please use accessToken instead
+     * @deprecated , please use accessToken instead
      * 
      */
-    @Deprecated /* , please use accessToken instead */
+    @Deprecated
     @Import(name="tppPassword")
     private @Nullable Output<String> tppPassword;
 
     /**
      * @return Password for WebSDK user. Example: password
      * 
-     * @deprecated
-     * , please use accessToken instead
+     * @deprecated , please use accessToken instead
      * 
      */
-    @Deprecated /* , please use accessToken instead */
+    @Deprecated
     public Optional<Output<String>> tppPassword() {
         return Optional.ofNullable(this.tppPassword);
     }
@@ -207,22 +205,20 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * WebSDK user for CyberArk Certificate Manager, Self-Hosted. Example: admin
      * 
-     * @deprecated
-     * , please use accessToken instead
+     * @deprecated , please use accessToken instead
      * 
      */
-    @Deprecated /* , please use accessToken instead */
+    @Deprecated
     @Import(name="tppUsername")
     private @Nullable Output<String> tppUsername;
 
     /**
      * @return WebSDK user for CyberArk Certificate Manager, Self-Hosted. Example: admin
      * 
-     * @deprecated
-     * , please use accessToken instead
+     * @deprecated , please use accessToken instead
      * 
      */
-    @Deprecated /* , please use accessToken instead */
+    @Deprecated
     public Optional<Output<String>> tppUsername() {
         return Optional.ofNullable(this.tppUsername);
     }
@@ -278,8 +274,8 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * DN of the CyberArk Certificate Manager, Self-Hosted policy folder or name of the CyberArk Certificate Manager, SaaS application plus issuing template alias.
-     * Example for CyberArk Certificate Manager, Self-Hosted: testPolicy\\vault
-     * Example for CyberArk Certificate Manager, SaaS: myApp\\Default
+     * Example for CyberArk Certificate Manager, Self-Hosted: testPolicy&#92;&#92;vault
+     * Example for CyberArk Certificate Manager, SaaS: myApp&#92;&#92;Default
      * 
      */
     @Import(name="zone")
@@ -287,8 +283,8 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * @return DN of the CyberArk Certificate Manager, Self-Hosted policy folder or name of the CyberArk Certificate Manager, SaaS application plus issuing template alias.
-     * Example for CyberArk Certificate Manager, Self-Hosted: testPolicy\\vault
-     * Example for CyberArk Certificate Manager, SaaS: myApp\\Default
+     * Example for CyberArk Certificate Manager, Self-Hosted: testPolicy&#92;&#92;vault
+     * Example for CyberArk Certificate Manager, SaaS: myApp&#92;&#92;Default
      * 
      */
     public Optional<Output<String>> zone() {
@@ -571,11 +567,10 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * , please use accessToken instead
+         * @deprecated , please use accessToken instead
          * 
          */
-        @Deprecated /* , please use accessToken instead */
+        @Deprecated
         public Builder tppPassword(@Nullable Output<String> tppPassword) {
             $.tppPassword = tppPassword;
             return this;
@@ -586,11 +581,10 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * , please use accessToken instead
+         * @deprecated , please use accessToken instead
          * 
          */
-        @Deprecated /* , please use accessToken instead */
+        @Deprecated
         public Builder tppPassword(String tppPassword) {
             return tppPassword(Output.of(tppPassword));
         }
@@ -600,11 +594,10 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * , please use accessToken instead
+         * @deprecated , please use accessToken instead
          * 
          */
-        @Deprecated /* , please use accessToken instead */
+        @Deprecated
         public Builder tppUsername(@Nullable Output<String> tppUsername) {
             $.tppUsername = tppUsername;
             return this;
@@ -615,11 +608,10 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * , please use accessToken instead
+         * @deprecated , please use accessToken instead
          * 
          */
-        @Deprecated /* , please use accessToken instead */
+        @Deprecated
         public Builder tppUsername(String tppUsername) {
             return tppUsername(Output.of(tppUsername));
         }
@@ -693,8 +685,8 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param zone DN of the CyberArk Certificate Manager, Self-Hosted policy folder or name of the CyberArk Certificate Manager, SaaS application plus issuing template alias.
-         * Example for CyberArk Certificate Manager, Self-Hosted: testPolicy\\vault
-         * Example for CyberArk Certificate Manager, SaaS: myApp\\Default
+         * Example for CyberArk Certificate Manager, Self-Hosted: testPolicy&#92;&#92;vault
+         * Example for CyberArk Certificate Manager, SaaS: myApp&#92;&#92;Default
          * 
          * @return builder
          * 
@@ -706,8 +698,8 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param zone DN of the CyberArk Certificate Manager, Self-Hosted policy folder or name of the CyberArk Certificate Manager, SaaS application plus issuing template alias.
-         * Example for CyberArk Certificate Manager, Self-Hosted: testPolicy\\vault
-         * Example for CyberArk Certificate Manager, SaaS: myApp\\Default
+         * Example for CyberArk Certificate Manager, Self-Hosted: testPolicy&#92;&#92;vault
+         * Example for CyberArk Certificate Manager, SaaS: myApp&#92;&#92;Default
          * 
          * @return builder
          * 

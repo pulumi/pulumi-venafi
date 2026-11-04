@@ -55,14 +55,14 @@ namespace Pulumi.Venafi
         public Output<string> CertificateType { get; private set; } = null!;
 
         /// <summary>
-        /// A list of one or more valid IP or CIDR destination hosts where the 
+        /// A list of one or more valid IP or CIDR destination hosts where the
         /// certificate will authenticate.
         /// </summary>
         [Output("destinationAddresses")]
         public Output<ImmutableArray<string>> DestinationAddresses { get; private set; } = null!;
 
         /// <summary>
-        /// A list of key-value pairs that contain certificate extensions from the CA 
+        /// A list of key-value pairs that contain certificate extensions from the CA
         /// template for client certificates. Allowed values (case-sensitive): `permit-X11-forwarding`, `permit-agent-forwarding`,
         /// `permit-port-forwarding`, `permit-pty`, `permit-user-rc`.
         /// </summary>
@@ -100,7 +100,7 @@ namespace Pulumi.Venafi
         public Output<int?> KeySize { get; private set; } = null!;
 
         /// <summary>
-        /// The friendly name of the SSH certificate object. When not specified the `KeyId` 
+        /// The friendly name of the SSH certificate object. When not specified the `KeyId`
         /// is used for the friendly name. If the object already exists the old certificate is archived and the CA issues a new
         /// certificate.
         /// </summary>
@@ -108,7 +108,7 @@ namespace Pulumi.Venafi
         public Output<string?> ObjectName { get; private set; } = null!;
 
         /// <summary>
-        /// [DEPRECATED] - (Optional, set of strings) Use "principals" instead. A list of usernames for whom the 
+        /// [DEPRECATED] - (Optional, set of strings) Use "principals" instead. A list of usernames for whom the
         /// requested certificate will be valid.
         /// </summary>
         [Output("principal")]
@@ -139,7 +139,7 @@ namespace Pulumi.Venafi
         public Output<string> PublicKeyFingerprint { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies whether the public key will be `Local` (default), `File` or 
+        /// Specifies whether the public key will be `Local` (default), `File` or
         /// `Service` generated.
         /// </summary>
         [Output("publicKeyMethod")]
@@ -158,7 +158,7 @@ namespace Pulumi.Venafi
         public Output<string> SigningCa { get; private set; } = null!;
 
         /// <summary>
-        /// A list of one or more valid IP or CIDR addresses that can use the SSH 
+        /// A list of one or more valid IP or CIDR addresses that can use the SSH
         /// certificate.
         /// </summary>
         [Output("sourceAddresses")]
@@ -249,7 +249,7 @@ namespace Pulumi.Venafi
         private InputList<string>? _destinationAddresses;
 
         /// <summary>
-        /// A list of one or more valid IP or CIDR destination hosts where the 
+        /// A list of one or more valid IP or CIDR destination hosts where the
         /// certificate will authenticate.
         /// </summary>
         public InputList<string> DestinationAddresses
@@ -262,7 +262,7 @@ namespace Pulumi.Venafi
         private InputList<string>? _extensions;
 
         /// <summary>
-        /// A list of key-value pairs that contain certificate extensions from the CA 
+        /// A list of key-value pairs that contain certificate extensions from the CA
         /// template for client certificates. Allowed values (case-sensitive): `permit-X11-forwarding`, `permit-agent-forwarding`,
         /// `permit-port-forwarding`, `permit-pty`, `permit-user-rc`.
         /// </summary>
@@ -313,7 +313,7 @@ namespace Pulumi.Venafi
         public Input<int>? KeySize { get; set; }
 
         /// <summary>
-        /// The friendly name of the SSH certificate object. When not specified the `KeyId` 
+        /// The friendly name of the SSH certificate object. When not specified the `KeyId`
         /// is used for the friendly name. If the object already exists the old certificate is archived and the CA issues a new
         /// certificate.
         /// </summary>
@@ -324,7 +324,7 @@ namespace Pulumi.Venafi
         private InputList<string>? _principal;
 
         /// <summary>
-        /// [DEPRECATED] - (Optional, set of strings) Use "principals" instead. A list of usernames for whom the 
+        /// [DEPRECATED] - (Optional, set of strings) Use "principals" instead. A list of usernames for whom the
         /// requested certificate will be valid.
         /// </summary>
         [Obsolete(@"This will be removed in the future. Use ""principals"" instead")]
@@ -353,7 +353,7 @@ namespace Pulumi.Venafi
         public Input<string>? PublicKey { get; set; }
 
         /// <summary>
-        /// Specifies whether the public key will be `Local` (default), `File` or 
+        /// Specifies whether the public key will be `Local` (default), `File` or
         /// `Service` generated.
         /// </summary>
         [Input("publicKeyMethod")]
@@ -363,7 +363,7 @@ namespace Pulumi.Venafi
         private InputList<string>? _sourceAddresses;
 
         /// <summary>
-        /// A list of one or more valid IP or CIDR addresses that can use the SSH 
+        /// A list of one or more valid IP or CIDR addresses that can use the SSH
         /// certificate.
         /// </summary>
         public InputList<string> SourceAddresses
@@ -414,7 +414,7 @@ namespace Pulumi.Venafi
         private InputList<string>? _destinationAddresses;
 
         /// <summary>
-        /// A list of one or more valid IP or CIDR destination hosts where the 
+        /// A list of one or more valid IP or CIDR destination hosts where the
         /// certificate will authenticate.
         /// </summary>
         public InputList<string> DestinationAddresses
@@ -427,7 +427,7 @@ namespace Pulumi.Venafi
         private InputList<string>? _extensions;
 
         /// <summary>
-        /// A list of key-value pairs that contain certificate extensions from the CA 
+        /// A list of key-value pairs that contain certificate extensions from the CA
         /// template for client certificates. Allowed values (case-sensitive): `permit-X11-forwarding`, `permit-agent-forwarding`,
         /// `permit-port-forwarding`, `permit-pty`, `permit-user-rc`.
         /// </summary>
@@ -478,7 +478,7 @@ namespace Pulumi.Venafi
         public Input<int>? KeySize { get; set; }
 
         /// <summary>
-        /// The friendly name of the SSH certificate object. When not specified the `KeyId` 
+        /// The friendly name of the SSH certificate object. When not specified the `KeyId`
         /// is used for the friendly name. If the object already exists the old certificate is archived and the CA issues a new
         /// certificate.
         /// </summary>
@@ -489,7 +489,7 @@ namespace Pulumi.Venafi
         private InputList<string>? _principal;
 
         /// <summary>
-        /// [DEPRECATED] - (Optional, set of strings) Use "principals" instead. A list of usernames for whom the 
+        /// [DEPRECATED] - (Optional, set of strings) Use "principals" instead. A list of usernames for whom the
         /// requested certificate will be valid.
         /// </summary>
         [Obsolete(@"This will be removed in the future. Use ""principals"" instead")]
@@ -540,7 +540,7 @@ namespace Pulumi.Venafi
         public Input<string>? PublicKeyFingerprint { get; set; }
 
         /// <summary>
-        /// Specifies whether the public key will be `Local` (default), `File` or 
+        /// Specifies whether the public key will be `Local` (default), `File` or
         /// `Service` generated.
         /// </summary>
         [Input("publicKeyMethod")]
@@ -562,7 +562,7 @@ namespace Pulumi.Venafi
         private InputList<string>? _sourceAddresses;
 
         /// <summary>
-        /// A list of one or more valid IP or CIDR addresses that can use the SSH 
+        /// A list of one or more valid IP or CIDR addresses that can use the SSH
         /// certificate.
         /// </summary>
         public InputList<string> SourceAddresses

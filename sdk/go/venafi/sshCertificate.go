@@ -279,6 +279,12 @@ func (SshCertificateState) ElementType() reflect.Type {
 	return reflect.TypeOf((*sshCertificateState)(nil)).Elem()
 }
 
+// SshCertificateExists checks whether an existing SshCertificate resource with the given ID exists.
+func SshCertificateExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SshCertificateState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("venafi:index/sshCertificate:SshCertificate", id, state, "", opts...)
+}
+
 type sshCertificateArgs struct {
 	// A list of one or more valid IP or CIDR destination hosts where the
 	// certificate will authenticate.
