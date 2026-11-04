@@ -1263,6 +1263,70 @@ class Certificate(pulumi.CustomResource):
         __props__.__dict__["valid_days"] = valid_days
         return Certificate(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            algorithm: pulumi.Input[Optional[_builtins.str]] = None,
+            certificate: pulumi.Input[Optional[_builtins.str]] = None,
+            certificate_dn: pulumi.Input[Optional[_builtins.str]] = None,
+            certificate_id: pulumi.Input[Optional[_builtins.str]] = None,
+            chain: pulumi.Input[Optional[_builtins.str]] = None,
+            common_name: pulumi.Input[Optional[_builtins.str]] = None,
+            country: pulumi.Input[Optional[_builtins.str]] = None,
+            csr_origin: pulumi.Input[Optional[_builtins.str]] = None,
+            csr_pem: pulumi.Input[Optional[_builtins.str]] = None,
+            custom_fields: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            ecdsa_curve: pulumi.Input[Optional[_builtins.str]] = None,
+            expiration_window: pulumi.Input[Optional[_builtins.int]] = None,
+            issuer_hint: pulumi.Input[Optional[_builtins.str]] = None,
+            key_password: pulumi.Input[Optional[_builtins.str]] = None,
+            locality: pulumi.Input[Optional[_builtins.str]] = None,
+            nickname: pulumi.Input[Optional[_builtins.str]] = None,
+            organization: pulumi.Input[Optional[_builtins.str]] = None,
+            organizational_units: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            pkcs12: pulumi.Input[Optional[_builtins.str]] = None,
+            private_key_pem: pulumi.Input[Optional[_builtins.str]] = None,
+            renew_required: pulumi.Input[Optional[_builtins.bool]] = None,
+            rsa_bits: pulumi.Input[Optional[_builtins.int]] = None,
+            san_dns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            san_emails: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            san_ips: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            san_uris: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            state: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            valid_days: pulumi.Input[Optional[_builtins.int]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["algorithm"] = algorithm
+        __props__["certificate"] = certificate
+        __props__["certificateDn"] = certificate_dn
+        __props__["certificateId"] = certificate_id
+        __props__["chain"] = chain
+        __props__["commonName"] = common_name
+        __props__["country"] = country
+        __props__["csrOrigin"] = csr_origin
+        __props__["csrPem"] = csr_pem
+        __props__["customFields"] = custom_fields
+        __props__["ecdsaCurve"] = ecdsa_curve
+        __props__["expirationWindow"] = expiration_window
+        __props__["issuerHint"] = issuer_hint
+        __props__["keyPassword"] = key_password
+        __props__["locality"] = locality
+        __props__["nickname"] = nickname
+        __props__["organization"] = organization
+        __props__["organizationalUnits"] = organizational_units
+        __props__["pkcs12"] = pkcs12
+        __props__["privateKeyPem"] = private_key_pem
+        __props__["renewRequired"] = renew_required
+        __props__["rsaBits"] = rsa_bits
+        __props__["sanDns"] = san_dns
+        __props__["sanEmails"] = san_emails
+        __props__["sanIps"] = san_ips
+        __props__["sanUris"] = san_uris
+        __props__["state"] = state
+        __props__["tags"] = tags
+        __props__["validDays"] = valid_days
+        return pulumi.runtime.exists_resource(None, 'venafi:index/certificate:Certificate', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def algorithm(self) -> pulumi.Output[Optional[_builtins.str]]:

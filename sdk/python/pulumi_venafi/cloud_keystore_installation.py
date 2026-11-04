@@ -399,6 +399,26 @@ class CloudKeystoreInstallation(pulumi.CustomResource):
         __props__.__dict__["gcm_cert_scope"] = gcm_cert_scope
         return CloudKeystoreInstallation(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            certificate_id: pulumi.Input[Optional[_builtins.str]] = None,
+            cloud_certificate_id: pulumi.Input[Optional[_builtins.str]] = None,
+            cloud_certificate_metadata: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            cloud_certificate_name: pulumi.Input[Optional[_builtins.str]] = None,
+            cloud_keystore_id: pulumi.Input[Optional[_builtins.str]] = None,
+            gcm_cert_scope: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["certificateId"] = certificate_id
+        __props__["cloudCertificateId"] = cloud_certificate_id
+        __props__["cloudCertificateMetadata"] = cloud_certificate_metadata
+        __props__["cloudCertificateName"] = cloud_certificate_name
+        __props__["cloudKeystoreId"] = cloud_keystore_id
+        __props__["gcmCertScope"] = gcm_cert_scope
+        return pulumi.runtime.exists_resource(None, 'venafi:index/cloudKeystoreInstallation:CloudKeystoreInstallation', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[Optional[_builtins.str]]:

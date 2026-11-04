@@ -196,7 +196,7 @@ namespace Pulumi.Venafi
 
         private static readonly __Value<string?> _zone = new __Value<string?>(() => __config.Get("zone"));
         /// <summary>
-        /// DN of the CyberArk Certificate Manager, Self-Hosted policy folder or name of the CyberArk Certificate Manager, SaaS application plus issuing template alias. 
+        /// DN of the CyberArk Certificate Manager, Self-Hosted policy folder or name of the CyberArk Certificate Manager, SaaS application plus issuing template alias.
         /// Example for CyberArk Certificate Manager, Self-Hosted: testPolicy\\vault
         /// Example for CyberArk Certificate Manager, SaaS: myApp\\Default
         /// </summary>

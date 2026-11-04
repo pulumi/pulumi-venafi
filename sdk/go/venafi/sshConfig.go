@@ -104,6 +104,12 @@ func (SshConfigState) ElementType() reflect.Type {
 	return reflect.TypeOf((*sshConfigState)(nil)).Elem()
 }
 
+// SshConfigExists checks whether an existing SshConfig resource with the given ID exists.
+func SshConfigExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SshConfigState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("venafi:index/sshConfig:SshConfig", id, state, "", opts...)
+}
+
 type sshConfigArgs struct {
 	// The SSH certificate issuing template.
 	Template string `pulumi:"template"`

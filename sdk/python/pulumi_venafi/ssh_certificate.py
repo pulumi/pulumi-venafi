@@ -982,6 +982,60 @@ class SshCertificate(pulumi.CustomResource):
         __props__.__dict__["windows"] = windows
         return SshCertificate(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            certificate: pulumi.Input[Optional[_builtins.str]] = None,
+            certificate_type: pulumi.Input[Optional[_builtins.str]] = None,
+            destination_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            extensions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            folder: pulumi.Input[Optional[_builtins.str]] = None,
+            force_command: pulumi.Input[Optional[_builtins.str]] = None,
+            key_id: pulumi.Input[Optional[_builtins.str]] = None,
+            key_passphrase: pulumi.Input[Optional[_builtins.str]] = None,
+            key_size: pulumi.Input[Optional[_builtins.int]] = None,
+            object_name: pulumi.Input[Optional[_builtins.str]] = None,
+            principal: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            principals: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            private_key: pulumi.Input[Optional[_builtins.str]] = None,
+            public_key: pulumi.Input[Optional[_builtins.str]] = None,
+            public_key_fingerprint: pulumi.Input[Optional[_builtins.str]] = None,
+            public_key_method: pulumi.Input[Optional[_builtins.str]] = None,
+            serial: pulumi.Input[Optional[_builtins.str]] = None,
+            signing_ca: pulumi.Input[Optional[_builtins.str]] = None,
+            source_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            template: pulumi.Input[Optional[_builtins.str]] = None,
+            valid_from: pulumi.Input[Optional[_builtins.str]] = None,
+            valid_hours: pulumi.Input[Optional[_builtins.int]] = None,
+            valid_to: pulumi.Input[Optional[_builtins.str]] = None,
+            windows: pulumi.Input[Optional[_builtins.bool]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["certificate"] = certificate
+        __props__["certificateType"] = certificate_type
+        __props__["destinationAddresses"] = destination_addresses
+        __props__["extensions"] = extensions
+        __props__["folder"] = folder
+        __props__["forceCommand"] = force_command
+        __props__["keyId"] = key_id
+        __props__["keyPassphrase"] = key_passphrase
+        __props__["keySize"] = key_size
+        __props__["objectName"] = object_name
+        __props__["principal"] = principal
+        __props__["principals"] = principals
+        __props__["privateKey"] = private_key
+        __props__["publicKey"] = public_key
+        __props__["publicKeyFingerprint"] = public_key_fingerprint
+        __props__["publicKeyMethod"] = public_key_method
+        __props__["serial"] = serial
+        __props__["signingCa"] = signing_ca
+        __props__["sourceAddresses"] = source_addresses
+        __props__["template"] = template
+        __props__["validFrom"] = valid_from
+        __props__["validHours"] = valid_hours
+        __props__["validTo"] = valid_to
+        __props__["windows"] = windows
+        return pulumi.runtime.exists_resource(None, 'venafi:index/sshCertificate:SshCertificate', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def certificate(self) -> pulumi.Output[_builtins.str]:

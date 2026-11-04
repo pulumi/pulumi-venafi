@@ -64,7 +64,7 @@ namespace Pulumi.Venafi
     public partial class Policy : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The JSON-formatted certificate policy specification as documented 
+        /// The JSON-formatted certificate policy specification as documented
         /// [here](https://github.com/Venafi/vcert/blob/master/README-POLICY-SPEC.md). Typically read from a file using the `File`
         /// function.
         /// </summary>
@@ -72,7 +72,7 @@ namespace Pulumi.Venafi
         public Output<string?> PolicySpecification { get; private set; } = null!;
 
         /// <summary>
-        /// The *CyberArk Certificate Manager, Self-Hosted* policy folder or *CyberArk Certificate Manager, SaaS* application and 
+        /// The *CyberArk Certificate Manager, Self-Hosted* policy folder or *CyberArk Certificate Manager, SaaS* application and
         /// issuing template.
         /// </summary>
         [Output("zone")]
@@ -125,7 +125,7 @@ namespace Pulumi.Venafi
     public sealed class PolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The JSON-formatted certificate policy specification as documented 
+        /// The JSON-formatted certificate policy specification as documented
         /// [here](https://github.com/Venafi/vcert/blob/master/README-POLICY-SPEC.md). Typically read from a file using the `File`
         /// function.
         /// </summary>
@@ -133,7 +133,7 @@ namespace Pulumi.Venafi
         public Input<string>? PolicySpecification { get; set; }
 
         /// <summary>
-        /// The *CyberArk Certificate Manager, Self-Hosted* policy folder or *CyberArk Certificate Manager, SaaS* application and 
+        /// The *CyberArk Certificate Manager, Self-Hosted* policy folder or *CyberArk Certificate Manager, SaaS* application and
         /// issuing template.
         /// </summary>
         [Input("zone")]
@@ -148,7 +148,7 @@ namespace Pulumi.Venafi
     public sealed class PolicyState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The JSON-formatted certificate policy specification as documented 
+        /// The JSON-formatted certificate policy specification as documented
         /// [here](https://github.com/Venafi/vcert/blob/master/README-POLICY-SPEC.md). Typically read from a file using the `File`
         /// function.
         /// </summary>
@@ -156,7 +156,7 @@ namespace Pulumi.Venafi
         public Input<string>? PolicySpecification { get; set; }
 
         /// <summary>
-        /// The *CyberArk Certificate Manager, Self-Hosted* policy folder or *CyberArk Certificate Manager, SaaS* application and 
+        /// The *CyberArk Certificate Manager, Self-Hosted* policy folder or *CyberArk Certificate Manager, SaaS* application and
         /// issuing template.
         /// </summary>
         [Input("zone")]

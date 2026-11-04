@@ -38,21 +38,21 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var internalPolicy = new Policy("internalPolicy", PolicyArgs.builder()
- *             .zone("My Business App\\Enterprise Trusted Certs")
+ *             .zone("My Business App}&#92;&#92;{@code Enterprise Trusted Certs")
  *             .policySpecification(StdFunctions.file(FileArgs.builder()
  *                 .input("/path-to/internal-policy.json")
  *                 .build()).result())
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * 
@@ -92,7 +92,7 @@ import javax.annotation.Nullable;
  * </pre>
  * 
  * ```sh
- * terraform import &#34;venafi_policy.existing_policy&#34; &#34;My Business App\\Enterprise Trusted Certs&#34;
+ * terraform import &#34;venafi_policy.existing_policy&#34; &#34;My Business App&#92;&#92;Enterprise Trusted Certs&#34;
  * ```
  * 
  */

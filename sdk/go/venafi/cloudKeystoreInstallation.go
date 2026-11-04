@@ -153,6 +153,12 @@ func (CloudKeystoreInstallationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*cloudKeystoreInstallationState)(nil)).Elem()
 }
 
+// CloudKeystoreInstallationExists checks whether an existing CloudKeystoreInstallation resource with the given ID exists.
+func CloudKeystoreInstallationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *CloudKeystoreInstallationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("venafi:index/cloudKeystoreInstallation:CloudKeystoreInstallation", id, state, "", opts...)
+}
+
 type cloudKeystoreInstallationArgs struct {
 	// ARN of the AWS certificate. Use it to provision the CyberArk Certificate Manager, SaaS certificate to an existing ACM certificate, instead of a new one. Only valid for ACM keystores.
 	Arn *string `pulumi:"arn"`
