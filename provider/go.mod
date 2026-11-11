@@ -1,9 +1,9 @@
 module github.com/pulumi/pulumi-venafi/provider
 
-go 1.26.10
+go 1.27.3
 
 require (
-	github.com/Venafi/terraform-provider-venafi v0.24.1
+	github.com/Venafi/terraform-provider-venafi v0.24.2
 	github.com/pulumi/pulumi-terraform-bridge/v3 v3.143.0
 	github.com/pulumi/pulumi/sdk/v3 v3.274.0
 )
@@ -28,7 +28,7 @@ require (
 	github.com/Masterminds/sprig/v3 v3.2.3 // indirect
 	github.com/Microsoft/go-winio v0.6.2 // indirect
 	github.com/ProtonMail/go-crypto v1.5.2 // indirect
-	github.com/Venafi/vcert/v5 v5.13.8 // indirect
+	github.com/Venafi/vcert/v5 v5.14.0 // indirect
 	github.com/agext/levenshtein v1.2.3 // indirect
 	github.com/apparentlymart/go-cidr v1.1.0 // indirect
 	github.com/apparentlymart/go-textseg/v15 v15.0.0 // indirect
@@ -232,7 +232,7 @@ require (
 	golang.org/x/exp v0.0.0-20261014143641-f0251eb4aa3e // indirect
 	golang.org/x/mod v0.42.0 // indirect
 	golang.org/x/net v0.62.0 // indirect
-	golang.org/x/oauth2 v0.36.0 // indirect
+	golang.org/x/oauth2 v0.37.0 // indirect
 	golang.org/x/sync v0.24.0 // indirect
 	golang.org/x/sys v0.49.0 // indirect
 	golang.org/x/term v0.47.0 // indirect
@@ -249,5 +249,5 @@ require (
 	gopkg.in/ini.v1 v1.67.3 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 	lukechampine.com/frand v1.5.1 // indirect
-	software.sslmate.com/src/go-pkcs12 v0.7.2 // indirect
+	software.sslmate.com/src/go-pkcs12 v0.7.3 // indirect
 )
